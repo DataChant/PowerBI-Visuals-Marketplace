@@ -1,0 +1,165 @@
+{
+    "visual": {
+        "name": "adaptiveMultiKpiRadial",
+        "displayName": "Adaptive Multi-KPI Radial Matrix",
+        "guid": "adaptiveMultiKpiRadialA92B471C6F8E4D5BA349071DFBC3819A",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Adaptive Multi-KPI Radial Performance Matrix with Progress Rings, Small Multiples & Scenario Morphing",
+        "supportUrl": "https://newwebsite.innovationalofficesolution.com/power-bi-custom-charts",
+        "gitHubUrl": "https://github.com"
+    },
+    "author": {
+        "name": "Office Solution AI Labs",
+        "email": "admni@innovationalofficesolution.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Category / Series",
+                "name": "series",
+                "kind": "Grouping",
+                "description": "Entity being compared (e.g. Product, Person, Region, Division, Team)"
+            },
+            {
+                "displayName": "Axis / KPI",
+                "name": "axisKpi",
+                "kind": "Grouping",
+                "description": "KPI dimension that becomes a spoke on the radar chart"
+            },
+            {
+                "displayName": "Actual Value",
+                "name": "actualValue",
+                "kind": "Measure",
+                "description": "Actual performance value for the KPI"
+            },
+            {
+                "displayName": "Target Value",
+                "name": "targetValue",
+                "kind": "Measure",
+                "description": "Optional goal or target value for spoke radial progress arcs"
+            },
+            {
+                "displayName": "Period / Scenario",
+                "name": "period",
+                "kind": "Grouping",
+                "description": "Optional time period or scenario for animated morphing & evolution"
+            },
+            {
+                "displayName": "Ideal / Benchmark",
+                "name": "benchmark",
+                "kind": "Measure",
+                "description": "Optional benchmark or ideal target score overlay polygon"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "series"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "axisKpi"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "actualValue"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "targetValue"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "period"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "benchmark"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "visualSettings": {
+                "displayName": "Visual Settings",
+                "properties": {
+                    "displayMode": {
+                        "displayName": "Display Mode",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "scaleMode": {
+                        "displayName": "Scale Mode",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "colorPalette": {
+                        "displayName": "Color Palette",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "accentColor": {
+                        "displayName": "Accent / Highlight Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showProgressArcs": {
+                        "displayName": "Show Target Progress Arcs",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showIdealShape": {
+                        "displayName": "Show Ideal Reference Shape",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fillOpacity": {
+                        "displayName": "Polygon Fill Opacity %",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "gridLevels": {
+                        "displayName": "Grid Ring Count",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            }
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
