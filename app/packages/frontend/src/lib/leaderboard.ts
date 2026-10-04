@@ -21,6 +21,8 @@ export interface Standing {
   lastChange: Date | null;
   firstSeen: Date | null;
   asOf: Date | null;
+  /** The first day of the whole record, the listing history included. */
+  trackedSince: Date | null;
   popularityChange: Record<Window, number | null>;
   ratingsChange: Record<Window, number | null>;
 }
@@ -42,6 +44,7 @@ export function parseStandings(table: QueryTableLike): Standing[] {
     lastChange: asDate(get('[Last Change]')),
     firstSeen: asDate(get('[First Seen]')),
     asOf: asDate(get('[As Of]')),
+    trackedSince: asDate(get('[Tracked Since]')),
     popularityChange: {
       7: asNumber(get('[Popularity Change 7d]')),
       30: asNumber(get('[Popularity Change 30d]')),
@@ -59,6 +62,11 @@ export interface Boards {
   asOf: Date | null;
   /** The first day the leaderboard recorded anything. Arrivals before it are unknowable. */
   trackingStarted: Date | null;
+  /**
+   * The first day of the whole record. The listing history begins in January
+   * 2024, before the leaderboard, so this is earlier than `trackingStarted`.
+   */
+  trackedSince: Date | null;
   live: number;
   certified: number;
   hallOfFame: Standing[];
@@ -88,6 +96,12 @@ export function buildBoards(standings: Standing[], window: Window): Boards {
       s.firstSeen && (!first || s.firstSeen < first) ? s.firstSeen : first,
     null
   );
+  const trackedSince =
+    standings.reduce<Date | null>(
+      (first, s) =>
+        s.trackedSince && (!first || s.trackedSince < first) ? s.trackedSince : first,
+      null
+    ) ?? trackingStarted;
   const since = asOf ? daysBefore(asOf, window) : null;
   const live = standings.filter((s) => !s.removed);
   const change = (s: Standing) => s.popularityChange[window] ?? 0;
@@ -135,6 +149,7 @@ export function buildBoards(standings: Standing[], window: Window): Boards {
   return {
     asOf,
     trackingStarted,
+    trackedSince,
     live: live.length,
     certified: live.filter((s) => s.certified).length,
     hallOfFame: [...live].sort(byPopularity).slice(0, BOARD_SIZE),

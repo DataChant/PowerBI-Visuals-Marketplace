@@ -39,6 +39,7 @@ const STANDING_COLUMNS = [
   '[Last Change]',
   '[First Seen]',
   '[As Of]',
+  '[Tracked Since]',
   '[Popularity Change 7d]',
   '[Popularity Change 30d]',
   '[Popularity Change 90d]',
@@ -51,7 +52,7 @@ function standing(guid: string, name: string, popularity: number) {
   return [
     guid, name, 'Contoso', '1.0', popularity, 10, 4.5, 'Certified', false,
     `contoso.${guid}`, '', '2020-01-01T00:00:00.000', '2026-09-01T00:00:00.000',
-    '2026-01-01T00:00:00.000', '2026-09-30T00:00:00.000', 0.01, 0.02, 0.03, 0, 1, 2,
+    '2026-01-01T00:00:00.000', '2026-09-30T00:00:00.000', '2024-01-13T00:00:00.000', 0.01, 0.02, 0.03, 0, 1, 2,
   ];
 }
 
@@ -85,6 +86,24 @@ describe('App', () => {
     render(<App />);
     expect(screen.getByRole('heading', { name: 'Hall of Fame' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /^First place: Top Visual/ })).toBeInTheDocument();
+  });
+
+  it('dates the record from the listing history, not from the first leaderboard day', () => {
+    respond = (query) =>
+      query.includes('Leaderboard')
+        ? {
+            data: {
+              status: 'success',
+              table: { columns: STANDING_COLUMNS, rows: [standing('a', 'Top Visual', 0.9)] },
+            },
+            isLoading: false,
+            error: undefined,
+            refetch,
+          }
+        : { data: undefined, isLoading: true, error: undefined, refetch };
+    render(<App />);
+    expect(screen.getByText('Jan 13')).toBeInTheDocument();
+    expect(screen.getByText('2024')).toBeInTheDocument();
   });
 
   it('offers a retry when Power BI rejects the query', () => {

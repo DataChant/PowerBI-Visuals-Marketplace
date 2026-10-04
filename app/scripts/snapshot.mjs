@@ -48,7 +48,7 @@ const out = join(root, 'packages/frontend/public/snapshot');
  * own `DATA_FORMAT` in packages/frontend/src/lib/snapshot.ts, so raise both
  * whenever a file changes shape.
  */
-const DATA_FORMAT = 2;
+const DATA_FORMAT = 3;
 
 /** Keep in step with `bucketOf` in packages/frontend/src/lib/snapshot.ts. */
 const BUCKETS = 64;
@@ -208,6 +208,11 @@ for (const row of leaderboard) {
 const catalogByGuid = new Map(visuals.filter((v) => v.guid).map((v) => [v.guid, v]));
 const asOf = Math.max(...leaderboard.map((r) => r.ms));
 const asOfStamp = leaderboard.find((r) => r.ms === asOf).stamp;
+// The record as a whole begins with the listing history, in January 2024, long
+// before the leaderboard's first day. Every row carries it, as every row carries As Of.
+const trackedSince = listingHistory.from
+  ? `${listingHistory.from.slice(0, 10)}T00:00:00.000`
+  : null;
 
 /** The movement inside a window: the sum of the changes logged in it, or nothing when none was logged. */
 function change(rows, field, days) {
@@ -234,6 +239,7 @@ const standings = table(
     column('[Last Change]', 'DateTime'),
     column('[First Seen]', 'DateTime'),
     column('[As Of]', 'DateTime'),
+    column('[Tracked Since]', 'DateTime'),
     column('[Popularity Change 7d]', 'Double'),
     column('[Popularity Change 30d]', 'Double'),
     column('[Popularity Change 90d]', 'Double'),
@@ -266,6 +272,7 @@ const standings = table(
         latest.stamp,
         first.stamp,
         asOfStamp,
+        trackedSince,
         change(rows, 'popularityChange', 7),
         change(rows, 'popularityChange', 30),
         change(rows, 'popularityChange', 90),
@@ -300,6 +307,7 @@ const standings = table(
           `${gone}T00:00:00.000`,
           null,
           asOfStamp,
+          trackedSince,
           null,
           null,
           null,
