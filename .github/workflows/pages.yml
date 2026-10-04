@@ -4,13 +4,12 @@ name: "Website: Custom Visuals Marketplace"
 #
 # The site reads data files that are built here from the public catalog and from
 # leaderboard_data.csv, so it is rebuilt after every daily refresh. The refresh
-# pushes with the default token, and such a push starts no other workflow, which
-# is why this one follows the refresh run instead of its push.
+# pushes with the default token, and such a push starts no other workflow, so the
+# refresh starts this one itself as its last step (workflow_dispatch is the one
+# event the default token may start). A workflow_run trigger was tried first and
+# GitHub never delivered it: three successful refreshes, no rebuild.
 
 on:
-  workflow_run:
-    workflows: ["Refresh All: Metadata + Visuals"]
-    types: [completed]
   push:
     branches: [main]
     paths:
@@ -32,8 +31,6 @@ concurrency:
 jobs:
   build:
     name: Build
-    # A failed refresh leaves the data as it was, so there is nothing new to publish.
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     defaults:
       run:

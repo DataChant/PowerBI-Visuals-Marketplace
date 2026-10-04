@@ -369,7 +369,7 @@ export function LeaderboardPage({
       className={
         fit
           ? 'flex shrink-0 gap-200'
-          : 'grid grid-cols-2 gap-300 sm:grid-cols-3 lg:w-[460px]'
+          : 'grid grid-cols-2 gap-300 sm:grid-cols-4 lg:w-[600px]'
       }
     >
       <Kpi label="Listed visuals" value={formatInt(totals.live)} />
@@ -380,9 +380,15 @@ export function LeaderboardPage({
       />
       <Kpi
         label="Tracked since"
-        value={formatDate(totals.trackingStarted).replace(/, \d{4}$/, '')}
-        hint={totals.trackingStarted ? String(totals.trackingStarted.getUTCFullYear()) : undefined}
-        className="col-span-2 sm:col-span-1"
+        value={formatDate(totals.trackedSince).replace(/, \d{4}$/, '')}
+        hint={totals.trackedSince ? String(totals.trackedSince.getUTCFullYear()) : undefined}
+      />
+      {/* The day of the newest nightly refresh in the data, so a site that
+          missed a rebuild shows its age rather than passing for today's. */}
+      <Kpi
+        label="Last refresh"
+        value={formatDate(totals.asOf).replace(/, \d{4}$/, '')}
+        hint={totals.asOf ? String(totals.asOf.getUTCFullYear()) : undefined}
       />
     </div>
   );

@@ -14,6 +14,7 @@ on:
 permissions:
   contents: write
   discussions: write
+  actions: write     # starts the website rebuild at the end
 
 jobs:
   refresh:
@@ -137,3 +138,11 @@ jobs:
             git commit -m "${DATE} leaderboard + diff"
             git push
           fi
+
+      # The pushes above use the default token, which starts no other workflow,
+      # so the website is rebuilt from here. Runs even when nothing changed, so
+      # a site that missed a night catches up on the next one.
+      - name: Rebuild the website
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main

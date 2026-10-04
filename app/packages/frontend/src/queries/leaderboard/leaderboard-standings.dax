@@ -5,6 +5,7 @@
 // sum of changes over a date window is exactly its movement in that window.
 DEFINE
     VAR _asOf = CALCULATE ( MAX ( Leaderboard[Snapshot Date] ), REMOVEFILTERS () )
+    VAR _trackedSince = CALCULATE ( MIN ( Leaderboard[Snapshot Date] ), REMOVEFILTERS () )
 
 EVALUATE
 GENERATE (
@@ -37,6 +38,9 @@ GENERATE (
                     "Last Change", Leaderboard[Snapshot Date],
                     "First Seen", _first,
                     "As Of", _asOf,
+                    // The saved file dates the record from the listing history, which
+                    // begins in January 2024. This model holds only the leaderboard.
+                    "Tracked Since", _trackedSince,
                     "Popularity Change 7d", _pop7,
                     "Popularity Change 30d", _pop30,
                     "Popularity Change 90d", _pop90,
