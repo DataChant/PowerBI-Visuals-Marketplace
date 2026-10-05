@@ -1565,6 +1565,7 @@ export function ReplayPage({
                 label={certifiedOnly ? 'Listed certified visuals' : 'Listed visuals'}
                 value={formatInt(counts.listed)}
               />
+              {scores && <Count label="Ratings on Marketplace" value={formatInt(counts.ratings)} />}
               <Count label="Joined on this day" value={formatInt(counts.arrived)} />
               <Count label="Left on this day" value={formatInt(counts.left)} />
               <Count label="New versions on this day" value={formatInt(counts.versions)} />

@@ -454,6 +454,8 @@ export interface FrameCounts {
   listed: number;
   /** Listed visuals nobody has rated yet. */
   unrated: number;
+  /** Every rating the listed visuals hold on the Marketplace by this day. */
+  ratings: number;
   /** Listed visuals the leaderboard had not read by this day. */
   unread: number;
   /** Of those, the visuals it never read at all, which have no place on the popularity axis. */
@@ -475,6 +477,7 @@ export function frameCounts(
   const counts: FrameCounts = {
     listed: 0,
     unrated: 0,
+    ratings: 0,
     unread: 0,
     unplaced: 0,
     arrived: 0,
@@ -490,7 +493,8 @@ export function frameCounts(
     if (!ok(v) || !isListed(frame, v)) continue;
     counts.listed++;
     const ratedBy = reading ? known(reading.raters, replay.first.raters, v) : replay.first.raters[v];
-    if (!(ratedBy > 0)) counts.unrated++;
+    if (ratedBy > 0) counts.ratings += ratedBy;
+    else counts.unrated++;
     if (!reading || reading.readOn[v] < 0) counts.unread++;
     if (Number.isNaN(replay.first.score[v])) counts.unplaced++;
   }
