@@ -335,6 +335,12 @@ describe('frameCounts', () => {
     const certifiedOnly = (v: number) => v === b;
     expect(frameCounts(r, 2, certifiedOnly)).toMatchObject({ listed: 1, arrived: 0, versions: 0 });
   });
+
+  it('adds up the ratings the listed visuals hold, for a subset when given one', () => {
+    expect(frameCounts(r, 2).ratings).toBe(5);
+    const b = r.guids.indexOf('b');
+    expect(frameCounts(r, 2, (v) => v === b).ratings).toBe(4);
+  });
 });
 
 describe('growth', () => {
