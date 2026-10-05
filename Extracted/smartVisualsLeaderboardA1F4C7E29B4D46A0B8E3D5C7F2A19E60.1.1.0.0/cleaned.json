@@ -1,0 +1,3126 @@
+{
+    "visual": {
+        "name": "smartVisualsLeaderboard",
+        "displayName": "SmartVisuals Leaderboard",
+        "guid": "smartVisualsLeaderboardA1F4C7E29B4D46A0B8E3D5C7F2A19E60",
+        "visualClassName": "Leaderboard",
+        "version": "1.1.0.0",
+        "description": "The board your report already has the numbers for. Ranked rows with real rank numbers, honest tie rules, row images at a usable size, movement against a comparison period that survives slicers, and a wall mode built for a screen across the room.",
+        "supportUrl": "https://smartvisuals.io/support",
+        "gitHubUrl": "https://github.com/uhlilas01/leaderboard-certification"
+    },
+    "author": {
+        "name": "SmartVisuals",
+        "email": "hello@smartvisuals.io"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "cs-CZ": {
+            "Card_board": "Tabule",
+            "Slice_board_preset": "Rychl\u00fd styl",
+            "Item_board_preset_custom": "Vlastn\u00ed",
+            "Item_board_preset_league": "Ligov\u00e1 tabulka",
+            "Item_board_preset_salesFloor": "Obrazovka na obchodn\u00edm pat\u0159e",
+            "Item_board_preset_lowestWins": "Vyhr\u00e1v\u00e1 nejni\u017e\u0161\u00ed (vady, \u010dasy)",
+            "Item_board_preset_executive": "Top 10 pro veden\u00ed",
+            "Item_board_preset_compact": "Kompaktn\u00ed tabulka",
+            "Slice_board_layout": "Rozvr\u017een\u00ed",
+            "Item_board_layout_list": "Seznam",
+            "Item_board_layout_podium": "Stupn\u011b v\u00edt\u011bz\u016f a seznam",
+            "Item_board_layout_grid": "M\u0159\u00ed\u017eka dla\u017edic",
+            "Item_board_layout_bump": "Graf historie po\u0159ad\u00ed",
+            "Slice_board_density": "Hustota",
+            "Item_board_density_comfortable": "Pohodln\u00e1",
+            "Item_board_density_compact": "Kompaktn\u00ed",
+            "Item_board_density_wall": "Na ze\u010f",
+            "Slice_board_rowsVisible": "Po\u010det zobrazen\u00fdch \u0159\u00e1dk\u016f",
+            "Slice_board_rowHeight": "V\u00fd\u0161ka \u0159\u00e1dku",
+            "Slice_board_rowGap": "Mezera mezi \u0159\u00e1dky",
+            "Slice_board_radius": "Zaoblen\u00ed roh\u016f",
+            "Slice_board_padding": "Odsazen\u00ed",
+            "Card_ranking": "Po\u0159ad\u00ed",
+            "Card_ranking_description": "Jak se ur\u010duje um\u00edst\u011bn\u00ed. Pravidlo pro shodu je obchodn\u00ed rozhodnut\u00ed, proto je to pojmenovan\u00e9 nastaven\u00ed.",
+            "Slice_ranking_direction": "V\u00edt\u011bz\u00ed",
+            "Item_ranking_direction_highestWins": "Nejvy\u0161\u0161\u00ed hodnota",
+            "Item_ranking_direction_lowestWins": "Nejni\u017e\u0161\u00ed hodnota",
+            "Slice_ranking_rankBy": "Po\u0159ad\u00ed podle",
+            "Item_ranking_rankBy_value": "Hodnoty",
+            "Item_ranking_rankBy_pctToTarget": "Pln\u011bn\u00ed c\u00edle v procentech",
+            "Item_ranking_rankBy_change": "Zm\u011bny oproti srovn\u00e1n\u00ed",
+            "Item_ranking_rankBy_changePct": "Zm\u011bny v procentech",
+            "Slice_ranking_tieRule": "Pravidlo pro shodu",
+            "Item_ranking_tieRule_competition": "Sout\u011b\u017en\u00ed \u2014 1, 2, 2, 4",
+            "Item_ranking_tieRule_modifiedCompetition": "Modifikovan\u00e9 sout\u011b\u017en\u00ed \u2014 1, 3, 3, 4",
+            "Item_ranking_tieRule_dense": "Hust\u00e9 \u2014 1, 2, 2, 3",
+            "Item_ranking_tieRule_ordinal": "Po\u0159adov\u00e9 \u2014 1, 2, 3, 4 (bez shod)",
+            "Slice_ranking_tieDetection": "Dva \u0159\u00e1dky se shoduj\u00ed",
+            "Item_ranking_tieDetection_displayed": "Podle zobrazen\u00e9 hodnoty",
+            "Item_ranking_tieDetection_exact": "Podle p\u0159esn\u00e9 hodnoty",
+            "Slice_ranking_tieMarker": "Zna\u010dka shody",
+            "Item_ranking_tieMarker__": "Rovn\u00edtko",
+            "Item_ranking_tieMarker_T": "P\u00edsmeno T",
+            "Item_ranking_tieMarker_none": "Bez zna\u010dky",
+            "Slice_ranking_tieBreak": "Shodn\u00e9 \u0159\u00e1dky \u0159adit podle",
+            "Item_ranking_tieBreak_nameAsc": "Jm\u00e9na A\u2013Z",
+            "Item_ranking_tieBreak_nameDesc": "Jm\u00e9na Z\u2013A",
+            "Item_ranking_tieBreak_modelOrder": "Po\u0159ad\u00ed v modelu",
+            "Item_ranking_tieBreak_comparison": "Srovn\u00e1vac\u00ed hodnota",
+            "Item_ranking_tieBreak_groupThenName": "Skupiny, pak jm\u00e9na",
+            "Slice_ranking_blanks": "\u0158\u00e1dky bez hodnoty",
+            "Item_ranking_blanks_exclude": "Skr\u00fdt",
+            "Item_ranking_blanks_rankLast": "Za\u0159adit na konec",
+            "Item_ranking_blanks_showUnranked": "Zobrazit bez po\u0159ad\u00ed",
+            "Slice_ranking_startAt": "Prvn\u00ed m\u00edsto je",
+            "Slice_ranking_rankWithinGroup": "Po\u0159ad\u00ed v r\u00e1mci skupiny",
+            "Card_rankNumber": "\u010c\u00edslo po\u0159ad\u00ed",
+            "Slice_rankNumber_style": "Styl",
+            "Item_rankNumber_style_auto": "Podle motivu",
+            "Item_rankNumber_style_plain": "Prost\u00e9",
+            "Item_rankNumber_style_circle": "V kole\u010dku",
+            "Item_rankNumber_style_pill": "V ov\u00e1lu",
+            "Item_rankNumber_style_medal": "Medaile",
+            "Slice_rankNumber_medals": "Medaile pro prvn\u00ed t\u0159i",
+            "Slice_rankNumber_medalGold": "Zlat\u00e1",
+            "Slice_rankNumber_medalSilver": "St\u0159\u00edbrn\u00e1",
+            "Slice_rankNumber_medalBronze": "Bronzov\u00e1",
+            "Slice_rankNumber_font": "P\u00edsmo",
+            "Slice_rankNumber_color": "Barva",
+            "Slice_rankNumber_width": "\u0160\u00ed\u0159ka sloupce",
+            "Card_entrant": "\u00da\u010dastn\u00edk",
+            "Slice_entrant_font": "P\u00edsmo jm\u00e9na",
+            "Slice_entrant_color": "Barva jm\u00e9na",
+            "Slice_entrant_maxLines": "Maxim\u00e1ln\u011b \u0159\u00e1dk\u016f",
+            "Slice_entrant_subtitleSource": "Druh\u00fd \u0159\u00e1dek",
+            "Item_entrant_subtitleSource_none": "\u017d\u00e1dn\u00e9",
+            "Item_entrant_subtitleSource_group": "Skupina",
+            "Item_entrant_subtitleSource_subtitle": "Pole Podtitul",
+            "Item_entrant_subtitleSource_value": "Hodnota",
+            "Item_entrant_subtitleSource_movement": "Zm\u011bna po\u0159ad\u00ed",
+            "Slice_entrant_subtitleFont": "P\u00edsmo druh\u00e9ho \u0159\u00e1dku",
+            "Slice_entrant_subtitleColor": "Barva druh\u00e9ho \u0159\u00e1dku",
+            "Card_image": "Obr\u00e1zek",
+            "Card_image_description": "Jen vlo\u017een\u00e9 obr\u00e1zky (data URI). Certifikovan\u00fd vizu\u00e1l nesm\u00ed stahovat z webov\u00e9 adresy, tak\u017ee se u t\u011bch \u0159\u00e1dk\u016f pou\u017eij\u00ed inici\u00e1ly.",
+            "Slice_image_shape": "Tvar",
+            "Item_image_shape_auto": "Podle motivu",
+            "Item_image_shape_circle": "Kole\u010dko",
+            "Item_image_shape_rounded": "Zaoblen\u00fd",
+            "Item_image_shape_square": "\u010ctverec",
+            "Slice_image_size": "Velikost",
+            "Slice_image_borderWidth": "\u0160\u00ed\u0159ka r\u00e1me\u010dku",
+            "Slice_image_borderColor": "Barva r\u00e1me\u010dku",
+            "Slice_image_fallback": "Kdy\u017e obr\u00e1zek chyb\u00ed",
+            "Item_image_fallback_initials": "Inici\u00e1ly",
+            "Item_image_fallback_icon": "Silueta",
+            "Item_image_fallback_none": "Nic",
+            "Slice_image_initialsSource": "Barva inici\u00e1l podle",
+            "Item_image_initialsSource_group": "Podle skupiny",
+            "Item_image_initialsSource_hash": "Podle jm\u00e9na",
+            "Item_image_initialsSource_fixed": "Jedna barva",
+            "Slice_image_initialsColor": "Barva inici\u00e1l",
+            "Card_value": "Hodnota",
+            "Slice_value_position": "Um\u00edst\u011bn\u00ed",
+            "Item_value_position_right": "Vpravo od jm\u00e9na",
+            "Item_value_position_belowName": "Pod jm\u00e9nem",
+            "Slice_value_font": "P\u00edsmo",
+            "Slice_value_color": "Barva",
+            "Slice_value_decimals": "Desetinn\u00e1 m\u00edsta",
+            "Slice_value_abbreviate": "Zkracovat",
+            "Item_value_abbreviate_auto": "Automaticky",
+            "Item_value_abbreviate_none": "Nikdy",
+            "Item_value_abbreviate_thousands": "Tis\u00edce",
+            "Item_value_abbreviate_millions": "Miliony",
+            "Item_value_abbreviate_billions": "Miliardy",
+            "Slice_value_align": "Zarovn\u00e1n\u00ed",
+            "Item_value_align_left": "Vlevo",
+            "Item_value_align_right": "Vpravo",
+            "Slice_value_prefix": "P\u0159edpona",
+            "Slice_value_suffix": "P\u0159\u00edpona",
+            "Card_valueBar": "Pruh hodnoty",
+            "Slice_valueBar_style": "Styl pruhu",
+            "Item_valueBar_style_auto": "Podle motivu",
+            "Item_valueBar_style_gradient": "P\u0159echod",
+            "Item_valueBar_style_flat": "Pln\u00fd",
+            "Item_valueBar_style_thin": "Tenk\u00fd",
+            "Item_valueBar_style_square": "Hranat\u00fd",
+            "Item_valueBar_style_none": "Bez pruhu",
+            "Slice_valueBar_mode": "D\u00e9lka pruhu je",
+            "Item_valueBar_mode_leader": "Pod\u00edl na vedouc\u00edm",
+            "Item_valueBar_mode_max": "Pod\u00edl na maximu",
+            "Item_valueBar_mode_target": "Pod\u00edl na c\u00edli",
+            "Slice_valueBar_placement": "Um\u00edst\u011bn\u00ed",
+            "Item_valueBar_placement_auto": "Automaticky",
+            "Item_valueBar_placement_underValue": "Pod hodnotou",
+            "Item_valueBar_placement_behindRow": "Za cel\u00fdm \u0159\u00e1dkem",
+            "Item_valueBar_placement_column": "Vlastn\u00ed sloupec",
+            "Slice_valueBar_colorMode": "Barvit podle",
+            "Item_valueBar_colorMode_single": "Jedna barva",
+            "Item_valueBar_colorMode_group": "Podle skupiny",
+            "Item_valueBar_colorMode_rank": "Podle po\u0159ad\u00ed",
+            "Slice_valueBar_color": "Barva pruhu",
+            "Slice_valueBar_track": "Barva podkladu",
+            "Slice_valueBar_height": "V\u00fd\u0161ka pruhu",
+            "Slice_valueBar_radius": "Zaoblen\u00ed pruhu",
+            "Card_movement": "Zm\u011bna po\u0159ad\u00ed",
+            "Card_movement_description": "Zm\u011bna po\u0159ad\u00ed oproti srovn\u00e1vac\u00edmu obdob\u00ed. Vy\u017eaduje Srovn\u00e1vac\u00ed hodnotu nebo pole Obdob\u00ed.",
+            "Slice_movement_compareTo": "Srovn\u00e1vat s",
+            "Item_movement_compareTo_previous": "P\u0159edchoz\u00edm obdob\u00edm",
+            "Item_movement_compareTo_first": "Prvn\u00edm zobrazen\u00fdm obdob\u00edm",
+            "Item_movement_compareTo_kBack": "Zadan\u00fdm po\u010dtem obdob\u00ed zp\u011bt",
+            "Slice_movement_periodsBack": "Obdob\u00ed zp\u011bt",
+            "Slice_movement_glyph": "Symbol",
+            "Item_movement_glyph_auto": "Podle motivu",
+            "Item_movement_glyph_triangle": "Troj\u00faheln\u00edk",
+            "Item_movement_glyph_chevron": "\u0160ipka \u201est\u0159\u00ed\u0161ka\u201c",
+            "Item_movement_glyph_caret": "\u0160pi\u010dka",
+            "Item_movement_glyph_arrow": "\u0160ipka",
+            "Slice_movement_showPlaces": "Zobrazit po\u010det z\u00edskan\u00fdch m\u00edst",
+            "Slice_movement_showValueChange": "Zobrazit zm\u011bnu hodnoty",
+            "Slice_movement_valueChangeAs": "Zm\u011bnu hodnoty zobrazit jako",
+            "Item_movement_valueChangeAs_absolute": "Absolutn\u011b",
+            "Item_movement_valueChangeAs_percent": "Procentu\u00e1ln\u011b",
+            "Item_movement_valueChangeAs_both": "Oboj\u00ed",
+            "Slice_movement_colorBy": "Barvit podle",
+            "Item_movement_colorBy_rank": "Sm\u011bru po\u0159ad\u00ed",
+            "Item_movement_colorBy_value": "Sm\u011bru hodnoty",
+            "Slice_movement_upColor": "Stoup\u00e1",
+            "Slice_movement_downColor": "Kles\u00e1",
+            "Slice_movement_flatColor": "Beze zm\u011bny",
+            "Slice_movement_newBadge": "Ozna\u010dit nov\u00e9 \u00fa\u010dastn\u00edky",
+            "Slice_movement_newText": "Text pro nov\u00e9ho \u00fa\u010dastn\u00edka",
+            "Slice_movement_showDropouts": "Zobrazit vypadl\u00e9",
+            "Card_badges": "Odznaky",
+            "Slice_badges_personalBest": "Osobn\u00ed rekord",
+            "Slice_badges_personalBestLabel": "Popisek osobn\u00edho rekordu",
+            "Slice_badges_personalBestColor": "Barva osobn\u00edho rekordu",
+            "Slice_badges_streak": "S\u00e9rie",
+            "Slice_badges_streakThreshold": "Po\u010d\u00edt\u00e1 se, dokud je v nejlep\u0161\u00edch",
+            "Slice_badges_missingPeriod": "Chyb\u011bj\u00edc\u00ed obdob\u00ed",
+            "Item_badges_missingPeriod_breaks": "S\u00e9rii p\u0159eru\u0161\u00ed",
+            "Item_badges_missingPeriod_ignores": "Se ignoruje",
+            "Slice_badges_streakLabel": "Popisek s\u00e9rie",
+            "Slice_badges_streakColor": "Barva s\u00e9rie",
+            "Slice_badges_biggestMover": "Nejv\u011bt\u0161\u00ed skok",
+            "Slice_badges_biggestMoverLabel": "Popisek nejv\u011bt\u0161\u00edho skoku",
+            "Slice_badges_biggestMoverColor": "Barva nejv\u011bt\u0161\u00edho skoku",
+            "Card_sparkline": "Minigraf",
+            "Slice_sparkline_series": "Vykreslit",
+            "Item_sparkline_series_rank": "Po\u0159ad\u00ed",
+            "Item_sparkline_series_value": "Hodnota",
+            "Slice_sparkline_periods": "Obdob\u00ed",
+            "Slice_sparkline_lineWidth": "Tlou\u0161\u0165ka \u010d\u00e1ry",
+            "Slice_sparkline_color": "Barva",
+            "Slice_sparkline_area": "Vyplnit pod \u010darou",
+            "Slice_sparkline_lastPoint": "Ozna\u010dit posledn\u00ed bod",
+            "Card_target": "C\u00edl",
+            "Slice_target_showPercent": "Zobrazit pln\u011bn\u00ed c\u00edle v procentech",
+            "Slice_target_overColor": "Na c\u00edli nebo nad n\u00edm",
+            "Slice_target_underColor": "Pod c\u00edlem",
+            "Slice_target_showMarker": "Vyzna\u010dit c\u00edl na pruhu",
+            "Slice_target_markerColor": "Barva zna\u010dky c\u00edle",
+            "Slice_target_showGapToNext": "Zobrazit odstup na m\u00edsto v\u00fd\u0161",
+            "Slice_target_gapLabel": "Popisek odstupu",
+            "Slice_target_showProjection": "Zobrazit odhadovan\u00e9 um\u00edst\u011bn\u00ed",
+            "Slice_target_projectionColor": "Barva odhadu",
+            "Card_groups": "Skupiny",
+            "Slice_groups_mode": "Seskupen\u00ed",
+            "Item_groups_mode_off": "Vypnuto",
+            "Item_groups_mode_nested": "Vno\u0159en\u00e9 po\u0159ad\u00ed",
+            "Item_groups_mode_chips": "Barevn\u00e9 \u0161t\u00edtky",
+            "Slice_groups_headerShow": "Zobrazit z\u00e1hlav\u00ed skupin",
+            "Slice_groups_aggregate": "Souhrn skupiny",
+            "Item_groups_aggregate_sum": "Sou\u010det",
+            "Item_groups_aggregate_average": "Pr\u016fm\u011br",
+            "Item_groups_aggregate_max": "Maximum",
+            "Card_topN": "Nejlep\u0161\u00edch N",
+            "Slice_topN_direction": "Zobrazit",
+            "Item_topN_direction_top": "Nejlep\u0161\u00ed",
+            "Item_topN_direction_bottom": "Nejhor\u0161\u00ed",
+            "Slice_topN_count": "Kolik",
+            "Slice_topN_othersShow": "Zobrazit \u0159\u00e1dek Ostatn\u00ed",
+            "Slice_topN_othersLabel": "Popisek \u0159\u00e1dku Ostatn\u00ed",
+            "Slice_topN_othersAggregate": "Hodnota \u0159\u00e1dku Ostatn\u00ed",
+            "Item_topN_othersAggregate_sum": "Sou\u010det",
+            "Item_topN_othersAggregate_average": "Pr\u016fm\u011br",
+            "Item_topN_othersAggregate_count": "Po\u010det",
+            "Item_topN_othersAggregate_none": "Bez hodnoty",
+            "Slice_topN_showRankRange": "Zobrazit rozsah po\u0159ad\u00ed",
+            "Card_focusRow": "Sledovan\u00fd \u0159\u00e1dek",
+            "Card_focusRow_description": "Udr\u017e\u00ed vybran\u00e9 \u00fa\u010dastn\u00edky na obrazovce, i kdy\u017e vypadnou z nejlep\u0161\u00edch N.",
+            "Slice_focusRow_source": "Ponechat",
+            "Item_focusRow_source_pinned": "P\u0159ipnut\u00e9 \u00fa\u010dastn\u00edky",
+            "Item_focusRow_source_selection": "Aktu\u00e1ln\u00ed v\u00fdb\u011br",
+            "Slice_focusRow_position": "Um\u00edst\u011bn\u00ed",
+            "Item_focusRow_position_bottom": "P\u0159ipnout dol\u016f",
+            "Item_focusRow_position_top": "P\u0159ipnout nahoru",
+            "Slice_focusRow_showGapLabel": "Zobrazit odstup na m\u00edsto v\u00fd\u0161",
+            "Slice_focusRow_meHighlight": "Zv\u00fdraznit vlastn\u00ed \u0159\u00e1dek div\u00e1ka",
+            "Slice_focusRow_meHeader": "Uv\u00e9st v z\u00e1hlav\u00ed, kde div\u00e1k stoj\u00ed",
+            "Card_cutoff": "D\u011blic\u00ed \u010d\u00e1ry",
+            "Card_cutoff_description": "Nakresl\u00ed p\u0159es tabuli \u010d\u00e1ru za zadan\u00fdm m\u00edstem, s popiskem \u2014 postupov\u00e1 hranice, spln\u011bn\u00e1 kv\u00f3ta, p\u00e1smo ohro\u017een\u00fdch.",
+            "Slice_cutoff_firstAfter": "Prvn\u00ed \u010d\u00e1ra za m\u00edstem",
+            "Slice_cutoff_firstLabel": "Popisek prvn\u00ed \u010d\u00e1ry",
+            "Slice_cutoff_firstColor": "Barva prvn\u00ed \u010d\u00e1ry",
+            "Slice_cutoff_secondAfter": "Druh\u00e1 \u010d\u00e1ra za m\u00edstem",
+            "Slice_cutoff_secondLabel": "Popisek druh\u00e9 \u010d\u00e1ry",
+            "Slice_cutoff_secondColor": "Barva druh\u00e9 \u010d\u00e1ry",
+            "Slice_cutoff_style": "Styl \u010d\u00e1ry",
+            "Item_cutoff_style_dashed": "\u010c\u00e1rkovan\u00e1",
+            "Item_cutoff_style_solid": "Pln\u00e1",
+            "Item_cutoff_style_double": "Dvojit\u00e1",
+            "Slice_cutoff_shadeBelow": "Ztlumit v\u0161e pod posledn\u00ed \u010darou",
+            "Card_race": "Z\u00e1vodn\u00ed analytika",
+            "Card_race_description": "Vzd\u00e1lenosti, o kter\u00fdch se rozhoduje: na vedouc\u00edho, na postupovou hranici a tempo, kter\u00e9 c\u00edl je\u0161t\u011b pot\u0159ebuje. \u00darovn\u011b rozd\u011bl\u00ed tabuli na zlato, st\u0159\u00edbro a bronz.",
+            "Slice_race_gapToLeader": "Zobrazit odstup od vedouc\u00edho",
+            "Slice_race_gapToCutoff": "Zobrazit, kolik chyb\u00ed k prvn\u00ed d\u011blic\u00ed \u010d\u00e1\u0159e",
+            "Slice_race_neededPace": "Zobrazit tempo pot\u0159ebn\u00e9 ke spln\u011bn\u00ed c\u00edle",
+            "Slice_race_tierMode": "\u00darovn\u011b",
+            "Item_race_tierMode_off": "Vypnuto",
+            "Item_race_tierMode_percentile": "Podle um\u00edst\u011bn\u00ed \u2014 horn\u00edch X % tabule",
+            "Item_race_tierMode_pctTarget": "Podle pln\u011bn\u00ed c\u00edle",
+            "Slice_race_tier1At": "\u00darove\u0148 1: horn\u00edch %",
+            "Slice_race_tier2At": "\u00darove\u0148 2: horn\u00edch %",
+            "Slice_race_tier3At": "\u00darove\u0148 3: horn\u00edch %",
+            "Slice_race_tier1Target": "\u00darove\u0148 1: alespo\u0148 % c\u00edle",
+            "Slice_race_tier2Target": "\u00darove\u0148 2: alespo\u0148 % c\u00edle",
+            "Slice_race_tier3Target": "\u00darove\u0148 3: alespo\u0148 % c\u00edle",
+            "Slice_race_tier1Label": "Popisek \u00farovn\u011b 1",
+            "Slice_race_tier2Label": "Popisek \u00farovn\u011b 2",
+            "Slice_race_tier3Label": "Popisek \u00farovn\u011b 3",
+            "Slice_race_tier1Color": "Barva \u00farovn\u011b 1",
+            "Slice_race_tier2Color": "Barva \u00farovn\u011b 2",
+            "Slice_race_tier3Color": "Barva \u00farovn\u011b 3",
+            "Slice_race_tierStripe": "Barevn\u00fd prou\u017eek u \u0159\u00e1dk\u016f v \u00farovni",
+            "Card_bump": "Graf historie po\u0159ad\u00ed",
+            "Card_bump_description": "Pou\u017eije se, kdy\u017e je rozlo\u017een\u00ed Graf historie po\u0159ad\u00ed. Pot\u0159ebuje pole Obdob\u00ed s alespo\u0148 dv\u011bma obdob\u00edmi.",
+            "Slice_bump_periods": "Obdob\u00ed",
+            "Slice_bump_lines": "Po\u010det vykreslen\u00fdch \u00fa\u010dastn\u00edk\u016f",
+            "Slice_bump_emphasis": "Zv\u00fdraznit",
+            "Item_bump_emphasis_top3": "Sou\u010dasnou prvn\u00ed trojici",
+            "Item_bump_emphasis_selection": "Jen v\u00fdb\u011br",
+            "Item_bump_emphasis_all": "V\u0161echny \u010d\u00e1ry stejn\u011b",
+            "Slice_bump_colorBy": "Barva \u010dar",
+            "Item_bump_colorBy_entrant": "Pro ka\u017ed\u00e9ho \u00fa\u010dastn\u00edka jin\u00e1",
+            "Item_bump_colorBy_group": "Podle skupiny",
+            "Item_bump_colorBy_accent": "Barva zv\u00fdrazn\u011bn\u00ed",
+            "Slice_bump_lineWidth": "\u0160\u00ed\u0159ka \u010d\u00e1ry",
+            "Slice_bump_markers": "Ozna\u010dit ka\u017ed\u00e9 obdob\u00ed",
+            "Slice_bump_startLabels": "Popsat, odkud ka\u017ed\u00e1 \u010d\u00e1ra za\u010dala",
+            "Card_wall": "Re\u017eim na ze\u010f",
+            "Card_wall_description": "Tabule pro obrazovku p\u0159es celou m\u00edstnost: velk\u00e9 p\u00edsmo, automatick\u00e9 str\u00e1nkov\u00e1n\u00ed, \u017e\u00e1dn\u00e9 ozdoby.",
+            "Slice_wall_autoScale": "Velikost",
+            "Item_wall_autoScale_fitRows": "P\u0159izp\u016fsobit \u0159\u00e1dky obrazovce",
+            "Item_wall_autoScale_fixed": "Pou\u017e\u00edt nastaven\u00e9 velikosti",
+            "Slice_wall_pageSize": "\u0158\u00e1dk\u016f na str\u00e1nku",
+            "Slice_wall_interval": "Sekund na str\u00e1nku",
+            "Slice_wall_transition": "P\u0159echod str\u00e1nky",
+            "Item_wall_transition_slide": "Posun",
+            "Item_wall_transition_fade": "Prolnut\u00ed",
+            "Item_wall_transition_none": "\u017d\u00e1dn\u00e9",
+            "Slice_wall_pauseOnInteraction": "Pozastavit p\u0159i interakci",
+            "Slice_wall_showPageIndicator": "Zobrazit ukazatel str\u00e1nek",
+            "Slice_wall_loop": "Vr\u00e1tit se na prvn\u00ed str\u00e1nku",
+            "Slice_wall_hideChrome": "Skr\u00fdt ozdoby",
+            "Card_header": "Z\u00e1hlav\u00ed",
+            "Slice_header_titleSource": "Titulek",
+            "Item_header_titleSource_auto": "Z pole Hodnota",
+            "Item_header_titleSource_custom": "Vlastn\u00ed text",
+            "Item_header_titleSource_none": "Bez titulku",
+            "Slice_header_titleText": "Text titulku",
+            "Slice_header_subtitleText": "Podtitul",
+            "Slice_header_showComparisonLabel": "Zobrazit popisek srovn\u00e1n\u00ed",
+            "Slice_header_comparisonLabel": "Popisek srovn\u00e1n\u00ed",
+            "Slice_header_showTieNote": "Vysv\u011btlit pravidlo pro shodu",
+            "Slice_header_showBiggestMover": "Vyp\u00edchnout nejv\u011bt\u0161\u00ed skok",
+            "Slice_header_showCount": "Zobrazit po\u010det \u00fa\u010dastn\u00edk\u016f",
+            "Slice_header_countLabel": "Popisek po\u010dtu",
+            "Slice_header_align": "Zarovn\u00e1n\u00ed",
+            "Item_header_align_left": "Vlevo",
+            "Item_header_align_center": "Na st\u0159ed",
+            "Item_header_align_right": "Vpravo",
+            "Slice_header_font": "P\u00edsmo",
+            "Slice_header_color": "Barva",
+            "Slice_header_divider": "Odd\u011blovac\u00ed \u010d\u00e1ra",
+            "Card_animation": "Animace",
+            "Card_animation_description": "Omezen\u00fd pohyb m\u00e1 v\u017edy p\u0159ednost: kdy\u017e si div\u00e1k vy\u017e\u00e1d\u00e1 m\u00e9n\u011b pohybu, tato nastaven\u00ed se neuplatn\u00ed.",
+            "Slice_animation_duration": "Trv\u00e1n\u00ed v milisekund\u00e1ch",
+            "Slice_animation_easing": "Pr\u016fb\u011bh",
+            "Item_animation_easing_smooth": "Plynul\u00fd",
+            "Item_animation_easing_linear": "Line\u00e1rn\u00ed",
+            "Item_animation_easing_spring": "Pru\u017einov\u00fd",
+            "Slice_animation_stagger": "Rozf\u00e1zovat podle po\u0159ad\u00ed",
+            "Card_interaction": "Interakce",
+            "Slice_interaction_crossFilter": "Filtrovat kliknut\u00edm",
+            "Slice_interaction_multiSelect": "Povolit v\u00edcen\u00e1sobn\u00fd v\u00fdb\u011br",
+            "Slice_interaction_selectionStyle": "Vybran\u00e9 \u0159\u00e1dky",
+            "Item_interaction_selectionStyle_dim": "Ztlumit ostatn\u00ed",
+            "Item_interaction_selectionStyle_outline": "Or\u00e1movat vybran\u00e9",
+            "Item_interaction_selectionStyle_both": "Oboj\u00ed",
+            "Slice_interaction_dimOpacity": "Ztlumit na",
+            "Slice_interaction_tieSelects": "Kliknut\u00ed na shodn\u00fd \u0159\u00e1dek vybere",
+            "Item_interaction_tieSelects_self": "Jen toho \u00fa\u010dastn\u00edka",
+            "Item_interaction_tieSelects_group": "V\u0161echny shodn\u00e9 \u00fa\u010dastn\u00edky",
+            "Slice_interaction_contextMenu": "Akce \u0159\u00e1dku v nab\u00eddce prav\u00e9ho tla\u010d\u00edtka",
+            "Card_language": "Jazyk",
+            "Card_language_description": "V jak\u00e9m jazyce je psan\u00e1 samotn\u00e1 tabule. Panel form\u00e1tov\u00e1n\u00ed se \u0159\u00edd\u00ed Power BI a t\u00edmto nastaven\u00edm se nem\u011bn\u00ed.",
+            "Slice_language_locale": "Jazyk tabule",
+            "Item_language_locale_auto": "Podle Power BI",
+            "Item_language_locale_en_US": "Angli\u010dtina",
+            "Item_language_locale_cs_CZ": "\u010ce\u0161tina",
+            "Card_themeCard": "Motiv",
+            "Card_themeCard_description": "Motivy jsou osobnosti: m\u011bn\u00ed se \u010d\u00edslice, zpracov\u00e1n\u00ed \u0159\u00e1dk\u016f, styl pruh\u016f i symboly, ne jenom barva.",
+            "Slice_themeCard_theme": "Motiv",
+            "Item_themeCard_theme_smartvisuals": "SmartVisuals",
+            "Item_themeCard_theme_dark": "Tmav\u00fd",
+            "Item_themeCard_theme_clean": "\u010cist\u00fd",
+            "Item_themeCard_theme_slate": "B\u0159idlicov\u00fd",
+            "Slice_themeCard_accent": "Dopl\u0148kov\u00e1 barva",
+            "Slice_themeCard_background": "Pozad\u00ed",
+            "Slice_themeCard_border": "R\u00e1me\u010dek",
+            "Slice_themeCard_borderColor": "Barva r\u00e1me\u010dku",
+            "Slice_themeCard_useReportColors": "Pou\u017e\u00edt barvy motivu reportu",
+            "Card_accessibility": "P\u0159\u00edstupnost",
+            "Slice_accessibility_focusColor": "R\u00e1me\u010dek fokusu",
+            "Slice_accessibility_focusWidth": "\u0160\u00ed\u0159ka r\u00e1me\u010dku fokusu",
+            "Slice_accessibility_minFontSize": "Minim\u00e1ln\u00ed velikost p\u00edsma",
+            "Slice_accessibility_movementText": "Vypsat zm\u011bnu po\u0159ad\u00ed slovy",
+            "Role_entrant": "\u00da\u010dastn\u00edk",
+            "Role_entrant_description": "N\u00e1zev na \u0159\u00e1dku",
+            "Role_value": "Hodnota",
+            "Role_value_description": "Podle \u010deho se ur\u010duje po\u0159ad\u00ed",
+            "Role_comparison": "Srovn\u00e1vac\u00ed hodnota",
+            "Role_comparison_description": "Hodnota p\u0159edchoz\u00edho obdob\u00ed \u2014 poh\u00e1n\u00ed pohyb v po\u0159ad\u00ed",
+            "Role_period": "Obdob\u00ed",
+            "Role_period_description": "\u010casov\u00e1 osa \u2014 poh\u00e1n\u00ed pohyb, s\u00e9rie a osobn\u00ed rekordy",
+            "Role_image": "Obr\u00e1zek",
+            "Role_image_description": "Obr\u00e1zek \u0159\u00e1dku jako data URI",
+            "Role_group": "Skupina",
+            "Role_group_description": "T\u00fdm nebo region",
+            "Role_subtitle": "Podtitul",
+            "Role_subtitle_description": "Druh\u00fd \u0159\u00e1dek pod n\u00e1zvem",
+            "Role_target": "C\u00edl",
+            "Role_target_description": "Poh\u00e1n\u00ed pln\u011bn\u00ed c\u00edle",
+            "Role_progress": "Pr\u016fb\u011bh obdob\u00ed",
+            "Role_progress_description": "Jak\u00e1 \u010d\u00e1st obdob\u00ed uplynula, 0 a\u017e 1 \u2014 poh\u00e1n\u00ed projekci",
+            "Role_isMe": "Jsem to j\u00e1",
+            "Role_isMe_description": "1 na \u0159\u00e1dku, kter\u00fd pat\u0159\u00ed div\u00e1kovi reportu, nap\u0159\u00edklad [E-mail obchodn\u00edka] = USERPRINCIPALNAME(). Ka\u017ed\u00fd div\u00e1k pak vid\u00ed sv\u016fj \u0159\u00e1dek.",
+            "Role_tooltip": "Popisky",
+            "Role_tooltip_description": "Dal\u0161\u00ed pole do popisku"
+        },
+        "en-US": {
+            "Card_board": "Board",
+            "Slice_board_preset": "Quick style",
+            "Item_board_preset_custom": "Custom",
+            "Item_board_preset_league": "League table",
+            "Item_board_preset_salesFloor": "Sales floor TV",
+            "Item_board_preset_lowestWins": "Lowest wins (defects, times)",
+            "Item_board_preset_executive": "Executive top 10",
+            "Item_board_preset_compact": "Compact table",
+            "Slice_board_layout": "Layout",
+            "Item_board_layout_list": "List",
+            "Item_board_layout_podium": "Podium and list",
+            "Item_board_layout_grid": "Grid of tiles",
+            "Item_board_layout_bump": "Rank history chart",
+            "Slice_board_density": "Density",
+            "Item_board_density_comfortable": "Comfortable",
+            "Item_board_density_compact": "Compact",
+            "Item_board_density_wall": "Wall",
+            "Slice_board_rowsVisible": "Rows to show",
+            "Slice_board_rowHeight": "Row height",
+            "Slice_board_rowGap": "Gap between rows",
+            "Slice_board_radius": "Corner radius",
+            "Slice_board_padding": "Padding",
+            "Card_ranking": "Ranking",
+            "Card_ranking_description": "How places are worked out. The tie rule is a business decision, so it is a setting with a name.",
+            "Slice_ranking_direction": "Winner is",
+            "Item_ranking_direction_highestWins": "Highest value wins",
+            "Item_ranking_direction_lowestWins": "Lowest value wins",
+            "Slice_ranking_rankBy": "Rank by",
+            "Item_ranking_rankBy_value": "The value",
+            "Item_ranking_rankBy_pctToTarget": "Percent of target",
+            "Item_ranking_rankBy_change": "Change against the comparison",
+            "Item_ranking_rankBy_changePct": "Change in percent",
+            "Slice_ranking_tieRule": "Tie rule",
+            "Item_ranking_tieRule_competition": "Competition \u2014 1, 2, 2, 4",
+            "Item_ranking_tieRule_modifiedCompetition": "Modified competition \u2014 1, 3, 3, 4",
+            "Item_ranking_tieRule_dense": "Dense \u2014 1, 2, 2, 3",
+            "Item_ranking_tieRule_ordinal": "Ordinal \u2014 1, 2, 3, 4 (no ties)",
+            "Slice_ranking_tieDetection": "Two rows tie",
+            "Item_ranking_tieDetection_displayed": "On the displayed value",
+            "Item_ranking_tieDetection_exact": "On the exact value",
+            "Slice_ranking_tieMarker": "Tie marker",
+            "Item_ranking_tieMarker__": "Equals sign",
+            "Item_ranking_tieMarker_T": "Letter T",
+            "Item_ranking_tieMarker_none": "No marker",
+            "Slice_ranking_tieBreak": "Order tied rows by",
+            "Item_ranking_tieBreak_nameAsc": "Name A to Z",
+            "Item_ranking_tieBreak_nameDesc": "Name Z to A",
+            "Item_ranking_tieBreak_modelOrder": "Model order",
+            "Item_ranking_tieBreak_comparison": "Comparison value",
+            "Item_ranking_tieBreak_groupThenName": "Group, then name",
+            "Slice_ranking_blanks": "Rows with no value",
+            "Item_ranking_blanks_exclude": "Hide them",
+            "Item_ranking_blanks_rankLast": "Rank them last",
+            "Item_ranking_blanks_showUnranked": "Show them unranked",
+            "Slice_ranking_startAt": "First place is",
+            "Slice_ranking_rankWithinGroup": "Rank within each group",
+            "Card_rankNumber": "Rank number",
+            "Slice_rankNumber_style": "Style",
+            "Item_rankNumber_style_auto": "Follow the theme",
+            "Item_rankNumber_style_plain": "Plain",
+            "Item_rankNumber_style_circle": "In a circle",
+            "Item_rankNumber_style_pill": "In a pill",
+            "Item_rankNumber_style_medal": "Medal",
+            "Slice_rankNumber_medals": "Medals for the top three",
+            "Slice_rankNumber_medalGold": "Gold",
+            "Slice_rankNumber_medalSilver": "Silver",
+            "Slice_rankNumber_medalBronze": "Bronze",
+            "Slice_rankNumber_font": "Font",
+            "Slice_rankNumber_color": "Colour",
+            "Slice_rankNumber_width": "Column width",
+            "Card_entrant": "Entrant",
+            "Slice_entrant_font": "Name font",
+            "Slice_entrant_color": "Name colour",
+            "Slice_entrant_maxLines": "Maximum lines",
+            "Slice_entrant_subtitleSource": "Second line",
+            "Item_entrant_subtitleSource_none": "None",
+            "Item_entrant_subtitleSource_group": "Group",
+            "Item_entrant_subtitleSource_subtitle": "Subtitle field",
+            "Item_entrant_subtitleSource_value": "Value",
+            "Item_entrant_subtitleSource_movement": "Rank change",
+            "Slice_entrant_subtitleFont": "Second-line font",
+            "Slice_entrant_subtitleColor": "Second-line colour",
+            "Card_image": "Image",
+            "Card_image_description": "Data URI images only. Certified visuals cannot fetch a web URL, so those rows fall back to initials.",
+            "Slice_image_shape": "Shape",
+            "Item_image_shape_auto": "Follow the theme",
+            "Item_image_shape_circle": "Circle",
+            "Item_image_shape_rounded": "Rounded",
+            "Item_image_shape_square": "Square",
+            "Slice_image_size": "Size",
+            "Slice_image_borderWidth": "Border width",
+            "Slice_image_borderColor": "Border colour",
+            "Slice_image_fallback": "When there is no image",
+            "Item_image_fallback_initials": "Initials",
+            "Item_image_fallback_icon": "Silhouette",
+            "Item_image_fallback_none": "Nothing",
+            "Slice_image_initialsSource": "Initials colour from",
+            "Item_image_initialsSource_group": "From the group",
+            "Item_image_initialsSource_hash": "From the name",
+            "Item_image_initialsSource_fixed": "One colour",
+            "Slice_image_initialsColor": "Initials colour",
+            "Card_value": "Value",
+            "Slice_value_position": "Position",
+            "Item_value_position_right": "Right of the name",
+            "Item_value_position_belowName": "Under the name",
+            "Slice_value_font": "Font",
+            "Slice_value_color": "Colour",
+            "Slice_value_decimals": "Decimal places",
+            "Slice_value_abbreviate": "Abbreviate",
+            "Item_value_abbreviate_auto": "Automatic",
+            "Item_value_abbreviate_none": "Never",
+            "Item_value_abbreviate_thousands": "Thousands",
+            "Item_value_abbreviate_millions": "Millions",
+            "Item_value_abbreviate_billions": "Billions",
+            "Slice_value_align": "Alignment",
+            "Item_value_align_left": "Left",
+            "Item_value_align_right": "Right",
+            "Slice_value_prefix": "Prefix",
+            "Slice_value_suffix": "Suffix",
+            "Card_valueBar": "Value bar",
+            "Slice_valueBar_style": "Bar style",
+            "Item_valueBar_style_auto": "Follow the theme",
+            "Item_valueBar_style_gradient": "Gradient",
+            "Item_valueBar_style_flat": "Flat",
+            "Item_valueBar_style_thin": "Thin",
+            "Item_valueBar_style_square": "Square",
+            "Item_valueBar_style_none": "No bar",
+            "Slice_valueBar_mode": "Bar length is",
+            "Item_valueBar_mode_leader": "Share of the leader",
+            "Item_valueBar_mode_max": "Share of the maximum",
+            "Item_valueBar_mode_target": "Share of the target",
+            "Slice_valueBar_placement": "Placement",
+            "Item_valueBar_placement_auto": "Automatic",
+            "Item_valueBar_placement_underValue": "Under the value",
+            "Item_valueBar_placement_behindRow": "Behind the row",
+            "Item_valueBar_placement_column": "Its own column",
+            "Slice_valueBar_colorMode": "Colour by",
+            "Item_valueBar_colorMode_single": "One colour",
+            "Item_valueBar_colorMode_group": "By group",
+            "Item_valueBar_colorMode_rank": "By rank",
+            "Slice_valueBar_color": "Bar colour",
+            "Slice_valueBar_track": "Track colour",
+            "Slice_valueBar_height": "Bar height",
+            "Slice_valueBar_radius": "Bar radius",
+            "Card_movement": "Movement",
+            "Card_movement_description": "Rank change against a comparison period. Needs a Comparison value or a Period field.",
+            "Slice_movement_compareTo": "Compare to",
+            "Item_movement_compareTo_previous": "Previous period",
+            "Item_movement_compareTo_first": "First period in view",
+            "Item_movement_compareTo_kBack": "A set number of periods back",
+            "Slice_movement_periodsBack": "Periods back",
+            "Slice_movement_glyph": "Glyph",
+            "Item_movement_glyph_auto": "Follow the theme",
+            "Item_movement_glyph_triangle": "Triangle",
+            "Item_movement_glyph_chevron": "Chevron",
+            "Item_movement_glyph_caret": "Caret",
+            "Item_movement_glyph_arrow": "Arrow",
+            "Slice_movement_showPlaces": "Show places gained",
+            "Slice_movement_showValueChange": "Show value change",
+            "Slice_movement_valueChangeAs": "Value change as",
+            "Item_movement_valueChangeAs_absolute": "Absolute",
+            "Item_movement_valueChangeAs_percent": "Percent",
+            "Item_movement_valueChangeAs_both": "Both",
+            "Slice_movement_colorBy": "Colour by",
+            "Item_movement_colorBy_rank": "Rank direction",
+            "Item_movement_colorBy_value": "Value direction",
+            "Slice_movement_upColor": "Climbing",
+            "Slice_movement_downColor": "Falling",
+            "Slice_movement_flatColor": "Unchanged",
+            "Slice_movement_newBadge": "Badge new entries",
+            "Slice_movement_newText": "New entry text",
+            "Slice_movement_showDropouts": "Show dropouts",
+            "Card_badges": "Badges",
+            "Slice_badges_personalBest": "Personal best",
+            "Slice_badges_personalBestLabel": "Personal best label",
+            "Slice_badges_personalBestColor": "Personal best colour",
+            "Slice_badges_streak": "Streak",
+            "Slice_badges_streakThreshold": "Counts while inside the top",
+            "Slice_badges_missingPeriod": "A missing period",
+            "Item_badges_missingPeriod_breaks": "Breaks the streak",
+            "Item_badges_missingPeriod_ignores": "Is ignored",
+            "Slice_badges_streakLabel": "Streak label",
+            "Slice_badges_streakColor": "Streak colour",
+            "Slice_badges_biggestMover": "Biggest mover",
+            "Slice_badges_biggestMoverLabel": "Biggest mover label",
+            "Slice_badges_biggestMoverColor": "Biggest mover colour",
+            "Card_sparkline": "Sparkline",
+            "Slice_sparkline_series": "Plot",
+            "Item_sparkline_series_rank": "Rank",
+            "Item_sparkline_series_value": "Value",
+            "Slice_sparkline_periods": "Periods",
+            "Slice_sparkline_lineWidth": "Line width",
+            "Slice_sparkline_color": "Colour",
+            "Slice_sparkline_area": "Fill under the line",
+            "Slice_sparkline_lastPoint": "Mark the last point",
+            "Card_target": "Target",
+            "Slice_target_showPercent": "Show percent to goal",
+            "Slice_target_overColor": "At or over target",
+            "Slice_target_underColor": "Under target",
+            "Slice_target_showMarker": "Mark the target on the bar",
+            "Slice_target_markerColor": "Target marker colour",
+            "Slice_target_showGapToNext": "Show the gap to the place above",
+            "Slice_target_gapLabel": "Gap label",
+            "Slice_target_showProjection": "Show the projected finish",
+            "Slice_target_projectionColor": "Projection colour",
+            "Card_groups": "Groups",
+            "Slice_groups_mode": "Grouping",
+            "Item_groups_mode_off": "Off",
+            "Item_groups_mode_nested": "Nested standings",
+            "Item_groups_mode_chips": "Coloured chips",
+            "Slice_groups_headerShow": "Show group headers",
+            "Slice_groups_aggregate": "Group total",
+            "Item_groups_aggregate_sum": "Sum",
+            "Item_groups_aggregate_average": "Average",
+            "Item_groups_aggregate_max": "Maximum",
+            "Card_topN": "Top N",
+            "Slice_topN_direction": "Show the",
+            "Item_topN_direction_top": "Top",
+            "Item_topN_direction_bottom": "Bottom",
+            "Slice_topN_count": "How many",
+            "Slice_topN_othersShow": "Show an Others row",
+            "Slice_topN_othersLabel": "Others label",
+            "Slice_topN_othersAggregate": "Others value",
+            "Item_topN_othersAggregate_sum": "Sum",
+            "Item_topN_othersAggregate_average": "Average",
+            "Item_topN_othersAggregate_count": "Count",
+            "Item_topN_othersAggregate_none": "No value",
+            "Slice_topN_showRankRange": "Show the rank range",
+            "Card_focusRow": "Focus row",
+            "Card_focusRow_description": "Keeps chosen entrants on screen even when they fall outside the top N.",
+            "Slice_focusRow_source": "Keep",
+            "Item_focusRow_source_pinned": "Pinned entrants",
+            "Item_focusRow_source_selection": "The current selection",
+            "Slice_focusRow_position": "Position",
+            "Item_focusRow_position_bottom": "Pinned to the bottom",
+            "Item_focusRow_position_top": "Pinned to the top",
+            "Slice_focusRow_showGapLabel": "Show the gap to the place above",
+            "Slice_focusRow_meHighlight": "Highlight the viewer's own row",
+            "Slice_focusRow_meHeader": "Say where the viewer stands in the header",
+            "Card_cutoff": "Cut-off lines",
+            "Card_cutoff_description": "Draws a line across the board after a given place, with a label \u2014 a qualifying line, a quota club, a relegation zone.",
+            "Slice_cutoff_firstAfter": "First line after place",
+            "Slice_cutoff_firstLabel": "First line label",
+            "Slice_cutoff_firstColor": "First line colour",
+            "Slice_cutoff_secondAfter": "Second line after place",
+            "Slice_cutoff_secondLabel": "Second line label",
+            "Slice_cutoff_secondColor": "Second line colour",
+            "Slice_cutoff_style": "Line style",
+            "Item_cutoff_style_dashed": "Dashed",
+            "Item_cutoff_style_solid": "Solid",
+            "Item_cutoff_style_double": "Double",
+            "Slice_cutoff_shadeBelow": "Shade everything below the last line",
+            "Card_race": "Race analytics",
+            "Card_race_description": "The distances that decide a race: to the leader, to the qualifying line, and the pace a target still needs. Tiers band the board into Gold, Silver and Bronze.",
+            "Slice_race_gapToLeader": "Show the gap to the leader",
+            "Slice_race_gapToCutoff": "Show what is missing to the first cut-off line",
+            "Slice_race_neededPace": "Show the pace the target still needs",
+            "Slice_race_tierMode": "Tiers",
+            "Item_race_tierMode_off": "Off",
+            "Item_race_tierMode_percentile": "By place \u2014 top X% of the board",
+            "Item_race_tierMode_pctTarget": "By percent of target",
+            "Slice_race_tier1At": "Tier 1: top %",
+            "Slice_race_tier2At": "Tier 2: top %",
+            "Slice_race_tier3At": "Tier 3: top %",
+            "Slice_race_tier1Target": "Tier 1: at least % of target",
+            "Slice_race_tier2Target": "Tier 2: at least % of target",
+            "Slice_race_tier3Target": "Tier 3: at least % of target",
+            "Slice_race_tier1Label": "Tier 1 label",
+            "Slice_race_tier2Label": "Tier 2 label",
+            "Slice_race_tier3Label": "Tier 3 label",
+            "Slice_race_tier1Color": "Tier 1 colour",
+            "Slice_race_tier2Color": "Tier 2 colour",
+            "Slice_race_tier3Color": "Tier 3 colour",
+            "Slice_race_tierStripe": "Colour stripe on tiered rows",
+            "Card_bump": "Rank history chart",
+            "Card_bump_description": "Used when the layout is Rank history chart. Needs a Period field with at least two periods.",
+            "Slice_bump_periods": "Periods",
+            "Slice_bump_lines": "Entrants drawn",
+            "Slice_bump_emphasis": "Emphasise",
+            "Item_bump_emphasis_top3": "The current top three",
+            "Item_bump_emphasis_selection": "Only the selection",
+            "Item_bump_emphasis_all": "Every line equally",
+            "Slice_bump_colorBy": "Line colour",
+            "Item_bump_colorBy_entrant": "One per entrant",
+            "Item_bump_colorBy_group": "By group",
+            "Item_bump_colorBy_accent": "The accent",
+            "Slice_bump_lineWidth": "Line width",
+            "Slice_bump_markers": "Mark every period",
+            "Slice_bump_startLabels": "Label where each line started",
+            "Card_wall": "Wall mode",
+            "Card_wall_description": "A board sized for a screen across the room: large type, auto-paging, no chrome.",
+            "Slice_wall_autoScale": "Sizing",
+            "Item_wall_autoScale_fitRows": "Fit the rows to the screen",
+            "Item_wall_autoScale_fixed": "Use the sizes as set",
+            "Slice_wall_pageSize": "Rows per page",
+            "Slice_wall_interval": "Seconds per page",
+            "Slice_wall_transition": "Page change",
+            "Item_wall_transition_slide": "Slide",
+            "Item_wall_transition_fade": "Fade",
+            "Item_wall_transition_none": "None",
+            "Slice_wall_pauseOnInteraction": "Pause when someone interacts",
+            "Slice_wall_showPageIndicator": "Show the page indicator",
+            "Slice_wall_loop": "Loop back to the first page",
+            "Slice_wall_hideChrome": "Hide the chrome",
+            "Card_header": "Header",
+            "Slice_header_titleSource": "Title",
+            "Item_header_titleSource_auto": "From the value field",
+            "Item_header_titleSource_custom": "Custom text",
+            "Item_header_titleSource_none": "No title",
+            "Slice_header_titleText": "Title text",
+            "Slice_header_subtitleText": "Subtitle",
+            "Slice_header_showComparisonLabel": "Show the comparison label",
+            "Slice_header_comparisonLabel": "Comparison label",
+            "Slice_header_showTieNote": "Explain the tie rule",
+            "Slice_header_showBiggestMover": "Call out the biggest mover",
+            "Slice_header_showCount": "Show how many are on the board",
+            "Slice_header_countLabel": "Count label",
+            "Slice_header_align": "Alignment",
+            "Item_header_align_left": "Left",
+            "Item_header_align_center": "Centre",
+            "Item_header_align_right": "Right",
+            "Slice_header_font": "Font",
+            "Slice_header_color": "Colour",
+            "Slice_header_divider": "Divider line",
+            "Card_animation": "Animation",
+            "Card_animation_description": "Reduced motion always wins: when the viewer asks for less motion these settings have no effect.",
+            "Slice_animation_duration": "Duration in milliseconds",
+            "Slice_animation_easing": "Easing",
+            "Item_animation_easing_smooth": "Smooth",
+            "Item_animation_easing_linear": "Linear",
+            "Item_animation_easing_spring": "Spring",
+            "Slice_animation_stagger": "Stagger by rank",
+            "Card_interaction": "Interaction",
+            "Slice_interaction_crossFilter": "Cross-filter on click",
+            "Slice_interaction_multiSelect": "Allow multi-select",
+            "Slice_interaction_selectionStyle": "Selected rows",
+            "Item_interaction_selectionStyle_dim": "Dim the others",
+            "Item_interaction_selectionStyle_outline": "Outline the selected",
+            "Item_interaction_selectionStyle_both": "Both",
+            "Slice_interaction_dimOpacity": "Dim to",
+            "Slice_interaction_tieSelects": "Clicking a tied row selects",
+            "Item_interaction_tieSelects_self": "Just that entrant",
+            "Item_interaction_tieSelects_group": "Every tied entrant",
+            "Slice_interaction_contextMenu": "Row actions in the right-click menu",
+            "Card_language": "Language",
+            "Card_language_description": "Which language the board itself is written in. The format pane follows Power BI and is not affected.",
+            "Slice_language_locale": "Board language",
+            "Item_language_locale_auto": "Follow Power BI",
+            "Item_language_locale_en_US": "English",
+            "Item_language_locale_cs_CZ": "\u010ce\u0161tina",
+            "Card_themeCard": "Theme",
+            "Card_themeCard_description": "Themes are personalities: numerals, row treatment, bar style and glyphs change, not just the colour.",
+            "Slice_themeCard_theme": "Theme",
+            "Item_themeCard_theme_smartvisuals": "SmartVisuals",
+            "Item_themeCard_theme_dark": "Dark",
+            "Item_themeCard_theme_clean": "Clean",
+            "Item_themeCard_theme_slate": "Slate",
+            "Slice_themeCard_accent": "Accent",
+            "Slice_themeCard_background": "Background",
+            "Slice_themeCard_border": "Border",
+            "Slice_themeCard_borderColor": "Border colour",
+            "Slice_themeCard_useReportColors": "Use the report theme colours",
+            "Card_accessibility": "Accessibility",
+            "Slice_accessibility_focusColor": "Focus ring",
+            "Slice_accessibility_focusWidth": "Focus ring width",
+            "Slice_accessibility_minFontSize": "Minimum font size",
+            "Slice_accessibility_movementText": "Spell movement out in text",
+            "Role_entrant": "Entrant",
+            "Role_entrant_description": "The name on the row",
+            "Role_value": "Value",
+            "Role_value_description": "What entrants are ranked by",
+            "Role_comparison": "Comparison value",
+            "Role_comparison_description": "The previous period's value \u2014 drives Movement",
+            "Role_period": "Period",
+            "Role_period_description": "A period axis \u2014 drives Movement, streaks and personal best",
+            "Role_image": "Image",
+            "Role_image_description": "A data URI image for the row",
+            "Role_group": "Group",
+            "Role_group_description": "Team or region",
+            "Role_subtitle": "Subtitle",
+            "Role_subtitle_description": "A second line under the name",
+            "Role_target": "Target",
+            "Role_target_description": "Drives percent to goal",
+            "Role_progress": "Period progress",
+            "Role_progress_description": "How far through the period, 0 to 1 \u2014 drives the projection",
+            "Role_isMe": "Is me",
+            "Role_isMe_description": "1 on the row that belongs to the person viewing the report, for example [Rep email] = USERPRINCIPALNAME(). Each viewer then sees their own row.",
+            "Role_tooltip": "Tooltips",
+            "Role_tooltip_description": "Extra fields for the tooltip"
+        }
+    },
+    "capabilities": {
+        "privileges": [],
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltip"
+            ]
+        },
+        "dataRoles": [
+            {
+                "displayName": "Entrant",
+                "name": "entrant",
+                "kind": "Grouping",
+                "description": "The name on the row",
+                "displayNameKey": "Role_entrant",
+                "descriptionKey": "Role_entrant_description"
+            },
+            {
+                "displayName": "Value",
+                "name": "value",
+                "kind": "Measure",
+                "description": "What entrants are ranked by",
+                "displayNameKey": "Role_value",
+                "descriptionKey": "Role_value_description"
+            },
+            {
+                "displayName": "Comparison value",
+                "name": "comparison",
+                "kind": "Measure",
+                "description": "The previous period's value \u2014 drives Movement",
+                "displayNameKey": "Role_comparison",
+                "descriptionKey": "Role_comparison_description"
+            },
+            {
+                "displayName": "Period",
+                "name": "period",
+                "kind": "Grouping",
+                "description": "A period axis \u2014 drives Movement, streaks and personal best",
+                "displayNameKey": "Role_period",
+                "descriptionKey": "Role_period_description"
+            },
+            {
+                "displayName": "Image",
+                "name": "image",
+                "kind": "Grouping",
+                "description": "A data URI image for the row",
+                "displayNameKey": "Role_image",
+                "descriptionKey": "Role_image_description"
+            },
+            {
+                "displayName": "Group",
+                "name": "group",
+                "kind": "Grouping",
+                "description": "Team or region",
+                "displayNameKey": "Role_group",
+                "descriptionKey": "Role_group_description"
+            },
+            {
+                "displayName": "Subtitle",
+                "name": "subtitle",
+                "kind": "Grouping",
+                "description": "A second line under the name",
+                "displayNameKey": "Role_subtitle",
+                "descriptionKey": "Role_subtitle_description"
+            },
+            {
+                "displayName": "Target",
+                "name": "target",
+                "kind": "Measure",
+                "description": "Drives percent to goal",
+                "displayNameKey": "Role_target",
+                "descriptionKey": "Role_target_description"
+            },
+            {
+                "displayName": "Period progress",
+                "name": "progress",
+                "kind": "Measure",
+                "description": "How far through the period, 0 to 1 \u2014 drives the projection",
+                "displayNameKey": "Role_progress",
+                "descriptionKey": "Role_progress_description"
+            },
+            {
+                "displayName": "Is me",
+                "name": "isMe",
+                "kind": "Measure",
+                "description": "1 on the row that belongs to the person viewing the report, for example [Rep email] = USERPRINCIPALNAME(). Each viewer then sees their own row.",
+                "displayNameKey": "Role_isMe",
+                "descriptionKey": "Role_isMe_description"
+            },
+            {
+                "displayName": "Tooltips",
+                "name": "tooltip",
+                "kind": "Measure",
+                "description": "Extra fields for the tooltip",
+                "displayNameKey": "Role_tooltip",
+                "descriptionKey": "Role_tooltip_description"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "entrant": {
+                            "max": 1
+                        },
+                        "period": {
+                            "min": 1,
+                            "max": 1
+                        },
+                        "value": {
+                            "max": 1
+                        },
+                        "comparison": {
+                            "max": 1
+                        },
+                        "image": {
+                            "max": 1
+                        },
+                        "group": {
+                            "max": 1
+                        },
+                        "subtitle": {
+                            "max": 1
+                        },
+                        "target": {
+                            "max": 1
+                        },
+                        "progress": {
+                            "max": 1
+                        },
+                        "isMe": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "entrant"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "image"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "group"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "subtitle"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 1000
+                            }
+                        }
+                    },
+                    "values": {
+                        "group": {
+                            "by": "period",
+                            "select": [
+                                {
+                                    "bind": {
+                                        "to": "value"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "comparison"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "target"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "progress"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "isMe"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "tooltip"
+                                    }
+                                }
+                            ],
+                            "dataReductionAlgorithm": {
+                                "bottom": {
+                                    "count": 60
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "conditions": [
+                    {
+                        "entrant": {
+                            "max": 1
+                        },
+                        "period": {
+                            "max": 0
+                        },
+                        "value": {
+                            "max": 1
+                        },
+                        "comparison": {
+                            "max": 1
+                        },
+                        "image": {
+                            "max": 1
+                        },
+                        "group": {
+                            "max": 1
+                        },
+                        "subtitle": {
+                            "max": 1
+                        },
+                        "target": {
+                            "max": 1
+                        },
+                        "progress": {
+                            "max": 1
+                        },
+                        "isMe": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "entrant"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "image"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "group"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "subtitle"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 1000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "value"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "comparison"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "target"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "progress"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "isMe"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltip"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "board": {
+                "displayName": "Board",
+                "properties": {
+                    "preset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom"
+                                },
+                                {
+                                    "value": "league",
+                                    "displayName": "League table"
+                                },
+                                {
+                                    "value": "salesFloor",
+                                    "displayName": "Sales floor TV"
+                                },
+                                {
+                                    "value": "lowestWins",
+                                    "displayName": "Lowest wins (defects, times)"
+                                },
+                                {
+                                    "value": "executive",
+                                    "displayName": "Executive top 10"
+                                },
+                                {
+                                    "value": "compact",
+                                    "displayName": "Compact table"
+                                }
+                            ]
+                        }
+                    },
+                    "layout": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "list",
+                                    "displayName": "List"
+                                },
+                                {
+                                    "value": "podium",
+                                    "displayName": "Podium and list"
+                                },
+                                {
+                                    "value": "grid",
+                                    "displayName": "Grid of tiles"
+                                },
+                                {
+                                    "value": "bump",
+                                    "displayName": "Rank history chart"
+                                }
+                            ]
+                        }
+                    },
+                    "density": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "comfortable",
+                                    "displayName": "Comfortable"
+                                },
+                                {
+                                    "value": "compact",
+                                    "displayName": "Compact"
+                                },
+                                {
+                                    "value": "wall",
+                                    "displayName": "Wall"
+                                }
+                            ]
+                        }
+                    },
+                    "rowsVisible": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rowHeight": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rowGap": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "padding": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "ranking": {
+                "displayName": "Ranking",
+                "properties": {
+                    "direction": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "highestWins",
+                                    "displayName": "Highest value wins"
+                                },
+                                {
+                                    "value": "lowestWins",
+                                    "displayName": "Lowest value wins"
+                                }
+                            ]
+                        }
+                    },
+                    "rankBy": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "value",
+                                    "displayName": "The value"
+                                },
+                                {
+                                    "value": "pctToTarget",
+                                    "displayName": "Percent of target"
+                                },
+                                {
+                                    "value": "change",
+                                    "displayName": "Change against the comparison"
+                                },
+                                {
+                                    "value": "changePct",
+                                    "displayName": "Change in percent"
+                                }
+                            ]
+                        }
+                    },
+                    "tieRule": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "competition",
+                                    "displayName": "Competition \u2014 1, 2, 2, 4"
+                                },
+                                {
+                                    "value": "modifiedCompetition",
+                                    "displayName": "Modified competition \u2014 1, 3, 3, 4"
+                                },
+                                {
+                                    "value": "dense",
+                                    "displayName": "Dense \u2014 1, 2, 2, 3"
+                                },
+                                {
+                                    "value": "ordinal",
+                                    "displayName": "Ordinal \u2014 1, 2, 3, 4 (no ties)"
+                                }
+                            ]
+                        }
+                    },
+                    "tieDetection": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "displayed",
+                                    "displayName": "On the displayed value"
+                                },
+                                {
+                                    "value": "exact",
+                                    "displayName": "On the exact value"
+                                }
+                            ]
+                        }
+                    },
+                    "tieMarker": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "=",
+                                    "displayName": "Equals sign"
+                                },
+                                {
+                                    "value": "T",
+                                    "displayName": "Letter T"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "No marker"
+                                }
+                            ]
+                        }
+                    },
+                    "tieBreak": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "nameAsc",
+                                    "displayName": "Name A to Z"
+                                },
+                                {
+                                    "value": "nameDesc",
+                                    "displayName": "Name Z to A"
+                                },
+                                {
+                                    "value": "modelOrder",
+                                    "displayName": "Model order"
+                                },
+                                {
+                                    "value": "comparison",
+                                    "displayName": "Comparison value"
+                                },
+                                {
+                                    "value": "groupThenName",
+                                    "displayName": "Group, then name"
+                                }
+                            ]
+                        }
+                    },
+                    "blanks": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "exclude",
+                                    "displayName": "Hide them"
+                                },
+                                {
+                                    "value": "rankLast",
+                                    "displayName": "Rank them last"
+                                },
+                                {
+                                    "value": "showUnranked",
+                                    "displayName": "Show them unranked"
+                                }
+                            ]
+                        }
+                    },
+                    "startAt": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rankWithinGroup": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "rankNumber": {
+                "displayName": "Rank number",
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "style": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Follow the theme"
+                                },
+                                {
+                                    "value": "plain",
+                                    "displayName": "Plain"
+                                },
+                                {
+                                    "value": "circle",
+                                    "displayName": "In a circle"
+                                },
+                                {
+                                    "value": "pill",
+                                    "displayName": "In a pill"
+                                },
+                                {
+                                    "value": "medal",
+                                    "displayName": "Medal"
+                                }
+                            ]
+                        }
+                    },
+                    "medals": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "medalGold": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "medalSilver": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "medalBronze": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "width": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "entrant": {
+                "displayName": "Entrant",
+                "properties": {
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "maxLines": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "subtitleSource": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "group",
+                                    "displayName": "Group"
+                                },
+                                {
+                                    "value": "subtitle",
+                                    "displayName": "Subtitle field"
+                                },
+                                {
+                                    "value": "value",
+                                    "displayName": "Value"
+                                },
+                                {
+                                    "value": "movement",
+                                    "displayName": "Rank change"
+                                }
+                            ]
+                        }
+                    },
+                    "subtitleFontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "subtitleFontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "subtitleBold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "subtitleItalic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "subtitleUnderline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "subtitleColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "image": {
+                "displayName": "Image",
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "shape": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Follow the theme"
+                                },
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle"
+                                },
+                                {
+                                    "value": "rounded",
+                                    "displayName": "Rounded"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Square"
+                                }
+                            ]
+                        }
+                    },
+                    "size": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fallback": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "initials",
+                                    "displayName": "Initials"
+                                },
+                                {
+                                    "value": "icon",
+                                    "displayName": "Silhouette"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "Nothing"
+                                }
+                            ]
+                        }
+                    },
+                    "initialsSource": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "group",
+                                    "displayName": "From the group"
+                                },
+                                {
+                                    "value": "hash",
+                                    "displayName": "From the name"
+                                },
+                                {
+                                    "value": "fixed",
+                                    "displayName": "One colour"
+                                }
+                            ]
+                        }
+                    },
+                    "initialsColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "value": {
+                "displayName": "Value",
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "right",
+                                    "displayName": "Right of the name"
+                                },
+                                {
+                                    "value": "belowName",
+                                    "displayName": "Under the name"
+                                }
+                            ]
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "decimals": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "abbreviate": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "Never"
+                                },
+                                {
+                                    "value": "thousands",
+                                    "displayName": "Thousands"
+                                },
+                                {
+                                    "value": "millions",
+                                    "displayName": "Millions"
+                                },
+                                {
+                                    "value": "billions",
+                                    "displayName": "Billions"
+                                }
+                            ]
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "prefix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "suffix": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "valueBar": {
+                "displayName": "Value bar",
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "style": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Follow the theme"
+                                },
+                                {
+                                    "value": "gradient",
+                                    "displayName": "Gradient"
+                                },
+                                {
+                                    "value": "flat",
+                                    "displayName": "Flat"
+                                },
+                                {
+                                    "value": "thin",
+                                    "displayName": "Thin"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Square"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "No bar"
+                                }
+                            ]
+                        }
+                    },
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "leader",
+                                    "displayName": "Share of the leader"
+                                },
+                                {
+                                    "value": "max",
+                                    "displayName": "Share of the maximum"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Share of the target"
+                                }
+                            ]
+                        }
+                    },
+                    "placement": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic"
+                                },
+                                {
+                                    "value": "underValue",
+                                    "displayName": "Under the value"
+                                },
+                                {
+                                    "value": "behindRow",
+                                    "displayName": "Behind the row"
+                                },
+                                {
+                                    "value": "column",
+                                    "displayName": "Its own column"
+                                }
+                            ]
+                        }
+                    },
+                    "colorMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "single",
+                                    "displayName": "One colour"
+                                },
+                                {
+                                    "value": "group",
+                                    "displayName": "By group"
+                                },
+                                {
+                                    "value": "rank",
+                                    "displayName": "By rank"
+                                }
+                            ]
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "track": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "height": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "movement": {
+                "displayName": "Movement",
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "compareTo": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "previous",
+                                    "displayName": "Previous period"
+                                },
+                                {
+                                    "value": "first",
+                                    "displayName": "First period in view"
+                                },
+                                {
+                                    "value": "kBack",
+                                    "displayName": "A set number of periods back"
+                                }
+                            ]
+                        }
+                    },
+                    "periodsBack": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "glyph": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Follow the theme"
+                                },
+                                {
+                                    "value": "triangle",
+                                    "displayName": "Triangle"
+                                },
+                                {
+                                    "value": "chevron",
+                                    "displayName": "Chevron"
+                                },
+                                {
+                                    "value": "caret",
+                                    "displayName": "Caret"
+                                },
+                                {
+                                    "value": "arrow",
+                                    "displayName": "Arrow"
+                                }
+                            ]
+                        }
+                    },
+                    "showPlaces": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showValueChange": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "valueChangeAs": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "absolute",
+                                    "displayName": "Absolute"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "Percent"
+                                },
+                                {
+                                    "value": "both",
+                                    "displayName": "Both"
+                                }
+                            ]
+                        }
+                    },
+                    "colorBy": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "rank",
+                                    "displayName": "Rank direction"
+                                },
+                                {
+                                    "value": "value",
+                                    "displayName": "Value direction"
+                                }
+                            ]
+                        }
+                    },
+                    "upColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "downColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "flatColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "newBadge": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "newText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showDropouts": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "badges": {
+                "displayName": "Badges",
+                "properties": {
+                    "personalBest": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "personalBestLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "personalBestColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "streak": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "streakThreshold": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "missingPeriod": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "breaks",
+                                    "displayName": "Breaks the streak"
+                                },
+                                {
+                                    "value": "ignores",
+                                    "displayName": "Is ignored"
+                                }
+                            ]
+                        }
+                    },
+                    "streakLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "streakColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "biggestMover": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "biggestMoverLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "biggestMoverColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "sparkline": {
+                "displayName": "Sparkline",
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "series": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "rank",
+                                    "displayName": "Rank"
+                                },
+                                {
+                                    "value": "value",
+                                    "displayName": "Value"
+                                }
+                            ]
+                        }
+                    },
+                    "periods": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "lineWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "area": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lastPoint": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "target": {
+                "displayName": "Target",
+                "properties": {
+                    "showPercent": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "overColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "underColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showMarker": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "markerColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showGapToNext": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gapLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showProjection": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "projectionColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "groups": {
+                "displayName": "Groups",
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "off",
+                                    "displayName": "Off"
+                                },
+                                {
+                                    "value": "nested",
+                                    "displayName": "Nested standings"
+                                },
+                                {
+                                    "value": "chips",
+                                    "displayName": "Coloured chips"
+                                }
+                            ]
+                        }
+                    },
+                    "headerShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "aggregate": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sum",
+                                    "displayName": "Sum"
+                                },
+                                {
+                                    "value": "average",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "max",
+                                    "displayName": "Maximum"
+                                }
+                            ]
+                        }
+                    },
+                    "fill": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "topN": {
+                "displayName": "Top N",
+                "properties": {
+                    "enabled": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "direction": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "count": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "othersShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "othersLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "othersAggregate": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sum",
+                                    "displayName": "Sum"
+                                },
+                                {
+                                    "value": "average",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "count",
+                                    "displayName": "Count"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "No value"
+                                }
+                            ]
+                        }
+                    },
+                    "showRankRange": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "focusRow": {
+                "displayName": "Focus row",
+                "properties": {
+                    "enabled": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "source": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "pinned",
+                                    "displayName": "Pinned entrants"
+                                },
+                                {
+                                    "value": "selection",
+                                    "displayName": "The current selection"
+                                }
+                            ]
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Pinned to the bottom"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "Pinned to the top"
+                                }
+                            ]
+                        }
+                    },
+                    "showGapLabel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "meHighlight": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "meHeader": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "pinned": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "cutoff": {
+                "displayName": "Cut-off lines",
+                "properties": {
+                    "enabled": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "firstAfter": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "firstLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "firstColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "secondAfter": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "secondLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "secondColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "style": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "double",
+                                    "displayName": "Double"
+                                }
+                            ]
+                        }
+                    },
+                    "shadeBelow": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "race": {
+                "displayName": "Race analytics",
+                "properties": {
+                    "gapToLeader": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gapToCutoff": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "neededPace": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "tierMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "off",
+                                    "displayName": "Off"
+                                },
+                                {
+                                    "value": "percentile",
+                                    "displayName": "By place \u2014 top X% of the board"
+                                },
+                                {
+                                    "value": "pctTarget",
+                                    "displayName": "By percent of target"
+                                }
+                            ]
+                        }
+                    },
+                    "tier1At": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "tier2At": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "tier3At": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "tier1Target": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "tier2Target": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "tier3Target": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "tier1Label": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "tier2Label": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "tier3Label": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "tier1Color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "tier2Color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "tier3Color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "tierStripe": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "bump": {
+                "displayName": "Rank history chart",
+                "properties": {
+                    "periods": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "lines": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "emphasis": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top3",
+                                    "displayName": "The current top three"
+                                },
+                                {
+                                    "value": "selection",
+                                    "displayName": "Only the selection"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "Every line equally"
+                                }
+                            ]
+                        }
+                    },
+                    "colorBy": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "entrant",
+                                    "displayName": "One per entrant"
+                                },
+                                {
+                                    "value": "group",
+                                    "displayName": "By group"
+                                },
+                                {
+                                    "value": "accent",
+                                    "displayName": "The accent"
+                                }
+                            ]
+                        }
+                    },
+                    "lineWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "markers": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "startLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "wall": {
+                "displayName": "Wall mode",
+                "properties": {
+                    "enabled": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "autoScale": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "fitRows",
+                                    "displayName": "Fit the rows to the screen"
+                                },
+                                {
+                                    "value": "fixed",
+                                    "displayName": "Use the sizes as set"
+                                }
+                            ]
+                        }
+                    },
+                    "pageSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "interval": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "transition": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "slide",
+                                    "displayName": "Slide"
+                                },
+                                {
+                                    "value": "fade",
+                                    "displayName": "Fade"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "pauseOnInteraction": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPageIndicator": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "loop": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "hideChrome": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "header": {
+                "displayName": "Header",
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleSource": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "From the value field"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom text"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "No title"
+                                }
+                            ]
+                        }
+                    },
+                    "titleText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtitleText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showComparisonLabel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "comparisonLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showTieNote": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showBiggestMover": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showCount": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "countLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Centre"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "divider": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "animation": {
+                "displayName": "Animation",
+                "properties": {
+                    "enabled": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "duration": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "easing": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "smooth",
+                                    "displayName": "Smooth"
+                                },
+                                {
+                                    "value": "linear",
+                                    "displayName": "Linear"
+                                },
+                                {
+                                    "value": "spring",
+                                    "displayName": "Spring"
+                                }
+                            ]
+                        }
+                    },
+                    "stagger": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "interaction": {
+                "displayName": "Interaction",
+                "properties": {
+                    "crossFilter": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "multiSelect": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "selectionStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "dim",
+                                    "displayName": "Dim the others"
+                                },
+                                {
+                                    "value": "outline",
+                                    "displayName": "Outline the selected"
+                                },
+                                {
+                                    "value": "both",
+                                    "displayName": "Both"
+                                }
+                            ]
+                        }
+                    },
+                    "dimOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "tieSelects": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "self",
+                                    "displayName": "Just that entrant"
+                                },
+                                {
+                                    "value": "group",
+                                    "displayName": "Every tied entrant"
+                                }
+                            ]
+                        }
+                    },
+                    "contextMenu": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "language": {
+                "displayName": "Language",
+                "properties": {
+                    "locale": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Follow Power BI"
+                                },
+                                {
+                                    "value": "en-US",
+                                    "displayName": "English"
+                                },
+                                {
+                                    "value": "cs-CZ",
+                                    "displayName": "\u010ce\u0161tina"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "themeCard": {
+                "displayName": "Theme",
+                "properties": {
+                    "theme": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "smartvisuals",
+                                    "displayName": "SmartVisuals"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Dark"
+                                },
+                                {
+                                    "value": "clean",
+                                    "displayName": "Clean"
+                                },
+                                {
+                                    "value": "slate",
+                                    "displayName": "Slate"
+                                }
+                            ]
+                        }
+                    },
+                    "accent": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "useReportColors": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "accessibility": {
+                "displayName": "Accessibility",
+                "properties": {
+                    "focusColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "focusWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "minFontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "movementText": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

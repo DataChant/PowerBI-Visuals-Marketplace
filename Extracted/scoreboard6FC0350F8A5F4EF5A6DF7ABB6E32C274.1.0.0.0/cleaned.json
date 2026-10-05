@@ -1,0 +1,2011 @@
+{
+    "visual": {
+        "name": "smartVisualsScoreboard",
+        "displayName": "SmartVisuals Scoreboard",
+        "guid": "scoreboard6FC0350F8A5F4EF5A6DF7ABB6E32C274",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Free sports-style scoreboard for Power BI. Plays any two sides or two measures as a match: big scores, period linescore, lead by shape and word, lower-is-better wins, events feed, game clock, league table, score bug and LED board layouts, auto-paging for wall screens. Part of the SmartVisuals visual family.",
+        "supportUrl": "https://smartvisuals.io/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "SmartVisuals",
+        "email": "hello@smartvisuals.io"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "cs-CZ": {
+            "Enum_header_clockFormat_12": "12hodinov\u00fd (2:05 PM)",
+            "Enum_header_clockFormat_24": "24hodinov\u00fd (14:05)",
+            "Enum_header_clockMode_auto": "Automaticky",
+            "Enum_header_clockMode_countdown": "Odpo\u010det do Konce",
+            "Enum_header_clockMode_minute": "Minuta z\u00e1pasu (Za\u010d\u00e1tek a\u017e Konec)",
+            "Enum_header_clockMode_off": "Vypnuto",
+            "Enum_header_clockMode_period": "Aktu\u00e1ln\u00ed obdob\u00ed",
+            "Enum_header_clockMode_time": "Denn\u00ed \u010das",
+            "Enum_layout_layout_auto": "Automaticky",
+            "Enum_layout_layout_bug": "Televizn\u00ed sk\u00f3re",
+            "Enum_layout_layout_led": "LED tabule",
+            "Enum_layout_layout_match": "Z\u00e1pasov\u00e9 centrum",
+            "Enum_layout_layout_table": "Ligov\u00e1 tabulka",
+            "Enum_layout_sideOrder_data": "Jako v datech",
+            "Enum_layout_sideOrder_leader": "Vedouc\u00ed prvn\u00ed",
+            "Enum_layout_sideOrder_name": "Abecedn\u011b",
+            "Enum_layout_style_boardroom": "Klidn\u00fd (pro porady)",
+            "Enum_layout_style_scoreboard": "V\u00fdsledkov\u00e1 tabule",
+            "Enum_match_leadAs_amount": "Rozd\u00edl (1 250)",
+            "Enum_match_leadAs_both": "Oboj\u00ed (1 250 / 5,6 %)",
+            "Enum_match_leadAs_pct": "Procento (5,6 %)",
+            "Enum_match_scoring_first": "Prvn\u00ed m\u00edra",
+            "Enum_match_scoring_won": "Vyhran\u00e9 m\u00edry",
+            "Enum_match_tieMode_abs": "Absolutn\u00ed",
+            "Enum_match_tieMode_pct": "Procento vy\u0161\u0161\u00edho sk\u00f3re",
+            "Enum_measures_combine_auto": "Automaticky",
+            "Enum_measures_combine_avg": "Pr\u016fm\u011br",
+            "Enum_measures_combine_latest": "Posledn\u00ed",
+            "Enum_measures_combine_max": "Maximum",
+            "Enum_measures_combine_min": "Minimum",
+            "Enum_measures_combine_sum": "Sou\u010det",
+            "Enum_measures_showAs_auto": "Automaticky (pom\u011br jako procento)",
+            "Enum_measures_showAs_number": "\u010c\u00edslo, jako v modelu",
+            "Enum_measures_showAs_percent": "Procento",
+            "Enum_numbers_decimals_0": "0",
+            "Enum_numbers_decimals_1": "1",
+            "Enum_numbers_decimals_2": "2",
+            "Enum_numbers_decimals_auto": "Automaticky",
+            "Enum_numbers_display_compact": "Zkr\u00e1cen\u00e9 (1,2 tis.)",
+            "Enum_numbers_display_full": "Pln\u00e9 (1 240)",
+            "Enum_text_font_auto": "Podle motivu",
+            "Enum_text_font_barlow": "Televizn\u00ed (Barlow Condensed)",
+            "Enum_text_font_led": "LED sedmisegmentov\u00e9",
+            "Enum_text_font_ui": "Segoe UI",
+            "Enum_text_letterCase_asis": "Jako v datech",
+            "Enum_text_letterCase_auto": "Podle motivu",
+            "Enum_text_letterCase_upper": "VELK\u00c1 P\u00cdSMENA",
+            "Enum_theme_selectedTheme_clean": "\u010cist\u00fd",
+            "Enum_theme_selectedTheme_dark": "Tmav\u00fd",
+            "Enum_theme_selectedTheme_slate": "B\u0159idlicov\u00fd",
+            "Enum_theme_selectedTheme_smartvisuals": "SmartVisuals",
+            "Obj_animation": "Animace",
+            "Obj_colors": "Barvy",
+            "Obj_header": "Z\u00e1hlav\u00ed",
+            "Obj_layout": "Rozvr\u017een\u00ed",
+            "Obj_logos": "Loga",
+            "Obj_match": "Pravidla z\u00e1pasu",
+            "Obj_measures": "M\u00edry",
+            "Obj_numbers": "\u010c\u00edsla",
+            "Obj_paging": "Str\u00e1nkov\u00e1n\u00ed a obrazovka",
+            "Obj_sides": "Strany",
+            "Obj_text": "Text",
+            "Obj_theme": "Motiv",
+            "Prop_animation_animate": "Animovat zm\u011bny sk\u00f3re",
+            "Prop_animation_celebrate": "Oslavit nov\u00e9 ud\u00e1losti",
+            "Prop_animation_celebrateSeconds": "Sekundy oslavy",
+            "Prop_animation_celebrateText": "Slovo oslavy",
+            "Prop_animation_duration": "D\u00e9lka p\u0159eto\u010den\u00ed (ms)",
+            "Prop_colors_accent": "Akcent (zna\u010dka veden\u00ed, linka)",
+            "Prop_colors_bg": "Pozad\u00ed",
+            "Prop_colors_celebrate": "P\u00e1s oslavy",
+            "Prop_colors_clockBg": "Pole hodin",
+            "Prop_colors_clockInk": "Text hodin",
+            "Prop_colors_draw": "Rem\u00edza",
+            "Prop_colors_ink": "Text",
+            "Prop_colors_ledAlt": "LED hodiny a zpr\u00e1vy",
+            "Prop_colors_ledBg": "LED Housing",
+            "Prop_colors_ledCaption": "LED Printed Captions",
+            "Prop_colors_ledGhost": "LED Unlit Segments",
+            "Prop_colors_ledOn": "LED \u010d\u00edslice",
+            "Prop_colors_loss": "Prohra",
+            "Prop_colors_muted": "Popisky",
+            "Prop_colors_panel": "Panel",
+            "Prop_colors_panelAlt": "Row Stripes",
+            "Prop_colors_scoreInk": "\u010c\u00edslice sk\u00f3re",
+            "Prop_colors_win": "V\u00fdhra",
+            "Prop_header_clockFormat": "Form\u00e1t \u010dasu",
+            "Prop_header_clockMode": "Hodiny",
+            "Prop_header_regulation": "D\u00e9lka z\u00e1pasu (minuty)",
+            "Prop_header_show": "Zobrazit z\u00e1hlav\u00ed",
+            "Prop_header_showCaption": "Zobrazit popisek hodin",
+            "Prop_header_showRule": "Show Header Rule",
+            "Prop_header_subtitle": "Podnadpis",
+            "Prop_header_title": "Nadpis",
+            "Prop_header_titleSize": "Velikost nadpisu (%)",
+            "Prop_layout_eventCount": "Po\u010det ud\u00e1lost\u00ed",
+            "Prop_layout_layout": "Rozvr\u017een\u00ed",
+            "Prop_layout_maxPeriods": "Zobrazen\u00e1 obdob\u00ed (0 = v\u0161e, co se vejde)",
+            "Prop_layout_showCodes": "Zobrazit zkratky",
+            "Prop_layout_showEvents": "Zobrazit p\u0159ehled ud\u00e1lost\u00ed",
+            "Prop_layout_showLinescore": "Zobrazit pr\u016fb\u011bh po obdob\u00edch",
+            "Prop_layout_showMomentum": "Zobrazit p\u00e1s momenta",
+            "Prop_layout_showShare": "Zobrazit pruh pod\u00edlu",
+            "Prop_layout_showStats": "Zobrazit srovn\u00e1n\u00ed statistik",
+            "Prop_layout_sideOrder": "Po\u0159ad\u00ed stran",
+            "Prop_layout_style": "Styl",
+            "Prop_logos_show": "Zobrazit loga",
+            "Prop_logos_size": "Velikost loga (%)",
+            "Prop_match_bottomZone": "\u0158\u00e1dky doln\u00ed z\u00f3ny",
+            "Prop_match_bottomZoneLabel": "Popis doln\u00ed z\u00f3ny",
+            "Prop_match_formLength": "D\u00e9lka formy",
+            "Prop_match_leadAs": "Veden\u00ed jako",
+            "Prop_match_leadWord": "Slovo pro veden\u00ed",
+            "Prop_match_pointsDraw": "Body za rem\u00edzu",
+            "Prop_match_pointsLoss": "Body za prohru",
+            "Prop_match_pointsWin": "Body za v\u00fdhru",
+            "Prop_match_scoring": "Sk\u00f3re",
+            "Prop_match_showLead": "Zobrazit text o veden\u00ed",
+            "Prop_match_tieMargin": "Tolerance rem\u00edzy",
+            "Prop_match_tieMode": "Typ tolerance rem\u00edzy",
+            "Prop_match_tiedWord": "Slovo pro rem\u00edzu",
+            "Prop_match_topZone": "\u0158\u00e1dky horn\u00ed z\u00f3ny",
+            "Prop_match_topZoneLabel": "Popis horn\u00ed z\u00f3ny",
+            "Prop_measures_combine": "Spojit obdob\u00ed jako",
+            "Prop_measures_label": "Popis",
+            "Prop_measures_lowerIsBetter": "Ni\u017e\u0161\u00ed je lep\u0161\u00ed",
+            "Prop_measures_showAs": "Zobrazit jako",
+            "Prop_numbers_decimals": "Desetinn\u00e1 m\u00edsta",
+            "Prop_numbers_display": "Zobrazen\u00ed",
+            "Prop_paging_autoPage": "Proch\u00e1zet z\u00e1pasy",
+            "Prop_paging_pauseOnHover": "Pozastavit p\u0159i najet\u00ed my\u0161\u00ed",
+            "Prop_paging_pixelShift": "Ochrana proti vyp\u00e1len\u00ed (posun o 1 px)",
+            "Prop_paging_seconds": "Sekund na z\u00e1pas",
+            "Prop_paging_showIndicator": "Zobrazit ukazatel str\u00e1nky",
+            "Prop_sides_abbrev": "Zkratka",
+            "Prop_sides_color": "Barva",
+            "Prop_text_font": "P\u00edsmo sk\u00f3re",
+            "Prop_text_labelSize": "Velikost popisk\u016f (%)",
+            "Prop_text_letterCase": "Velikost p\u00edsmen jmen",
+            "Prop_text_nameSize": "Velikost jmen (%)",
+            "Prop_text_scoreSize": "Velikost sk\u00f3re (%)",
+            "Prop_theme_selectedTheme": "Motiv",
+            "Prop_theme_transparentBg": "Pr\u016fhledn\u00e9 pozad\u00ed",
+            "Role_end": "Konec",
+            "Role_end_Desc": "Konec sout\u011b\u017ee (m\u00edra typu datum): odpo\u010det do konce, pak KONEC.",
+            "Role_eventLabel": "Ud\u00e1lost",
+            "Role_eventLabel_Desc": "Ka\u017ed\u00fd \u0159\u00e1dek s ud\u00e1lost\u00ed je g\u00f3l v p\u0159ehledu ud\u00e1lost\u00ed: obchod, zak\u00e1zka, z\u00e1silka.",
+            "Role_eventTime": "\u010cas ud\u00e1losti",
+            "Role_eventTime_Desc": "Kdy se ud\u00e1lost stala (datum a \u010das nebo text). \u0158ad\u00ed p\u0159ehled ud\u00e1lost\u00ed od nejnov\u011bj\u0161\u00ed.",
+            "Role_logo": "Logo",
+            "Role_logo_Desc": "Obr\u00e1zek pro ka\u017edou stranu: base64 data URI obr\u00e1zku (data:image/png;base64,...), nap\u0159\u00edklad sloupec z Power Query. Webov\u00e9 adresy se nikdy nena\u010d\u00edtaj\u00ed: vizu\u00e1l ned\u011bl\u00e1 \u017e\u00e1dn\u00e1 extern\u00ed vol\u00e1n\u00ed.",
+            "Role_matchup": "Z\u00e1pas",
+            "Role_matchup_Desc": "Seskup\u00ed strany do z\u00e1pas\u016f (kola, t\u00fddny). Tabule mezi z\u00e1pasy str\u00e1nkuje a z jejich v\u00fdsledk\u016f stav\u00ed ligovou tabulku.",
+            "Role_period": "Obdob\u00ed",
+            "Role_period_Desc": "\u010ctvrtlet\u00ed, m\u011bs\u00edce, t\u00fddny, polo\u010dasy: sloupce pr\u016fb\u011bhu sk\u00f3re a aktu\u00e1ln\u00ed obdob\u00ed na hodin\u00e1ch.",
+            "Role_score": "Sk\u00f3re",
+            "Role_score_Desc": "Prvn\u00ed m\u00edra je sk\u00f3re, dal\u0161\u00ed se porovn\u00e1vaj\u00ed jako statistiky. Bez pole Strana jsou dv\u011b a v\u00edce m\u011br stranami (letos proti lo\u0148sku).",
+            "Role_side": "Strana",
+            "Role_side_Desc": "Ka\u017ed\u00e1 hodnota je soupe\u0159: z\u00e1vod, t\u00fdm, region, osoba. Bez pole Strana svedou dv\u011b m\u00edry z\u00e1pas proti sob\u011b.",
+            "Role_start": "Za\u010d\u00e1tek",
+            "Role_start_Desc": "Za\u010d\u00e1tek sout\u011b\u017ee (m\u00edra typu datum). Spolu s Koncem ukazuj\u00ed hodiny minutu z\u00e1pasu.",
+            "Role_tooltips": "Popisky",
+            "Role_tooltips_Desc": "Dal\u0161\u00ed m\u00edry zobrazen\u00e9 v popisku.",
+            "UI_AriaBoard": "{0}. Str\u00e1nka {1} z {2}.",
+            "UI_AriaKeys": "\u0160ipky p\u0159ech\u00e1zej\u00ed mezi stranami, obdob\u00edmi, ud\u00e1lostmi a \u0159\u00e1dky; Enter vyb\u00edr\u00e1, Escape ru\u0161\u00ed v\u00fdb\u011br, Page Up a Page Down m\u011bn\u00ed z\u00e1pas, P pozastav\u00ed str\u00e1nkov\u00e1n\u00ed.",
+            "UI_Blank": "(pr\u00e1zdn\u00e9)",
+            "UI_BottomZone": "Doln\u00ed z\u00f3na",
+            "UI_Clock_final": "Konec",
+            "UI_Clock_fullTime": "Konec z\u00e1pasu",
+            "UI_Clock_kickOff": "V\u00fdkop",
+            "UI_Clock_live": "\u017div\u011b",
+            "UI_Clock_period": "Obdob\u00ed",
+            "UI_Clock_time": "\u010cas",
+            "UI_Clock_toGo": "Zb\u00fdv\u00e1",
+            "UI_Col_A": "O",
+            "UI_Col_D": "R",
+            "UI_Col_F": "D",
+            "UI_Col_Form": "Forma",
+            "UI_Col_Gap": "Ztr\u00e1ta",
+            "UI_Col_L": "P",
+            "UI_Col_Measure": "M\u00edra",
+            "UI_Col_P": "Z",
+            "UI_Col_Pos": "#",
+            "UI_Col_Pts": "Body",
+            "UI_Col_Side": "Strana",
+            "UI_Col_W": "V",
+            "UI_CombineEvents": "S polem Ud\u00e1lost je ka\u017ed\u00e1 zak\u00e1zka \u0159\u00e1dkem, tak\u017ee se sazba pr\u016fm\u011bruje p\u0159es ud\u00e1losti bez v\u00e1\u017een\u00ed: pou\u017eijte rad\u011bji m\u00edru po\u010dtu nebo sou\u010dtu, nebo zvolte Posledn\u00ed.",
+            "UI_CombineHint": "Automaticky s\u010d\u00edt\u00e1 \u010d\u00edsla a pr\u016fm\u011bruje procenta a pom\u011bry. Po\u010det jedine\u010dn\u00fdch hodnot, pr\u016fm\u011br nebo stav (z\u00e1soba, po\u010det zam\u011bstnanc\u016f) se p\u0159es obdob\u00ed nes\u010d\u00edt\u00e1: zvolte Pr\u016fm\u011br, Posledn\u00ed nebo Maximum.",
+            "UI_DayLetter": "D",
+            "UI_DefaultTitle": "V\u00fdsledkov\u00e1 tabule",
+            "UI_Goal": "G\u00d3L!",
+            "UI_HigherBetter": "Vy\u0161\u0161\u00ed je lep\u0161\u00ed",
+            "UI_LandingBullet1": "Z\u00e1pasov\u00e9 centrum, televizn\u00ed sk\u00f3re, LED tabule a ligov\u00e1 tabulka",
+            "UI_LandingBullet2": "Veden\u00ed, rem\u00edzy i v\u00fdhra ni\u017e\u0161\u00edm \u010d\u00edslem, vyj\u00e1d\u0159en\u00e9 tvarem a slovem, nikdy jen barvou",
+            "UI_LandingBullet3": "Na n\u00e1st\u011bnn\u00e9 obrazovce proch\u00e1z\u00ed z\u00e1pasy; sk\u00f3re se p\u0159eto\u010d\u00ed jen p\u0159i zm\u011bn\u011b dat",
+            "UI_LandingBy": "od SmartVisuals - zdarma",
+            "UI_LandingDemoTitle": "Helios Plant Cup",
+            "UI_LandingHint": "P\u0159idejte pole Strana a m\u00edru Sk\u00f3re, nebo dv\u011b m\u00edry jako Letos a Loni. Obdob\u00ed, Z\u00e1pas, Ud\u00e1lost a Za\u010d\u00e1tek/Konec p\u0159idaj\u00ed pr\u016fb\u011bh, str\u00e1nkov\u00e1n\u00ed, g\u00f3ly a hodiny.",
+            "UI_LandingHintScore": "Te\u010f p\u0159idejte m\u00edru Sk\u00f3re: prvn\u00ed je sk\u00f3re, dal\u0161\u00ed m\u00edry jsou statistiky.",
+            "UI_LandingTitle": "SmartVisuals Scoreboard",
+            "UI_Latest": "Nejnov\u011bj\u0161\u00ed",
+            "UI_Lead": "Vede",
+            "UI_LeadChange": "{0} se uj\u00edm\u00e1 veden\u00ed",
+            "UI_Leader": "Vede",
+            "UI_LeadsBy": "vede o",
+            "UI_LogoHow": "Pole Logo p\u0159ij\u00edm\u00e1 pro ka\u017edou stranu jednu textovou hodnotu, nap\u0159. data:image/png;base64,iVBOR..., vytvo\u0159enou v Power Query jako \"data:image/png;base64,\" & Binary.ToText(<obsah souboru>, BinaryEncoding.Base64). Nejl\u00e9pe funguj\u00ed mal\u00e9 obr\u00e1zky (64-128 px, do 20 kB).",
+            "UI_LogoNeedsSide": "Zobrazit loga (pot\u0159ebuje pole Strana)",
+            "UI_LogoRefused": "Nezobrazen\u00e1 loga: {0}",
+            "UI_LogoShowRefused": "Zobrazit loga ({0} nezobrazeno)",
+            "UI_LogoWhy_invalid": "Hodnota nen\u00ed base64 data URI obr\u00e1zku.",
+            "UI_LogoWhy_notImage": "Hodnota je data URI, ale ne obr\u00e1zek.",
+            "UI_LogoWhy_truncated": "Obr\u00e1zek je del\u0161\u00ed ne\u017e 32 766 znak\u016f, kter\u00e9 Power BI v textov\u00e9 hodnot\u011b uchov\u00e1, a doraz\u00ed useknut\u00fd; pou\u017eijte men\u0161\u00ed obr\u00e1zek (zhruba do 20 kB).",
+            "UI_LogoWhy_url": "Webov\u00e1 adresa se nikdy nena\u010d\u00edt\u00e1: vizu\u00e1l ned\u011bl\u00e1 \u017e\u00e1dn\u00e1 extern\u00ed vol\u00e1n\u00ed.",
+            "UI_LowerBetter": "Ni\u017e\u0161\u00ed je lep\u0161\u00ed",
+            "UI_Momentum": "Momentum",
+            "UI_MoreMeasures": "+{0} dal\u0161\u00ed m\u00edry v popisku",
+            "UI_MoreSides": "+{0} dal\u0161\u00ed",
+            "UI_NoEvents": "Zat\u00edm \u017e\u00e1dn\u00e9 ud\u00e1losti",
+            "UI_NoRowsHint": "Filtry na t\u00e9to str\u00e1nce nenechaly nic k po\u010d\u00edt\u00e1n\u00ed.",
+            "UI_NoRowsTitle": "Zat\u00edm bez sk\u00f3re",
+            "UI_NoScore": "Bez sk\u00f3re",
+            "UI_OfTotal": "z {0}",
+            "UI_OneSide": "P\u0159idejte druhou stranu nebo druhou m\u00edru a hrajte z\u00e1pas.",
+            "UI_Page": "{0} / {1}",
+            "UI_Paused": "Pozastaveno",
+            "UI_PctPoints": "{0} p. b.",
+            "UI_PerMatch": "pr\u016fm\u011br na z\u00e1pas",
+            "UI_Place": "{0}. m\u00edsto",
+            "UI_RatioHint": "vypad\u00e1 jako pom\u011br",
+            "UI_RatioHintDesc": "V\u0161echny hodnoty le\u017e\u00ed mezi -1 a 1 jako u pom\u011bru, ale form\u00e1t v modelu jim d\u00e1v\u00e1 desetinn\u00e1 m\u00edsta, proto tabule nech\u00e1 \u010d\u00edslo a obdob\u00ed s\u010d\u00edt\u00e1. Volba Procento uk\u00e1\u017ee 0,873 jako 87,3 % a obdob\u00ed zpr\u016fm\u011bruje.",
+            "UI_RatioShown": "pom\u011br zobrazen v %",
+            "UI_RatioShownDesc": "V\u0161echny hodnoty le\u017e\u00ed mezi -1 a 1 a form\u00e1t v modelu nem\u00e1 %, proto je tabule ukazuje jako procenta (0,873 = 87,3 %) a obdob\u00ed pr\u016fm\u011bruje m\u00edsto s\u010d\u00edt\u00e1n\u00ed. \u010c\u00edslo uk\u00e1\u017ee desetinn\u00e1 \u010d\u00edsla, st\u00e1le pr\u016fm\u011brovan\u00e1; jak se obdob\u00ed spojuj\u00ed, ur\u010duje Spojit obdob\u00ed jako.",
+            "UI_Record": "{0} / {1} / {2} / {3}",
+            "UI_ResultWord_D": "Rem\u00edza",
+            "UI_ResultWord_L": "Prohra",
+            "UI_ResultWord_W": "V\u00fdhra",
+            "UI_Result_D": "R",
+            "UI_Result_L": "P",
+            "UI_Result_W": "V",
+            "UI_Share": "Pod\u00edl na celku",
+            "UI_ShareLower": "Pod\u00edl, ni\u017e\u0161\u00ed je lep\u0161\u00ed",
+            "UI_Standings": "Po\u0159ad\u00ed",
+            "UI_TT_Better": "Pravidlo",
+            "UI_TT_Event": "Ud\u00e1lost",
+            "UI_TT_ForAgainst": "Dan\u00e9 : obdr\u017een\u00e9",
+            "UI_TT_Form": "Forma, od nejstar\u0161\u00ed",
+            "UI_TT_Highlighted": "Zv\u00fdrazn\u011bno",
+            "UI_TT_MeasuresWon": "Vyhran\u00e9 m\u00edry",
+            "UI_TT_Period": "Obdob\u00ed",
+            "UI_TT_Position": "Pozice",
+            "UI_TT_Record": "Z\u00e1pasy / v\u00fdhry / rem\u00edzy / prohry",
+            "UI_TT_Side": "Strana",
+            "UI_TT_Time": "\u010cas",
+            "UI_Tied": "Rem\u00edza",
+            "UI_TopZone": "Horn\u00ed z\u00f3na",
+            "UI_TotalShort": "C",
+            "UI_Trimmed": "Nejv\u00fd\u0161e {0} \u0159\u00e1dk\u016f",
+            "UI_TrimmedDetail": "Tabule \u010dte nejv\u00fd\u0161e {0} \u0159\u00e1dk\u016f (nejv\u011bt\u0161\u00ed datov\u00e9 okno, kter\u00e9 Power BI vizu\u00e1lu dovol\u00ed), pou\u017eije tedy prvn\u00edch {0}; zu\u017ete filtr str\u00e1nky nebo pou\u017eijte m\u00e9n\u011b pol\u00ed.",
+            "UI_Unit_M": "Miliony",
+            "UI_Unit_bn": "Miliardy",
+            "UI_Unit_k": "Tis\u00edce",
+            "UI_Unit_pct": "Procenta",
+            "UI_Vs": "vs",
+            "UI_Winner": "V\u00edt\u011bz",
+            "UI_WinsBy": "{0} vyhr\u00e1v\u00e1 o {1}"
+        },
+        "de-DE": {
+            "Enum_header_clockFormat_12": "12 Stunden (2:05 PM)",
+            "Enum_header_clockFormat_24": "24 Stunden (14:05)",
+            "Enum_header_clockMode_auto": "Automatisch",
+            "Enum_header_clockMode_countdown": "Countdown bis Ende",
+            "Enum_header_clockMode_minute": "Spielminute (Beginn bis Ende)",
+            "Enum_header_clockMode_off": "Aus",
+            "Enum_header_clockMode_period": "Aktueller Abschnitt",
+            "Enum_header_clockMode_time": "Uhrzeit",
+            "Enum_layout_layout_auto": "Automatisch",
+            "Enum_layout_layout_bug": "TV-Einblendung",
+            "Enum_layout_layout_led": "LED-Anzeigetafel",
+            "Enum_layout_layout_match": "Spielzentrale",
+            "Enum_layout_layout_table": "Tabelle",
+            "Enum_layout_sideOrder_data": "Wie in den Daten",
+            "Enum_layout_sideOrder_leader": "F\u00fchrende zuerst",
+            "Enum_layout_sideOrder_name": "Alphabetisch",
+            "Enum_layout_style_boardroom": "Schlicht (Besprechung)",
+            "Enum_layout_style_scoreboard": "Anzeigetafel",
+            "Enum_match_leadAs_amount": "Betrag (1.250)",
+            "Enum_match_leadAs_both": "Beides (1.250 / 5,6 %)",
+            "Enum_match_leadAs_pct": "Prozent (5,6 %)",
+            "Enum_match_scoring_first": "Erstes Measure",
+            "Enum_match_scoring_won": "Gewonnene Measures",
+            "Enum_match_tieMode_abs": "Absolut",
+            "Enum_match_tieMode_pct": "Prozent des h\u00f6heren Werts",
+            "Enum_measures_combine_auto": "Automatisch",
+            "Enum_measures_combine_avg": "Durchschnitt",
+            "Enum_measures_combine_latest": "Letzter Wert",
+            "Enum_measures_combine_max": "Maximum",
+            "Enum_measures_combine_min": "Minimum",
+            "Enum_measures_combine_sum": "Summe",
+            "Enum_measures_showAs_auto": "Automatisch (Verh\u00e4ltnis als Prozent)",
+            "Enum_measures_showAs_number": "Zahl, wie im Modell",
+            "Enum_measures_showAs_percent": "Prozent",
+            "Enum_numbers_decimals_0": "0",
+            "Enum_numbers_decimals_1": "1",
+            "Enum_numbers_decimals_2": "2",
+            "Enum_numbers_decimals_auto": "Automatisch",
+            "Enum_numbers_display_compact": "Kompakt (1,2 Tsd.)",
+            "Enum_numbers_display_full": "Voll (1.240)",
+            "Enum_text_font_auto": "Wie das Design",
+            "Enum_text_font_barlow": "TV (Barlow Condensed)",
+            "Enum_text_font_led": "LED-Siebensegment",
+            "Enum_text_font_ui": "Segoe UI",
+            "Enum_text_letterCase_asis": "Wie in den Daten",
+            "Enum_text_letterCase_auto": "Wie das Design",
+            "Enum_text_letterCase_upper": "GROSSBUCHSTABEN",
+            "Enum_theme_selectedTheme_clean": "Hell",
+            "Enum_theme_selectedTheme_dark": "Dunkel",
+            "Enum_theme_selectedTheme_slate": "Schiefer",
+            "Enum_theme_selectedTheme_smartvisuals": "SmartVisuals",
+            "Obj_animation": "Animation",
+            "Obj_colors": "Farben",
+            "Obj_header": "Kopfzeile",
+            "Obj_layout": "Layout",
+            "Obj_logos": "Logos",
+            "Obj_match": "Spielregeln",
+            "Obj_measures": "Kennzahlen",
+            "Obj_numbers": "Zahlen",
+            "Obj_paging": "Seitenwechsel und Bildschirm",
+            "Obj_sides": "Seiten",
+            "Obj_text": "Text",
+            "Obj_theme": "Design",
+            "Prop_animation_animate": "\u00c4nderungen animieren",
+            "Prop_animation_celebrate": "Neue Ereignisse feiern",
+            "Prop_animation_celebrateSeconds": "Sekunden des Jubels",
+            "Prop_animation_celebrateText": "Jubelwort",
+            "Prop_animation_duration": "Dauer des Hochz\u00e4hlens (ms)",
+            "Prop_colors_accent": "Akzent (F\u00fchrungsmarke, Linie)",
+            "Prop_colors_bg": "Hintergrund",
+            "Prop_colors_celebrate": "Jubelband",
+            "Prop_colors_clockBg": "Uhrfeld",
+            "Prop_colors_clockInk": "Uhrtext",
+            "Prop_colors_draw": "Unentschieden",
+            "Prop_colors_ink": "Text",
+            "Prop_colors_ledAlt": "LED-Uhr und Meldungen",
+            "Prop_colors_ledBg": "LED Housing",
+            "Prop_colors_ledCaption": "LED Printed Captions",
+            "Prop_colors_ledGhost": "LED Unlit Segments",
+            "Prop_colors_ledOn": "LED-Ziffern",
+            "Prop_colors_loss": "Niederlage",
+            "Prop_colors_muted": "Beschriftungen",
+            "Prop_colors_panel": "Feld",
+            "Prop_colors_panelAlt": "Row Stripes",
+            "Prop_colors_scoreInk": "Ziffern des Punktestands",
+            "Prop_colors_win": "Sieg",
+            "Prop_header_clockFormat": "Zeitformat",
+            "Prop_header_clockMode": "Uhr",
+            "Prop_header_regulation": "Spieldauer (Minuten)",
+            "Prop_header_show": "Kopfzeile zeigen",
+            "Prop_header_showCaption": "Beschriftung der Uhr zeigen",
+            "Prop_header_showRule": "Show Header Rule",
+            "Prop_header_subtitle": "Untertitel",
+            "Prop_header_title": "Titel",
+            "Prop_header_titleSize": "Titelgr\u00f6\u00dfe (%)",
+            "Prop_layout_eventCount": "Gezeigte Ereignisse",
+            "Prop_layout_layout": "Layout",
+            "Prop_layout_maxPeriods": "Gezeigte Abschnitte (0 = alle, die passen)",
+            "Prop_layout_showCodes": "K\u00fcrzel zeigen",
+            "Prop_layout_showEvents": "Ereignis-Ticker zeigen",
+            "Prop_layout_showLinescore": "Verlauf nach Abschnitten zeigen",
+            "Prop_layout_showMomentum": "Momentum-Leiste zeigen",
+            "Prop_layout_showShare": "Anteilsbalken zeigen",
+            "Prop_layout_showStats": "Statistikvergleich zeigen",
+            "Prop_layout_sideOrder": "Reihenfolge der Seiten",
+            "Prop_layout_style": "Stil",
+            "Prop_logos_show": "Logos zeigen",
+            "Prop_logos_size": "Logogr\u00f6\u00dfe (%)",
+            "Prop_match_bottomZone": "Zeilen der unteren Zone",
+            "Prop_match_bottomZoneLabel": "Name der unteren Zone",
+            "Prop_match_formLength": "L\u00e4nge der Formkurve",
+            "Prop_match_leadAs": "F\u00fchrung als",
+            "Prop_match_leadWord": "Wort f\u00fcr F\u00fchrung",
+            "Prop_match_pointsDraw": "Punkte f\u00fcr Unentschieden",
+            "Prop_match_pointsLoss": "Punkte f\u00fcr Niederlage",
+            "Prop_match_pointsWin": "Punkte f\u00fcr Sieg",
+            "Prop_match_scoring": "Punktestand",
+            "Prop_match_showLead": "F\u00fchrungstext zeigen",
+            "Prop_match_tieMargin": "Unentschieden-Toleranz",
+            "Prop_match_tieMode": "Art der Unentschieden-Toleranz",
+            "Prop_match_tiedWord": "Wort f\u00fcr Unentschieden",
+            "Prop_match_topZone": "Zeilen der oberen Zone",
+            "Prop_match_topZoneLabel": "Name der oberen Zone",
+            "Prop_measures_combine": "Abschnitte zusammenfassen als",
+            "Prop_measures_label": "Beschriftung",
+            "Prop_measures_lowerIsBetter": "Niedriger ist besser",
+            "Prop_measures_showAs": "Anzeigen als",
+            "Prop_numbers_decimals": "Dezimalstellen",
+            "Prop_numbers_display": "Anzeige",
+            "Prop_paging_autoPage": "Durch Spiele bl\u00e4ttern",
+            "Prop_paging_pauseOnHover": "Beim \u00dcberfahren anhalten",
+            "Prop_paging_pixelShift": "Einbrennschutz (1 px verschieben)",
+            "Prop_paging_seconds": "Sekunden pro Spiel",
+            "Prop_paging_showIndicator": "Seitenanzeige zeigen",
+            "Prop_sides_abbrev": "K\u00fcrzel",
+            "Prop_sides_color": "Farbe",
+            "Prop_text_font": "Schrift des Punktestands",
+            "Prop_text_labelSize": "Gr\u00f6\u00dfe der Beschriftungen (%)",
+            "Prop_text_letterCase": "Schreibweise der Namen",
+            "Prop_text_nameSize": "Gr\u00f6\u00dfe der Namen (%)",
+            "Prop_text_scoreSize": "Gr\u00f6\u00dfe des Punktestands (%)",
+            "Prop_theme_selectedTheme": "Design",
+            "Prop_theme_transparentBg": "Transparenter Hintergrund",
+            "Role_end": "Ende",
+            "Role_end_Desc": "Ende des Wettbewerbs (ein Datums-Measure): Countdown bis zum Abpfiff, dann ENDE.",
+            "Role_eventLabel": "Ereignis",
+            "Role_eventLabel_Desc": "Jede Zeile mit einem Ereignis ist ein Tor im Ereignis-Ticker: ein Abschluss, ein Auftrag, eine Sendung.",
+            "Role_eventTime": "Ereigniszeit",
+            "Role_eventTime_Desc": "Wann das Ereignis geschah (Datum/Uhrzeit oder Text). Sortiert den Ticker, neueste zuerst.",
+            "Role_logo": "Logo",
+            "Role_logo_Desc": "Ein Bild pro Seite: eine Base64-Bild-Data-URI (data:image/png;base64,...), zum Beispiel eine Power-Query-Spalte. Webadressen werden nie geladen: das Visual macht keine externen Aufrufe.",
+            "Role_matchup": "Spiel",
+            "Role_matchup_Desc": "Fasst Seiten zu Spielen zusammen (Runden, Wochen). Die Tafel bl\u00e4ttert zwischen Spielen, die Tabelle entsteht aus ihren Ergebnissen.",
+            "Role_period": "Abschnitt",
+            "Role_period_Desc": "Quartale, Monate, Wochen, Halbzeiten: die Spalten des Spielverlaufs und der aktuelle Abschnitt auf der Uhr.",
+            "Role_score": "Punktestand",
+            "Role_score_Desc": "Das erste Measure ist der Punktestand, weitere werden als Statistiken verglichen. Ohne Seite sind zwei oder mehr Measures die Seiten (Vorjahr gegen dieses Jahr).",
+            "Role_side": "Seite",
+            "Role_side_Desc": "Jeder Wert ist ein Gegner: Werk, Team, Region, Person. Ohne Seite spielen zwei Measures gegeneinander.",
+            "Role_start": "Beginn",
+            "Role_start_Desc": "Beginn des Wettbewerbs (ein Datums-Measure). Mit Ende zeigt die Uhr die Spielminute.",
+            "Role_tooltips": "QuickInfos",
+            "Role_tooltips_Desc": "Weitere Measures in der QuickInfo.",
+            "UI_AriaBoard": "{0}. Seite {1} von {2}.",
+            "UI_AriaKeys": "Pfeiltasten wechseln zwischen Seiten, Abschnitten, Ereignissen und Zeilen; Enter w\u00e4hlt aus, Escape hebt auf, Bild auf und Bild ab wechseln das Spiel, P h\u00e4lt das Bl\u00e4ttern an.",
+            "UI_Blank": "(Leer)",
+            "UI_BottomZone": "Untere Zone",
+            "UI_Clock_final": "Ende",
+            "UI_Clock_fullTime": "Abpfiff",
+            "UI_Clock_kickOff": "Anpfiff",
+            "UI_Clock_live": "Live",
+            "UI_Clock_period": "Abschnitt",
+            "UI_Clock_time": "Zeit",
+            "UI_Clock_toGo": "Noch",
+            "UI_Col_A": "K",
+            "UI_Col_D": "U",
+            "UI_Col_F": "E",
+            "UI_Col_Form": "Form",
+            "UI_Col_Gap": "Abstand",
+            "UI_Col_L": "N",
+            "UI_Col_Measure": "Kennzahl",
+            "UI_Col_P": "Sp",
+            "UI_Col_Pos": "#",
+            "UI_Col_Pts": "Pkt",
+            "UI_Col_Side": "Seite",
+            "UI_Col_W": "S",
+            "UI_CombineEvents": "Mit einem Feld Ereignis ist jeder Auftrag eine Zeile, eine Quote wird also ungewichtet \u00fcber Ereignisse gemittelt: nehmen Sie lieber ein Anzahl- oder Summen-Measure oder w\u00e4hlen Sie Letzter Wert.",
+            "UI_CombineHint": "Automatisch addiert Zahlen und mittelt Prozente und Verh\u00e4ltnisse. Eine eindeutige Anzahl, ein Durchschnitt oder ein Bestand (Lager, Mitarbeiter) addiert sich nicht \u00fcber Abschnitte: w\u00e4hlen Sie Durchschnitt, Letzter Wert oder Maximum.",
+            "UI_DayLetter": "T",
+            "UI_DefaultTitle": "Anzeigetafel",
+            "UI_Goal": "TOR!",
+            "UI_HigherBetter": "H\u00f6her ist besser",
+            "UI_LandingBullet1": "Spielzentrale, TV-Einblendung, LED-Anzeigetafel und Tabelle",
+            "UI_LandingBullet2": "F\u00fchrung, Unentschieden und Sieg mit dem niedrigeren Wert, gezeigt durch Form und Wort, nie nur Farbe",
+            "UI_LandingBullet3": "Bl\u00e4ttert auf dem Wandbildschirm durch die Spiele; Werte z\u00e4hlen nur bei neuen Daten hoch",
+            "UI_LandingBy": "von SmartVisuals - kostenlos",
+            "UI_LandingDemoTitle": "Helios Plant Cup",
+            "UI_LandingHint": "F\u00fcgen Sie ein Feld Seite und ein Measure Punktestand hinzu, oder zwei Measures wie Dieses Jahr und Vorjahr. Abschnitt, Spiel, Ereignis und Beginn/Ende bringen Verlauf, Seitenwechsel, Tore und die Uhr.",
+            "UI_LandingHintScore": "F\u00fcgen Sie jetzt ein Measure Punktestand hinzu: das erste ist der Punktestand, weitere werden Statistiken.",
+            "UI_LandingTitle": "SmartVisuals Scoreboard",
+            "UI_Latest": "Neueste",
+            "UI_Lead": "F\u00fchrung",
+            "UI_LeadChange": "{0} geht in F\u00fchrung",
+            "UI_Leader": "F\u00fchrt",
+            "UI_LeadsBy": "f\u00fchrt mit",
+            "UI_LogoHow": "Das Feld Logo nimmt pro Seite einen Textwert wie data:image/png;base64,iVBOR..., in Power Query gebaut mit \"data:image/png;base64,\" & Binary.ToText(<Dateiinhalt>, BinaryEncoding.Base64). Kleine Bilder (64-128 px, unter 20 KB) eignen sich am besten.",
+            "UI_LogoNeedsSide": "Logos zeigen (braucht ein Feld Seite)",
+            "UI_LogoRefused": "{0} Logo(s) nicht gezeigt",
+            "UI_LogoShowRefused": "Logos zeigen ({0} nicht gezeigt)",
+            "UI_LogoWhy_invalid": "Der Wert ist keine Base64-Bild-Data-URI.",
+            "UI_LogoWhy_notImage": "Der Wert ist eine Data-URI, aber kein Bild.",
+            "UI_LogoWhy_truncated": "Das Bild ist l\u00e4nger als die 32.766 Zeichen, die Power BI in einem Textwert beh\u00e4lt, und kommt abgeschnitten an; nehmen Sie ein kleineres Bild (etwa 20 KB oder weniger).",
+            "UI_LogoWhy_url": "Eine Webadresse wird nie geladen: das Visual macht keine externen Aufrufe.",
+            "UI_LowerBetter": "Niedriger ist besser",
+            "UI_Momentum": "Momentum",
+            "UI_MoreMeasures": "+{0} weitere Measures in der QuickInfo",
+            "UI_MoreSides": "+{0} weitere",
+            "UI_NoEvents": "Noch keine Ereignisse",
+            "UI_NoRowsHint": "Die Filter dieser Seite lassen nichts zum Z\u00e4hlen \u00fcbrig.",
+            "UI_NoRowsTitle": "Noch kein Punktestand",
+            "UI_NoScore": "Kein Wert",
+            "UI_OfTotal": "von {0}",
+            "UI_OneSide": "F\u00fcgen Sie eine zweite Seite oder ein zweites Measure hinzu, um ein Spiel zu spielen.",
+            "UI_Page": "{0} / {1}",
+            "UI_Paused": "Angehalten",
+            "UI_PctPoints": "{0} Pp.",
+            "UI_PerMatch": "Schnitt pro Spiel",
+            "UI_Place": "Platz {0}",
+            "UI_RatioHint": "sieht aus wie ein Verh\u00e4ltnis",
+            "UI_RatioHintDesc": "Alle Werte liegen zwischen -1 und 1 wie bei einem Verh\u00e4ltnis, aber das Modellformat gibt ihnen Dezimalstellen, daher beh\u00e4lt die Tafel die Zahl und addiert Abschnitte. Prozent zeigt 0,873 als 87,3 % und mittelt die Abschnitte.",
+            "UI_RatioShown": "Verh\u00e4ltnis in %",
+            "UI_RatioShownDesc": "Alle Werte liegen zwischen -1 und 1 und das Modellformat hat kein %, daher zeigt die Tafel Prozent (0,873 = 87,3 %) und mittelt Abschnitte, statt sie zu addieren. Zahl zeigt die Dezimalzahlen, weiter gemittelt; wie Abschnitte zusammenkommen, bestimmt Abschnitte zusammenfassen als.",
+            "UI_Record": "{0} / {1} / {2} / {3}",
+            "UI_ResultWord_D": "Unentschieden",
+            "UI_ResultWord_L": "Niederlage",
+            "UI_ResultWord_W": "Sieg",
+            "UI_Result_D": "U",
+            "UI_Result_L": "N",
+            "UI_Result_W": "S",
+            "UI_Share": "Anteil am Gesamtwert",
+            "UI_ShareLower": "Anteil, niedriger ist besser",
+            "UI_Standings": "Tabelle",
+            "UI_TT_Better": "Regel",
+            "UI_TT_Event": "Ereignis",
+            "UI_TT_ForAgainst": "Erzielt : kassiert",
+            "UI_TT_Form": "Form, \u00e4lteste zuerst",
+            "UI_TT_Highlighted": "Hervorgehoben",
+            "UI_TT_MeasuresWon": "Gewonnene Measures",
+            "UI_TT_Period": "Abschnitt",
+            "UI_TT_Position": "Position",
+            "UI_TT_Record": "Spiele / Siege / Unentschieden / Niederlagen",
+            "UI_TT_Side": "Seite",
+            "UI_TT_Time": "Zeit",
+            "UI_Tied": "Unentschieden",
+            "UI_TopZone": "Obere Zone",
+            "UI_TotalShort": "G",
+            "UI_Trimmed": "Bis zu {0} Zeilen",
+            "UI_TrimmedDetail": "Die Tafel liest bis zu {0} Zeilen (das gr\u00f6\u00dfte Datenfenster, das Power BI einem Visual erlaubt) und nutzt daher die ersten {0}; filtern Sie die Seite oder binden Sie weniger Felder.",
+            "UI_Unit_M": "Millionen",
+            "UI_Unit_bn": "Milliarden",
+            "UI_Unit_k": "Tausend",
+            "UI_Unit_pct": "Prozent",
+            "UI_Vs": "gegen",
+            "UI_Winner": "Sieger",
+            "UI_WinsBy": "{0} gewinnt mit {1}"
+        },
+        "en-US": {
+            "Enum_header_clockFormat_12": "12-hour (2:05 PM)",
+            "Enum_header_clockFormat_24": "24-hour (14:05)",
+            "Enum_header_clockMode_auto": "Auto",
+            "Enum_header_clockMode_countdown": "Countdown to End",
+            "Enum_header_clockMode_minute": "Match minute (Start to End)",
+            "Enum_header_clockMode_off": "Off",
+            "Enum_header_clockMode_period": "Current period",
+            "Enum_header_clockMode_time": "Time of day",
+            "Enum_layout_layout_auto": "Auto",
+            "Enum_layout_layout_bug": "Score bug",
+            "Enum_layout_layout_led": "LED board",
+            "Enum_layout_layout_match": "Match centre",
+            "Enum_layout_layout_table": "League table",
+            "Enum_layout_sideOrder_data": "As in the data",
+            "Enum_layout_sideOrder_leader": "Leader first",
+            "Enum_layout_sideOrder_name": "Alphabetical",
+            "Enum_layout_style_boardroom": "Boardroom (plain)",
+            "Enum_layout_style_scoreboard": "Scoreboard",
+            "Enum_match_leadAs_amount": "Amount (1,250)",
+            "Enum_match_leadAs_both": "Both (1,250 / 5.6%)",
+            "Enum_match_leadAs_pct": "Percent (5.6%)",
+            "Enum_match_scoring_first": "First measure",
+            "Enum_match_scoring_won": "Measures won",
+            "Enum_match_tieMode_abs": "Absolute",
+            "Enum_match_tieMode_pct": "Percent of the higher score",
+            "Enum_measures_combine_auto": "Auto",
+            "Enum_measures_combine_avg": "Average",
+            "Enum_measures_combine_latest": "Latest",
+            "Enum_measures_combine_max": "Maximum",
+            "Enum_measures_combine_min": "Minimum",
+            "Enum_measures_combine_sum": "Sum",
+            "Enum_measures_showAs_auto": "Auto (a ratio as a percentage)",
+            "Enum_measures_showAs_number": "Number, as in the model",
+            "Enum_measures_showAs_percent": "Percentage",
+            "Enum_numbers_decimals_0": "0",
+            "Enum_numbers_decimals_1": "1",
+            "Enum_numbers_decimals_2": "2",
+            "Enum_numbers_decimals_auto": "Auto",
+            "Enum_numbers_display_compact": "Compact (1.2K)",
+            "Enum_numbers_display_full": "Full (1,240)",
+            "Enum_text_font_auto": "Follow the theme",
+            "Enum_text_font_barlow": "Broadcast (Barlow Condensed)",
+            "Enum_text_font_led": "LED seven-segment",
+            "Enum_text_font_ui": "Segoe UI",
+            "Enum_text_letterCase_asis": "As in the data",
+            "Enum_text_letterCase_auto": "Follow the theme",
+            "Enum_text_letterCase_upper": "UPPER CASE",
+            "Enum_theme_selectedTheme_clean": "Clean",
+            "Enum_theme_selectedTheme_dark": "Dark",
+            "Enum_theme_selectedTheme_slate": "Slate",
+            "Enum_theme_selectedTheme_smartvisuals": "SmartVisuals",
+            "Obj_animation": "Animation",
+            "Obj_colors": "Colors",
+            "Obj_header": "Header",
+            "Obj_layout": "Layout",
+            "Obj_logos": "Logos",
+            "Obj_match": "Match Rules",
+            "Obj_measures": "Measures",
+            "Obj_numbers": "Numbers",
+            "Obj_paging": "Paging and Screen",
+            "Obj_sides": "Sides",
+            "Obj_text": "Text",
+            "Obj_theme": "Theme",
+            "Prop_animation_animate": "Animate Score Changes",
+            "Prop_animation_celebrate": "Celebrate New Events",
+            "Prop_animation_celebrateSeconds": "Celebration Seconds",
+            "Prop_animation_celebrateText": "Celebration Word",
+            "Prop_animation_duration": "Roll Duration (ms)",
+            "Prop_colors_accent": "Accent (Lead Marker, Rule)",
+            "Prop_colors_bg": "Background",
+            "Prop_colors_celebrate": "Celebration Band",
+            "Prop_colors_clockBg": "Clock Box",
+            "Prop_colors_clockInk": "Clock Text",
+            "Prop_colors_draw": "Draw",
+            "Prop_colors_ink": "Text",
+            "Prop_colors_ledAlt": "LED Clock And Messages",
+            "Prop_colors_ledBg": "LED Housing",
+            "Prop_colors_ledCaption": "LED Printed Captions",
+            "Prop_colors_ledGhost": "LED Unlit Segments",
+            "Prop_colors_ledOn": "LED Digits",
+            "Prop_colors_loss": "Loss",
+            "Prop_colors_muted": "Captions",
+            "Prop_colors_panel": "Panel",
+            "Prop_colors_panelAlt": "Row Stripes",
+            "Prop_colors_scoreInk": "Score Digits",
+            "Prop_colors_win": "Win",
+            "Prop_header_clockFormat": "Time Format",
+            "Prop_header_clockMode": "Clock",
+            "Prop_header_regulation": "Match Length (Minutes)",
+            "Prop_header_show": "Show Header",
+            "Prop_header_showCaption": "Show Clock Caption",
+            "Prop_header_showRule": "Show Header Rule",
+            "Prop_header_subtitle": "Subtitle",
+            "Prop_header_title": "Title",
+            "Prop_header_titleSize": "Title Size (%)",
+            "Prop_layout_eventCount": "Events Shown",
+            "Prop_layout_layout": "Layout",
+            "Prop_layout_maxPeriods": "Periods Shown (0 = All That Fit)",
+            "Prop_layout_showCodes": "Show Short Codes",
+            "Prop_layout_showEvents": "Show Events Feed",
+            "Prop_layout_showLinescore": "Show Period Linescore",
+            "Prop_layout_showMomentum": "Show Momentum Strip",
+            "Prop_layout_showShare": "Show Share Bar",
+            "Prop_layout_showStats": "Show Stats Comparison",
+            "Prop_layout_sideOrder": "Side Order",
+            "Prop_layout_style": "Style",
+            "Prop_logos_show": "Show Logos",
+            "Prop_logos_size": "Logo Size (%)",
+            "Prop_match_bottomZone": "Bottom Zone Rows",
+            "Prop_match_bottomZoneLabel": "Bottom Zone Label",
+            "Prop_match_formLength": "Form Guide Length",
+            "Prop_match_leadAs": "Lead Shown As",
+            "Prop_match_leadWord": "Lead Word",
+            "Prop_match_pointsDraw": "Points For A Draw",
+            "Prop_match_pointsLoss": "Points For A Loss",
+            "Prop_match_pointsWin": "Points For A Win",
+            "Prop_match_scoring": "Score",
+            "Prop_match_showLead": "Show Lead Text",
+            "Prop_match_tieMargin": "Tie Margin",
+            "Prop_match_tieMode": "Tie Margin Type",
+            "Prop_match_tiedWord": "Tied Word",
+            "Prop_match_topZone": "Top Zone Rows",
+            "Prop_match_topZoneLabel": "Top Zone Label",
+            "Prop_measures_combine": "Combine Periods By",
+            "Prop_measures_label": "Label",
+            "Prop_measures_lowerIsBetter": "Lower Is Better",
+            "Prop_measures_showAs": "Show As",
+            "Prop_numbers_decimals": "Decimals",
+            "Prop_numbers_display": "Display",
+            "Prop_paging_autoPage": "Page Through Matches",
+            "Prop_paging_pauseOnHover": "Pause On Hover",
+            "Prop_paging_pixelShift": "Burn-In Guard (Shift 1 px)",
+            "Prop_paging_seconds": "Seconds Per Match",
+            "Prop_paging_showIndicator": "Show Page Indicator",
+            "Prop_sides_abbrev": "Short Code",
+            "Prop_sides_color": "Color",
+            "Prop_text_font": "Score Font",
+            "Prop_text_labelSize": "Label Size (%)",
+            "Prop_text_letterCase": "Name Case",
+            "Prop_text_nameSize": "Name Size (%)",
+            "Prop_text_scoreSize": "Score Size (%)",
+            "Prop_theme_selectedTheme": "Theme",
+            "Prop_theme_transparentBg": "Transparent Background",
+            "Role_end": "End",
+            "Role_end_Desc": "End of the competition (a date measure): countdown to the whistle, then FINAL.",
+            "Role_eventLabel": "Event",
+            "Role_eventLabel_Desc": "Each row with an event is a goal in the events feed: a deal, an order, a shipment.",
+            "Role_eventTime": "Event Time",
+            "Role_eventTime_Desc": "When the event happened (date/time or text). Sorts the events feed, newest first.",
+            "Role_logo": "Logo",
+            "Role_logo_Desc": "A picture per side: a base64 image data URI (data:image/png;base64,...), for example a Power Query column. Web addresses are never loaded: the visual makes no external calls.",
+            "Role_matchup": "Match",
+            "Role_matchup_Desc": "Groups sides into matches (fixtures, weeks, rounds). The board pages between matches and the league table is built from their results.",
+            "Role_period": "Period",
+            "Role_period_Desc": "Quarters, months, weeks or halves: the linescore columns and the current period on the clock.",
+            "Role_score": "Score",
+            "Role_score_Desc": "The first measure is the score; more measures are compared as stats. With no Side, two or more measures are the sides (This year vs Last year).",
+            "Role_side": "Side",
+            "Role_side_Desc": "Each value is a competitor: plant, team, region, person. Leave empty and bind two measures to play them against each other.",
+            "Role_start": "Start",
+            "Role_start_Desc": "Start of the competition (a date measure). With End, the clock shows the match minute.",
+            "Role_tooltips": "Tooltips",
+            "Role_tooltips_Desc": "Extra measures shown in the tooltip.",
+            "UI_AriaBoard": "{0}. Page {1} of {2}.",
+            "UI_AriaKeys": "Arrow keys move between sides, periods, events and rows; Enter selects, Escape clears, Page Up and Page Down change the match, P pauses paging.",
+            "UI_Blank": "(Blank)",
+            "UI_BottomZone": "Bottom zone",
+            "UI_Clock_final": "Final",
+            "UI_Clock_fullTime": "Full time",
+            "UI_Clock_kickOff": "Kick-off",
+            "UI_Clock_live": "Live",
+            "UI_Clock_period": "Period",
+            "UI_Clock_time": "Time",
+            "UI_Clock_toGo": "To go",
+            "UI_Col_A": "A",
+            "UI_Col_D": "D",
+            "UI_Col_F": "F",
+            "UI_Col_Form": "Form",
+            "UI_Col_Gap": "Gap",
+            "UI_Col_L": "L",
+            "UI_Col_Measure": "Measure",
+            "UI_Col_P": "P",
+            "UI_Col_Pos": "#",
+            "UI_Col_Pts": "Pts",
+            "UI_Col_Side": "Side",
+            "UI_Col_W": "W",
+            "UI_CombineEvents": "With an Event field every order is a row, so a rate is averaged over events, not weighted: prefer a count or sum measure, or choose Latest.",
+            "UI_CombineHint": "Auto adds numbers up and averages percentages and ratios. A distinct count, an average or a balance (stock, headcount) does not add up across periods: choose Average, Latest or Maximum for it.",
+            "UI_DayLetter": "D",
+            "UI_DefaultTitle": "Scoreboard",
+            "UI_Goal": "GOAL!",
+            "UI_HigherBetter": "Higher is better",
+            "UI_LandingBullet1": "Head-to-head, score bug, LED board and league table layouts",
+            "UI_LandingBullet2": "Leads, ties and lower-is-better wins, shown by shape and word, never colour alone",
+            "UI_LandingBullet3": "Pages through matches on a wall screen; scores roll only when the data changes",
+            "UI_LandingBy": "by SmartVisuals - free",
+            "UI_LandingDemoTitle": "Helios Plant Cup",
+            "UI_LandingHint": "Add a Side field and a Score measure - or two measures such as This year and Last year. Period, Match, Event and Start/End add the linescore, paging, goals and the clock.",
+            "UI_LandingHintScore": "Now add a Score measure: the first one is the score, more measures become stats.",
+            "UI_LandingTitle": "SmartVisuals Scoreboard",
+            "UI_Latest": "Latest",
+            "UI_Lead": "Lead",
+            "UI_LeadChange": "{0} takes the lead",
+            "UI_Leader": "Leads",
+            "UI_LeadsBy": "leads by",
+            "UI_LogoHow": "The Logo field takes one text value per side such as data:image/png;base64,iVBOR..., built in Power Query with \"data:image/png;base64,\" & Binary.ToText(<file contents>, BinaryEncoding.Base64). Small images (64-128 px, under 20 KB) work best.",
+            "UI_LogoNeedsSide": "Show Logos (needs a Side field)",
+            "UI_LogoRefused": "{0} logo(s) not shown",
+            "UI_LogoShowRefused": "Show Logos ({0} not shown)",
+            "UI_LogoWhy_invalid": "The value is not a base64 image data URI.",
+            "UI_LogoWhy_notImage": "The value is a data URI but not an image.",
+            "UI_LogoWhy_truncated": "The image is longer than the 32,766 characters Power BI keeps in a text value, so it arrives cut off; use a smaller image (about 20 KB or less).",
+            "UI_LogoWhy_url": "A web address is never loaded: the visual makes no external calls.",
+            "UI_LowerBetter": "Lower is better",
+            "UI_Momentum": "Momentum",
+            "UI_MoreMeasures": "+{0} measures in the tooltip",
+            "UI_MoreSides": "+{0} more",
+            "UI_NoEvents": "No events yet",
+            "UI_NoRowsHint": "The filters on this page leave nothing to score.",
+            "UI_NoRowsTitle": "No score yet",
+            "UI_NoScore": "No score",
+            "UI_OfTotal": "of {0}",
+            "UI_OneSide": "Add a second side, or a second measure, to play a match.",
+            "UI_Page": "{0} / {1}",
+            "UI_Paused": "Paused",
+            "UI_PctPoints": "{0} pts",
+            "UI_PerMatch": "average per match",
+            "UI_Place": "Place {0}",
+            "UI_RatioHint": "looks like a ratio",
+            "UI_RatioHintDesc": "Every value is between -1 and 1, like a ratio, but the model format gives it decimals, so the board keeps the number and adds periods up. Choose Percentage to show 0.873 as 87.3% and average the periods.",
+            "UI_RatioShown": "ratio shown as %",
+            "UI_RatioShownDesc": "Every value is between -1 and 1 and the model format has no %, so the board shows it as a percentage (0.873 reads 87.3%) and averages it across periods instead of adding. Number shows the raw decimals, still averaged; Combine Periods By decides how periods combine.",
+            "UI_Record": "{0} / {1} / {2} / {3}",
+            "UI_ResultWord_D": "Draw",
+            "UI_ResultWord_L": "Loss",
+            "UI_ResultWord_W": "Win",
+            "UI_Result_D": "D",
+            "UI_Result_L": "L",
+            "UI_Result_W": "W",
+            "UI_Share": "Share of the total",
+            "UI_ShareLower": "Share, lower is better",
+            "UI_Standings": "Standings",
+            "UI_TT_Better": "Rule",
+            "UI_TT_Event": "Event",
+            "UI_TT_ForAgainst": "For : against",
+            "UI_TT_Form": "Form, oldest first",
+            "UI_TT_Highlighted": "Highlighted",
+            "UI_TT_MeasuresWon": "Measures won",
+            "UI_TT_Period": "Period",
+            "UI_TT_Position": "Position",
+            "UI_TT_Record": "Played / won / drawn / lost",
+            "UI_TT_Side": "Side",
+            "UI_TT_Time": "Time",
+            "UI_Tied": "Tied",
+            "UI_TopZone": "Top zone",
+            "UI_TotalShort": "T",
+            "UI_Trimmed": "Up to {0} rows",
+            "UI_TrimmedDetail": "The scoreboard reads up to {0} rows (Power BI's largest data window for a visual), so it uses the first {0}; filter the page or bind fewer fields to include everything.",
+            "UI_Unit_M": "Millions",
+            "UI_Unit_bn": "Billions",
+            "UI_Unit_k": "Thousands",
+            "UI_Unit_pct": "Percent",
+            "UI_Vs": "vs",
+            "UI_Winner": "Winner",
+            "UI_WinsBy": "{0} wins by {1}"
+        }
+    },
+    "capabilities": {
+        "privileges": [],
+        "dataRoles": [
+            {
+                "name": "side",
+                "kind": "Grouping",
+                "displayName": "Side",
+                "displayNameKey": "Role_side",
+                "description": "Each value is a competitor: plant, team, region, person. Leave empty and bind two measures to play them against each other.",
+                "descriptionKey": "Role_side_Desc"
+            },
+            {
+                "name": "score",
+                "kind": "Measure",
+                "displayName": "Score",
+                "displayNameKey": "Role_score",
+                "description": "The first measure is the score; more measures are compared as stats. With no Side, two or more measures are the sides (This year vs Last year).",
+                "descriptionKey": "Role_score_Desc"
+            },
+            {
+                "name": "matchup",
+                "kind": "Grouping",
+                "displayName": "Match",
+                "displayNameKey": "Role_matchup",
+                "description": "Groups sides into matches (fixtures, weeks, rounds). The board pages between matches and the league table is built from their results.",
+                "descriptionKey": "Role_matchup_Desc"
+            },
+            {
+                "name": "period",
+                "kind": "Grouping",
+                "displayName": "Period",
+                "displayNameKey": "Role_period",
+                "description": "Quarters, months, weeks or halves: the linescore columns and the current period on the clock.",
+                "descriptionKey": "Role_period_Desc"
+            },
+            {
+                "name": "eventLabel",
+                "kind": "Grouping",
+                "displayName": "Event",
+                "displayNameKey": "Role_eventLabel",
+                "description": "Each row with an event is a goal in the events feed: a deal, an order, a shipment.",
+                "descriptionKey": "Role_eventLabel_Desc"
+            },
+            {
+                "name": "eventTime",
+                "kind": "Grouping",
+                "displayName": "Event Time",
+                "displayNameKey": "Role_eventTime",
+                "description": "When the event happened (date/time or text). Sorts the events feed, newest first.",
+                "descriptionKey": "Role_eventTime_Desc"
+            },
+            {
+                "name": "start",
+                "kind": "Measure",
+                "displayName": "Start",
+                "displayNameKey": "Role_start",
+                "description": "Start of the competition (a date measure). With End, the clock shows the match minute.",
+                "descriptionKey": "Role_start_Desc"
+            },
+            {
+                "name": "end",
+                "kind": "Measure",
+                "displayName": "End",
+                "displayNameKey": "Role_end",
+                "description": "End of the competition (a date measure): countdown to the whistle, then FINAL.",
+                "descriptionKey": "Role_end_Desc"
+            },
+            {
+                "name": "logo",
+                "kind": "Grouping",
+                "displayName": "Logo",
+                "displayNameKey": "Role_logo",
+                "description": "A picture per side: a base64 image data URI (data:image/png;base64,...), for example a Power Query column. Web addresses are never loaded: the visual makes no external calls.",
+                "descriptionKey": "Role_logo_Desc"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "Role_tooltips",
+                "description": "Extra measures shown in the tooltip.",
+                "descriptionKey": "Role_tooltips_Desc"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "side": {
+                            "max": 1
+                        },
+                        "score": {
+                            "max": 8
+                        },
+                        "matchup": {
+                            "max": 1
+                        },
+                        "period": {
+                            "max": 1
+                        },
+                        "eventLabel": {
+                            "max": 1
+                        },
+                        "eventTime": {
+                            "max": 1
+                        },
+                        "logo": {
+                            "max": 1
+                        },
+                        "start": {
+                            "max": 1
+                        },
+                        "end": {
+                            "max": 1
+                        },
+                        "tooltips": {
+                            "max": 8
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "matchup"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "side"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "period"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "eventTime"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "eventLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "logo"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "score"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "start"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "end"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "sorting": {
+            "default": {}
+        },
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "objects": {
+            "theme": {
+                "displayName": "Theme",
+                "displayNameKey": "Obj_theme",
+                "properties": {
+                    "selectedTheme": {
+                        "displayName": "Theme",
+                        "displayNameKey": "Prop_theme_selectedTheme",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "smartvisuals",
+                                    "displayName": "SmartVisuals",
+                                    "displayNameKey": "Enum_theme_selectedTheme_smartvisuals"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Dark",
+                                    "displayNameKey": "Enum_theme_selectedTheme_dark"
+                                },
+                                {
+                                    "value": "clean",
+                                    "displayName": "Clean",
+                                    "displayNameKey": "Enum_theme_selectedTheme_clean"
+                                },
+                                {
+                                    "value": "slate",
+                                    "displayName": "Slate",
+                                    "displayNameKey": "Enum_theme_selectedTheme_slate"
+                                }
+                            ]
+                        }
+                    },
+                    "transparentBg": {
+                        "displayName": "Transparent Background",
+                        "displayNameKey": "Prop_theme_transparentBg",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "displayName": "Layout",
+                "displayNameKey": "Obj_layout",
+                "properties": {
+                    "layout": {
+                        "displayName": "Layout",
+                        "displayNameKey": "Prop_layout_layout",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto",
+                                    "displayNameKey": "Enum_layout_layout_auto"
+                                },
+                                {
+                                    "value": "match",
+                                    "displayName": "Match centre",
+                                    "displayNameKey": "Enum_layout_layout_match"
+                                },
+                                {
+                                    "value": "bug",
+                                    "displayName": "Score bug",
+                                    "displayNameKey": "Enum_layout_layout_bug"
+                                },
+                                {
+                                    "value": "led",
+                                    "displayName": "LED board",
+                                    "displayNameKey": "Enum_layout_layout_led"
+                                },
+                                {
+                                    "value": "table",
+                                    "displayName": "League table",
+                                    "displayNameKey": "Enum_layout_layout_table"
+                                }
+                            ]
+                        }
+                    },
+                    "style": {
+                        "displayName": "Style",
+                        "displayNameKey": "Prop_layout_style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "scoreboard",
+                                    "displayName": "Scoreboard",
+                                    "displayNameKey": "Enum_layout_style_scoreboard"
+                                },
+                                {
+                                    "value": "boardroom",
+                                    "displayName": "Boardroom (plain)",
+                                    "displayNameKey": "Enum_layout_style_boardroom"
+                                }
+                            ]
+                        }
+                    },
+                    "sideOrder": {
+                        "displayName": "Side Order",
+                        "displayNameKey": "Prop_layout_sideOrder",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "data",
+                                    "displayName": "As in the data",
+                                    "displayNameKey": "Enum_layout_sideOrder_data"
+                                },
+                                {
+                                    "value": "leader",
+                                    "displayName": "Leader first",
+                                    "displayNameKey": "Enum_layout_sideOrder_leader"
+                                },
+                                {
+                                    "value": "name",
+                                    "displayName": "Alphabetical",
+                                    "displayNameKey": "Enum_layout_sideOrder_name"
+                                }
+                            ]
+                        }
+                    },
+                    "showLinescore": {
+                        "displayName": "Show Period Linescore",
+                        "displayNameKey": "Prop_layout_showLinescore",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maxPeriods": {
+                        "displayName": "Periods Shown (0 = All That Fit)",
+                        "displayNameKey": "Prop_layout_maxPeriods",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showShare": {
+                        "displayName": "Show Share Bar",
+                        "displayNameKey": "Prop_layout_showShare",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showMomentum": {
+                        "displayName": "Show Momentum Strip",
+                        "displayNameKey": "Prop_layout_showMomentum",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showStats": {
+                        "displayName": "Show Stats Comparison",
+                        "displayNameKey": "Prop_layout_showStats",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showEvents": {
+                        "displayName": "Show Events Feed",
+                        "displayNameKey": "Prop_layout_showEvents",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "eventCount": {
+                        "displayName": "Events Shown",
+                        "displayNameKey": "Prop_layout_eventCount",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showCodes": {
+                        "displayName": "Show Short Codes",
+                        "displayNameKey": "Prop_layout_showCodes",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "match": {
+                "displayName": "Match Rules",
+                "displayNameKey": "Obj_match",
+                "properties": {
+                    "scoring": {
+                        "displayName": "Score",
+                        "displayNameKey": "Prop_match_scoring",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "first",
+                                    "displayName": "First measure",
+                                    "displayNameKey": "Enum_match_scoring_first"
+                                },
+                                {
+                                    "value": "won",
+                                    "displayName": "Measures won",
+                                    "displayNameKey": "Enum_match_scoring_won"
+                                }
+                            ]
+                        }
+                    },
+                    "tieMode": {
+                        "displayName": "Tie Margin Type",
+                        "displayNameKey": "Prop_match_tieMode",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "abs",
+                                    "displayName": "Absolute",
+                                    "displayNameKey": "Enum_match_tieMode_abs"
+                                },
+                                {
+                                    "value": "pct",
+                                    "displayName": "Percent of the higher score",
+                                    "displayNameKey": "Enum_match_tieMode_pct"
+                                }
+                            ]
+                        }
+                    },
+                    "tieMargin": {
+                        "displayName": "Tie Margin",
+                        "displayNameKey": "Prop_match_tieMargin",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showLead": {
+                        "displayName": "Show Lead Text",
+                        "displayNameKey": "Prop_match_showLead",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "leadAs": {
+                        "displayName": "Lead Shown As",
+                        "displayNameKey": "Prop_match_leadAs",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "amount",
+                                    "displayName": "Amount (1,250)",
+                                    "displayNameKey": "Enum_match_leadAs_amount"
+                                },
+                                {
+                                    "value": "pct",
+                                    "displayName": "Percent (5.6%)",
+                                    "displayNameKey": "Enum_match_leadAs_pct"
+                                },
+                                {
+                                    "value": "both",
+                                    "displayName": "Both (1,250 / 5.6%)",
+                                    "displayNameKey": "Enum_match_leadAs_both"
+                                }
+                            ]
+                        }
+                    },
+                    "leadWord": {
+                        "displayName": "Lead Word",
+                        "displayNameKey": "Prop_match_leadWord",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "tiedWord": {
+                        "displayName": "Tied Word",
+                        "displayNameKey": "Prop_match_tiedWord",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "pointsWin": {
+                        "displayName": "Points For A Win",
+                        "displayNameKey": "Prop_match_pointsWin",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "pointsDraw": {
+                        "displayName": "Points For A Draw",
+                        "displayNameKey": "Prop_match_pointsDraw",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "pointsLoss": {
+                        "displayName": "Points For A Loss",
+                        "displayNameKey": "Prop_match_pointsLoss",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "formLength": {
+                        "displayName": "Form Guide Length",
+                        "displayNameKey": "Prop_match_formLength",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "topZone": {
+                        "displayName": "Top Zone Rows",
+                        "displayNameKey": "Prop_match_topZone",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "topZoneLabel": {
+                        "displayName": "Top Zone Label",
+                        "displayNameKey": "Prop_match_topZoneLabel",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "bottomZone": {
+                        "displayName": "Bottom Zone Rows",
+                        "displayNameKey": "Prop_match_bottomZone",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bottomZoneLabel": {
+                        "displayName": "Bottom Zone Label",
+                        "displayNameKey": "Prop_match_bottomZoneLabel",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "header": {
+                "displayName": "Header",
+                "displayNameKey": "Obj_header",
+                "properties": {
+                    "show": {
+                        "displayName": "Show Header",
+                        "displayNameKey": "Prop_header_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "title": {
+                        "displayName": "Title",
+                        "displayNameKey": "Prop_header_title",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtitle": {
+                        "displayName": "Subtitle",
+                        "displayNameKey": "Prop_header_subtitle",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "titleSize": {
+                        "displayName": "Title Size (%)",
+                        "displayNameKey": "Prop_header_titleSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "clockMode": {
+                        "displayName": "Clock",
+                        "displayNameKey": "Prop_header_clockMode",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto",
+                                    "displayNameKey": "Enum_header_clockMode_auto"
+                                },
+                                {
+                                    "value": "off",
+                                    "displayName": "Off",
+                                    "displayNameKey": "Enum_header_clockMode_off"
+                                },
+                                {
+                                    "value": "period",
+                                    "displayName": "Current period",
+                                    "displayNameKey": "Enum_header_clockMode_period"
+                                },
+                                {
+                                    "value": "countdown",
+                                    "displayName": "Countdown to End",
+                                    "displayNameKey": "Enum_header_clockMode_countdown"
+                                },
+                                {
+                                    "value": "minute",
+                                    "displayName": "Match minute (Start to End)",
+                                    "displayNameKey": "Enum_header_clockMode_minute"
+                                },
+                                {
+                                    "value": "time",
+                                    "displayName": "Time of day",
+                                    "displayNameKey": "Enum_header_clockMode_time"
+                                }
+                            ]
+                        }
+                    },
+                    "clockFormat": {
+                        "displayName": "Time Format",
+                        "displayNameKey": "Prop_header_clockFormat",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "24",
+                                    "displayName": "24-hour (14:05)",
+                                    "displayNameKey": "Enum_header_clockFormat_24"
+                                },
+                                {
+                                    "value": "12",
+                                    "displayName": "12-hour (2:05 PM)",
+                                    "displayNameKey": "Enum_header_clockFormat_12"
+                                }
+                            ]
+                        }
+                    },
+                    "regulation": {
+                        "displayName": "Match Length (Minutes)",
+                        "displayNameKey": "Prop_header_regulation",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showCaption": {
+                        "displayName": "Show Clock Caption",
+                        "displayNameKey": "Prop_header_showCaption",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showRule": {
+                        "displayName": "Show Header Rule",
+                        "displayNameKey": "Prop_header_showRule",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "sides": {
+                "displayName": "Sides",
+                "displayNameKey": "Obj_sides",
+                "properties": {
+                    "color": {
+                        "displayName": "Color",
+                        "displayNameKey": "Prop_sides_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "abbrev": {
+                        "displayName": "Short Code",
+                        "displayNameKey": "Prop_sides_abbrev",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "measures": {
+                "displayName": "Measures",
+                "displayNameKey": "Obj_measures",
+                "properties": {
+                    "label": {
+                        "displayName": "Label",
+                        "displayNameKey": "Prop_measures_label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "lowerIsBetter": {
+                        "displayName": "Lower Is Better",
+                        "displayNameKey": "Prop_measures_lowerIsBetter",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "combine": {
+                        "displayName": "Combine Periods By",
+                        "displayNameKey": "Prop_measures_combine",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto",
+                                    "displayNameKey": "Enum_measures_combine_auto"
+                                },
+                                {
+                                    "value": "sum",
+                                    "displayName": "Sum",
+                                    "displayNameKey": "Enum_measures_combine_sum"
+                                },
+                                {
+                                    "value": "avg",
+                                    "displayName": "Average",
+                                    "displayNameKey": "Enum_measures_combine_avg"
+                                },
+                                {
+                                    "value": "latest",
+                                    "displayName": "Latest",
+                                    "displayNameKey": "Enum_measures_combine_latest"
+                                },
+                                {
+                                    "value": "max",
+                                    "displayName": "Maximum",
+                                    "displayNameKey": "Enum_measures_combine_max"
+                                },
+                                {
+                                    "value": "min",
+                                    "displayName": "Minimum",
+                                    "displayNameKey": "Enum_measures_combine_min"
+                                }
+                            ]
+                        }
+                    },
+                    "showAs": {
+                        "displayName": "Show As",
+                        "displayNameKey": "Prop_measures_showAs",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (a ratio as a percentage)",
+                                    "displayNameKey": "Enum_measures_showAs_auto"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "Percentage",
+                                    "displayNameKey": "Enum_measures_showAs_percent"
+                                },
+                                {
+                                    "value": "number",
+                                    "displayName": "Number, as in the model",
+                                    "displayNameKey": "Enum_measures_showAs_number"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "logos": {
+                "displayName": "Logos",
+                "displayNameKey": "Obj_logos",
+                "properties": {
+                    "show": {
+                        "displayName": "Show Logos",
+                        "displayNameKey": "Prop_logos_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "size": {
+                        "displayName": "Logo Size (%)",
+                        "displayNameKey": "Prop_logos_size",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "numbers": {
+                "displayName": "Numbers",
+                "displayNameKey": "Obj_numbers",
+                "properties": {
+                    "display": {
+                        "displayName": "Display",
+                        "displayNameKey": "Prop_numbers_display",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "full",
+                                    "displayName": "Full (1,240)",
+                                    "displayNameKey": "Enum_numbers_display_full"
+                                },
+                                {
+                                    "value": "compact",
+                                    "displayName": "Compact (1.2K)",
+                                    "displayNameKey": "Enum_numbers_display_compact"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "displayName": "Decimals",
+                        "displayNameKey": "Prop_numbers_decimals",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto",
+                                    "displayNameKey": "Enum_numbers_decimals_auto"
+                                },
+                                {
+                                    "value": "0",
+                                    "displayName": "0",
+                                    "displayNameKey": "Enum_numbers_decimals_0"
+                                },
+                                {
+                                    "value": "1",
+                                    "displayName": "1",
+                                    "displayNameKey": "Enum_numbers_decimals_1"
+                                },
+                                {
+                                    "value": "2",
+                                    "displayName": "2",
+                                    "displayNameKey": "Enum_numbers_decimals_2"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "text": {
+                "displayName": "Text",
+                "displayNameKey": "Obj_text",
+                "properties": {
+                    "font": {
+                        "displayName": "Score Font",
+                        "displayNameKey": "Prop_text_font",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Follow the theme",
+                                    "displayNameKey": "Enum_text_font_auto"
+                                },
+                                {
+                                    "value": "barlow",
+                                    "displayName": "Broadcast (Barlow Condensed)",
+                                    "displayNameKey": "Enum_text_font_barlow"
+                                },
+                                {
+                                    "value": "led",
+                                    "displayName": "LED seven-segment",
+                                    "displayNameKey": "Enum_text_font_led"
+                                },
+                                {
+                                    "value": "ui",
+                                    "displayName": "Segoe UI",
+                                    "displayNameKey": "Enum_text_font_ui"
+                                }
+                            ]
+                        }
+                    },
+                    "letterCase": {
+                        "displayName": "Name Case",
+                        "displayNameKey": "Prop_text_letterCase",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Follow the theme",
+                                    "displayNameKey": "Enum_text_letterCase_auto"
+                                },
+                                {
+                                    "value": "upper",
+                                    "displayName": "UPPER CASE",
+                                    "displayNameKey": "Enum_text_letterCase_upper"
+                                },
+                                {
+                                    "value": "asis",
+                                    "displayName": "As in the data",
+                                    "displayNameKey": "Enum_text_letterCase_asis"
+                                }
+                            ]
+                        }
+                    },
+                    "scoreSize": {
+                        "displayName": "Score Size (%)",
+                        "displayNameKey": "Prop_text_scoreSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "nameSize": {
+                        "displayName": "Name Size (%)",
+                        "displayNameKey": "Prop_text_nameSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "labelSize": {
+                        "displayName": "Label Size (%)",
+                        "displayNameKey": "Prop_text_labelSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "animation": {
+                "displayName": "Animation",
+                "displayNameKey": "Obj_animation",
+                "properties": {
+                    "animate": {
+                        "displayName": "Animate Score Changes",
+                        "displayNameKey": "Prop_animation_animate",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "duration": {
+                        "displayName": "Roll Duration (ms)",
+                        "displayNameKey": "Prop_animation_duration",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "celebrate": {
+                        "displayName": "Celebrate New Events",
+                        "displayNameKey": "Prop_animation_celebrate",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "celebrateText": {
+                        "displayName": "Celebration Word",
+                        "displayNameKey": "Prop_animation_celebrateText",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "celebrateSeconds": {
+                        "displayName": "Celebration Seconds",
+                        "displayNameKey": "Prop_animation_celebrateSeconds",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "paging": {
+                "displayName": "Paging and Screen",
+                "displayNameKey": "Obj_paging",
+                "properties": {
+                    "autoPage": {
+                        "displayName": "Page Through Matches",
+                        "displayNameKey": "Prop_paging_autoPage",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "seconds": {
+                        "displayName": "Seconds Per Match",
+                        "displayNameKey": "Prop_paging_seconds",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showIndicator": {
+                        "displayName": "Show Page Indicator",
+                        "displayNameKey": "Prop_paging_showIndicator",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "pauseOnHover": {
+                        "displayName": "Pause On Hover",
+                        "displayNameKey": "Prop_paging_pauseOnHover",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "pixelShift": {
+                        "displayName": "Burn-In Guard (Shift 1 px)",
+                        "displayNameKey": "Prop_paging_pixelShift",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "colors": {
+                "displayName": "Colors",
+                "displayNameKey": "Obj_colors",
+                "properties": {
+                    "bg": {
+                        "displayName": "Background",
+                        "displayNameKey": "Prop_colors_bg",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "panel": {
+                        "displayName": "Panel",
+                        "displayNameKey": "Prop_colors_panel",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ink": {
+                        "displayName": "Text",
+                        "displayNameKey": "Prop_colors_ink",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "muted": {
+                        "displayName": "Captions",
+                        "displayNameKey": "Prop_colors_muted",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scoreInk": {
+                        "displayName": "Score Digits",
+                        "displayNameKey": "Prop_colors_scoreInk",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "accent": {
+                        "displayName": "Accent (Lead Marker, Rule)",
+                        "displayNameKey": "Prop_colors_accent",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "clockBg": {
+                        "displayName": "Clock Box",
+                        "displayNameKey": "Prop_colors_clockBg",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "clockInk": {
+                        "displayName": "Clock Text",
+                        "displayNameKey": "Prop_colors_clockInk",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ledOn": {
+                        "displayName": "LED Digits",
+                        "displayNameKey": "Prop_colors_ledOn",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ledAlt": {
+                        "displayName": "LED Clock And Messages",
+                        "displayNameKey": "Prop_colors_ledAlt",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "celebrate": {
+                        "displayName": "Celebration Band",
+                        "displayNameKey": "Prop_colors_celebrate",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "panelAlt": {
+                        "displayName": "Row Stripes",
+                        "displayNameKey": "Prop_colors_panelAlt",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ledBg": {
+                        "displayName": "LED Housing",
+                        "displayNameKey": "Prop_colors_ledBg",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ledGhost": {
+                        "displayName": "LED Unlit Segments",
+                        "displayNameKey": "Prop_colors_ledGhost",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ledCaption": {
+                        "displayName": "LED Printed Captions",
+                        "displayNameKey": "Prop_colors_ledCaption",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "win": {
+                        "displayName": "Win",
+                        "displayNameKey": "Prop_colors_win",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "draw": {
+                        "displayName": "Draw",
+                        "displayNameKey": "Prop_colors_draw",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "loss": {
+                        "displayName": "Loss",
+                        "displayNameKey": "Prop_colors_loss",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

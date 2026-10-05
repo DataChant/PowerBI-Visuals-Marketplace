@@ -1,0 +1,1933 @@
+{
+    "visual": {
+        "name": "smartVisualsDataFreshness",
+        "displayName": "SmartVisuals Last Refresh & Data Freshness",
+        "guid": "dataFreshness4BAAAB2339CF41DABFC1E0BFB560FA50",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Free data freshness badge for Power BI. Shows every reader when the data was refreshed, in their own time zone, and what period it covers, with the last refresh status, fresh, ageing and stale states per source, business-time thresholds (working days and hours), the expected refresh schedule and the absolute time printed next to every relative age. Part of the SmartVisuals visual family.",
+        "supportUrl": "https://smartvisuals.io/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "SmartVisuals",
+        "email": "hello@smartvisuals.io"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "cs-CZ": {
+            "Enum_calendar_weekend_friSat": "P\u00e1tek a sobota",
+            "Enum_calendar_weekend_none": "Bez v\u00edkendu",
+            "Enum_calendar_weekend_satSun": "Sobota a ned\u011ble",
+            "Enum_calendar_weekend_sun": "Jen ned\u011ble",
+            "Enum_content_asOf_always": "V\u017edy",
+            "Enum_content_asOf_auto": "V exportech a sn\u00edmc\u00edch",
+            "Enum_content_asOf_never": "Nikdy",
+            "Enum_coverage_countIn_business": "Pracovn\u00edch dnech",
+            "Enum_coverage_countIn_calendar": "Kalend\u00e1\u0159n\u00edch dnech",
+            "Enum_coverage_dateStyle_auto": "Automaticky (v\u010dera, p\u00e1 26. 9.)",
+            "Enum_coverage_dateStyle_iso": "ISO (2026-09-26)",
+            "Enum_coverage_dateStyle_long": "Dlouh\u00fd (26. z\u00e1\u0159\u00ed 2026)",
+            "Enum_coverage_dateStyle_medium": "St\u0159edn\u00ed (26. 9. 2026)",
+            "Enum_coverage_dateStyle_short": "Kr\u00e1tk\u00fd (26.09.2026)",
+            "Enum_coverage_label_field": "N\u00e1zev m\u00edry (Prodeje do)",
+            "Enum_coverage_label_words": "Data do",
+            "Enum_lastStatus_codes_exit": "0 = \u00fasp\u011bch, jin\u00e9 = chyba (n\u00e1vratov\u00e9 k\u00f3dy)",
+            "Enum_lastStatus_codes_http": "HTTP (2xx \u00fasp\u011bch, 4xx/5xx chyba)",
+            "Enum_lastStatus_codes_sqlAgent": "SQL Agent (1 \u00fasp\u011bch, 0 chyba, 4 b\u011b\u017e\u00ed)",
+            "Enum_lastStatus_onFailure_ageing": "St\u00e1rne",
+            "Enum_lastStatus_onFailure_none": "Beze zm\u011bny (jen zobrazit stav)",
+            "Enum_lastStatus_onFailure_stale": "Zastaral\u00e9",
+            "Enum_layout_align_auto": "Automaticky",
+            "Enum_layout_align_center": "Na st\u0159ed",
+            "Enum_layout_align_left": "Vlevo",
+            "Enum_layout_align_right": "Vpravo",
+            "Enum_layout_chipCorner_bottomLeft": "Vlevo dole",
+            "Enum_layout_chipCorner_bottomRight": "Vpravo dole",
+            "Enum_layout_chipCorner_center": "Uprost\u0159ed",
+            "Enum_layout_chipCorner_topLeft": "Vlevo naho\u0159e",
+            "Enum_layout_chipCorner_topRight": "Vpravo naho\u0159e",
+            "Enum_layout_font_arial": "Arial",
+            "Enum_layout_font_georgia": "Georgia",
+            "Enum_layout_font_mono": "Neproporcion\u00e1ln\u00ed",
+            "Enum_layout_font_segoe": "Segoe UI",
+            "Enum_layout_font_theme": "Podle motivu (Inter / Segoe UI)",
+            "Enum_layout_layout_auto": "Automaticky (podle m\u00edsta)",
+            "Enum_layout_layout_badge": "Odznak",
+            "Enum_layout_layout_card": "Stavov\u00e1 karta",
+            "Enum_layout_layout_chip": "\u0160t\u00edtek v rohu",
+            "Enum_layout_layout_list": "Seznam zdroj\u016f",
+            "Enum_layout_layout_strip": "Pruh z\u00e1hlav\u00ed",
+            "Enum_layout_order_data": "Jako v datech",
+            "Enum_layout_order_worst": "Nejhor\u0161\u00ed naho\u0159e",
+            "Enum_layout_shape_pill": "Pilulka",
+            "Enum_layout_shape_rounded": "Zaoblen\u00fd",
+            "Enum_layout_shape_square": "Hranat\u00fd",
+            "Enum_layout_shape_theme": "Podle motivu",
+            "Enum_schedule_days_every": "Ka\u017ed\u00fd den",
+            "Enum_schedule_days_workdays": "Pracovn\u00ed dny",
+            "Enum_staleness_countIn_business": "Pracovn\u00edm \u010dase (pracovn\u00ed dny a hodiny)",
+            "Enum_staleness_countIn_calendar": "Kalend\u00e1\u0159n\u00edm \u010dase",
+            "Enum_theme_selectedTheme_clean": "\u010cist\u00fd",
+            "Enum_theme_selectedTheme_dark": "Tmav\u00fd",
+            "Enum_theme_selectedTheme_slate": "B\u0159idlicov\u00fd",
+            "Enum_theme_selectedTheme_smartvisuals": "SmartVisuals",
+            "Enum_time_clock_12": "12hodinov\u00e9 (6:30 PM)",
+            "Enum_time_clock_24": "24hodinov\u00e9 (18:30)",
+            "Enum_time_clock_auto": "Podle jazyka sestavy",
+            "Enum_time_displayZone_business": "Obchodn\u00ed \u010dasov\u00e9 p\u00e1smo",
+            "Enum_time_displayZone_utc": "UTC",
+            "Enum_time_displayZone_viewer": "Vlastn\u00ed \u010dasov\u00e9 p\u00e1smo \u010dten\u00e1\u0159e",
+            "Enum_time_relStyle_long": "Dlouh\u00e9 (p\u0159ed 2 hodinami)",
+            "Enum_time_relStyle_narrow": "\u00dazk\u00e9 (p\u0159ed 2 h)",
+            "Enum_time_relStyle_short": "Kr\u00e1tk\u00e9 (p\u0159ed 2 h)",
+            "Enum_time_storedAs_utc": "UTC (doporu\u010den\u00fd recept)",
+            "Enum_time_storedAs_viewer": "\u010casov\u00e9 p\u00e1smo \u010dten\u00e1\u0159e",
+            "Enum_time_storedAs_zone": "\u010casov\u00e9 p\u00e1smo nebo posun (zadejte n\u00ed\u017ee)",
+            "Obj_calendar": "Pracovn\u00ed kalend\u00e1\u0159",
+            "Obj_colors": "Barvy",
+            "Obj_content": "Zobrazit",
+            "Obj_coverage": "Pokryt\u00ed dat",
+            "Obj_lastStatus": "Posledn\u00ed stav",
+            "Obj_layout": "Rozvr\u017een\u00ed",
+            "Obj_schedule": "Pl\u00e1n obnoven\u00ed",
+            "Obj_sources": "Zdroje",
+            "Obj_staleness": "St\u00e1\u0159\u00ed obnoven\u00ed",
+            "Obj_theme": "Motiv",
+            "Obj_time": "\u010casov\u00e1 p\u00e1sma",
+            "Obj_wording": "Text",
+            "Ph_calendar_holidays": "2026-12-24, 2026-12-25",
+            "Ph_calendar_hours": "08:00-18:00",
+            "Ph_schedule_times": "06:00, 12:30",
+            "Ph_time_businessZone": "nap\u0159. Europe/Prague (jinak ulo\u017een\u00e9 p\u00e1smo, nebo UTC)",
+            "Ph_time_storedZone": "Europe/Prague nebo +02:00",
+            "Prop_calendar_holidays": "Sv\u00e1tky (RRRR-MM-DD, odd\u011blen\u00e9 \u010d\u00e1rkou)",
+            "Prop_calendar_hours": "Pracovn\u00ed doba (08:00-18:00, pr\u00e1zdn\u00e9 = cel\u00fd den)",
+            "Prop_calendar_weekend": "V\u00edkend",
+            "Prop_colors_accent": "Akcent a linky",
+            "Prop_colors_ageing": "St\u00e1rne",
+            "Prop_colors_background": "Pozad\u00ed",
+            "Prop_colors_border": "Okraj",
+            "Prop_colors_fresh": "\u010cerstv\u00e9",
+            "Prop_colors_muted": "Vedlej\u0161\u00ed text",
+            "Prop_colors_stale": "Zastaral\u00e9",
+            "Prop_colors_surface": "V\u00fdpl\u0148 odznaku / karty",
+            "Prop_colors_text": "Text",
+            "Prop_colors_unknown": "Nezn\u00e1m\u00e9",
+            "Prop_content_absolute": "\u010cas obnoven\u00ed (dnes 06:04)",
+            "Prop_content_ageBar": "Pruh st\u00e1\u0159\u00ed (stavov\u00e1 karta)",
+            "Prop_content_asOf": "Raz\u00edtko \u201estav k\u201c",
+            "Prop_content_businessAge": "St\u00e1\u0159\u00ed v pracovn\u00edm \u010dase (stavov\u00e1 karta)",
+            "Prop_content_headers": "Z\u00e1hlav\u00ed sloupc\u016f (seznam zdroj\u016f)",
+            "Prop_content_icon": "Ikona stavu",
+            "Prop_content_next": "P\u0159\u00ed\u0161t\u00ed obnoven\u00ed",
+            "Prop_content_reason": "D\u016fvod, kdy\u017e data nejsou \u010derstv\u00e1",
+            "Prop_content_relative": "Relativn\u00ed st\u00e1\u0159\u00ed (p\u0159ed 2 hodinami)",
+            "Prop_content_stateWord": "Slovo stavu",
+            "Prop_content_status": "Posledn\u00ed stav (\u00fasp\u011bch / chyba)",
+            "Prop_content_summary": "Souhrnn\u00fd \u0159\u00e1dek (seznam zdroj\u016f)",
+            "Prop_content_through": "Data do",
+            "Prop_content_utcRow": "\u010cas UTC (stavov\u00e1 karta)",
+            "Prop_content_zoneName": "N\u00e1zev \u010dasov\u00e9ho p\u00e1sma (SEL\u010c)",
+            "Prop_coverage_ageingDays": "St\u00e1rne p\u0159i skluzu (dny, 0 = vypnuto)",
+            "Prop_coverage_countIn": "Po\u010d\u00edtat chyb\u011bj\u00edc\u00ed dny v",
+            "Prop_coverage_dateStyle": "Form\u00e1t data",
+            "Prop_coverage_expectedLag": "O\u010dek\u00e1van\u00e9 zpo\u017ed\u011bn\u00ed (dny)",
+            "Prop_coverage_label": "Popisek",
+            "Prop_coverage_staleDays": "Zastaral\u00e9 p\u0159i skluzu (dny, 0 = vypnuto)",
+            "Prop_lastStatus_codes": "\u010c\u00edseln\u00e9 k\u00f3dy stavu",
+            "Prop_lastStatus_onFailure": "Ne\u00fasp\u011b\u0161n\u00fd posledn\u00ed b\u011bh ozna\u010d\u00ed zdroj jako",
+            "Prop_layout_align": "Zarovn\u00e1n\u00ed",
+            "Prop_layout_chipCorner": "Um\u00edst\u011bn\u00ed \u0161t\u00edtku",
+            "Prop_layout_font": "P\u00edsmo",
+            "Prop_layout_headlineSize": "Velikost titulku (%)",
+            "Prop_layout_layout": "Rozvr\u017een\u00ed",
+            "Prop_layout_order": "Po\u0159ad\u00ed zdroj\u016f",
+            "Prop_layout_secondarySize": "Velikost vedlej\u0161\u00edho textu (%)",
+            "Prop_layout_shape": "Tvar",
+            "Prop_layout_textSize": "Velikost textu (px, 0 = p\u0159izp\u016fsobit)",
+            "Prop_schedule_approx": "Zobrazit p\u0159\u00ed\u0161t\u00ed obnoven\u00ed jako p\u0159ibli\u017en\u00e9 (~)",
+            "Prop_schedule_days": "B\u011b\u017e\u00ed v",
+            "Prop_schedule_graceMinutes": "Zpo\u017ed\u011bn\u00ed po (minut\u00e1ch)",
+            "Prop_schedule_times": "Pl\u00e1novan\u00e9 \u010dasy (06:00, 12:30)",
+            "Prop_sources_ageingHours": "St\u00e1rne po (hodin\u00e1ch, 0 = v\u00fdchoz\u00ed)",
+            "Prop_sources_label": "Zobrazovan\u00fd n\u00e1zev",
+            "Prop_sources_staleHours": "Zastaral\u00e9 po (hodin\u00e1ch, 0 = v\u00fdchoz\u00ed)",
+            "Prop_staleness_ageingHours": "St\u00e1rne po (hodin\u00e1ch, 0 = vypnuto)",
+            "Prop_staleness_countIn": "Po\u010d\u00edtat st\u00e1\u0159\u00ed v",
+            "Prop_staleness_staleHours": "Zastaral\u00e9 po (hodin\u00e1ch, 0 = vypnuto)",
+            "Prop_theme_selectedTheme": "Motiv",
+            "Prop_theme_transparentBg": "Pr\u016fhledn\u00e9 pozad\u00ed",
+            "Prop_time_businessZone": "Obchodn\u00ed \u010dasov\u00e9 p\u00e1smo",
+            "Prop_time_clock": "Hodiny",
+            "Prop_time_displayZone": "Zobrazit \u010dasy v",
+            "Prop_time_live": "St\u00e1rnout pr\u016fb\u011b\u017en\u011b, dokud je otev\u0159eno",
+            "Prop_time_relStyle": "Relativn\u00ed vyj\u00e1d\u0159en\u00ed",
+            "Prop_time_storedAs": "\u010cas obnoven\u00ed je ulo\u017een jako",
+            "Prop_time_storedZone": "P\u00e1smo ulo\u017een\u00e9ho \u010dasu",
+            "Prop_wording_ageing": "Slovo St\u00e1rne",
+            "Prop_wording_fresh": "Slovo \u010cerstv\u00e9",
+            "Prop_wording_next": "Popisek P\u0159\u00ed\u0161t\u00ed obnoven\u00ed",
+            "Prop_wording_refreshed": "Popisek Obnoveno",
+            "Prop_wording_source": "Popisek sloupce Zdroj",
+            "Prop_wording_stale": "Slovo Zastaral\u00e9",
+            "Prop_wording_stateCol": "Popisek sloupce Stav",
+            "Prop_wording_status": "Popisek Posledn\u00ed stav",
+            "Prop_wording_through": "Popisek Data do",
+            "Prop_wording_unknown": "Slovo Nezn\u00e1m\u00e9",
+            "Prop_wording_yourTime": "Popisek V\u00e1\u0161 \u010das",
+            "Role_ageingAfter": "St\u00e1rne po (h)",
+            "Role_ageingAfter_Desc": "Voliteln\u00fd pr\u00e1h pro ka\u017ed\u00fd zdroj z va\u0161ich dat; m\u00e1 p\u0159ednost p\u0159ed podoknem form\u00e1tu.",
+            "Role_detail": "Podrobnost zdroje",
+            "Role_detail_Desc": "Voliteln\u00fd text pod n\u00e1zvem zdroje: vlastn\u00edk, syst\u00e9m, pl\u00e1n.",
+            "Role_next": "P\u0159\u00ed\u0161t\u00ed obnoven\u00ed",
+            "Role_next_Desc": "Voliteln\u00e9: p\u0159\u00ed\u0161t\u00ed pl\u00e1novan\u00e9 obnoven\u00ed, pokud ho znaj\u00ed va\u0161e data. M\u00e1 p\u0159ednost p\u0159ed kartou Pl\u00e1n obnoven\u00ed.",
+            "Role_refreshed": "Obnoveno v",
+            "Role_refreshed_Desc": "Kdy byla data naposledy obnovena. Recept: jedno\u0159\u00e1dkov\u00e1 tabulka v Power Query s DateTimeZone.RemoveZone(DateTimeZone.UtcNow()), pak jej\u00ed MAX. V\u00fdchoz\u00ed \u010dten\u00ed je v UTC (karta \u010casov\u00e1 p\u00e1sma).",
+            "Role_source": "Zdroj",
+            "Role_source_Desc": "Voliteln\u00e9: jeden \u0159\u00e1dek na zdroj nebo tabulku (log na\u010d\u00edt\u00e1n\u00ed, toky dat). Zobraz\u00ed seznam se stavem ka\u017ed\u00e9ho zdroje.",
+            "Role_staleAfter": "Zastaral\u00e9 po (h)",
+            "Role_staleAfter_Desc": "Voliteln\u00fd pr\u00e1h pro ka\u017ed\u00fd zdroj z va\u0161ich dat; m\u00e1 p\u0159ednost p\u0159ed podoknem form\u00e1tu.",
+            "Role_status": "Posledn\u00ed stav",
+            "Role_status_Desc": "Voliteln\u00e9: v\u00fdsledek posledn\u00edho b\u011bhu obnoven\u00ed jako text (Succeeded, Failed, Cancelled) nebo \u010d\u00edseln\u00fd k\u00f3d (karta Posledn\u00ed stav). Zobraz\u00ed se vedle \u010dasu obnoven\u00ed; ne\u00fasp\u011b\u0161n\u00fd b\u011bh ve v\u00fdchoz\u00edm nastaven\u00ed ozna\u010d\u00ed zdroj jako zastaral\u00fd.",
+            "Role_through": "Data do",
+            "Role_through_Desc": "Posledn\u00ed den, kter\u00fd data pokr\u00fdvaj\u00ed, nap\u0159. CALCULATE(MAX(Sales[Order Date]), REMOVEFILTERS()). Porovn\u00e1v\u00e1 se s o\u010dek\u00e1van\u00fdm zpo\u017ed\u011bn\u00edm.",
+            "Role_tooltips": "Popisky",
+            "Role_tooltips_Desc": "Dal\u0161\u00ed m\u00edry zobrazen\u00e9 v popisku.",
+            "UI_AbbrevZone": "\u201e{0}\u201c je zkratka bez pravidel letn\u00edho \u010dasu; zadejte n\u00e1zev p\u00e1sma, nap\u0159. {1}. Pou\u017e\u00edv\u00e1 se {2}.",
+            "UI_AriaKeys": "\u0160ipky p\u0159ech\u00e1zej\u00ed mezi zdroji, Enter vyb\u00edr\u00e1, Escape ru\u0161\u00ed v\u00fdb\u011br.",
+            "UI_AsOf": "Stav k {0}",
+            "UI_BusinessAgeLine": "{0} v pracovn\u00edm \u010dase",
+            "UI_ColAge": "Obnoveno",
+            "UI_ColSource": "Zdroj",
+            "UI_ColState": "Stav",
+            "UI_InvalidHours": "\u201e{0}\u201c nelze p\u0159e\u010d\u00edst jako pracovn\u00ed dobu (08:00-18:00); po\u010d\u00edtaj\u00ed se cel\u00e9 pracovn\u00ed dny.",
+            "UI_InvalidZone": "\u201e{0}\u201c nen\u00ed \u010dasov\u00e9 p\u00e1smo, kter\u00e9 tento prohl\u00ed\u017ee\u010d zn\u00e1; pou\u017eito {1}.",
+            "UI_LandingBy": "od SmartVisuals - zdarma",
+            "UI_LandingHint": "P\u0159idejte m\u00edru Obnoveno v a m\u00edru Data do. Ka\u017ed\u00fd \u010dten\u00e1\u0159 pak uvid\u00ed, jak \u010derstv\u00e1 data jsou, ve sv\u00e9m vlastn\u00edm \u010dasov\u00e9m p\u00e1smu.",
+            "UI_LandingRecipe1": "Power Query: jedno\u0159\u00e1dkov\u00e1 tabulka s DateTimeZone.RemoveZone(DateTimeZone.UtcNow()), pak Refreshed at = MAX('Refresh info'[Refreshed UTC])",
+            "UI_LandingRecipe2": "Data through = CALCULATE(MAX(Sales[Order Date]), REMOVEFILTERS())",
+            "UI_LandingTitle": "SmartVisuals Last Refresh & Data Freshness",
+            "UI_Next": "P\u0159\u00ed\u0161t\u00ed obnoven\u00ed",
+            "UI_NoSources": "\u017d\u00e1dn\u00e9 zdroje",
+            "UI_NoSourcesHint": "Filtry na t\u00e9to str\u00e1nce nenechaly \u017e\u00e1dn\u00fd zdroj.",
+            "UI_NoTime": "Bez \u010dasu obnoven\u00ed",
+            "UI_ReasonAge": "star\u0161\u00ed ne\u017e {0}",
+            "UI_ReasonBadRefresh": "\u010das obnoven\u00ed \u201e{0}\u201c nelze p\u0159e\u010d\u00edst",
+            "UI_ReasonBadThrough": "hodnotu Data do \u201e{0}\u201c nelze p\u0159e\u010d\u00edst",
+            "UI_ReasonBehind": "data {0} pozadu",
+            "UI_ReasonFailed": "posledn\u00ed obnoven\u00ed selhalo",
+            "UI_ReasonFailedText": "posledn\u00ed obnoven\u00ed: {0}",
+            "UI_ReasonFuture": "\u010das obnoven\u00ed je v budoucnosti: zkontrolujte \u010cas obnoven\u00ed je ulo\u017een jako",
+            "UI_ReasonLate": "obnoven\u00ed v {0} se zpo\u017e\u010fuje",
+            "UI_ReasonLateDue": "obnoven\u00ed pl\u00e1novan\u00e9 na {0} se zpo\u017e\u010fuje",
+            "UI_ReasonLateMany": "vynechan\u00e9 b\u011bhy: {0} od {1}",
+            "UI_ReasonMissing": "chyb\u00ed \u010das obnoven\u00ed",
+            "UI_ReasonNoThrough": "chyb\u00ed datum Data do",
+            "UI_ReasonOk": "v\u010das",
+            "UI_ReasonThroughFuture": "datum Data do je v budoucnosti: zkontrolujte m\u00edru",
+            "UI_Refreshed": "Obnoveno",
+            "UI_State_ageing": "St\u00e1rne",
+            "UI_State_fresh": "\u010cerstv\u00e9",
+            "UI_State_stale": "Zastaral\u00e9",
+            "UI_State_unknown": "Nezn\u00e1m\u00e9",
+            "UI_StatusCode": "{0} (k\u00f3d {1})",
+            "UI_StatusLabel": "Posledn\u00ed stav",
+            "UI_Status_failure": "Chyba",
+            "UI_Status_other": "Stav",
+            "UI_Status_running": "B\u011b\u017e\u00ed",
+            "UI_Status_success": "\u00dasp\u011bch",
+            "UI_SummaryAll": "V\u0161echny zdroje jsou \u010derstv\u00e9 ({0})",
+            "UI_SummaryNone": "\u017d\u00e1dn\u00fd z {0} zdroj\u016f nen\u00ed \u010derstv\u00fd",
+            "UI_SummarySome": "Zdroje vy\u017eaduj\u00edc\u00ed pozornost: {0} z {1}",
+            "UI_TT_Age": "St\u00e1\u0159\u00ed",
+            "UI_TT_BusinessAge": "St\u00e1\u0159\u00ed v pracovn\u00edm \u010dase",
+            "UI_TT_BusinessZone": "Obchodn\u00ed \u010dasov\u00e9 p\u00e1smo",
+            "UI_TT_Missing": "Dn\u016f pozadu",
+            "UI_TT_Source": "Zdroj",
+            "UI_TT_State": "Stav",
+            "UI_TT_Stored": "Obnoveno (ulo\u017eeno jako {0})",
+            "UI_TT_Utc": "Obnoveno (UTC)",
+            "UI_TT_YourTime": "Obnoveno ({0})",
+            "UI_Through": "Data do",
+            "UI_Trimmed": "Zobrazeno prvn\u00edch {0} zdroj\u016f",
+            "UI_TrimmedDetail": "Power BI p\u0159ed\u00e1 vizu\u00e1lu nejv\u00fd\u0161e {0} \u0159\u00e1dk\u016f. Vyfiltrujte str\u00e1nku na zdroje, kter\u00e9 pot\u0159ebujete.",
+            "UI_YourTime": "V\u00e1\u0161 \u010das",
+            "UI_ZoneHint": "Pl\u00e1novan\u00e9 \u010dasy a pracovn\u00ed doba se \u010dtou v {0}. Nastavte \u010casov\u00e1 p\u00e1sma > Obchodn\u00ed \u010dasov\u00e9 p\u00e1smo na p\u00e1smo, ve kter\u00e9m b\u011b\u017e\u00ed pl\u00e1n obnoven\u00ed."
+        },
+        "de-DE": {
+            "Enum_calendar_weekend_friSat": "Freitag und Samstag",
+            "Enum_calendar_weekend_none": "Kein Wochenende",
+            "Enum_calendar_weekend_satSun": "Samstag und Sonntag",
+            "Enum_calendar_weekend_sun": "Nur Sonntag",
+            "Enum_content_asOf_always": "Immer",
+            "Enum_content_asOf_auto": "In Exporten und Momentaufnahmen",
+            "Enum_content_asOf_never": "Nie",
+            "Enum_coverage_countIn_business": "Arbeitstagen",
+            "Enum_coverage_countIn_calendar": "Kalendertagen",
+            "Enum_coverage_dateStyle_auto": "Automatisch (gestern, Fr., 26. Sept.)",
+            "Enum_coverage_dateStyle_iso": "ISO (2026-09-26)",
+            "Enum_coverage_dateStyle_long": "Lang (26. September 2026)",
+            "Enum_coverage_dateStyle_medium": "Mittel (26.09.2026)",
+            "Enum_coverage_dateStyle_short": "Kurz (26.09.26)",
+            "Enum_coverage_label_field": "Name des Measures (Umsatz bis)",
+            "Enum_coverage_label_words": "Daten bis",
+            "Enum_lastStatus_codes_exit": "0 = erfolgreich, sonst fehlgeschlagen (Exit-Codes)",
+            "Enum_lastStatus_codes_http": "HTTP (2xx erfolgreich, 4xx/5xx fehlgeschlagen)",
+            "Enum_lastStatus_codes_sqlAgent": "SQL Agent (1 erfolgreich, 0 fehlgeschlagen, 4 l\u00e4uft)",
+            "Enum_lastStatus_onFailure_ageing": "Alternd",
+            "Enum_lastStatus_onFailure_none": "Keine \u00c4nderung (nur Status zeigen)",
+            "Enum_lastStatus_onFailure_stale": "Veraltet",
+            "Enum_layout_align_auto": "Automatisch",
+            "Enum_layout_align_center": "Zentriert",
+            "Enum_layout_align_left": "Links",
+            "Enum_layout_align_right": "Rechts",
+            "Enum_layout_chipCorner_bottomLeft": "Unten links",
+            "Enum_layout_chipCorner_bottomRight": "Unten rechts",
+            "Enum_layout_chipCorner_center": "Mitte",
+            "Enum_layout_chipCorner_topLeft": "Oben links",
+            "Enum_layout_chipCorner_topRight": "Oben rechts",
+            "Enum_layout_font_arial": "Arial",
+            "Enum_layout_font_georgia": "Georgia",
+            "Enum_layout_font_mono": "Nichtproportional",
+            "Enum_layout_font_segoe": "Segoe UI",
+            "Enum_layout_font_theme": "Aus dem Design (Inter / Segoe UI)",
+            "Enum_layout_layout_auto": "Automatisch (nach Platz)",
+            "Enum_layout_layout_badge": "Badge",
+            "Enum_layout_layout_card": "Statuskarte",
+            "Enum_layout_layout_chip": "Eck-Chip",
+            "Enum_layout_layout_list": "Quellenliste",
+            "Enum_layout_layout_strip": "Kopfzeilenleiste",
+            "Enum_layout_order_data": "Wie in den Daten",
+            "Enum_layout_order_worst": "Schlechteste zuerst",
+            "Enum_layout_shape_pill": "Pille",
+            "Enum_layout_shape_rounded": "Abgerundet",
+            "Enum_layout_shape_square": "Eckig",
+            "Enum_layout_shape_theme": "Aus dem Design",
+            "Enum_schedule_days_every": "Jedem Tag",
+            "Enum_schedule_days_workdays": "Arbeitstagen",
+            "Enum_staleness_countIn_business": "Gesch\u00e4ftszeit (Arbeitstage und -stunden)",
+            "Enum_staleness_countIn_calendar": "Kalenderzeit",
+            "Enum_theme_selectedTheme_clean": "Hell",
+            "Enum_theme_selectedTheme_dark": "Dunkel",
+            "Enum_theme_selectedTheme_slate": "Schiefer",
+            "Enum_theme_selectedTheme_smartvisuals": "SmartVisuals",
+            "Enum_time_clock_12": "12 Stunden (6:30 PM)",
+            "Enum_time_clock_24": "24 Stunden (18:30)",
+            "Enum_time_clock_auto": "Aus der Berichtssprache",
+            "Enum_time_displayZone_business": "Die Gesch\u00e4ftszeitzone",
+            "Enum_time_displayZone_utc": "UTC",
+            "Enum_time_displayZone_viewer": "Eigene Zeitzone des Betrachters",
+            "Enum_time_relStyle_long": "Lang (vor 2 Stunden)",
+            "Enum_time_relStyle_narrow": "Schmal (vor 2 Std.)",
+            "Enum_time_relStyle_short": "Kurz (vor 2 Std.)",
+            "Enum_time_storedAs_utc": "UTC (empfohlenes Rezept)",
+            "Enum_time_storedAs_viewer": "Zeitzone des Betrachters",
+            "Enum_time_storedAs_zone": "Eine Zeitzone oder Verschiebung (unten eingeben)",
+            "Obj_calendar": "Gesch\u00e4ftskalender",
+            "Obj_colors": "Farben",
+            "Obj_content": "Anzeigen",
+            "Obj_coverage": "Datenabdeckung",
+            "Obj_lastStatus": "Letzter Status",
+            "Obj_layout": "Layout",
+            "Obj_schedule": "Aktualisierungsplan",
+            "Obj_sources": "Quellen",
+            "Obj_staleness": "Aktualisierungsalter",
+            "Obj_theme": "Design",
+            "Obj_time": "Zeitzonen",
+            "Obj_wording": "Text",
+            "Ph_calendar_holidays": "2026-12-24, 2026-12-25",
+            "Ph_calendar_hours": "08:00-18:00",
+            "Ph_schedule_times": "06:00, 12:30",
+            "Ph_time_businessZone": "z. B. Europe/Berlin (sonst die gespeicherte Zone oder UTC)",
+            "Ph_time_storedZone": "Europe/Berlin oder +02:00",
+            "Prop_calendar_holidays": "Feiertage (JJJJ-MM-TT, durch Komma getrennt)",
+            "Prop_calendar_hours": "Arbeitszeit (08:00-18:00, leer = ganzer Tag)",
+            "Prop_calendar_weekend": "Wochenende",
+            "Prop_colors_accent": "Akzent und Linien",
+            "Prop_colors_ageing": "Alternd",
+            "Prop_colors_background": "Hintergrund",
+            "Prop_colors_border": "Rahmen",
+            "Prop_colors_fresh": "Aktuell",
+            "Prop_colors_muted": "Sekund\u00e4rtext",
+            "Prop_colors_stale": "Veraltet",
+            "Prop_colors_surface": "F\u00fcllung von Badge / Karte",
+            "Prop_colors_text": "Text",
+            "Prop_colors_unknown": "Unbekannt",
+            "Prop_content_absolute": "Aktualisierungszeit (heute 06:04)",
+            "Prop_content_ageBar": "Altersbalken (Statuskarte)",
+            "Prop_content_asOf": "Stand-Stempel",
+            "Prop_content_businessAge": "Alter in Gesch\u00e4ftszeit (Statuskarte)",
+            "Prop_content_headers": "Spaltenk\u00f6pfe (Quellenliste)",
+            "Prop_content_icon": "Statussymbol",
+            "Prop_content_next": "N\u00e4chste Aktualisierung",
+            "Prop_content_reason": "Grund, wenn nicht aktuell",
+            "Prop_content_relative": "Relatives Alter (vor 2 Stunden)",
+            "Prop_content_stateWord": "Statuswort",
+            "Prop_content_status": "Letzter Status (erfolgreich / fehlgeschlagen)",
+            "Prop_content_summary": "Zusammenfassung (Quellenliste)",
+            "Prop_content_through": "Daten bis",
+            "Prop_content_utcRow": "UTC-Zeit (Statuskarte)",
+            "Prop_content_zoneName": "Zeitzonenname (MESZ)",
+            "Prop_coverage_ageingDays": "Altert bei R\u00fcckstand von (Tagen, 0 = aus)",
+            "Prop_coverage_countIn": "Fehlende Tage z\u00e4hlen in",
+            "Prop_coverage_dateStyle": "Datumsformat",
+            "Prop_coverage_expectedLag": "Erwarteter Verzug (Tage)",
+            "Prop_coverage_label": "Beschriftung",
+            "Prop_coverage_staleDays": "Veraltet bei R\u00fcckstand von (Tagen, 0 = aus)",
+            "Prop_lastStatus_codes": "Numerische Statuscodes",
+            "Prop_lastStatus_onFailure": "Ein fehlgeschlagener Lauf macht die Quelle",
+            "Prop_layout_align": "Ausrichtung",
+            "Prop_layout_chipCorner": "Position des Chips",
+            "Prop_layout_font": "Schriftart",
+            "Prop_layout_headlineSize": "Gr\u00f6\u00dfe der Schlagzeile (%)",
+            "Prop_layout_layout": "Layout",
+            "Prop_layout_order": "Reihenfolge der Quellen",
+            "Prop_layout_secondarySize": "Gr\u00f6\u00dfe des Nebentexts (%)",
+            "Prop_layout_shape": "Form",
+            "Prop_layout_textSize": "Textgr\u00f6\u00dfe (px, 0 = anpassen)",
+            "Prop_schedule_approx": "N\u00e4chste Aktualisierung als ungef\u00e4hr zeigen (~)",
+            "Prop_schedule_days": "L\u00e4uft an",
+            "Prop_schedule_graceMinutes": "Versp\u00e4tet nach (Minuten)",
+            "Prop_schedule_times": "Geplante Zeiten (06:00, 12:30)",
+            "Prop_sources_ageingHours": "Altert nach (Stunden, 0 = Standard)",
+            "Prop_sources_label": "Anzeigename",
+            "Prop_sources_staleHours": "Veraltet nach (Stunden, 0 = Standard)",
+            "Prop_staleness_ageingHours": "Altert nach (Stunden, 0 = aus)",
+            "Prop_staleness_countIn": "Alter z\u00e4hlen in",
+            "Prop_staleness_staleHours": "Veraltet nach (Stunden, 0 = aus)",
+            "Prop_theme_selectedTheme": "Design",
+            "Prop_theme_transparentBg": "Transparenter Hintergrund",
+            "Prop_time_businessZone": "Gesch\u00e4ftszeitzone",
+            "Prop_time_clock": "Uhr",
+            "Prop_time_displayZone": "Zeiten anzeigen in",
+            "Prop_time_live": "W\u00e4hrend des \u00d6ffnens weiter altern",
+            "Prop_time_relStyle": "Relative Formulierung",
+            "Prop_time_storedAs": "Aktualisierungszeit gespeichert als",
+            "Prop_time_storedZone": "Zeitzone der gespeicherten Zeit",
+            "Prop_wording_ageing": "Wort Alternd",
+            "Prop_wording_fresh": "Wort Aktuell",
+            "Prop_wording_next": "Beschriftung N\u00e4chste Aktualisierung",
+            "Prop_wording_refreshed": "Beschriftung Aktualisiert",
+            "Prop_wording_source": "Beschriftung Spalte Quelle",
+            "Prop_wording_stale": "Wort Veraltet",
+            "Prop_wording_stateCol": "Beschriftung Spalte Status",
+            "Prop_wording_status": "Beschriftung Letzter Status",
+            "Prop_wording_through": "Beschriftung Daten bis",
+            "Prop_wording_unknown": "Wort Unbekannt",
+            "Prop_wording_yourTime": "Beschriftung Ihre Zeit",
+            "Role_ageingAfter": "Altert nach (h)",
+            "Role_ageingAfter_Desc": "Optionaler Schwellenwert pro Quelle aus Ihren Daten; hat Vorrang vor dem Formatbereich.",
+            "Role_detail": "Quellendetail",
+            "Role_detail_Desc": "Optionaler Text unter jedem Quellennamen: Verantwortliche, System, Zeitplan.",
+            "Role_next": "N\u00e4chste Aktualisierung",
+            "Role_next_Desc": "Optional: die n\u00e4chste geplante Aktualisierung, wenn Ihre Daten sie kennen. Hat Vorrang vor der Karte Aktualisierungsplan.",
+            "Role_refreshed": "Aktualisiert am",
+            "Role_refreshed_Desc": "Wann die Daten zuletzt aktualisiert wurden. Rezept: eine einzeilige Power-Query-Tabelle mit DateTimeZone.RemoveZone(DateTimeZone.UtcNow()), dann MAX davon. Standardm\u00e4\u00dfig als UTC gelesen (Karte Zeitzonen).",
+            "Role_source": "Quelle",
+            "Role_source_Desc": "Optional: eine Zeile pro Quelle oder Tabelle (Ladeprotokoll, Dataflows). Zeigt eine Liste mit einem Status pro Quelle.",
+            "Role_staleAfter": "Veraltet nach (h)",
+            "Role_staleAfter_Desc": "Optionaler Schwellenwert pro Quelle aus Ihren Daten; hat Vorrang vor dem Formatbereich.",
+            "Role_status": "Letzter Status",
+            "Role_status_Desc": "Optional: das Ergebnis des letzten Aktualisierungslaufs als Text (Succeeded, Failed, Cancelled) oder als Zahlencode (Karte Letzter Status). Wird neben der Aktualisierungszeit angezeigt; ein fehlgeschlagener Lauf markiert die Quelle standardm\u00e4\u00dfig als veraltet.",
+            "Role_through": "Daten bis",
+            "Role_through_Desc": "Der letzte Tag, den die Daten abdecken, z. B. CALCULATE(MAX(Sales[Order Date]), REMOVEFILTERS()). Wird mit dem erwarteten Verzug verglichen.",
+            "Role_tooltips": "QuickInfos",
+            "Role_tooltips_Desc": "Weitere Measures in der QuickInfo.",
+            "UI_AbbrevZone": "\u201e{0}\u201c ist eine Abk\u00fcrzung ohne Sommerzeitregeln; geben Sie einen Zonennamen wie {1} ein. Verwendet wird {2}.",
+            "UI_AriaKeys": "Pfeiltasten wechseln die Quelle, Enter w\u00e4hlt aus, Escape hebt die Auswahl auf.",
+            "UI_AsOf": "Stand {0}",
+            "UI_BusinessAgeLine": "{0} in Gesch\u00e4ftszeit",
+            "UI_ColAge": "Aktualisiert",
+            "UI_ColSource": "Quelle",
+            "UI_ColState": "Status",
+            "UI_InvalidHours": "\u201e{0}\u201c ist keine lesbare Arbeitszeit (08:00-18:00); es z\u00e4hlen ganze Arbeitstage.",
+            "UI_InvalidZone": "\u201e{0}\u201c ist keine Zeitzone, die dieser Browser kennt; {1} wird verwendet.",
+            "UI_LandingBy": "von SmartVisuals - kostenlos",
+            "UI_LandingHint": "F\u00fcgen Sie ein Measure Aktualisiert am und ein Measure Daten bis hinzu. Jeder Leser sieht dann, wie aktuell die Daten sind, in seiner eigenen Zeitzone.",
+            "UI_LandingRecipe1": "Power Query: eine einzeilige Tabelle mit DateTimeZone.RemoveZone(DateTimeZone.UtcNow()), dann Refreshed at = MAX('Refresh info'[Refreshed UTC])",
+            "UI_LandingRecipe2": "Data through = CALCULATE(MAX(Sales[Order Date]), REMOVEFILTERS())",
+            "UI_LandingTitle": "SmartVisuals Last Refresh & Data Freshness",
+            "UI_Next": "N\u00e4chste Aktualisierung",
+            "UI_NoSources": "Keine Quellen",
+            "UI_NoSourcesHint": "Die Filter dieser Seite lassen keine Quelle \u00fcbrig.",
+            "UI_NoTime": "Keine Aktualisierungszeit",
+            "UI_ReasonAge": "\u00e4lter als {0}",
+            "UI_ReasonBadRefresh": "die Aktualisierungszeit \u201e{0}\u201c ist nicht lesbar",
+            "UI_ReasonBadThrough": "der Wert f\u00fcr Daten bis \u201e{0}\u201c ist nicht lesbar",
+            "UI_ReasonBehind": "Daten {0} im R\u00fcckstand",
+            "UI_ReasonFailed": "die letzte Aktualisierung ist fehlgeschlagen",
+            "UI_ReasonFailedText": "letzte Aktualisierung: {0}",
+            "UI_ReasonFuture": "Aktualisierungszeit liegt in der Zukunft: pr\u00fcfen Sie Aktualisierungszeit gespeichert als",
+            "UI_ReasonLate": "die Aktualisierung um {0} ist versp\u00e4tet",
+            "UI_ReasonLateDue": "die f\u00fcr {0} geplante Aktualisierung ist versp\u00e4tet",
+            "UI_ReasonLateMany": "{0} L\u00e4ufe seit {1} ausgefallen",
+            "UI_ReasonMissing": "keine Aktualisierungszeit",
+            "UI_ReasonNoThrough": "kein Datum f\u00fcr Daten bis",
+            "UI_ReasonOk": "p\u00fcnktlich",
+            "UI_ReasonThroughFuture": "das Datum Daten bis liegt in der Zukunft: Measure pr\u00fcfen",
+            "UI_Refreshed": "Aktualisiert",
+            "UI_State_ageing": "Alternd",
+            "UI_State_fresh": "Aktuell",
+            "UI_State_stale": "Veraltet",
+            "UI_State_unknown": "Unbekannt",
+            "UI_StatusCode": "{0} (Code {1})",
+            "UI_StatusLabel": "Letzter Status",
+            "UI_Status_failure": "Fehlgeschlagen",
+            "UI_Status_other": "Status",
+            "UI_Status_running": "L\u00e4uft",
+            "UI_Status_success": "Erfolgreich",
+            "UI_SummaryAll": "Alle {0} Quellen aktuell",
+            "UI_SummaryNone": "Keine der {0} Quellen aktuell",
+            "UI_SummarySome": "{0} von {1} Quellen brauchen Aufmerksamkeit",
+            "UI_TT_Age": "Alter",
+            "UI_TT_BusinessAge": "Alter in Gesch\u00e4ftszeit",
+            "UI_TT_BusinessZone": "Gesch\u00e4ftszeitzone",
+            "UI_TT_Missing": "Tage im R\u00fcckstand",
+            "UI_TT_Source": "Quelle",
+            "UI_TT_State": "Status",
+            "UI_TT_Stored": "Aktualisiert (gespeichert als {0})",
+            "UI_TT_Utc": "Aktualisiert (UTC)",
+            "UI_TT_YourTime": "Aktualisiert ({0})",
+            "UI_Through": "Daten bis",
+            "UI_Trimmed": "Die ersten {0} Quellen werden angezeigt",
+            "UI_TrimmedDetail": "Power BI \u00fcbergibt einem Visual h\u00f6chstens {0} Zeilen. Filtern Sie die Seite auf die Quellen, die Sie brauchen.",
+            "UI_YourTime": "Ihre Zeit",
+            "UI_ZoneHint": "Geplante Zeiten und Arbeitszeiten werden in {0} gelesen. Stellen Sie Zeitzonen > Gesch\u00e4ftszeitzone auf die Zone Ihres Aktualisierungsplans ein."
+        },
+        "en-US": {
+            "Enum_calendar_weekend_friSat": "Friday and Saturday",
+            "Enum_calendar_weekend_none": "No weekend",
+            "Enum_calendar_weekend_satSun": "Saturday and Sunday",
+            "Enum_calendar_weekend_sun": "Sunday only",
+            "Enum_content_asOf_always": "Always",
+            "Enum_content_asOf_auto": "In exports and snapshots",
+            "Enum_content_asOf_never": "Never",
+            "Enum_coverage_countIn_business": "Working days",
+            "Enum_coverage_countIn_calendar": "Calendar days",
+            "Enum_coverage_dateStyle_auto": "Auto (yesterday, Fri 26 Sep)",
+            "Enum_coverage_dateStyle_iso": "ISO (2026-09-26)",
+            "Enum_coverage_dateStyle_long": "Long (26 September 2026)",
+            "Enum_coverage_dateStyle_medium": "Medium (26 Sep 2026)",
+            "Enum_coverage_dateStyle_short": "Short (26/09/2026)",
+            "Enum_coverage_label_field": "The measure's name (Sales through)",
+            "Enum_coverage_label_words": "Data through",
+            "Enum_lastStatus_codes_exit": "0 = succeeded, other = failed (exit codes)",
+            "Enum_lastStatus_codes_http": "HTTP (2xx succeeded, 4xx/5xx failed)",
+            "Enum_lastStatus_codes_sqlAgent": "SQL Agent (1 succeeded, 0 failed, 4 running)",
+            "Enum_lastStatus_onFailure_ageing": "Ageing",
+            "Enum_lastStatus_onFailure_none": "No change (show the status only)",
+            "Enum_lastStatus_onFailure_stale": "Stale",
+            "Enum_layout_align_auto": "Auto",
+            "Enum_layout_align_center": "Center",
+            "Enum_layout_align_left": "Left",
+            "Enum_layout_align_right": "Right",
+            "Enum_layout_chipCorner_bottomLeft": "Bottom left",
+            "Enum_layout_chipCorner_bottomRight": "Bottom right",
+            "Enum_layout_chipCorner_center": "Center",
+            "Enum_layout_chipCorner_topLeft": "Top left",
+            "Enum_layout_chipCorner_topRight": "Top right",
+            "Enum_layout_font_arial": "Arial",
+            "Enum_layout_font_georgia": "Georgia",
+            "Enum_layout_font_mono": "Monospace",
+            "Enum_layout_font_segoe": "Segoe UI",
+            "Enum_layout_font_theme": "From the theme (Inter / Segoe UI)",
+            "Enum_layout_layout_auto": "Auto (fit the space)",
+            "Enum_layout_layout_badge": "Badge",
+            "Enum_layout_layout_card": "Status card",
+            "Enum_layout_layout_chip": "Corner chip",
+            "Enum_layout_layout_list": "Source list",
+            "Enum_layout_layout_strip": "Header strip",
+            "Enum_layout_order_data": "As in the data",
+            "Enum_layout_order_worst": "Worst first",
+            "Enum_layout_shape_pill": "Pill",
+            "Enum_layout_shape_rounded": "Rounded",
+            "Enum_layout_shape_square": "Square",
+            "Enum_layout_shape_theme": "From the theme",
+            "Enum_schedule_days_every": "Every day",
+            "Enum_schedule_days_workdays": "Working days",
+            "Enum_staleness_countIn_business": "Business time (working days and hours)",
+            "Enum_staleness_countIn_calendar": "Calendar time",
+            "Enum_theme_selectedTheme_clean": "Clean",
+            "Enum_theme_selectedTheme_dark": "Dark",
+            "Enum_theme_selectedTheme_slate": "Slate",
+            "Enum_theme_selectedTheme_smartvisuals": "SmartVisuals",
+            "Enum_time_clock_12": "12-hour (6:30 PM)",
+            "Enum_time_clock_24": "24-hour (18:30)",
+            "Enum_time_clock_auto": "From the report language",
+            "Enum_time_displayZone_business": "The business time zone",
+            "Enum_time_displayZone_utc": "UTC",
+            "Enum_time_displayZone_viewer": "The viewer's own time zone",
+            "Enum_time_relStyle_long": "Long (2 hours ago)",
+            "Enum_time_relStyle_narrow": "Narrow (2h ago)",
+            "Enum_time_relStyle_short": "Short (2 hr. ago)",
+            "Enum_time_storedAs_utc": "UTC (recommended recipe)",
+            "Enum_time_storedAs_viewer": "The viewer's time zone",
+            "Enum_time_storedAs_zone": "A time zone or offset (type below)",
+            "Obj_calendar": "Business Calendar",
+            "Obj_colors": "Colors",
+            "Obj_content": "Show",
+            "Obj_coverage": "Data Coverage",
+            "Obj_lastStatus": "Last Status",
+            "Obj_layout": "Layout",
+            "Obj_schedule": "Refresh Schedule",
+            "Obj_sources": "Sources",
+            "Obj_staleness": "Refresh Age",
+            "Obj_theme": "Theme",
+            "Obj_time": "Time Zones",
+            "Obj_wording": "Text",
+            "Ph_calendar_holidays": "2026-12-24, 2026-12-25",
+            "Ph_calendar_hours": "08:00-18:00",
+            "Ph_schedule_times": "06:00, 12:30",
+            "Ph_time_businessZone": "e.g. Europe/Prague (else the stored zone, or UTC)",
+            "Ph_time_storedZone": "Europe/Prague or +02:00",
+            "Prop_calendar_holidays": "Holidays (YYYY-MM-DD, Comma Separated)",
+            "Prop_calendar_hours": "Working Hours (08:00-18:00, Empty = Whole Day)",
+            "Prop_calendar_weekend": "Weekend",
+            "Prop_colors_accent": "Accent and Rules",
+            "Prop_colors_ageing": "Ageing",
+            "Prop_colors_background": "Background",
+            "Prop_colors_border": "Border",
+            "Prop_colors_fresh": "Fresh",
+            "Prop_colors_muted": "Secondary Text",
+            "Prop_colors_stale": "Stale",
+            "Prop_colors_surface": "Badge / Card Fill",
+            "Prop_colors_text": "Text",
+            "Prop_colors_unknown": "Unknown",
+            "Prop_content_absolute": "Refresh Time (today 06:04)",
+            "Prop_content_ageBar": "Age Bar (Status Card)",
+            "Prop_content_asOf": "As-Of Stamp",
+            "Prop_content_businessAge": "Business-Time Age (Status Card)",
+            "Prop_content_headers": "Column Headers (Source List)",
+            "Prop_content_icon": "State Icon",
+            "Prop_content_next": "Next Refresh",
+            "Prop_content_reason": "Reason When Not Fresh",
+            "Prop_content_relative": "Relative Age (2 hours ago)",
+            "Prop_content_stateWord": "State Word",
+            "Prop_content_status": "Last Status (Succeeded / Failed)",
+            "Prop_content_summary": "Summary Line (Source List)",
+            "Prop_content_through": "Data Through",
+            "Prop_content_utcRow": "UTC Time (Status Card)",
+            "Prop_content_zoneName": "Time Zone Name (CEST)",
+            "Prop_coverage_ageingDays": "Ageing When Behind By (Days, 0 = Off)",
+            "Prop_coverage_countIn": "Count Missing Days In",
+            "Prop_coverage_dateStyle": "Date Format",
+            "Prop_coverage_expectedLag": "Expected Lag (Days)",
+            "Prop_coverage_label": "Label",
+            "Prop_coverage_staleDays": "Stale When Behind By (Days, 0 = Off)",
+            "Prop_lastStatus_codes": "Numeric Status Codes",
+            "Prop_lastStatus_onFailure": "A Failed Last Run Makes the Source",
+            "Prop_layout_align": "Alignment",
+            "Prop_layout_chipCorner": "Chip Position",
+            "Prop_layout_font": "Font",
+            "Prop_layout_headlineSize": "Headline Size (%)",
+            "Prop_layout_layout": "Layout",
+            "Prop_layout_order": "Source Order",
+            "Prop_layout_secondarySize": "Secondary Text Size (%)",
+            "Prop_layout_shape": "Shape",
+            "Prop_layout_textSize": "Text Size (px, 0 = Fit)",
+            "Prop_schedule_approx": "Show Next Refresh As Approximate (~)",
+            "Prop_schedule_days": "Runs On",
+            "Prop_schedule_graceMinutes": "Late After (Minutes)",
+            "Prop_schedule_times": "Scheduled Times (06:00, 12:30)",
+            "Prop_sources_ageingHours": "Ageing After (Hours, 0 = Default)",
+            "Prop_sources_label": "Display Name",
+            "Prop_sources_staleHours": "Stale After (Hours, 0 = Default)",
+            "Prop_staleness_ageingHours": "Ageing After (Hours, 0 = Off)",
+            "Prop_staleness_countIn": "Count Age In",
+            "Prop_staleness_staleHours": "Stale After (Hours, 0 = Off)",
+            "Prop_theme_selectedTheme": "Theme",
+            "Prop_theme_transparentBg": "Transparent Background",
+            "Prop_time_businessZone": "Business Time Zone",
+            "Prop_time_clock": "Clock",
+            "Prop_time_displayZone": "Show Times In",
+            "Prop_time_live": "Keep Ageing While Open",
+            "Prop_time_relStyle": "Relative Wording",
+            "Prop_time_storedAs": "Refresh Time Is Stored As",
+            "Prop_time_storedZone": "Stored Time Zone",
+            "Prop_wording_ageing": "Ageing Word",
+            "Prop_wording_fresh": "Fresh Word",
+            "Prop_wording_next": "Next Refresh Label",
+            "Prop_wording_refreshed": "Refreshed Label",
+            "Prop_wording_source": "Source Column Label",
+            "Prop_wording_stale": "Stale Word",
+            "Prop_wording_stateCol": "State Column Label",
+            "Prop_wording_status": "Last Status Label",
+            "Prop_wording_through": "Data Through Label",
+            "Prop_wording_unknown": "Unknown Word",
+            "Prop_wording_yourTime": "Your Time Label",
+            "Role_ageingAfter": "Ageing After (Hours)",
+            "Role_ageingAfter_Desc": "Optional per-source threshold from your data; wins over the format pane.",
+            "Role_detail": "Source Detail",
+            "Role_detail_Desc": "Optional text under each source name: owner, system, schedule.",
+            "Role_next": "Next Refresh",
+            "Role_next_Desc": "Optional: the next scheduled refresh, when your data knows it. Wins over the Refresh Schedule card.",
+            "Role_refreshed": "Refreshed At",
+            "Role_refreshed_Desc": "When the data was last refreshed. Recipe: a one-row Power Query table with DateTimeZone.RemoveZone(DateTimeZone.UtcNow()), then MAX of it. Read as UTC by default (Time Zones card).",
+            "Role_source": "Source",
+            "Role_source_Desc": "Optional: one row per source or table (a load log, dataflows). Shows a list with a state per source.",
+            "Role_staleAfter": "Stale After (Hours)",
+            "Role_staleAfter_Desc": "Optional per-source threshold from your data; wins over the format pane.",
+            "Role_status": "Last Status",
+            "Role_status_Desc": "Optional: the outcome of the last refresh run, as text (Succeeded, Failed, Cancelled) or a numeric code (Last Status card). Shown next to the refresh time; a failed run marks the source stale by default.",
+            "Role_through": "Data Through",
+            "Role_through_Desc": "The last date the data covers, e.g. CALCULATE(MAX(Sales[Order Date]), REMOVEFILTERS()). Tested against the expected lag.",
+            "Role_tooltips": "Tooltips",
+            "Role_tooltips_Desc": "Extra measures shown in the tooltip.",
+            "UI_AbbrevZone": "\"{0}\" is an abbreviation without daylight saving rules; type a zone name such as {1}. Using {2}.",
+            "UI_AriaKeys": "Arrow keys move between sources, Enter selects, Escape clears the selection.",
+            "UI_AsOf": "As of {0}",
+            "UI_BusinessAgeLine": "{0} in business time",
+            "UI_ColAge": "Refreshed",
+            "UI_ColSource": "Source",
+            "UI_ColState": "State",
+            "UI_InvalidHours": "\"{0}\" is not readable as working hours (08:00-18:00); whole working days count.",
+            "UI_InvalidZone": "\"{0}\" is not a time zone this browser knows; using {1}.",
+            "UI_LandingBy": "by SmartVisuals - free",
+            "UI_LandingHint": "Add a Refreshed At measure and a Data Through measure. Every reader then sees how fresh the data is, in their own time zone.",
+            "UI_LandingRecipe1": "Power Query: a one-row table with DateTimeZone.RemoveZone(DateTimeZone.UtcNow()), then Refreshed at = MAX('Refresh info'[Refreshed UTC])",
+            "UI_LandingRecipe2": "Data through = CALCULATE(MAX(Sales[Order Date]), REMOVEFILTERS())",
+            "UI_LandingTitle": "SmartVisuals Last Refresh & Data Freshness",
+            "UI_Next": "Next refresh",
+            "UI_NoSources": "No sources",
+            "UI_NoSourcesHint": "The filters on this page leave no source rows.",
+            "UI_NoTime": "No refresh time",
+            "UI_ReasonAge": "older than {0}",
+            "UI_ReasonBadRefresh": "could not read the refresh time \"{0}\"",
+            "UI_ReasonBadThrough": "could not read the data-through value \"{0}\"",
+            "UI_ReasonBehind": "data {0} behind",
+            "UI_ReasonFailed": "the last refresh failed",
+            "UI_ReasonFailedText": "last refresh: {0}",
+            "UI_ReasonFuture": "refresh time is in the future: check Refresh Time Is Stored As",
+            "UI_ReasonLate": "the {0} refresh is late",
+            "UI_ReasonLateDue": "the refresh due {0} is late",
+            "UI_ReasonLateMany": "{0} runs missed since {1}",
+            "UI_ReasonMissing": "no refresh time",
+            "UI_ReasonNoThrough": "no data-through date",
+            "UI_ReasonOk": "on time",
+            "UI_ReasonThroughFuture": "data-through date is in the future: check the measure",
+            "UI_Refreshed": "Refreshed",
+            "UI_State_ageing": "Ageing",
+            "UI_State_fresh": "Fresh",
+            "UI_State_stale": "Stale",
+            "UI_State_unknown": "Unknown",
+            "UI_StatusCode": "{0} (code {1})",
+            "UI_StatusLabel": "Last status",
+            "UI_Status_failure": "Failed",
+            "UI_Status_other": "Status",
+            "UI_Status_running": "Running",
+            "UI_Status_success": "Succeeded",
+            "UI_SummaryAll": "All {0} sources fresh",
+            "UI_SummaryNone": "None of {0} sources fresh",
+            "UI_SummarySome": "{0} of {1} sources need attention",
+            "UI_TT_Age": "Age",
+            "UI_TT_BusinessAge": "Age in business time",
+            "UI_TT_BusinessZone": "Business time zone",
+            "UI_TT_Missing": "Days behind",
+            "UI_TT_Source": "Source",
+            "UI_TT_State": "State",
+            "UI_TT_Stored": "Refreshed (stored as {0})",
+            "UI_TT_Utc": "Refreshed (UTC)",
+            "UI_TT_YourTime": "Refreshed ({0})",
+            "UI_Through": "Data through",
+            "UI_Trimmed": "Showing the first {0} sources",
+            "UI_TrimmedDetail": "Power BI passes a visual at most {0} rows. Filter the page to the sources you need.",
+            "UI_YourTime": "Your time",
+            "UI_ZoneHint": "Scheduled times and working hours are read in {0}. Set Time Zones > Business Time Zone to the zone your refresh schedule uses."
+        }
+    },
+    "capabilities": {
+        "privileges": [],
+        "dataRoles": [
+            {
+                "name": "refreshed",
+                "kind": "Measure",
+                "displayName": "Refreshed At",
+                "displayNameKey": "Role_refreshed",
+                "description": "When the data was last refreshed. Recipe: a one-row Power Query table with DateTimeZone.RemoveZone(DateTimeZone.UtcNow()), then MAX of it. Read as UTC by default (Time Zones card).",
+                "descriptionKey": "Role_refreshed_Desc"
+            },
+            {
+                "name": "through",
+                "kind": "Measure",
+                "displayName": "Data Through",
+                "displayNameKey": "Role_through",
+                "description": "The last date the data covers, e.g. CALCULATE(MAX(Sales[Order Date]), REMOVEFILTERS()). Tested against the expected lag.",
+                "descriptionKey": "Role_through_Desc"
+            },
+            {
+                "name": "source",
+                "kind": "Grouping",
+                "displayName": "Source",
+                "displayNameKey": "Role_source",
+                "description": "Optional: one row per source or table (a load log, dataflows). Shows a list with a state per source.",
+                "descriptionKey": "Role_source_Desc"
+            },
+            {
+                "name": "detail",
+                "kind": "Grouping",
+                "displayName": "Source Detail",
+                "displayNameKey": "Role_detail",
+                "description": "Optional text under each source name: owner, system, schedule.",
+                "descriptionKey": "Role_detail_Desc"
+            },
+            {
+                "name": "status",
+                "kind": "Measure",
+                "displayName": "Last Status",
+                "displayNameKey": "Role_status",
+                "description": "Optional: the outcome of the last refresh run, as text (Succeeded, Failed, Cancelled) or a numeric code (Last Status card). Shown next to the refresh time; a failed run marks the source stale by default.",
+                "descriptionKey": "Role_status_Desc"
+            },
+            {
+                "name": "next",
+                "kind": "Measure",
+                "displayName": "Next Refresh",
+                "displayNameKey": "Role_next",
+                "description": "Optional: the next scheduled refresh, when your data knows it. Wins over the Refresh Schedule card.",
+                "descriptionKey": "Role_next_Desc"
+            },
+            {
+                "name": "ageingAfter",
+                "kind": "Measure",
+                "displayName": "Ageing After (Hours)",
+                "displayNameKey": "Role_ageingAfter",
+                "description": "Optional per-source threshold from your data; wins over the format pane.",
+                "descriptionKey": "Role_ageingAfter_Desc"
+            },
+            {
+                "name": "staleAfter",
+                "kind": "Measure",
+                "displayName": "Stale After (Hours)",
+                "displayNameKey": "Role_staleAfter",
+                "description": "Optional per-source threshold from your data; wins over the format pane.",
+                "descriptionKey": "Role_staleAfter_Desc"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "Role_tooltips",
+                "description": "Extra measures shown in the tooltip.",
+                "descriptionKey": "Role_tooltips_Desc"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "refreshed": {
+                            "max": 1
+                        },
+                        "through": {
+                            "max": 1
+                        },
+                        "source": {
+                            "max": 1
+                        },
+                        "detail": {
+                            "max": 1
+                        },
+                        "status": {
+                            "max": 1
+                        },
+                        "next": {
+                            "max": 1
+                        },
+                        "ageingAfter": {
+                            "max": 1
+                        },
+                        "staleAfter": {
+                            "max": 1
+                        },
+                        "tooltips": {
+                            "max": 5
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "source"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "detail"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 500
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "refreshed"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "through"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "status"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "next"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "ageingAfter"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "staleAfter"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "sorting": {
+            "default": {}
+        },
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "objects": {
+            "theme": {
+                "displayName": "Theme",
+                "displayNameKey": "Obj_theme",
+                "properties": {
+                    "selectedTheme": {
+                        "displayName": "Theme",
+                        "displayNameKey": "Prop_theme_selectedTheme",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "smartvisuals",
+                                    "displayName": "SmartVisuals",
+                                    "displayNameKey": "Enum_theme_selectedTheme_smartvisuals"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Dark",
+                                    "displayNameKey": "Enum_theme_selectedTheme_dark"
+                                },
+                                {
+                                    "value": "clean",
+                                    "displayName": "Clean",
+                                    "displayNameKey": "Enum_theme_selectedTheme_clean"
+                                },
+                                {
+                                    "value": "slate",
+                                    "displayName": "Slate",
+                                    "displayNameKey": "Enum_theme_selectedTheme_slate"
+                                }
+                            ]
+                        }
+                    },
+                    "transparentBg": {
+                        "displayName": "Transparent Background",
+                        "displayNameKey": "Prop_theme_transparentBg",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "displayName": "Layout",
+                "displayNameKey": "Obj_layout",
+                "properties": {
+                    "layout": {
+                        "displayName": "Layout",
+                        "displayNameKey": "Prop_layout_layout",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (fit the space)",
+                                    "displayNameKey": "Enum_layout_layout_auto"
+                                },
+                                {
+                                    "value": "badge",
+                                    "displayName": "Badge",
+                                    "displayNameKey": "Enum_layout_layout_badge"
+                                },
+                                {
+                                    "value": "strip",
+                                    "displayName": "Header strip",
+                                    "displayNameKey": "Enum_layout_layout_strip"
+                                },
+                                {
+                                    "value": "chip",
+                                    "displayName": "Corner chip",
+                                    "displayNameKey": "Enum_layout_layout_chip"
+                                },
+                                {
+                                    "value": "card",
+                                    "displayName": "Status card",
+                                    "displayNameKey": "Enum_layout_layout_card"
+                                },
+                                {
+                                    "value": "list",
+                                    "displayName": "Source list",
+                                    "displayNameKey": "Enum_layout_layout_list"
+                                }
+                            ]
+                        }
+                    },
+                    "align": {
+                        "displayName": "Alignment",
+                        "displayNameKey": "Prop_layout_align",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto",
+                                    "displayNameKey": "Enum_layout_align_auto"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left",
+                                    "displayNameKey": "Enum_layout_align_left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center",
+                                    "displayNameKey": "Enum_layout_align_center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right",
+                                    "displayNameKey": "Enum_layout_align_right"
+                                }
+                            ]
+                        }
+                    },
+                    "chipCorner": {
+                        "displayName": "Chip Position",
+                        "displayNameKey": "Prop_layout_chipCorner",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "topRight",
+                                    "displayName": "Top right",
+                                    "displayNameKey": "Enum_layout_chipCorner_topRight"
+                                },
+                                {
+                                    "value": "topLeft",
+                                    "displayName": "Top left",
+                                    "displayNameKey": "Enum_layout_chipCorner_topLeft"
+                                },
+                                {
+                                    "value": "bottomRight",
+                                    "displayName": "Bottom right",
+                                    "displayNameKey": "Enum_layout_chipCorner_bottomRight"
+                                },
+                                {
+                                    "value": "bottomLeft",
+                                    "displayName": "Bottom left",
+                                    "displayNameKey": "Enum_layout_chipCorner_bottomLeft"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center",
+                                    "displayNameKey": "Enum_layout_chipCorner_center"
+                                }
+                            ]
+                        }
+                    },
+                    "order": {
+                        "displayName": "Source Order",
+                        "displayNameKey": "Prop_layout_order",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "worst",
+                                    "displayName": "Worst first",
+                                    "displayNameKey": "Enum_layout_order_worst"
+                                },
+                                {
+                                    "value": "data",
+                                    "displayName": "As in the data",
+                                    "displayNameKey": "Enum_layout_order_data"
+                                }
+                            ]
+                        }
+                    },
+                    "shape": {
+                        "displayName": "Shape",
+                        "displayNameKey": "Prop_layout_shape",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "theme",
+                                    "displayName": "From the theme",
+                                    "displayNameKey": "Enum_layout_shape_theme"
+                                },
+                                {
+                                    "value": "pill",
+                                    "displayName": "Pill",
+                                    "displayNameKey": "Enum_layout_shape_pill"
+                                },
+                                {
+                                    "value": "rounded",
+                                    "displayName": "Rounded",
+                                    "displayNameKey": "Enum_layout_shape_rounded"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Square",
+                                    "displayNameKey": "Enum_layout_shape_square"
+                                }
+                            ]
+                        }
+                    },
+                    "font": {
+                        "displayName": "Font",
+                        "displayNameKey": "Prop_layout_font",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "theme",
+                                    "displayName": "From the theme (Inter / Segoe UI)",
+                                    "displayNameKey": "Enum_layout_font_theme"
+                                },
+                                {
+                                    "value": "segoe",
+                                    "displayName": "Segoe UI",
+                                    "displayNameKey": "Enum_layout_font_segoe"
+                                },
+                                {
+                                    "value": "arial",
+                                    "displayName": "Arial",
+                                    "displayNameKey": "Enum_layout_font_arial"
+                                },
+                                {
+                                    "value": "georgia",
+                                    "displayName": "Georgia",
+                                    "displayNameKey": "Enum_layout_font_georgia"
+                                },
+                                {
+                                    "value": "mono",
+                                    "displayName": "Monospace",
+                                    "displayNameKey": "Enum_layout_font_mono"
+                                }
+                            ]
+                        }
+                    },
+                    "textSize": {
+                        "displayName": "Text Size (px, 0 = Fit)",
+                        "displayNameKey": "Prop_layout_textSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "headlineSize": {
+                        "displayName": "Headline Size (%)",
+                        "displayNameKey": "Prop_layout_headlineSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "secondarySize": {
+                        "displayName": "Secondary Text Size (%)",
+                        "displayNameKey": "Prop_layout_secondarySize",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "content": {
+                "displayName": "Show",
+                "displayNameKey": "Obj_content",
+                "properties": {
+                    "icon": {
+                        "displayName": "State Icon",
+                        "displayNameKey": "Prop_content_icon",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "stateWord": {
+                        "displayName": "State Word",
+                        "displayNameKey": "Prop_content_stateWord",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "relative": {
+                        "displayName": "Relative Age (2 hours ago)",
+                        "displayNameKey": "Prop_content_relative",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "absolute": {
+                        "displayName": "Refresh Time (today 06:04)",
+                        "displayNameKey": "Prop_content_absolute",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "status": {
+                        "displayName": "Last Status (Succeeded / Failed)",
+                        "displayNameKey": "Prop_content_status",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "zoneName": {
+                        "displayName": "Time Zone Name (CEST)",
+                        "displayNameKey": "Prop_content_zoneName",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "through": {
+                        "displayName": "Data Through",
+                        "displayNameKey": "Prop_content_through",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "next": {
+                        "displayName": "Next Refresh",
+                        "displayNameKey": "Prop_content_next",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "reason": {
+                        "displayName": "Reason When Not Fresh",
+                        "displayNameKey": "Prop_content_reason",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "summary": {
+                        "displayName": "Summary Line (Source List)",
+                        "displayNameKey": "Prop_content_summary",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "headers": {
+                        "displayName": "Column Headers (Source List)",
+                        "displayNameKey": "Prop_content_headers",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ageBar": {
+                        "displayName": "Age Bar (Status Card)",
+                        "displayNameKey": "Prop_content_ageBar",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "utcRow": {
+                        "displayName": "UTC Time (Status Card)",
+                        "displayNameKey": "Prop_content_utcRow",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "businessAge": {
+                        "displayName": "Business-Time Age (Status Card)",
+                        "displayNameKey": "Prop_content_businessAge",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "asOf": {
+                        "displayName": "As-Of Stamp",
+                        "displayNameKey": "Prop_content_asOf",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "In exports and snapshots",
+                                    "displayNameKey": "Enum_content_asOf_auto"
+                                },
+                                {
+                                    "value": "always",
+                                    "displayName": "Always",
+                                    "displayNameKey": "Enum_content_asOf_always"
+                                },
+                                {
+                                    "value": "never",
+                                    "displayName": "Never",
+                                    "displayNameKey": "Enum_content_asOf_never"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "time": {
+                "displayName": "Time Zones",
+                "displayNameKey": "Obj_time",
+                "properties": {
+                    "storedAs": {
+                        "displayName": "Refresh Time Is Stored As",
+                        "displayNameKey": "Prop_time_storedAs",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "utc",
+                                    "displayName": "UTC (recommended recipe)",
+                                    "displayNameKey": "Enum_time_storedAs_utc"
+                                },
+                                {
+                                    "value": "viewer",
+                                    "displayName": "The viewer's time zone",
+                                    "displayNameKey": "Enum_time_storedAs_viewer"
+                                },
+                                {
+                                    "value": "zone",
+                                    "displayName": "A time zone or offset (type below)",
+                                    "displayNameKey": "Enum_time_storedAs_zone"
+                                }
+                            ]
+                        }
+                    },
+                    "storedZone": {
+                        "displayName": "Stored Time Zone",
+                        "displayNameKey": "Prop_time_storedZone",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "displayZone": {
+                        "displayName": "Show Times In",
+                        "displayNameKey": "Prop_time_displayZone",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "viewer",
+                                    "displayName": "The viewer's own time zone",
+                                    "displayNameKey": "Enum_time_displayZone_viewer"
+                                },
+                                {
+                                    "value": "utc",
+                                    "displayName": "UTC",
+                                    "displayNameKey": "Enum_time_displayZone_utc"
+                                },
+                                {
+                                    "value": "business",
+                                    "displayName": "The business time zone",
+                                    "displayNameKey": "Enum_time_displayZone_business"
+                                }
+                            ]
+                        }
+                    },
+                    "businessZone": {
+                        "displayName": "Business Time Zone",
+                        "displayNameKey": "Prop_time_businessZone",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "clock": {
+                        "displayName": "Clock",
+                        "displayNameKey": "Prop_time_clock",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "From the report language",
+                                    "displayNameKey": "Enum_time_clock_auto"
+                                },
+                                {
+                                    "value": "24",
+                                    "displayName": "24-hour (18:30)",
+                                    "displayNameKey": "Enum_time_clock_24"
+                                },
+                                {
+                                    "value": "12",
+                                    "displayName": "12-hour (6:30 PM)",
+                                    "displayNameKey": "Enum_time_clock_12"
+                                }
+                            ]
+                        }
+                    },
+                    "relStyle": {
+                        "displayName": "Relative Wording",
+                        "displayNameKey": "Prop_time_relStyle",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "long",
+                                    "displayName": "Long (2 hours ago)",
+                                    "displayNameKey": "Enum_time_relStyle_long"
+                                },
+                                {
+                                    "value": "short",
+                                    "displayName": "Short (2 hr. ago)",
+                                    "displayNameKey": "Enum_time_relStyle_short"
+                                },
+                                {
+                                    "value": "narrow",
+                                    "displayName": "Narrow (2h ago)",
+                                    "displayNameKey": "Enum_time_relStyle_narrow"
+                                }
+                            ]
+                        }
+                    },
+                    "live": {
+                        "displayName": "Keep Ageing While Open",
+                        "displayNameKey": "Prop_time_live",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "staleness": {
+                "displayName": "Refresh Age",
+                "displayNameKey": "Obj_staleness",
+                "properties": {
+                    "ageingHours": {
+                        "displayName": "Ageing After (Hours, 0 = Off)",
+                        "displayNameKey": "Prop_staleness_ageingHours",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "staleHours": {
+                        "displayName": "Stale After (Hours, 0 = Off)",
+                        "displayNameKey": "Prop_staleness_staleHours",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "countIn": {
+                        "displayName": "Count Age In",
+                        "displayNameKey": "Prop_staleness_countIn",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "business",
+                                    "displayName": "Business time (working days and hours)",
+                                    "displayNameKey": "Enum_staleness_countIn_business"
+                                },
+                                {
+                                    "value": "calendar",
+                                    "displayName": "Calendar time",
+                                    "displayNameKey": "Enum_staleness_countIn_calendar"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "coverage": {
+                "displayName": "Data Coverage",
+                "displayNameKey": "Obj_coverage",
+                "properties": {
+                    "expectedLag": {
+                        "displayName": "Expected Lag (Days)",
+                        "displayNameKey": "Prop_coverage_expectedLag",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "ageingDays": {
+                        "displayName": "Ageing When Behind By (Days, 0 = Off)",
+                        "displayNameKey": "Prop_coverage_ageingDays",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "staleDays": {
+                        "displayName": "Stale When Behind By (Days, 0 = Off)",
+                        "displayNameKey": "Prop_coverage_staleDays",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "countIn": {
+                        "displayName": "Count Missing Days In",
+                        "displayNameKey": "Prop_coverage_countIn",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "business",
+                                    "displayName": "Working days",
+                                    "displayNameKey": "Enum_coverage_countIn_business"
+                                },
+                                {
+                                    "value": "calendar",
+                                    "displayName": "Calendar days",
+                                    "displayNameKey": "Enum_coverage_countIn_calendar"
+                                }
+                            ]
+                        }
+                    },
+                    "dateStyle": {
+                        "displayName": "Date Format",
+                        "displayNameKey": "Prop_coverage_dateStyle",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (yesterday, Fri 26 Sep)",
+                                    "displayNameKey": "Enum_coverage_dateStyle_auto"
+                                },
+                                {
+                                    "value": "short",
+                                    "displayName": "Short (26/09/2026)",
+                                    "displayNameKey": "Enum_coverage_dateStyle_short"
+                                },
+                                {
+                                    "value": "medium",
+                                    "displayName": "Medium (26 Sep 2026)",
+                                    "displayNameKey": "Enum_coverage_dateStyle_medium"
+                                },
+                                {
+                                    "value": "long",
+                                    "displayName": "Long (26 September 2026)",
+                                    "displayNameKey": "Enum_coverage_dateStyle_long"
+                                },
+                                {
+                                    "value": "iso",
+                                    "displayName": "ISO (2026-09-26)",
+                                    "displayNameKey": "Enum_coverage_dateStyle_iso"
+                                }
+                            ]
+                        }
+                    },
+                    "label": {
+                        "displayName": "Label",
+                        "displayNameKey": "Prop_coverage_label",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "words",
+                                    "displayName": "Data through",
+                                    "displayNameKey": "Enum_coverage_label_words"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "The measure's name (Sales through)",
+                                    "displayNameKey": "Enum_coverage_label_field"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "schedule": {
+                "displayName": "Refresh Schedule",
+                "displayNameKey": "Obj_schedule",
+                "properties": {
+                    "times": {
+                        "displayName": "Scheduled Times (06:00, 12:30)",
+                        "displayNameKey": "Prop_schedule_times",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "days": {
+                        "displayName": "Runs On",
+                        "displayNameKey": "Prop_schedule_days",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "workdays",
+                                    "displayName": "Working days",
+                                    "displayNameKey": "Enum_schedule_days_workdays"
+                                },
+                                {
+                                    "value": "every",
+                                    "displayName": "Every day",
+                                    "displayNameKey": "Enum_schedule_days_every"
+                                }
+                            ]
+                        }
+                    },
+                    "graceMinutes": {
+                        "displayName": "Late After (Minutes)",
+                        "displayNameKey": "Prop_schedule_graceMinutes",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "approx": {
+                        "displayName": "Show Next Refresh As Approximate (~)",
+                        "displayNameKey": "Prop_schedule_approx",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "lastStatus": {
+                "displayName": "Last Status",
+                "displayNameKey": "Obj_lastStatus",
+                "properties": {
+                    "codes": {
+                        "displayName": "Numeric Status Codes",
+                        "displayNameKey": "Prop_lastStatus_codes",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "exit",
+                                    "displayName": "0 = succeeded, other = failed (exit codes)",
+                                    "displayNameKey": "Enum_lastStatus_codes_exit"
+                                },
+                                {
+                                    "value": "sqlAgent",
+                                    "displayName": "SQL Agent (1 succeeded, 0 failed, 4 running)",
+                                    "displayNameKey": "Enum_lastStatus_codes_sqlAgent"
+                                },
+                                {
+                                    "value": "http",
+                                    "displayName": "HTTP (2xx succeeded, 4xx/5xx failed)",
+                                    "displayNameKey": "Enum_lastStatus_codes_http"
+                                }
+                            ]
+                        }
+                    },
+                    "onFailure": {
+                        "displayName": "A Failed Last Run Makes the Source",
+                        "displayNameKey": "Prop_lastStatus_onFailure",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "stale",
+                                    "displayName": "Stale",
+                                    "displayNameKey": "Enum_lastStatus_onFailure_stale"
+                                },
+                                {
+                                    "value": "ageing",
+                                    "displayName": "Ageing",
+                                    "displayNameKey": "Enum_lastStatus_onFailure_ageing"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "No change (show the status only)",
+                                    "displayNameKey": "Enum_lastStatus_onFailure_none"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "calendar": {
+                "displayName": "Business Calendar",
+                "displayNameKey": "Obj_calendar",
+                "properties": {
+                    "weekend": {
+                        "displayName": "Weekend",
+                        "displayNameKey": "Prop_calendar_weekend",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "satSun",
+                                    "displayName": "Saturday and Sunday",
+                                    "displayNameKey": "Enum_calendar_weekend_satSun"
+                                },
+                                {
+                                    "value": "friSat",
+                                    "displayName": "Friday and Saturday",
+                                    "displayNameKey": "Enum_calendar_weekend_friSat"
+                                },
+                                {
+                                    "value": "sun",
+                                    "displayName": "Sunday only",
+                                    "displayNameKey": "Enum_calendar_weekend_sun"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "No weekend",
+                                    "displayNameKey": "Enum_calendar_weekend_none"
+                                }
+                            ]
+                        }
+                    },
+                    "hours": {
+                        "displayName": "Working Hours (08:00-18:00, Empty = Whole Day)",
+                        "displayNameKey": "Prop_calendar_hours",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "holidays": {
+                        "displayName": "Holidays (YYYY-MM-DD, Comma Separated)",
+                        "displayNameKey": "Prop_calendar_holidays",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "wording": {
+                "displayName": "Text",
+                "displayNameKey": "Obj_wording",
+                "properties": {
+                    "refreshed": {
+                        "displayName": "Refreshed Label",
+                        "displayNameKey": "Prop_wording_refreshed",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "through": {
+                        "displayName": "Data Through Label",
+                        "displayNameKey": "Prop_wording_through",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "next": {
+                        "displayName": "Next Refresh Label",
+                        "displayNameKey": "Prop_wording_next",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "status": {
+                        "displayName": "Last Status Label",
+                        "displayNameKey": "Prop_wording_status",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "source": {
+                        "displayName": "Source Column Label",
+                        "displayNameKey": "Prop_wording_source",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "stateCol": {
+                        "displayName": "State Column Label",
+                        "displayNameKey": "Prop_wording_stateCol",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "yourTime": {
+                        "displayName": "Your Time Label",
+                        "displayNameKey": "Prop_wording_yourTime",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fresh": {
+                        "displayName": "Fresh Word",
+                        "displayNameKey": "Prop_wording_fresh",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "ageing": {
+                        "displayName": "Ageing Word",
+                        "displayNameKey": "Prop_wording_ageing",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "stale": {
+                        "displayName": "Stale Word",
+                        "displayNameKey": "Prop_wording_stale",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "unknown": {
+                        "displayName": "Unknown Word",
+                        "displayNameKey": "Prop_wording_unknown",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "colors": {
+                "displayName": "Colors",
+                "displayNameKey": "Obj_colors",
+                "properties": {
+                    "background": {
+                        "displayName": "Background",
+                        "displayNameKey": "Prop_colors_background",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "surface": {
+                        "displayName": "Badge / Card Fill",
+                        "displayNameKey": "Prop_colors_surface",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "border": {
+                        "displayName": "Border",
+                        "displayNameKey": "Prop_colors_border",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "text": {
+                        "displayName": "Text",
+                        "displayNameKey": "Prop_colors_text",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "muted": {
+                        "displayName": "Secondary Text",
+                        "displayNameKey": "Prop_colors_muted",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "accent": {
+                        "displayName": "Accent and Rules",
+                        "displayNameKey": "Prop_colors_accent",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fresh": {
+                        "displayName": "Fresh",
+                        "displayNameKey": "Prop_colors_fresh",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ageing": {
+                        "displayName": "Ageing",
+                        "displayNameKey": "Prop_colors_ageing",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "stale": {
+                        "displayName": "Stale",
+                        "displayNameKey": "Prop_colors_stale",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "unknown": {
+                        "displayName": "Unknown",
+                        "displayNameKey": "Prop_colors_unknown",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "sources": {
+                "displayName": "Sources",
+                "displayNameKey": "Obj_sources",
+                "properties": {
+                    "label": {
+                        "displayName": "Display Name",
+                        "displayNameKey": "Prop_sources_label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "ageingHours": {
+                        "displayName": "Ageing After (Hours, 0 = Default)",
+                        "displayNameKey": "Prop_sources_ageingHours",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "staleHours": {
+                        "displayName": "Stale After (Hours, 0 = Default)",
+                        "displayNameKey": "Prop_sources_staleHours",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

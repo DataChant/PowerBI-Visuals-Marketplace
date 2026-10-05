@@ -1,0 +1,3081 @@
+{
+    "visual": {
+        "name": "dateSlicer",
+        "displayName": "SmartVisuals Date Slicer",
+        "guid": "dateSlicer5B31A308CE89423F868B26BA14DFA05F",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Date and period slicer: calendar, timeline and compact bar; presets that keep rolling after publishing (YTD, MTD, rolling 12 months, fiscal); ISO weeks starting Monday, Sunday or Saturday, retail 4-4-5, holidays for 21 countries, working days and comparison periods for your measures. Part of the SmartVisuals family for Power BI.",
+        "supportUrl": "https://smartvisuals.io/support",
+        "gitHubUrl": "https://github.com/uhlilas01/date-slicer-visual"
+    },
+    "author": {
+        "name": "SmartVisuals",
+        "email": "hello@smartvisuals.io"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "cs-CZ": {
+            "Enum_anchor_latest": "Posledn\u00ed datum s daty",
+            "Enum_anchor_today": "Dnes",
+            "Enum_anchor_yesterday": "V\u010dera (cel\u00e9 dny)",
+            "Enum_comparison_none": "Vypnuto",
+            "Enum_comparison_previous": "P\u0159edchoz\u00ed obdob\u00ed",
+            "Enum_comparison_sply": "Stejn\u00e9 obdob\u00ed loni",
+            "Enum_comparison_sply52": "O 52 t\u00fddn\u016f zp\u011bt (stejn\u00e9 dny v t\u00fddnu)",
+            "Enum_dateFormat_iso": "ISO (2026-09-27)",
+            "Enum_dateFormat_long": "Dlouh\u00fd (27. z\u00e1\u0159\u00ed 2026)",
+            "Enum_dateFormat_medium": "St\u0159edn\u00ed (27. 9. 2026)",
+            "Enum_dateFormat_short": "Kr\u00e1tk\u00fd (27. 09. 2026)",
+            "Enum_default_custom": "Vlastn\u00ed p\u0159edvolba",
+            "Enum_default_hytd": "Pololet\u00ed k dne\u0161ku",
+            "Enum_default_last12cm": "Posledn\u00edch 12 cel\u00fdch m\u011bs\u00edc\u016f",
+            "Enum_default_last12m": "Posledn\u00edch 12 m\u011bs\u00edc\u016f",
+            "Enum_default_last30": "Posledn\u00edch 30 dn\u00ed",
+            "Enum_default_last7": "Posledn\u00edch 7 dn\u00ed",
+            "Enum_default_last90": "Posledn\u00edch 90 dn\u00ed",
+            "Enum_default_lastMonth": "Minul\u00fd m\u011bs\u00edc",
+            "Enum_default_lastQuarter": "Minul\u00e9 \u010dtvrtlet\u00ed",
+            "Enum_default_lastWeek": "Minul\u00fd t\u00fdden",
+            "Enum_default_lastYear": "Minul\u00fd rok",
+            "Enum_default_mtd": "M\u011bs\u00edc k dne\u0161ku",
+            "Enum_default_none": "\u017d\u00e1dn\u00fd (v\u0161echna data)",
+            "Enum_default_qtd": "\u010ctvrtlet\u00ed k dne\u0161ku",
+            "Enum_default_thisMonth": "Tento m\u011bs\u00edc",
+            "Enum_default_thisQuarter": "Toto \u010dtvrtlet\u00ed",
+            "Enum_default_thisWeek": "Tento t\u00fdden",
+            "Enum_default_thisYear": "Tento rok",
+            "Enum_default_today": "Dnes",
+            "Enum_default_wtd": "T\u00fdden k dne\u0161ku",
+            "Enum_default_yesterday": "V\u010dera",
+            "Enum_default_ytd": "Rok k dne\u0161ku",
+            "Enum_fiscalNaming_end": "Podle roku konce",
+            "Enum_fiscalNaming_start": "Podle roku za\u010d\u00e1tku",
+            "Enum_fontFamily_arial": "Arial",
+            "Enum_fontFamily_georgia": "Georgia",
+            "Enum_fontFamily_inter": "Inter",
+            "Enum_fontFamily_segoe": "Segoe UI",
+            "Enum_fontFamily_theme": "Podle motivu",
+            "Enum_granularity_day": "Den",
+            "Enum_granularity_half": "Pololet\u00ed",
+            "Enum_granularity_month": "M\u011bs\u00edc",
+            "Enum_granularity_quarter": "\u010ctvrtlet\u00ed",
+            "Enum_granularity_week": "T\u00fdden",
+            "Enum_granularity_year": "Rok",
+            "Enum_holidays_at": "Rakousko",
+            "Enum_holidays_au": "Austr\u00e1lie (celost\u00e1tn\u00ed)",
+            "Enum_holidays_be": "Belgie",
+            "Enum_holidays_ca": "Kanada (feder\u00e1ln\u00ed)",
+            "Enum_holidays_cz": "\u010cesko",
+            "Enum_holidays_de": "N\u011bmecko (celost\u00e1tn\u00ed)",
+            "Enum_holidays_dk": "D\u00e1nsko",
+            "Enum_holidays_es": "\u0160pan\u011blsko (celost\u00e1tn\u00ed)",
+            "Enum_holidays_fi": "Finsko",
+            "Enum_holidays_fr": "Francie",
+            "Enum_holidays_hu": "Ma\u010farsko",
+            "Enum_holidays_ie": "Irsko",
+            "Enum_holidays_it": "It\u00e1lie",
+            "Enum_holidays_nl": "Nizozemsko",
+            "Enum_holidays_no": "Norsko",
+            "Enum_holidays_none": "\u017d\u00e1dn\u00e9",
+            "Enum_holidays_pl": "Polsko",
+            "Enum_holidays_pt": "Portugalsko",
+            "Enum_holidays_se": "\u0160v\u00e9dsko",
+            "Enum_holidays_sk": "Slovensko",
+            "Enum_holidays_uk": "Spojen\u00e9 kr\u00e1lovstv\u00ed (Anglie a Wales)",
+            "Enum_holidays_us": "Spojen\u00e9 st\u00e1ty (feder\u00e1ln\u00ed)",
+            "Enum_layout_auto": "Automaticky (podle m\u00edsta)",
+            "Enum_layout_calendar": "Kalend\u00e1\u0159",
+            "Enum_layout_compact": "Kompaktn\u00ed li\u0161ta",
+            "Enum_layout_list": "Seznam p\u0159edvoleb",
+            "Enum_layout_timeline": "\u010casov\u00e1 osa",
+            "Enum_month_0": "Leden",
+            "Enum_month_1": "\u00danor",
+            "Enum_month_10": "Listopad",
+            "Enum_month_11": "Prosinec",
+            "Enum_month_2": "B\u0159ezen",
+            "Enum_month_3": "Duben",
+            "Enum_month_4": "Kv\u011bten",
+            "Enum_month_5": "\u010cerven",
+            "Enum_month_6": "\u010cervenec",
+            "Enum_month_7": "Srpen",
+            "Enum_month_8": "Z\u00e1\u0159\u00ed",
+            "Enum_month_9": "\u0158\u00edjen",
+            "Enum_months_1": "1",
+            "Enum_months_2": "2",
+            "Enum_months_3": "3",
+            "Enum_months_auto": "Automaticky",
+            "Enum_presetsPosition_auto": "Automaticky",
+            "Enum_presetsPosition_side": "Po stran\u011b",
+            "Enum_presetsPosition_top": "Naho\u0159e",
+            "Enum_retailPattern_445": "4-4-5",
+            "Enum_retailPattern_454": "4-5-4",
+            "Enum_retailPattern_544": "5-4-4",
+            "Enum_retailRule_last": "Posledn\u00ed takov\u00fd den v m\u011bs\u00edci",
+            "Enum_retailRule_nearest": "Den v t\u00fddnu nejbl\u00ed\u017ee konci m\u011bs\u00edce",
+            "Enum_selectionType_after": "Od (v\u010detn\u011b)",
+            "Enum_selectionType_before": "Do (v\u010detn\u011b)",
+            "Enum_selectionType_range": "Mezi",
+            "Enum_selectionType_single": "Jeden den",
+            "Enum_theme_clean": "\u010cist\u00fd",
+            "Enum_theme_dark": "Tmav\u00fd",
+            "Enum_theme_slate": "B\u0159idlice",
+            "Enum_theme_smartvisuals": "SmartVisuals",
+            "Enum_unit_day": "Dn\u00ed",
+            "Enum_unit_half": "Pololet\u00ed",
+            "Enum_unit_month": "M\u011bs\u00edc\u016f",
+            "Enum_unit_quarter": "\u010ctvrtlet\u00ed",
+            "Enum_unit_week": "T\u00fddn\u016f",
+            "Enum_unit_year": "Let",
+            "Enum_weekNumbers_iso": "ISO 8601",
+            "Enum_weekNumbers_none": "Vypnuto",
+            "Enum_weekNumbers_simple": "T\u00fdden s 1. lednem = 1",
+            "Enum_weekStart_0": "Ned\u011ble",
+            "Enum_weekStart_1": "Pond\u011bl\u00ed",
+            "Enum_weekStart_6": "Sobota",
+            "Enum_weekday_0": "Ned\u011ble",
+            "Enum_weekday_1": "Pond\u011bl\u00ed",
+            "Enum_weekday_2": "\u00dater\u00fd",
+            "Enum_weekday_3": "St\u0159eda",
+            "Enum_weekday_4": "\u010ctvrtek",
+            "Enum_weekday_5": "P\u00e1tek",
+            "Enum_weekday_6": "Sobota",
+            "Enum_weekend_friSat": "P\u00e1tek a sobota",
+            "Enum_weekend_none": "Bez v\u00edkendu",
+            "Enum_weekend_satSun": "Sobota a ned\u011ble",
+            "Enum_weekend_sun": "Jen ned\u011ble",
+            "Enum_yearMode_calendar": "Kalend\u00e1\u0159n\u00ed rok",
+            "Enum_yearMode_fiscal": "Fisk\u00e1ln\u00ed rok",
+            "Enum_yearMode_retail": "Maloobchodn\u00ed rok 4-4-5 (premium)",
+            "Gran_day": "Den",
+            "Gran_half": "Pololet\u00ed",
+            "Gran_month": "M\u011bs\u00edc",
+            "Gran_quarter": "\u010ctvrtlet\u00ed",
+            "Gran_week": "T\u00fdden",
+            "Gran_year": "Rok",
+            "Group_current": "Aktu\u00e1ln\u00ed",
+            "Group_days": "Dny",
+            "Group_next": "P\u0159\u00ed\u0161t\u00ed",
+            "Group_previous": "P\u0159edchoz\u00ed",
+            "Group_rolling": "Klouzav\u00e9",
+            "Group_toDate": "K dne\u0161ku",
+            "Label_fy": "FR",
+            "Label_half": "Pol",
+            "Label_period": "P",
+            "Label_quarter": "Q",
+            "Label_week": "T",
+            "Obj_calendar": "Kalend\u00e1\u0159",
+            "Obj_header": "Z\u00e1hlav\u00ed",
+            "Obj_intelligence": "Chytr\u00e1 obdob\u00ed (premium)",
+            "Obj_layout": "Rozlo\u017een\u00ed",
+            "Obj_presets": "P\u0159edvolby",
+            "Obj_selection": "V\u00fdchoz\u00ed v\u00fdb\u011br a obnoven\u00ed",
+            "Obj_style": "Motiv a barvy",
+            "Preset_bizN": "Posledn\u00edch {0} pracovn\u00edch dn\u00ed",
+            "Preset_hytd": "Pololet\u00ed k dne\u0161ku",
+            "Preset_hytd_fy": "Fisk\u00e1ln\u00ed pololet\u00ed k dne\u0161ku",
+            "Preset_inclCurrent": "{0} v\u010d. aktu\u00e1ln\u00edho",
+            "Preset_last12cm": "Posledn\u00edch 12 cel\u00fdch m\u011bs\u00edc\u016f",
+            "Preset_last12m": "Posledn\u00edch 12 m\u011bs\u00edc\u016f",
+            "Preset_last14": "Posledn\u00edch 14 dn\u00ed",
+            "Preset_last30": "Posledn\u00edch 30 dn\u00ed",
+            "Preset_last365": "Posledn\u00edch 365 dn\u00ed",
+            "Preset_last7": "Posledn\u00edch 7 dn\u00ed",
+            "Preset_last90": "Posledn\u00edch 90 dn\u00ed",
+            "Preset_lastHalf": "Minul\u00e9 pololet\u00ed",
+            "Preset_lastHalf_fy": "Minul\u00e9 fisk\u00e1ln\u00ed pololet\u00ed",
+            "Preset_lastMonth": "Minul\u00fd m\u011bs\u00edc",
+            "Preset_lastN": "Posledn\u00edch {0} {1}",
+            "Preset_lastNFull": "Posledn\u00edch {0} cel\u00fdch {1}",
+            "Preset_lastQuarter": "Minul\u00e9 \u010dtvrtlet\u00ed",
+            "Preset_lastQuarter_fy": "Minul\u00e9 fisk\u00e1ln\u00ed \u010dtvrtlet\u00ed",
+            "Preset_lastWeek": "Minul\u00fd t\u00fdden",
+            "Preset_lastYear": "Minul\u00fd rok",
+            "Preset_lastYear_fy": "Minul\u00fd fisk\u00e1ln\u00ed rok",
+            "Preset_mtd": "M\u011bs\u00edc k dne\u0161ku",
+            "Preset_nextHalf": "P\u0159\u00ed\u0161t\u00ed pololet\u00ed",
+            "Preset_nextHalf_fy": "P\u0159\u00ed\u0161t\u00ed fisk\u00e1ln\u00ed pololet\u00ed",
+            "Preset_nextMonth": "P\u0159\u00ed\u0161t\u00ed m\u011bs\u00edc",
+            "Preset_nextN": "P\u0159\u00ed\u0161t\u00edch {0} {1}",
+            "Preset_nextQuarter": "P\u0159\u00ed\u0161t\u00ed \u010dtvrtlet\u00ed",
+            "Preset_nextQuarter_fy": "P\u0159\u00ed\u0161t\u00ed fisk\u00e1ln\u00ed \u010dtvrtlet\u00ed",
+            "Preset_nextWeek": "P\u0159\u00ed\u0161t\u00ed t\u00fdden",
+            "Preset_nextYear": "P\u0159\u00ed\u0161t\u00ed rok",
+            "Preset_nextYear_fy": "P\u0159\u00ed\u0161t\u00ed fisk\u00e1ln\u00ed rok",
+            "Preset_qtd": "\u010ctvrtlet\u00ed k dne\u0161ku",
+            "Preset_qtd_fy": "Fisk\u00e1ln\u00ed \u010dtvrtlet\u00ed k dne\u0161ku",
+            "Preset_thisHalf": "Toto pololet\u00ed",
+            "Preset_thisHalf_fy": "Toto fisk\u00e1ln\u00ed pololet\u00ed",
+            "Preset_thisMonth": "Tento m\u011bs\u00edc",
+            "Preset_thisQuarter": "Toto \u010dtvrtlet\u00ed",
+            "Preset_thisQuarter_fy": "Toto fisk\u00e1ln\u00ed \u010dtvrtlet\u00ed",
+            "Preset_thisWeek": "Tento t\u00fdden",
+            "Preset_thisYear": "Tento rok",
+            "Preset_thisYear_fy": "Tento fisk\u00e1ln\u00ed rok",
+            "Preset_today": "Dnes",
+            "Preset_wtd": "T\u00fdden k dne\u0161ku",
+            "Preset_yesterday": "V\u010dera",
+            "Preset_ytd": "Rok k dne\u0161ku",
+            "Preset_ytd_fy": "Fisk\u00e1ln\u00ed rok k dne\u0161ku",
+            "Prop_calendar_fiscalNaming": "N\u00e1zev fisk\u00e1ln\u00edho roku",
+            "Prop_calendar_fiscalStart": "Fisk\u00e1ln\u00ed rok za\u010d\u00edn\u00e1",
+            "Prop_calendar_holidays": "St\u00e1tn\u00ed sv\u00e1tky",
+            "Prop_calendar_retailEndMonth": "Maloobchodn\u00ed rok kon\u010d\u00ed v m\u011bs\u00edci",
+            "Prop_calendar_retailEndWeekday": "Maloobchodn\u00ed rok kon\u010d\u00ed dnem",
+            "Prop_calendar_retailPattern": "Maloobchodn\u00ed vzor",
+            "Prop_calendar_retailRule": "Pravidlo konce maloobchodn\u00edho roku",
+            "Prop_calendar_shadeWeekends": "St\u00ednovat v\u00edkendy",
+            "Prop_calendar_weekNumbers": "\u010c\u00edsla t\u00fddn\u016f",
+            "Prop_calendar_weekStart": "T\u00fdden za\u010d\u00edn\u00e1",
+            "Prop_calendar_weekend": "V\u00edkend",
+            "Prop_calendar_yearMode": "Typ roku",
+            "Prop_header_dateFormat": "Form\u00e1t data",
+            "Prop_header_fontColor": "Barva textu",
+            "Prop_header_fontSize": "Velikost textu",
+            "Prop_header_show": "Zobrazit z\u00e1hlav\u00ed",
+            "Prop_header_showDataThrough": "Data k datu",
+            "Prop_header_showDays": "Po\u010det dn\u00ed",
+            "Prop_header_showLabel": "N\u00e1zev p\u0159edvolby",
+            "Prop_intelligence_comparison": "Srovn\u00e1vac\u00ed obdob\u00ed",
+            "Prop_intelligence_showComparison": "Zobrazit srovn\u00e1n\u00ed v z\u00e1hlav\u00ed",
+            "Prop_intelligence_workingDaysOnly": "Filtrovat jen pracovn\u00ed dny",
+            "Prop_intelligence_workingDaysOnly_Desc": "Vylou\u010d\u00ed z filtru v\u00edkendy a sv\u00e1tky (sloupce s datem bez \u010dasu).",
+            "Prop_layout_applyButton": "Tla\u010d\u00edtko Pou\u017e\u00edt",
+            "Prop_layout_applyButton_Desc": "V\u00fdb\u011br \u010dek\u00e1 na Pou\u017e\u00edt \u2014 hod\u00ed se u n\u00e1ro\u010dn\u00fdch model\u016f.",
+            "Prop_layout_granularity": "Podrobnost \u010dasov\u00e9 osy",
+            "Prop_layout_mode": "Rozlo\u017een\u00ed",
+            "Prop_layout_months": "Zobrazen\u00e9 m\u011bs\u00edce",
+            "Prop_layout_selectionType": "V\u00fdb\u011br",
+            "Prop_layout_showGranularity": "P\u0159ep\u00edna\u010d podrobnosti",
+            "Prop_layout_showInputs": "Zad\u00e1v\u00e1n\u00ed data z kl\u00e1vesnice",
+            "Prop_layout_showStepper": "\u0160ipky p\u0159edchoz\u00ed / dal\u0161\u00ed",
+            "Prop_presets_custom": "Vlastn\u00ed p\u0159edvolba",
+            "Prop_presets_customCount": "Vlastn\u00ed: kolik",
+            "Prop_presets_customCurrent": "Vlastn\u00ed: v\u010detn\u011b aktu\u00e1ln\u00edho",
+            "Prop_presets_customUnit": "Vlastn\u00ed: jednotka",
+            "Prop_presets_days": "Dnes / V\u010dera",
+            "Prop_presets_halfYears": "Pololet\u00ed (toto, minul\u00e9, k dne\u0161ku)",
+            "Prop_presets_lastPeriods": "Minul\u00fd t\u00fdden / m\u011bs\u00edc / \u010dtvrtlet\u00ed / rok",
+            "Prop_presets_nextPeriods": "P\u0159\u00ed\u0161t\u00ed t\u00fdden / m\u011bs\u00edc / \u010dtvrtlet\u00ed",
+            "Prop_presets_position": "Um\u00edst\u011bn\u00ed",
+            "Prop_presets_rolling": "Posledn\u00edch 7 / 30 / 90 / 365 dn\u00ed",
+            "Prop_presets_rolling12": "Posledn\u00edch 12 m\u011bs\u00edc\u016f (klouzav\u011b i cel\u00e9 m\u011bs\u00edce)",
+            "Prop_presets_show": "Zobrazit p\u0159edvolby",
+            "Prop_presets_showGroups": "Nadpisy skupin",
+            "Prop_presets_thisPeriods": "Tento t\u00fdden / m\u011bs\u00edc / \u010dtvrtlet\u00ed / rok",
+            "Prop_presets_toDate": "T\u00fdden / m\u011bs\u00edc / \u010dtvrtlet\u00ed / rok k dne\u0161ku",
+            "Prop_presets_viewerCustom": "\u010cten\u00e1\u0159 si zvol\u00ed posledn\u00edch / p\u0159\u00ed\u0161t\u00edch N",
+            "Prop_presets_workingDays": "Posledn\u00edch 20 pracovn\u00edch dn\u00ed (premium)",
+            "Prop_selection_anchor": "P\u0159edvolby kon\u010d\u00ed",
+            "Prop_selection_clearButton": "Tla\u010d\u00edtko Zru\u0161it v\u00fdb\u011br",
+            "Prop_selection_defaultPreset": "V\u00fdchoz\u00ed v\u00fdb\u011br",
+            "Prop_selection_defaultPreset_Desc": "Pou\u017eije se, kdykoli nen\u00ed nic vybr\u00e1no; \u010dten\u00e1\u0159 m\u016f\u017ee v\u017edy vybrat n\u011bco jin\u00e9ho.",
+            "Prop_selection_resetButton": "Tla\u010d\u00edtko Obnovit",
+            "Prop_selection_rolling": "Relativn\u00ed p\u0159edvolby se posouvaj\u00ed s kalend\u00e1\u0159em",
+            "Prop_selection_rolling_Desc": "Rok k dne\u0161ku ulo\u017een\u00fd dnes bude za t\u00fdden st\u00e1le rokem k dne\u0161ku. Vypnuto data zmraz\u00ed.",
+            "Prop_style_accent": "Barva v\u00fdb\u011bru",
+            "Prop_style_background": "Pozad\u00ed",
+            "Prop_style_borderColor": "\u010c\u00e1ry a okraje",
+            "Prop_style_chipColor": "Barva tla\u010d\u00edtek p\u0159edvoleb",
+            "Prop_style_chipTextColor": "Text tla\u010d\u00edtek p\u0159edvoleb",
+            "Prop_style_compareColor": "Barva srovn\u00e1n\u00ed",
+            "Prop_style_densityColor": "Pruhy hustoty dat",
+            "Prop_style_fontColor": "Barva textu",
+            "Prop_style_fontFamily": "P\u00edsmo",
+            "Prop_style_fontSize": "Velikost textu",
+            "Prop_style_headingColor": "Nadpisy (m\u011bs\u00edce, skupiny, popisky)",
+            "Prop_style_holidayColor": "Zna\u010dka sv\u00e1tku",
+            "Prop_style_mutedColor": "Vedlej\u0161\u00ed text (dny v t\u00fddnu, \u010d\u00edsla t\u00fddn\u016f)",
+            "Prop_style_noDataColor": "Data bez dat",
+            "Prop_style_rangeColor": "Barva rozsahu",
+            "Prop_style_theme": "Motiv",
+            "Prop_style_todayColor": "Zna\u010dka dne\u0161ka",
+            "Prop_style_transparent": "Pr\u016fhledn\u00e9 pozad\u00ed",
+            "Prop_style_weekendColor": "St\u00ednov\u00e1n\u00ed v\u00edkend\u016f",
+            "Role_CompareDate": "Srovn\u00e1vac\u00ed datum (voliteln\u00e9)",
+            "Role_CompareDate_Desc": "Sloupec s datem (obvykle nepropojen\u00fd srovn\u00e1vac\u00ed kalend\u00e1\u0159), kter\u00fd dostane srovn\u00e1vac\u00ed obdob\u00ed. Premium. Vyp\u00edn\u00e1 synchronizaci pr\u016f\u0159ez\u016f.",
+            "Role_Date": "Datum",
+            "Role_Date_Desc": "Sloupec s datem k filtrov\u00e1n\u00ed. Nejl\u00e9pe sloupec Date z va\u0161\u00ed kalend\u00e1\u0159n\u00ed tabulky; funguje i automatick\u00e1 datov\u00e1 hierarchie.",
+            "Role_Tooltips": "Popisky",
+            "Role_Tooltips_Desc": "Dal\u0161\u00ed m\u00edry zobrazen\u00e9 p\u0159i najet\u00ed na den nebo obdob\u00ed.",
+            "Role_Value": "Hustota dat (voliteln\u00e9)",
+            "Role_Value_Desc": "M\u00edra vykreslen\u00e1 jako pruhy pod \u010dasovou osou a pou\u017eit\u00e1 pro ukotven\u00ed k posledn\u00edmu datu s daty. Power BI synchronizuje pr\u016f\u0159ezy mezi str\u00e1nkami jen tehdy, kdy\u017e m\u00e1 pr\u016f\u0159ez jedin\u00e9 pole.",
+            "UI_AllDates": "V\u0161echna data",
+            "UI_Apply": "Pou\u017e\u00edt",
+            "UI_Blocked": "Srovn\u00e1vac\u00ed obdob\u00ed, filtr pracovn\u00edch dn\u00ed a maloobchodn\u00ed kalend\u00e1\u0159e vy\u017eaduj\u00ed licenci SmartVisuals Date Slicer. Pr\u016f\u0159ez d\u00e1l funguje s bezplatn\u00fdmi funkcemi.",
+            "UI_Cancel": "Zru\u0161it",
+            "UI_Clear": "Zru\u0161it v\u00fdb\u011br",
+            "UI_Coarse": "Tato hierarchie nesah\u00e1 a\u017e ke dn\u016fm. P\u0159ipojte samotn\u00fd sloupec Date (nebo hierarchii a\u017e po dny), aby pr\u016f\u0159ez mohl filtrovat rozsahy dat.",
+            "UI_CoarseTitle": "Pot\u0159ebuje dny",
+            "UI_CustomN": "Vlastn\u00ed obdob\u00ed",
+            "UI_CustomRange": "Vlastn\u00ed rozsah",
+            "UI_DataThrough": "Data do {0}",
+            "UI_Date": "Datum",
+            "UI_DayOne": "{0} den",
+            "UI_Days": "{0} dn\u00ed",
+            "UI_End": "Konec",
+            "UI_ErrorTitle": "Pr\u016f\u0159ez se nepoda\u0159ilo vykreslit",
+            "UI_From": "Od",
+            "UI_Go": "Pou\u017e\u00edt",
+            "UI_Granularity": "Podrobnost",
+            "UI_Holiday": "Sv\u00e1tek",
+            "UI_HowMany": "Kolik",
+            "UI_LandingB1": "Kalend\u00e1\u0159, \u010dasov\u00e1 osa a kompaktn\u00ed li\u0161ta v jednom pr\u016f\u0159ezu",
+            "UI_LandingB2": "P\u0159edvolby k dne\u0161ku, klouzav\u00e9 i fisk\u00e1ln\u00ed, kter\u00e9 po publikov\u00e1n\u00ed z\u016fst\u00e1vaj\u00ed aktu\u00e1ln\u00ed",
+            "UI_LandingB3": "Srovn\u00e1vac\u00ed obdob\u00ed, pracovn\u00ed dny a sv\u00e1tky 21 zem\u00ed",
+            "UI_LandingHint": "P\u0159idejte pole Datum \u2014 nejl\u00e9pe sloupec Date z kalend\u00e1\u0159n\u00ed tabulky. V\u0161e ostatn\u00ed je voliteln\u00e9.",
+            "UI_LandingTitle": "SmartVisuals Date Slicer",
+            "UI_Last": "Posledn\u00edch",
+            "UI_ListNoPresets": "Zapn\u011bte ve form\u00e1tovac\u00edm podokn\u011b P\u0159edvolby, aby se zde zobrazily.",
+            "UI_More": "Dal\u0161\u00ed",
+            "UI_MorePresets": "Zobrazit dal\u0161\u00ed p\u0159edvolby",
+            "UI_Next": "P\u0159\u00ed\u0161t\u00edch",
+            "UI_NextMonth": "Dal\u0161\u00ed m\u011bs\u00edc",
+            "UI_NextPeriod": "Dal\u0161\u00ed obdob\u00ed",
+            "UI_NoData": "Bez dat",
+            "UI_NoDates": "Pole Datum neobsahuje hodnoty, kter\u00e9 lze p\u0159e\u010d\u00edst jako data.",
+            "UI_NoDatesTitle": "\u017d\u00e1dn\u00e1 \u010diteln\u00e1 data",
+            "UI_NotADate": "Neplatn\u00e9 datum",
+            "UI_Pending": "nepou\u017eito",
+            "UI_PickEnd": "Vyberte koncov\u00e9 datum",
+            "UI_Presets": "P\u0159edvolby",
+            "UI_PrevMonth": "P\u0159edchoz\u00ed m\u011bs\u00edc",
+            "UI_PrevPeriod": "P\u0159edchoz\u00ed obdob\u00ed",
+            "UI_Reset": "Obnovit",
+            "UI_ResetTo": "Obnovit na {0}",
+            "UI_Selected": "vybr\u00e1no",
+            "UI_Start": "Za\u010d\u00e1tek",
+            "UI_Today": "dnes",
+            "UI_Until": "Do",
+            "UI_Versus": "vs",
+            "UI_WeekShort": "T\u00fdd",
+            "UI_WorkingDays": "{0} prac. dn\u00ed",
+            "UI_WorkingDaysLabel": "Pracovn\u00ed dny",
+            "Unit_day_many": "dn\u00ed",
+            "Unit_day_one": "den",
+            "Unit_half_many": "pololet\u00ed",
+            "Unit_half_one": "pololet\u00ed",
+            "Unit_month_many": "m\u011bs\u00edc\u016f",
+            "Unit_month_one": "m\u011bs\u00edc",
+            "Unit_quarter_many": "\u010dtvrtlet\u00ed",
+            "Unit_quarter_one": "\u010dtvrtlet\u00ed",
+            "Unit_week_many": "t\u00fddn\u016f",
+            "Unit_week_one": "t\u00fdden",
+            "Unit_year_many": "let",
+            "Unit_year_one": "rok"
+        },
+        "de-DE": {
+            "Enum_anchor_latest": "Letztes Datum mit Daten",
+            "Enum_anchor_today": "Heute",
+            "Enum_anchor_yesterday": "Gestern (vollst\u00e4ndige Tage)",
+            "Enum_comparison_none": "Aus",
+            "Enum_comparison_previous": "Vorperiode",
+            "Enum_comparison_sply": "Vorjahreszeitraum",
+            "Enum_comparison_sply52": "52 Wochen zur\u00fcck (gleiche Wochentage)",
+            "Enum_dateFormat_iso": "ISO (2026-09-27)",
+            "Enum_dateFormat_long": "Lang (27. September 2026)",
+            "Enum_dateFormat_medium": "Mittel (27. Sept. 2026)",
+            "Enum_dateFormat_short": "Kurz (27.09.2026)",
+            "Enum_default_custom": "Eigene Voreinstellung",
+            "Enum_default_hytd": "Halbjahr bis heute",
+            "Enum_default_last12cm": "Letzte 12 volle Monate",
+            "Enum_default_last12m": "Letzte 12 Monate",
+            "Enum_default_last30": "Letzte 30 Tage",
+            "Enum_default_last7": "Letzte 7 Tage",
+            "Enum_default_last90": "Letzte 90 Tage",
+            "Enum_default_lastMonth": "Letzter Monat",
+            "Enum_default_lastQuarter": "Letztes Quartal",
+            "Enum_default_lastWeek": "Letzte Woche",
+            "Enum_default_lastYear": "Letztes Jahr",
+            "Enum_default_mtd": "Monat bis heute",
+            "Enum_default_none": "Keine (alle Daten)",
+            "Enum_default_qtd": "Quartal bis heute",
+            "Enum_default_thisMonth": "Dieser Monat",
+            "Enum_default_thisQuarter": "Dieses Quartal",
+            "Enum_default_thisWeek": "Diese Woche",
+            "Enum_default_thisYear": "Dieses Jahr",
+            "Enum_default_today": "Heute",
+            "Enum_default_wtd": "Woche bis heute",
+            "Enum_default_yesterday": "Gestern",
+            "Enum_default_ytd": "Jahr bis heute",
+            "Enum_fiscalNaming_end": "Nach Endjahr",
+            "Enum_fiscalNaming_start": "Nach Anfangsjahr",
+            "Enum_fontFamily_arial": "Arial",
+            "Enum_fontFamily_georgia": "Georgia",
+            "Enum_fontFamily_inter": "Inter",
+            "Enum_fontFamily_segoe": "Segoe UI",
+            "Enum_fontFamily_theme": "Design-Standard",
+            "Enum_granularity_day": "Tag",
+            "Enum_granularity_half": "Halbjahr",
+            "Enum_granularity_month": "Monat",
+            "Enum_granularity_quarter": "Quartal",
+            "Enum_granularity_week": "Woche",
+            "Enum_granularity_year": "Jahr",
+            "Enum_holidays_at": "\u00d6sterreich",
+            "Enum_holidays_au": "Australien (bundesweit)",
+            "Enum_holidays_be": "Belgien",
+            "Enum_holidays_ca": "Kanada (Bund)",
+            "Enum_holidays_cz": "Tschechien",
+            "Enum_holidays_de": "Deutschland (bundesweit)",
+            "Enum_holidays_dk": "D\u00e4nemark",
+            "Enum_holidays_es": "Spanien (bundesweit)",
+            "Enum_holidays_fi": "Finnland",
+            "Enum_holidays_fr": "Frankreich",
+            "Enum_holidays_hu": "Ungarn",
+            "Enum_holidays_ie": "Irland",
+            "Enum_holidays_it": "Italien",
+            "Enum_holidays_nl": "Niederlande",
+            "Enum_holidays_no": "Norwegen",
+            "Enum_holidays_none": "Keine",
+            "Enum_holidays_pl": "Polen",
+            "Enum_holidays_pt": "Portugal",
+            "Enum_holidays_se": "Schweden",
+            "Enum_holidays_sk": "Slowakei",
+            "Enum_holidays_uk": "Vereinigtes K\u00f6nigreich (England und Wales)",
+            "Enum_holidays_us": "Vereinigte Staaten (Bund)",
+            "Enum_layout_auto": "Automatisch (an den Platz angepasst)",
+            "Enum_layout_calendar": "Kalender",
+            "Enum_layout_compact": "Kompaktleiste",
+            "Enum_layout_list": "Voreinstellungsliste",
+            "Enum_layout_timeline": "Zeitachse",
+            "Enum_month_0": "Januar",
+            "Enum_month_1": "Februar",
+            "Enum_month_10": "November",
+            "Enum_month_11": "Dezember",
+            "Enum_month_2": "M\u00e4rz",
+            "Enum_month_3": "April",
+            "Enum_month_4": "Mai",
+            "Enum_month_5": "Juni",
+            "Enum_month_6": "Juli",
+            "Enum_month_7": "August",
+            "Enum_month_8": "September",
+            "Enum_month_9": "Oktober",
+            "Enum_months_1": "1",
+            "Enum_months_2": "2",
+            "Enum_months_3": "3",
+            "Enum_months_auto": "Automatisch",
+            "Enum_presetsPosition_auto": "Automatisch",
+            "Enum_presetsPosition_side": "Seitlich",
+            "Enum_presetsPosition_top": "Oben",
+            "Enum_retailPattern_445": "4-4-5",
+            "Enum_retailPattern_454": "4-5-4",
+            "Enum_retailPattern_544": "5-4-4",
+            "Enum_retailRule_last": "Letzter solcher Wochentag im Monat",
+            "Enum_retailRule_nearest": "Wochentag am n\u00e4chsten zum Monatsende",
+            "Enum_selectionType_after": "Am oder nach",
+            "Enum_selectionType_before": "Am oder vor",
+            "Enum_selectionType_range": "Zwischen",
+            "Enum_selectionType_single": "Einzelner Tag",
+            "Enum_theme_clean": "Klar",
+            "Enum_theme_dark": "Dunkel",
+            "Enum_theme_slate": "Schiefer",
+            "Enum_theme_smartvisuals": "SmartVisuals",
+            "Enum_unit_day": "Tage",
+            "Enum_unit_half": "Halbjahre",
+            "Enum_unit_month": "Monate",
+            "Enum_unit_quarter": "Quartale",
+            "Enum_unit_week": "Wochen",
+            "Enum_unit_year": "Jahre",
+            "Enum_weekNumbers_iso": "ISO 8601",
+            "Enum_weekNumbers_none": "Aus",
+            "Enum_weekNumbers_simple": "Woche mit dem 1. Januar = 1",
+            "Enum_weekStart_0": "Sonntag",
+            "Enum_weekStart_1": "Montag",
+            "Enum_weekStart_6": "Samstag",
+            "Enum_weekday_0": "Sonntag",
+            "Enum_weekday_1": "Montag",
+            "Enum_weekday_2": "Dienstag",
+            "Enum_weekday_3": "Mittwoch",
+            "Enum_weekday_4": "Donnerstag",
+            "Enum_weekday_5": "Freitag",
+            "Enum_weekday_6": "Samstag",
+            "Enum_weekend_friSat": "Freitag und Samstag",
+            "Enum_weekend_none": "Kein Wochenende",
+            "Enum_weekend_satSun": "Samstag und Sonntag",
+            "Enum_weekend_sun": "Nur Sonntag",
+            "Enum_yearMode_calendar": "Kalenderjahr",
+            "Enum_yearMode_fiscal": "Gesch\u00e4ftsjahr",
+            "Enum_yearMode_retail": "Handelsjahr 4-4-5 (Premium)",
+            "Gran_day": "Tag",
+            "Gran_half": "Halbjahr",
+            "Gran_month": "Monat",
+            "Gran_quarter": "Quartal",
+            "Gran_week": "Woche",
+            "Gran_year": "Jahr",
+            "Group_current": "Aktuell",
+            "Group_days": "Tage",
+            "Group_next": "N\u00e4chste",
+            "Group_previous": "Vorherige",
+            "Group_rolling": "Rollierend",
+            "Group_toDate": "Bis heute",
+            "Label_fy": "GJ",
+            "Label_half": "H",
+            "Label_period": "P",
+            "Label_quarter": "Q",
+            "Label_week": "KW",
+            "Obj_calendar": "Kalender",
+            "Obj_header": "Kopfzeile",
+            "Obj_intelligence": "Periodenintelligenz (Premium)",
+            "Obj_layout": "Layout",
+            "Obj_presets": "Voreinstellungen",
+            "Obj_selection": "Standard und Zur\u00fccksetzen",
+            "Obj_style": "Design und Farben",
+            "Preset_bizN": "Letzte {0} Arbeitstage",
+            "Preset_hytd": "Halbjahr bis heute",
+            "Preset_hytd_fy": "Gesch\u00e4ftshalbjahr bis heute",
+            "Preset_inclCurrent": "{0} inkl. aktuell",
+            "Preset_last12cm": "Letzte 12 volle Monate",
+            "Preset_last12m": "Letzte 12 Monate",
+            "Preset_last14": "Letzte 14 Tage",
+            "Preset_last30": "Letzte 30 Tage",
+            "Preset_last365": "Letzte 365 Tage",
+            "Preset_last7": "Letzte 7 Tage",
+            "Preset_last90": "Letzte 90 Tage",
+            "Preset_lastHalf": "Letztes Halbjahr",
+            "Preset_lastHalf_fy": "Letztes Gesch\u00e4ftshalbjahr",
+            "Preset_lastMonth": "Letzter Monat",
+            "Preset_lastN": "Letzte {0} {1}",
+            "Preset_lastNFull": "Letzte {0} volle {1}",
+            "Preset_lastQuarter": "Letztes Quartal",
+            "Preset_lastQuarter_fy": "Letztes Gesch\u00e4ftsquartal",
+            "Preset_lastWeek": "Letzte Woche",
+            "Preset_lastYear": "Letztes Jahr",
+            "Preset_lastYear_fy": "Letztes Gesch\u00e4ftsjahr",
+            "Preset_mtd": "Monat bis heute",
+            "Preset_nextHalf": "N\u00e4chstes Halbjahr",
+            "Preset_nextHalf_fy": "N\u00e4chstes Gesch\u00e4ftshalbjahr",
+            "Preset_nextMonth": "N\u00e4chster Monat",
+            "Preset_nextN": "N\u00e4chste {0} {1}",
+            "Preset_nextQuarter": "N\u00e4chstes Quartal",
+            "Preset_nextQuarter_fy": "N\u00e4chstes Gesch\u00e4ftsquartal",
+            "Preset_nextWeek": "N\u00e4chste Woche",
+            "Preset_nextYear": "N\u00e4chstes Jahr",
+            "Preset_nextYear_fy": "N\u00e4chstes Gesch\u00e4ftsjahr",
+            "Preset_qtd": "Quartal bis heute",
+            "Preset_qtd_fy": "Gesch\u00e4ftsquartal bis heute",
+            "Preset_thisHalf": "Dieses Halbjahr",
+            "Preset_thisHalf_fy": "Dieses Gesch\u00e4ftshalbjahr",
+            "Preset_thisMonth": "Dieser Monat",
+            "Preset_thisQuarter": "Dieses Quartal",
+            "Preset_thisQuarter_fy": "Dieses Gesch\u00e4ftsquartal",
+            "Preset_thisWeek": "Diese Woche",
+            "Preset_thisYear": "Dieses Jahr",
+            "Preset_thisYear_fy": "Dieses Gesch\u00e4ftsjahr",
+            "Preset_today": "Heute",
+            "Preset_wtd": "Woche bis heute",
+            "Preset_yesterday": "Gestern",
+            "Preset_ytd": "Jahr bis heute",
+            "Preset_ytd_fy": "Gesch\u00e4ftsjahr bis heute",
+            "Prop_calendar_fiscalNaming": "Name des Gesch\u00e4ftsjahres",
+            "Prop_calendar_fiscalStart": "Gesch\u00e4ftsjahr beginnt",
+            "Prop_calendar_holidays": "Gesetzliche Feiertage",
+            "Prop_calendar_retailEndMonth": "Handelsjahr endet im",
+            "Prop_calendar_retailEndWeekday": "Handelsjahr endet am",
+            "Prop_calendar_retailPattern": "Handelsmuster",
+            "Prop_calendar_retailRule": "Regel f\u00fcr das Handelsjahresende",
+            "Prop_calendar_shadeWeekends": "Wochenenden schattieren",
+            "Prop_calendar_weekNumbers": "Wochennummern",
+            "Prop_calendar_weekStart": "Woche beginnt am",
+            "Prop_calendar_weekend": "Wochenende",
+            "Prop_calendar_yearMode": "Jahrestyp",
+            "Prop_header_dateFormat": "Datumsformat",
+            "Prop_header_fontColor": "Textfarbe",
+            "Prop_header_fontSize": "Textgr\u00f6\u00dfe",
+            "Prop_header_show": "Kopfzeile anzeigen",
+            "Prop_header_showDataThrough": "Daten bis Datum",
+            "Prop_header_showDays": "Anzahl Tage",
+            "Prop_header_showLabel": "Name der Voreinstellung",
+            "Prop_intelligence_comparison": "Vergleichszeitraum",
+            "Prop_intelligence_showComparison": "Vergleich in der Kopfzeile anzeigen",
+            "Prop_intelligence_workingDaysOnly": "Nur Arbeitstage filtern",
+            "Prop_intelligence_workingDaysOnly_Desc": "Schlie\u00dft Wochenenden und Feiertage aus dem Filter aus (Datumsspalten ohne Uhrzeit).",
+            "Prop_layout_applyButton": "Schaltfl\u00e4che \u201eAnwenden\u201c",
+            "Prop_layout_applyButton_Desc": "Auswahl wartet auf \u201eAnwenden\u201c \u2013 n\u00fctzlich bei gro\u00dfen Modellen.",
+            "Prop_layout_granularity": "Zeitachsen-Granularit\u00e4t",
+            "Prop_layout_mode": "Layout",
+            "Prop_layout_months": "Angezeigte Monate",
+            "Prop_layout_selectionType": "Auswahl",
+            "Prop_layout_showGranularity": "Granularit\u00e4tsumschalter",
+            "Prop_layout_showInputs": "Datumseingabe per Tastatur",
+            "Prop_layout_showStepper": "Pfeile zur\u00fcck / weiter",
+            "Prop_presets_custom": "Eigene Voreinstellung",
+            "Prop_presets_customCount": "Eigene: wie viele",
+            "Prop_presets_customCurrent": "Eigene: aktuelle einschlie\u00dfen",
+            "Prop_presets_customUnit": "Eigene: Einheit",
+            "Prop_presets_days": "Heute / Gestern",
+            "Prop_presets_halfYears": "Halbjahre (dieses, letztes, bis heute)",
+            "Prop_presets_lastPeriods": "Letzte Woche / Monat / Quartal / Jahr",
+            "Prop_presets_nextPeriods": "N\u00e4chste Woche / Monat / Quartal",
+            "Prop_presets_position": "Position",
+            "Prop_presets_rolling": "Letzte 7 / 30 / 90 / 365 Tage",
+            "Prop_presets_rolling12": "Letzte 12 Monate (rollierend und volle Monate)",
+            "Prop_presets_show": "Voreinstellungen anzeigen",
+            "Prop_presets_showGroups": "Gruppen\u00fcberschriften",
+            "Prop_presets_thisPeriods": "Diese Woche / Monat / Quartal / Jahr",
+            "Prop_presets_toDate": "Woche / Monat / Quartal / Jahr bis heute",
+            "Prop_presets_viewerCustom": "Betrachter w\u00e4hlen letzte / n\u00e4chste N",
+            "Prop_presets_workingDays": "Letzte 20 Arbeitstage (Premium)",
+            "Prop_selection_anchor": "Voreinstellungen enden am",
+            "Prop_selection_clearButton": "Schaltfl\u00e4che \u201eAuswahl l\u00f6schen\u201c",
+            "Prop_selection_defaultPreset": "Standardauswahl",
+            "Prop_selection_defaultPreset_Desc": "Gilt, wenn nichts ausgew\u00e4hlt ist; Betrachter k\u00f6nnen jederzeit etwas anderes w\u00e4hlen.",
+            "Prop_selection_resetButton": "Schaltfl\u00e4che \u201eZur\u00fccksetzen\u201c",
+            "Prop_selection_rolling": "Relative Voreinstellungen folgen dem Kalender",
+            "Prop_selection_rolling_Desc": "Heute gespeichertes \u201eJahr bis heute\u201c bleibt n\u00e4chste Woche \u201eJahr bis heute\u201c. Aus friert die Daten ein.",
+            "Prop_style_accent": "Auswahlfarbe",
+            "Prop_style_background": "Hintergrund",
+            "Prop_style_borderColor": "Linien und Rahmen",
+            "Prop_style_chipColor": "Farbe der Voreinstellungsschaltfl\u00e4chen",
+            "Prop_style_chipTextColor": "Text der Voreinstellungsschaltfl\u00e4chen",
+            "Prop_style_compareColor": "Vergleichsfarbe",
+            "Prop_style_densityColor": "Datendichte-Balken",
+            "Prop_style_fontColor": "Textfarbe",
+            "Prop_style_fontFamily": "Schriftart",
+            "Prop_style_fontSize": "Textgr\u00f6\u00dfe",
+            "Prop_style_headingColor": "\u00dcberschriften (Monate, Gruppen, Beschriftungen)",
+            "Prop_style_holidayColor": "Feiertagsmarkierung",
+            "Prop_style_mutedColor": "Sekund\u00e4rtext (Wochentage, Wochennummern)",
+            "Prop_style_noDataColor": "Tage ohne Daten",
+            "Prop_style_rangeColor": "Bereichsfarbe",
+            "Prop_style_theme": "Design",
+            "Prop_style_todayColor": "Heute-Markierung",
+            "Prop_style_transparent": "Transparenter Hintergrund",
+            "Prop_style_weekendColor": "Wochenendschattierung",
+            "Role_CompareDate": "Vergleichsdatum (optional)",
+            "Role_CompareDate_Desc": "Eine Datumsspalte (meist ein unverbundener Vergleichskalender), die den Vergleichszeitraum erh\u00e4lt. Premium. Deaktiviert synchronisierte Datenschnitte.",
+            "Role_Date": "Datum",
+            "Role_Date_Desc": "Die zu filternde Datumsspalte. Am besten die Datumsspalte Ihrer Datumstabelle; die automatische Datumshierarchie funktioniert auch.",
+            "Role_Tooltips": "QuickInfos",
+            "Role_Tooltips_Desc": "Zus\u00e4tzliche Measures beim Zeigen auf einen Tag oder Zeitraum.",
+            "Role_Value": "Datendichte (optional)",
+            "Role_Value_Desc": "Ein Measure, das als Balken unter der Zeitachse gezeichnet und f\u00fcr den Anker \u201eletztes Datum mit Daten\u201c verwendet wird. Power BI synchronisiert Datenschnitte \u00fcber Seiten nur, wenn der Datenschnitt ein einziges Feld hat.",
+            "UI_AllDates": "Alle Daten",
+            "UI_Apply": "Anwenden",
+            "UI_Blocked": "Vergleichszeitr\u00e4ume, Arbeitstagfilter und Handelskalender ben\u00f6tigen eine Lizenz f\u00fcr SmartVisuals Date Slicer. Der Datenschnitt funktioniert mit den kostenlosen Funktionen weiter.",
+            "UI_Cancel": "Abbrechen",
+            "UI_Clear": "Auswahl l\u00f6schen",
+            "UI_Coarse": "Diese Hierarchie endet oberhalb der Tage. Binden Sie die Datumsspalte selbst (oder eine Hierarchie bis zum Tag), damit der Datenschnitt Zeitr\u00e4ume filtern kann.",
+            "UI_CoarseTitle": "Ben\u00f6tigt Tage",
+            "UI_CustomN": "Eigener Zeitraum",
+            "UI_CustomRange": "Benutzerdefinierter Zeitraum",
+            "UI_DataThrough": "Daten bis {0}",
+            "UI_Date": "Datum",
+            "UI_DayOne": "{0} Tag",
+            "UI_Days": "{0} Tage",
+            "UI_End": "Ende",
+            "UI_ErrorTitle": "Der Datenschnitt konnte nicht gezeichnet werden",
+            "UI_From": "Ab",
+            "UI_Go": "Anwenden",
+            "UI_Granularity": "Granularit\u00e4t",
+            "UI_Holiday": "Feiertag",
+            "UI_HowMany": "Wie viele",
+            "UI_LandingB1": "Kalender, Zeitachse und Kompaktleiste in einem Datenschnitt",
+            "UI_LandingB2": "Bis-heute-, rollierende und Gesch\u00e4ftsjahres-Voreinstellungen, die nach dem Ver\u00f6ffentlichen aktuell bleiben",
+            "UI_LandingB3": "Vergleichszeitr\u00e4ume, Arbeitstage und Feiertage f\u00fcr 21 L\u00e4nder",
+            "UI_LandingHint": "F\u00fcgen Sie ein Datumsfeld hinzu \u2013 am besten die Datumsspalte Ihrer Datumstabelle. Alles andere ist optional.",
+            "UI_LandingTitle": "SmartVisuals Date Slicer",
+            "UI_Last": "Letzte",
+            "UI_ListNoPresets": "Aktivieren Sie im Formatbereich \u201eVoreinstellungen\u201c, um sie hier aufzulisten.",
+            "UI_More": "Mehr",
+            "UI_MorePresets": "Weitere Voreinstellungen anzeigen",
+            "UI_Next": "N\u00e4chste",
+            "UI_NextMonth": "N\u00e4chster Monat",
+            "UI_NextPeriod": "N\u00e4chster Zeitraum",
+            "UI_NoData": "Keine Daten",
+            "UI_NoDates": "Das Datumsfeld enth\u00e4lt keine Werte, die als Datum lesbar sind.",
+            "UI_NoDatesTitle": "Keine lesbaren Daten",
+            "UI_NotADate": "Kein g\u00fcltiges Datum",
+            "UI_Pending": "nicht angewendet",
+            "UI_PickEnd": "Enddatum w\u00e4hlen",
+            "UI_Presets": "Voreinstellungen",
+            "UI_PrevMonth": "Vorheriger Monat",
+            "UI_PrevPeriod": "Vorheriger Zeitraum",
+            "UI_Reset": "Zur\u00fccksetzen",
+            "UI_ResetTo": "Zur\u00fccksetzen auf {0}",
+            "UI_Selected": "ausgew\u00e4hlt",
+            "UI_Start": "Beginn",
+            "UI_Today": "heute",
+            "UI_Until": "Bis",
+            "UI_Versus": "vs.",
+            "UI_WeekShort": "KW",
+            "UI_WorkingDays": "{0} Arbeitstage",
+            "UI_WorkingDaysLabel": "Arbeitstage",
+            "Unit_day_many": "Tage",
+            "Unit_day_one": "Tag",
+            "Unit_half_many": "Halbjahre",
+            "Unit_half_one": "Halbjahr",
+            "Unit_month_many": "Monate",
+            "Unit_month_one": "Monat",
+            "Unit_quarter_many": "Quartale",
+            "Unit_quarter_one": "Quartal",
+            "Unit_week_many": "Wochen",
+            "Unit_week_one": "Woche",
+            "Unit_year_many": "Jahre",
+            "Unit_year_one": "Jahr"
+        },
+        "en-US": {
+            "Enum_anchor_latest": "Latest date with data",
+            "Enum_anchor_today": "Today",
+            "Enum_anchor_yesterday": "Yesterday (complete days)",
+            "Enum_comparison_none": "Off",
+            "Enum_comparison_previous": "Previous period",
+            "Enum_comparison_sply": "Same period last year",
+            "Enum_comparison_sply52": "52 weeks back (same weekdays)",
+            "Enum_dateFormat_iso": "ISO (2026-09-27)",
+            "Enum_dateFormat_long": "Long (September 27, 2026)",
+            "Enum_dateFormat_medium": "Medium (Sep 27, 2026)",
+            "Enum_dateFormat_short": "Short (09/27/2026)",
+            "Enum_default_custom": "Custom preset",
+            "Enum_default_hytd": "Half-year to date",
+            "Enum_default_last12cm": "Last 12 full months",
+            "Enum_default_last12m": "Last 12 months",
+            "Enum_default_last30": "Last 30 days",
+            "Enum_default_last7": "Last 7 days",
+            "Enum_default_last90": "Last 90 days",
+            "Enum_default_lastMonth": "Last month",
+            "Enum_default_lastQuarter": "Last quarter",
+            "Enum_default_lastWeek": "Last week",
+            "Enum_default_lastYear": "Last year",
+            "Enum_default_mtd": "Month to date",
+            "Enum_default_none": "None (all dates)",
+            "Enum_default_qtd": "Quarter to date",
+            "Enum_default_thisMonth": "This month",
+            "Enum_default_thisQuarter": "This quarter",
+            "Enum_default_thisWeek": "This week",
+            "Enum_default_thisYear": "This year",
+            "Enum_default_today": "Today",
+            "Enum_default_wtd": "Week to date",
+            "Enum_default_yesterday": "Yesterday",
+            "Enum_default_ytd": "Year to date",
+            "Enum_fiscalNaming_end": "By end year",
+            "Enum_fiscalNaming_start": "By start year",
+            "Enum_fontFamily_arial": "Arial",
+            "Enum_fontFamily_georgia": "Georgia",
+            "Enum_fontFamily_inter": "Inter",
+            "Enum_fontFamily_segoe": "Segoe UI",
+            "Enum_fontFamily_theme": "Theme default",
+            "Enum_granularity_day": "Day",
+            "Enum_granularity_half": "Half-year",
+            "Enum_granularity_month": "Month",
+            "Enum_granularity_quarter": "Quarter",
+            "Enum_granularity_week": "Week",
+            "Enum_granularity_year": "Year",
+            "Enum_holidays_at": "Austria",
+            "Enum_holidays_au": "Australia (national)",
+            "Enum_holidays_be": "Belgium",
+            "Enum_holidays_ca": "Canada (federal)",
+            "Enum_holidays_cz": "Czechia",
+            "Enum_holidays_de": "Germany (national)",
+            "Enum_holidays_dk": "Denmark",
+            "Enum_holidays_es": "Spain (national)",
+            "Enum_holidays_fi": "Finland",
+            "Enum_holidays_fr": "France",
+            "Enum_holidays_hu": "Hungary",
+            "Enum_holidays_ie": "Ireland",
+            "Enum_holidays_it": "Italy",
+            "Enum_holidays_nl": "Netherlands",
+            "Enum_holidays_no": "Norway",
+            "Enum_holidays_none": "None",
+            "Enum_holidays_pl": "Poland",
+            "Enum_holidays_pt": "Portugal",
+            "Enum_holidays_se": "Sweden",
+            "Enum_holidays_sk": "Slovakia",
+            "Enum_holidays_uk": "United Kingdom (England & Wales)",
+            "Enum_holidays_us": "United States (federal)",
+            "Enum_layout_auto": "Auto (fit the space)",
+            "Enum_layout_calendar": "Calendar",
+            "Enum_layout_compact": "Compact bar",
+            "Enum_layout_list": "Presets list",
+            "Enum_layout_timeline": "Timeline",
+            "Enum_month_0": "January",
+            "Enum_month_1": "February",
+            "Enum_month_10": "November",
+            "Enum_month_11": "December",
+            "Enum_month_2": "March",
+            "Enum_month_3": "April",
+            "Enum_month_4": "May",
+            "Enum_month_5": "June",
+            "Enum_month_6": "July",
+            "Enum_month_7": "August",
+            "Enum_month_8": "September",
+            "Enum_month_9": "October",
+            "Enum_months_1": "1",
+            "Enum_months_2": "2",
+            "Enum_months_3": "3",
+            "Enum_months_auto": "Auto",
+            "Enum_presetsPosition_auto": "Auto",
+            "Enum_presetsPosition_side": "Side",
+            "Enum_presetsPosition_top": "Top",
+            "Enum_retailPattern_445": "4-4-5",
+            "Enum_retailPattern_454": "4-5-4",
+            "Enum_retailPattern_544": "5-4-4",
+            "Enum_retailRule_last": "Last weekday of month",
+            "Enum_retailRule_nearest": "Weekday nearest month end",
+            "Enum_selectionType_after": "On or after",
+            "Enum_selectionType_before": "On or before",
+            "Enum_selectionType_range": "Between",
+            "Enum_selectionType_single": "Single day",
+            "Enum_theme_clean": "Clean",
+            "Enum_theme_dark": "Dark",
+            "Enum_theme_slate": "Slate",
+            "Enum_theme_smartvisuals": "SmartVisuals",
+            "Enum_unit_day": "Days",
+            "Enum_unit_half": "Half-years",
+            "Enum_unit_month": "Months",
+            "Enum_unit_quarter": "Quarters",
+            "Enum_unit_week": "Weeks",
+            "Enum_unit_year": "Years",
+            "Enum_weekNumbers_iso": "ISO 8601",
+            "Enum_weekNumbers_none": "Off",
+            "Enum_weekNumbers_simple": "Week of 1 January = 1",
+            "Enum_weekStart_0": "Sunday",
+            "Enum_weekStart_1": "Monday",
+            "Enum_weekStart_6": "Saturday",
+            "Enum_weekday_0": "Sunday",
+            "Enum_weekday_1": "Monday",
+            "Enum_weekday_2": "Tuesday",
+            "Enum_weekday_3": "Wednesday",
+            "Enum_weekday_4": "Thursday",
+            "Enum_weekday_5": "Friday",
+            "Enum_weekday_6": "Saturday",
+            "Enum_weekend_friSat": "Friday and Saturday",
+            "Enum_weekend_none": "No weekend",
+            "Enum_weekend_satSun": "Saturday and Sunday",
+            "Enum_weekend_sun": "Sunday only",
+            "Enum_yearMode_calendar": "Calendar year",
+            "Enum_yearMode_fiscal": "Fiscal year",
+            "Enum_yearMode_retail": "Retail 4-4-5 year (premium)",
+            "Gran_day": "Day",
+            "Gran_half": "Half-year",
+            "Gran_month": "Month",
+            "Gran_quarter": "Quarter",
+            "Gran_week": "Week",
+            "Gran_year": "Year",
+            "Group_current": "Current",
+            "Group_days": "Days",
+            "Group_next": "Next",
+            "Group_previous": "Previous",
+            "Group_rolling": "Rolling",
+            "Group_toDate": "To date",
+            "Label_fy": "FY",
+            "Label_half": "H",
+            "Label_period": "P",
+            "Label_quarter": "Q",
+            "Label_week": "W",
+            "Obj_calendar": "Calendar",
+            "Obj_header": "Header",
+            "Obj_intelligence": "Period intelligence (premium)",
+            "Obj_layout": "Layout",
+            "Obj_presets": "Presets",
+            "Obj_selection": "Default and reset",
+            "Obj_style": "Theme and colours",
+            "Preset_bizN": "Last {0} working days",
+            "Preset_hytd": "Half-year to date",
+            "Preset_hytd_fy": "Fiscal half-year to date",
+            "Preset_inclCurrent": "{0} incl. current",
+            "Preset_last12cm": "Last 12 full months",
+            "Preset_last12m": "Last 12 months",
+            "Preset_last14": "Last 14 days",
+            "Preset_last30": "Last 30 days",
+            "Preset_last365": "Last 365 days",
+            "Preset_last7": "Last 7 days",
+            "Preset_last90": "Last 90 days",
+            "Preset_lastHalf": "Last half-year",
+            "Preset_lastHalf_fy": "Last fiscal half-year",
+            "Preset_lastMonth": "Last month",
+            "Preset_lastN": "Last {0} {1}",
+            "Preset_lastNFull": "Last {0} full {1}",
+            "Preset_lastQuarter": "Last quarter",
+            "Preset_lastQuarter_fy": "Last fiscal quarter",
+            "Preset_lastWeek": "Last week",
+            "Preset_lastYear": "Last year",
+            "Preset_lastYear_fy": "Last fiscal year",
+            "Preset_mtd": "Month to date",
+            "Preset_nextHalf": "Next half-year",
+            "Preset_nextHalf_fy": "Next fiscal half-year",
+            "Preset_nextMonth": "Next month",
+            "Preset_nextN": "Next {0} {1}",
+            "Preset_nextQuarter": "Next quarter",
+            "Preset_nextQuarter_fy": "Next fiscal quarter",
+            "Preset_nextWeek": "Next week",
+            "Preset_nextYear": "Next year",
+            "Preset_nextYear_fy": "Next fiscal year",
+            "Preset_qtd": "Quarter to date",
+            "Preset_qtd_fy": "Fiscal quarter to date",
+            "Preset_thisHalf": "This half-year",
+            "Preset_thisHalf_fy": "This fiscal half-year",
+            "Preset_thisMonth": "This month",
+            "Preset_thisQuarter": "This quarter",
+            "Preset_thisQuarter_fy": "This fiscal quarter",
+            "Preset_thisWeek": "This week",
+            "Preset_thisYear": "This year",
+            "Preset_thisYear_fy": "This fiscal year",
+            "Preset_today": "Today",
+            "Preset_wtd": "Week to date",
+            "Preset_yesterday": "Yesterday",
+            "Preset_ytd": "Year to date",
+            "Preset_ytd_fy": "Fiscal year to date",
+            "Prop_calendar_fiscalNaming": "Fiscal year name",
+            "Prop_calendar_fiscalStart": "Fiscal year starts",
+            "Prop_calendar_holidays": "Public holidays",
+            "Prop_calendar_retailEndMonth": "Retail year ends in",
+            "Prop_calendar_retailEndWeekday": "Retail year ends on",
+            "Prop_calendar_retailPattern": "Retail pattern",
+            "Prop_calendar_retailRule": "Retail year-end rule",
+            "Prop_calendar_shadeWeekends": "Shade weekends",
+            "Prop_calendar_weekNumbers": "Week numbers",
+            "Prop_calendar_weekStart": "Week starts on",
+            "Prop_calendar_weekend": "Weekend",
+            "Prop_calendar_yearMode": "Year type",
+            "Prop_header_dateFormat": "Date format",
+            "Prop_header_fontColor": "Text colour",
+            "Prop_header_fontSize": "Text size",
+            "Prop_header_show": "Show header",
+            "Prop_header_showDataThrough": "Data through date",
+            "Prop_header_showDays": "Day count",
+            "Prop_header_showLabel": "Preset name",
+            "Prop_intelligence_comparison": "Comparison period",
+            "Prop_intelligence_showComparison": "Show comparison in header",
+            "Prop_intelligence_workingDaysOnly": "Filter working days only",
+            "Prop_intelligence_workingDaysOnly_Desc": "Excludes weekends and holidays from the filter (date columns without times).",
+            "Prop_layout_applyButton": "Apply button",
+            "Prop_layout_applyButton_Desc": "Picks wait for Apply \u2014 useful on heavy models.",
+            "Prop_layout_granularity": "Timeline granularity",
+            "Prop_layout_mode": "Layout",
+            "Prop_layout_months": "Months shown",
+            "Prop_layout_selectionType": "Selection",
+            "Prop_layout_showGranularity": "Granularity switch",
+            "Prop_layout_showInputs": "Typed date entry",
+            "Prop_layout_showStepper": "Previous / next arrows",
+            "Prop_presets_custom": "Custom preset",
+            "Prop_presets_customCount": "Custom: how many",
+            "Prop_presets_customCurrent": "Custom: include current",
+            "Prop_presets_customUnit": "Custom: unit",
+            "Prop_presets_days": "Today / Yesterday",
+            "Prop_presets_halfYears": "Half-years (this, last, to date)",
+            "Prop_presets_lastPeriods": "Last week / month / quarter / year",
+            "Prop_presets_nextPeriods": "Next week / month / quarter",
+            "Prop_presets_position": "Position",
+            "Prop_presets_rolling": "Last 7 / 30 / 90 / 365 days",
+            "Prop_presets_rolling12": "Last 12 months (rolling and full months)",
+            "Prop_presets_show": "Show presets",
+            "Prop_presets_showGroups": "Group headings",
+            "Prop_presets_thisPeriods": "This week / month / quarter / year",
+            "Prop_presets_toDate": "Week / month / quarter / year to date",
+            "Prop_presets_viewerCustom": "Let viewers choose Last / Next N",
+            "Prop_presets_workingDays": "Last 20 working days (premium)",
+            "Prop_selection_anchor": "Presets end on",
+            "Prop_selection_clearButton": "Clear button",
+            "Prop_selection_defaultPreset": "Default selection",
+            "Prop_selection_defaultPreset_Desc": "Applied whenever nothing is selected; viewers can always pick something else.",
+            "Prop_selection_resetButton": "Reset button",
+            "Prop_selection_rolling": "Relative presets follow the calendar",
+            "Prop_selection_rolling_Desc": "YTD saved today is still YTD next week. Off freezes the dates.",
+            "Prop_style_accent": "Selection colour",
+            "Prop_style_background": "Background",
+            "Prop_style_borderColor": "Lines and borders",
+            "Prop_style_chipColor": "Preset button colour",
+            "Prop_style_chipTextColor": "Preset button text",
+            "Prop_style_compareColor": "Comparison colour",
+            "Prop_style_densityColor": "Data density bars",
+            "Prop_style_fontColor": "Text colour",
+            "Prop_style_fontFamily": "Font",
+            "Prop_style_fontSize": "Text size",
+            "Prop_style_headingColor": "Headings (months, groups, captions)",
+            "Prop_style_holidayColor": "Holiday marker",
+            "Prop_style_mutedColor": "Secondary text (weekdays, week numbers)",
+            "Prop_style_noDataColor": "Dates without data",
+            "Prop_style_rangeColor": "Range colour",
+            "Prop_style_theme": "Theme",
+            "Prop_style_todayColor": "Today marker",
+            "Prop_style_transparent": "Transparent background",
+            "Prop_style_weekendColor": "Weekend shading",
+            "Role_CompareDate": "Comparison date (optional)",
+            "Role_CompareDate_Desc": "A date column (usually a disconnected comparison calendar) that receives the comparison period. Premium. Disables sync slicers.",
+            "Role_Date": "Date",
+            "Role_Date_Desc": "The date column to filter. Use your date table's Date column for the best results; the auto date hierarchy works too.",
+            "Role_Tooltips": "Tooltips",
+            "Role_Tooltips_Desc": "Extra measures shown when hovering a day or period.",
+            "Role_Value": "Data density (optional)",
+            "Role_Value_Desc": "A measure drawn as bars under the timeline and used for the 'latest date with data' anchor. Power BI syncs slicers across pages only when the slicer has a single field.",
+            "UI_AllDates": "All dates",
+            "UI_Apply": "Apply",
+            "UI_Blocked": "Comparison periods, working-day filtering and retail calendars need a SmartVisuals Date Slicer licence. The slicer keeps working with the free features.",
+            "UI_Cancel": "Cancel",
+            "UI_Clear": "Clear selection",
+            "UI_Coarse": "This hierarchy stops above days. Bind the Date column itself (or a hierarchy down to the day) so the slicer can filter date ranges.",
+            "UI_CoarseTitle": "Needs days",
+            "UI_CustomN": "Your own period",
+            "UI_CustomRange": "Custom range",
+            "UI_DataThrough": "Data through {0}",
+            "UI_Date": "Date",
+            "UI_DayOne": "{0} day",
+            "UI_Days": "{0} days",
+            "UI_End": "End",
+            "UI_ErrorTitle": "The slicer could not draw",
+            "UI_From": "From",
+            "UI_Go": "Apply",
+            "UI_Granularity": "Granularity",
+            "UI_Holiday": "Holiday",
+            "UI_HowMany": "How many",
+            "UI_LandingB1": "Calendar, timeline and compact bar in one slicer",
+            "UI_LandingB2": "Year-to-date, rolling and fiscal presets that stay current after publishing",
+            "UI_LandingB3": "Comparison periods, working days and holidays for 21 countries",
+            "UI_LandingHint": "Add a Date field \u2014 your date table's Date column works best. Everything else is optional.",
+            "UI_LandingTitle": "SmartVisuals Date Slicer",
+            "UI_Last": "Last",
+            "UI_ListNoPresets": "Turn on Presets in the format pane to list them here.",
+            "UI_More": "More",
+            "UI_MorePresets": "Show more presets",
+            "UI_Next": "Next",
+            "UI_NextMonth": "Next month",
+            "UI_NextPeriod": "Next period",
+            "UI_NoData": "No data",
+            "UI_NoDates": "The Date field has no values that can be read as dates.",
+            "UI_NoDatesTitle": "No readable dates",
+            "UI_NotADate": "Not a date",
+            "UI_Pending": "not applied",
+            "UI_PickEnd": "Pick the end date",
+            "UI_Presets": "Presets",
+            "UI_PrevMonth": "Previous month",
+            "UI_PrevPeriod": "Previous period",
+            "UI_Reset": "Reset",
+            "UI_ResetTo": "Reset to {0}",
+            "UI_Selected": "selected",
+            "UI_Start": "Start",
+            "UI_Today": "today",
+            "UI_Until": "Until",
+            "UI_Versus": "vs",
+            "UI_WeekShort": "Wk",
+            "UI_WorkingDays": "{0} working days",
+            "UI_WorkingDaysLabel": "Working days",
+            "Unit_day_many": "days",
+            "Unit_day_one": "day",
+            "Unit_half_many": "half-years",
+            "Unit_half_one": "half-year",
+            "Unit_month_many": "months",
+            "Unit_month_one": "month",
+            "Unit_quarter_many": "quarters",
+            "Unit_quarter_one": "quarter",
+            "Unit_week_many": "weeks",
+            "Unit_week_one": "week",
+            "Unit_year_many": "years",
+            "Unit_year_one": "year"
+        },
+        "es-ES": {
+            "Enum_anchor_latest": "\u00daltima fecha con datos",
+            "Enum_anchor_today": "Hoy",
+            "Enum_anchor_yesterday": "Ayer (d\u00edas completos)",
+            "Enum_comparison_none": "Desactivado",
+            "Enum_comparison_previous": "Periodo anterior",
+            "Enum_comparison_sply": "Mismo periodo del a\u00f1o anterior",
+            "Enum_comparison_sply52": "52 semanas atr\u00e1s (mismos d\u00edas de la semana)",
+            "Enum_dateFormat_iso": "ISO (2026-09-27)",
+            "Enum_dateFormat_long": "Largo (27 de septiembre de 2026)",
+            "Enum_dateFormat_medium": "Medio (27 sept 2026)",
+            "Enum_dateFormat_short": "Corto (27/09/2026)",
+            "Enum_default_custom": "Preajuste personalizado",
+            "Enum_default_hytd": "Semestre hasta la fecha",
+            "Enum_default_last12cm": "\u00daltimos 12 meses completos",
+            "Enum_default_last12m": "\u00daltimos 12 meses",
+            "Enum_default_last30": "\u00daltimos 30 d\u00edas",
+            "Enum_default_last7": "\u00daltimos 7 d\u00edas",
+            "Enum_default_last90": "\u00daltimos 90 d\u00edas",
+            "Enum_default_lastMonth": "Mes pasado",
+            "Enum_default_lastQuarter": "Trimestre pasado",
+            "Enum_default_lastWeek": "Semana pasada",
+            "Enum_default_lastYear": "A\u00f1o pasado",
+            "Enum_default_mtd": "Mes hasta la fecha",
+            "Enum_default_none": "Ninguna (todas las fechas)",
+            "Enum_default_qtd": "Trimestre hasta la fecha",
+            "Enum_default_thisMonth": "Este mes",
+            "Enum_default_thisQuarter": "Este trimestre",
+            "Enum_default_thisWeek": "Esta semana",
+            "Enum_default_thisYear": "Este a\u00f1o",
+            "Enum_default_today": "Hoy",
+            "Enum_default_wtd": "Semana hasta la fecha",
+            "Enum_default_yesterday": "Ayer",
+            "Enum_default_ytd": "A\u00f1o hasta la fecha",
+            "Enum_fiscalNaming_end": "Por a\u00f1o de fin",
+            "Enum_fiscalNaming_start": "Por a\u00f1o de inicio",
+            "Enum_fontFamily_arial": "Arial",
+            "Enum_fontFamily_georgia": "Georgia",
+            "Enum_fontFamily_inter": "Inter",
+            "Enum_fontFamily_segoe": "Segoe UI",
+            "Enum_fontFamily_theme": "Predeterminada del tema",
+            "Enum_granularity_day": "D\u00eda",
+            "Enum_granularity_half": "Semestre",
+            "Enum_granularity_month": "Mes",
+            "Enum_granularity_quarter": "Trimestre",
+            "Enum_granularity_week": "Semana",
+            "Enum_granularity_year": "A\u00f1o",
+            "Enum_holidays_at": "Austria",
+            "Enum_holidays_au": "Australia (nacional)",
+            "Enum_holidays_be": "B\u00e9lgica",
+            "Enum_holidays_ca": "Canad\u00e1 (federal)",
+            "Enum_holidays_cz": "Chequia",
+            "Enum_holidays_de": "Alemania (nacional)",
+            "Enum_holidays_dk": "Dinamarca",
+            "Enum_holidays_es": "Espa\u00f1a (nacional)",
+            "Enum_holidays_fi": "Finlandia",
+            "Enum_holidays_fr": "Francia",
+            "Enum_holidays_hu": "Hungr\u00eda",
+            "Enum_holidays_ie": "Irlanda",
+            "Enum_holidays_it": "Italia",
+            "Enum_holidays_nl": "Pa\u00edses Bajos",
+            "Enum_holidays_no": "Noruega",
+            "Enum_holidays_none": "Ninguno",
+            "Enum_holidays_pl": "Polonia",
+            "Enum_holidays_pt": "Portugal",
+            "Enum_holidays_se": "Suecia",
+            "Enum_holidays_sk": "Eslovaquia",
+            "Enum_holidays_uk": "Reino Unido (Inglaterra y Gales)",
+            "Enum_holidays_us": "Estados Unidos (federal)",
+            "Enum_layout_auto": "Autom\u00e1tico (seg\u00fan el espacio)",
+            "Enum_layout_calendar": "Calendario",
+            "Enum_layout_compact": "Barra compacta",
+            "Enum_layout_list": "Lista de preajustes",
+            "Enum_layout_timeline": "Escala temporal",
+            "Enum_month_0": "Enero",
+            "Enum_month_1": "Febrero",
+            "Enum_month_10": "Noviembre",
+            "Enum_month_11": "Diciembre",
+            "Enum_month_2": "Marzo",
+            "Enum_month_3": "Abril",
+            "Enum_month_4": "Mayo",
+            "Enum_month_5": "Junio",
+            "Enum_month_6": "Julio",
+            "Enum_month_7": "Agosto",
+            "Enum_month_8": "Septiembre",
+            "Enum_month_9": "Octubre",
+            "Enum_months_1": "1",
+            "Enum_months_2": "2",
+            "Enum_months_3": "3",
+            "Enum_months_auto": "Autom\u00e1tico",
+            "Enum_presetsPosition_auto": "Autom\u00e1tico",
+            "Enum_presetsPosition_side": "Lateral",
+            "Enum_presetsPosition_top": "Arriba",
+            "Enum_retailPattern_445": "4-4-5",
+            "Enum_retailPattern_454": "4-5-4",
+            "Enum_retailPattern_544": "5-4-4",
+            "Enum_retailRule_last": "\u00daltimo d\u00eda de ese tipo del mes",
+            "Enum_retailRule_nearest": "D\u00eda m\u00e1s cercano al fin de mes",
+            "Enum_selectionType_after": "En o despu\u00e9s de",
+            "Enum_selectionType_before": "En o antes de",
+            "Enum_selectionType_range": "Entre",
+            "Enum_selectionType_single": "Un solo d\u00eda",
+            "Enum_theme_clean": "Limpio",
+            "Enum_theme_dark": "Oscuro",
+            "Enum_theme_slate": "Pizarra",
+            "Enum_theme_smartvisuals": "SmartVisuals",
+            "Enum_unit_day": "D\u00edas",
+            "Enum_unit_half": "Semestres",
+            "Enum_unit_month": "Meses",
+            "Enum_unit_quarter": "Trimestres",
+            "Enum_unit_week": "Semanas",
+            "Enum_unit_year": "A\u00f1os",
+            "Enum_weekNumbers_iso": "ISO 8601",
+            "Enum_weekNumbers_none": "Desactivado",
+            "Enum_weekNumbers_simple": "Semana del 1 de enero = 1",
+            "Enum_weekStart_0": "Domingo",
+            "Enum_weekStart_1": "Lunes",
+            "Enum_weekStart_6": "S\u00e1bado",
+            "Enum_weekday_0": "Domingo",
+            "Enum_weekday_1": "Lunes",
+            "Enum_weekday_2": "Martes",
+            "Enum_weekday_3": "Mi\u00e9rcoles",
+            "Enum_weekday_4": "Jueves",
+            "Enum_weekday_5": "Viernes",
+            "Enum_weekday_6": "S\u00e1bado",
+            "Enum_weekend_friSat": "Viernes y s\u00e1bado",
+            "Enum_weekend_none": "Sin fin de semana",
+            "Enum_weekend_satSun": "S\u00e1bado y domingo",
+            "Enum_weekend_sun": "Solo domingo",
+            "Enum_yearMode_calendar": "A\u00f1o natural",
+            "Enum_yearMode_fiscal": "A\u00f1o fiscal",
+            "Enum_yearMode_retail": "A\u00f1o minorista 4-4-5 (premium)",
+            "Gran_day": "D\u00eda",
+            "Gran_half": "Semestre",
+            "Gran_month": "Mes",
+            "Gran_quarter": "Trimestre",
+            "Gran_week": "Semana",
+            "Gran_year": "A\u00f1o",
+            "Group_current": "Actual",
+            "Group_days": "D\u00edas",
+            "Group_next": "Siguiente",
+            "Group_previous": "Anterior",
+            "Group_rolling": "M\u00f3viles",
+            "Group_toDate": "Hasta la fecha",
+            "Label_fy": "AF",
+            "Label_half": "Sm",
+            "Label_period": "P",
+            "Label_quarter": "T",
+            "Label_week": "S",
+            "Obj_calendar": "Calendario",
+            "Obj_header": "Encabezado",
+            "Obj_intelligence": "Inteligencia de periodos (premium)",
+            "Obj_layout": "Dise\u00f1o",
+            "Obj_presets": "Preajustes",
+            "Obj_selection": "Predeterminado y restablecer",
+            "Obj_style": "Tema y colores",
+            "Preset_bizN": "\u00daltimos {0} d\u00edas laborables",
+            "Preset_hytd": "Semestre hasta la fecha",
+            "Preset_hytd_fy": "Semestre fiscal hasta la fecha",
+            "Preset_inclCurrent": "{0} incl. el actual",
+            "Preset_last12cm": "\u00daltimos 12 meses completos",
+            "Preset_last12m": "\u00daltimos 12 meses",
+            "Preset_last14": "\u00daltimos 14 d\u00edas",
+            "Preset_last30": "\u00daltimos 30 d\u00edas",
+            "Preset_last365": "\u00daltimos 365 d\u00edas",
+            "Preset_last7": "\u00daltimos 7 d\u00edas",
+            "Preset_last90": "\u00daltimos 90 d\u00edas",
+            "Preset_lastHalf": "Semestre pasado",
+            "Preset_lastHalf_fy": "Semestre fiscal anterior",
+            "Preset_lastMonth": "Mes pasado",
+            "Preset_lastN": "\u00daltimos {0} {1}",
+            "Preset_lastNFull": "\u00daltimos {0} {1} completos",
+            "Preset_lastQuarter": "Trimestre pasado",
+            "Preset_lastQuarter_fy": "Trimestre fiscal anterior",
+            "Preset_lastWeek": "Semana pasada",
+            "Preset_lastYear": "A\u00f1o pasado",
+            "Preset_lastYear_fy": "A\u00f1o fiscal anterior",
+            "Preset_mtd": "Mes hasta la fecha",
+            "Preset_nextHalf": "Pr\u00f3ximo semestre",
+            "Preset_nextHalf_fy": "Pr\u00f3ximo semestre fiscal",
+            "Preset_nextMonth": "Pr\u00f3ximo mes",
+            "Preset_nextN": "Pr\u00f3ximos {0} {1}",
+            "Preset_nextQuarter": "Pr\u00f3ximo trimestre",
+            "Preset_nextQuarter_fy": "Pr\u00f3ximo trimestre fiscal",
+            "Preset_nextWeek": "Pr\u00f3xima semana",
+            "Preset_nextYear": "Pr\u00f3ximo a\u00f1o",
+            "Preset_nextYear_fy": "Pr\u00f3ximo a\u00f1o fiscal",
+            "Preset_qtd": "Trimestre hasta la fecha",
+            "Preset_qtd_fy": "Trimestre fiscal hasta la fecha",
+            "Preset_thisHalf": "Este semestre",
+            "Preset_thisHalf_fy": "Este semestre fiscal",
+            "Preset_thisMonth": "Este mes",
+            "Preset_thisQuarter": "Este trimestre",
+            "Preset_thisQuarter_fy": "Este trimestre fiscal",
+            "Preset_thisWeek": "Esta semana",
+            "Preset_thisYear": "Este a\u00f1o",
+            "Preset_thisYear_fy": "Este a\u00f1o fiscal",
+            "Preset_today": "Hoy",
+            "Preset_wtd": "Semana hasta la fecha",
+            "Preset_yesterday": "Ayer",
+            "Preset_ytd": "A\u00f1o hasta la fecha",
+            "Preset_ytd_fy": "A\u00f1o fiscal hasta la fecha",
+            "Prop_calendar_fiscalNaming": "Nombre del a\u00f1o fiscal",
+            "Prop_calendar_fiscalStart": "El a\u00f1o fiscal empieza",
+            "Prop_calendar_holidays": "Festivos",
+            "Prop_calendar_retailEndMonth": "El a\u00f1o minorista termina en",
+            "Prop_calendar_retailEndWeekday": "El a\u00f1o minorista termina el",
+            "Prop_calendar_retailPattern": "Patr\u00f3n minorista",
+            "Prop_calendar_retailRule": "Regla de fin de a\u00f1o minorista",
+            "Prop_calendar_shadeWeekends": "Sombrear fines de semana",
+            "Prop_calendar_weekNumbers": "N\u00fameros de semana",
+            "Prop_calendar_weekStart": "La semana empieza el",
+            "Prop_calendar_weekend": "Fin de semana",
+            "Prop_calendar_yearMode": "Tipo de a\u00f1o",
+            "Prop_header_dateFormat": "Formato de fecha",
+            "Prop_header_fontColor": "Color del texto",
+            "Prop_header_fontSize": "Tama\u00f1o del texto",
+            "Prop_header_show": "Mostrar encabezado",
+            "Prop_header_showDataThrough": "Datos hasta la fecha",
+            "Prop_header_showDays": "N\u00famero de d\u00edas",
+            "Prop_header_showLabel": "Nombre del preajuste",
+            "Prop_intelligence_comparison": "Periodo de comparaci\u00f3n",
+            "Prop_intelligence_showComparison": "Mostrar comparaci\u00f3n en el encabezado",
+            "Prop_intelligence_workingDaysOnly": "Filtrar solo d\u00edas laborables",
+            "Prop_intelligence_workingDaysOnly_Desc": "Excluye del filtro fines de semana y festivos (columnas de fecha sin hora).",
+            "Prop_layout_applyButton": "Bot\u00f3n Aplicar",
+            "Prop_layout_applyButton_Desc": "Las selecciones esperan a Aplicar: \u00fatil en modelos pesados.",
+            "Prop_layout_granularity": "Granularidad de la escala temporal",
+            "Prop_layout_mode": "Dise\u00f1o",
+            "Prop_layout_months": "Meses mostrados",
+            "Prop_layout_selectionType": "Selecci\u00f3n",
+            "Prop_layout_showGranularity": "Selector de granularidad",
+            "Prop_layout_showInputs": "Entrada de fechas por teclado",
+            "Prop_layout_showStepper": "Flechas anterior / siguiente",
+            "Prop_presets_custom": "Preajuste personalizado",
+            "Prop_presets_customCount": "Personalizado: cu\u00e1ntos",
+            "Prop_presets_customCurrent": "Personalizado: incluir el actual",
+            "Prop_presets_customUnit": "Personalizado: unidad",
+            "Prop_presets_days": "Hoy / Ayer",
+            "Prop_presets_halfYears": "Semestres (este, anterior, hasta la fecha)",
+            "Prop_presets_lastPeriods": "Semana / mes / trimestre / a\u00f1o anterior",
+            "Prop_presets_nextPeriods": "Pr\u00f3xima semana / mes / trimestre",
+            "Prop_presets_position": "Posici\u00f3n",
+            "Prop_presets_rolling": "\u00daltimos 7 / 30 / 90 / 365 d\u00edas",
+            "Prop_presets_rolling12": "\u00daltimos 12 meses (m\u00f3viles y completos)",
+            "Prop_presets_show": "Mostrar preajustes",
+            "Prop_presets_showGroups": "Encabezados de grupo",
+            "Prop_presets_thisPeriods": "Esta semana / mes / trimestre / a\u00f1o",
+            "Prop_presets_toDate": "Semana / mes / trimestre / a\u00f1o hasta la fecha",
+            "Prop_presets_viewerCustom": "Los lectores eligen \u00faltimos / pr\u00f3ximos N",
+            "Prop_presets_workingDays": "\u00daltimos 20 d\u00edas laborables (premium)",
+            "Prop_selection_anchor": "Los preajustes terminan",
+            "Prop_selection_clearButton": "Bot\u00f3n Borrar selecci\u00f3n",
+            "Prop_selection_defaultPreset": "Selecci\u00f3n predeterminada",
+            "Prop_selection_defaultPreset_Desc": "Se aplica cuando no hay nada seleccionado; los lectores siempre pueden elegir otra cosa.",
+            "Prop_selection_resetButton": "Bot\u00f3n Restablecer",
+            "Prop_selection_rolling": "Los preajustes relativos siguen el calendario",
+            "Prop_selection_rolling_Desc": "El a\u00f1o hasta la fecha guardado hoy lo seguir\u00e1 siendo la pr\u00f3xima semana. Desactivado congela las fechas.",
+            "Prop_style_accent": "Color de selecci\u00f3n",
+            "Prop_style_background": "Fondo",
+            "Prop_style_borderColor": "L\u00edneas y bordes",
+            "Prop_style_chipColor": "Color de los botones de preajuste",
+            "Prop_style_chipTextColor": "Texto de los botones de preajuste",
+            "Prop_style_compareColor": "Color de comparaci\u00f3n",
+            "Prop_style_densityColor": "Barras de densidad de datos",
+            "Prop_style_fontColor": "Color del texto",
+            "Prop_style_fontFamily": "Fuente",
+            "Prop_style_fontSize": "Tama\u00f1o del texto",
+            "Prop_style_headingColor": "Encabezados (meses, grupos, r\u00f3tulos)",
+            "Prop_style_holidayColor": "Marca de festivo",
+            "Prop_style_mutedColor": "Texto secundario (d\u00edas, n\u00fameros de semana)",
+            "Prop_style_noDataColor": "Fechas sin datos",
+            "Prop_style_rangeColor": "Color del rango",
+            "Prop_style_theme": "Tema",
+            "Prop_style_todayColor": "Marca de hoy",
+            "Prop_style_transparent": "Fondo transparente",
+            "Prop_style_weekendColor": "Sombreado de fin de semana",
+            "Role_CompareDate": "Fecha de comparaci\u00f3n (opcional)",
+            "Role_CompareDate_Desc": "Una columna de fecha (normalmente un calendario de comparaci\u00f3n desconectado) que recibe el periodo de comparaci\u00f3n. Premium. Desactiva la sincronizaci\u00f3n de segmentaciones.",
+            "Role_Date": "Fecha",
+            "Role_Date_Desc": "La columna de fecha que se filtra. Funciona mejor la columna Fecha de su tabla de calendario; tambi\u00e9n sirve la jerarqu\u00eda autom\u00e1tica.",
+            "Role_Tooltips": "Informaci\u00f3n sobre herramientas",
+            "Role_Tooltips_Desc": "Medidas adicionales al pasar sobre un d\u00eda o periodo.",
+            "Role_Value": "Densidad de datos (opcional)",
+            "Role_Value_Desc": "Una medida que se dibuja como barras bajo la escala temporal y se usa para anclar a la \u00faltima fecha con datos. Power BI sincroniza segmentaciones entre p\u00e1ginas solo si la segmentaci\u00f3n tiene un \u00fanico campo.",
+            "UI_AllDates": "Todas las fechas",
+            "UI_Apply": "Aplicar",
+            "UI_Blocked": "Los periodos de comparaci\u00f3n, el filtro de d\u00edas laborables y los calendarios minoristas requieren una licencia de SmartVisuals Date Slicer. La segmentaci\u00f3n sigue funcionando con las funciones gratuitas.",
+            "UI_Cancel": "Cancelar",
+            "UI_Clear": "Borrar selecci\u00f3n",
+            "UI_Coarse": "Esta jerarqu\u00eda no llega a los d\u00edas. Vincule la propia columna Fecha (o una jerarqu\u00eda hasta el d\u00eda) para que la segmentaci\u00f3n filtre rangos de fechas.",
+            "UI_CoarseTitle": "Necesita d\u00edas",
+            "UI_CustomN": "Periodo propio",
+            "UI_CustomRange": "Rango personalizado",
+            "UI_DataThrough": "Datos hasta {0}",
+            "UI_Date": "Fecha",
+            "UI_DayOne": "{0} d\u00eda",
+            "UI_Days": "{0} d\u00edas",
+            "UI_End": "Fin",
+            "UI_ErrorTitle": "No se pudo dibujar la segmentaci\u00f3n",
+            "UI_From": "Desde",
+            "UI_Go": "Aplicar",
+            "UI_Granularity": "Granularidad",
+            "UI_Holiday": "Festivo",
+            "UI_HowMany": "Cu\u00e1ntos",
+            "UI_LandingB1": "Calendario, escala temporal y barra compacta en una segmentaci\u00f3n",
+            "UI_LandingB2": "Preajustes hasta la fecha, m\u00f3viles y fiscales que siguen al d\u00eda tras publicar",
+            "UI_LandingB3": "Periodos de comparaci\u00f3n, d\u00edas laborables y festivos de 21 pa\u00edses",
+            "UI_LandingHint": "A\u00f1ada un campo de fecha: la columna Fecha de su tabla de calendario funciona mejor. Todo lo dem\u00e1s es opcional.",
+            "UI_LandingTitle": "SmartVisuals Date Slicer",
+            "UI_Last": "\u00daltimos",
+            "UI_ListNoPresets": "Active Preajustes en el panel de formato para verlos aqu\u00ed.",
+            "UI_More": "M\u00e1s",
+            "UI_MorePresets": "Mostrar m\u00e1s preajustes",
+            "UI_Next": "Pr\u00f3ximos",
+            "UI_NextMonth": "Mes siguiente",
+            "UI_NextPeriod": "Periodo siguiente",
+            "UI_NoData": "Sin datos",
+            "UI_NoDates": "El campo Fecha no tiene valores que se puedan leer como fechas.",
+            "UI_NoDatesTitle": "No hay fechas legibles",
+            "UI_NotADate": "Fecha no v\u00e1lida",
+            "UI_Pending": "sin aplicar",
+            "UI_PickEnd": "Elija la fecha final",
+            "UI_Presets": "Preajustes",
+            "UI_PrevMonth": "Mes anterior",
+            "UI_PrevPeriod": "Periodo anterior",
+            "UI_Reset": "Restablecer",
+            "UI_ResetTo": "Restablecer a {0}",
+            "UI_Selected": "seleccionado",
+            "UI_Start": "Inicio",
+            "UI_Today": "hoy",
+            "UI_Until": "Hasta",
+            "UI_Versus": "vs.",
+            "UI_WeekShort": "Sem",
+            "UI_WorkingDays": "{0} d\u00edas laborables",
+            "UI_WorkingDaysLabel": "D\u00edas laborables",
+            "Unit_day_many": "d\u00edas",
+            "Unit_day_one": "d\u00eda",
+            "Unit_half_many": "semestres",
+            "Unit_half_one": "semestre",
+            "Unit_month_many": "meses",
+            "Unit_month_one": "mes",
+            "Unit_quarter_many": "trimestres",
+            "Unit_quarter_one": "trimestre",
+            "Unit_week_many": "semanas",
+            "Unit_week_one": "semana",
+            "Unit_year_many": "a\u00f1os",
+            "Unit_year_one": "a\u00f1o"
+        },
+        "fr-FR": {
+            "Enum_anchor_latest": "Derni\u00e8re date avec donn\u00e9es",
+            "Enum_anchor_today": "Aujourd'hui",
+            "Enum_anchor_yesterday": "Hier (jours complets)",
+            "Enum_comparison_none": "D\u00e9sactiv\u00e9",
+            "Enum_comparison_previous": "P\u00e9riode pr\u00e9c\u00e9dente",
+            "Enum_comparison_sply": "M\u00eame p\u00e9riode l'an dernier",
+            "Enum_comparison_sply52": "52 semaines avant (m\u00eames jours de la semaine)",
+            "Enum_dateFormat_iso": "ISO (2026-09-27)",
+            "Enum_dateFormat_long": "Long (27 septembre 2026)",
+            "Enum_dateFormat_medium": "Moyen (27 sept. 2026)",
+            "Enum_dateFormat_short": "Court (27/09/2026)",
+            "Enum_default_custom": "Pr\u00e9r\u00e9glage personnalis\u00e9",
+            "Enum_default_hytd": "Semestre \u00e0 ce jour",
+            "Enum_default_last12cm": "12 derniers mois complets",
+            "Enum_default_last12m": "12 derniers mois",
+            "Enum_default_last30": "30 derniers jours",
+            "Enum_default_last7": "7 derniers jours",
+            "Enum_default_last90": "90 derniers jours",
+            "Enum_default_lastMonth": "Mois dernier",
+            "Enum_default_lastQuarter": "Trimestre dernier",
+            "Enum_default_lastWeek": "Semaine derni\u00e8re",
+            "Enum_default_lastYear": "Ann\u00e9e derni\u00e8re",
+            "Enum_default_mtd": "Mois \u00e0 ce jour",
+            "Enum_default_none": "Aucune (toutes les dates)",
+            "Enum_default_qtd": "Trimestre \u00e0 ce jour",
+            "Enum_default_thisMonth": "Ce mois-ci",
+            "Enum_default_thisQuarter": "Ce trimestre",
+            "Enum_default_thisWeek": "Cette semaine",
+            "Enum_default_thisYear": "Cette ann\u00e9e",
+            "Enum_default_today": "Aujourd'hui",
+            "Enum_default_wtd": "Semaine \u00e0 ce jour",
+            "Enum_default_yesterday": "Hier",
+            "Enum_default_ytd": "Ann\u00e9e \u00e0 ce jour",
+            "Enum_fiscalNaming_end": "Selon l'ann\u00e9e de fin",
+            "Enum_fiscalNaming_start": "Selon l'ann\u00e9e de d\u00e9but",
+            "Enum_fontFamily_arial": "Arial",
+            "Enum_fontFamily_georgia": "Georgia",
+            "Enum_fontFamily_inter": "Inter",
+            "Enum_fontFamily_segoe": "Segoe UI",
+            "Enum_fontFamily_theme": "Par d\u00e9faut du th\u00e8me",
+            "Enum_granularity_day": "Jour",
+            "Enum_granularity_half": "Semestre",
+            "Enum_granularity_month": "Mois",
+            "Enum_granularity_quarter": "Trimestre",
+            "Enum_granularity_week": "Semaine",
+            "Enum_granularity_year": "Ann\u00e9e",
+            "Enum_holidays_at": "Autriche",
+            "Enum_holidays_au": "Australie (national)",
+            "Enum_holidays_be": "Belgique",
+            "Enum_holidays_ca": "Canada (f\u00e9d\u00e9ral)",
+            "Enum_holidays_cz": "Tch\u00e9quie",
+            "Enum_holidays_de": "Allemagne (national)",
+            "Enum_holidays_dk": "Danemark",
+            "Enum_holidays_es": "Espagne (national)",
+            "Enum_holidays_fi": "Finlande",
+            "Enum_holidays_fr": "France",
+            "Enum_holidays_hu": "Hongrie",
+            "Enum_holidays_ie": "Irlande",
+            "Enum_holidays_it": "Italie",
+            "Enum_holidays_nl": "Pays-Bas",
+            "Enum_holidays_no": "Norv\u00e8ge",
+            "Enum_holidays_none": "Aucun",
+            "Enum_holidays_pl": "Pologne",
+            "Enum_holidays_pt": "Portugal",
+            "Enum_holidays_se": "Su\u00e8de",
+            "Enum_holidays_sk": "Slovaquie",
+            "Enum_holidays_uk": "Royaume-Uni (Angleterre et pays de Galles)",
+            "Enum_holidays_us": "\u00c9tats-Unis (f\u00e9d\u00e9ral)",
+            "Enum_layout_auto": "Auto (selon la place)",
+            "Enum_layout_calendar": "Calendrier",
+            "Enum_layout_compact": "Barre compacte",
+            "Enum_layout_list": "Liste de pr\u00e9r\u00e9glages",
+            "Enum_layout_timeline": "Frise chronologique",
+            "Enum_month_0": "Janvier",
+            "Enum_month_1": "F\u00e9vrier",
+            "Enum_month_10": "Novembre",
+            "Enum_month_11": "D\u00e9cembre",
+            "Enum_month_2": "Mars",
+            "Enum_month_3": "Avril",
+            "Enum_month_4": "Mai",
+            "Enum_month_5": "Juin",
+            "Enum_month_6": "Juillet",
+            "Enum_month_7": "Ao\u00fbt",
+            "Enum_month_8": "Septembre",
+            "Enum_month_9": "Octobre",
+            "Enum_months_1": "1",
+            "Enum_months_2": "2",
+            "Enum_months_3": "3",
+            "Enum_months_auto": "Auto",
+            "Enum_presetsPosition_auto": "Auto",
+            "Enum_presetsPosition_side": "Sur le c\u00f4t\u00e9",
+            "Enum_presetsPosition_top": "En haut",
+            "Enum_retailPattern_445": "4-4-5",
+            "Enum_retailPattern_454": "4-5-4",
+            "Enum_retailPattern_544": "5-4-4",
+            "Enum_retailRule_last": "Dernier jour de ce type du mois",
+            "Enum_retailRule_nearest": "Jour le plus proche de la fin du mois",
+            "Enum_selectionType_after": "Le ou apr\u00e8s",
+            "Enum_selectionType_before": "Le ou avant",
+            "Enum_selectionType_range": "Entre",
+            "Enum_selectionType_single": "Un seul jour",
+            "Enum_theme_clean": "\u00c9pur\u00e9",
+            "Enum_theme_dark": "Sombre",
+            "Enum_theme_slate": "Ardoise",
+            "Enum_theme_smartvisuals": "SmartVisuals",
+            "Enum_unit_day": "Jours",
+            "Enum_unit_half": "Semestres",
+            "Enum_unit_month": "Mois",
+            "Enum_unit_quarter": "Trimestres",
+            "Enum_unit_week": "Semaines",
+            "Enum_unit_year": "Ans",
+            "Enum_weekNumbers_iso": "ISO 8601",
+            "Enum_weekNumbers_none": "D\u00e9sactiv\u00e9",
+            "Enum_weekNumbers_simple": "Semaine du 1er janvier = 1",
+            "Enum_weekStart_0": "Dimanche",
+            "Enum_weekStart_1": "Lundi",
+            "Enum_weekStart_6": "Samedi",
+            "Enum_weekday_0": "Dimanche",
+            "Enum_weekday_1": "Lundi",
+            "Enum_weekday_2": "Mardi",
+            "Enum_weekday_3": "Mercredi",
+            "Enum_weekday_4": "Jeudi",
+            "Enum_weekday_5": "Vendredi",
+            "Enum_weekday_6": "Samedi",
+            "Enum_weekend_friSat": "Vendredi et samedi",
+            "Enum_weekend_none": "Pas de week-end",
+            "Enum_weekend_satSun": "Samedi et dimanche",
+            "Enum_weekend_sun": "Dimanche seulement",
+            "Enum_yearMode_calendar": "Ann\u00e9e civile",
+            "Enum_yearMode_fiscal": "Exercice fiscal",
+            "Enum_yearMode_retail": "Ann\u00e9e commerciale 4-4-5 (premium)",
+            "Gran_day": "Jour",
+            "Gran_half": "Semestre",
+            "Gran_month": "Mois",
+            "Gran_quarter": "Trimestre",
+            "Gran_week": "Semaine",
+            "Gran_year": "Ann\u00e9e",
+            "Group_current": "En cours",
+            "Group_days": "Jours",
+            "Group_next": "Suivant",
+            "Group_previous": "Pr\u00e9c\u00e9dent",
+            "Group_rolling": "Glissant",
+            "Group_toDate": "\u00c0 ce jour",
+            "Label_fy": "EX",
+            "Label_half": "Sm",
+            "Label_period": "P",
+            "Label_quarter": "T",
+            "Label_week": "S",
+            "Obj_calendar": "Calendrier",
+            "Obj_header": "En-t\u00eate",
+            "Obj_intelligence": "Intelligence des p\u00e9riodes (premium)",
+            "Obj_layout": "Disposition",
+            "Obj_presets": "Pr\u00e9r\u00e9glages",
+            "Obj_selection": "Par d\u00e9faut et r\u00e9initialisation",
+            "Obj_style": "Th\u00e8me et couleurs",
+            "Preset_bizN": "{0} derniers jours ouvr\u00e9s",
+            "Preset_hytd": "Semestre \u00e0 ce jour",
+            "Preset_hytd_fy": "Semestre fiscal \u00e0 ce jour",
+            "Preset_inclCurrent": "{0}, en cours incl.",
+            "Preset_last12cm": "12 derniers mois complets",
+            "Preset_last12m": "12 derniers mois",
+            "Preset_last14": "14 derniers jours",
+            "Preset_last30": "30 derniers jours",
+            "Preset_last365": "365 derniers jours",
+            "Preset_last7": "7 derniers jours",
+            "Preset_last90": "90 derniers jours",
+            "Preset_lastHalf": "Semestre dernier",
+            "Preset_lastHalf_fy": "Semestre fiscal pr\u00e9c\u00e9dent",
+            "Preset_lastMonth": "Mois dernier",
+            "Preset_lastN": "Derniers {0} {1}",
+            "Preset_lastNFull": "{0} derniers {1} complets",
+            "Preset_lastQuarter": "Trimestre dernier",
+            "Preset_lastQuarter_fy": "Trimestre fiscal pr\u00e9c\u00e9dent",
+            "Preset_lastWeek": "Semaine derni\u00e8re",
+            "Preset_lastYear": "Ann\u00e9e derni\u00e8re",
+            "Preset_lastYear_fy": "Exercice pr\u00e9c\u00e9dent",
+            "Preset_mtd": "Mois \u00e0 ce jour",
+            "Preset_nextHalf": "Semestre prochain",
+            "Preset_nextHalf_fy": "Semestre fiscal suivant",
+            "Preset_nextMonth": "Mois prochain",
+            "Preset_nextN": "Prochains {0} {1}",
+            "Preset_nextQuarter": "Trimestre prochain",
+            "Preset_nextQuarter_fy": "Trimestre fiscal suivant",
+            "Preset_nextWeek": "Semaine prochaine",
+            "Preset_nextYear": "Ann\u00e9e prochaine",
+            "Preset_nextYear_fy": "Exercice suivant",
+            "Preset_qtd": "Trimestre \u00e0 ce jour",
+            "Preset_qtd_fy": "Trimestre fiscal \u00e0 ce jour",
+            "Preset_thisHalf": "Ce semestre",
+            "Preset_thisHalf_fy": "Ce semestre fiscal",
+            "Preset_thisMonth": "Ce mois-ci",
+            "Preset_thisQuarter": "Ce trimestre",
+            "Preset_thisQuarter_fy": "Ce trimestre fiscal",
+            "Preset_thisWeek": "Cette semaine",
+            "Preset_thisYear": "Cette ann\u00e9e",
+            "Preset_thisYear_fy": "Cet exercice",
+            "Preset_today": "Aujourd'hui",
+            "Preset_wtd": "Semaine \u00e0 ce jour",
+            "Preset_yesterday": "Hier",
+            "Preset_ytd": "Ann\u00e9e \u00e0 ce jour",
+            "Preset_ytd_fy": "Exercice \u00e0 ce jour",
+            "Prop_calendar_fiscalNaming": "Nom de l'exercice",
+            "Prop_calendar_fiscalStart": "L'exercice commence",
+            "Prop_calendar_holidays": "Jours f\u00e9ri\u00e9s",
+            "Prop_calendar_retailEndMonth": "L'ann\u00e9e commerciale se termine en",
+            "Prop_calendar_retailEndWeekday": "L'ann\u00e9e commerciale se termine un",
+            "Prop_calendar_retailPattern": "Mod\u00e8le commerce",
+            "Prop_calendar_retailRule": "R\u00e8gle de fin d'ann\u00e9e commerciale",
+            "Prop_calendar_shadeWeekends": "Ombrer les week-ends",
+            "Prop_calendar_weekNumbers": "Num\u00e9ros de semaine",
+            "Prop_calendar_weekStart": "La semaine commence le",
+            "Prop_calendar_weekend": "Week-end",
+            "Prop_calendar_yearMode": "Type d'ann\u00e9e",
+            "Prop_header_dateFormat": "Format de date",
+            "Prop_header_fontColor": "Couleur du texte",
+            "Prop_header_fontSize": "Taille du texte",
+            "Prop_header_show": "Afficher l'en-t\u00eate",
+            "Prop_header_showDataThrough": "Donn\u00e9es jusqu'au",
+            "Prop_header_showDays": "Nombre de jours",
+            "Prop_header_showLabel": "Nom du pr\u00e9r\u00e9glage",
+            "Prop_intelligence_comparison": "P\u00e9riode de comparaison",
+            "Prop_intelligence_showComparison": "Afficher la comparaison dans l'en-t\u00eate",
+            "Prop_intelligence_workingDaysOnly": "Filtrer uniquement les jours ouvr\u00e9s",
+            "Prop_intelligence_workingDaysOnly_Desc": "Exclut du filtre les week-ends et jours f\u00e9ri\u00e9s (colonnes de date sans heure).",
+            "Prop_layout_applyButton": "Bouton Appliquer",
+            "Prop_layout_applyButton_Desc": "Les choix attendent Appliquer : utile sur les mod\u00e8les lourds.",
+            "Prop_layout_granularity": "Granularit\u00e9 de la frise",
+            "Prop_layout_mode": "Disposition",
+            "Prop_layout_months": "Mois affich\u00e9s",
+            "Prop_layout_selectionType": "S\u00e9lection",
+            "Prop_layout_showGranularity": "S\u00e9lecteur de granularit\u00e9",
+            "Prop_layout_showInputs": "Saisie des dates au clavier",
+            "Prop_layout_showStepper": "Fl\u00e8ches pr\u00e9c\u00e9dent / suivant",
+            "Prop_presets_custom": "Pr\u00e9r\u00e9glage personnalis\u00e9",
+            "Prop_presets_customCount": "Personnalis\u00e9 : combien",
+            "Prop_presets_customCurrent": "Personnalis\u00e9 : inclure la p\u00e9riode en cours",
+            "Prop_presets_customUnit": "Personnalis\u00e9 : unit\u00e9",
+            "Prop_presets_days": "Aujourd'hui / Hier",
+            "Prop_presets_halfYears": "Semestres (ce, pr\u00e9c\u00e9dent, \u00e0 ce jour)",
+            "Prop_presets_lastPeriods": "Semaine / mois / trimestre / ann\u00e9e pr\u00e9c\u00e9dents",
+            "Prop_presets_nextPeriods": "Semaine / mois / trimestre prochains",
+            "Prop_presets_position": "Position",
+            "Prop_presets_rolling": "7 / 30 / 90 / 365 derniers jours",
+            "Prop_presets_rolling12": "12 derniers mois (glissants et complets)",
+            "Prop_presets_show": "Afficher les pr\u00e9r\u00e9glages",
+            "Prop_presets_showGroups": "Titres de groupe",
+            "Prop_presets_thisPeriods": "Cette semaine / ce mois / trimestre / ann\u00e9e",
+            "Prop_presets_toDate": "Semaine / mois / trimestre / ann\u00e9e \u00e0 ce jour",
+            "Prop_presets_viewerCustom": "Les lecteurs choisissent les N derniers / prochains",
+            "Prop_presets_workingDays": "20 derniers jours ouvr\u00e9s (premium)",
+            "Prop_selection_anchor": "Les pr\u00e9r\u00e9glages se terminent",
+            "Prop_selection_clearButton": "Bouton Effacer",
+            "Prop_selection_defaultPreset": "S\u00e9lection par d\u00e9faut",
+            "Prop_selection_defaultPreset_Desc": "S'applique quand rien n'est s\u00e9lectionn\u00e9 ; les lecteurs peuvent toujours choisir autre chose.",
+            "Prop_selection_resetButton": "Bouton R\u00e9initialiser",
+            "Prop_selection_rolling": "Les pr\u00e9r\u00e9glages relatifs suivent le calendrier",
+            "Prop_selection_rolling_Desc": "L'ann\u00e9e \u00e0 ce jour enregistr\u00e9e aujourd'hui le reste la semaine prochaine. D\u00e9sactiv\u00e9 fige les dates.",
+            "Prop_style_accent": "Couleur de s\u00e9lection",
+            "Prop_style_background": "Arri\u00e8re-plan",
+            "Prop_style_borderColor": "Lignes et bordures",
+            "Prop_style_chipColor": "Couleur des boutons de pr\u00e9r\u00e9glage",
+            "Prop_style_chipTextColor": "Texte des boutons de pr\u00e9r\u00e9glage",
+            "Prop_style_compareColor": "Couleur de comparaison",
+            "Prop_style_densityColor": "Barres de densit\u00e9 des donn\u00e9es",
+            "Prop_style_fontColor": "Couleur du texte",
+            "Prop_style_fontFamily": "Police",
+            "Prop_style_fontSize": "Taille du texte",
+            "Prop_style_headingColor": "Titres (mois, groupes, l\u00e9gendes)",
+            "Prop_style_holidayColor": "Rep\u00e8re des jours f\u00e9ri\u00e9s",
+            "Prop_style_mutedColor": "Texte secondaire (jours, num\u00e9ros de semaine)",
+            "Prop_style_noDataColor": "Dates sans donn\u00e9es",
+            "Prop_style_rangeColor": "Couleur de la plage",
+            "Prop_style_theme": "Th\u00e8me",
+            "Prop_style_todayColor": "Rep\u00e8re d'aujourd'hui",
+            "Prop_style_transparent": "Arri\u00e8re-plan transparent",
+            "Prop_style_weekendColor": "Ombrage des week-ends",
+            "Role_CompareDate": "Date de comparaison (facultatif)",
+            "Role_CompareDate_Desc": "Une colonne de date (en g\u00e9n\u00e9ral un calendrier de comparaison d\u00e9connect\u00e9) qui re\u00e7oit la p\u00e9riode de comparaison. Premium. D\u00e9sactive la synchronisation des segments.",
+            "Role_Date": "Date",
+            "Role_Date_Desc": "La colonne de date \u00e0 filtrer. Id\u00e9alement la colonne Date de votre table de dates ; la hi\u00e9rarchie automatique fonctionne aussi.",
+            "Role_Tooltips": "Info-bulles",
+            "Role_Tooltips_Desc": "Mesures suppl\u00e9mentaires affich\u00e9es au survol d'un jour ou d'une p\u00e9riode.",
+            "Role_Value": "Densit\u00e9 des donn\u00e9es (facultatif)",
+            "Role_Value_Desc": "Une mesure dessin\u00e9e en barres sous la frise et utilis\u00e9e pour l'ancrage sur la derni\u00e8re date avec donn\u00e9es. Power BI ne synchronise les segments entre pages que s'ils n'ont qu'un seul champ.",
+            "UI_AllDates": "Toutes les dates",
+            "UI_Apply": "Appliquer",
+            "UI_Blocked": "Les p\u00e9riodes de comparaison, le filtre des jours ouvr\u00e9s et les calendriers commerciaux n\u00e9cessitent une licence SmartVisuals Date Slicer. Le segment continue de fonctionner avec les fonctions gratuites.",
+            "UI_Cancel": "Annuler",
+            "UI_Clear": "Effacer la s\u00e9lection",
+            "UI_Coarse": "Cette hi\u00e9rarchie s'arr\u00eate avant les jours. Liez la colonne Date elle-m\u00eame (ou une hi\u00e9rarchie jusqu'au jour) pour que le segment filtre des plages de dates.",
+            "UI_CoarseTitle": "N\u00e9cessite des jours",
+            "UI_CustomN": "P\u00e9riode personnalis\u00e9e",
+            "UI_CustomRange": "Plage personnalis\u00e9e",
+            "UI_DataThrough": "Donn\u00e9es jusqu'au {0}",
+            "UI_Date": "Date",
+            "UI_DayOne": "{0} jour",
+            "UI_Days": "{0} jours",
+            "UI_End": "Fin",
+            "UI_ErrorTitle": "Le segment n'a pas pu \u00eatre dessin\u00e9",
+            "UI_From": "\u00c0 partir du",
+            "UI_Go": "Appliquer",
+            "UI_Granularity": "Granularit\u00e9",
+            "UI_Holiday": "Jour f\u00e9ri\u00e9",
+            "UI_HowMany": "Combien",
+            "UI_LandingB1": "Calendrier, frise et barre compacte dans un seul segment",
+            "UI_LandingB2": "Pr\u00e9r\u00e9glages \u00e0 ce jour, glissants et fiscaux qui restent \u00e0 jour apr\u00e8s publication",
+            "UI_LandingB3": "P\u00e9riodes de comparaison, jours ouvr\u00e9s et jours f\u00e9ri\u00e9s de 21 pays",
+            "UI_LandingHint": "Ajoutez un champ Date : la colonne Date de votre table de dates est id\u00e9ale. Tout le reste est facultatif.",
+            "UI_LandingTitle": "SmartVisuals Date Slicer",
+            "UI_Last": "Derniers",
+            "UI_ListNoPresets": "Activez Pr\u00e9r\u00e9glages dans le volet Format pour les lister ici.",
+            "UI_More": "Plus",
+            "UI_MorePresets": "Afficher plus de pr\u00e9r\u00e9glages",
+            "UI_Next": "Prochains",
+            "UI_NextMonth": "Mois suivant",
+            "UI_NextPeriod": "P\u00e9riode suivante",
+            "UI_NoData": "Aucune donn\u00e9e",
+            "UI_NoDates": "Le champ Date ne contient aucune valeur lisible comme date.",
+            "UI_NoDatesTitle": "Aucune date lisible",
+            "UI_NotADate": "Date non valide",
+            "UI_Pending": "non appliqu\u00e9",
+            "UI_PickEnd": "Choisissez la date de fin",
+            "UI_Presets": "Pr\u00e9r\u00e9glages",
+            "UI_PrevMonth": "Mois pr\u00e9c\u00e9dent",
+            "UI_PrevPeriod": "P\u00e9riode pr\u00e9c\u00e9dente",
+            "UI_Reset": "R\u00e9initialiser",
+            "UI_ResetTo": "R\u00e9initialiser \u00e0 {0}",
+            "UI_Selected": "s\u00e9lectionn\u00e9",
+            "UI_Start": "D\u00e9but",
+            "UI_Today": "aujourd'hui",
+            "UI_Until": "Jusqu'au",
+            "UI_Versus": "vs",
+            "UI_WeekShort": "Sem",
+            "UI_WorkingDays": "{0} jours ouvr\u00e9s",
+            "UI_WorkingDaysLabel": "Jours ouvr\u00e9s",
+            "Unit_day_many": "jours",
+            "Unit_day_one": "jour",
+            "Unit_half_many": "semestres",
+            "Unit_half_one": "semestre",
+            "Unit_month_many": "mois",
+            "Unit_month_one": "mois",
+            "Unit_quarter_many": "trimestres",
+            "Unit_quarter_one": "trimestre",
+            "Unit_week_many": "semaines",
+            "Unit_week_one": "semaine",
+            "Unit_year_many": "ans",
+            "Unit_year_one": "an"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "date",
+                "kind": "Grouping",
+                "displayName": "Date",
+                "displayNameKey": "Role_Date",
+                "description": "The date column to filter. Use your date table's Date column for the best results; the auto date hierarchy works too.",
+                "descriptionKey": "Role_Date_Desc"
+            },
+            {
+                "name": "value",
+                "kind": "Measure",
+                "displayName": "Data density (optional)",
+                "displayNameKey": "Role_Value",
+                "description": "A measure drawn as bars under the timeline and used for the 'latest date with data' anchor. Power BI syncs slicers across pages only when the slicer has a single field.",
+                "descriptionKey": "Role_Value_Desc"
+            },
+            {
+                "name": "compareDate",
+                "kind": "Measure",
+                "displayName": "Comparison date (optional)",
+                "displayNameKey": "Role_CompareDate",
+                "description": "A date column (usually a disconnected comparison calendar) that receives the comparison period. Premium. Disables sync slicers.",
+                "descriptionKey": "Role_CompareDate_Desc"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "Role_Tooltips",
+                "description": "Extra measures shown when hovering a day or period.",
+                "descriptionKey": "Role_Tooltips_Desc"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "date": {
+                            "max": 4
+                        },
+                        "value": {
+                            "max": 1
+                        },
+                        "compareDate": {
+                            "max": 1
+                        },
+                        "tooltips": {
+                            "max": 5
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "for": {
+                            "in": "date"
+                        },
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "value"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "compareDate"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "general": {
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": true
+                        }
+                    }
+                }
+            },
+            "state": {
+                "properties": {
+                    "intent": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (fit the space)",
+                                    "displayNameKey": "Enum_layout_auto"
+                                },
+                                {
+                                    "value": "calendar",
+                                    "displayName": "Calendar",
+                                    "displayNameKey": "Enum_layout_calendar"
+                                },
+                                {
+                                    "value": "timeline",
+                                    "displayName": "Timeline",
+                                    "displayNameKey": "Enum_layout_timeline"
+                                },
+                                {
+                                    "value": "compact",
+                                    "displayName": "Compact bar",
+                                    "displayNameKey": "Enum_layout_compact"
+                                },
+                                {
+                                    "value": "list",
+                                    "displayName": "Presets list",
+                                    "displayNameKey": "Enum_layout_list"
+                                }
+                            ]
+                        }
+                    },
+                    "months": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto",
+                                    "displayNameKey": "Enum_months_auto"
+                                },
+                                {
+                                    "value": "1",
+                                    "displayName": "1",
+                                    "displayNameKey": "Enum_months_1"
+                                },
+                                {
+                                    "value": "2",
+                                    "displayName": "2",
+                                    "displayNameKey": "Enum_months_2"
+                                },
+                                {
+                                    "value": "3",
+                                    "displayName": "3",
+                                    "displayNameKey": "Enum_months_3"
+                                }
+                            ]
+                        }
+                    },
+                    "selectionType": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "range",
+                                    "displayName": "Between",
+                                    "displayNameKey": "Enum_selectionType_range"
+                                },
+                                {
+                                    "value": "single",
+                                    "displayName": "Single day",
+                                    "displayNameKey": "Enum_selectionType_single"
+                                },
+                                {
+                                    "value": "after",
+                                    "displayName": "On or after",
+                                    "displayNameKey": "Enum_selectionType_after"
+                                },
+                                {
+                                    "value": "before",
+                                    "displayName": "On or before",
+                                    "displayNameKey": "Enum_selectionType_before"
+                                }
+                            ]
+                        }
+                    },
+                    "granularity": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "day",
+                                    "displayName": "Day",
+                                    "displayNameKey": "Enum_granularity_day"
+                                },
+                                {
+                                    "value": "week",
+                                    "displayName": "Week",
+                                    "displayNameKey": "Enum_granularity_week"
+                                },
+                                {
+                                    "value": "month",
+                                    "displayName": "Month",
+                                    "displayNameKey": "Enum_granularity_month"
+                                },
+                                {
+                                    "value": "quarter",
+                                    "displayName": "Quarter",
+                                    "displayNameKey": "Enum_granularity_quarter"
+                                },
+                                {
+                                    "value": "half",
+                                    "displayName": "Half-year",
+                                    "displayNameKey": "Enum_granularity_half"
+                                },
+                                {
+                                    "value": "year",
+                                    "displayName": "Year",
+                                    "displayNameKey": "Enum_granularity_year"
+                                }
+                            ]
+                        }
+                    },
+                    "showGranularity": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showInputs": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showStepper": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "applyButton": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "presets": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto",
+                                    "displayNameKey": "Enum_presetsPosition_auto"
+                                },
+                                {
+                                    "value": "side",
+                                    "displayName": "Side",
+                                    "displayNameKey": "Enum_presetsPosition_side"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "Top",
+                                    "displayNameKey": "Enum_presetsPosition_top"
+                                }
+                            ]
+                        }
+                    },
+                    "days": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "thisPeriods": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lastPeriods": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "nextPeriods": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rolling": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rolling12": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "toDate": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "halfYears": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "workingDays": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "viewerCustom": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showGroups": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "custom": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "customCount": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "customUnit": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "day",
+                                    "displayName": "Days",
+                                    "displayNameKey": "Enum_unit_day"
+                                },
+                                {
+                                    "value": "week",
+                                    "displayName": "Weeks",
+                                    "displayNameKey": "Enum_unit_week"
+                                },
+                                {
+                                    "value": "month",
+                                    "displayName": "Months",
+                                    "displayNameKey": "Enum_unit_month"
+                                },
+                                {
+                                    "value": "quarter",
+                                    "displayName": "Quarters",
+                                    "displayNameKey": "Enum_unit_quarter"
+                                },
+                                {
+                                    "value": "half",
+                                    "displayName": "Half-years",
+                                    "displayNameKey": "Enum_unit_half"
+                                },
+                                {
+                                    "value": "year",
+                                    "displayName": "Years",
+                                    "displayNameKey": "Enum_unit_year"
+                                }
+                            ]
+                        }
+                    },
+                    "customCurrent": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "selection": {
+                "properties": {
+                    "defaultPreset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None (all dates)",
+                                    "displayNameKey": "Enum_default_none"
+                                },
+                                {
+                                    "value": "today",
+                                    "displayName": "Today",
+                                    "displayNameKey": "Enum_default_today"
+                                },
+                                {
+                                    "value": "yesterday",
+                                    "displayName": "Yesterday",
+                                    "displayNameKey": "Enum_default_yesterday"
+                                },
+                                {
+                                    "value": "thisWeek",
+                                    "displayName": "This week",
+                                    "displayNameKey": "Enum_default_thisWeek"
+                                },
+                                {
+                                    "value": "thisMonth",
+                                    "displayName": "This month",
+                                    "displayNameKey": "Enum_default_thisMonth"
+                                },
+                                {
+                                    "value": "thisQuarter",
+                                    "displayName": "This quarter",
+                                    "displayNameKey": "Enum_default_thisQuarter"
+                                },
+                                {
+                                    "value": "thisYear",
+                                    "displayName": "This year",
+                                    "displayNameKey": "Enum_default_thisYear"
+                                },
+                                {
+                                    "value": "lastWeek",
+                                    "displayName": "Last week",
+                                    "displayNameKey": "Enum_default_lastWeek"
+                                },
+                                {
+                                    "value": "lastMonth",
+                                    "displayName": "Last month",
+                                    "displayNameKey": "Enum_default_lastMonth"
+                                },
+                                {
+                                    "value": "lastQuarter",
+                                    "displayName": "Last quarter",
+                                    "displayNameKey": "Enum_default_lastQuarter"
+                                },
+                                {
+                                    "value": "lastYear",
+                                    "displayName": "Last year",
+                                    "displayNameKey": "Enum_default_lastYear"
+                                },
+                                {
+                                    "value": "last7",
+                                    "displayName": "Last 7 days",
+                                    "displayNameKey": "Enum_default_last7"
+                                },
+                                {
+                                    "value": "last30",
+                                    "displayName": "Last 30 days",
+                                    "displayNameKey": "Enum_default_last30"
+                                },
+                                {
+                                    "value": "last90",
+                                    "displayName": "Last 90 days",
+                                    "displayNameKey": "Enum_default_last90"
+                                },
+                                {
+                                    "value": "last12m",
+                                    "displayName": "Last 12 months",
+                                    "displayNameKey": "Enum_default_last12m"
+                                },
+                                {
+                                    "value": "wtd",
+                                    "displayName": "Week to date",
+                                    "displayNameKey": "Enum_default_wtd"
+                                },
+                                {
+                                    "value": "mtd",
+                                    "displayName": "Month to date",
+                                    "displayNameKey": "Enum_default_mtd"
+                                },
+                                {
+                                    "value": "qtd",
+                                    "displayName": "Quarter to date",
+                                    "displayNameKey": "Enum_default_qtd"
+                                },
+                                {
+                                    "value": "hytd",
+                                    "displayName": "Half-year to date",
+                                    "displayNameKey": "Enum_default_hytd"
+                                },
+                                {
+                                    "value": "ytd",
+                                    "displayName": "Year to date",
+                                    "displayNameKey": "Enum_default_ytd"
+                                },
+                                {
+                                    "value": "last12cm",
+                                    "displayName": "Last 12 full months",
+                                    "displayNameKey": "Enum_default_last12cm"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom preset",
+                                    "displayNameKey": "Enum_default_custom"
+                                }
+                            ]
+                        }
+                    },
+                    "rolling": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "anchor": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "today",
+                                    "displayName": "Today",
+                                    "displayNameKey": "Enum_anchor_today"
+                                },
+                                {
+                                    "value": "yesterday",
+                                    "displayName": "Yesterday (complete days)",
+                                    "displayNameKey": "Enum_anchor_yesterday"
+                                },
+                                {
+                                    "value": "latest",
+                                    "displayName": "Latest date with data",
+                                    "displayNameKey": "Enum_anchor_latest"
+                                }
+                            ]
+                        }
+                    },
+                    "resetButton": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "clearButton": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "calendar": {
+                "properties": {
+                    "weekStart": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "1",
+                                    "displayName": "Monday",
+                                    "displayNameKey": "Enum_weekStart_1"
+                                },
+                                {
+                                    "value": "0",
+                                    "displayName": "Sunday",
+                                    "displayNameKey": "Enum_weekStart_0"
+                                },
+                                {
+                                    "value": "6",
+                                    "displayName": "Saturday",
+                                    "displayNameKey": "Enum_weekStart_6"
+                                }
+                            ]
+                        }
+                    },
+                    "weekNumbers": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "Off",
+                                    "displayNameKey": "Enum_weekNumbers_none"
+                                },
+                                {
+                                    "value": "iso",
+                                    "displayName": "ISO 8601",
+                                    "displayNameKey": "Enum_weekNumbers_iso"
+                                },
+                                {
+                                    "value": "simple",
+                                    "displayName": "Week of 1 January = 1",
+                                    "displayNameKey": "Enum_weekNumbers_simple"
+                                }
+                            ]
+                        }
+                    },
+                    "yearMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "calendar",
+                                    "displayName": "Calendar year",
+                                    "displayNameKey": "Enum_yearMode_calendar"
+                                },
+                                {
+                                    "value": "fiscal",
+                                    "displayName": "Fiscal year",
+                                    "displayNameKey": "Enum_yearMode_fiscal"
+                                },
+                                {
+                                    "value": "retail",
+                                    "displayName": "Retail 4-4-5 year (premium)",
+                                    "displayNameKey": "Enum_yearMode_retail"
+                                }
+                            ]
+                        }
+                    },
+                    "fiscalStart": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "0",
+                                    "displayName": "January",
+                                    "displayNameKey": "Enum_month_0"
+                                },
+                                {
+                                    "value": "1",
+                                    "displayName": "February",
+                                    "displayNameKey": "Enum_month_1"
+                                },
+                                {
+                                    "value": "2",
+                                    "displayName": "March",
+                                    "displayNameKey": "Enum_month_2"
+                                },
+                                {
+                                    "value": "3",
+                                    "displayName": "April",
+                                    "displayNameKey": "Enum_month_3"
+                                },
+                                {
+                                    "value": "4",
+                                    "displayName": "May",
+                                    "displayNameKey": "Enum_month_4"
+                                },
+                                {
+                                    "value": "5",
+                                    "displayName": "June",
+                                    "displayNameKey": "Enum_month_5"
+                                },
+                                {
+                                    "value": "6",
+                                    "displayName": "July",
+                                    "displayNameKey": "Enum_month_6"
+                                },
+                                {
+                                    "value": "7",
+                                    "displayName": "August",
+                                    "displayNameKey": "Enum_month_7"
+                                },
+                                {
+                                    "value": "8",
+                                    "displayName": "September",
+                                    "displayNameKey": "Enum_month_8"
+                                },
+                                {
+                                    "value": "9",
+                                    "displayName": "October",
+                                    "displayNameKey": "Enum_month_9"
+                                },
+                                {
+                                    "value": "10",
+                                    "displayName": "November",
+                                    "displayNameKey": "Enum_month_10"
+                                },
+                                {
+                                    "value": "11",
+                                    "displayName": "December",
+                                    "displayNameKey": "Enum_month_11"
+                                }
+                            ]
+                        }
+                    },
+                    "fiscalNaming": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "end",
+                                    "displayName": "By end year",
+                                    "displayNameKey": "Enum_fiscalNaming_end"
+                                },
+                                {
+                                    "value": "start",
+                                    "displayName": "By start year",
+                                    "displayNameKey": "Enum_fiscalNaming_start"
+                                }
+                            ]
+                        }
+                    },
+                    "retailPattern": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "445",
+                                    "displayName": "4-4-5",
+                                    "displayNameKey": "Enum_retailPattern_445"
+                                },
+                                {
+                                    "value": "454",
+                                    "displayName": "4-5-4",
+                                    "displayNameKey": "Enum_retailPattern_454"
+                                },
+                                {
+                                    "value": "544",
+                                    "displayName": "5-4-4",
+                                    "displayNameKey": "Enum_retailPattern_544"
+                                }
+                            ]
+                        }
+                    },
+                    "retailEndMonth": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "0",
+                                    "displayName": "January",
+                                    "displayNameKey": "Enum_month_0"
+                                },
+                                {
+                                    "value": "1",
+                                    "displayName": "February",
+                                    "displayNameKey": "Enum_month_1"
+                                },
+                                {
+                                    "value": "2",
+                                    "displayName": "March",
+                                    "displayNameKey": "Enum_month_2"
+                                },
+                                {
+                                    "value": "3",
+                                    "displayName": "April",
+                                    "displayNameKey": "Enum_month_3"
+                                },
+                                {
+                                    "value": "4",
+                                    "displayName": "May",
+                                    "displayNameKey": "Enum_month_4"
+                                },
+                                {
+                                    "value": "5",
+                                    "displayName": "June",
+                                    "displayNameKey": "Enum_month_5"
+                                },
+                                {
+                                    "value": "6",
+                                    "displayName": "July",
+                                    "displayNameKey": "Enum_month_6"
+                                },
+                                {
+                                    "value": "7",
+                                    "displayName": "August",
+                                    "displayNameKey": "Enum_month_7"
+                                },
+                                {
+                                    "value": "8",
+                                    "displayName": "September",
+                                    "displayNameKey": "Enum_month_8"
+                                },
+                                {
+                                    "value": "9",
+                                    "displayName": "October",
+                                    "displayNameKey": "Enum_month_9"
+                                },
+                                {
+                                    "value": "10",
+                                    "displayName": "November",
+                                    "displayNameKey": "Enum_month_10"
+                                },
+                                {
+                                    "value": "11",
+                                    "displayName": "December",
+                                    "displayNameKey": "Enum_month_11"
+                                }
+                            ]
+                        }
+                    },
+                    "retailEndWeekday": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "0",
+                                    "displayName": "Sunday",
+                                    "displayNameKey": "Enum_weekday_0"
+                                },
+                                {
+                                    "value": "1",
+                                    "displayName": "Monday",
+                                    "displayNameKey": "Enum_weekday_1"
+                                },
+                                {
+                                    "value": "2",
+                                    "displayName": "Tuesday",
+                                    "displayNameKey": "Enum_weekday_2"
+                                },
+                                {
+                                    "value": "3",
+                                    "displayName": "Wednesday",
+                                    "displayNameKey": "Enum_weekday_3"
+                                },
+                                {
+                                    "value": "4",
+                                    "displayName": "Thursday",
+                                    "displayNameKey": "Enum_weekday_4"
+                                },
+                                {
+                                    "value": "5",
+                                    "displayName": "Friday",
+                                    "displayNameKey": "Enum_weekday_5"
+                                },
+                                {
+                                    "value": "6",
+                                    "displayName": "Saturday",
+                                    "displayNameKey": "Enum_weekday_6"
+                                }
+                            ]
+                        }
+                    },
+                    "retailRule": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "nearest",
+                                    "displayName": "Weekday nearest month end",
+                                    "displayNameKey": "Enum_retailRule_nearest"
+                                },
+                                {
+                                    "value": "last",
+                                    "displayName": "Last weekday of month",
+                                    "displayNameKey": "Enum_retailRule_last"
+                                }
+                            ]
+                        }
+                    },
+                    "holidays": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None",
+                                    "displayNameKey": "Enum_holidays_none"
+                                },
+                                {
+                                    "value": "us",
+                                    "displayName": "United States (federal)",
+                                    "displayNameKey": "Enum_holidays_us"
+                                },
+                                {
+                                    "value": "uk",
+                                    "displayName": "United Kingdom (England & Wales)",
+                                    "displayNameKey": "Enum_holidays_uk"
+                                },
+                                {
+                                    "value": "de",
+                                    "displayName": "Germany (national)",
+                                    "displayNameKey": "Enum_holidays_de"
+                                },
+                                {
+                                    "value": "fr",
+                                    "displayName": "France",
+                                    "displayNameKey": "Enum_holidays_fr"
+                                },
+                                {
+                                    "value": "cz",
+                                    "displayName": "Czechia",
+                                    "displayNameKey": "Enum_holidays_cz"
+                                },
+                                {
+                                    "value": "pl",
+                                    "displayName": "Poland",
+                                    "displayNameKey": "Enum_holidays_pl"
+                                },
+                                {
+                                    "value": "at",
+                                    "displayName": "Austria",
+                                    "displayNameKey": "Enum_holidays_at"
+                                },
+                                {
+                                    "value": "nl",
+                                    "displayName": "Netherlands",
+                                    "displayNameKey": "Enum_holidays_nl"
+                                },
+                                {
+                                    "value": "es",
+                                    "displayName": "Spain (national)",
+                                    "displayNameKey": "Enum_holidays_es"
+                                },
+                                {
+                                    "value": "it",
+                                    "displayName": "Italy",
+                                    "displayNameKey": "Enum_holidays_it"
+                                },
+                                {
+                                    "value": "ca",
+                                    "displayName": "Canada (federal)",
+                                    "displayNameKey": "Enum_holidays_ca"
+                                },
+                                {
+                                    "value": "au",
+                                    "displayName": "Australia (national)",
+                                    "displayNameKey": "Enum_holidays_au"
+                                },
+                                {
+                                    "value": "sk",
+                                    "displayName": "Slovakia",
+                                    "displayNameKey": "Enum_holidays_sk"
+                                },
+                                {
+                                    "value": "hu",
+                                    "displayName": "Hungary",
+                                    "displayNameKey": "Enum_holidays_hu"
+                                },
+                                {
+                                    "value": "be",
+                                    "displayName": "Belgium",
+                                    "displayNameKey": "Enum_holidays_be"
+                                },
+                                {
+                                    "value": "ie",
+                                    "displayName": "Ireland",
+                                    "displayNameKey": "Enum_holidays_ie"
+                                },
+                                {
+                                    "value": "pt",
+                                    "displayName": "Portugal",
+                                    "displayNameKey": "Enum_holidays_pt"
+                                },
+                                {
+                                    "value": "se",
+                                    "displayName": "Sweden",
+                                    "displayNameKey": "Enum_holidays_se"
+                                },
+                                {
+                                    "value": "dk",
+                                    "displayName": "Denmark",
+                                    "displayNameKey": "Enum_holidays_dk"
+                                },
+                                {
+                                    "value": "no",
+                                    "displayName": "Norway",
+                                    "displayNameKey": "Enum_holidays_no"
+                                },
+                                {
+                                    "value": "fi",
+                                    "displayName": "Finland",
+                                    "displayNameKey": "Enum_holidays_fi"
+                                }
+                            ]
+                        }
+                    },
+                    "weekend": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "satSun",
+                                    "displayName": "Saturday and Sunday",
+                                    "displayNameKey": "Enum_weekend_satSun"
+                                },
+                                {
+                                    "value": "friSat",
+                                    "displayName": "Friday and Saturday",
+                                    "displayNameKey": "Enum_weekend_friSat"
+                                },
+                                {
+                                    "value": "sun",
+                                    "displayName": "Sunday only",
+                                    "displayNameKey": "Enum_weekend_sun"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "No weekend",
+                                    "displayNameKey": "Enum_weekend_none"
+                                }
+                            ]
+                        }
+                    },
+                    "shadeWeekends": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "intelligence": {
+                "properties": {
+                    "comparison": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "Off",
+                                    "displayNameKey": "Enum_comparison_none"
+                                },
+                                {
+                                    "value": "previous",
+                                    "displayName": "Previous period",
+                                    "displayNameKey": "Enum_comparison_previous"
+                                },
+                                {
+                                    "value": "sply",
+                                    "displayName": "Same period last year",
+                                    "displayNameKey": "Enum_comparison_sply"
+                                },
+                                {
+                                    "value": "sply52",
+                                    "displayName": "52 weeks back (same weekdays)",
+                                    "displayNameKey": "Enum_comparison_sply52"
+                                }
+                            ]
+                        }
+                    },
+                    "showComparison": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "workingDaysOnly": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "header": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showLabel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showDays": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showDataThrough": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dateFormat": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "medium",
+                                    "displayName": "Medium (27 Sep 2026)",
+                                    "displayNameKey": "Enum_dateFormat_medium"
+                                },
+                                {
+                                    "value": "short",
+                                    "displayName": "Short (27/09/2026)",
+                                    "displayNameKey": "Enum_dateFormat_short"
+                                },
+                                {
+                                    "value": "long",
+                                    "displayName": "Long (27 September 2026)",
+                                    "displayNameKey": "Enum_dateFormat_long"
+                                },
+                                {
+                                    "value": "iso",
+                                    "displayName": "ISO (2026-09-27)",
+                                    "displayNameKey": "Enum_dateFormat_iso"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "fontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "style": {
+                "properties": {
+                    "theme": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "smartvisuals",
+                                    "displayName": "SmartVisuals",
+                                    "displayNameKey": "Enum_theme_smartvisuals"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Dark",
+                                    "displayNameKey": "Enum_theme_dark"
+                                },
+                                {
+                                    "value": "clean",
+                                    "displayName": "Clean",
+                                    "displayNameKey": "Enum_theme_clean"
+                                },
+                                {
+                                    "value": "slate",
+                                    "displayName": "Slate",
+                                    "displayNameKey": "Enum_theme_slate"
+                                }
+                            ]
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "theme",
+                                    "displayName": "Theme default",
+                                    "displayNameKey": "Enum_fontFamily_theme"
+                                },
+                                {
+                                    "value": "inter",
+                                    "displayName": "Inter",
+                                    "displayNameKey": "Enum_fontFamily_inter"
+                                },
+                                {
+                                    "value": "segoe",
+                                    "displayName": "Segoe UI",
+                                    "displayNameKey": "Enum_fontFamily_segoe"
+                                },
+                                {
+                                    "value": "arial",
+                                    "displayName": "Arial",
+                                    "displayNameKey": "Enum_fontFamily_arial"
+                                },
+                                {
+                                    "value": "georgia",
+                                    "displayName": "Georgia",
+                                    "displayNameKey": "Enum_fontFamily_georgia"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "fontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "headingColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "mutedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "chipColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "chipTextColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "noDataColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "accent": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "rangeColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "todayColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "holidayColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "weekendColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "densityColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "compareColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "transparent": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "sorting": {
+            "default": {}
+        },
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsSynchronizingFilterState": true,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsMultiVisualSelection": true,
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

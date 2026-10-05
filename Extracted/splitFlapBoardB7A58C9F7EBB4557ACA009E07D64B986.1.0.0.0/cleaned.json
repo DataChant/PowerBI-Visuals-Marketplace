@@ -1,0 +1,1802 @@
+{
+    "visual": {
+        "name": "smartVisualsSplitFlap",
+        "displayName": "SmartVisuals Split-Flap Board",
+        "guid": "splitFlapBoardB7A58C9F7EBB4557ACA009E07D64B986",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Free split-flap departure board for Power BI. Real flip animation that turns only the characters that changed, status words with lamps of their own shape, auto-paging and a live clock for wall screens, message and KPI tile layouts, and a plain boardroom mode. Part of the SmartVisuals visual family.",
+        "supportUrl": "https://smartvisuals.io/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "SmartVisuals",
+        "email": "hello@smartvisuals.io"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "cs-CZ": {
+            "Enum_animation_cascade_curtain": "Opona (od okraj\u016f ke st\u0159edu)",
+            "Enum_animation_cascade_random": "N\u00e1hodn\u011b",
+            "Enum_animation_cascade_rows": "\u0158\u00e1dek po \u0159\u00e1dku",
+            "Enum_animation_cascade_sweep": "Vlna p\u0159es tabuli",
+            "Enum_animation_cascade_together": "V\u0161e najednou",
+            "Enum_animation_travel_direct": "Jedna lamela",
+            "Enum_animation_travel_full": "Cel\u00fd v\u00e1lec (autentick\u00e9)",
+            "Enum_animation_travel_short": "Posledn\u00edch p\u00e1r lamel",
+            "Enum_columns_align_auto": "Automaticky",
+            "Enum_columns_align_center": "Na st\u0159ed",
+            "Enum_columns_align_left": "Vlevo",
+            "Enum_columns_align_right": "Vpravo",
+            "Enum_header_clockFormat_12": "12hodinov\u00fd (2:05 PM)",
+            "Enum_header_clockFormat_24": "24hodinov\u00fd (14:05)",
+            "Enum_header_clockZone_Africa_Johannesburg": "Johannesburg",
+            "Enum_header_clockZone_America_Chicago": "Chicago",
+            "Enum_header_clockZone_America_Denver": "Denver",
+            "Enum_header_clockZone_America_Los_Angeles": "Los Angeles",
+            "Enum_header_clockZone_America_New_York": "New York",
+            "Enum_header_clockZone_America_Sao_Paulo": "S\u00e3o Paulo",
+            "Enum_header_clockZone_Asia_Dubai": "Dubaj",
+            "Enum_header_clockZone_Asia_Kolkata": "Bombaj / Dill\u00ed",
+            "Enum_header_clockZone_Asia_Shanghai": "\u0160anghaj",
+            "Enum_header_clockZone_Asia_Singapore": "Singapur",
+            "Enum_header_clockZone_Asia_Tokyo": "Tokio",
+            "Enum_header_clockZone_Australia_Sydney": "Sydney",
+            "Enum_header_clockZone_Europe_Berlin": "Berl\u00edn",
+            "Enum_header_clockZone_Europe_Helsinki": "Helsinky",
+            "Enum_header_clockZone_Europe_Istanbul": "Istanbul",
+            "Enum_header_clockZone_Europe_London": "Lond\u00fdn",
+            "Enum_header_clockZone_Europe_Paris": "Pa\u0159\u00ed\u017e",
+            "Enum_header_clockZone_Europe_Prague": "Praha",
+            "Enum_header_clockZone_Europe_Warsaw": "Var\u0161ava",
+            "Enum_header_clockZone_Pacific_Auckland": "Auckland",
+            "Enum_header_clockZone_local": "Za\u0159\u00edzen\u00ed div\u00e1ka",
+            "Enum_header_clockZone_utc": "UTC",
+            "Enum_header_icon_arrivals": "P\u0159\u00edlety",
+            "Enum_header_icon_clock": "Hodiny",
+            "Enum_header_icon_departures": "Odlety",
+            "Enum_header_icon_factory": "Tov\u00e1rna",
+            "Enum_header_icon_none": "\u017d\u00e1dn\u00e1",
+            "Enum_header_icon_train": "Vlak",
+            "Enum_header_icon_truck": "N\u00e1kladn\u00ed auto",
+            "Enum_layout_accents_fold": "P\u0159ev\u00e9st na A a\u017e Z",
+            "Enum_layout_accents_keep": "Zachovat (\u010c, \u00d6, \u0141, \u00c9)",
+            "Enum_layout_font_arial": "Arial",
+            "Enum_layout_font_barlow": "Barlow Condensed (vestav\u011bn\u00e9)",
+            "Enum_layout_font_mono": "Neproporcion\u00e1ln\u00ed",
+            "Enum_layout_font_segoe": "Segoe UI",
+            "Enum_layout_layout_board": "Odjezdov\u00e1 tabule",
+            "Enum_layout_layout_message": "Zpr\u00e1va / titulek",
+            "Enum_layout_layout_tiles": "KPI dla\u017edice",
+            "Enum_layout_letterCase_asis": "Jako v datech",
+            "Enum_layout_letterCase_upper": "VELK\u00c1 P\u00cdSMENA (autentick\u00e9)",
+            "Enum_layout_style_flap": "P\u0159ekl\u00e1p\u011bc\u00ed lamely",
+            "Enum_layout_style_plain": "Prost\u00e1 tabulka (re\u017eim pro porady)",
+            "Enum_status_colorMode_lamp": "Jen kontrolka",
+            "Enum_status_colorMode_row": "Cel\u00fd \u0159\u00e1dek",
+            "Enum_status_colorMode_word": "Slovo stavu",
+            "Enum_theme_selectedTheme_clean": "\u010cist\u00fd",
+            "Enum_theme_selectedTheme_dark": "Tmav\u00fd",
+            "Enum_theme_selectedTheme_slate": "B\u0159idlicov\u00fd",
+            "Enum_theme_selectedTheme_smartvisuals": "SmartVisuals",
+            "Enum_values_numberDisplay_compact": "Zkr\u00e1cen\u00e1 (1,2 tis.)",
+            "Enum_values_numberDisplay_full": "Pln\u00e1 (1 240)",
+            "Enum_values_timeFormat_EEE_HH_mm": "SAT 14:05",
+            "Enum_values_timeFormat_HH_mm": "14:05",
+            "Enum_values_timeFormat_auto": "Automaticky",
+            "Enum_values_timeFormat_dd_MMM": "27 SEP",
+            "Enum_values_timeFormat_dd_MMM_HH_mm": "27 SEP 14:05",
+            "Enum_values_timeFormat_h_mm_a": "2:05 PM",
+            "Enum_values_timeFormat_yyyy_MM_dd": "2026-09-27",
+            "Obj_animation": "Animace p\u0159ekl\u00e1p\u011bn\u00ed",
+            "Obj_colors": "Barvy tabule",
+            "Obj_columns": "Sloupce",
+            "Obj_header": "Z\u00e1hlav\u00ed",
+            "Obj_headings": "Z\u00e1hlav\u00ed sloupc\u016f",
+            "Obj_layout": "Rozvr\u017een\u00ed",
+            "Obj_paging": "Str\u00e1nkov\u00e1n\u00ed",
+            "Obj_status": "Stav",
+            "Obj_theme": "Motiv",
+            "Obj_values": "Data a \u010d\u00edsla",
+            "Prop_animation_animate": "Animovat p\u0159ekl\u00e1p\u011bn\u00ed",
+            "Prop_animation_cascade": "Kask\u00e1da",
+            "Prop_animation_introFlip": "Naklopit p\u0159i na\u010dten\u00ed",
+            "Prop_animation_speed": "Lamel za sekundu",
+            "Prop_animation_stagger": "Rozestup kask\u00e1dy (ms)",
+            "Prop_animation_travel": "Ot\u00e1\u010den\u00ed v\u00e1lce",
+            "Prop_colors_accent": "Akcent (linka, pr\u016fb\u011bh)",
+            "Prop_colors_brandRule": "Oran\u017eov\u00e1 linka pod nadpisem",
+            "Prop_colors_flap": "Lamela",
+            "Prop_colors_flapEdge": "Okraj lamely",
+            "Prop_colors_hinge": "D\u011blic\u00ed \u010d\u00e1ra",
+            "Prop_colors_housing": "Sk\u0159\u00ed\u0148",
+            "Prop_colors_ink": "Znaky",
+            "Prop_colors_labels": "Ti\u0161t\u011bn\u00e9 popisky (z\u00e1hlav\u00ed, datum, str\u00e1nka)",
+            "Prop_colors_lampOff": "Zhasnut\u00e1 kontrolka",
+            "Prop_colors_shadow": "St\u00edn modul\u016f",
+            "Prop_colors_socket": "Obj\u00edmka kontrolky",
+            "Prop_columns_align": "Zarovn\u00e1n\u00ed",
+            "Prop_columns_heading": "Z\u00e1hlav\u00ed",
+            "Prop_columns_show": "Zobrazit sloupec",
+            "Prop_columns_width": "\u0160\u00ed\u0159ka ve znac\u00edch (0 = auto)",
+            "Prop_header_clockFormat": "Form\u00e1t hodin",
+            "Prop_header_clockZone": "\u010casov\u00e9 p\u00e1smo hodin",
+            "Prop_header_dateSize": "Velikost data (%)",
+            "Prop_header_icon": "Ikona",
+            "Prop_header_show": "Zobrazit z\u00e1hlav\u00ed",
+            "Prop_header_showClock": "Zobrazit hodiny",
+            "Prop_header_showDate": "Zobrazit datum",
+            "Prop_header_title": "Nadpis",
+            "Prop_header_titleColor": "Barva nadpisu",
+            "Prop_header_titleSize": "Velikost nadpisu (%)",
+            "Prop_headings_show": "Zobrazit z\u00e1hlav\u00ed sloupc\u016f",
+            "Prop_headings_size": "Velikost z\u00e1hlav\u00ed (%)",
+            "Prop_layout_accents": "P\u00edsmena s diakritikou",
+            "Prop_layout_charScale": "Velikost znak\u016f (%)",
+            "Prop_layout_font": "P\u00edsmo lamel",
+            "Prop_layout_layout": "Rozvr\u017een\u00ed",
+            "Prop_layout_letterCase": "Velikost p\u00edsmen",
+            "Prop_layout_maxCharHeight": "Nejv\u011bt\u0161\u00ed v\u00fd\u0161ka lamely (px, 0 = p\u0159izp\u016fsobit)",
+            "Prop_layout_messageColumns": "Znak\u016f na \u0159\u00e1dek",
+            "Prop_layout_messageLines": "\u0158\u00e1dk\u016f",
+            "Prop_layout_rowsPerPage": "\u0158\u00e1dk\u016f na str\u00e1nku (0 = vyplnit)",
+            "Prop_layout_showHinge": "Zobrazit d\u011blic\u00ed \u010d\u00e1ru",
+            "Prop_layout_style": "Styl",
+            "Prop_layout_tilesPerPage": "Dla\u017edic na str\u00e1nku (0 = auto)",
+            "Prop_paging_autoPage": "Str\u00e1nkovat automaticky",
+            "Prop_paging_indicatorSize": "Velikost ukazatele (%)",
+            "Prop_paging_pauseOnHover": "Pozastavit p\u0159i najet\u00ed my\u0161\u00ed",
+            "Prop_paging_pixelShift": "Ochrana proti vyp\u00e1len\u00ed (posun o 1 px)",
+            "Prop_paging_seconds": "Sekund na str\u00e1nku",
+            "Prop_paging_showIndicator": "Zobrazit ukazatel str\u00e1nky",
+            "Prop_status_colorMode": "Barva",
+            "Prop_status_doneCodes": "K\u00f3dy: hotovo",
+            "Prop_status_doneColor": "Barva: hotovo",
+            "Prop_status_doneLabel": "K\u00f3d hotovo se zobraz\u00ed jako",
+            "Prop_status_doneWords": "Slova: hotovo",
+            "Prop_status_goodCodes": "K\u00f3dy: v po\u0159\u00e1dku",
+            "Prop_status_goodColor": "Barva: v po\u0159\u00e1dku",
+            "Prop_status_goodLabel": "K\u00f3d v po\u0159\u00e1dku se zobraz\u00ed jako",
+            "Prop_status_goodWords": "Slova: v po\u0159\u00e1dku",
+            "Prop_status_problemCodes": "K\u00f3dy: probl\u00e9m",
+            "Prop_status_problemColor": "Barva: probl\u00e9m",
+            "Prop_status_problemLabel": "K\u00f3d probl\u00e9m se zobraz\u00ed jako",
+            "Prop_status_problemWords": "Slova: probl\u00e9m",
+            "Prop_status_showLamps": "Zobrazit stavov\u00e9 kontrolky",
+            "Prop_status_watchCodes": "K\u00f3dy: pozor",
+            "Prop_status_watchColor": "Barva: pozor",
+            "Prop_status_watchLabel": "K\u00f3d pozor se zobraz\u00ed jako",
+            "Prop_status_watchWords": "Slova: pozor",
+            "Prop_theme_selectedTheme": "Motiv",
+            "Prop_theme_transparentBg": "Pr\u016fhledn\u00e9 pozad\u00ed",
+            "Prop_values_numberDisplay": "\u010c\u00edsla",
+            "Prop_values_timeFormat": "Form\u00e1t data a \u010dasu",
+            "Role_details": "Podrobnosti",
+            "Role_details_Desc": "Dal\u0161\u00ed textov\u00e9 sloupce v po\u0159ad\u00ed tabule: dopravce, rampa, br\u00e1na, n\u00e1stupi\u0161t\u011b, sm\u011bna.",
+            "Role_numbers": "\u010c\u00edsla",
+            "Role_numbers_Desc": "M\u00edry zobrazen\u00e9 jako sloupce (mno\u017estv\u00ed, OEE, minuty zpo\u017ed\u011bn\u00ed). V dla\u017edic\u00edch je prvn\u00ed z nich velk\u00e1 hodnota.",
+            "Role_primary": "C\u00edl / polo\u017eka",
+            "Role_primary_Desc": "Hlavn\u00ed text \u0159\u00e1dku: c\u00edl, zak\u00e1zka, linka, v\u00fdrobek.",
+            "Role_rowId": "ID \u0159\u00e1dku",
+            "Role_rowId_Desc": "Voliteln\u00e9, nezobrazuje se: kl\u00ed\u010d jako \u010d\u00edslo z\u00e1silky, kter\u00fd udr\u017e\u00ed od sebe dva jinak shodn\u00e9 \u0159\u00e1dky.",
+            "Role_status": "Stav",
+            "Role_statusValue": "M\u00edra stavu",
+            "Role_statusValue_Desc": "M\u00edra, kter\u00e1 ur\u010duje stav: text jako V\u010das nebo Zpo\u017ed\u011bn\u00ed, nebo k\u00f3d (1, 0, -1, 2) p\u0159i\u0159azen\u00fd t\u0159\u00edd\u00e1m v kart\u011b Stav. Se sloupcem Stav se zobraz\u00ed sloupec a m\u00edra ur\u010d\u00ed barvu.",
+            "Role_status_Desc": "Text stavu. Slova jako V\u010das, Zpo\u017ed\u011bn\u00ed, Zru\u0161eno, Odjel obarv\u00ed \u0159\u00e1dek a rozsv\u00edt\u00ed kontrolku s vlastn\u00edm tvarem.",
+            "Role_time": "\u010cas",
+            "Role_time_Desc": "\u010cas odjezdu nebo term\u00ednu (sloupec data a \u010dasu nebo text). Zobrazuje se na \u010d\u00edslicov\u00e9m v\u00e1lci.",
+            "Role_tooltips": "Popisky",
+            "Role_tooltips_Desc": "Dal\u0161\u00ed m\u00edry zobrazen\u00e9 v popisku.",
+            "UI_AnimationDesc": "Div\u00e1k\u016fm, kte\u0159\u00ed si v syst\u00e9mu vy\u017e\u00e1daj\u00ed omezen\u00fd pohyb, se v\u0161e m\u011bn\u00ed okam\u017eit\u011b.",
+            "UI_AriaBoard": "{0}. {1} \u0159\u00e1dk\u016f. Str\u00e1nka {2} z {3}.",
+            "UI_AriaKeys": "\u0160ipky p\u0159ech\u00e1zej\u00ed mezi \u0159\u00e1dky, Enter vyb\u00edr\u00e1, Escape ru\u0161\u00ed v\u00fdb\u011br, Page Up a Page Down m\u011bn\u00ed str\u00e1nku, P pozastav\u00ed str\u00e1nkov\u00e1n\u00ed.",
+            "UI_DefaultTitle_board": "Odjezdy",
+            "UI_DefaultTitle_message": "N\u00e1st\u011bnka",
+            "UI_DefaultTitle_tiles": "P\u0159ehled stavu",
+            "UI_LandingBullet1": "Skute\u010dn\u00e1 animace lamel, p\u0159ekl\u00e1p\u00ed jen znaky, kter\u00e9 se zm\u011bnily",
+            "UI_LandingBullet2": "Stavov\u00e1 slova s kontrolkami vlastn\u00edho tvaru, nikdy jen barva",
+            "UI_LandingBullet3": "Na n\u00e1st\u011bnn\u00e9 obrazovce str\u00e1nkuje sama; klidn\u00fd re\u017eim pro porady jedn\u00edm klikem",
+            "UI_LandingBy": "od SmartVisuals - zdarma",
+            "UI_LandingHint": "P\u0159idejte pole C\u00edl / polo\u017eka, pak \u010cas, Podrobnosti, \u010c\u00edsla a Stav. \u0158\u00e1dky se naklop\u00ed jako na odjezdov\u00e9 tabuli.",
+            "UI_LandingTitle": "SmartVisuals Split-Flap Board",
+            "UI_No": "Ne",
+            "UI_NoColumns": "V\u0161echny sloupce jsou skryt\u00e9",
+            "UI_NoRowsHint": "Filtry na t\u00e9to str\u00e1nce nenechaly \u017e\u00e1dn\u00e9 \u0159\u00e1dky.",
+            "UI_NoRowsTitle": "Tabule je pr\u00e1zdn\u00e1",
+            "UI_Page": "{0} / {1}",
+            "UI_Paused": "Pozastaveno",
+            "UI_Status_done": "Hotovo",
+            "UI_Status_good": "V po\u0159\u00e1dku",
+            "UI_Status_problem": "Probl\u00e9m",
+            "UI_Status_watch": "Pozor",
+            "UI_TT_Page": "Str\u00e1nka",
+            "UI_TT_Status": "T\u0159\u00edda stavu",
+            "UI_Trimmed": "Nejv\u00fd\u0161e {0} \u0159\u00e1dk\u016f",
+            "UI_TrimmedDetail": "Power BI p\u0159ed\u00e1 vizu\u00e1lu nejv\u00fd\u0161e {0} \u0159\u00e1dk\u016f. Tabule ukazuje prvn\u00edch {0} v aktu\u00e1ln\u00edm \u0159azen\u00ed; vyberte je filtrem str\u00e1nky nebo zm\u011bnou \u0159azen\u00ed.",
+            "UI_Yes": "Ano"
+        },
+        "de-DE": {
+            "Enum_animation_cascade_curtain": "Vorhang (von au\u00dfen zur Mitte)",
+            "Enum_animation_cascade_random": "Verstreut",
+            "Enum_animation_cascade_rows": "Zeile f\u00fcr Zeile",
+            "Enum_animation_cascade_sweep": "Welle \u00fcber die Tafel",
+            "Enum_animation_cascade_together": "Alle gleichzeitig",
+            "Enum_animation_travel_direct": "Eine Klappe",
+            "Enum_animation_travel_full": "Ganze Walze (authentisch)",
+            "Enum_animation_travel_short": "Letzte Klappen",
+            "Enum_columns_align_auto": "Automatisch",
+            "Enum_columns_align_center": "Zentriert",
+            "Enum_columns_align_left": "Links",
+            "Enum_columns_align_right": "Rechts",
+            "Enum_header_clockFormat_12": "12 Stunden (2:05 PM)",
+            "Enum_header_clockFormat_24": "24 Stunden (14:05)",
+            "Enum_header_clockZone_Africa_Johannesburg": "Johannesburg",
+            "Enum_header_clockZone_America_Chicago": "Chicago",
+            "Enum_header_clockZone_America_Denver": "Denver",
+            "Enum_header_clockZone_America_Los_Angeles": "Los Angeles",
+            "Enum_header_clockZone_America_New_York": "New York",
+            "Enum_header_clockZone_America_Sao_Paulo": "S\u00e3o Paulo",
+            "Enum_header_clockZone_Asia_Dubai": "Dubai",
+            "Enum_header_clockZone_Asia_Kolkata": "Mumbai / Delhi",
+            "Enum_header_clockZone_Asia_Shanghai": "Shanghai",
+            "Enum_header_clockZone_Asia_Singapore": "Singapur",
+            "Enum_header_clockZone_Asia_Tokyo": "Tokio",
+            "Enum_header_clockZone_Australia_Sydney": "Sydney",
+            "Enum_header_clockZone_Europe_Berlin": "Berlin",
+            "Enum_header_clockZone_Europe_Helsinki": "Helsinki",
+            "Enum_header_clockZone_Europe_Istanbul": "Istanbul",
+            "Enum_header_clockZone_Europe_London": "London",
+            "Enum_header_clockZone_Europe_Paris": "Paris",
+            "Enum_header_clockZone_Europe_Prague": "Prag",
+            "Enum_header_clockZone_Europe_Warsaw": "Warschau",
+            "Enum_header_clockZone_Pacific_Auckland": "Auckland",
+            "Enum_header_clockZone_local": "Ger\u00e4t des Betrachters",
+            "Enum_header_clockZone_utc": "UTC",
+            "Enum_header_icon_arrivals": "Ankunft",
+            "Enum_header_icon_clock": "Uhr",
+            "Enum_header_icon_departures": "Abflug",
+            "Enum_header_icon_factory": "Fabrik",
+            "Enum_header_icon_none": "Keins",
+            "Enum_header_icon_train": "Zug",
+            "Enum_header_icon_truck": "Lkw",
+            "Enum_layout_accents_fold": "Auf A bis Z abbilden",
+            "Enum_layout_accents_keep": "Beibehalten (\u010c, \u00d6, \u0141, \u00c9)",
+            "Enum_layout_font_arial": "Arial",
+            "Enum_layout_font_barlow": "Barlow Condensed (eingebaut)",
+            "Enum_layout_font_mono": "Nichtproportional",
+            "Enum_layout_font_segoe": "Segoe UI",
+            "Enum_layout_layout_board": "Abfahrtstafel",
+            "Enum_layout_layout_message": "Nachricht / Schlagzeile",
+            "Enum_layout_layout_tiles": "KPI-Kacheln",
+            "Enum_layout_letterCase_asis": "Wie in den Daten",
+            "Enum_layout_letterCase_upper": "GROSSBUCHSTABEN (authentisch)",
+            "Enum_layout_style_flap": "Fallblatt",
+            "Enum_layout_style_plain": "Schlichte Tabelle (Besprechungsmodus)",
+            "Enum_status_colorMode_lamp": "Nur die Lampe",
+            "Enum_status_colorMode_row": "Die ganze Zeile",
+            "Enum_status_colorMode_word": "Das Statuswort",
+            "Enum_theme_selectedTheme_clean": "Hell",
+            "Enum_theme_selectedTheme_dark": "Dunkel",
+            "Enum_theme_selectedTheme_slate": "Schiefer",
+            "Enum_theme_selectedTheme_smartvisuals": "SmartVisuals",
+            "Enum_values_numberDisplay_compact": "Kompakt (1,2 Tsd.)",
+            "Enum_values_numberDisplay_full": "Voll (1.240)",
+            "Enum_values_timeFormat_EEE_HH_mm": "SAT 14:05",
+            "Enum_values_timeFormat_HH_mm": "14:05",
+            "Enum_values_timeFormat_auto": "Automatisch",
+            "Enum_values_timeFormat_dd_MMM": "27 SEP",
+            "Enum_values_timeFormat_dd_MMM_HH_mm": "27 SEP 14:05",
+            "Enum_values_timeFormat_h_mm_a": "2:05 PM",
+            "Enum_values_timeFormat_yyyy_MM_dd": "2026-09-27",
+            "Obj_animation": "Klappanimation",
+            "Obj_colors": "Tafelfarben",
+            "Obj_columns": "Spalten",
+            "Obj_header": "Kopfzeile",
+            "Obj_headings": "Spalten\u00fcberschriften",
+            "Obj_layout": "Layout",
+            "Obj_paging": "Seitenwechsel",
+            "Obj_status": "Status",
+            "Obj_theme": "Design",
+            "Obj_values": "Datum und Zahlen",
+            "Prop_animation_animate": "Klappen animieren",
+            "Prop_animation_cascade": "Kaskade",
+            "Prop_animation_introFlip": "Beim Laden einklappen",
+            "Prop_animation_speed": "Klappen pro Sekunde",
+            "Prop_animation_stagger": "Kaskadenabstand (ms)",
+            "Prop_animation_travel": "Walzenlauf",
+            "Prop_colors_accent": "Akzent (Linie, Fortschritt)",
+            "Prop_colors_brandRule": "Orange Linie unter dem Titel",
+            "Prop_colors_flap": "Klappe",
+            "Prop_colors_flapEdge": "Klappenrand",
+            "Prop_colors_hinge": "Scharnierlinie",
+            "Prop_colors_housing": "Geh\u00e4use",
+            "Prop_colors_ink": "Zeichen",
+            "Prop_colors_labels": "Gedruckte Beschriftung (\u00dcberschriften, Datum, Seite)",
+            "Prop_colors_lampOff": "Lampe aus",
+            "Prop_colors_shadow": "Modulschatten",
+            "Prop_colors_socket": "Lampenfassung",
+            "Prop_columns_align": "Ausrichtung",
+            "Prop_columns_heading": "\u00dcberschrift",
+            "Prop_columns_show": "Spalte anzeigen",
+            "Prop_columns_width": "Breite in Zeichen (0 = auto)",
+            "Prop_header_clockFormat": "Uhrformat",
+            "Prop_header_clockZone": "Zeitzone der Uhr",
+            "Prop_header_dateSize": "Datumsgr\u00f6\u00dfe (%)",
+            "Prop_header_icon": "Symbol",
+            "Prop_header_show": "Kopfzeile anzeigen",
+            "Prop_header_showClock": "Uhr anzeigen",
+            "Prop_header_showDate": "Datum anzeigen",
+            "Prop_header_title": "Titel",
+            "Prop_header_titleColor": "Titelfarbe",
+            "Prop_header_titleSize": "Titelgr\u00f6\u00dfe (%)",
+            "Prop_headings_show": "Spalten\u00fcberschriften anzeigen",
+            "Prop_headings_size": "Gr\u00f6\u00dfe der \u00dcberschriften (%)",
+            "Prop_layout_accents": "Buchstaben mit Akzent",
+            "Prop_layout_charScale": "Zeichengr\u00f6\u00dfe (%)",
+            "Prop_layout_font": "Klappenschrift",
+            "Prop_layout_layout": "Layout",
+            "Prop_layout_letterCase": "Gro\u00df-/Kleinschreibung",
+            "Prop_layout_maxCharHeight": "Gr\u00f6\u00dfte Klappenh\u00f6he (px, 0 = anpassen)",
+            "Prop_layout_messageColumns": "Zeichen pro Zeile",
+            "Prop_layout_messageLines": "Zeilen",
+            "Prop_layout_rowsPerPage": "Zeilen pro Seite (0 = f\u00fcllen)",
+            "Prop_layout_showHinge": "Scharnierlinie anzeigen",
+            "Prop_layout_style": "Stil",
+            "Prop_layout_tilesPerPage": "Kacheln pro Seite (0 = auto)",
+            "Prop_paging_autoPage": "Automatisch bl\u00e4ttern",
+            "Prop_paging_indicatorSize": "Gr\u00f6\u00dfe der Anzeige (%)",
+            "Prop_paging_pauseOnHover": "Beim \u00dcberfahren anhalten",
+            "Prop_paging_pixelShift": "Einbrennschutz (1 px verschieben)",
+            "Prop_paging_seconds": "Sekunden pro Seite",
+            "Prop_paging_showIndicator": "Seitenanzeige zeigen",
+            "Prop_status_colorMode": "Farbe",
+            "Prop_status_doneCodes": "Codes: erledigt",
+            "Prop_status_doneColor": "Farbe: erledigt",
+            "Prop_status_doneLabel": "Code erledigt wird angezeigt als",
+            "Prop_status_doneWords": "W\u00f6rter: erledigt",
+            "Prop_status_goodCodes": "Codes: im Plan",
+            "Prop_status_goodColor": "Farbe: im Plan",
+            "Prop_status_goodLabel": "Code im Plan wird angezeigt als",
+            "Prop_status_goodWords": "W\u00f6rter: im Plan",
+            "Prop_status_problemCodes": "Codes: Problem",
+            "Prop_status_problemColor": "Farbe: Problem",
+            "Prop_status_problemLabel": "Code Problem wird angezeigt als",
+            "Prop_status_problemWords": "W\u00f6rter: Problem",
+            "Prop_status_showLamps": "Statuslampen anzeigen",
+            "Prop_status_watchCodes": "Codes: beobachten",
+            "Prop_status_watchColor": "Farbe: beobachten",
+            "Prop_status_watchLabel": "Code beobachten wird angezeigt als",
+            "Prop_status_watchWords": "W\u00f6rter: beobachten",
+            "Prop_theme_selectedTheme": "Design",
+            "Prop_theme_transparentBg": "Transparenter Hintergrund",
+            "Prop_values_numberDisplay": "Zahlen",
+            "Prop_values_timeFormat": "Datums-/Zeitformat",
+            "Role_details": "Details",
+            "Role_details_Desc": "Weitere Textspalten in Tafelreihenfolge: Spediteur, Rampe, Gate, Gleis, Schicht.",
+            "Role_numbers": "Zahlen",
+            "Role_numbers_Desc": "Measures als Spalten (Menge, OEE, Minuten Versp\u00e4tung). In KPI-Kacheln ist das erste der gro\u00dfe Wert.",
+            "Role_primary": "Ziel / Position",
+            "Role_primary_Desc": "Der Haupttext jeder Zeile: Ziel, Auftrag, Linie, Produkt.",
+            "Role_rowId": "Zeilen-ID",
+            "Role_rowId_Desc": "Optional, nicht angezeigt: ein Schl\u00fcssel wie die Sendungsnummer, der zwei sonst gleiche Zeilen getrennt h\u00e4lt.",
+            "Role_status": "Status",
+            "Role_statusValue": "Statusmeasure",
+            "Role_statusValue_Desc": "Ein Measure, das den Status bestimmt: Text wie P\u00fcnktlich oder Versp\u00e4tet oder ein Code (1, 0, -1, 2), der in der Karte Status zugeordnet wird. Mit einer Statusspalte wird die Spalte gezeigt und das Measure bestimmt die Farbe.",
+            "Role_status_Desc": "Statustext. W\u00f6rter wie P\u00fcnktlich, Versp\u00e4tet, Annulliert, Abgefahren f\u00e4rben die Zeile und schalten eine Lampe mit eigener Form.",
+            "Role_time": "Zeit",
+            "Role_time_Desc": "Abfahrts- oder F\u00e4lligkeitszeit (Datum/Uhrzeit- oder Textspalte). Erscheint auf einer Ziffernwalze.",
+            "Role_tooltips": "QuickInfos",
+            "Role_tooltips_Desc": "Weitere Measures in der QuickInfo.",
+            "UI_AnimationDesc": "Wer im System reduzierte Bewegung w\u00fcnscht, sieht \u00c4nderungen immer sofort.",
+            "UI_AriaBoard": "{0}. {1} Zeilen. Seite {2} von {3}.",
+            "UI_AriaKeys": "Pfeiltasten wechseln die Zeile, Enter w\u00e4hlt aus, Escape hebt auf, Bild auf und Bild ab bl\u00e4ttern, P h\u00e4lt das Bl\u00e4ttern an.",
+            "UI_DefaultTitle_board": "Abfahrten",
+            "UI_DefaultTitle_message": "Anschlagtafel",
+            "UI_DefaultTitle_tiles": "Statustafel",
+            "UI_LandingBullet1": "Echte Klappanimation, die nur ge\u00e4nderte Zeichen dreht",
+            "UI_LandingBullet2": "Statusw\u00f6rter mit Lampen eigener Form, nie nur Farbe",
+            "UI_LandingBullet3": "Bl\u00e4ttert auf dem Wandbildschirm selbst; ruhiger Besprechungsmodus mit einem Klick",
+            "UI_LandingBy": "von SmartVisuals - kostenlos",
+            "UI_LandingHint": "F\u00fcgen Sie ein Feld Ziel / Position hinzu, dann Zeit, Details, Zahlen und Status. Die Zeilen klappen ein wie auf einer Abfahrtstafel.",
+            "UI_LandingTitle": "SmartVisuals Split-Flap Board",
+            "UI_No": "Nein",
+            "UI_NoColumns": "Alle Spalten sind ausgeblendet",
+            "UI_NoRowsHint": "Die Filter dieser Seite lassen keine Zeilen \u00fcbrig.",
+            "UI_NoRowsTitle": "Nichts auf der Tafel",
+            "UI_Page": "{0} / {1}",
+            "UI_Paused": "Angehalten",
+            "UI_Status_done": "Erledigt",
+            "UI_Status_good": "Im Plan",
+            "UI_Status_problem": "Problem",
+            "UI_Status_watch": "Beobachten",
+            "UI_TT_Page": "Seite",
+            "UI_TT_Status": "Statusklasse",
+            "UI_Trimmed": "Bis zu {0} Zeilen",
+            "UI_TrimmedDetail": "Power BI \u00fcbergibt einem Visual h\u00f6chstens {0} Zeilen. Die Tafel zeigt die ersten {0} in der aktuellen Sortierung; filtern Sie die Seite oder \u00e4ndern Sie die Sortierung.",
+            "UI_Yes": "Ja"
+        },
+        "en-US": {
+            "Enum_animation_cascade_curtain": "Curtain (edges to centre)",
+            "Enum_animation_cascade_random": "Scattered",
+            "Enum_animation_cascade_rows": "Row by row",
+            "Enum_animation_cascade_sweep": "Sweep across the board",
+            "Enum_animation_cascade_together": "All at once",
+            "Enum_animation_travel_direct": "One flap",
+            "Enum_animation_travel_full": "Full drum (authentic)",
+            "Enum_animation_travel_short": "Last few flaps",
+            "Enum_columns_align_auto": "Auto",
+            "Enum_columns_align_center": "Center",
+            "Enum_columns_align_left": "Left",
+            "Enum_columns_align_right": "Right",
+            "Enum_header_clockFormat_12": "12-hour (2:05 PM)",
+            "Enum_header_clockFormat_24": "24-hour (14:05)",
+            "Enum_header_clockZone_Africa_Johannesburg": "Johannesburg",
+            "Enum_header_clockZone_America_Chicago": "Chicago",
+            "Enum_header_clockZone_America_Denver": "Denver",
+            "Enum_header_clockZone_America_Los_Angeles": "Los Angeles",
+            "Enum_header_clockZone_America_New_York": "New York",
+            "Enum_header_clockZone_America_Sao_Paulo": "S\u00e3o Paulo",
+            "Enum_header_clockZone_Asia_Dubai": "Dubai",
+            "Enum_header_clockZone_Asia_Kolkata": "Mumbai / Delhi",
+            "Enum_header_clockZone_Asia_Shanghai": "Shanghai",
+            "Enum_header_clockZone_Asia_Singapore": "Singapore",
+            "Enum_header_clockZone_Asia_Tokyo": "Tokyo",
+            "Enum_header_clockZone_Australia_Sydney": "Sydney",
+            "Enum_header_clockZone_Europe_Berlin": "Berlin",
+            "Enum_header_clockZone_Europe_Helsinki": "Helsinki",
+            "Enum_header_clockZone_Europe_Istanbul": "Istanbul",
+            "Enum_header_clockZone_Europe_London": "London",
+            "Enum_header_clockZone_Europe_Paris": "Paris",
+            "Enum_header_clockZone_Europe_Prague": "Prague",
+            "Enum_header_clockZone_Europe_Warsaw": "Warsaw",
+            "Enum_header_clockZone_Pacific_Auckland": "Auckland",
+            "Enum_header_clockZone_local": "Viewer's device",
+            "Enum_header_clockZone_utc": "UTC",
+            "Enum_header_icon_arrivals": "Arrivals",
+            "Enum_header_icon_clock": "Clock",
+            "Enum_header_icon_departures": "Departures",
+            "Enum_header_icon_factory": "Factory",
+            "Enum_header_icon_none": "None",
+            "Enum_header_icon_train": "Train",
+            "Enum_header_icon_truck": "Truck",
+            "Enum_layout_accents_fold": "Fold to A to Z",
+            "Enum_layout_accents_keep": "Keep (\u010c, \u00d6, \u0141, \u00c9)",
+            "Enum_layout_font_arial": "Arial",
+            "Enum_layout_font_barlow": "Barlow Condensed (built in)",
+            "Enum_layout_font_mono": "Monospace",
+            "Enum_layout_font_segoe": "Segoe UI",
+            "Enum_layout_layout_board": "Departure board",
+            "Enum_layout_layout_message": "Message / headline",
+            "Enum_layout_layout_tiles": "KPI tiles",
+            "Enum_layout_letterCase_asis": "As in the data",
+            "Enum_layout_letterCase_upper": "UPPER CASE (authentic)",
+            "Enum_layout_style_flap": "Split-flap",
+            "Enum_layout_style_plain": "Plain table (boardroom mode)",
+            "Enum_status_colorMode_lamp": "Lamp only",
+            "Enum_status_colorMode_row": "The whole row",
+            "Enum_status_colorMode_word": "The status word",
+            "Enum_theme_selectedTheme_clean": "Clean",
+            "Enum_theme_selectedTheme_dark": "Dark",
+            "Enum_theme_selectedTheme_slate": "Slate",
+            "Enum_theme_selectedTheme_smartvisuals": "SmartVisuals",
+            "Enum_values_numberDisplay_compact": "Compact (1.2K)",
+            "Enum_values_numberDisplay_full": "Full (1,240)",
+            "Enum_values_timeFormat_EEE_HH_mm": "SAT 14:05",
+            "Enum_values_timeFormat_HH_mm": "14:05",
+            "Enum_values_timeFormat_auto": "Auto",
+            "Enum_values_timeFormat_dd_MMM": "27 SEP",
+            "Enum_values_timeFormat_dd_MMM_HH_mm": "27 SEP 14:05",
+            "Enum_values_timeFormat_h_mm_a": "2:05 PM",
+            "Enum_values_timeFormat_yyyy_MM_dd": "2026-09-27",
+            "Obj_animation": "Flip Animation",
+            "Obj_colors": "Board Colors",
+            "Obj_columns": "Columns",
+            "Obj_header": "Header",
+            "Obj_headings": "Column Headings",
+            "Obj_layout": "Layout",
+            "Obj_paging": "Paging",
+            "Obj_status": "Status",
+            "Obj_theme": "Theme",
+            "Obj_values": "Dates And Numbers",
+            "Prop_animation_animate": "Animate Flips",
+            "Prop_animation_cascade": "Cascade",
+            "Prop_animation_introFlip": "Flip In On Load",
+            "Prop_animation_speed": "Flaps Per Second",
+            "Prop_animation_stagger": "Cascade Spacing (ms)",
+            "Prop_animation_travel": "Drum Travel",
+            "Prop_colors_accent": "Accent (Rule, Progress)",
+            "Prop_colors_brandRule": "Orange Rule Under The Title",
+            "Prop_colors_flap": "Flap",
+            "Prop_colors_flapEdge": "Flap Edge",
+            "Prop_colors_hinge": "Hinge Line",
+            "Prop_colors_housing": "Housing",
+            "Prop_colors_ink": "Characters",
+            "Prop_colors_labels": "Printed Labels (Headings, Date, Page)",
+            "Prop_colors_lampOff": "Unlit Lamp",
+            "Prop_colors_shadow": "Module Shadow",
+            "Prop_colors_socket": "Lamp Socket",
+            "Prop_columns_align": "Alignment",
+            "Prop_columns_heading": "Heading",
+            "Prop_columns_show": "Show Column",
+            "Prop_columns_width": "Width In Characters (0 = Auto)",
+            "Prop_header_clockFormat": "Clock Format",
+            "Prop_header_clockZone": "Clock Time Zone",
+            "Prop_header_dateSize": "Date Size (%)",
+            "Prop_header_icon": "Icon",
+            "Prop_header_show": "Show Header",
+            "Prop_header_showClock": "Show Clock",
+            "Prop_header_showDate": "Show Date",
+            "Prop_header_title": "Title",
+            "Prop_header_titleColor": "Title Color",
+            "Prop_header_titleSize": "Title Size (%)",
+            "Prop_headings_show": "Show Column Headings",
+            "Prop_headings_size": "Heading Size (%)",
+            "Prop_layout_accents": "Accented Letters",
+            "Prop_layout_charScale": "Character Size (%)",
+            "Prop_layout_font": "Flap Font",
+            "Prop_layout_layout": "Layout",
+            "Prop_layout_letterCase": "Letter Case",
+            "Prop_layout_maxCharHeight": "Largest Flap Height (px, 0 = Fit)",
+            "Prop_layout_messageColumns": "Characters Per Line",
+            "Prop_layout_messageLines": "Lines",
+            "Prop_layout_rowsPerPage": "Rows Per Page (0 = Fill)",
+            "Prop_layout_showHinge": "Show Hinge Line",
+            "Prop_layout_style": "Style",
+            "Prop_layout_tilesPerPage": "Tiles Per Page (0 = Auto)",
+            "Prop_paging_autoPage": "Page Automatically",
+            "Prop_paging_indicatorSize": "Indicator Size (%)",
+            "Prop_paging_pauseOnHover": "Pause On Hover",
+            "Prop_paging_pixelShift": "Burn-In Guard (Shift 1 px)",
+            "Prop_paging_seconds": "Seconds Per Page",
+            "Prop_paging_showIndicator": "Show Page Indicator",
+            "Prop_status_colorMode": "Color",
+            "Prop_status_doneCodes": "Done Codes",
+            "Prop_status_doneColor": "Done Color",
+            "Prop_status_doneLabel": "Done Code Shows As",
+            "Prop_status_doneWords": "Done Words",
+            "Prop_status_goodCodes": "On Track Codes",
+            "Prop_status_goodColor": "On Track Color",
+            "Prop_status_goodLabel": "On Track Code Shows As",
+            "Prop_status_goodWords": "On Track Words",
+            "Prop_status_problemCodes": "Problem Codes",
+            "Prop_status_problemColor": "Problem Color",
+            "Prop_status_problemLabel": "Problem Code Shows As",
+            "Prop_status_problemWords": "Problem Words",
+            "Prop_status_showLamps": "Show Status Lamps",
+            "Prop_status_watchCodes": "Watch Codes",
+            "Prop_status_watchColor": "Watch Color",
+            "Prop_status_watchLabel": "Watch Code Shows As",
+            "Prop_status_watchWords": "Watch Words",
+            "Prop_theme_selectedTheme": "Theme",
+            "Prop_theme_transparentBg": "Transparent Background",
+            "Prop_values_numberDisplay": "Numbers",
+            "Prop_values_timeFormat": "Date/Time Format",
+            "Role_details": "Details",
+            "Role_details_Desc": "More text columns in board order: carrier, dock, gate, platform, shift.",
+            "Role_numbers": "Numbers",
+            "Role_numbers_Desc": "Measures shown as columns (quantity, OEE, minutes late). In KPI tiles the first one is the big value.",
+            "Role_primary": "Destination / Item",
+            "Role_primary_Desc": "The main text of each row: destination, order, line, product.",
+            "Role_rowId": "Row ID",
+            "Role_rowId_Desc": "Optional, not shown: a key such as a shipment number that keeps two otherwise identical rows apart.",
+            "Role_status": "Status",
+            "Role_statusValue": "Status Measure",
+            "Role_statusValue_Desc": "A measure that decides the status: text such as On time or Delayed, or a code (1, 0, -1, 2) mapped in the Status card. With a Status column too, the column is shown and the measure decides the colour.",
+            "Role_status_Desc": "Status text. Words such as On time, Delayed, Cancelled, Departed colour the row and light a lamp with its own shape.",
+            "Role_time": "Time",
+            "Role_time_Desc": "Departure or due time (a date/time or text column). Shown on a digits drum.",
+            "Role_tooltips": "Tooltips",
+            "Role_tooltips_Desc": "Extra measures shown in the tooltip.",
+            "UI_AnimationDesc": "Viewers who ask their system for reduced motion always get instant changes.",
+            "UI_AriaBoard": "{0}. {1} rows. Page {2} of {3}.",
+            "UI_AriaKeys": "Arrow keys move between rows, Enter selects, Escape clears, Page Up and Page Down change the page, P pauses paging.",
+            "UI_DefaultTitle_board": "Departures",
+            "UI_DefaultTitle_message": "Notice board",
+            "UI_DefaultTitle_tiles": "Status board",
+            "UI_LandingBullet1": "Real flip animation that turns only the characters that changed",
+            "UI_LandingBullet2": "Status words with lamps of their own shape, never colour alone",
+            "UI_LandingBullet3": "Pages itself on a wall screen; plain boardroom mode one click away",
+            "UI_LandingBy": "by SmartVisuals - free",
+            "UI_LandingHint": "Add a Destination / Item field, then Time, Details, Numbers and Status. The rows flip in like a departure board.",
+            "UI_LandingTitle": "SmartVisuals Split-Flap Board",
+            "UI_No": "No",
+            "UI_NoColumns": "Every column is hidden",
+            "UI_NoRowsHint": "The filters on this page leave no rows to show.",
+            "UI_NoRowsTitle": "Nothing on the board",
+            "UI_Page": "{0} / {1}",
+            "UI_Paused": "Paused",
+            "UI_Status_done": "Done",
+            "UI_Status_good": "On track",
+            "UI_Status_problem": "Problem",
+            "UI_Status_watch": "Watch",
+            "UI_TT_Page": "Page",
+            "UI_TT_Status": "Status class",
+            "UI_Trimmed": "Up to {0} rows",
+            "UI_TrimmedDetail": "Power BI hands a visual at most {0} rows. The board shows the first {0} in the current sort order; filter the page or change the sort to choose which.",
+            "UI_Yes": "Yes"
+        }
+    },
+    "capabilities": {
+        "privileges": [],
+        "dataRoles": [
+            {
+                "name": "time",
+                "kind": "Grouping",
+                "displayName": "Time",
+                "displayNameKey": "Role_time",
+                "description": "Departure or due time (a date/time or text column). Shown on a digits drum.",
+                "descriptionKey": "Role_time_Desc"
+            },
+            {
+                "name": "primary",
+                "kind": "Grouping",
+                "displayName": "Destination / Item",
+                "displayNameKey": "Role_primary",
+                "description": "The main text of each row: destination, order, line, product.",
+                "descriptionKey": "Role_primary_Desc"
+            },
+            {
+                "name": "details",
+                "kind": "Grouping",
+                "displayName": "Details",
+                "displayNameKey": "Role_details",
+                "description": "More text columns in board order: carrier, dock, gate, platform, shift.",
+                "descriptionKey": "Role_details_Desc"
+            },
+            {
+                "name": "numbers",
+                "kind": "Measure",
+                "displayName": "Numbers",
+                "displayNameKey": "Role_numbers",
+                "description": "Measures shown as columns (quantity, OEE, minutes late). In KPI tiles the first one is the big value.",
+                "descriptionKey": "Role_numbers_Desc"
+            },
+            {
+                "name": "status",
+                "kind": "Grouping",
+                "displayName": "Status",
+                "displayNameKey": "Role_status",
+                "description": "Status text. Words such as On time, Delayed, Cancelled, Departed colour the row and light a lamp with its own shape.",
+                "descriptionKey": "Role_status_Desc"
+            },
+            {
+                "name": "statusValue",
+                "kind": "Measure",
+                "displayName": "Status Measure",
+                "displayNameKey": "Role_statusValue",
+                "description": "A measure that decides the status: text such as On time or Delayed, or a code (1, 0, -1, 2) mapped in the Status card. With a Status column too, the column is shown and the measure decides the colour.",
+                "descriptionKey": "Role_statusValue_Desc"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "Role_tooltips",
+                "description": "Extra measures shown in the tooltip.",
+                "descriptionKey": "Role_tooltips_Desc"
+            },
+            {
+                "name": "rowId",
+                "kind": "Grouping",
+                "displayName": "Row ID",
+                "displayNameKey": "Role_rowId",
+                "description": "Optional, not shown: a key such as a shipment number that keeps two otherwise identical rows apart.",
+                "descriptionKey": "Role_rowId_Desc"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "time": {
+                            "max": 1
+                        },
+                        "primary": {
+                            "max": 1
+                        },
+                        "details": {
+                            "max": 6
+                        },
+                        "numbers": {
+                            "max": 6
+                        },
+                        "status": {
+                            "max": 1
+                        },
+                        "statusValue": {
+                            "max": 1
+                        },
+                        "tooltips": {
+                            "max": 8
+                        },
+                        "rowId": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "time"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "primary"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "details"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "status"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "rowId"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 2001
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "numbers"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "statusValue"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "sorting": {
+            "default": {}
+        },
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "objects": {
+            "theme": {
+                "displayName": "Theme",
+                "displayNameKey": "Obj_theme",
+                "properties": {
+                    "selectedTheme": {
+                        "displayName": "Theme",
+                        "displayNameKey": "Prop_theme_selectedTheme",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "smartvisuals",
+                                    "displayName": "SmartVisuals",
+                                    "displayNameKey": "Enum_theme_selectedTheme_smartvisuals"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Dark",
+                                    "displayNameKey": "Enum_theme_selectedTheme_dark"
+                                },
+                                {
+                                    "value": "clean",
+                                    "displayName": "Clean",
+                                    "displayNameKey": "Enum_theme_selectedTheme_clean"
+                                },
+                                {
+                                    "value": "slate",
+                                    "displayName": "Slate",
+                                    "displayNameKey": "Enum_theme_selectedTheme_slate"
+                                }
+                            ]
+                        }
+                    },
+                    "transparentBg": {
+                        "displayName": "Transparent Background",
+                        "displayNameKey": "Prop_theme_transparentBg",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "displayName": "Layout",
+                "displayNameKey": "Obj_layout",
+                "properties": {
+                    "layout": {
+                        "displayName": "Layout",
+                        "displayNameKey": "Prop_layout_layout",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "board",
+                                    "displayName": "Departure board",
+                                    "displayNameKey": "Enum_layout_layout_board"
+                                },
+                                {
+                                    "value": "message",
+                                    "displayName": "Message / headline",
+                                    "displayNameKey": "Enum_layout_layout_message"
+                                },
+                                {
+                                    "value": "tiles",
+                                    "displayName": "KPI tiles",
+                                    "displayNameKey": "Enum_layout_layout_tiles"
+                                }
+                            ]
+                        }
+                    },
+                    "style": {
+                        "displayName": "Style",
+                        "displayNameKey": "Prop_layout_style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "flap",
+                                    "displayName": "Split-flap",
+                                    "displayNameKey": "Enum_layout_style_flap"
+                                },
+                                {
+                                    "value": "plain",
+                                    "displayName": "Plain table (boardroom mode)",
+                                    "displayNameKey": "Enum_layout_style_plain"
+                                }
+                            ]
+                        }
+                    },
+                    "rowsPerPage": {
+                        "displayName": "Rows Per Page (0 = Fill)",
+                        "displayNameKey": "Prop_layout_rowsPerPage",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "messageColumns": {
+                        "displayName": "Characters Per Line",
+                        "displayNameKey": "Prop_layout_messageColumns",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "messageLines": {
+                        "displayName": "Lines",
+                        "displayNameKey": "Prop_layout_messageLines",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "tilesPerPage": {
+                        "displayName": "Tiles Per Page (0 = Auto)",
+                        "displayNameKey": "Prop_layout_tilesPerPage",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "maxCharHeight": {
+                        "displayName": "Largest Flap Height (px, 0 = Fit)",
+                        "displayNameKey": "Prop_layout_maxCharHeight",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "letterCase": {
+                        "displayName": "Letter Case",
+                        "displayNameKey": "Prop_layout_letterCase",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "upper",
+                                    "displayName": "UPPER CASE (authentic)",
+                                    "displayNameKey": "Enum_layout_letterCase_upper"
+                                },
+                                {
+                                    "value": "asis",
+                                    "displayName": "As in the data",
+                                    "displayNameKey": "Enum_layout_letterCase_asis"
+                                }
+                            ]
+                        }
+                    },
+                    "accents": {
+                        "displayName": "Accented Letters",
+                        "displayNameKey": "Prop_layout_accents",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "keep",
+                                    "displayName": "Keep (\u010c, \u00d6, \u0141, \u00c9)",
+                                    "displayNameKey": "Enum_layout_accents_keep"
+                                },
+                                {
+                                    "value": "fold",
+                                    "displayName": "Fold to A to Z",
+                                    "displayNameKey": "Enum_layout_accents_fold"
+                                }
+                            ]
+                        }
+                    },
+                    "font": {
+                        "displayName": "Flap Font",
+                        "displayNameKey": "Prop_layout_font",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "barlow",
+                                    "displayName": "Barlow Condensed (built in)",
+                                    "displayNameKey": "Enum_layout_font_barlow"
+                                },
+                                {
+                                    "value": "segoe",
+                                    "displayName": "Segoe UI",
+                                    "displayNameKey": "Enum_layout_font_segoe"
+                                },
+                                {
+                                    "value": "arial",
+                                    "displayName": "Arial",
+                                    "displayNameKey": "Enum_layout_font_arial"
+                                },
+                                {
+                                    "value": "mono",
+                                    "displayName": "Monospace",
+                                    "displayNameKey": "Enum_layout_font_mono"
+                                }
+                            ]
+                        }
+                    },
+                    "charScale": {
+                        "displayName": "Character Size (%)",
+                        "displayNameKey": "Prop_layout_charScale",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showHinge": {
+                        "displayName": "Show Hinge Line",
+                        "displayNameKey": "Prop_layout_showHinge",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "animation": {
+                "displayName": "Flip Animation",
+                "displayNameKey": "Obj_animation",
+                "properties": {
+                    "animate": {
+                        "displayName": "Animate Flips",
+                        "displayNameKey": "Prop_animation_animate",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "speed": {
+                        "displayName": "Flaps Per Second",
+                        "displayNameKey": "Prop_animation_speed",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "travel": {
+                        "displayName": "Drum Travel",
+                        "displayNameKey": "Prop_animation_travel",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "full",
+                                    "displayName": "Full drum (authentic)",
+                                    "displayNameKey": "Enum_animation_travel_full"
+                                },
+                                {
+                                    "value": "short",
+                                    "displayName": "Last few flaps",
+                                    "displayNameKey": "Enum_animation_travel_short"
+                                },
+                                {
+                                    "value": "direct",
+                                    "displayName": "One flap",
+                                    "displayNameKey": "Enum_animation_travel_direct"
+                                }
+                            ]
+                        }
+                    },
+                    "cascade": {
+                        "displayName": "Cascade",
+                        "displayNameKey": "Prop_animation_cascade",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sweep",
+                                    "displayName": "Sweep across the board",
+                                    "displayNameKey": "Enum_animation_cascade_sweep"
+                                },
+                                {
+                                    "value": "curtain",
+                                    "displayName": "Curtain (edges to centre)",
+                                    "displayNameKey": "Enum_animation_cascade_curtain"
+                                },
+                                {
+                                    "value": "rows",
+                                    "displayName": "Row by row",
+                                    "displayNameKey": "Enum_animation_cascade_rows"
+                                },
+                                {
+                                    "value": "random",
+                                    "displayName": "Scattered",
+                                    "displayNameKey": "Enum_animation_cascade_random"
+                                },
+                                {
+                                    "value": "together",
+                                    "displayName": "All at once",
+                                    "displayNameKey": "Enum_animation_cascade_together"
+                                }
+                            ]
+                        }
+                    },
+                    "stagger": {
+                        "displayName": "Cascade Spacing (ms)",
+                        "displayNameKey": "Prop_animation_stagger",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "introFlip": {
+                        "displayName": "Flip In On Load",
+                        "displayNameKey": "Prop_animation_introFlip",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "paging": {
+                "displayName": "Paging",
+                "displayNameKey": "Obj_paging",
+                "properties": {
+                    "autoPage": {
+                        "displayName": "Page Automatically",
+                        "displayNameKey": "Prop_paging_autoPage",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "seconds": {
+                        "displayName": "Seconds Per Page",
+                        "displayNameKey": "Prop_paging_seconds",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showIndicator": {
+                        "displayName": "Show Page Indicator",
+                        "displayNameKey": "Prop_paging_showIndicator",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "indicatorSize": {
+                        "displayName": "Indicator Size (%)",
+                        "displayNameKey": "Prop_paging_indicatorSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "pauseOnHover": {
+                        "displayName": "Pause On Hover",
+                        "displayNameKey": "Prop_paging_pauseOnHover",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "pixelShift": {
+                        "displayName": "Burn-In Guard (Shift 1 px)",
+                        "displayNameKey": "Prop_paging_pixelShift",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "header": {
+                "displayName": "Header",
+                "displayNameKey": "Obj_header",
+                "properties": {
+                    "show": {
+                        "displayName": "Show Header",
+                        "displayNameKey": "Prop_header_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "title": {
+                        "displayName": "Title",
+                        "displayNameKey": "Prop_header_title",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "icon": {
+                        "displayName": "Icon",
+                        "displayNameKey": "Prop_header_icon",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "departures",
+                                    "displayName": "Departures",
+                                    "displayNameKey": "Enum_header_icon_departures"
+                                },
+                                {
+                                    "value": "arrivals",
+                                    "displayName": "Arrivals",
+                                    "displayNameKey": "Enum_header_icon_arrivals"
+                                },
+                                {
+                                    "value": "truck",
+                                    "displayName": "Truck",
+                                    "displayNameKey": "Enum_header_icon_truck"
+                                },
+                                {
+                                    "value": "train",
+                                    "displayName": "Train",
+                                    "displayNameKey": "Enum_header_icon_train"
+                                },
+                                {
+                                    "value": "factory",
+                                    "displayName": "Factory",
+                                    "displayNameKey": "Enum_header_icon_factory"
+                                },
+                                {
+                                    "value": "clock",
+                                    "displayName": "Clock",
+                                    "displayNameKey": "Enum_header_icon_clock"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None",
+                                    "displayNameKey": "Enum_header_icon_none"
+                                }
+                            ]
+                        }
+                    },
+                    "titleSize": {
+                        "displayName": "Title Size (%)",
+                        "displayNameKey": "Prop_header_titleSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "titleColor": {
+                        "displayName": "Title Color",
+                        "displayNameKey": "Prop_header_titleColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showClock": {
+                        "displayName": "Show Clock",
+                        "displayNameKey": "Prop_header_showClock",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "clockFormat": {
+                        "displayName": "Clock Format",
+                        "displayNameKey": "Prop_header_clockFormat",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "24",
+                                    "displayName": "24-hour (14:05)",
+                                    "displayNameKey": "Enum_header_clockFormat_24"
+                                },
+                                {
+                                    "value": "12",
+                                    "displayName": "12-hour (2:05 PM)",
+                                    "displayNameKey": "Enum_header_clockFormat_12"
+                                }
+                            ]
+                        }
+                    },
+                    "clockZone": {
+                        "displayName": "Clock Time Zone",
+                        "displayNameKey": "Prop_header_clockZone",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "local",
+                                    "displayName": "Viewer's device",
+                                    "displayNameKey": "Enum_header_clockZone_local"
+                                },
+                                {
+                                    "value": "utc",
+                                    "displayName": "UTC",
+                                    "displayNameKey": "Enum_header_clockZone_utc"
+                                },
+                                {
+                                    "value": "Europe/London",
+                                    "displayName": "London",
+                                    "displayNameKey": "Enum_header_clockZone_Europe_London"
+                                },
+                                {
+                                    "value": "Europe/Paris",
+                                    "displayName": "Paris",
+                                    "displayNameKey": "Enum_header_clockZone_Europe_Paris"
+                                },
+                                {
+                                    "value": "Europe/Berlin",
+                                    "displayName": "Berlin",
+                                    "displayNameKey": "Enum_header_clockZone_Europe_Berlin"
+                                },
+                                {
+                                    "value": "Europe/Prague",
+                                    "displayName": "Prague",
+                                    "displayNameKey": "Enum_header_clockZone_Europe_Prague"
+                                },
+                                {
+                                    "value": "Europe/Warsaw",
+                                    "displayName": "Warsaw",
+                                    "displayNameKey": "Enum_header_clockZone_Europe_Warsaw"
+                                },
+                                {
+                                    "value": "Europe/Helsinki",
+                                    "displayName": "Helsinki",
+                                    "displayNameKey": "Enum_header_clockZone_Europe_Helsinki"
+                                },
+                                {
+                                    "value": "Europe/Istanbul",
+                                    "displayName": "Istanbul",
+                                    "displayNameKey": "Enum_header_clockZone_Europe_Istanbul"
+                                },
+                                {
+                                    "value": "Asia/Dubai",
+                                    "displayName": "Dubai",
+                                    "displayNameKey": "Enum_header_clockZone_Asia_Dubai"
+                                },
+                                {
+                                    "value": "Asia/Kolkata",
+                                    "displayName": "Mumbai / Delhi",
+                                    "displayNameKey": "Enum_header_clockZone_Asia_Kolkata"
+                                },
+                                {
+                                    "value": "Asia/Singapore",
+                                    "displayName": "Singapore",
+                                    "displayNameKey": "Enum_header_clockZone_Asia_Singapore"
+                                },
+                                {
+                                    "value": "Asia/Shanghai",
+                                    "displayName": "Shanghai",
+                                    "displayNameKey": "Enum_header_clockZone_Asia_Shanghai"
+                                },
+                                {
+                                    "value": "Asia/Tokyo",
+                                    "displayName": "Tokyo",
+                                    "displayNameKey": "Enum_header_clockZone_Asia_Tokyo"
+                                },
+                                {
+                                    "value": "Australia/Sydney",
+                                    "displayName": "Sydney",
+                                    "displayNameKey": "Enum_header_clockZone_Australia_Sydney"
+                                },
+                                {
+                                    "value": "Pacific/Auckland",
+                                    "displayName": "Auckland",
+                                    "displayNameKey": "Enum_header_clockZone_Pacific_Auckland"
+                                },
+                                {
+                                    "value": "Africa/Johannesburg",
+                                    "displayName": "Johannesburg",
+                                    "displayNameKey": "Enum_header_clockZone_Africa_Johannesburg"
+                                },
+                                {
+                                    "value": "America/Sao_Paulo",
+                                    "displayName": "S\u00e3o Paulo",
+                                    "displayNameKey": "Enum_header_clockZone_America_Sao_Paulo"
+                                },
+                                {
+                                    "value": "America/New_York",
+                                    "displayName": "New York",
+                                    "displayNameKey": "Enum_header_clockZone_America_New_York"
+                                },
+                                {
+                                    "value": "America/Chicago",
+                                    "displayName": "Chicago",
+                                    "displayNameKey": "Enum_header_clockZone_America_Chicago"
+                                },
+                                {
+                                    "value": "America/Denver",
+                                    "displayName": "Denver",
+                                    "displayNameKey": "Enum_header_clockZone_America_Denver"
+                                },
+                                {
+                                    "value": "America/Los_Angeles",
+                                    "displayName": "Los Angeles",
+                                    "displayNameKey": "Enum_header_clockZone_America_Los_Angeles"
+                                }
+                            ]
+                        }
+                    },
+                    "showDate": {
+                        "displayName": "Show Date",
+                        "displayNameKey": "Prop_header_showDate",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dateSize": {
+                        "displayName": "Date Size (%)",
+                        "displayNameKey": "Prop_header_dateSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "headings": {
+                "displayName": "Column Headings",
+                "displayNameKey": "Obj_headings",
+                "properties": {
+                    "show": {
+                        "displayName": "Show Column Headings",
+                        "displayNameKey": "Prop_headings_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "size": {
+                        "displayName": "Heading Size (%)",
+                        "displayNameKey": "Prop_headings_size",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "columns": {
+                "displayName": "Columns",
+                "displayNameKey": "Obj_columns",
+                "properties": {
+                    "heading": {
+                        "displayName": "Heading",
+                        "displayNameKey": "Prop_columns_heading",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "width": {
+                        "displayName": "Width In Characters (0 = Auto)",
+                        "displayNameKey": "Prop_columns_width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "align": {
+                        "displayName": "Alignment",
+                        "displayNameKey": "Prop_columns_align",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto",
+                                    "displayNameKey": "Enum_columns_align_auto"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left",
+                                    "displayNameKey": "Enum_columns_align_left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center",
+                                    "displayNameKey": "Enum_columns_align_center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right",
+                                    "displayNameKey": "Enum_columns_align_right"
+                                }
+                            ]
+                        }
+                    },
+                    "show": {
+                        "displayName": "Show Column",
+                        "displayNameKey": "Prop_columns_show",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "values": {
+                "displayName": "Dates And Numbers",
+                "displayNameKey": "Obj_values",
+                "properties": {
+                    "timeFormat": {
+                        "displayName": "Date/Time Format",
+                        "displayNameKey": "Prop_values_timeFormat",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto",
+                                    "displayNameKey": "Enum_values_timeFormat_auto"
+                                },
+                                {
+                                    "value": "HH:mm",
+                                    "displayName": "14:05",
+                                    "displayNameKey": "Enum_values_timeFormat_HH_mm"
+                                },
+                                {
+                                    "value": "h:mm a",
+                                    "displayName": "2:05 PM",
+                                    "displayNameKey": "Enum_values_timeFormat_h_mm_a"
+                                },
+                                {
+                                    "value": "dd MMM",
+                                    "displayName": "27 SEP",
+                                    "displayNameKey": "Enum_values_timeFormat_dd_MMM"
+                                },
+                                {
+                                    "value": "EEE HH:mm",
+                                    "displayName": "SAT 14:05",
+                                    "displayNameKey": "Enum_values_timeFormat_EEE_HH_mm"
+                                },
+                                {
+                                    "value": "dd MMM HH:mm",
+                                    "displayName": "27 SEP 14:05",
+                                    "displayNameKey": "Enum_values_timeFormat_dd_MMM_HH_mm"
+                                },
+                                {
+                                    "value": "yyyy-MM-dd",
+                                    "displayName": "2026-09-27",
+                                    "displayNameKey": "Enum_values_timeFormat_yyyy_MM_dd"
+                                }
+                            ]
+                        }
+                    },
+                    "numberDisplay": {
+                        "displayName": "Numbers",
+                        "displayNameKey": "Prop_values_numberDisplay",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "full",
+                                    "displayName": "Full (1,240)",
+                                    "displayNameKey": "Enum_values_numberDisplay_full"
+                                },
+                                {
+                                    "value": "compact",
+                                    "displayName": "Compact (1.2K)",
+                                    "displayNameKey": "Enum_values_numberDisplay_compact"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "status": {
+                "displayName": "Status",
+                "displayNameKey": "Obj_status",
+                "properties": {
+                    "showLamps": {
+                        "displayName": "Show Status Lamps",
+                        "displayNameKey": "Prop_status_showLamps",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorMode": {
+                        "displayName": "Color",
+                        "displayNameKey": "Prop_status_colorMode",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "word",
+                                    "displayName": "The status word",
+                                    "displayNameKey": "Enum_status_colorMode_word"
+                                },
+                                {
+                                    "value": "row",
+                                    "displayName": "The whole row",
+                                    "displayNameKey": "Enum_status_colorMode_row"
+                                },
+                                {
+                                    "value": "lamp",
+                                    "displayName": "Lamp only",
+                                    "displayNameKey": "Enum_status_colorMode_lamp"
+                                }
+                            ]
+                        }
+                    },
+                    "goodColor": {
+                        "displayName": "On Track Color",
+                        "displayNameKey": "Prop_status_goodColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "goodWords": {
+                        "displayName": "On Track Words",
+                        "displayNameKey": "Prop_status_goodWords",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "goodCodes": {
+                        "displayName": "On Track Codes",
+                        "displayNameKey": "Prop_status_goodCodes",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "goodLabel": {
+                        "displayName": "On Track Code Shows As",
+                        "displayNameKey": "Prop_status_goodLabel",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "watchColor": {
+                        "displayName": "Watch Color",
+                        "displayNameKey": "Prop_status_watchColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "watchWords": {
+                        "displayName": "Watch Words",
+                        "displayNameKey": "Prop_status_watchWords",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "watchCodes": {
+                        "displayName": "Watch Codes",
+                        "displayNameKey": "Prop_status_watchCodes",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "watchLabel": {
+                        "displayName": "Watch Code Shows As",
+                        "displayNameKey": "Prop_status_watchLabel",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "problemColor": {
+                        "displayName": "Problem Color",
+                        "displayNameKey": "Prop_status_problemColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "problemWords": {
+                        "displayName": "Problem Words",
+                        "displayNameKey": "Prop_status_problemWords",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "problemCodes": {
+                        "displayName": "Problem Codes",
+                        "displayNameKey": "Prop_status_problemCodes",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "problemLabel": {
+                        "displayName": "Problem Code Shows As",
+                        "displayNameKey": "Prop_status_problemLabel",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "doneColor": {
+                        "displayName": "Done Color",
+                        "displayNameKey": "Prop_status_doneColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "doneWords": {
+                        "displayName": "Done Words",
+                        "displayNameKey": "Prop_status_doneWords",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "doneCodes": {
+                        "displayName": "Done Codes",
+                        "displayNameKey": "Prop_status_doneCodes",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "doneLabel": {
+                        "displayName": "Done Code Shows As",
+                        "displayNameKey": "Prop_status_doneLabel",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "colors": {
+                "displayName": "Board Colors",
+                "displayNameKey": "Obj_colors",
+                "properties": {
+                    "housing": {
+                        "displayName": "Housing",
+                        "displayNameKey": "Prop_colors_housing",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "flap": {
+                        "displayName": "Flap",
+                        "displayNameKey": "Prop_colors_flap",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ink": {
+                        "displayName": "Characters",
+                        "displayNameKey": "Prop_colors_ink",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "labels": {
+                        "displayName": "Printed Labels (Headings, Date, Page)",
+                        "displayNameKey": "Prop_colors_labels",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "hinge": {
+                        "displayName": "Hinge Line",
+                        "displayNameKey": "Prop_colors_hinge",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "flapEdge": {
+                        "displayName": "Flap Edge",
+                        "displayNameKey": "Prop_colors_flapEdge",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "socket": {
+                        "displayName": "Lamp Socket",
+                        "displayNameKey": "Prop_colors_socket",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "lampOff": {
+                        "displayName": "Unlit Lamp",
+                        "displayNameKey": "Prop_colors_lampOff",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "accent": {
+                        "displayName": "Accent (Rule, Progress)",
+                        "displayNameKey": "Prop_colors_accent",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadow": {
+                        "displayName": "Module Shadow",
+                        "displayNameKey": "Prop_colors_shadow",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "brandRule": {
+                        "displayName": "Orange Rule Under The Title",
+                        "displayNameKey": "Prop_colors_brandRule",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

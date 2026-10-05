@@ -1,0 +1,739 @@
+{
+    "visual": {
+        "name": "visualDslChat",
+        "displayName": "VisualDSL",
+        "guid": "visualDSL_6A3D15F1B952497F9DDCBB1D9777E9B7",
+        "visualClassName": "Visual",
+        "version": "1.12.0.12",
+        "description": "The all-in-one AI visual for Power BI \u2014 just chat with your data and watch your own custom visualization come to life, generated on the fly right inside your report.",
+        "supportUrl": "https://mormitech.com/visualdsl/support/",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Mormitech",
+        "email": "contact@mormitech.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "Visual_Role_Fields": "Fields",
+            "Visual_AiSettings_DisplayName": "AI Settings",
+            "Visual_AiSettings_Provider_DisplayName": "Provider",
+            "Visual_AiSettings_Provider_Description": "AI provider to connect to. Only OpenRouter is currently functional.",
+            "Visual_AiSettings_Model_DisplayName": "Model",
+            "Visual_AiSettings_Model_Description": "Model to use for the selected provider (OpenRouter only).",
+            "Visual_AiSettings_ApiKey_DisplayName": "API key",
+            "Visual_AiSettings_ApiKey_Description": "API key used to authenticate with the selected provider.",
+            "Visual_Variables_DisplayName": "Variables",
+            "Visual_Variables_Count_DisplayName": "Variable count",
+            "Visual_Variables_Count_Description": "Number of text variables to expose (Variable 1..Variable N).",
+            "Visual_Display_DisplayName": "Display",
+            "Visual_Display_Chat_GroupDisplayName": "Chat",
+            "Visual_Display_Header_GroupDisplayName": "Header",
+            "Visual_Display_Enabled_DisplayName": "Enabled",
+            "Visual_Display_Visible_DisplayName": "Visible",
+            "Visual_Display_Chat_Enabled_Description": "Show the chat panel.",
+            "Visual_Display_ChatMode_DisplayName": "Display mode",
+            "Visual_Display_Chat_ChatMode_Description": "Whether the chat panel shows inline, minimized to a floating bubble, or maximized to a full overlay.",
+            "Visual_Display_Header_Enabled_Description": "Show the toolbar (logo, presets, and inspect controls).",
+            "Visual_Display_Header_Visible_Description": "Whether the header toolbar is visible.",
+            "Visual_ChatMode_Default": "Default",
+            "Visual_ChatMode_Minimized": "Minimized",
+            "Visual_ChatMode_Maximized": "Maximized",
+            "Visual_Provider_None": "(none)",
+            "Visual_Provider_OpenRouter": "OpenRouter",
+            "Visual_Provider_Anthropic": "Anthropic",
+            "Visual_Provider_OpenAI": "OpenAI",
+            "Visual_Provider_Google": "Google Gemini",
+            "Visual_Provider_Mistral": "Mistral AI",
+            "locale": "en-US",
+            "values": {
+                "Visual_Role_Fields": "Fields",
+                "Visual_AiSettings_DisplayName": "AI Settings",
+                "Visual_AiSettings_Provider_DisplayName": "Provider",
+                "Visual_AiSettings_Provider_Description": "AI provider to connect to. Only OpenRouter is currently functional.",
+                "Visual_AiSettings_Model_DisplayName": "Model",
+                "Visual_AiSettings_Model_Description": "Model to use for the selected provider (OpenRouter only).",
+                "Visual_AiSettings_ApiKey_DisplayName": "API key",
+                "Visual_AiSettings_ApiKey_Description": "API key used to authenticate with the selected provider.",
+                "Visual_Variables_DisplayName": "Variables",
+                "Visual_Variables_Count_DisplayName": "Variable count",
+                "Visual_Variables_Count_Description": "Number of text variables to expose (Variable 1..Variable N).",
+                "Visual_Display_DisplayName": "Display",
+                "Visual_Display_Chat_GroupDisplayName": "Chat",
+                "Visual_Display_Header_GroupDisplayName": "Header",
+                "Visual_Display_Enabled_DisplayName": "Enabled",
+                "Visual_Display_Visible_DisplayName": "Visible",
+                "Visual_Display_Chat_Enabled_Description": "Show the chat panel.",
+                "Visual_Display_ChatMode_DisplayName": "Display mode",
+                "Visual_Display_Chat_ChatMode_Description": "Whether the chat panel shows inline, minimized to a floating bubble, or maximized to a full overlay.",
+                "Visual_Display_Header_Enabled_Description": "Show the toolbar (logo, presets, and inspect controls).",
+                "Visual_Display_Header_Visible_Description": "Whether the header toolbar is visible.",
+                "Visual_ChatMode_Default": "Default",
+                "Visual_ChatMode_Minimized": "Minimized",
+                "Visual_ChatMode_Maximized": "Maximized",
+                "Visual_Provider_None": "(none)",
+                "Visual_Provider_OpenRouter": "OpenRouter",
+                "Visual_Provider_Anthropic": "Anthropic",
+                "Visual_Provider_OpenAI": "OpenAI",
+                "Visual_Provider_Google": "Google Gemini",
+                "Visual_Provider_Mistral": "Mistral AI"
+            }
+        }
+    },
+    "capabilities": {
+        "privileges": [
+            {
+                "name": "WebAccess",
+                "essential": true,
+                "parameters": [
+                    "https://openrouter.ai",
+                    "*"
+                ]
+            }
+        ],
+        "dataRoles": [
+            {
+                "displayName": "Fields",
+                "displayNameKey": "Visual_Role_Fields",
+                "name": "fields",
+                "kind": "GroupingOrMeasure"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "fields"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "aiSettings": {
+                "properties": {
+                    "provider": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "",
+                                    "displayName": "(none)"
+                                },
+                                {
+                                    "value": "openrouter",
+                                    "displayName": "OpenRouter"
+                                },
+                                {
+                                    "value": "anthropic",
+                                    "displayName": "Anthropic"
+                                },
+                                {
+                                    "value": "openai",
+                                    "displayName": "OpenAI"
+                                },
+                                {
+                                    "value": "google",
+                                    "displayName": "Google Gemini"
+                                },
+                                {
+                                    "value": "mistral",
+                                    "displayName": "Mistral AI"
+                                }
+                            ]
+                        }
+                    },
+                    "apiKey": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "model": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "modelHistory": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "visualState": {
+                "properties": {
+                    "construct": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "variables": {
+                "properties": {
+                    "count": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "var01": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var02": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var03": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var04": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var05": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var06": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var07": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var08": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var09": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var10": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var11": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var12": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var13": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var14": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var15": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var16": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var17": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var18": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var19": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var20": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var21": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var22": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var23": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var24": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var25": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var26": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var27": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var28": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var29": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var30": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var31": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var32": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var33": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var34": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var35": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var36": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var37": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var38": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var39": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var40": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var41": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var42": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var43": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var44": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var45": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var46": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var47": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var48": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var49": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var50": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var51": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var52": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var53": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var54": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var55": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var56": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var57": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var58": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var59": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var60": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var61": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var62": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var63": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var64": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var65": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var66": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var67": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var68": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var69": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var70": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var71": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var72": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var73": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var74": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var75": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var76": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var77": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var78": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var79": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var80": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var81": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var82": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var83": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var84": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var85": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var86": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var87": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var88": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var89": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var90": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var91": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var92": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var93": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var94": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var95": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var96": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var97": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var98": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var99": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "var100": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "display": {
+                "properties": {
+                    "chat": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "chatMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "default",
+                                    "displayName": "Default"
+                                },
+                                {
+                                    "value": "minimized",
+                                    "displayName": "Minimized"
+                                },
+                                {
+                                    "value": "maximized",
+                                    "displayName": "Maximized"
+                                }
+                            ]
+                        }
+                    },
+                    "header": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "headerVisible": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "supportsHighlight": false,
+        "supportsLandingPage": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
