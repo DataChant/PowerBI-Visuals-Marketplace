@@ -565,13 +565,20 @@ export default function Replay3D({
       lastMode: null,
     };
 
+    // A new shape moves the camera by the change in the fitted distance, so a view
+    // zoomed by hand stays zoomed when a phone's browser bar slides in or out.
+    let fitted = CAMERA_DISTANCE;
     const resize = () => {
       const { width, height } = host.getBoundingClientRect();
       if (!width || !height) return;
       renderer.setSize(width, height);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
-      camera.position.sub(controls.target).setLength(fittedDistance(camera.aspect)).add(controls.target);
+      const next = fittedDistance(camera.aspect);
+      const offset = camera.position.clone().sub(controls.target);
+      const distance = (offset.length() * next) / fitted;
+      fitted = next;
+      camera.position.copy(controls.target).add(offset.setLength(distance));
     };
     const observer = new ResizeObserver(resize);
     observer.observe(host);
