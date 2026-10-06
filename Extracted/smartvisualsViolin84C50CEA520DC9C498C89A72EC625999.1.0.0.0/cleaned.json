@@ -1,0 +1,2387 @@
+{
+    "visual": {
+        "name": "smartvisualsViolin",
+        "displayName": "SmartVisuals Violin",
+        "guid": "smartvisualsViolin84C50CEA520DC9C498C89A72EC625999",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Violin, half violin, raincloud and ridgeline plots with Scott, Silverman or R bandwidths - and significance between groups and advanced kernels (premium).",
+        "supportUrl": "https://smartvisuals.io/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "SmartVisuals",
+        "email": "hello@smartvisuals.io"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "cs-CZ": {
+            "Visual_All": "V\u0161e",
+            "Visual_box": "Krabice",
+            "Visual_box_cornerRadius": "Zaoblen\u00ed roh\u016f (-1 = motiv)",
+            "Visual_box_markFarOutliers": "Ozna\u010dit extr\u00e9mn\u00ed hodnoty (3 \u00d7 IQR)",
+            "Visual_box_meanColor": "Barva zna\u010dky pr\u016fm\u011bru",
+            "Visual_box_meanShape": "Zna\u010dka pr\u016fm\u011bru",
+            "Visual_box_meanShape_circle": "Kruh",
+            "Visual_box_meanShape_cross": "K\u0159\u00ed\u017eek",
+            "Visual_box_meanShape_diamond": "Koso\u010dtverec",
+            "Visual_box_meanShape_line": "P\u0159eru\u0161ovan\u00e1 \u010d\u00e1ra",
+            "Visual_box_medianColor": "\u010c\u00e1ra medi\u00e1nu",
+            "Visual_box_outlierColor": "Barva odlehl\u00fdch hodnot",
+            "Visual_box_show": "Zobrazit krabici",
+            "Visual_box_showMean": "Zobrazit pr\u016fm\u011br",
+            "Visual_box_showOutliers": "Zobrazit odlehl\u00e9 hodnoty",
+            "Visual_box_style": "Styl krabice",
+            "Visual_box_style_filled": "Vypln\u011bn\u00e1",
+            "Visual_box_style_flat": "Ploch\u00e1",
+            "Visual_box_style_outline": "Obrys",
+            "Visual_box_style_theme": "Podle motivu",
+            "Visual_box_style_tinted": "T\u00f3novan\u00e1",
+            "Visual_box_whiskerCaps": "P\u0159\u00ed\u010dky vous\u016f",
+            "Visual_box_width": "\u0160\u00ed\u0159ka krabice (%)",
+            "Visual_Cap_Capable": "Cpk \u2265 1,33: zp\u016fsobil\u00fd",
+            "Visual_Cap_Capable_N": "{0} z {1} s hodnotou \u2265 1,33",
+            "Visual_Cap_NotCapable": "Cpk < 1,33: nezp\u016fsobil\u00fd",
+            "Visual_Cap_One": "{0} {1}: {2}",
+            "Visual_Cap_Range": "{0} po skupin\u00e1ch: nejni\u017e\u0161\u00ed {1} {2}, nejvy\u0161\u0161\u00ed {3} {4}",
+            "Visual_caption": "Chytr\u00fd titulek",
+            "Visual_Caption_Capability": "Cpk {0}, Ppk {1}: mimo toleranci se o\u010dek\u00e1v\u00e1 {2}.",
+            "Visual_Caption_CapabilityOne": "{0} {1} ({2}) v\u016f\u010di jej\u00edm toleranc\u00edm.",
+            "Visual_Caption_CapabilityPpk": "Ppk {0}: mimo toleranci se o\u010dek\u00e1v\u00e1 {1}.",
+            "Visual_Caption_CapabilityRange": "{0} v\u016f\u010di toleranc\u00edm ka\u017ed\u00e9 skupiny: od {1} ({2}) do {3} ({4}).",
+            "Visual_caption_color": "Barva textu",
+            "Visual_Caption_Differ": "Skupiny se v\u00fdznamn\u011b li\u0161\u00ed ({0}, {1}); li\u0161\u00ed se {2} z {3} dvojic.",
+            "Visual_caption_fontSize": "Velikost p\u00edsma",
+            "Visual_Caption_Groups": "{0} m\u00e1 nejvy\u0161\u0161\u00ed medi\u00e1n ({1}: {2}), {3} nejni\u017e\u0161\u00ed ({4}).",
+            "Visual_Caption_Hist": "V\u011bt\u0161ina hodnot le\u017e\u00ed mezi {0} a {1} ({2} pozorov\u00e1n\u00ed); medi\u00e1n {3}.",
+            "Visual_Caption_NoDiffer": "Mezi skupinami nen\u00ed v\u00fdznamn\u00fd rozd\u00edl ({0}, {1}).",
+            "Visual_Caption_NotTested": "Netestov\u00e1no: ve skupin\u00e1ch je p\u0159\u00edli\u0161 m\u00e1lo pozorov\u00e1n\u00ed.",
+            "Visual_Caption_NoVariation": "Netestov\u00e1no: hodnoty se uvnit\u0159 skupin nem\u011bn\u00ed.",
+            "Visual_Caption_OneOutlier": "1 odlehl\u00e1 hodnota.",
+            "Visual_Caption_Outliers": "Odlehl\u00fdch hodnot: {0}.",
+            "Visual_Caption_Panel": "V {0}:",
+            "Visual_caption_position": "Um\u00edst\u011bn\u00ed",
+            "Visual_caption_position_bottom": "Dole",
+            "Visual_caption_position_top": "Naho\u0159e",
+            "Visual_Caption_SameMedian": "V\u0161echny skupiny maj\u00ed stejn\u00fd medi\u00e1n ({0}: {1}).",
+            "Visual_caption_show": "Zobrazit",
+            "Visual_Caption_Single": "Medi\u00e1n ({0}) {1}; prost\u0159edn\u00ed polovina le\u017e\u00ed mezi {2} a {3}.",
+            "Visual_Caption_TwoGroups": "{0} m\u00e1 vy\u0161\u0161\u00ed medi\u00e1n ({1}: {2}), {3} ni\u017e\u0161\u00ed ({4}).",
+            "Visual_Caption_Widest": "{0} kol\u00eds\u00e1 nejv\u00edce (IQR {1}).",
+            "Visual_Caption_WithinDiffer": "{0}: v\u00fdznamn\u00e9 rozd\u00edly uvnit\u0159 {1} z {2} skupin ({3}).",
+            "Visual_categoryAxis": "Osa skupin",
+            "Visual_categoryAxis_color": "Barva textu",
+            "Visual_categoryAxis_fontSize": "Velikost p\u00edsma",
+            "Visual_categoryAxis_show": "Zobrazit",
+            "Visual_categoryAxis_showN": "Zobrazit n u skupin",
+            "Visual_categoryAxis_showTitle": "Zobrazit n\u00e1zev",
+            "Visual_ci": "Intervaly spolehlivosti",
+            "Visual_ci_color": "Barva intervalu",
+            "Visual_ci_level": "Spolehlivost",
+            "Visual_ci_level_90": "90 %",
+            "Visual_ci_level_95": "95 %",
+            "Visual_ci_level_99": "99 %",
+            "Visual_ci_showMeanCI": "Pr\u016fm\u011br \u00b1 interval spolehlivosti",
+            "Visual_ci_showNotch": "Z\u00e1\u0159ezy krabic (IS medi\u00e1nu)",
+            "Visual_colors": "Barvy",
+            "Visual_colors_fill": "Barva",
+            "Visual_colors_single": "Jedna barva pro v\u0161echny skupiny",
+            "Visual_compare": "Porovn\u00e1n\u00ed skupin",
+            "Visual_compare_correction": "V\u00edcen\u00e1sobn\u00e9 srovn\u00e1n\u00ed",
+            "Visual_compare_correction_bonferroni": "Bonferroni",
+            "Visual_compare_correction_holm": "Holm",
+            "Visual_compare_correction_none": "\u017d\u00e1dn\u00e1",
+            "Visual_compare_display": "Zobrazit jako",
+            "Visual_compare_display_brackets": "Z\u00e1vorky s hv\u011bzdi\u010dkami",
+            "Visual_compare_display_letters": "P\u00edsmena (A, B, C)",
+            "Visual_compare_level": "Spolehlivost",
+            "Visual_compare_level_90": "90 %",
+            "Visual_compare_level_95": "95 %",
+            "Visual_compare_level_99": "99 %",
+            "Visual_compare_omnibus": "Celkov\u00fd test",
+            "Visual_compare_omnibus_anova": "Jednofaktorov\u00e1 ANOVA",
+            "Visual_compare_omnibus_kruskal": "Kruskal-Wallis",
+            "Visual_compare_omnibus_welchAnova": "Welchova ANOVA",
+            "Visual_compare_pairs": "Dvojice",
+            "Visual_compare_pairs_adjacent": "Jen sousedn\u00ed",
+            "Visual_compare_pairs_all": "V\u0161echny dvojice",
+            "Visual_compare_pairs_first": "Ka\u017ed\u00e1 proti prvn\u00ed skupin\u011b",
+            "Visual_compare_show": "Testovat rozd\u00edly",
+            "Visual_compare_showNs": "Zobrazit nev\u00fdznamn\u00e9 dvojice",
+            "Visual_compare_test": "Test",
+            "Visual_compare_test_mannwhitney": "Mann-Whitneyho U (po\u0159ad\u00ed)",
+            "Visual_compare_test_welch": "Welch\u016fv t-test (pr\u016fm\u011bry)",
+            "Visual_Corr_bonferroni": "Bonferroniho korekce",
+            "Visual_Corr_holm": "Holmova korekce",
+            "Visual_Corr_none": "bez korekce",
+            "Visual_density": "Hustota",
+            "Visual_density_bandwidthRule": "Pravidlo \u0161\u00ed\u0159ky p\u00e1sma",
+            "Visual_density_bandwidthRule_nrd0": "Silvermanovo pravidlo (v\u00fdchoz\u00ed v R)",
+            "Visual_density_bandwidthRule_scott": "Scott",
+            "Visual_density_bandwidthRule_silverman": "Silverman",
+            "Visual_density_fillOpacity": "Kryt\u00ed v\u00fdpln\u011b (%, -1 = motiv)",
+            "Visual_density_inner": "Uvnit\u0159 housl\u00ed",
+            "Visual_density_inner_box": "Krabice",
+            "Visual_density_inner_none": "Nic",
+            "Visual_density_inner_points": "Body",
+            "Visual_density_inner_quartiles": "\u010c\u00e1ry kvartil\u016f",
+            "Visual_density_overlap": "P\u0159ekryv h\u0159bet\u016f (%)",
+            "Visual_density_rain": "Zobrazit d\u00e9\u0161\u0165 (body)",
+            "Visual_density_scale": "\u0160\u00ed\u0159ka housl\u00ed",
+            "Visual_density_scale_area": "Stejn\u00e1 plocha",
+            "Visual_density_scale_count": "Podle po\u010dtu pozorov\u00e1n\u00ed",
+            "Visual_density_scale_width": "Stejn\u00e1 \u0161\u00ed\u0159ka",
+            "Visual_density_smoothness": "Vyhlazen\u00ed (%)",
+            "Visual_density_trim": "O\u0159\u00edznout na rozsah dat",
+            "Visual_Foot_Bandwidth": "hustota: \u0161\u00ed\u0159ka p\u00e1sma {0}",
+            "Visual_Foot_Bins": "t\u0159\u00eddy: {0}",
+            "Visual_Foot_BinsCustom": "vlastn\u00ed hranice",
+            "Visual_Foot_BinsFrom": "t\u0159\u00edda za\u010d\u00edn\u00e1 na {0}",
+            "Visual_Foot_CapUnweighted": "Indexy zp\u016fsobilosti jsou nev\u00e1\u017een\u00e9.",
+            "Visual_Foot_CpmMidpoint": "Cpm pou\u017e\u00edv\u00e1 jako c\u00edl st\u0159ed tolerance (c\u00edl nen\u00ed zad\u00e1n).",
+            "Visual_Foot_Crossed": "LSL nen\u00ed pod USL: index zp\u016fsobilosti se nepo\u010d\u00edt\u00e1.",
+            "Visual_Foot_CurvesUnequal": "P\u0159i nestejn\u00fdch t\u0159\u00edd\u00e1ch pot\u0159ebuj\u00ed k\u0159ivky hustoty a norm\u00e1ln\u00edho rozd\u011blen\u00ed V\u00fd\u0161ku sloupce = Hustota.",
+            "Visual_Foot_Dropped": "pr\u00e1zdn\u00fdch \u0159\u00e1dk\u016f vynech\u00e1no: {0}",
+            "Visual_Foot_EdgesMissing": "Vlastn\u00ed hranice t\u0159\u00edd pot\u0159ebuj\u00ed aspo\u0148 dv\u011b \u010d\u00edsla (nap\u0159\u00edklad 0, 10, 20); zobrazuj\u00ed se t\u0159\u00eddy Freedman-Diaconis.",
+            "Visual_Foot_Groups": "v {0} skupin\u00e1ch",
+            "Visual_Foot_LettersForced": "Zobrazena p\u00edsmena, proto\u017ee z\u00e1vorky by se neve\u0161ly.",
+            "Visual_Foot_N": "n = {0} pozorov\u00e1n\u00ed",
+            "Visual_Foot_N1": "n = 1 pozorov\u00e1n\u00ed",
+            "Visual_Foot_NoWithin": "Cp, Cpk a regula\u010dn\u00ed meze pot\u0159ebuj\u00ed jednotliv\u00e1 pozorov\u00e1n\u00ed v po\u0159ad\u00ed v\u00fdroby (Vzorek / ID); s Hodnotou (jako sloupec) + Po\u010dtem se zobrazuj\u00ed jen Pp, Ppk a Cpm.",
+            "Visual_Foot_OmnibusUnweighted": "V\u00e1hy se uplatn\u00ed v p\u00e1rov\u00fdch Welchov\u00fdch testech; celkov\u00fd test je nev\u00e1\u017een\u00fd.",
+            "Visual_Foot_Order": "\u03c3 uvnit\u0159 = pr\u016fm\u011brn\u00e9 klouzav\u00e9 rozp\u011bt\u00ed / 1,128 v po\u0159ad\u00ed pole {0}: toto pole mus\u00ed \u0159adit v po\u0159ad\u00ed v\u00fdroby.",
+            "Visual_Foot_Outside": "Pozorov\u00e1n\u00ed mimo hranice t\u0159\u00edd (nevykreslena): {0}.",
+            "Visual_Foot_Percentiles": "\u010d\u00e1ry percentil\u016f: {0}",
+            "Visual_Foot_Premium": "{0} vy\u017eaduj\u00ed licenci SmartVisuals - zobrazuje se bezplatn\u00e1 verze.",
+            "Visual_Foot_Quartiles": "Kvartily: {0}",
+            "Visual_Foot_RankUnweighted": "V\u00e1hy se uplatn\u00ed v pr\u016fm\u011brech a intervalech; po\u0159adov\u00e9 testy a celkov\u00fd test jsou nev\u00e1\u017een\u00e9.",
+            "Visual_Foot_Rows": "p\u0159ijato \u0159\u00e1dk\u016f: {0}",
+            "Visual_Foot_Source": "Zdroj: {0}",
+            "Visual_Foot_SpecPerGroup": "Toleran\u010dn\u00ed meze poch\u00e1zej\u00ed z m\u011br toleranc\u00ed, pro ka\u017edou skupinu zvl\u00e1\u0161\u0165; indexy skupiny jsou v jej\u00edm popisku.",
+            "Visual_Foot_SpecVaries": "M\u00edra toleran\u010dn\u00ed meze m\u00e1 uvnit\u0159 {0} v\u00edce hodnot: index zp\u016fsobilosti se tam nepo\u010d\u00edt\u00e1.",
+            "Visual_Foot_TargetOutside": "C\u00edl le\u017e\u00ed mimo toleran\u010dn\u00ed meze: Cpm se nepo\u010d\u00edt\u00e1.",
+            "Visual_Foot_Tests": "Testy: {0}, {1}, spolehlivost {2} %",
+            "Visual_Foot_Weighted": "V\u00e1\u017eeno (Kishovo efektivn\u00ed n = {0})",
+            "Visual_Foot_Whiskers": "vousy: {0}",
+            "Visual_footnote": "Pozn\u00e1mka pod \u010darou",
+            "Visual_footnote_color": "Barva textu",
+            "Visual_footnote_fontSize": "Velikost p\u00edsma",
+            "Visual_footnote_show": "Zobrazit",
+            "Visual_footnote_showMethod": "Uv\u00e9st metody",
+            "Visual_footnote_source": "Zdroj",
+            "Visual_groupColors": "Barvy skupin",
+            "Visual_groupColors_fill": "Barva",
+            "Visual_Height_Count": "Po\u010det",
+            "Visual_Height_Density": "Hustota",
+            "Visual_Height_Percent": "Procento skupiny",
+            "Visual_Height_PercentAll": "Procento v\u0161ech skupin",
+            "Visual_Hint_NoData": "Pro aktu\u00e1ln\u00ed filtry nejsou k zobrazen\u00ed \u017e\u00e1dn\u00e9 \u010d\u00edseln\u00e9 hodnoty.",
+            "Visual_Hint_OneValue": "Ka\u017ed\u00e1 skupina m\u00e1 jedinou hodnotu. P\u0159idejte pole Vzorek / ID (nap\u0159\u00edklad ID m\u011b\u0159en\u00ed), aby vizu\u00e1l dostal jednotliv\u00e1 pozorov\u00e1n\u00ed.",
+            "Visual_kde": "Pokro\u010dil\u00e1 hustota",
+            "Visual_kde_fixedBandwidth": "Pevn\u00e1 \u0161\u00ed\u0159ka p\u00e1sma (0 = pravidlo)",
+            "Visual_kde_kernel": "J\u00e1dro",
+            "Visual_kde_kernel_biweight": "Biweight",
+            "Visual_kde_kernel_cosine": "Kosinov\u00e9",
+            "Visual_kde_kernel_epanechnikov": "Epane\u010dnikovovo",
+            "Visual_kde_kernel_gaussian": "Gaussovo",
+            "Visual_kde_kernel_triangular": "Troj\u00faheln\u00edkov\u00e9",
+            "Visual_kde_kernel_uniform": "Rovnom\u011brn\u00e9 (obd\u00e9ln\u00edk)",
+            "Visual_kde_lower": "Doln\u00ed mez",
+            "Visual_kde_upper": "Horn\u00ed mez",
+            "Visual_kde_useLower": "Omezeno zdola",
+            "Visual_kde_useUpper": "Omezeno shora",
+            "Visual_labels": "Popisky dat",
+            "Visual_labels_fontSize": "Velikost p\u00edsma",
+            "Visual_labels_showMean": "Pr\u016fm\u011br",
+            "Visual_labels_showMedian": "Medi\u00e1n",
+            "Visual_labels_showQuartiles": "Kvartily",
+            "Visual_Landing_Help": "P\u0159idejte Skupinu, Vzorek / ID a m\u00edru Hodnota - nebo pro velk\u00e1 data vlo\u017ete samotnou hodnotu do pole Hodnota (jako sloupec) s m\u00edrou Po\u010det.",
+            "Visual_Landing_Title": "SmartVisuals Distribution",
+            "Visual_layout": "Rozvr\u017een\u00ed",
+            "Visual_layout_groupGap": "Mezera mezi skupinami (%)",
+            "Visual_layout_minGroupSize": "Skr\u00fdt skupiny s m\u00e9n\u011b ne\u017e",
+            "Visual_layout_orientation": "Orientace",
+            "Visual_layout_orientation_horizontal": "Vodorovn\u00e1",
+            "Visual_layout_orientation_vertical": "Svisl\u00e1",
+            "Visual_layout_sortDirection": "Sm\u011br \u0159azen\u00ed",
+            "Visual_layout_sortDirection_asc": "Vzestupn\u011b",
+            "Visual_layout_sortDirection_desc": "Sestupn\u011b",
+            "Visual_layout_sortGroups": "\u0158adit skupiny podle",
+            "Visual_layout_sortGroups_data": "Po\u0159ad\u00ed v datech",
+            "Visual_layout_sortGroups_iqr": "Rozptyl (IQR)",
+            "Visual_layout_sortGroups_mean": "Pr\u016fm\u011br",
+            "Visual_layout_sortGroups_median": "Medi\u00e1n",
+            "Visual_layout_sortGroups_n": "Po\u010det pozorov\u00e1n\u00ed",
+            "Visual_layout_sortGroups_name": "N\u00e1zev",
+            "Visual_legend": "Legenda",
+            "Visual_legend_color": "Barva textu",
+            "Visual_Legend_Cumulative": "Kumulativn\u00ed %",
+            "Visual_Legend_Density": "Hustota",
+            "Visual_legend_fontSize": "Velikost p\u00edsma",
+            "Visual_Legend_More": "+{0} dal\u0161\u00edch",
+            "Visual_Legend_Normal": "Norm\u00e1ln\u00ed rozd\u011blen\u00ed",
+            "Visual_legend_position": "Um\u00edst\u011bn\u00ed",
+            "Visual_legend_position_bottom": "Dole",
+            "Visual_legend_position_top": "Naho\u0159e",
+            "Visual_legend_show": "Zobrazit",
+            "Visual_Method_Weighted": "v\u00e1\u017een\u00e1 inverzn\u00ed CDF (s vahami se nastaven\u00ed metody kvartil\u016f neuplatn\u00ed)",
+            "Visual_Method_WeightedShort": "v\u00e1\u017een\u00e1 inverzn\u00ed CDF",
+            "Visual_N": "n = {0}",
+            "Visual_Omnibus_anova": "jednofaktorov\u00e1 ANOVA",
+            "Visual_Omnibus_kruskal": "Kruskal-Wallis",
+            "Visual_Omnibus_welchAnova": "Welchova ANOVA",
+            "Visual_points": "Body",
+            "Visual_points_color": "Barva bod\u016f",
+            "Visual_points_layout": "Rozm\u00edst\u011bn\u00ed bod\u016f",
+            "Visual_points_layout_jitter": "N\u00e1hodn\u00fd rozptyl",
+            "Visual_points_layout_strip": "P\u00e1s (jedna linie)",
+            "Visual_points_layout_swarm": "V\u010del\u00ed roj",
+            "Visual_points_opacity": "Kryt\u00ed bod\u016f (%)",
+            "Visual_points_show": "Zobrazit body",
+            "Visual_points_size": "Velikost bod\u016f",
+            "Visual_Premium_Blocked": "Testy v\u00fdznamnosti, intervaly spolehlivosti, v\u00e1hy, zp\u016fsobilost a mal\u00e9 n\u00e1sobky vy\u017eaduj\u00ed licenci SmartVisuals.",
+            "Visual_Premium_capability": "Toleran\u010dn\u00ed meze a zp\u016fsobilost",
+            "Visual_Premium_ci": "Intervaly spolehlivosti",
+            "Visual_Premium_facets": "Mal\u00e9 n\u00e1sobky",
+            "Visual_Premium_kde": "Pokro\u010dil\u00e9 volby hustoty",
+            "Visual_Premium_significance": "Testy v\u00fdznamnosti",
+            "Visual_Premium_weights": "V\u00e1hy",
+            "Visual_reference": "Referen\u010dn\u00ed \u010d\u00e1ra",
+            "Visual_reference_color": "Barva",
+            "Visual_reference_label": "Popisek",
+            "Visual_reference_show": "Zobrazit referen\u010dn\u00ed \u010d\u00e1ru",
+            "Visual_reference_value": "Hodnota",
+            "Visual_Role_count": "Po\u010det",
+            "Visual_Role_count_desc": "Kolik pozorov\u00e1n\u00ed m\u00e1 tuto hodnotu (s Hodnotou jako sloupcem)",
+            "Visual_Role_detail": "Vzorek / ID",
+            "Visual_Role_detail_desc": "Zrnitost pozorov\u00e1n\u00ed, nap\u0159. ID m\u011b\u0159en\u00ed - bez n\u011bj Power BI hodnoty s\u010d\u00edt\u00e1",
+            "Visual_Role_facet": "Mal\u00e9 n\u00e1sobky",
+            "Visual_Role_facet_desc": "Jeden panel pro ka\u017edou hodnotu, sd\u00edlen\u00e1 osa (premium)",
+            "Visual_Role_group": "Skupina",
+            "Visual_Role_group_desc": "Jedno rozd\u011blen\u00ed pro ka\u017edou skupinu na ose",
+            "Visual_Role_lsl": "Doln\u00ed toleran\u010dn\u00ed mez (LSL)",
+            "Visual_Role_lsl_desc": "Doln\u00ed toleran\u010dn\u00ed mez pro ka\u017edou skupinu, nap\u0159. z tabulky specifikac\u00ed (premium); nahrazuje zadanou LSL",
+            "Visual_Role_series": "Rozd\u011blit podle",
+            "Visual_Role_series_desc": "Rozd\u011blen\u00ed vedle sebe v ka\u017ed\u00e9 skupin\u011b; dv\u011b \u00farovn\u011b tvo\u0159\u00ed d\u011blen\u00e9 housle",
+            "Visual_Role_target": "C\u00edl tolerance",
+            "Visual_Role_target_desc": "C\u00edl pro ka\u017edou skupinu pro Cpm a c\u00edlovou \u010d\u00e1ru (premium); nahrazuje zadan\u00fd c\u00edl",
+            "Visual_Role_tooltips": "Popisky",
+            "Visual_Role_tooltips_desc": "Dal\u0161\u00ed pole v popisc\u00edch bod\u016f",
+            "Visual_Role_usl": "Horn\u00ed toleran\u010dn\u00ed mez (USL)",
+            "Visual_Role_usl_desc": "Horn\u00ed toleran\u010dn\u00ed mez pro ka\u017edou skupinu, nap\u0159. z tabulky specifikac\u00ed (premium); nahrazuje zadanou USL",
+            "Visual_Role_value": "Hodnota",
+            "Visual_Role_value_desc": "Nam\u011b\u0159en\u00e1 hodnota pro ka\u017ed\u00fd vzorek / ID",
+            "Visual_Role_valueColumn": "Hodnota (jako sloupec)",
+            "Visual_Role_valueColumn_desc": "Pro velk\u00e1 data: samotn\u00e1 hodnota jako sloupec a Po\u010det jako m\u00edra",
+            "Visual_Role_weight": "V\u00e1ha",
+            "Visual_Role_weight_desc": "V\u00e1ha pr\u016fzkumu nebo v\u00fdb\u011bru pro ka\u017ed\u00e9 pozorov\u00e1n\u00ed (premium)",
+            "Visual_spec": "Toleran\u010dn\u00ed meze a zp\u016fsobilost",
+            "Visual_spec_color": "Barva mez\u00ed",
+            "Visual_Spec_LCL": "LCL",
+            "Visual_spec_lsl": "LSL",
+            "Visual_Spec_LSL": "LSL",
+            "Visual_Spec_Out": "{0} mimo toleranci (o\u010dek\u00e1v\u00e1no {1} ppm)",
+            "Visual_spec_showControl": "Regula\u010dn\u00ed meze (\u00b13\u03c3 uvnit\u0159)",
+            "Visual_spec_showIndices": "Zobrazit Cp, Cpk, Cpl, Cpu, Cpm, Pp, Ppk",
+            "Visual_spec_target": "C\u00edlov\u00e1 hodnota",
+            "Visual_Spec_Target": "C\u00edl",
+            "Visual_Spec_UCL": "UCL",
+            "Visual_spec_useLsl": "Doln\u00ed toleran\u010dn\u00ed mez",
+            "Visual_spec_useTarget": "C\u00edl",
+            "Visual_spec_useUsl": "Horn\u00ed toleran\u010dn\u00ed mez",
+            "Visual_spec_usl": "USL",
+            "Visual_Spec_USL": "USL",
+            "Visual_Stat_Mean": "Pr\u016fm\u011br",
+            "Visual_Stat_Median": "Medi\u00e1n",
+            "Visual_statLines": "Statistick\u00e9 \u010d\u00e1ry",
+            "Visual_statLines_color": "Barva",
+            "Visual_statLines_percentiles": "\u010c\u00e1ry percentil\u016f",
+            "Visual_statLines_scope": "Po\u010d\u00edt\u00e1no pro",
+            "Visual_statLines_scope_all": "V\u0161echna data v panelu",
+            "Visual_statLines_scope_group": "Ka\u017edou skupinu",
+            "Visual_statLines_showLabels": "Popisky",
+            "Visual_statLines_showMean": "\u010c\u00e1ra pr\u016fm\u011bru",
+            "Visual_statLines_showMedian": "\u010c\u00e1ra medi\u00e1nu",
+            "Visual_stats": "Statistika",
+            "Visual_stats_iqrK": "N\u00e1sobek IQR",
+            "Visual_stats_percentile": "Percentil vous\u016f",
+            "Visual_stats_quartileMethod": "Metoda kvartil\u016f",
+            "Visual_stats_quartileMethod_averaged_inverted_cdf": "Pr\u016fm\u011brovan\u00e1 inverzn\u00ed CDF (typ 2)",
+            "Visual_stats_quartileMethod_closest_observation": "Nejbli\u017e\u0161\u00ed pozorov\u00e1n\u00ed (typ 3)",
+            "Visual_stats_quartileMethod_hazen": "St\u0159edov\u00fd bod, Hazen (typ 5)",
+            "Visual_stats_quartileMethod_interpolated_inverted_cdf": "Line\u00e1rn\u00ed CDF (typ 4)",
+            "Visual_stats_quartileMethod_inverted_cdf": "Nejbli\u017e\u0161\u00ed po\u0159ad\u00ed, inverzn\u00ed CDF (typ 1)",
+            "Visual_stats_quartileMethod_linear": "Excel / DAX v\u010detn\u011b: PERCENTILE.INC (typ 7)",
+            "Visual_stats_quartileMethod_median_unbiased": "Medi\u00e1nov\u011b nestrann\u00e1 (typ 8)",
+            "Visual_stats_quartileMethod_normal_unbiased": "Norm\u00e1ln\u011b nestrann\u00e1 (typ 9)",
+            "Visual_stats_quartileMethod_tukey": "Tukeyho panty (R fivenum)",
+            "Visual_stats_quartileMethod_weibull": "Excel / DAX bez kraj\u016f: PERCENTILE.EXC, Minitab, SPSS (typ 6)",
+            "Visual_stats_sdK": "Sm\u011brodatn\u00e9 odchylky",
+            "Visual_stats_whisker": "Vousy",
+            "Visual_stats_whisker_minmax": "Minimum a\u017e maximum",
+            "Visual_stats_whisker_percentile": "Percentily",
+            "Visual_stats_whisker_sd": "Pr\u016fm\u011br \u00b1 sm\u011brodatn\u00e9 odchylky",
+            "Visual_stats_whisker_tukey": "1,5 \u00d7 IQR (Tukey)",
+            "Visual_Tab_beeswarm": "V\u010del\u00ed roj",
+            "Visual_Tab_box": "Krabice",
+            "Visual_Tab_histogram": "Histogram",
+            "Visual_Tab_raincloud": "Raincloud",
+            "Visual_Tab_ridgeline": "Ridgeline",
+            "Visual_Tab_violin": "Houslov\u00fd graf",
+            "Visual_Test_mannwhitney": "Mann-Whitneyho U",
+            "Visual_Test_welch": "Welch\u016fv t-test",
+            "Visual_theme": "Motiv",
+            "Visual_theme_font": "P\u00edsmo",
+            "Visual_theme_font_arial": "Arial",
+            "Visual_theme_font_georgia": "Georgia",
+            "Visual_theme_font_inter": "Inter",
+            "Visual_theme_font_segoe": "Segoe UI",
+            "Visual_theme_selectedTheme": "Motiv",
+            "Visual_theme_selectedTheme_clean": "\u010cist\u00fd (b\u00edl\u00fd)",
+            "Visual_theme_selectedTheme_dark": "Tmav\u00fd",
+            "Visual_theme_selectedTheme_slate": "B\u0159idlicov\u00fd",
+            "Visual_theme_selectedTheme_smartvisuals": "SmartVisuals",
+            "Visual_theme_transparentBg": "Pr\u016fhledn\u00e9 pozad\u00ed",
+            "Visual_Tip_Bin": "T\u0159\u00edda",
+            "Visual_Tip_Capability": "Zp\u016fsobilost",
+            "Visual_Tip_CapabilityNA": "n/a (m\u00e1lo pozorov\u00e1n\u00ed, nulov\u00fd rozptyl nebo nejasn\u00e9 meze)",
+            "Visual_Tip_CI": "{0}% IS pr\u016fm\u011bru",
+            "Visual_Tip_Count": "Po\u010det",
+            "Visual_Tip_Cpk": "Cpk",
+            "Visual_Tip_Cumulative": "Kumulativn\u00ed pod\u00edl",
+            "Visual_Tip_Density": "Hustota",
+            "Visual_Tip_Frequency": "\u010cetnost",
+            "Visual_Tip_Group": "Skupina",
+            "Visual_Tip_IQR": "IQR",
+            "Visual_Tip_Max": "Maximum",
+            "Visual_Tip_Mean": "Pr\u016fm\u011br",
+            "Visual_Tip_Median": "Medi\u00e1n",
+            "Visual_Tip_Min": "Minimum",
+            "Visual_Tip_N": "Pozorov\u00e1n\u00ed",
+            "Visual_Tip_NEff": "Efektivn\u00ed n (v\u00e1\u017een\u00e9)",
+            "Visual_Tip_Notch": "Z\u00e1\u0159ez medi\u00e1nu (~95 %)",
+            "Visual_Tip_Outliers": "Odlehl\u00e9 hodnoty",
+            "Visual_Tip_OutOfSpec": "Mimo toleranci (pozorov\u00e1no / o\u010dek\u00e1v\u00e1no)",
+            "Visual_Tip_P": "p (upraven\u00e9)",
+            "Visual_Tip_Percent": "Pod\u00edl skupiny",
+            "Visual_Tip_Q1": "Doln\u00ed kvartil (Q1)",
+            "Visual_Tip_Q3": "Horn\u00ed kvartil (Q3)",
+            "Visual_Tip_SD": "Sm\u011brodatn\u00e1 odchylka",
+            "Visual_Tip_Skew": "\u0160ikmost",
+            "Visual_Tip_Test": "Test",
+            "Visual_Tip_Value": "Hodnota",
+            "Visual_Tip_Vs": "proti {0}",
+            "Visual_Tip_Weight": "V\u00e1ha",
+            "Visual_Tip_Whiskers": "Vousy",
+            "Visual_valueAxis": "Osa hodnot",
+            "Visual_valueAxis_color": "Barva textu",
+            "Visual_valueAxis_decimals": "Desetinn\u00e1 m\u00edsta (-1 = auto)",
+            "Visual_valueAxis_fontSize": "Velikost p\u00edsma",
+            "Visual_valueAxis_gridlines": "M\u0159\u00ed\u017eka",
+            "Visual_valueAxis_log": "Logaritmick\u00e9 m\u011b\u0159\u00edtko",
+            "Visual_valueAxis_max": "Maximum",
+            "Visual_valueAxis_min": "Minimum",
+            "Visual_valueAxis_show": "Zobrazit",
+            "Visual_valueAxis_showTitle": "Zobrazit n\u00e1zev",
+            "Visual_valueAxis_title": "N\u00e1zev",
+            "Visual_valueAxis_useMax": "Pevn\u00e9 maximum",
+            "Visual_valueAxis_useMin": "Pevn\u00e9 minimum",
+            "Visual_view": "Zobrazen\u00ed",
+            "Visual_view_type": "Graf",
+            "Visual_view_type_half": "Polovi\u010dn\u00ed houslov\u00fd graf",
+            "Visual_view_type_raincloud": "Raincloud",
+            "Visual_view_type_ridgeline": "Ridgeline",
+            "Visual_view_type_violin": "Houslov\u00fd graf",
+            "Visual_Warn_Truncated": "Zobrazena \u010d\u00e1st dat",
+            "Visual_Warn_Truncated_Detail": "Power BI dodal jen \u010d\u00e1st \u0159\u00e1dk\u016f. Statistiky se po\u010d\u00edtaj\u00ed z p\u0159ijat\u00fdch \u0159\u00e1dk\u016f. Pou\u017eijte Hodnotu (jako sloupec) s m\u00edrou Po\u010det, aby se ka\u017ed\u00e1 hodnota poslala jen jednou - pro v\u011bt\u0161inu dat to limit odstran\u00ed.",
+            "Visual_Whisker_minmax": "minimum a\u017e maximum",
+            "Visual_Whisker_percentile": "{0}. a\u017e {1}. percentil",
+            "Visual_Whisker_sd": "pr\u016fm\u011br \u00b1 {0} SD",
+            "Visual_Whisker_tukey": "{0} \u00d7 IQR"
+        },
+        "en-US": {
+            "Visual_All": "All",
+            "Visual_box": "Box",
+            "Visual_box_cornerRadius": "Corner Radius (-1 = theme)",
+            "Visual_box_markFarOutliers": "Mark Far Outliers (3 \u00d7 IQR)",
+            "Visual_box_meanColor": "Mean Marker Color",
+            "Visual_box_meanShape": "Mean Marker",
+            "Visual_box_meanShape_circle": "Circle",
+            "Visual_box_meanShape_cross": "Cross",
+            "Visual_box_meanShape_diamond": "Diamond",
+            "Visual_box_meanShape_line": "Dashed line",
+            "Visual_box_medianColor": "Median Line",
+            "Visual_box_outlierColor": "Outlier Color",
+            "Visual_box_show": "Show Box",
+            "Visual_box_showMean": "Show Mean",
+            "Visual_box_showOutliers": "Show Outliers",
+            "Visual_box_style": "Box Style",
+            "Visual_box_style_filled": "Filled",
+            "Visual_box_style_flat": "Flat",
+            "Visual_box_style_outline": "Outline",
+            "Visual_box_style_theme": "From theme",
+            "Visual_box_style_tinted": "Tinted",
+            "Visual_box_whiskerCaps": "Whisker Caps",
+            "Visual_box_width": "Box Width (%)",
+            "Visual_Cap_Capable": "Cpk \u2265 1.33: capable",
+            "Visual_Cap_Capable_N": "{0} of {1} at \u2265 1.33",
+            "Visual_Cap_NotCapable": "Cpk < 1.33: not capable",
+            "Visual_Cap_One": "{0} {1}: {2}",
+            "Visual_Cap_Range": "{0} by group: lowest {1} {2}, highest {3} {4}",
+            "Visual_caption": "Smart Caption",
+            "Visual_Caption_Capability": "Cpk {0}, Ppk {1}: {2} expected outside the spec limits.",
+            "Visual_Caption_CapabilityOne": "{0} {1} ({2}) against its spec limits.",
+            "Visual_Caption_CapabilityPpk": "Ppk {0}: {1} expected outside the spec limits.",
+            "Visual_Caption_CapabilityRange": "{0} against each group's own spec limits: from {1} ({2}) to {3} ({4}).",
+            "Visual_caption_color": "Text Color",
+            "Visual_Caption_Differ": "The groups differ significantly ({0}, {1}); {2} of {3} pairs differ.",
+            "Visual_caption_fontSize": "Font Size",
+            "Visual_Caption_Groups": "{0} has the highest median {1} ({2}), {3} the lowest ({4}).",
+            "Visual_Caption_Hist": "Most values fall between {0} and {1} ({2} of observations); median {3}.",
+            "Visual_Caption_NoDiffer": "No significant difference between the groups ({0}, {1}).",
+            "Visual_Caption_NotTested": "Not tested: too few observations per group.",
+            "Visual_Caption_NoVariation": "Not tested: the values do not vary within the groups.",
+            "Visual_Caption_OneOutlier": "1 outlier.",
+            "Visual_Caption_Outliers": "{0} outliers.",
+            "Visual_Caption_Panel": "In {0}:",
+            "Visual_caption_position": "Position",
+            "Visual_caption_position_bottom": "Bottom",
+            "Visual_caption_position_top": "Top",
+            "Visual_Caption_SameMedian": "All groups share the median {0} ({1}).",
+            "Visual_caption_show": "Show",
+            "Visual_Caption_Single": "Median {0} {1}; the middle half lies between {2} and {3}.",
+            "Visual_Caption_TwoGroups": "{0} has the higher median {1} ({2}), {3} the lower ({4}).",
+            "Visual_Caption_Widest": "{0} varies the most (IQR {1}).",
+            "Visual_Caption_WithinDiffer": "{0}: significant differences within {1} of {2} groups ({3}).",
+            "Visual_categoryAxis": "Group Axis",
+            "Visual_categoryAxis_color": "Text Color",
+            "Visual_categoryAxis_fontSize": "Font Size",
+            "Visual_categoryAxis_show": "Show",
+            "Visual_categoryAxis_showN": "Show n per Group",
+            "Visual_categoryAxis_showTitle": "Show Title",
+            "Visual_ci": "Confidence Intervals",
+            "Visual_ci_color": "Interval Color",
+            "Visual_ci_level": "Confidence",
+            "Visual_ci_level_90": "90 %",
+            "Visual_ci_level_95": "95 %",
+            "Visual_ci_level_99": "99 %",
+            "Visual_ci_showMeanCI": "Mean \u00b1 Confidence Interval",
+            "Visual_ci_showNotch": "Notched Boxes (median CI)",
+            "Visual_colors": "Colors",
+            "Visual_colors_fill": "Colour",
+            "Visual_colors_single": "One Colour for All Groups",
+            "Visual_compare": "Compare Groups",
+            "Visual_compare_correction": "Multiple Comparisons",
+            "Visual_compare_correction_bonferroni": "Bonferroni",
+            "Visual_compare_correction_holm": "Holm",
+            "Visual_compare_correction_none": "None",
+            "Visual_compare_display": "Show As",
+            "Visual_compare_display_brackets": "Brackets with stars",
+            "Visual_compare_display_letters": "Letters (A, B, C)",
+            "Visual_compare_level": "Confidence",
+            "Visual_compare_level_90": "90 %",
+            "Visual_compare_level_95": "95 %",
+            "Visual_compare_level_99": "99 %",
+            "Visual_compare_omnibus": "Overall Test",
+            "Visual_compare_omnibus_anova": "One-way ANOVA",
+            "Visual_compare_omnibus_kruskal": "Kruskal-Wallis",
+            "Visual_compare_omnibus_welchAnova": "Welch's ANOVA",
+            "Visual_compare_pairs": "Pairs",
+            "Visual_compare_pairs_adjacent": "Neighbours only",
+            "Visual_compare_pairs_all": "All pairs",
+            "Visual_compare_pairs_first": "Each vs the first group",
+            "Visual_compare_show": "Test Differences",
+            "Visual_compare_showNs": "Show Non-significant Pairs",
+            "Visual_compare_test": "Test",
+            "Visual_compare_test_mannwhitney": "Mann-Whitney U (ranks)",
+            "Visual_compare_test_welch": "Welch t-test (means)",
+            "Visual_Corr_bonferroni": "Bonferroni-corrected",
+            "Visual_Corr_holm": "Holm-corrected",
+            "Visual_Corr_none": "uncorrected",
+            "Visual_density": "Density",
+            "Visual_density_bandwidthRule": "Bandwidth Rule",
+            "Visual_density_bandwidthRule_nrd0": "Silverman rule of thumb (R default)",
+            "Visual_density_bandwidthRule_scott": "Scott",
+            "Visual_density_bandwidthRule_silverman": "Silverman",
+            "Visual_density_fillOpacity": "Fill Opacity (%, -1 = theme)",
+            "Visual_density_inner": "Inside the Violin",
+            "Visual_density_inner_box": "Box",
+            "Visual_density_inner_none": "Nothing",
+            "Visual_density_inner_points": "Points",
+            "Visual_density_inner_quartiles": "Quartile lines",
+            "Visual_density_overlap": "Ridge Overlap (%)",
+            "Visual_density_rain": "Show Rain (Points)",
+            "Visual_density_scale": "Violin Width",
+            "Visual_density_scale_area": "Equal area",
+            "Visual_density_scale_count": "By number of observations",
+            "Visual_density_scale_width": "Equal width",
+            "Visual_density_smoothness": "Smoothness (%)",
+            "Visual_density_trim": "Trim to Data Range",
+            "Visual_Foot_Bandwidth": "density: {0} bandwidth",
+            "Visual_Foot_Bins": "bins: {0}",
+            "Visual_Foot_BinsCustom": "custom edges",
+            "Visual_Foot_BinsFrom": "a bin starts at {0}",
+            "Visual_Foot_CapUnweighted": "Capability indices are unweighted.",
+            "Visual_Foot_CpmMidpoint": "Cpm uses the midpoint of the spec limits as its target (no target set).",
+            "Visual_Foot_Crossed": "LSL is not below USL: no capability index.",
+            "Visual_Foot_CurvesUnequal": "With unequal bins the density and normal curves need Bar Height = Density.",
+            "Visual_Foot_Dropped": "{0} blank rows ignored",
+            "Visual_Foot_EdgesMissing": "Custom bin edges need at least two numbers (for example 0, 10, 20); showing Freedman-Diaconis bins.",
+            "Visual_Foot_Groups": "in {0} groups",
+            "Visual_Foot_LettersForced": "Letters shown because the brackets would not fit.",
+            "Visual_Foot_N": "n = {0} observations",
+            "Visual_Foot_N1": "n = 1 observation",
+            "Visual_Foot_NoWithin": "Cp, Cpk and control limits need individual observations in production order (Sample / ID); with Value (as column) + Count only Pp, Ppk and Cpm are shown.",
+            "Visual_Foot_OmnibusUnweighted": "Weights apply to the pairwise Welch tests; the overall test is unweighted.",
+            "Visual_Foot_Order": "\u03c3 within = mean moving range / 1.128 in {0} order: sort that field in production order.",
+            "Visual_Foot_Outside": "{0} observations lie outside the bin edges and are not drawn.",
+            "Visual_Foot_Percentiles": "percentile lines: {0}",
+            "Visual_Foot_Premium": "{0} need a SmartVisuals licence - showing the free view.",
+            "Visual_Foot_Quartiles": "Quartiles: {0}",
+            "Visual_Foot_RankUnweighted": "Weights apply to means and intervals; the rank tests and the overall test are unweighted.",
+            "Visual_Foot_Rows": "{0} rows received",
+            "Visual_Foot_Source": "Source: {0}",
+            "Visual_Foot_SpecPerGroup": "Spec limits come from the spec-limit measures, per group; each group's indices are in its tooltip.",
+            "Visual_Foot_SpecVaries": "A spec-limit measure takes several values inside {0}: no capability index there.",
+            "Visual_Foot_TargetOutside": "The target lies outside the spec limits: no Cpm.",
+            "Visual_Foot_Tests": "Tests: {0}, {1}, {2} % confidence",
+            "Visual_Foot_Weighted": "Weighted (Kish effective n = {0})",
+            "Visual_Foot_Whiskers": "whiskers: {0}",
+            "Visual_footnote": "Footnote",
+            "Visual_footnote_color": "Text Color",
+            "Visual_footnote_fontSize": "Font Size",
+            "Visual_footnote_show": "Show",
+            "Visual_footnote_showMethod": "State the Methods",
+            "Visual_footnote_source": "Source",
+            "Visual_groupColors": "Group Colors",
+            "Visual_groupColors_fill": "Colour",
+            "Visual_Height_Count": "Count",
+            "Visual_Height_Density": "Density",
+            "Visual_Height_Percent": "Percent of group",
+            "Visual_Height_PercentAll": "Percent of all groups",
+            "Visual_Hint_NoData": "No numeric values to show for the current filters.",
+            "Visual_Hint_OneValue": "Each group has a single value. Add a Sample / ID field (for example Measurement ID) so the visual receives the individual observations.",
+            "Visual_kde": "Advanced Density",
+            "Visual_kde_fixedBandwidth": "Fixed Bandwidth (0 = rule)",
+            "Visual_kde_kernel": "Kernel",
+            "Visual_kde_kernel_biweight": "Biweight",
+            "Visual_kde_kernel_cosine": "Cosine",
+            "Visual_kde_kernel_epanechnikov": "Epanechnikov",
+            "Visual_kde_kernel_gaussian": "Gaussian",
+            "Visual_kde_kernel_triangular": "Triangular",
+            "Visual_kde_kernel_uniform": "Uniform (box)",
+            "Visual_kde_lower": "Lower Bound",
+            "Visual_kde_upper": "Upper Bound",
+            "Visual_kde_useLower": "Bounded Below",
+            "Visual_kde_useUpper": "Bounded Above",
+            "Visual_labels": "Data Labels",
+            "Visual_labels_fontSize": "Font Size",
+            "Visual_labels_showMean": "Mean",
+            "Visual_labels_showMedian": "Median",
+            "Visual_labels_showQuartiles": "Quartiles",
+            "Visual_Landing_Help": "Add Group, Sample / ID and a Value measure - or put the value itself in Value (as column) with a Count measure for large data.",
+            "Visual_Landing_Title": "SmartVisuals Distribution",
+            "Visual_layout": "Layout",
+            "Visual_layout_groupGap": "Space Between Groups (%)",
+            "Visual_layout_minGroupSize": "Hide Groups With Fewer Than",
+            "Visual_layout_orientation": "Orientation",
+            "Visual_layout_orientation_horizontal": "Horizontal",
+            "Visual_layout_orientation_vertical": "Vertical",
+            "Visual_layout_sortDirection": "Sort Direction",
+            "Visual_layout_sortDirection_asc": "Ascending",
+            "Visual_layout_sortDirection_desc": "Descending",
+            "Visual_layout_sortGroups": "Sort Groups By",
+            "Visual_layout_sortGroups_data": "Data order",
+            "Visual_layout_sortGroups_iqr": "Spread (IQR)",
+            "Visual_layout_sortGroups_mean": "Mean",
+            "Visual_layout_sortGroups_median": "Median",
+            "Visual_layout_sortGroups_n": "Number of observations",
+            "Visual_layout_sortGroups_name": "Name",
+            "Visual_legend": "Legend",
+            "Visual_legend_color": "Text Color",
+            "Visual_Legend_Cumulative": "Cumulative %",
+            "Visual_Legend_Density": "Density",
+            "Visual_legend_fontSize": "Font Size",
+            "Visual_Legend_More": "+{0} more",
+            "Visual_Legend_Normal": "Normal fit",
+            "Visual_legend_position": "Position",
+            "Visual_legend_position_bottom": "Bottom",
+            "Visual_legend_position_top": "Top",
+            "Visual_legend_show": "Show",
+            "Visual_Method_Weighted": "weighted inverted CDF (with weights the quartile method setting does not apply)",
+            "Visual_Method_WeightedShort": "weighted inverted CDF",
+            "Visual_N": "n = {0}",
+            "Visual_Omnibus_anova": "one-way ANOVA",
+            "Visual_Omnibus_kruskal": "Kruskal-Wallis",
+            "Visual_Omnibus_welchAnova": "Welch's ANOVA",
+            "Visual_points": "Points",
+            "Visual_points_color": "Point Color",
+            "Visual_points_layout": "Point Layout",
+            "Visual_points_layout_jitter": "Random jitter",
+            "Visual_points_layout_strip": "Strip (one line)",
+            "Visual_points_layout_swarm": "Beeswarm",
+            "Visual_points_opacity": "Point Opacity (%)",
+            "Visual_points_show": "Show Points",
+            "Visual_points_size": "Point Size",
+            "Visual_Premium_Blocked": "Significance tests, confidence intervals, weights, capability and small multiples need a SmartVisuals licence.",
+            "Visual_Premium_capability": "Spec limits and capability",
+            "Visual_Premium_ci": "Confidence intervals",
+            "Visual_Premium_facets": "Small multiples",
+            "Visual_Premium_kde": "Advanced density options",
+            "Visual_Premium_significance": "Significance tests",
+            "Visual_Premium_weights": "Weights",
+            "Visual_reference": "Reference Line",
+            "Visual_reference_color": "Color",
+            "Visual_reference_label": "Label",
+            "Visual_reference_show": "Show Reference Line",
+            "Visual_reference_value": "Value",
+            "Visual_Role_count": "Count",
+            "Visual_Role_count_desc": "How many observations have this value (with Value as column)",
+            "Visual_Role_detail": "Sample / ID",
+            "Visual_Role_detail_desc": "The observation grain, e.g. Measurement ID - without it Power BI sums the values",
+            "Visual_Role_facet": "Small Multiples",
+            "Visual_Role_facet_desc": "One panel per value, shared axis (premium)",
+            "Visual_Role_group": "Group",
+            "Visual_Role_group_desc": "One distribution per group along the axis",
+            "Visual_Role_lsl": "Lower Spec Limit (LSL)",
+            "Visual_Role_lsl_desc": "Lower spec limit per group, e.g. from a spec table (premium); replaces the typed LSL",
+            "Visual_Role_series": "Split By",
+            "Visual_Role_series_desc": "Side-by-side distributions within each group; two levels make a split violin",
+            "Visual_Role_target": "Spec Target",
+            "Visual_Role_target_desc": "Target per group for Cpm and the target line (premium); replaces the typed target",
+            "Visual_Role_tooltips": "Tooltips",
+            "Visual_Role_tooltips_desc": "Extra fields in point tooltips",
+            "Visual_Role_usl": "Upper Spec Limit (USL)",
+            "Visual_Role_usl_desc": "Upper spec limit per group, e.g. from a spec table (premium); replaces the typed USL",
+            "Visual_Role_value": "Value",
+            "Visual_Role_value_desc": "The observed value per Sample / ID",
+            "Visual_Role_valueColumn": "Value (as column)",
+            "Visual_Role_valueColumn_desc": "For large data: the value itself as a column, with Count as the measure",
+            "Visual_Role_weight": "Weight",
+            "Visual_Role_weight_desc": "Survey or sampling weight per observation (premium)",
+            "Visual_spec": "Spec Limits & Capability",
+            "Visual_spec_color": "Limit Color",
+            "Visual_Spec_LCL": "LCL",
+            "Visual_spec_lsl": "LSL",
+            "Visual_Spec_LSL": "LSL",
+            "Visual_Spec_Out": "{0} out of spec ({1} ppm expected)",
+            "Visual_spec_showControl": "Control Limits (\u00b13\u03c3 within)",
+            "Visual_spec_showIndices": "Show Cp, Cpk, Cpl, Cpu, Cpm, Pp, Ppk",
+            "Visual_spec_target": "Target Value",
+            "Visual_Spec_Target": "Target",
+            "Visual_Spec_UCL": "UCL",
+            "Visual_spec_useLsl": "Lower Spec Limit",
+            "Visual_spec_useTarget": "Target",
+            "Visual_spec_useUsl": "Upper Spec Limit",
+            "Visual_spec_usl": "USL",
+            "Visual_Spec_USL": "USL",
+            "Visual_Stat_Mean": "Mean",
+            "Visual_Stat_Median": "Median",
+            "Visual_statLines": "Statistic Lines",
+            "Visual_statLines_color": "Color",
+            "Visual_statLines_percentiles": "Percentile Lines",
+            "Visual_statLines_scope": "Computed For",
+            "Visual_statLines_scope_all": "All data in the panel",
+            "Visual_statLines_scope_group": "Each group",
+            "Visual_statLines_showLabels": "Labels",
+            "Visual_statLines_showMean": "Mean Line",
+            "Visual_statLines_showMedian": "Median Line",
+            "Visual_stats": "Statistics",
+            "Visual_stats_iqrK": "IQR Multiple",
+            "Visual_stats_percentile": "Whisker Percentile",
+            "Visual_stats_quartileMethod": "Quartile Method",
+            "Visual_stats_quartileMethod_averaged_inverted_cdf": "Averaged inverted CDF (type 2)",
+            "Visual_stats_quartileMethod_closest_observation": "Closest observation (type 3)",
+            "Visual_stats_quartileMethod_hazen": "Midpoint, Hazen (type 5)",
+            "Visual_stats_quartileMethod_interpolated_inverted_cdf": "Linear CDF (type 4)",
+            "Visual_stats_quartileMethod_inverted_cdf": "Nearest rank, inverted CDF (type 1)",
+            "Visual_stats_quartileMethod_linear": "Excel / DAX inclusive: PERCENTILE.INC (type 7)",
+            "Visual_stats_quartileMethod_median_unbiased": "Median-unbiased (type 8)",
+            "Visual_stats_quartileMethod_normal_unbiased": "Normal-unbiased (type 9)",
+            "Visual_stats_quartileMethod_tukey": "Tukey's hinges (R fivenum)",
+            "Visual_stats_quartileMethod_weibull": "Excel / DAX exclusive: PERCENTILE.EXC, Minitab, SPSS (type 6)",
+            "Visual_stats_sdK": "Standard Deviations",
+            "Visual_stats_whisker": "Whiskers",
+            "Visual_stats_whisker_minmax": "Minimum to maximum",
+            "Visual_stats_whisker_percentile": "Percentiles",
+            "Visual_stats_whisker_sd": "Mean \u00b1 standard deviations",
+            "Visual_stats_whisker_tukey": "1.5 \u00d7 IQR (Tukey)",
+            "Visual_Tab_beeswarm": "Beeswarm",
+            "Visual_Tab_box": "Box",
+            "Visual_Tab_histogram": "Histogram",
+            "Visual_Tab_raincloud": "Raincloud",
+            "Visual_Tab_ridgeline": "Ridgeline",
+            "Visual_Tab_violin": "Violin",
+            "Visual_Test_mannwhitney": "Mann-Whitney U",
+            "Visual_Test_welch": "Welch t-test",
+            "Visual_theme": "Theme",
+            "Visual_theme_font": "Font",
+            "Visual_theme_font_arial": "Arial",
+            "Visual_theme_font_georgia": "Georgia",
+            "Visual_theme_font_inter": "Inter",
+            "Visual_theme_font_segoe": "Segoe UI",
+            "Visual_theme_selectedTheme": "Theme",
+            "Visual_theme_selectedTheme_clean": "Clean (White)",
+            "Visual_theme_selectedTheme_dark": "Dark",
+            "Visual_theme_selectedTheme_slate": "Slate",
+            "Visual_theme_selectedTheme_smartvisuals": "SmartVisuals",
+            "Visual_theme_transparentBg": "Transparent Background",
+            "Visual_Tip_Bin": "Bin",
+            "Visual_Tip_Capability": "Capability",
+            "Visual_Tip_CapabilityNA": "n/a (too few observations, no spread or unclear limits)",
+            "Visual_Tip_CI": "Mean {0} % CI",
+            "Visual_Tip_Count": "Count",
+            "Visual_Tip_Cpk": "Cpk",
+            "Visual_Tip_Cumulative": "Cumulative share",
+            "Visual_Tip_Density": "Density",
+            "Visual_Tip_Frequency": "Frequency",
+            "Visual_Tip_Group": "Group",
+            "Visual_Tip_IQR": "IQR",
+            "Visual_Tip_Max": "Maximum",
+            "Visual_Tip_Mean": "Mean",
+            "Visual_Tip_Median": "Median",
+            "Visual_Tip_Min": "Minimum",
+            "Visual_Tip_N": "Observations",
+            "Visual_Tip_NEff": "Effective n (weighted)",
+            "Visual_Tip_Notch": "Median notch (~95 %)",
+            "Visual_Tip_Outliers": "Outliers",
+            "Visual_Tip_OutOfSpec": "Out of spec (observed / expected)",
+            "Visual_Tip_P": "p (adjusted)",
+            "Visual_Tip_Percent": "Share of group",
+            "Visual_Tip_Q1": "Lower quartile (Q1)",
+            "Visual_Tip_Q3": "Upper quartile (Q3)",
+            "Visual_Tip_SD": "Standard deviation",
+            "Visual_Tip_Skew": "Skewness",
+            "Visual_Tip_Test": "Test",
+            "Visual_Tip_Value": "Value",
+            "Visual_Tip_Vs": "vs {0}",
+            "Visual_Tip_Weight": "Weight",
+            "Visual_Tip_Whiskers": "Whiskers",
+            "Visual_valueAxis": "Value Axis",
+            "Visual_valueAxis_color": "Text Color",
+            "Visual_valueAxis_decimals": "Decimal Places (-1 = auto)",
+            "Visual_valueAxis_fontSize": "Font Size",
+            "Visual_valueAxis_gridlines": "Gridlines",
+            "Visual_valueAxis_log": "Logarithmic Scale",
+            "Visual_valueAxis_max": "Maximum",
+            "Visual_valueAxis_min": "Minimum",
+            "Visual_valueAxis_show": "Show",
+            "Visual_valueAxis_showTitle": "Show Title",
+            "Visual_valueAxis_title": "Title",
+            "Visual_valueAxis_useMax": "Fixed Maximum",
+            "Visual_valueAxis_useMin": "Fixed Minimum",
+            "Visual_view": "View",
+            "Visual_view_type": "Chart",
+            "Visual_view_type_half": "Half violin",
+            "Visual_view_type_raincloud": "Raincloud",
+            "Visual_view_type_ridgeline": "Ridgeline",
+            "Visual_view_type_violin": "Violin",
+            "Visual_Warn_Truncated": "Showing part of the data",
+            "Visual_Warn_Truncated_Detail": "Power BI delivered only part of the rows. Statistics are calculated on the rows received. Use Value (as column) with a Count measure to send each distinct value once - that removes the limit for most data.",
+            "Visual_Whisker_minmax": "min to max",
+            "Visual_Whisker_percentile": "{0}th-{1}th percentile",
+            "Visual_Whisker_sd": "mean \u00b1 {0} SD",
+            "Visual_Whisker_tukey": "{0} \u00d7 IQR"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "group",
+                "kind": "Grouping",
+                "displayName": "Group",
+                "description": "One distribution per group along the axis",
+                "displayNameKey": "Visual_Role_group",
+                "descriptionKey": "Visual_Role_group_desc"
+            },
+            {
+                "name": "series",
+                "kind": "Grouping",
+                "displayName": "Split By",
+                "description": "Side-by-side distributions within each group; two levels make a split violin",
+                "displayNameKey": "Visual_Role_series",
+                "descriptionKey": "Visual_Role_series_desc"
+            },
+            {
+                "name": "detail",
+                "kind": "Grouping",
+                "displayName": "Sample / ID",
+                "description": "The observation grain, e.g. Measurement ID - without it Power BI sums the values",
+                "displayNameKey": "Visual_Role_detail",
+                "descriptionKey": "Visual_Role_detail_desc"
+            },
+            {
+                "name": "value",
+                "kind": "Measure",
+                "displayName": "Value",
+                "description": "The observed value per Sample / ID",
+                "displayNameKey": "Visual_Role_value",
+                "descriptionKey": "Visual_Role_value_desc"
+            },
+            {
+                "name": "valueColumn",
+                "kind": "Grouping",
+                "displayName": "Value (as column)",
+                "description": "For large data: the value itself as a column, with Count as the measure",
+                "displayNameKey": "Visual_Role_valueColumn",
+                "descriptionKey": "Visual_Role_valueColumn_desc"
+            },
+            {
+                "name": "count",
+                "kind": "Measure",
+                "displayName": "Count",
+                "description": "How many observations have this value (with Value as column)",
+                "displayNameKey": "Visual_Role_count",
+                "descriptionKey": "Visual_Role_count_desc"
+            },
+            {
+                "name": "weight",
+                "kind": "Measure",
+                "displayName": "Weight",
+                "description": "Survey or sampling weight per observation (premium)",
+                "displayNameKey": "Visual_Role_weight",
+                "descriptionKey": "Visual_Role_weight_desc"
+            },
+            {
+                "name": "facet",
+                "kind": "Grouping",
+                "displayName": "Small Multiples",
+                "description": "One panel per value, shared axis (premium)",
+                "displayNameKey": "Visual_Role_facet",
+                "descriptionKey": "Visual_Role_facet_desc"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "description": "Extra fields in point tooltips",
+                "displayNameKey": "Visual_Role_tooltips",
+                "descriptionKey": "Visual_Role_tooltips_desc"
+            },
+            {
+                "name": "lsl",
+                "kind": "Measure",
+                "displayName": "Lower Spec Limit (LSL)",
+                "description": "Lower spec limit per group, e.g. from a spec table (premium); replaces the typed LSL",
+                "displayNameKey": "Visual_Role_lsl",
+                "descriptionKey": "Visual_Role_lsl_desc"
+            },
+            {
+                "name": "usl",
+                "kind": "Measure",
+                "displayName": "Upper Spec Limit (USL)",
+                "description": "Upper spec limit per group, e.g. from a spec table (premium); replaces the typed USL",
+                "displayNameKey": "Visual_Role_usl",
+                "descriptionKey": "Visual_Role_usl_desc"
+            },
+            {
+                "name": "target",
+                "kind": "Measure",
+                "displayName": "Spec Target",
+                "description": "Target per group for Cpm and the target line (premium); replaces the typed target",
+                "displayNameKey": "Visual_Role_target",
+                "descriptionKey": "Visual_Role_target_desc"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "group": {
+                            "max": 1
+                        },
+                        "series": {
+                            "max": 1
+                        },
+                        "detail": {
+                            "max": 1
+                        },
+                        "value": {
+                            "max": 1
+                        },
+                        "valueColumn": {
+                            "max": 1
+                        },
+                        "count": {
+                            "max": 1
+                        },
+                        "weight": {
+                            "max": 1
+                        },
+                        "facet": {
+                            "max": 1
+                        },
+                        "lsl": {
+                            "max": 1
+                        },
+                        "usl": {
+                            "max": 1
+                        },
+                        "target": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "group"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "series"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "facet"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "detail"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "valueColumn"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "value"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "count"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "weight"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "lsl"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "usl"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "target"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "tooltips"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "view": {
+                "displayName": "View",
+                "displayNameKey": "Visual_view",
+                "properties": {
+                    "type": {
+                        "displayName": "Chart",
+                        "displayNameKey": "Visual_view_type",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "violin",
+                                    "displayName": "Violin"
+                                },
+                                {
+                                    "value": "half",
+                                    "displayName": "Half violin"
+                                },
+                                {
+                                    "value": "raincloud",
+                                    "displayName": "Raincloud"
+                                },
+                                {
+                                    "value": "ridgeline",
+                                    "displayName": "Ridgeline"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "displayName": "Layout",
+                "displayNameKey": "Visual_layout",
+                "properties": {
+                    "orientation": {
+                        "displayName": "Orientation",
+                        "displayNameKey": "Visual_layout_orientation",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "vertical",
+                                    "displayName": "Vertical"
+                                },
+                                {
+                                    "value": "horizontal",
+                                    "displayName": "Horizontal"
+                                }
+                            ]
+                        }
+                    },
+                    "sortGroups": {
+                        "displayName": "Sort Groups By",
+                        "displayNameKey": "Visual_layout_sortGroups",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "data",
+                                    "displayName": "Data order"
+                                },
+                                {
+                                    "value": "name",
+                                    "displayName": "Name"
+                                },
+                                {
+                                    "value": "median",
+                                    "displayName": "Median"
+                                },
+                                {
+                                    "value": "mean",
+                                    "displayName": "Mean"
+                                },
+                                {
+                                    "value": "n",
+                                    "displayName": "Number of observations"
+                                },
+                                {
+                                    "value": "iqr",
+                                    "displayName": "Spread (IQR)"
+                                }
+                            ]
+                        }
+                    },
+                    "sortDirection": {
+                        "displayName": "Sort Direction",
+                        "displayNameKey": "Visual_layout_sortDirection",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "asc",
+                                    "displayName": "Ascending"
+                                },
+                                {
+                                    "value": "desc",
+                                    "displayName": "Descending"
+                                }
+                            ]
+                        }
+                    },
+                    "minGroupSize": {
+                        "displayName": "Hide Groups With Fewer Than",
+                        "displayNameKey": "Visual_layout_minGroupSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "groupGap": {
+                        "displayName": "Space Between Groups (%)",
+                        "displayNameKey": "Visual_layout_groupGap",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "stats": {
+                "displayName": "Statistics",
+                "displayNameKey": "Visual_stats",
+                "properties": {
+                    "quartileMethod": {
+                        "displayName": "Quartile Method",
+                        "displayNameKey": "Visual_stats_quartileMethod",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "linear",
+                                    "displayName": "Excel / DAX inclusive: PERCENTILE.INC (type 7)"
+                                },
+                                {
+                                    "value": "weibull",
+                                    "displayName": "Excel / DAX exclusive: PERCENTILE.EXC, Minitab, SPSS (type 6)"
+                                },
+                                {
+                                    "value": "tukey",
+                                    "displayName": "Tukey's hinges (R fivenum)"
+                                },
+                                {
+                                    "value": "median_unbiased",
+                                    "displayName": "Median-unbiased (type 8)"
+                                },
+                                {
+                                    "value": "hazen",
+                                    "displayName": "Midpoint, Hazen (type 5)"
+                                },
+                                {
+                                    "value": "normal_unbiased",
+                                    "displayName": "Normal-unbiased (type 9)"
+                                },
+                                {
+                                    "value": "interpolated_inverted_cdf",
+                                    "displayName": "Linear CDF (type 4)"
+                                },
+                                {
+                                    "value": "inverted_cdf",
+                                    "displayName": "Nearest rank, inverted CDF (type 1)"
+                                },
+                                {
+                                    "value": "averaged_inverted_cdf",
+                                    "displayName": "Averaged inverted CDF (type 2)"
+                                },
+                                {
+                                    "value": "closest_observation",
+                                    "displayName": "Closest observation (type 3)"
+                                }
+                            ]
+                        }
+                    },
+                    "whisker": {
+                        "displayName": "Whiskers",
+                        "displayNameKey": "Visual_stats_whisker",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "tukey",
+                                    "displayName": "1.5 \u00d7 IQR (Tukey)"
+                                },
+                                {
+                                    "value": "minmax",
+                                    "displayName": "Minimum to maximum"
+                                },
+                                {
+                                    "value": "percentile",
+                                    "displayName": "Percentiles"
+                                },
+                                {
+                                    "value": "sd",
+                                    "displayName": "Mean \u00b1 standard deviations"
+                                }
+                            ]
+                        }
+                    },
+                    "iqrK": {
+                        "displayName": "IQR Multiple",
+                        "displayNameKey": "Visual_stats_iqrK",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "percentile": {
+                        "displayName": "Whisker Percentile",
+                        "displayNameKey": "Visual_stats_percentile",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "sdK": {
+                        "displayName": "Standard Deviations",
+                        "displayNameKey": "Visual_stats_sdK",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "box": {
+                "displayName": "Box",
+                "displayNameKey": "Visual_box",
+                "properties": {
+                    "show": {
+                        "displayName": "Show Box",
+                        "displayNameKey": "Visual_box_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "width": {
+                        "displayName": "Box Width (%)",
+                        "displayNameKey": "Visual_box_width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "style": {
+                        "displayName": "Box Style",
+                        "displayNameKey": "Visual_box_style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "theme",
+                                    "displayName": "From theme"
+                                },
+                                {
+                                    "value": "tinted",
+                                    "displayName": "Tinted"
+                                },
+                                {
+                                    "value": "filled",
+                                    "displayName": "Filled"
+                                },
+                                {
+                                    "value": "outline",
+                                    "displayName": "Outline"
+                                },
+                                {
+                                    "value": "flat",
+                                    "displayName": "Flat"
+                                }
+                            ]
+                        }
+                    },
+                    "cornerRadius": {
+                        "displayName": "Corner Radius (-1 = theme)",
+                        "displayNameKey": "Visual_box_cornerRadius",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "whiskerCaps": {
+                        "displayName": "Whisker Caps",
+                        "displayNameKey": "Visual_box_whiskerCaps",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showMean": {
+                        "displayName": "Show Mean",
+                        "displayNameKey": "Visual_box_showMean",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "meanShape": {
+                        "displayName": "Mean Marker",
+                        "displayNameKey": "Visual_box_meanShape",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "diamond",
+                                    "displayName": "Diamond"
+                                },
+                                {
+                                    "value": "cross",
+                                    "displayName": "Cross"
+                                },
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle"
+                                },
+                                {
+                                    "value": "line",
+                                    "displayName": "Dashed line"
+                                }
+                            ]
+                        }
+                    },
+                    "meanColor": {
+                        "displayName": "Mean Marker Color",
+                        "displayNameKey": "Visual_box_meanColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showOutliers": {
+                        "displayName": "Show Outliers",
+                        "displayNameKey": "Visual_box_showOutliers",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "markFarOutliers": {
+                        "displayName": "Mark Far Outliers (3 \u00d7 IQR)",
+                        "displayNameKey": "Visual_box_markFarOutliers",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "medianColor": {
+                        "displayName": "Median Line",
+                        "displayNameKey": "Visual_box_medianColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "outlierColor": {
+                        "displayName": "Outlier Color",
+                        "displayNameKey": "Visual_box_outlierColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "density": {
+                "displayName": "Density",
+                "displayNameKey": "Visual_density",
+                "properties": {
+                    "bandwidthRule": {
+                        "displayName": "Bandwidth Rule",
+                        "displayNameKey": "Visual_density_bandwidthRule",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "scott",
+                                    "displayName": "Scott"
+                                },
+                                {
+                                    "value": "silverman",
+                                    "displayName": "Silverman"
+                                },
+                                {
+                                    "value": "nrd0",
+                                    "displayName": "Silverman rule of thumb (R default)"
+                                }
+                            ]
+                        }
+                    },
+                    "smoothness": {
+                        "displayName": "Smoothness (%)",
+                        "displayNameKey": "Visual_density_smoothness",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "trim": {
+                        "displayName": "Trim to Data Range",
+                        "displayNameKey": "Visual_density_trim",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scale": {
+                        "displayName": "Violin Width",
+                        "displayNameKey": "Visual_density_scale",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "area",
+                                    "displayName": "Equal area"
+                                },
+                                {
+                                    "value": "width",
+                                    "displayName": "Equal width"
+                                },
+                                {
+                                    "value": "count",
+                                    "displayName": "By number of observations"
+                                }
+                            ]
+                        }
+                    },
+                    "inner": {
+                        "displayName": "Inside the Violin",
+                        "displayNameKey": "Visual_density_inner",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "box",
+                                    "displayName": "Box"
+                                },
+                                {
+                                    "value": "quartiles",
+                                    "displayName": "Quartile lines"
+                                },
+                                {
+                                    "value": "points",
+                                    "displayName": "Points"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "Nothing"
+                                }
+                            ]
+                        }
+                    },
+                    "rain": {
+                        "displayName": "Show Rain (Points)",
+                        "displayNameKey": "Visual_density_rain",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "overlap": {
+                        "displayName": "Ridge Overlap (%)",
+                        "displayNameKey": "Visual_density_overlap",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fillOpacity": {
+                        "displayName": "Fill Opacity (%, -1 = theme)",
+                        "displayNameKey": "Visual_density_fillOpacity",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "points": {
+                "displayName": "Points",
+                "displayNameKey": "Visual_points",
+                "properties": {
+                    "show": {
+                        "displayName": "Show Points",
+                        "displayNameKey": "Visual_points_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layout": {
+                        "displayName": "Point Layout",
+                        "displayNameKey": "Visual_points_layout",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "swarm",
+                                    "displayName": "Beeswarm"
+                                },
+                                {
+                                    "value": "jitter",
+                                    "displayName": "Random jitter"
+                                },
+                                {
+                                    "value": "strip",
+                                    "displayName": "Strip (one line)"
+                                }
+                            ]
+                        }
+                    },
+                    "size": {
+                        "displayName": "Point Size",
+                        "displayNameKey": "Visual_points_size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "opacity": {
+                        "displayName": "Point Opacity (%)",
+                        "displayNameKey": "Visual_points_opacity",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Point Color",
+                        "displayNameKey": "Visual_points_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "compare": {
+                "displayName": "Compare Groups",
+                "displayNameKey": "Visual_compare",
+                "properties": {
+                    "show": {
+                        "displayName": "Test Differences",
+                        "displayNameKey": "Visual_compare_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "test": {
+                        "displayName": "Test",
+                        "displayNameKey": "Visual_compare_test",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "welch",
+                                    "displayName": "Welch t-test (means)"
+                                },
+                                {
+                                    "value": "mannwhitney",
+                                    "displayName": "Mann-Whitney U (ranks)"
+                                }
+                            ]
+                        }
+                    },
+                    "omnibus": {
+                        "displayName": "Overall Test",
+                        "displayNameKey": "Visual_compare_omnibus",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "welchAnova",
+                                    "displayName": "Welch's ANOVA"
+                                },
+                                {
+                                    "value": "anova",
+                                    "displayName": "One-way ANOVA"
+                                },
+                                {
+                                    "value": "kruskal",
+                                    "displayName": "Kruskal-Wallis"
+                                }
+                            ]
+                        }
+                    },
+                    "correction": {
+                        "displayName": "Multiple Comparisons",
+                        "displayNameKey": "Visual_compare_correction",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "holm",
+                                    "displayName": "Holm"
+                                },
+                                {
+                                    "value": "bonferroni",
+                                    "displayName": "Bonferroni"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "level": {
+                        "displayName": "Confidence",
+                        "displayNameKey": "Visual_compare_level",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "90",
+                                    "displayName": "90 %"
+                                },
+                                {
+                                    "value": "95",
+                                    "displayName": "95 %"
+                                },
+                                {
+                                    "value": "99",
+                                    "displayName": "99 %"
+                                }
+                            ]
+                        }
+                    },
+                    "display": {
+                        "displayName": "Show As",
+                        "displayNameKey": "Visual_compare_display",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "brackets",
+                                    "displayName": "Brackets with stars"
+                                },
+                                {
+                                    "value": "letters",
+                                    "displayName": "Letters (A, B, C)"
+                                }
+                            ]
+                        }
+                    },
+                    "pairs": {
+                        "displayName": "Pairs",
+                        "displayNameKey": "Visual_compare_pairs",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "all",
+                                    "displayName": "All pairs"
+                                },
+                                {
+                                    "value": "first",
+                                    "displayName": "Each vs the first group"
+                                },
+                                {
+                                    "value": "adjacent",
+                                    "displayName": "Neighbours only"
+                                }
+                            ]
+                        }
+                    },
+                    "showNs": {
+                        "displayName": "Show Non-significant Pairs",
+                        "displayNameKey": "Visual_compare_showNs",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "ci": {
+                "displayName": "Confidence Intervals",
+                "displayNameKey": "Visual_ci",
+                "properties": {
+                    "showMeanCI": {
+                        "displayName": "Mean \u00b1 Confidence Interval",
+                        "displayNameKey": "Visual_ci_showMeanCI",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showNotch": {
+                        "displayName": "Notched Boxes (median CI)",
+                        "displayNameKey": "Visual_ci_showNotch",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "level": {
+                        "displayName": "Confidence",
+                        "displayNameKey": "Visual_ci_level",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "90",
+                                    "displayName": "90 %"
+                                },
+                                {
+                                    "value": "95",
+                                    "displayName": "95 %"
+                                },
+                                {
+                                    "value": "99",
+                                    "displayName": "99 %"
+                                }
+                            ]
+                        }
+                    },
+                    "color": {
+                        "displayName": "Interval Color",
+                        "displayNameKey": "Visual_ci_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "spec": {
+                "displayName": "Spec Limits & Capability",
+                "displayNameKey": "Visual_spec",
+                "properties": {
+                    "useLsl": {
+                        "displayName": "Lower Spec Limit",
+                        "displayNameKey": "Visual_spec_useLsl",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lsl": {
+                        "displayName": "LSL",
+                        "displayNameKey": "Visual_spec_lsl",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "useUsl": {
+                        "displayName": "Upper Spec Limit",
+                        "displayNameKey": "Visual_spec_useUsl",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "usl": {
+                        "displayName": "USL",
+                        "displayNameKey": "Visual_spec_usl",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "useTarget": {
+                        "displayName": "Target",
+                        "displayNameKey": "Visual_spec_useTarget",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "target": {
+                        "displayName": "Target Value",
+                        "displayNameKey": "Visual_spec_target",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showIndices": {
+                        "displayName": "Show Cp, Cpk, Cpl, Cpu, Cpm, Pp, Ppk",
+                        "displayNameKey": "Visual_spec_showIndices",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showControl": {
+                        "displayName": "Control Limits (\u00b13\u03c3 within)",
+                        "displayNameKey": "Visual_spec_showControl",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Limit Color",
+                        "displayNameKey": "Visual_spec_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "kde": {
+                "displayName": "Advanced Density",
+                "displayNameKey": "Visual_kde",
+                "properties": {
+                    "kernel": {
+                        "displayName": "Kernel",
+                        "displayNameKey": "Visual_kde_kernel",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "gaussian",
+                                    "displayName": "Gaussian"
+                                },
+                                {
+                                    "value": "epanechnikov",
+                                    "displayName": "Epanechnikov"
+                                },
+                                {
+                                    "value": "biweight",
+                                    "displayName": "Biweight"
+                                },
+                                {
+                                    "value": "triangular",
+                                    "displayName": "Triangular"
+                                },
+                                {
+                                    "value": "cosine",
+                                    "displayName": "Cosine"
+                                },
+                                {
+                                    "value": "uniform",
+                                    "displayName": "Uniform (box)"
+                                }
+                            ]
+                        }
+                    },
+                    "fixedBandwidth": {
+                        "displayName": "Fixed Bandwidth (0 = rule)",
+                        "displayNameKey": "Visual_kde_fixedBandwidth",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "useLower": {
+                        "displayName": "Bounded Below",
+                        "displayNameKey": "Visual_kde_useLower",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lower": {
+                        "displayName": "Lower Bound",
+                        "displayNameKey": "Visual_kde_lower",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "useUpper": {
+                        "displayName": "Bounded Above",
+                        "displayNameKey": "Visual_kde_useUpper",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "upper": {
+                        "displayName": "Upper Bound",
+                        "displayNameKey": "Visual_kde_upper",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "statLines": {
+                "displayName": "Statistic Lines",
+                "displayNameKey": "Visual_statLines",
+                "properties": {
+                    "showMean": {
+                        "displayName": "Mean Line",
+                        "displayNameKey": "Visual_statLines_showMean",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showMedian": {
+                        "displayName": "Median Line",
+                        "displayNameKey": "Visual_statLines_showMedian",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "percentiles": {
+                        "displayName": "Percentile Lines",
+                        "displayNameKey": "Visual_statLines_percentiles",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "scope": {
+                        "displayName": "Computed For",
+                        "displayNameKey": "Visual_statLines_scope",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "all",
+                                    "displayName": "All data in the panel"
+                                },
+                                {
+                                    "value": "group",
+                                    "displayName": "Each group"
+                                }
+                            ]
+                        }
+                    },
+                    "showLabels": {
+                        "displayName": "Labels",
+                        "displayNameKey": "Visual_statLines_showLabels",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "displayNameKey": "Visual_statLines_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "reference": {
+                "displayName": "Reference Line",
+                "displayNameKey": "Visual_reference",
+                "properties": {
+                    "show": {
+                        "displayName": "Show Reference Line",
+                        "displayNameKey": "Visual_reference_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "value": {
+                        "displayName": "Value",
+                        "displayNameKey": "Visual_reference_value",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "label": {
+                        "displayName": "Label",
+                        "displayNameKey": "Visual_reference_label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "displayNameKey": "Visual_reference_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "valueAxis": {
+                "displayName": "Value Axis",
+                "displayNameKey": "Visual_valueAxis",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "displayNameKey": "Visual_valueAxis_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "useMin": {
+                        "displayName": "Fixed Minimum",
+                        "displayNameKey": "Visual_valueAxis_useMin",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "min": {
+                        "displayName": "Minimum",
+                        "displayNameKey": "Visual_valueAxis_min",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "useMax": {
+                        "displayName": "Fixed Maximum",
+                        "displayNameKey": "Visual_valueAxis_useMax",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "max": {
+                        "displayName": "Maximum",
+                        "displayNameKey": "Visual_valueAxis_max",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "log": {
+                        "displayName": "Logarithmic Scale",
+                        "displayNameKey": "Visual_valueAxis_log",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gridlines": {
+                        "displayName": "Gridlines",
+                        "displayNameKey": "Visual_valueAxis_gridlines",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTitle": {
+                        "displayName": "Show Title",
+                        "displayNameKey": "Visual_valueAxis_showTitle",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "title": {
+                        "displayName": "Title",
+                        "displayNameKey": "Visual_valueAxis_title",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "decimals": {
+                        "displayName": "Decimal Places (-1 = auto)",
+                        "displayNameKey": "Visual_valueAxis_decimals",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font Size",
+                        "displayNameKey": "Visual_valueAxis_fontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Text Color",
+                        "displayNameKey": "Visual_valueAxis_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "categoryAxis": {
+                "displayName": "Group Axis",
+                "displayNameKey": "Visual_categoryAxis",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "displayNameKey": "Visual_categoryAxis_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showN": {
+                        "displayName": "Show n per Group",
+                        "displayNameKey": "Visual_categoryAxis_showN",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font Size",
+                        "displayNameKey": "Visual_categoryAxis_fontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Text Color",
+                        "displayNameKey": "Visual_categoryAxis_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showTitle": {
+                        "displayName": "Show Title",
+                        "displayNameKey": "Visual_categoryAxis_showTitle",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "labels": {
+                "displayName": "Data Labels",
+                "displayNameKey": "Visual_labels",
+                "properties": {
+                    "showMedian": {
+                        "displayName": "Median",
+                        "displayNameKey": "Visual_labels_showMedian",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showQuartiles": {
+                        "displayName": "Quartiles",
+                        "displayNameKey": "Visual_labels_showQuartiles",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showMean": {
+                        "displayName": "Mean",
+                        "displayNameKey": "Visual_labels_showMean",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font Size",
+                        "displayNameKey": "Visual_labels_fontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "colors": {
+                "displayName": "Colors",
+                "displayNameKey": "Visual_colors",
+                "properties": {
+                    "single": {
+                        "displayName": "One Colour for All Groups",
+                        "displayNameKey": "Visual_colors_single",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fill": {
+                        "displayName": "Colour",
+                        "displayNameKey": "Visual_colors_fill",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "displayName": "Legend",
+                "displayNameKey": "Visual_legend",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "displayNameKey": "Visual_legend_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "displayName": "Position",
+                        "displayNameKey": "Visual_legend_position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font Size",
+                        "displayNameKey": "Visual_legend_fontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Text Color",
+                        "displayNameKey": "Visual_legend_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "caption": {
+                "displayName": "Smart Caption",
+                "displayNameKey": "Visual_caption",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "displayNameKey": "Visual_caption_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "displayName": "Position",
+                        "displayNameKey": "Visual_caption_position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font Size",
+                        "displayNameKey": "Visual_caption_fontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Text Color",
+                        "displayNameKey": "Visual_caption_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "footnote": {
+                "displayName": "Footnote",
+                "displayNameKey": "Visual_footnote",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "displayNameKey": "Visual_footnote_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "source": {
+                        "displayName": "Source",
+                        "displayNameKey": "Visual_footnote_source",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showMethod": {
+                        "displayName": "State the Methods",
+                        "displayNameKey": "Visual_footnote_showMethod",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font Size",
+                        "displayNameKey": "Visual_footnote_fontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Text Color",
+                        "displayNameKey": "Visual_footnote_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "theme": {
+                "displayName": "Theme",
+                "displayNameKey": "Visual_theme",
+                "properties": {
+                    "selectedTheme": {
+                        "displayName": "Theme",
+                        "displayNameKey": "Visual_theme_selectedTheme",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "smartvisuals",
+                                    "displayName": "SmartVisuals"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Dark"
+                                },
+                                {
+                                    "value": "clean",
+                                    "displayName": "Clean (White)"
+                                },
+                                {
+                                    "value": "slate",
+                                    "displayName": "Slate"
+                                }
+                            ]
+                        }
+                    },
+                    "font": {
+                        "displayName": "Font",
+                        "displayNameKey": "Visual_theme_font",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "inter",
+                                    "displayName": "Inter"
+                                },
+                                {
+                                    "value": "segoe",
+                                    "displayName": "Segoe UI"
+                                },
+                                {
+                                    "value": "arial",
+                                    "displayName": "Arial"
+                                },
+                                {
+                                    "value": "georgia",
+                                    "displayName": "Georgia"
+                                }
+                            ]
+                        }
+                    },
+                    "transparentBg": {
+                        "displayName": "Transparent Background",
+                        "displayNameKey": "Visual_theme_transparentBg",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "groupColors": {
+                "displayName": "Group Colors",
+                "displayNameKey": "Visual_groupColors",
+                "properties": {
+                    "fill": {
+                        "displayName": "Colour",
+                        "displayNameKey": "Visual_groupColors_fill",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "privileges": [],
+        "sorting": {
+            "default": {}
+        },
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

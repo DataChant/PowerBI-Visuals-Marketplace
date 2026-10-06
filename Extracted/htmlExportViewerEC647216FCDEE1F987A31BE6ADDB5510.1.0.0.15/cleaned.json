@@ -1,0 +1,90 @@
+{
+    "visual": {
+        "name": "htmlExportViewer",
+        "displayName": "HTML Export Viewer",
+        "guid": "htmlExportViewerEC647216FCDEE1F987A31BE6ADDB5510",
+        "visualClassName": "Visual",
+        "version": "1.0.0.15",
+        "description": "Renders an HTML measure (for example, a styled table produced by DAX) and lets the report user export it to PDF, Excel or Word.",
+        "supportUrl": "mailto:info@pbiwise.com",
+        "gitHubUrl": "https://github.com/andyocnz/HTML-Export-Viewer-PowerBI-Visual"
+    },
+    "author": {
+        "name": "andy.ocnz",
+        "email": "andy.ocnz@gmail.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "HTML content",
+                "name": "content",
+                "kind": "Measure"
+            }
+        ],
+        "objects": {
+            "toolbar": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "pdfButtonText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "excelButtonText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "wordButtonText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fileName": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "content": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "single": {
+                    "role": "content"
+                }
+            }
+        ],
+        "privileges": [
+            {
+                "name": "ExportContent",
+                "essential": true
+            }
+        ],
+        "tooltips": {
+            "supportedTypes": {
+                "default": false,
+                "canvas": true
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
