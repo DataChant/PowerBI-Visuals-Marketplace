@@ -1,0 +1,308 @@
+{
+    "visual": {
+        "name": "DealPipelineContributionTree",
+        "displayName": "Deal Pipeline Contribution Waterfall Tree",
+        "guid": "DealPipelineContributionTreeByOfficeSolution",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Investment Banking Deal Pipeline Contribution Waterfall Tree with expandable hierarchy, probability weighting, variance tracking, and dual-period comparison.",
+        "supportUrl": "https://newwebsite.innovationalofficesolution.com/power-bi-custom-charts",
+        "gitHubUrl": "https://github.com"
+    },
+    "author": {
+        "name": "Rajesh",
+        "email": "rajesh.singh@innovationalofficesolution.com"
+    },
+    "apiVersion": "5.10.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Hierarchy Levels",
+                "name": "levels",
+                "kind": "Grouping",
+                "description": "Hierarchy: Product \u2192 Sector \u2192 Stage \u2192 Mandate (Multi-column supported)"
+            },
+            {
+                "displayName": "Fee / Revenue",
+                "name": "fee",
+                "kind": "Measure",
+                "description": "Expected or probability-weighted fees / deal revenue (Multi-measure supported)"
+            },
+            {
+                "displayName": "Probability / Weight",
+                "name": "probability",
+                "kind": "Measure",
+                "description": "Stage probability or weighting factor (0% - 100% or 0.0 - 1.0)"
+            },
+            {
+                "displayName": "Variance vs Forecast",
+                "name": "variance",
+                "kind": "Measure",
+                "description": "Variance vs forecast or target for positive/negative color encoding"
+            },
+            {
+                "displayName": "Period / Quarter",
+                "name": "period",
+                "kind": "Grouping",
+                "description": "Current vs Prior quarter / scenario for side-by-side comparison"
+            },
+            {
+                "displayName": "Parent Path (Optional)",
+                "name": "parentPath",
+                "kind": "Grouping",
+                "description": "Optional pre-delimited path string if hierarchy is in a single column"
+            }
+        ],
+        "objects": {
+            "treeSettings": {
+                "displayName": "Tree Layout",
+                "properties": {
+                    "orientation": {
+                        "displayName": "Orientation",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "connectorStyle": {
+                        "displayName": "Connector Style",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "nodeStyle": {
+                        "displayName": "Node Style",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "defaultExpandDepth": {
+                        "displayName": "Initial Expand Depth",
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "probabilitySettings": {
+                "displayName": "Probability & Weighting",
+                "properties": {
+                    "showProbabilityBadges": {
+                        "displayName": "Show Probability Badges",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "weightFeesByProbability": {
+                        "displayName": "Calculate Probability-Weighted Fees",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "highProbabilityThreshold": {
+                        "displayName": "High Probability Threshold (%)",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "mediumProbabilityThreshold": {
+                        "displayName": "Medium Probability Threshold (%)",
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "topNSettings": {
+                "displayName": "Top N & Residual Other",
+                "properties": {
+                    "enableTopN": {
+                        "displayName": "Enable Top-N",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "topNCount": {
+                        "displayName": "Top Contributors Count",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "enableOtherNode": {
+                        "displayName": "Group Residual as Other",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "otherNodeLabel": {
+                        "displayName": "Other Node Label",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "varianceSettings": {
+                "displayName": "Variance & Colors",
+                "properties": {
+                    "positiveColor": {
+                        "displayName": "Positive Variance",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "negativeColor": {
+                        "displayName": "Negative Variance",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "accentColor": {
+                        "displayName": "Pipeline Accent Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "neutralColor": {
+                        "displayName": "Neutral / Other Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "displaySettings": {
+                "displayName": "Display & Units",
+                "properties": {
+                    "displayUnits": {
+                        "displayName": "Display Units",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "decimalPlaces": {
+                        "displayName": "Decimal Places",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "currencySymbol": {
+                        "displayName": "Currency Symbol / Prefix",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "compareSettings": {
+                "displayName": "Compare Mode",
+                "properties": {
+                    "enableCompare": {
+                        "displayName": "Compare Periods Side-by-Side",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "levels": {
+                            "min": 0,
+                            "max": 20
+                        },
+                        "fee": {
+                            "min": 0,
+                            "max": 10
+                        },
+                        "probability": {
+                            "min": 0,
+                            "max": 5
+                        },
+                        "variance": {
+                            "min": 0,
+                            "max": 5
+                        },
+                        "period": {
+                            "min": 0,
+                            "max": 2
+                        },
+                        "parentPath": {
+                            "min": 0,
+                            "max": 5
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "levels"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "period"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "parentPath"
+                                }
+                            }
+                        ]
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "fee"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "probability"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "variance"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "sorting": {
+            "default": {}
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
