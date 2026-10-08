@@ -1,0 +1,1839 @@
+{
+    "visual": {
+        "name": "advanVisSmartBar",
+        "displayName": "AdvanVis - Smart Bar and Column",
+        "guid": "advanVisSmartBar0A38A7B09884480CB7750B3BD07A0150",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Bar and column charts with a variance chart and locally calculated insights that explain your data in plain English. Free: bars, columns, stacked, clustered and 100% stacked, lollipops, automatic direction, axis break for an outlier, Pareto line, Top N with a working Other bar, average, median and fixed lines, highest and lowest highlighting, category images, fx colours, scrolling, drill-down, vector export and a basic headline. Pro (one-month free trial): the full smart headline and findings with How calculated, smart design tips, the IBCS-style variance chart, change against last period, and targets scored met or missed.",
+        "supportUrl": "https://advanvis.co.uk/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "AdvanVis Technologies Limited",
+        "email": "arpit@advanvis.co.uk"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "privileges": [],
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsLandingPage": true,
+        "supportsMultiVisualSelection": true,
+        "sorting": {
+            "default": {}
+        },
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "supportEnhancedTooltips": true
+        },
+        "drilldown": {
+            "roles": [
+                "category"
+            ]
+        },
+        "dataRoles": [
+            {
+                "displayName": "Category",
+                "description": "The name of each bar. Add more fields to drill down.",
+                "name": "category",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Legend",
+                "description": "Optional. Splits each bar into series, stacked or side by side.",
+                "name": "series",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Values",
+                "description": "The numeric field that drives bar length. Without a Legend, up to six measures become series.",
+                "name": "measure",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Compare to (last period)",
+                "description": "Optional, Pro. Last year or last month: a grey bar behind each bar, the change, and what drove it.",
+                "name": "comparison",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Target or budget",
+                "description": "Optional, Pro. A goal, budget or plan per category: a marker on each bar, scored met or missed.",
+                "name": "target",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Image",
+                "description": "Optional, free. A picture per category, as a data URI (base64 or SVG). Web links cannot be loaded by a certified visual.",
+                "name": "image",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Tooltips",
+                "description": "Optional. Extra measures to show when hovering a bar.",
+                "name": "tooltips",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Show condition",
+                "description": "Optional. A 0/1 measure: the chart is drawn only when it is 1. When it is 0 or blank, a message is shown instead and no values are revealed.",
+                "name": "showCondition",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "category": {
+                            "max": 4
+                        },
+                        "series": {
+                            "max": 0
+                        },
+                        "measure": {
+                            "max": 6
+                        },
+                        "comparison": {
+                            "max": 1
+                        },
+                        "target": {
+                            "max": 1
+                        },
+                        "tooltips": {
+                            "max": 5
+                        },
+                        "image": {
+                            "max": 1
+                        },
+                        "showCondition": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "category": {
+                            "max": 4
+                        },
+                        "series": {
+                            "max": 1
+                        },
+                        "measure": {
+                            "max": 1
+                        },
+                        "comparison": {
+                            "max": 1
+                        },
+                        "target": {
+                            "max": 1
+                        },
+                        "tooltips": {
+                            "max": 5
+                        },
+                        "image": {
+                            "max": 1
+                        },
+                        "showCondition": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "for": {
+                            "in": "category"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 1000
+                            }
+                        }
+                    },
+                    "values": {
+                        "group": {
+                            "by": "series",
+                            "select": [
+                                {
+                                    "bind": {
+                                        "to": "measure"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "comparison"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "target"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "image"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "tooltips"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "showCondition"
+                                    }
+                                }
+                            ],
+                            "dataReductionAlgorithm": {
+                                "top": {
+                                    "count": 60
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "chart": {
+                "displayName": "Chart",
+                "properties": {
+                    "orientation": {
+                        "displayName": "Direction",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (bars for long names, columns for time)"
+                                },
+                                {
+                                    "value": "bars",
+                                    "displayName": "Bars (horizontal)"
+                                },
+                                {
+                                    "value": "columns",
+                                    "displayName": "Columns (vertical)"
+                                }
+                            ]
+                        }
+                    },
+                    "layout": {
+                        "displayName": "Series layout",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (stacked for a Legend, side by side for measures)"
+                                },
+                                {
+                                    "value": "stacked",
+                                    "displayName": "Stacked"
+                                },
+                                {
+                                    "value": "clustered",
+                                    "displayName": "Clustered"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "100% stacked"
+                                }
+                            ]
+                        }
+                    },
+                    "style": {
+                        "displayName": "Style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bar",
+                                    "displayName": "Bars"
+                                },
+                                {
+                                    "value": "lollipop",
+                                    "displayName": "Lollipop"
+                                },
+                                {
+                                    "value": "dumbbell",
+                                    "displayName": "Dumbbell (then and now)"
+                                }
+                            ]
+                        }
+                    },
+                    "additive": {
+                        "displayName": "Values add up to a total",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (not for % or averages)"
+                                },
+                                {
+                                    "value": "yes",
+                                    "displayName": "Yes"
+                                },
+                                {
+                                    "value": "no",
+                                    "displayName": "No"
+                                }
+                            ]
+                        }
+                    },
+                    "showTotalBar": {
+                        "displayName": "Total bar",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "totalLabel": {
+                        "displayName": "Total label",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "colours": {
+                "displayName": "Colour scheme",
+                "properties": {
+                    "palette": {
+                        "displayName": "Scheme",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "theme",
+                                    "displayName": "Report theme"
+                                },
+                                {
+                                    "value": "advanvis",
+                                    "displayName": "AdvanVis blues"
+                                },
+                                {
+                                    "value": "colourBlindSafe",
+                                    "displayName": "Colour-blind safe"
+                                },
+                                {
+                                    "value": "vivid",
+                                    "displayName": "Vivid"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel"
+                                },
+                                {
+                                    "value": "ocean",
+                                    "displayName": "Ocean"
+                                },
+                                {
+                                    "value": "sunset",
+                                    "displayName": "Sunset"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth"
+                                },
+                                {
+                                    "value": "greyscale",
+                                    "displayName": "Greyscale"
+                                },
+                                {
+                                    "value": "gradient",
+                                    "displayName": "Gradient by rank"
+                                }
+                            ]
+                        }
+                    },
+                    "gradientHigh": {
+                        "displayName": "Largest colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "gradientLow": {
+                        "displayName": "Smallest colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colourNegatives": {
+                        "displayName": "Colour negative values",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "negativeColor": {
+                        "displayName": "Negative colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "dataPoint": {
+                "displayName": "Data colours",
+                "properties": {
+                    "defaultColor": {
+                        "displayName": "Default colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showAll": {
+                        "displayName": "Show all",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fill": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "comparison": {
+                "displayName": "Change vs last period (Pro)",
+                "properties": {
+                    "show": {
+                        "displayName": "Show comparison",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "display": {
+                        "displayName": "Display",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "ghost",
+                                    "displayName": "Grey bar behind (IBCS)"
+                                },
+                                {
+                                    "value": "outline",
+                                    "displayName": "Dashed outline"
+                                },
+                                {
+                                    "value": "labelsOnly",
+                                    "displayName": "Labels and tooltips only"
+                                }
+                            ]
+                        }
+                    },
+                    "changeLabel": {
+                        "displayName": "Change in labels",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "valuePercent",
+                                    "displayName": "Change (%)"
+                                },
+                                {
+                                    "value": "valueAmount",
+                                    "displayName": "Change (amount)"
+                                },
+                                {
+                                    "value": "sharePoints",
+                                    "displayName": "Share change (pts)"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "caption": {
+                        "displayName": "Compared to",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "increaseIsGood": {
+                        "displayName": "Increase is good",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "goodColor": {
+                        "displayName": "Favourable colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "badColor": {
+                        "displayName": "Unfavourable colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ghostColor": {
+                        "displayName": "Comparison colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "target": {
+                "displayName": "Target or budget (Pro)",
+                "properties": {
+                    "show": {
+                        "displayName": "Show target",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "display": {
+                        "displayName": "Display",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "marker",
+                                    "displayName": "Marker line"
+                                },
+                                {
+                                    "value": "bullet",
+                                    "displayName": "Bullet (band behind the bar)"
+                                },
+                                {
+                                    "value": "labelsOnly",
+                                    "displayName": "Labels and tooltips only"
+                                }
+                            ]
+                        }
+                    },
+                    "markerColor": {
+                        "displayName": "Marker colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "markerWidth": {
+                        "displayName": "Marker width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bandColor": {
+                        "displayName": "Bullet band colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "higherIsBetter": {
+                        "displayName": "Higher is better",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelMode": {
+                        "displayName": "Target in labels",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "status",
+                                    "displayName": "Met / missed (\u2713 \u2717)"
+                                },
+                                {
+                                    "value": "attainment",
+                                    "displayName": "Attainment %"
+                                },
+                                {
+                                    "value": "gap",
+                                    "displayName": "Gap to target"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "colourByStatus": {
+                        "displayName": "Colour bars by status",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "metColor": {
+                        "displayName": "Met colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "missedColor": {
+                        "displayName": "Missed colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "variance": {
+                "displayName": "Variance chart (Pro)",
+                "properties": {
+                    "show": {
+                        "displayName": "Show variance chart",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "basis": {
+                        "displayName": "Difference to",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (target, else comparison)"
+                                },
+                                {
+                                    "value": "comparison",
+                                    "displayName": "Compare to"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Target or budget"
+                                }
+                            ]
+                        }
+                    },
+                    "showAmount": {
+                        "displayName": "Difference (amount)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPercent": {
+                        "displayName": "Difference (%)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "size": {
+                        "displayName": "Size % of the chart",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showHeaders": {
+                        "displayName": "Headers",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "insights": {
+                "displayName": "\u2726 Smart insights (Pro)",
+                "properties": {
+                    "show": {
+                        "displayName": "\u2726 Smart insights",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showLeader": {
+                        "displayName": "Leader and dominance",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showGroup": {
+                        "displayName": "Top / bottom group",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showConcentration": {
+                        "displayName": "Concentration (Pareto)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showOutliers": {
+                        "displayName": "Outliers",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showChange": {
+                        "displayName": "Change drivers and movers",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTargets": {
+                        "displayName": "Targets",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showOther": {
+                        "displayName": "Long tail (Other)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showRisk": {
+                        "displayName": "Reliance on one or two",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showGrowth": {
+                        "displayName": "Growth leaders",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showLosses": {
+                        "displayName": "Losses and negatives",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showSeries": {
+                        "displayName": "Series mix",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "groupDirection": {
+                        "displayName": "Group",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "groupSize": {
+                        "displayName": "Group size (N)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "paretoPercent": {
+                        "displayName": "Pareto share %",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "outlierSensitivity": {
+                        "displayName": "Outlier sensitivity",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "low",
+                                    "displayName": "Low (only extreme)"
+                                },
+                                {
+                                    "value": "medium",
+                                    "displayName": "Medium"
+                                },
+                                {
+                                    "value": "high",
+                                    "displayName": "High (more findings)"
+                                }
+                            ]
+                        }
+                    },
+                    "minChangePts": {
+                        "displayName": "Ignore share moves below (pts)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "categoryNoun": {
+                        "displayName": "Call categories",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "measureNoun": {
+                        "displayName": "Call the measure",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showHeadline": {
+                        "displayName": "\u2726 Smart headline",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "designTips": {
+                        "displayName": "\u2726 Smart design tips (edit mode only)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "displayName": "Position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (left when wide, top when tall)"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left panel"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right panel"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "style": {
+                        "displayName": "Style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bullets",
+                                    "displayName": "Bullet points"
+                                },
+                                {
+                                    "value": "paragraph",
+                                    "displayName": "Paragraph"
+                                }
+                            ]
+                        }
+                    },
+                    "maxInsights": {
+                        "displayName": "Number of insights",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "autoSize": {
+                        "displayName": "Grow text in large visuals",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showHeading": {
+                        "displayName": "Heading",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "headingText": {
+                        "displayName": "Heading text",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "spotlight": {
+                        "displayName": "Spotlight on chart",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "mark",
+                                    "displayName": "Mark with \u2726"
+                                },
+                                {
+                                    "value": "focus",
+                                    "displayName": "Focus (fade the rest)"
+                                },
+                                {
+                                    "value": "off",
+                                    "displayName": "Off"
+                                }
+                            ]
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "displayName": "Text colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "accentColor": {
+                        "displayName": "Accent colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "topN": {
+                "displayName": "Top N",
+                "properties": {
+                    "show": {
+                        "displayName": "Show top N",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "grouping": {
+                        "displayName": "Group by",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "count",
+                                    "displayName": "Top N by count"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "Below a share %"
+                                }
+                            ]
+                        }
+                    },
+                    "count": {
+                        "displayName": "N",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "thresholdPercent": {
+                        "displayName": "Group bars below %",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showOther": {
+                        "displayName": "Show Other bar",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "otherLabel": {
+                        "displayName": "Other label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "otherColor": {
+                        "displayName": "Other colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "sortOtherLast": {
+                        "displayName": "Sort Other last",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "percentBase": {
+                        "displayName": "Percentages of",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "shown",
+                                    "displayName": "Shown bars"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "All categories"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "dataLabels": {
+                "displayName": "Data labels",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showValue": {
+                        "displayName": "Value",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPercentage": {
+                        "displayName": "Percentage of total",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showSegments": {
+                        "displayName": "Labels on each series",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "displayName": "Position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "outsideEnd",
+                                    "displayName": "Outside end"
+                                },
+                                {
+                                    "value": "insideEnd",
+                                    "displayName": "Inside end"
+                                },
+                                {
+                                    "value": "insideBase",
+                                    "displayName": "Inside base"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Centre"
+                                }
+                            ]
+                        }
+                    },
+                    "valueDisplayUnits": {
+                        "displayName": "Display units",
+                        "type": {
+                            "formatting": {
+                                "labelDisplayUnits": true
+                            }
+                        }
+                    },
+                    "valueDecimals": {
+                        "displayName": "Value decimals",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "0",
+                                    "displayName": "0"
+                                },
+                                {
+                                    "value": "1",
+                                    "displayName": "1"
+                                },
+                                {
+                                    "value": "2",
+                                    "displayName": "2"
+                                },
+                                {
+                                    "value": "3",
+                                    "displayName": "3"
+                                },
+                                {
+                                    "value": "4",
+                                    "displayName": "4"
+                                },
+                                {
+                                    "value": "5",
+                                    "displayName": "5"
+                                },
+                                {
+                                    "value": "6",
+                                    "displayName": "6"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "displayName": "Percentage decimals",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showKey": {
+                        "displayName": "Symbol key",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "categoryAxis": {
+                "displayName": "Category axis",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "wrap": {
+                        "displayName": "Wrap long names",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maxWidth": {
+                        "displayName": "Maximum label width %",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "valueAxis": {
+                "displayName": "Value axis",
+                "properties": {
+                    "mode": {
+                        "displayName": "Show",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (off when labels show values)"
+                                },
+                                {
+                                    "value": "on",
+                                    "displayName": "On"
+                                },
+                                {
+                                    "value": "off",
+                                    "displayName": "Off"
+                                }
+                            ]
+                        }
+                    },
+                    "gridlines": {
+                        "displayName": "Gridlines",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "displayUnits": {
+                        "displayName": "Display units",
+                        "type": {
+                            "formatting": {
+                                "labelDisplayUnits": true
+                            }
+                        }
+                    },
+                    "breakMode": {
+                        "displayName": "Axis break",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (when one bar dwarfs the rest)"
+                                },
+                                {
+                                    "value": "off",
+                                    "displayName": "Off"
+                                }
+                            ]
+                        }
+                    },
+                    "fixedMax": {
+                        "displayName": "Fixed maximum",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maxValue": {
+                        "displayName": "Maximum",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "referenceLines": {
+                "displayName": "Reference lines",
+                "properties": {
+                    "showAverage": {
+                        "displayName": "Average",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showMedian": {
+                        "displayName": "Median",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showConstant": {
+                        "displayName": "Fixed value",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "constantValue": {
+                        "displayName": "Value",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "constantLabel": {
+                        "displayName": "Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "lineColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showLabels": {
+                        "displayName": "Labels",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "pareto": {
+                "displayName": "Pareto line",
+                "properties": {
+                    "show": {
+                        "displayName": "Show Pareto line",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "guidePercent": {
+                        "displayName": "Guide line at %",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "displayName": "Legend",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "displayName": "Position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "highlighting": {
+                "displayName": "Highlighting",
+                "properties": {
+                    "statusColours": {
+                        "displayName": "Status colours (red / green)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showMax": {
+                        "displayName": "Highlight highest",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maxColor": {
+                        "displayName": "Highest colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showMin": {
+                        "displayName": "Highlight lowest",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "minColor": {
+                        "displayName": "Lowest colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showMarkers": {
+                        "displayName": "Show high/low markers in labels",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "markerHighColor": {
+                        "displayName": "High marker colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "markerLowColor": {
+                        "displayName": "Low marker colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "flipColours": {
+                        "displayName": "Flip (lower is better)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ruleShow": {
+                        "displayName": "Apply rule",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ruleCondition": {
+                        "displayName": "Condition",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "greaterThan",
+                                    "displayName": "Greater than"
+                                },
+                                {
+                                    "value": "lessThan",
+                                    "displayName": "Less than"
+                                }
+                            ]
+                        }
+                    },
+                    "ruleMeasuredBy": {
+                        "displayName": "Measured by",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "value",
+                                    "displayName": "Value"
+                                },
+                                {
+                                    "value": "percentage",
+                                    "displayName": "Percentage"
+                                },
+                                {
+                                    "value": "rank",
+                                    "displayName": "Rank"
+                                },
+                                {
+                                    "value": "shareChange",
+                                    "displayName": "Share change (pts)"
+                                },
+                                {
+                                    "value": "valueChange",
+                                    "displayName": "Value change (%)"
+                                },
+                                {
+                                    "value": "attainment",
+                                    "displayName": "Target attainment (%)"
+                                }
+                            ]
+                        }
+                    },
+                    "ruleThreshold": {
+                        "displayName": "Threshold",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "ruleColor": {
+                        "displayName": "Rule colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "images": {
+                "displayName": "Images",
+                "properties": {
+                    "show": {
+                        "displayName": "Show images",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "size": {
+                        "displayName": "Size (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "tile": {
+                        "displayName": "Colour tile behind pictures",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "bars": {
+                "displayName": "Bars",
+                "properties": {
+                    "barWidth": {
+                        "displayName": "Thickness % of space",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "seriesGap": {
+                        "displayName": "Gap between series %",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cornerRadius": {
+                        "displayName": "Corner radius",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "borderWidth": {
+                        "displayName": "Border width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "borderColor": {
+                        "displayName": "Border colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "patternFills": {
+                        "displayName": "Pattern fills",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scroll": {
+                        "displayName": "Scroll when bars don't fit",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "minThickness": {
+                        "displayName": "Minimum space per category (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "sortOptions": {
+                "displayName": "Sorting",
+                "properties": {
+                    "sortMode": {
+                        "displayName": "Sort by",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (time in order, else largest first)"
+                                },
+                                {
+                                    "value": "valueDesc",
+                                    "displayName": "Value descending"
+                                },
+                                {
+                                    "value": "valueAsc",
+                                    "displayName": "Value ascending"
+                                },
+                                {
+                                    "value": "categoryAsc",
+                                    "displayName": "Category A-Z"
+                                },
+                                {
+                                    "value": "categoryDesc",
+                                    "displayName": "Category Z-A"
+                                },
+                                {
+                                    "value": "dataOrder",
+                                    "displayName": "Data order"
+                                },
+                                {
+                                    "value": "changeDesc",
+                                    "displayName": "Change, largest rise first"
+                                },
+                                {
+                                    "value": "changeAsc",
+                                    "displayName": "Change, largest fall first"
+                                },
+                                {
+                                    "value": "targetGap",
+                                    "displayName": "Gap to target, furthest behind first"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "showCondition": {
+                "displayName": "Show condition",
+                "properties": {
+                    "message": {
+                        "displayName": "Message when hidden",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

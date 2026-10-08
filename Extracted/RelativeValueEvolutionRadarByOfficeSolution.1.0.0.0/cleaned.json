@@ -1,0 +1,302 @@
+{
+    "visual": {
+        "name": "RelativeValueEvolutionRadar",
+        "displayName": "Relative Value & Spread Evolution Radar",
+        "guid": "RelativeValueEvolutionRadarByOfficeSolution",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Dynamic radar spider chart with historical evolution paths, multi-instrument overlay, benchmark reference, and play-axis animation for relative-value analysis.",
+        "supportUrl": "https://newwebsite.innovationalofficesolution.com/power-bi-custom-charts",
+        "gitHubUrl": "https://github.com"
+    },
+    "author": {
+        "name": "Rajesh",
+        "email": "rajesh.singh@innovationalofficesolution.com"
+    },
+    "apiVersion": "5.10.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Instrument / Strategy",
+                "name": "instrument",
+                "kind": "Grouping",
+                "description": "Series to plot on the radar (e.g. UST 10Y, Bund 10Y, HY CDX...)"
+            },
+            {
+                "displayName": "Metric / Spoke",
+                "name": "metric",
+                "kind": "Grouping",
+                "description": "Z-score, Spread, Basis, Carry, etc. (radar spoke dimensions)"
+            },
+            {
+                "displayName": "Value",
+                "name": "value",
+                "kind": "Measure",
+                "description": "Current value of the metric"
+            },
+            {
+                "displayName": "Date / Period",
+                "name": "date",
+                "kind": "Grouping",
+                "description": "Historical dates or periods for shape evolution and play-axis animation"
+            },
+            {
+                "displayName": "Benchmark / Ideal",
+                "name": "benchmark",
+                "kind": "Measure",
+                "description": "Optional ideal or benchmark shape reference"
+            }
+        ],
+        "objects": {
+            "radarSettings": {
+                "displayName": "Radar Settings",
+                "properties": {
+                    "showGridRings": {
+                        "displayName": "Show Grid Rings",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ringsCount": {
+                        "displayName": "Grid Rings Count",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "fillOpacity": {
+                        "displayName": "Polygon Fill Opacity (%)",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "strokeWidth": {
+                        "displayName": "Line Thickness",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "curveType": {
+                        "displayName": "Curve Type",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showSpokeLabels": {
+                        "displayName": "Show Spoke Labels",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelFontSize": {
+                        "displayName": "Label Font Size",
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "trailSettings": {
+                "displayName": "Evolution Trail & Path",
+                "properties": {
+                    "enableTrail": {
+                        "displayName": "Show Historical Trail",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "trailLength": {
+                        "displayName": "Trail Lookback Steps",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "fadeEffect": {
+                        "displayName": "Fade Opacity for Older Steps",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPathLines": {
+                        "displayName": "Show Vertex Motion Paths",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "scaleSettings": {
+                "displayName": "Scale & Benchmark",
+                "properties": {
+                    "normalizationMode": {
+                        "displayName": "Scale Mode (normalized/absolute)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showBenchmark": {
+                        "displayName": "Show Benchmark Reference",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "benchmarkDashed": {
+                        "displayName": "Dashed Benchmark Line",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "animationSettings": {
+                "displayName": "Play Axis & Animation",
+                "properties": {
+                    "autoPlay": {
+                        "displayName": "Auto Play on Load",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "durationMs": {
+                        "displayName": "Step Duration (ms)",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "loop": {
+                        "displayName": "Loop Animation",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "colorSettings": {
+                "displayName": "Colors & Theme",
+                "properties": {
+                    "accentColor": {
+                        "displayName": "Primary Accent Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "benchmarkColor": {
+                        "displayName": "Benchmark Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "gridColor": {
+                        "displayName": "Grid Ring Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "displayName": "Text & Spoke Label Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "conditions": [],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "instrument"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "metric"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "value"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "date"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "benchmark"
+                                }
+                            }
+                        ]
+                    }
+                },
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "instrument"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "metric"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "date"
+                                }
+                            }
+                        ]
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "value"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "benchmark"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "sorting": {
+            "default": {}
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
