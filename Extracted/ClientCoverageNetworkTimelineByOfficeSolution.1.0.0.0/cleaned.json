@@ -1,0 +1,176 @@
+{
+    "visual": {
+        "name": "ClientCoverageNetworkTimeline",
+        "displayName": "Client Coverage Network Timeline",
+        "guid": "ClientCoverageNetworkTimelineByOfficeSolution",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Investment Banking Client Coverage and Wallet Share Network Timeline with dynamic time-brush, cross-lane relationship mapping, and wallet share potential analysis.",
+        "supportUrl": "https://newwebsite.innovationalofficesolution.com/power-bi-custom-charts",
+        "gitHubUrl": "https://github.com"
+    },
+    "author": {
+        "name": "Rajesh",
+        "email": "rajesh.singh@innovationalofficesolution.com"
+    },
+    "apiVersion": "5.10.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Client / Coverage Officer",
+                "name": "clientOfficer",
+                "kind": "GroupingOrMeasure",
+                "description": "Primary lane entity (Institutional Client, Coverage Officer, or Sector). Drag multiple fields to enable dynamic dimension switching."
+            },
+            {
+                "displayName": "Event Date",
+                "name": "eventDate",
+                "kind": "GroupingOrMeasure",
+                "description": "Date or timestamp of the meeting, deal mandate, or revenue event."
+            },
+            {
+                "displayName": "Event Type",
+                "name": "eventType",
+                "kind": "GroupingOrMeasure",
+                "description": "Classification of event (Meeting, Pitch & RFP, Mandate Won, Deal Execution, Revenue Booking, Advisory)."
+            },
+            {
+                "displayName": "Wallet Share / Revenue",
+                "name": "walletShare",
+                "kind": "GroupingOrMeasure",
+                "description": "Primary metric (Wallet Share %, Fee Revenue, or Deal Volume). Drag multiple to enable parameter switching."
+            },
+            {
+                "displayName": "Potential / Target",
+                "name": "potential",
+                "kind": "GroupingOrMeasure",
+                "description": "Secondary comparison metric (Wallet Share Potential %, Total Addressable Wallet, or Target Budget)."
+            },
+            {
+                "displayName": "Product / Relationship",
+                "name": "productRel",
+                "kind": "GroupingOrMeasure",
+                "description": "Product group or relationship type (ECM, DCM, M&A, Syndicated Finance, Cash Mgmt)."
+            },
+            {
+                "displayName": "Target Entity / Edge",
+                "name": "targetClient",
+                "kind": "GroupingOrMeasure",
+                "description": "Connected counterparty, syndicate bank, or related entity for cross-lane network curves."
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "clientOfficer"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "eventDate"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "eventType"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "walletShare"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "potential"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "productRel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "targetClient"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "timelineSettings": {
+                "properties": {
+                    "laneHeight": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "accentColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showNetworkEdges": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPotentialGap": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableTimeBrush": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "curvature": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "featureCard": {
+                "properties": {
+                    "showNetworkEdges": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPotentialGap": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableTimeBrush": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

@@ -1,0 +1,2365 @@
+{
+    "visual": {
+        "name": "CompensationExplorer",
+        "displayName": "Compensation Explorer",
+        "guid": "CompensationExplorer8A12CC387F8146B998529A1C49A7D642",
+        "visualClassName": "Visual",
+        "version": "1.9.4.0",
+        "description": "Explore annual FTE compensation distributions, supplied internal bands, market references and unadjusted pay gaps in Power BI.",
+        "supportUrl": "https://product.workforce-studio.com/compensation-explorer",
+        "gitHubUrl": "https://github.com/alx-hbg/powerbi-custom-visual-compensation-analytics-basic-01"
+    },
+    "author": {
+        "name": "SK & AH Workforce Intelligence and AI Research GbR",
+        "email": "ask@workforce-studio.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "viewSetup": "View and Grouping",
+            "employeeLayers": "Employee Distribution",
+            "referenceLayers": "Reference Ranges",
+            "guidesLegend": "Guides and Legend",
+            "compensationField": "Compensation Field",
+            "compensationFieldHelp": "Choose one bound compensation field to edit. Every field keeps its own labels, order, amount basis and references.",
+            "referenceMappingOptions": "Reference Mapping",
+            "showAllReferenceSettings": "Show All Reference Mappings",
+            "referenceMappingHelp": "Mappings with bound reference fields or saved settings remain visible. Turn on to configure any other reference scope. Hidden settings are preserved.",
+            "internalBand": "Internal Band",
+            "legendCalculatedBand": "Calculated Band*",
+            "lowerWhisker": "Lower Whisker",
+            "upperWhisker": "Upper Whisker",
+            "legendJitterHelp": "Each dot represents one employee\u2019s selected compensation. Vertical spread separates dots; it has no financial meaning.",
+            "legendViolinHelp": "Wider sections show where more employees\u2019 pay is concentrated. Height is scaled separately for each group.",
+            "legendBoxHelp": "The box contains the middle half of employee pay; its bold line marks the median. Whiskers extend to the 10th and 90th percentiles.",
+            "legendTukeyHelp": "The box contains the middle half of employee pay; its bold line marks the median. Whiskers reach the lowest and highest observed pay within 1.5 times the box width from its edges.",
+            "legendBandHelp": "The range shows the supplied internal minimum and maximum. The bold line marks the supplied midpoint, where available.",
+            "legendMarketHelp": "The box shows the middle half of the supplied market benchmark; the bold line marks its median. Whiskers show its 10th and 90th percentiles, where supplied.",
+            "legendCalculatedHelp": "Calculated from supplied bands: lowest minimum, highest maximum and employee-weighted mean of supplied midpoints. This is a summary of bands, not the employee pay average.",
+            "legendGuidesHelp": "The background shows the middle half of pay and the median for all eligible employees in the current report filters, including off-screen rows.",
+            "legendGapGuidesHelp": "The background shows the middle half of pay and the median for women and men with valid pay in the current report filters, including off-screen rows.",
+            "legendWomenHelp": "Women with valid values for the selected compensation. Pay Gap is an unadjusted comparison with men.",
+            "legendMenHelp": "Men with valid values for the selected compensation. Hollow dots and dashed curves distinguish this group.",
+            "employeeId": "Employee key",
+            "individualReferences": "Individual Reference Ranges",
+            "calculatedBand": "Calculated Band Summary*",
+            "meanMidpoint": "Mean Midpoint*",
+            "minimum": "Min",
+            "maximum": "Max",
+            "midpointCoverage": "Midpoint Coverage",
+            "calculatedHelp": "Calculated from supplied bands: lowest minimum, highest maximum and employee-weighted mean of supplied midpoints. Missing or invalid references are excluded; no midpoint is imputed.",
+            "showToolbar": "Show Toolbar",
+            "moveCard": "Move Card",
+            "moveHelp": "Drag to move; use arrow keys when focused.",
+            "cardOpen": "Card Open",
+            "payBasis": "Amount Basis",
+            "backgroundColor": "Control / Surface Background",
+            "textColor": "Text",
+            "palette": "Five-colour Palette",
+            "availableOptions": "Available Options",
+            "payFields": "Compensation Fields and References",
+            "enabled": "Enabled",
+            "showInDropdown": "Show in Pay Dropdown",
+            "payDetails": "All Pay Amounts",
+            "fieldLabel": "Display Label",
+            "displayOrder": "Display order (blank = binding order)",
+            "unconfigured": "Not Configured",
+            "actual": "Actual \u00b7 12 Months",
+            "target": "Target \u00b7 Annual",
+            "gradeMarket": "Grade Market",
+            "popup": "Employee Popup",
+            "extraFields": "Additional Bound Fields",
+            "bandLabels": "Band Labels",
+            "marketLabels": "Market Labels",
+            "legend": "Legend",
+            "yZoom": "Y Zoom",
+            "back": "Back To Observations",
+            "noOptions": "No permitted view has usable data. Check the bound fields and Available options in the format pane.",
+            "visibleLayers": "Layers",
+            "payGap": "Pay Gap",
+            "gender": "Gender",
+            "female": "Women",
+            "male": "Men",
+            "other": "Other",
+            "genderUnknown": "Unknown",
+            "gapPopulation": "Guides and sorting use women and men with valid pay in the current report filters, including off-screen rows.",
+            "gapStatistic": "Gap Statistic",
+            "mean": "Mean",
+            "menColor": "Men Colour",
+            "gapExcluded": "Other/unknown Excluded From Comparison",
+            "gapUnavailable": "Unavailable",
+            "bindGender": "Add Gender to compare women and men.",
+            "noCohorts": "No women or men with valid pay in this population.",
+            "gapHelp": "Unadjusted annual-FTE pay gap: (men \u2212 women) / men. Positive: women lower. This is not an hourly or adjusted equal-pay assessment. Curves are normalised independently; boxes always show percentiles.",
+            "clearHelp": "Reset this visual, zoom and selections. Report filters and author formatting stay unchanged.",
+            "xScroll": "Scroll Salary Range",
+            "notes": "Population and Data Notes",
+            "title": "Compensation Explorer",
+            "base": "Base Pay",
+            "cash": "Total Cash \u00b7 Actual",
+            "bands": "Internal",
+            "market": "Market",
+            "internal": "Internal Benchmark",
+            "band": "Band",
+            "step": "Step",
+            "grade": "Grade",
+            "job": "Job",
+            "position": "Position Title",
+            "jobFamily": "Job Family",
+            "company": "Company",
+            "department": "Department",
+            "location": "Location",
+            "metric": "Compensation",
+            "perspective": "Compare With",
+            "grouping": "Group By",
+            "split": "Separate Steps",
+            "layers": "Layers",
+            "dots": "Employee Jitter",
+            "violin": "Employee Violin",
+            "box": "Employee Box-Plot",
+            "reference": "Reference",
+            "guides": "Population Guides",
+            "labels": "Percentile Labels",
+            "details": "Details",
+            "reset": "Reset View",
+            "sort": "Sort By",
+            "label": "Category",
+            "median": "Median",
+            "count": "Employees",
+            "order": "Order",
+            "previous": "Previous",
+            "next": "Next",
+            "page": "Page",
+            "of": "Of",
+            "missing": "Not Supplied",
+            "mixed": "Multiple References",
+            "expand": "Expand References",
+            "collapse": "Collapse",
+            "unknown": "Missing Group",
+            "noReference": "No Comparable Reference",
+            "n": "Employees",
+            "below": "Below Band",
+            "within": "Within Band",
+            "above": "Above Band",
+            "compa": "Median Pay / Midpoint",
+            "marketRatio": "Median Pay / Market P50",
+            "bandCoverage": "Band Range Coverage",
+            "marketCoverage": "Market P50 Coverage",
+            "cashPeriod": "Actual Cash Period",
+            "snapshot": "Snapshot date",
+            "basis": "Annual FTE \u00b7 EUR",
+            "excluded": "Excluded Pay Values",
+            "issues": "Reference Issues",
+            "selected": "Selected",
+            "loading": "Loading the complete employee population\u2026",
+            "incomplete": "Power BI could not supply the complete population. Narrow the report filters before comparing statistics.",
+            "bind": "Start with five fields: Employee key, Snapshot date, Currency, Annual FTE base salary and one grouping key. Add other pay, Gender or reference fields when needed.",
+            "empty": "No valid compensation values for the current filters and measure.",
+            "small": "Enlarge this visual to at least 320 \u00d7 480 (portrait) or 480 \u00d7 320 (landscape) to explore compensation.",
+            "missingId": "Every employee row needs a nonblank employee key.",
+            "duplicateId": "Duplicate employee keys. Supply one row per employee for a single snapshot.",
+            "currencyError": "All employee rows and reference values must use EUR.",
+            "snapshotError": "Select exactly one valid snapshot date.",
+            "periodError": "Actual cash requires one common 12-month period ending on or before the snapshot date.",
+            "unavailable": "This measure or grouping is not bound. Choose an available field.",
+            "none": "No Reference",
+            "range": "Band Range",
+            "midpoint": "Midpoint",
+            "employee": "Employee",
+            "percentiles": "P10\u2013P90 Percentile Whiskers",
+            "tukey": "Tukey 1.5 \u00d7 IQR whiskers",
+            "normalized": "Violin height is normalised within each row; n shows population size.",
+            "population": "Overall guides use all valid employees in the current report filters, including rows outside the visible area.",
+            "clear": "Clear",
+            "format": "Appearance",
+            "settings": "View and Layers",
+            "analytics": "Statistics",
+            "color": "Primary / Employees",
+            "refColor": "Bands",
+            "opacity": "Reference Opacity",
+            "pointSize": "Point Radius",
+            "fontSize": "Font Size",
+            "bandwidth": "Violin Bandwidth Multiplier",
+            "rowHeight": "Row Height",
+            "units": "Axis Units",
+            "thousands": "Thousands EUR",
+            "euros": "EUR",
+            "language": "Language",
+            "auto": "Power BI Language",
+            "whiskers": "Box Whiskers",
+            "help": "Reference gaps affect coverage, not the employee distribution. Ratios use each employee\u2019s own benchmark.",
+            "periodNote": "Cash and salary use different time definitions. Compare each only with references on its own basis.",
+            "source": "Market Source",
+            "referenceDate": "Market Reference Date",
+            "all": "All",
+            "debug": "Data Notes",
+            "selectedGroup": "Group Positioning",
+            "overall": "Filtered Population",
+            "refCoverage": "Reference Coverage",
+            "noGroups": "Bind at least one grouping key to explore compensation.",
+            "runtimeError": "The visual could not render this view. Check the data bindings.",
+            "bandBasis": "Band indicators follow the active band/step detail.",
+            "hiddenIds": "Employee keys are used for selection; identifiers are not displayed.",
+            "keyboard": "Arrow keys move between employee points. Enter selects; Ctrl+Enter adds; Escape clears.",
+            "display": "Display",
+            "ascending": "Ascending",
+            "descending": "Descending",
+            "zoom": "X Zoom",
+            "zoomMin": "Visible Minimum EUR",
+            "zoomMax": "Visible Maximum EUR",
+            "fullRange": "Full Range",
+            "panLeft": "Pan Left",
+            "panRight": "Pan Right",
+            "overlap": "Overlapping Employees",
+            "pickHelp": "Choose an observation to select it. Ctrl adds to the selection.",
+            "zoomHelp": "Ctrl + wheel zooms both axes at the pointer; X and Y sliders adjust independently. Scroll horizontally, Shift + wheel, or drag the EUR axis to pan. Zoom changes the view, not the population.",
+            "overlapHelp": "Click to choose among overlapping observations.",
+            "more": "More",
+            "close": "Close",
+            "fit": "Fit",
+            "manual": "Manual",
+            "rowSizing": "Row Sizing",
+            "marketColor": "Market / Comparison",
+            "payRange": "Pay Range",
+            "marketBenchmark": "Market Benchmark",
+            "payRanges": "Pay Ranges",
+            "marketBenchmarks": "Market Benchmarks",
+            "expandAction": "Expand",
+            "collapseAction": "Collapse",
+            "mixedHelp": "Use Individual Reference Ranges in Display to inspect supplied ranges. Calculated summaries are labelled with an asterisk.",
+            "fitHelp": "Fit rows to the available height, with a readable minimum of 65 px. Scroll if more rows remain.",
+            "scrollHelp": "Scroll categories vertically. Page Up/Down and Home/End move through rows; the EUR axis stays fixed.",
+            "qualityHelp": "Missing or conflicting references reduce comparison coverage. Distinct valid references are normal, not errors.",
+            "navigation": "Display Rows",
+            "referenceName": "Reference Name",
+            "pay": "Compensation (EUR)",
+            "currency": "Currency (EUR)",
+            "basePay": "Annual FTE base salary",
+            "totalCash": "Annual FTE actual cash",
+            "cashStart": "Actual cash period start",
+            "cashEnd": "Actual cash period end",
+            "bandId": "Band key",
+            "bandLabel": "Band label",
+            "gradeId": "Grade key",
+            "gradeLabel": "Grade label",
+            "jobId": "Job key",
+            "jobLabel": "Job label",
+            "positionId": "Position key",
+            "positionLabel": "Position label",
+            "jobFamilyId": "JobFamily key",
+            "jobFamilyLabel": "JobFamily label",
+            "companyId": "Company key",
+            "companyLabel": "Company label",
+            "departmentId": "Department key",
+            "departmentLabel": "Department label",
+            "locationId": "Location key",
+            "locationLabel": "Location label",
+            "stepId": "Step key",
+            "stepLabel": "Step label",
+            "bandRefId": "Band reference key",
+            "bandRefLabel": "Band reference label",
+            "bandBaseMin": "Band \u00b7 Base \u00b7 Min",
+            "bandBaseMid": "Band \u00b7 Base \u00b7 Mid",
+            "bandBaseMax": "Band \u00b7 Base \u00b7 Max",
+            "bandCashMin": "Band \u00b7 Actual cash \u00b7 Min",
+            "bandCashMid": "Band \u00b7 Actual cash \u00b7 Mid",
+            "bandCashMax": "Band \u00b7 Actual cash \u00b7 Max",
+            "stepRefId": "Step reference key",
+            "stepRefLabel": "Step reference label",
+            "stepBaseMin": "Step \u00b7 Base \u00b7 Min",
+            "stepBaseMid": "Step \u00b7 Base \u00b7 Mid",
+            "stepBaseMax": "Step \u00b7 Base \u00b7 Max",
+            "stepCashMin": "Step \u00b7 Actual cash \u00b7 Min",
+            "stepCashMid": "Step \u00b7 Actual cash \u00b7 Mid",
+            "stepCashMax": "Step \u00b7 Actual cash \u00b7 Max",
+            "marketRefId": "Market reference key",
+            "marketRefLabel": "Market reference label",
+            "marketBaseP10": "Market \u00b7 Base \u00b7 P10",
+            "marketBaseP25": "Market \u00b7 Base \u00b7 P25",
+            "marketBaseP50": "Market \u00b7 Base \u00b7 P50",
+            "marketBaseP75": "Market \u00b7 Base \u00b7 P75",
+            "marketBaseP90": "Market \u00b7 Base \u00b7 P90",
+            "marketCashP10": "Market \u00b7 Actual cash \u00b7 P10",
+            "marketCashP25": "Market \u00b7 Actual cash \u00b7 P25",
+            "marketCashP50": "Market \u00b7 Actual cash \u00b7 P50",
+            "marketCashP75": "Market \u00b7 Actual cash \u00b7 P75",
+            "marketCashP90": "Market \u00b7 Actual cash \u00b7 P90",
+            "bandCashBasis": "Band/step cash basis (actual)",
+            "marketCashBasis": "Market cash basis (actual)",
+            "marketSource": "Market source",
+            "marketDate": "Market reference date",
+            "testScenario": "Demo scenario",
+            "payComponents": "Prepared compensation amounts",
+            "gradeMarketRefId": "Grade market reference key",
+            "gradeMarketRefLabel": "Grade market reference label",
+            "gradeMarketSource": "Grade market source",
+            "gradeMarketDate": "Grade market date",
+            "referenceValues": "Reference values",
+            "tooltipFields": "Additional popup fields",
+            "en": "English",
+            "de": "Deutsch",
+            "expanded": "Expanded references"
+        },
+        "de-DE": {
+            "viewSetup": "Ansicht und Gruppierung",
+            "employeeLayers": "Verg\u00fctungsverteilung",
+            "referenceLayers": "Referenzspannen",
+            "guidesLegend": "Hilfslinien und Legende",
+            "compensationField": "Verg\u00fctungsfeld",
+            "compensationFieldHelp": "Ein gebundenes Verg\u00fctungsfeld zum Bearbeiten ausw\u00e4hlen. Jedes Feld beh\u00e4lt eigene Bezeichnung, Reihenfolge, Betragsbasis und Referenzen.",
+            "referenceMappingOptions": "Referenzzuordnung",
+            "showAllReferenceSettings": "Alle Referenzzuordnungen anzeigen",
+            "referenceMappingHelp": "Zuordnungen mit gebundenen Referenzfeldern oder gespeicherten Einstellungen bleiben sichtbar. Einschalten, um weitere Referenzen zu konfigurieren. Ausgeblendete Einstellungen bleiben erhalten.",
+            "internalBand": "Internes Band",
+            "legendCalculatedBand": "Berechnetes Band*",
+            "lowerWhisker": "Unterer Whisker",
+            "upperWhisker": "Oberer Whisker",
+            "legendJitterHelp": "Jeder Punkt steht f\u00fcr die ausgew\u00e4hlte Verg\u00fctung einer Person. Die vertikale Streuung trennt Punkte und hat keine finanzielle Bedeutung.",
+            "legendViolinHelp": "Breitere Abschnitte zeigen, wo sich mehr Verg\u00fctungswerte konzentrieren. Die H\u00f6he wird f\u00fcr jede Gruppe separat skaliert.",
+            "legendBoxHelp": "Die Box zeigt die mittlere H\u00e4lfte der Verg\u00fctungswerte; die kr\u00e4ftige Linie markiert den Median. Die Whisker reichen zum 10. und 90. Perzentil.",
+            "legendTukeyHelp": "Die Box zeigt die mittlere H\u00e4lfte der Verg\u00fctungswerte; die kr\u00e4ftige Linie markiert den Median. Die Whisker reichen zum kleinsten und gr\u00f6\u00dften beobachteten Wert innerhalb der 1,5-fachen Boxbreite ab den Boxr\u00e4ndern.",
+            "legendBandHelp": "Die Spanne zeigt das gelieferte interne Minimum und Maximum. Die kr\u00e4ftige Linie markiert die gelieferte Bandmitte, sofern vorhanden.",
+            "legendMarketHelp": "Die Box zeigt die mittlere H\u00e4lfte des gelieferten Marktbenchmarks; die kr\u00e4ftige Linie markiert den Median. Die Whisker zeigen das 10. und 90. Perzentil, sofern geliefert.",
+            "legendCalculatedHelp": "Berechnet aus gelieferten B\u00e4ndern: kleinstes Minimum, gr\u00f6\u00dftes Maximum und besch\u00e4ftigtengewichteter Mittelwert der Bandmitten. Dies ist eine Band\u00fcbersicht, kein Durchschnitt der Besch\u00e4ftigtenverg\u00fctung.",
+            "legendGuidesHelp": "Der Hintergrund zeigt die mittlere H\u00e4lfte der Verg\u00fctung und den Median aller berechtigten Besch\u00e4ftigten im aktuellen Berichtsfilter, einschlie\u00dflich nicht sichtbarer Zeilen.",
+            "legendGapGuidesHelp": "Der Hintergrund zeigt die mittlere H\u00e4lfte der Verg\u00fctung und den Median von Frauen und M\u00e4nnern mit g\u00fcltiger Verg\u00fctung im aktuellen Berichtsfilter, einschlie\u00dflich nicht sichtbarer Zeilen.",
+            "legendWomenHelp": "Frauen mit g\u00fcltigen Werten f\u00fcr die ausgew\u00e4hlte Verg\u00fctung. Die Verg\u00fctungsl\u00fccke ist ein unbereinigter Vergleich mit M\u00e4nnern.",
+            "legendMenHelp": "M\u00e4nner mit g\u00fcltigen Werten f\u00fcr die ausgew\u00e4hlte Verg\u00fctung. Hohle Punkte und gestrichelte Kurven kennzeichnen diese Gruppe.",
+            "employeeId": "Besch\u00e4ftigtenschl\u00fcssel",
+            "individualReferences": "Einzelne Referenzspannen",
+            "calculatedBand": "Berechnete Band\u00fcbersicht*",
+            "meanMidpoint": "Mittlere Bandmitte*",
+            "minimum": "Min",
+            "maximum": "Max",
+            "midpointCoverage": "Abdeckung Bandmitte",
+            "calculatedHelp": "Aus gelieferten B\u00e4ndern berechnet: kleinstes Minimum, gr\u00f6\u00dftes Maximum und besch\u00e4ftigtengewichteter Mittelwert der gelieferten Bandmitten. Fehlende oder ung\u00fcltige Referenzen sind ausgeschlossen; keine Bandmitte wird erg\u00e4nzt.",
+            "showToolbar": "Symbolleiste anzeigen",
+            "moveCard": "Karte verschieben",
+            "moveHelp": "Zum Verschieben ziehen; bei Fokus Pfeiltasten verwenden.",
+            "cardOpen": "Karte ge\u00f6ffnet",
+            "payBasis": "Betragsbasis",
+            "backgroundColor": "Bedienelemente / Oberfl\u00e4chen",
+            "textColor": "Text",
+            "palette": "F\u00fcnf-Farben-Palette",
+            "availableOptions": "Verf\u00fcgbare Optionen",
+            "payFields": "Verg\u00fctungsfelder und Referenzen",
+            "enabled": "Aktiviert",
+            "showInDropdown": "Im Verg\u00fctungsmen\u00fc anzeigen",
+            "payDetails": "Alle Verg\u00fctungsbetr\u00e4ge",
+            "fieldLabel": "Anzeigename",
+            "displayOrder": "Anzeigereihenfolge (leer = Feldreihenfolge)",
+            "unconfigured": "Nicht konfiguriert",
+            "actual": "Ist \u00b7 12 Monate",
+            "target": "Ziel \u00b7 j\u00e4hrlich",
+            "gradeMarket": "Grad-Markt",
+            "popup": "Besch\u00e4ftigten-Popup",
+            "extraFields": "Zus\u00e4tzlich gebundene Felder",
+            "bandLabels": "Bandbeschriftungen",
+            "marketLabels": "Marktbeschriftungen",
+            "legend": "Legende",
+            "yZoom": "Y-Zoom",
+            "back": "Zur\u00fcck zur Auswahl",
+            "noOptions": "Keine erlaubte Ansicht hat verwendbare Daten. Felder und Verf\u00fcgbare Optionen im Formatbereich pr\u00fcfen.",
+            "visibleLayers": "Ebenen",
+            "payGap": "Pay Gap",
+            "gender": "Geschlecht",
+            "female": "Frauen",
+            "male": "M\u00e4nner",
+            "other": "Andere",
+            "genderUnknown": "Unbekannt",
+            "gapPopulation": "Gesamtreferenzen und Sortierung nutzen Frauen und M\u00e4nner mit g\u00fcltiger Verg\u00fctung im Berichtsfilter, einschlie\u00dflich nicht sichtbarer Zeilen.",
+            "gapStatistic": "Gap-Kennzahl",
+            "mean": "Mittelwert",
+            "menColor": "Farbe M\u00e4nner",
+            "gapExcluded": "Andere/unbekannt vom Vergleich ausgeschlossen",
+            "gapUnavailable": "Nicht verf\u00fcgbar",
+            "bindGender": "Geschlecht zuweisen, um Frauen und M\u00e4nner zu vergleichen.",
+            "noCohorts": "Keine Frauen oder M\u00e4nner mit g\u00fcltiger Verg\u00fctung in dieser Population.",
+            "gapHelp": "Unbereinigter Jahres-Vollzeit-Pay-Gap: (M\u00e4nner \u2212 Frauen) / M\u00e4nner. Positiv: Frauen niedriger. Keine Stundenlohn- oder bereinigte Entgeltgleichheitsanalyse. Kurven sind separat normiert; Boxen zeigen immer Perzentile.",
+            "clearHelp": "Visual, Zoom und Auswahl zur\u00fccksetzen. Berichtsfilter und Formatierung bleiben erhalten.",
+            "xScroll": "Verg\u00fctungsbereich verschieben",
+            "notes": "Population und Datenhinweise",
+            "title": "Compensation Explorer",
+            "base": "Grundgehalt",
+            "cash": "Barverg\u00fctung gesamt \u00b7 Ist",
+            "bands": "Intern",
+            "market": "Markt",
+            "internal": "Interner Vergleich",
+            "band": "Band",
+            "step": "Stufe",
+            "grade": "Grade",
+            "job": "Job",
+            "position": "Positionstitel",
+            "jobFamily": "Jobfamilie",
+            "company": "Gesellschaft",
+            "department": "Abteilung",
+            "location": "Standort",
+            "metric": "Verg\u00fctung",
+            "perspective": "Vergleich mit",
+            "grouping": "Gruppieren nach",
+            "split": "Stufen aufteilen",
+            "layers": "Ebenen",
+            "dots": "Besch\u00e4ftigte",
+            "violin": "Halbe Violine",
+            "box": "Verg\u00fctungsbox",
+            "reference": "Referenz",
+            "guides": "Populationsreferenz",
+            "labels": "Perzentilwerte",
+            "details": "Details",
+            "reset": "Ansicht zur\u00fccksetzen",
+            "sort": "Sortieren",
+            "label": "Kategorie",
+            "median": "Median",
+            "count": "Besch\u00e4ftigte",
+            "order": "Reihenfolge",
+            "previous": "Zur\u00fcck",
+            "next": "Weiter",
+            "page": "Seite",
+            "of": "von",
+            "missing": "Nicht geliefert",
+            "mixed": "Mehrere Referenzen",
+            "expand": "Referenzen aufklappen",
+            "collapse": "Zuklappen",
+            "unknown": "Gruppe fehlt",
+            "noReference": "Keine vergleichbare Referenz",
+            "n": "Besch\u00e4ftigte",
+            "below": "Unterhalb des Bands",
+            "within": "Im Band",
+            "above": "Oberhalb des Bands",
+            "compa": "Median Verg\u00fctung / Bandmitte",
+            "marketRatio": "Median Verg\u00fctung / Markt-P50",
+            "bandCoverage": "Abdeckung Bandspanne",
+            "marketCoverage": "Abdeckung Markt-P50",
+            "cashPeriod": "Zeitraum Barverg\u00fctung",
+            "snapshot": "Stichtag",
+            "basis": "J\u00e4hrlich auf Vollzeit \u00b7 EUR",
+            "excluded": "Ausgeschlossene Verg\u00fctungswerte",
+            "issues": "Referenzprobleme",
+            "selected": "ausgew\u00e4hlt",
+            "loading": "Vollst\u00e4ndige Population wird geladen\u2026",
+            "incomplete": "Power BI konnte nicht alle Zeilen liefern. Berichtsfilter eingrenzen, bevor Statistiken verglichen werden.",
+            "bind": "Mit f\u00fcnf Feldern starten: Besch\u00e4ftigtenschl\u00fcssel, Stichtag, W\u00e4hrung, j\u00e4hrliches Vollzeit-Grundgehalt und ein Gruppenschl\u00fcssel. Weitere Verg\u00fctung, Geschlecht oder Referenzen bei Bedarf erg\u00e4nzen.",
+            "empty": "Keine g\u00fcltigen Verg\u00fctungswerte f\u00fcr die aktuellen Filter und die ausgew\u00e4hlte Kennzahl.",
+            "small": "Dieses Visual auf mindestens 320 \u00d7 480 (Hochformat) oder 480 \u00d7 320 (Querformat) vergr\u00f6\u00dfern.",
+            "missingId": "Jede Zeile ben\u00f6tigt einen eindeutigen, nicht leeren Besch\u00e4ftigtenschl\u00fcssel.",
+            "duplicateId": "Doppelte Besch\u00e4ftigtenschl\u00fcssel. Eine Zeile pro Person und genau einen Stichtag liefern.",
+            "currencyError": "Alle Besch\u00e4ftigten- und Referenzwerte m\u00fcssen in EUR vorliegen.",
+            "snapshotError": "Genau einen g\u00fcltigen Stichtag ausw\u00e4hlen.",
+            "periodError": "Die Barverg\u00fctung ben\u00f6tigt einen gemeinsamen Zw\u00f6lfmonatszeitraum, der sp\u00e4testens am Stichtag endet.",
+            "unavailable": "Kennzahl oder Gruppierung ist nicht zugewiesen. Ein verf\u00fcgbares Feld ausw\u00e4hlen.",
+            "none": "Keine Referenz",
+            "range": "Bandspanne",
+            "midpoint": "Bandmitte",
+            "employee": "Besch\u00e4ftigte",
+            "percentiles": "P10\u2013P90-Perzentil-Whisker",
+            "tukey": "Tukey-Whisker: 1,5 \u00d7 IQR",
+            "normalized": "Die Violin-H\u00f6he ist je Zeile normiert; n zeigt die Populationsgr\u00f6\u00dfe.",
+            "population": "Gesamtreferenzen nutzen alle g\u00fcltigen Besch\u00e4ftigten im Berichtsfilter, einschlie\u00dflich nicht sichtbarer Zeilen.",
+            "clear": "Zur\u00fccksetzen",
+            "format": "Darstellung",
+            "settings": "Ansicht und Ebenen",
+            "analytics": "Statistik",
+            "color": "Verteilungsfarbe",
+            "refColor": "Referenzfarbe",
+            "opacity": "Deckkraft der Referenz",
+            "pointSize": "Punktradius",
+            "fontSize": "Schriftgr\u00f6\u00dfe",
+            "bandwidth": "Bandbreitenfaktor der Violine",
+            "rowHeight": "Zeilenh\u00f6he",
+            "units": "Achsen-Einheit",
+            "thousands": "Tausend EUR",
+            "euros": "EUR",
+            "language": "Sprache",
+            "auto": "Power-BI-Sprache",
+            "whiskers": "Box-Whisker",
+            "help": "Referenzl\u00fccken beeinflussen die Abdeckung, nicht die Verteilung. Quotienten nutzen die eigene Referenz jeder Person.",
+            "periodNote": "Barverg\u00fctung und Grundgehalt haben unterschiedliche Zeitbez\u00fcge. Referenzen m\u00fcssen zum jeweiligen Bezug passen.",
+            "source": "Marktquelle",
+            "referenceDate": "Marktreferenzdatum",
+            "all": "Alle",
+            "debug": "Datenhinweise",
+            "selectedGroup": "Positionierung der Gruppe",
+            "overall": "Gefilterte Population",
+            "refCoverage": "Referenzabdeckung",
+            "noGroups": "Mindestens einen Gruppenschl\u00fcssel zuweisen.",
+            "runtimeError": "Die Ansicht konnte nicht gezeichnet werden. Datenzuweisungen pr\u00fcfen.",
+            "bandBasis": "Bandkennzahlen folgen der gew\u00e4hlten Band-/Stufendarstellung.",
+            "hiddenIds": "Schl\u00fcssel dienen der Auswahl; Identifikatoren werden nicht angezeigt.",
+            "keyboard": "Pfeiltasten wechseln zwischen Punkten. Eingabe w\u00e4hlt aus, Strg+Eingabe erg\u00e4nzt, Escape l\u00f6scht die Auswahl.",
+            "display": "Anzeige",
+            "ascending": "Aufsteigend",
+            "descending": "Absteigend",
+            "zoom": "X-Zoom",
+            "zoomMin": "Sichtbares Minimum EUR",
+            "zoomMax": "Sichtbares Maximum EUR",
+            "fullRange": "Gesamter Bereich",
+            "panLeft": "Nach links",
+            "panRight": "Nach rechts",
+            "overlap": "\u00dcberlappende Besch\u00e4ftigte",
+            "pickHelp": "Beobachtung zur Auswahl anklicken. Strg erg\u00e4nzt die Auswahl.",
+            "zoomHelp": "Strg + Mausrad zoomt beide Achsen am Zeiger; X und Y separat per Regler. Horizontal scrollen, Umschalt + Mausrad oder EUR-Achse ziehen zum Verschieben. Zoom ver\u00e4ndert die Ansicht, nicht die Population.",
+            "overlapHelp": "Klicken, um \u00fcberlappende Beobachtungen auszuw\u00e4hlen.",
+            "more": "Mehr",
+            "close": "Schlie\u00dfen",
+            "fit": "Einpassen",
+            "manual": "Manuell",
+            "rowSizing": "Zeilenanpassung",
+            "marketColor": "Marktfarbe",
+            "payRange": "Bandspanne",
+            "marketBenchmark": "Marktreferenz",
+            "payRanges": "Bandspannen",
+            "marketBenchmarks": "Marktreferenzen",
+            "expandAction": "aufklappen",
+            "collapseAction": "zuklappen",
+            "mixedHelp": "Einzelne Referenzspannen unter Anzeige zeigt die gelieferten Spannen. Berechnete Zusammenfassungen sind mit einem Stern gekennzeichnet.",
+            "fitHelp": "Zeilen in die verf\u00fcgbare H\u00f6he einpassen, mit mindestens 65 px. Bei weiteren Zeilen vertikal scrollen.",
+            "scrollHelp": "Kategorien vertikal scrollen. Bild auf/ab und Pos1/Ende bewegen durch die Zeilen; die EUR-Achse bleibt sichtbar.",
+            "qualityHelp": "Fehlende oder widerspr\u00fcchliche Referenzen verringern die Vergleichsabdeckung. Verschiedene g\u00fcltige Referenzen sind normal und kein Fehler.",
+            "navigation": "Angezeigte Zeilen",
+            "referenceName": "Referenzname",
+            "pay": "Verg\u00fctung (EUR)",
+            "currency": "W\u00e4hrung (EUR)",
+            "basePay": "J\u00e4hrliches Vollzeit-Grundgehalt",
+            "totalCash": "J\u00e4hrliche tats\u00e4chliche Vollzeit-Barverg\u00fctung",
+            "cashStart": "Beginn Barverg\u00fctungszeitraum",
+            "cashEnd": "Ende Barverg\u00fctungszeitraum",
+            "bandId": "Bandschl\u00fcssel",
+            "bandLabel": "Bandbezeichnung",
+            "gradeId": "Gradeschl\u00fcssel",
+            "gradeLabel": "Gradebezeichnung",
+            "jobId": "Jobschl\u00fcssel",
+            "jobLabel": "Jobbezeichnung",
+            "positionId": "Positionschl\u00fcssel",
+            "positionLabel": "Positionbezeichnung",
+            "jobFamilyId": "Jobfamilieschl\u00fcssel",
+            "jobFamilyLabel": "Jobfamiliebezeichnung",
+            "companyId": "Gesellschaftschl\u00fcssel",
+            "companyLabel": "Gesellschaftbezeichnung",
+            "departmentId": "Abteilungschl\u00fcssel",
+            "departmentLabel": "Abteilungbezeichnung",
+            "locationId": "Standortschl\u00fcssel",
+            "locationLabel": "Standortbezeichnung",
+            "stepId": "Stufeschl\u00fcssel",
+            "stepLabel": "Stufebezeichnung",
+            "bandRefId": "Bandreferenzschl\u00fcssel",
+            "bandRefLabel": "Bandreferenzbezeichnung",
+            "bandBaseMin": "Band \u00b7 Grundgehalt \u00b7 Min",
+            "bandBaseMid": "Band \u00b7 Grundgehalt \u00b7 Mid",
+            "bandBaseMax": "Band \u00b7 Grundgehalt \u00b7 Max",
+            "bandCashMin": "Band \u00b7 Tats\u00e4chliche Barverg\u00fctung \u00b7 Min",
+            "bandCashMid": "Band \u00b7 Tats\u00e4chliche Barverg\u00fctung \u00b7 Mid",
+            "bandCashMax": "Band \u00b7 Tats\u00e4chliche Barverg\u00fctung \u00b7 Max",
+            "stepRefId": "Stufereferenzschl\u00fcssel",
+            "stepRefLabel": "Stufereferenzbezeichnung",
+            "stepBaseMin": "Stufe \u00b7 Grundgehalt \u00b7 Min",
+            "stepBaseMid": "Stufe \u00b7 Grundgehalt \u00b7 Mid",
+            "stepBaseMax": "Stufe \u00b7 Grundgehalt \u00b7 Max",
+            "stepCashMin": "Stufe \u00b7 Tats\u00e4chliche Barverg\u00fctung \u00b7 Min",
+            "stepCashMid": "Stufe \u00b7 Tats\u00e4chliche Barverg\u00fctung \u00b7 Mid",
+            "stepCashMax": "Stufe \u00b7 Tats\u00e4chliche Barverg\u00fctung \u00b7 Max",
+            "marketRefId": "Marktreferenzschl\u00fcssel",
+            "marketRefLabel": "Marktreferenzbezeichnung",
+            "marketBaseP10": "Markt \u00b7 Grundgehalt \u00b7 P10",
+            "marketBaseP25": "Markt \u00b7 Grundgehalt \u00b7 P25",
+            "marketBaseP50": "Markt \u00b7 Grundgehalt \u00b7 P50",
+            "marketBaseP75": "Markt \u00b7 Grundgehalt \u00b7 P75",
+            "marketBaseP90": "Markt \u00b7 Grundgehalt \u00b7 P90",
+            "marketCashP10": "Markt \u00b7 Tats\u00e4chliche Barverg\u00fctung \u00b7 P10",
+            "marketCashP25": "Markt \u00b7 Tats\u00e4chliche Barverg\u00fctung \u00b7 P25",
+            "marketCashP50": "Markt \u00b7 Tats\u00e4chliche Barverg\u00fctung \u00b7 P50",
+            "marketCashP75": "Markt \u00b7 Tats\u00e4chliche Barverg\u00fctung \u00b7 P75",
+            "marketCashP90": "Markt \u00b7 Tats\u00e4chliche Barverg\u00fctung \u00b7 P90",
+            "bandCashBasis": "Band-/Stufen-Barverg\u00fctungsbasis (actual)",
+            "marketCashBasis": "Markt-Barverg\u00fctungsbasis (actual)",
+            "marketSource": "Marktquelle",
+            "marketDate": "Marktreferenzdatum",
+            "testScenario": "Testszenario",
+            "payComponents": "Vorbereitete Verg\u00fctungsbetr\u00e4ge",
+            "gradeMarketRefId": "Grad-Marktreferenzschl\u00fcssel",
+            "gradeMarketRefLabel": "Grad-Marktreferenzbezeichnung",
+            "gradeMarketSource": "Grad-Marktquelle",
+            "gradeMarketDate": "Grad-Marktdatum",
+            "referenceValues": "Referenzwerte",
+            "tooltipFields": "Zus\u00e4tzliche Popup-Felder",
+            "en": "English",
+            "de": "Deutsch",
+            "expanded": "Aufgeklappte Referenzen"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Employee key",
+                "displayNameKey": "employeeId",
+                "name": "employeeId",
+                "kind": "Grouping",
+                "description": "Unique, nonblank synthetic/stable key; no names."
+            },
+            {
+                "displayName": "Snapshot date",
+                "displayNameKey": "snapshot",
+                "name": "snapshot",
+                "kind": "Grouping",
+                "description": "Exactly one snapshot per view."
+            },
+            {
+                "displayName": "Currency (EUR)",
+                "displayNameKey": "currency",
+                "name": "currency",
+                "kind": "Grouping",
+                "description": "EUR only; all pay and reference columns use this currency."
+            },
+            {
+                "displayName": "Annual FTE base salary",
+                "displayNameKey": "basePay",
+                "name": "basePay",
+                "kind": "GroupingOrMeasure",
+                "description": "Supply normalised annual base salary; zero is valid, negative/missing excluded."
+            },
+            {
+                "displayName": "Annual FTE actual cash",
+                "displayNameKey": "totalCash",
+                "name": "totalCash",
+                "kind": "GroupingOrMeasure",
+                "description": "Actual paid cash including cash bonuses; already annual/FTE normalised upstream. Excludes equity/noncash benefits."
+            },
+            {
+                "displayName": "Actual cash period start",
+                "displayNameKey": "cashStart",
+                "name": "cashStart",
+                "kind": "Grouping",
+                "description": "Required with actual cash; common 12-month period."
+            },
+            {
+                "displayName": "Actual cash period end",
+                "displayNameKey": "cashEnd",
+                "name": "cashEnd",
+                "kind": "Grouping",
+                "description": "Required with actual cash; no later than SnapshotDate."
+            },
+            {
+                "displayName": "Band key",
+                "displayNameKey": "bandId",
+                "name": "bandId",
+                "kind": "Grouping",
+                "description": "Stable grouping key; scope steps to their parent band."
+            },
+            {
+                "displayName": "Band label",
+                "displayNameKey": "bandLabel",
+                "name": "bandLabel",
+                "kind": "Grouping",
+                "description": "Display label only; never used as grouping identity."
+            },
+            {
+                "displayName": "Grade key",
+                "displayNameKey": "gradeId",
+                "name": "gradeId",
+                "kind": "Grouping",
+                "description": "Stable grouping key; scope steps to their parent band."
+            },
+            {
+                "displayName": "Grade label",
+                "displayNameKey": "gradeLabel",
+                "name": "gradeLabel",
+                "kind": "Grouping",
+                "description": "Display label only; never used as grouping identity."
+            },
+            {
+                "displayName": "Job key",
+                "displayNameKey": "jobId",
+                "name": "jobId",
+                "kind": "Grouping",
+                "description": "Stable grouping key; scope steps to their parent band."
+            },
+            {
+                "displayName": "Job label",
+                "displayNameKey": "jobLabel",
+                "name": "jobLabel",
+                "kind": "Grouping",
+                "description": "Display label only; never used as grouping identity."
+            },
+            {
+                "displayName": "Position key",
+                "displayNameKey": "positionId",
+                "name": "positionId",
+                "kind": "Grouping",
+                "description": "Stable grouping key; scope steps to their parent band."
+            },
+            {
+                "displayName": "Position label",
+                "displayNameKey": "positionLabel",
+                "name": "positionLabel",
+                "kind": "Grouping",
+                "description": "Display label only; never used as grouping identity."
+            },
+            {
+                "displayName": "JobFamily key",
+                "displayNameKey": "jobFamilyId",
+                "name": "jobFamilyId",
+                "kind": "Grouping",
+                "description": "Stable grouping key; scope steps to their parent band."
+            },
+            {
+                "displayName": "JobFamily label",
+                "displayNameKey": "jobFamilyLabel",
+                "name": "jobFamilyLabel",
+                "kind": "Grouping",
+                "description": "Display label only; never used as grouping identity."
+            },
+            {
+                "displayName": "Company key",
+                "displayNameKey": "companyId",
+                "name": "companyId",
+                "kind": "Grouping",
+                "description": "Stable grouping key; scope steps to their parent band."
+            },
+            {
+                "displayName": "Company label",
+                "displayNameKey": "companyLabel",
+                "name": "companyLabel",
+                "kind": "Grouping",
+                "description": "Display label only; never used as grouping identity."
+            },
+            {
+                "displayName": "Department key",
+                "displayNameKey": "departmentId",
+                "name": "departmentId",
+                "kind": "Grouping",
+                "description": "Stable grouping key; scope steps to their parent band."
+            },
+            {
+                "displayName": "Department label",
+                "displayNameKey": "departmentLabel",
+                "name": "departmentLabel",
+                "kind": "Grouping",
+                "description": "Display label only; never used as grouping identity."
+            },
+            {
+                "displayName": "Location key",
+                "displayNameKey": "locationId",
+                "name": "locationId",
+                "kind": "Grouping",
+                "description": "Stable grouping key; scope steps to their parent band."
+            },
+            {
+                "displayName": "Location label",
+                "displayNameKey": "locationLabel",
+                "name": "locationLabel",
+                "kind": "Grouping",
+                "description": "Display label only; never used as grouping identity."
+            },
+            {
+                "displayName": "Step key",
+                "displayNameKey": "stepId",
+                "name": "stepId",
+                "kind": "Grouping",
+                "description": "Stable grouping key; scope steps to their parent band."
+            },
+            {
+                "displayName": "Step label",
+                "displayNameKey": "stepLabel",
+                "name": "stepLabel",
+                "kind": "Grouping",
+                "description": "Display label only; never used as grouping identity."
+            },
+            {
+                "displayName": "Band reference key",
+                "displayNameKey": "bandRefId",
+                "name": "bandRefId",
+                "kind": "Grouping",
+                "description": "Required when supplying this reference; consistent values per key and measure."
+            },
+            {
+                "displayName": "Band reference label",
+                "displayNameKey": "bandRefLabel",
+                "name": "bandRefLabel",
+                "kind": "Grouping",
+                "description": ""
+            },
+            {
+                "displayName": "Band \u00b7 Base \u00b7 Min",
+                "displayNameKey": "bandBaseMin",
+                "name": "bandBaseMin",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Band \u00b7 Base \u00b7 Mid",
+                "displayNameKey": "bandBaseMid",
+                "name": "bandBaseMid",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Band \u00b7 Base \u00b7 Max",
+                "displayNameKey": "bandBaseMax",
+                "name": "bandBaseMax",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Band \u00b7 Actual cash \u00b7 Min",
+                "displayNameKey": "bandCashMin",
+                "name": "bandCashMin",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Band \u00b7 Actual cash \u00b7 Mid",
+                "displayNameKey": "bandCashMid",
+                "name": "bandCashMid",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Band \u00b7 Actual cash \u00b7 Max",
+                "displayNameKey": "bandCashMax",
+                "name": "bandCashMax",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Step reference key",
+                "displayNameKey": "stepRefId",
+                "name": "stepRefId",
+                "kind": "Grouping",
+                "description": "Required when supplying this reference; consistent values per key and measure."
+            },
+            {
+                "displayName": "Step reference label",
+                "displayNameKey": "stepRefLabel",
+                "name": "stepRefLabel",
+                "kind": "Grouping",
+                "description": ""
+            },
+            {
+                "displayName": "Step \u00b7 Base \u00b7 Min",
+                "displayNameKey": "stepBaseMin",
+                "name": "stepBaseMin",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Step \u00b7 Base \u00b7 Mid",
+                "displayNameKey": "stepBaseMid",
+                "name": "stepBaseMid",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Step \u00b7 Base \u00b7 Max",
+                "displayNameKey": "stepBaseMax",
+                "name": "stepBaseMax",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Step \u00b7 Actual cash \u00b7 Min",
+                "displayNameKey": "stepCashMin",
+                "name": "stepCashMin",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Step \u00b7 Actual cash \u00b7 Mid",
+                "displayNameKey": "stepCashMid",
+                "name": "stepCashMid",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Step \u00b7 Actual cash \u00b7 Max",
+                "displayNameKey": "stepCashMax",
+                "name": "stepCashMax",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Market reference key",
+                "displayNameKey": "marketRefId",
+                "name": "marketRefId",
+                "kind": "Grouping",
+                "description": "Required when supplying this reference; consistent values per key and measure."
+            },
+            {
+                "displayName": "Market reference label",
+                "displayNameKey": "marketRefLabel",
+                "name": "marketRefLabel",
+                "kind": "Grouping",
+                "description": ""
+            },
+            {
+                "displayName": "Market \u00b7 Base \u00b7 P10",
+                "displayNameKey": "marketBaseP10",
+                "name": "marketBaseP10",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Market \u00b7 Base \u00b7 P25",
+                "displayNameKey": "marketBaseP25",
+                "name": "marketBaseP25",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Market \u00b7 Base \u00b7 P50",
+                "displayNameKey": "marketBaseP50",
+                "name": "marketBaseP50",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Market \u00b7 Base \u00b7 P75",
+                "displayNameKey": "marketBaseP75",
+                "name": "marketBaseP75",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Market \u00b7 Base \u00b7 P90",
+                "displayNameKey": "marketBaseP90",
+                "name": "marketBaseP90",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Market \u00b7 Actual cash \u00b7 P10",
+                "displayNameKey": "marketCashP10",
+                "name": "marketCashP10",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Market \u00b7 Actual cash \u00b7 P25",
+                "displayNameKey": "marketCashP25",
+                "name": "marketCashP25",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Market \u00b7 Actual cash \u00b7 P50",
+                "displayNameKey": "marketCashP50",
+                "name": "marketCashP50",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Market \u00b7 Actual cash \u00b7 P75",
+                "displayNameKey": "marketCashP75",
+                "name": "marketCashP75",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Market \u00b7 Actual cash \u00b7 P90",
+                "displayNameKey": "marketCashP90",
+                "name": "marketCashP90",
+                "kind": "GroupingOrMeasure",
+                "description": "EUR, annual FTE, same compensation basis. Optional; never imputed."
+            },
+            {
+                "displayName": "Band/step cash basis (actual)",
+                "displayNameKey": "bandCashBasis",
+                "name": "bandCashBasis",
+                "kind": "Grouping",
+                "description": "Literal actual required for cash band/step comparisons."
+            },
+            {
+                "displayName": "Market cash basis (actual)",
+                "displayNameKey": "marketCashBasis",
+                "name": "marketCashBasis",
+                "kind": "Grouping",
+                "description": "Literal actual required for market cash comparisons; target values are not comparable."
+            },
+            {
+                "displayName": "Market source",
+                "displayNameKey": "marketSource",
+                "name": "marketSource",
+                "kind": "Grouping",
+                "description": ""
+            },
+            {
+                "displayName": "Market reference date",
+                "displayNameKey": "marketDate",
+                "name": "marketDate",
+                "kind": "Grouping",
+                "description": ""
+            },
+            {
+                "displayName": "Gender",
+                "displayNameKey": "gender",
+                "name": "gender",
+                "kind": "Grouping",
+                "description": "Optional for Pay gap: Female, Male, Other, Unknown. Case-insensitive; blank/unrecognized becomes Unknown, never inferred."
+            },
+            {
+                "displayName": "Prepared compensation amounts",
+                "displayNameKey": "payComponents",
+                "name": "payComponents",
+                "kind": "GroupingOrMeasure",
+                "description": "Multiple fields; configure each field in the format pane."
+            },
+            {
+                "displayName": "Grade market reference key",
+                "displayNameKey": "gradeMarketRefId",
+                "name": "gradeMarketRefId",
+                "kind": "Grouping",
+                "description": "Separately supplied grade benchmark; never derived from job percentiles."
+            },
+            {
+                "displayName": "Grade market reference label",
+                "displayNameKey": "gradeMarketRefLabel",
+                "name": "gradeMarketRefLabel",
+                "kind": "Grouping",
+                "description": "Separately supplied grade benchmark; never derived from job percentiles."
+            },
+            {
+                "displayName": "Grade market source",
+                "displayNameKey": "gradeMarketSource",
+                "name": "gradeMarketSource",
+                "kind": "Grouping",
+                "description": "Separately supplied grade benchmark; never derived from job percentiles."
+            },
+            {
+                "displayName": "Grade market date",
+                "displayNameKey": "gradeMarketDate",
+                "name": "gradeMarketDate",
+                "kind": "Grouping",
+                "description": "Separately supplied grade benchmark; never derived from job percentiles."
+            },
+            {
+                "displayName": "Reference values",
+                "displayNameKey": "referenceValues",
+                "name": "referenceValues",
+                "kind": "GroupingOrMeasure",
+                "description": "Multiple fields; configure each field in the format pane."
+            },
+            {
+                "displayName": "Additional popup fields",
+                "displayNameKey": "tooltipFields",
+                "name": "tooltipFields",
+                "kind": "GroupingOrMeasure",
+                "description": "Multiple fields; configure each field in the format pane."
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "employeeId": {
+                            "max": 1
+                        },
+                        "snapshot": {
+                            "max": 1
+                        },
+                        "currency": {
+                            "max": 1
+                        },
+                        "basePay": {
+                            "max": 1
+                        },
+                        "totalCash": {
+                            "max": 1
+                        },
+                        "cashStart": {
+                            "max": 1
+                        },
+                        "cashEnd": {
+                            "max": 1
+                        },
+                        "bandId": {
+                            "max": 1
+                        },
+                        "bandLabel": {
+                            "max": 1
+                        },
+                        "gradeId": {
+                            "max": 1
+                        },
+                        "gradeLabel": {
+                            "max": 1
+                        },
+                        "jobId": {
+                            "max": 1
+                        },
+                        "jobLabel": {
+                            "max": 1
+                        },
+                        "positionId": {
+                            "max": 1
+                        },
+                        "positionLabel": {
+                            "max": 1
+                        },
+                        "jobFamilyId": {
+                            "max": 1
+                        },
+                        "jobFamilyLabel": {
+                            "max": 1
+                        },
+                        "companyId": {
+                            "max": 1
+                        },
+                        "companyLabel": {
+                            "max": 1
+                        },
+                        "departmentId": {
+                            "max": 1
+                        },
+                        "departmentLabel": {
+                            "max": 1
+                        },
+                        "locationId": {
+                            "max": 1
+                        },
+                        "locationLabel": {
+                            "max": 1
+                        },
+                        "stepId": {
+                            "max": 1
+                        },
+                        "stepLabel": {
+                            "max": 1
+                        },
+                        "bandRefId": {
+                            "max": 1
+                        },
+                        "bandRefLabel": {
+                            "max": 1
+                        },
+                        "bandBaseMin": {
+                            "max": 1
+                        },
+                        "bandBaseMid": {
+                            "max": 1
+                        },
+                        "bandBaseMax": {
+                            "max": 1
+                        },
+                        "bandCashMin": {
+                            "max": 1
+                        },
+                        "bandCashMid": {
+                            "max": 1
+                        },
+                        "bandCashMax": {
+                            "max": 1
+                        },
+                        "stepRefId": {
+                            "max": 1
+                        },
+                        "stepRefLabel": {
+                            "max": 1
+                        },
+                        "stepBaseMin": {
+                            "max": 1
+                        },
+                        "stepBaseMid": {
+                            "max": 1
+                        },
+                        "stepBaseMax": {
+                            "max": 1
+                        },
+                        "stepCashMin": {
+                            "max": 1
+                        },
+                        "stepCashMid": {
+                            "max": 1
+                        },
+                        "stepCashMax": {
+                            "max": 1
+                        },
+                        "marketRefId": {
+                            "max": 1
+                        },
+                        "marketRefLabel": {
+                            "max": 1
+                        },
+                        "marketBaseP10": {
+                            "max": 1
+                        },
+                        "marketBaseP25": {
+                            "max": 1
+                        },
+                        "marketBaseP50": {
+                            "max": 1
+                        },
+                        "marketBaseP75": {
+                            "max": 1
+                        },
+                        "marketBaseP90": {
+                            "max": 1
+                        },
+                        "marketCashP10": {
+                            "max": 1
+                        },
+                        "marketCashP25": {
+                            "max": 1
+                        },
+                        "marketCashP50": {
+                            "max": 1
+                        },
+                        "marketCashP75": {
+                            "max": 1
+                        },
+                        "marketCashP90": {
+                            "max": 1
+                        },
+                        "bandCashBasis": {
+                            "max": 1
+                        },
+                        "marketCashBasis": {
+                            "max": 1
+                        },
+                        "marketSource": {
+                            "max": 1
+                        },
+                        "marketDate": {
+                            "max": 1
+                        },
+                        "gender": {
+                            "max": 1
+                        },
+                        "gradeMarketRefId": {
+                            "max": 1
+                        },
+                        "gradeMarketRefLabel": {
+                            "max": 1
+                        },
+                        "gradeMarketSource": {
+                            "max": 1
+                        },
+                        "gradeMarketDate": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "employeeId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "snapshot"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "currency"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "basePay"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "totalCash"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "cashStart"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "cashEnd"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "bandId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "bandLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "gradeId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "gradeLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "jobId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "jobLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "positionId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "positionLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "jobFamilyId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "jobFamilyLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "companyId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "companyLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "departmentId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "departmentLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "locationId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "locationLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "stepId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "stepLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "bandRefId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "bandRefLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "bandBaseMin"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "bandBaseMid"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "bandBaseMax"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "bandCashMin"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "bandCashMid"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "bandCashMax"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "stepRefId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "stepRefLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "stepBaseMin"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "stepBaseMid"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "stepBaseMax"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "stepCashMin"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "stepCashMid"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "stepCashMax"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketRefId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketRefLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketBaseP10"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketBaseP25"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketBaseP50"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketBaseP75"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketBaseP90"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketCashP10"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketCashP25"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketCashP50"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketCashP75"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketCashP90"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "bandCashBasis"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketCashBasis"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketSource"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "marketDate"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "gender"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "payComponents"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "gradeMarketRefId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "gradeMarketRefLabel"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "gradeMarketSource"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "gradeMarketDate"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "referenceValues"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltipFields"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 1000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "explorer": {
+                "displayNameKey": "title",
+                "properties": {
+                    "metric": {
+                        "type": {
+                            "enumeration": []
+                        },
+                        "displayNameKey": "metric"
+                    },
+                    "perspective": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bands",
+                                    "displayNameKey": "bands"
+                                },
+                                {
+                                    "value": "market",
+                                    "displayNameKey": "market"
+                                },
+                                {
+                                    "value": "payGap",
+                                    "displayNameKey": "payGap"
+                                }
+                            ]
+                        },
+                        "displayNameKey": "perspective"
+                    },
+                    "grouping": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "band",
+                                    "displayNameKey": "band"
+                                },
+                                {
+                                    "value": "grade",
+                                    "displayNameKey": "grade"
+                                },
+                                {
+                                    "value": "job",
+                                    "displayNameKey": "job"
+                                },
+                                {
+                                    "value": "position",
+                                    "displayNameKey": "position"
+                                },
+                                {
+                                    "value": "jobFamily",
+                                    "displayNameKey": "jobFamily"
+                                },
+                                {
+                                    "value": "company",
+                                    "displayNameKey": "company"
+                                },
+                                {
+                                    "value": "department",
+                                    "displayNameKey": "department"
+                                },
+                                {
+                                    "value": "location",
+                                    "displayNameKey": "location"
+                                }
+                            ]
+                        },
+                        "displayNameKey": "grouping"
+                    },
+                    "sort": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "label",
+                                    "displayNameKey": "label"
+                                },
+                                {
+                                    "value": "median",
+                                    "displayNameKey": "median"
+                                },
+                                {
+                                    "value": "count",
+                                    "displayNameKey": "count"
+                                }
+                            ]
+                        },
+                        "displayNameKey": "sort"
+                    },
+                    "units": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "thousands",
+                                    "displayNameKey": "thousands"
+                                },
+                                {
+                                    "value": "euros",
+                                    "displayNameKey": "euros"
+                                }
+                            ]
+                        },
+                        "displayNameKey": "units"
+                    },
+                    "language": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayNameKey": "auto"
+                                },
+                                {
+                                    "value": "en",
+                                    "displayNameKey": "en"
+                                },
+                                {
+                                    "value": "de",
+                                    "displayNameKey": "de"
+                                }
+                            ]
+                        },
+                        "displayNameKey": "language"
+                    },
+                    "whiskers": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "percentiles",
+                                    "displayNameKey": "percentiles"
+                                },
+                                {
+                                    "value": "tukey",
+                                    "displayNameKey": "tukey"
+                                }
+                            ]
+                        },
+                        "displayNameKey": "whiskers"
+                    },
+                    "rowSizing": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "manual",
+                                    "displayNameKey": "manual"
+                                },
+                                {
+                                    "value": "fit",
+                                    "displayNameKey": "fit"
+                                }
+                            ]
+                        },
+                        "displayNameKey": "rowSizing"
+                    },
+                    "gapStatistic": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "median",
+                                    "displayNameKey": "median"
+                                },
+                                {
+                                    "value": "mean",
+                                    "displayNameKey": "mean"
+                                }
+                            ]
+                        },
+                        "displayNameKey": "gapStatistic"
+                    },
+                    "split": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "split"
+                    },
+                    "dots": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "dots"
+                    },
+                    "violin": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "violin"
+                    },
+                    "box": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "box"
+                    },
+                    "reference": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "reference"
+                    },
+                    "guides": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "guides"
+                    },
+                    "labels": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "labels"
+                    },
+                    "details": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "details"
+                    },
+                    "descending": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "descending"
+                    },
+                    "legend": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "legend"
+                    },
+                    "bandLabels": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "bandLabels"
+                    },
+                    "marketLabels": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "marketLabels"
+                    },
+                    "showToolbar": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "showToolbar"
+                    },
+                    "individualReferences": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "individualReferences"
+                    },
+                    "showAllReferenceSettings": {
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "showAllReferenceSettings"
+                    },
+                    "opacity": {
+                        "type": {
+                            "numeric": true
+                        },
+                        "displayNameKey": "opacity"
+                    },
+                    "pointSize": {
+                        "type": {
+                            "numeric": true
+                        },
+                        "displayNameKey": "pointSize"
+                    },
+                    "fontSize": {
+                        "type": {
+                            "numeric": true
+                        },
+                        "displayNameKey": "fontSize"
+                    },
+                    "bandwidth": {
+                        "type": {
+                            "numeric": true
+                        },
+                        "displayNameKey": "bandwidth"
+                    },
+                    "rowHeight": {
+                        "type": {
+                            "numeric": true
+                        },
+                        "displayNameKey": "rowHeight"
+                    },
+                    "page": {
+                        "type": {
+                            "numeric": true
+                        },
+                        "displayNameKey": "page"
+                    },
+                    "zoomMin": {
+                        "type": {
+                            "numeric": true
+                        },
+                        "displayNameKey": "zoomMin"
+                    },
+                    "zoomMax": {
+                        "type": {
+                            "numeric": true
+                        },
+                        "displayNameKey": "zoomMax"
+                    },
+                    "yZoom": {
+                        "type": {
+                            "numeric": true
+                        },
+                        "displayNameKey": "yZoom"
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        },
+                        "displayNameKey": "color"
+                    },
+                    "refColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        },
+                        "displayNameKey": "refColor"
+                    },
+                    "marketColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        },
+                        "displayNameKey": "marketColor"
+                    },
+                    "menColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        },
+                        "displayNameKey": "menColor"
+                    },
+                    "backgroundColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        },
+                        "displayNameKey": "backgroundColor"
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        },
+                        "displayNameKey": "textColor"
+                    },
+                    "expanded": {
+                        "type": {
+                            "text": true
+                        },
+                        "displayNameKey": "expanded"
+                    },
+                    "mode_bands": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_bands_band": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_bands_grade": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_bands_job": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_bands_position": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_bands_jobFamily": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_bands_company": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_bands_department": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_bands_location": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "mode_market": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_market_grade": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_market_job": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_market_position": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_market_jobFamily": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "mode_payGap": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_payGap_band": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_payGap_grade": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_payGap_job": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_payGap_position": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_payGap_jobFamily": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_payGap_company": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_payGap_department": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "group_payGap_location": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layer_dots": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layer_violin": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layer_box": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layer_reference": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layer_guides": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layer_labels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layer_bandLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layer_marketLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layer_split": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layer_legend": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layer_individualReferences": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_employeeId": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_pay": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_payDetails": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_grouping": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_position": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_job": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_band": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_grade": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_step": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_gender": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_range": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_midpoint": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_market": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_source": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_referenceDate": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popup_basis": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "payField": {
+                "displayNameKey": "payFields",
+                "properties": {
+                    "enabled": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showInDropdown": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "label": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "displayOrder": {
+                        "displayNameKey": "displayOrder",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "basis": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "bandBasis": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "bandMin": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "bandMid": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "bandMax": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "stepBasis": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "stepMin": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "stepMid": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "stepMax": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "marketBasis": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "marketP10": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "marketP25": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "marketP50": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "marketP75": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "marketP90": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "gradeMarketBasis": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "gradeMarketP10": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "gradeMarketP25": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "gradeMarketP50": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "gradeMarketP75": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "gradeMarketP90": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    }
+                }
+            },
+            "popupField": {
+                "displayNameKey": "popup",
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "supportsHighlight": false,
+        "supportsKeyboardFocus": true,
+        "supportsEmptyDataView": true,
+        "supportsLandingPage": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true
+            }
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

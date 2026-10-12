@@ -1,0 +1,1003 @@
+{
+    "visual": {
+        "name": "HistogramPro",
+        "displayName": "Histogram Pro",
+        "guid": "HistogramPro38A7C1D94E2B4F6D8A0E5B3C9F1D2E4A",
+        "visualClassName": "Visual",
+        "version": "1.4.0.0",
+        "description": "Professional histogram with configurable bins, outlier trimming, statistical overlays (mean, median, normal curve), and full style controls. Free tier includes 10 bins; Pro unlocks unlimited bins and advanced features.",
+        "supportUrl": "https://tinocallarisa-web.github.io/histogram-pro/support.html",
+        "gitHubUrl": "https://github.com/tinocallarisa-web/histogram-pro"
+    },
+    "author": {
+        "name": "TCViz",
+        "email": "support@tcviz.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "Role_measure": "Values",
+            "Role_category": "Detail (rows)",
+            "Role_tooltips": "Tooltips",
+            "Obj_general": "General",
+            "Obj_histogram": "Histogram",
+            "Prop_histogram_bins": "Number of bins (Pro)",
+            "Prop_histogram_trimLower": "Lower trim % (Pro)",
+            "Prop_histogram_trimUpper": "Upper trim % (Pro)",
+            "Prop_histogram_barColor": "Bar color (Pro)",
+            "Prop_histogram_barOpacity": "Bar opacity % (Pro)",
+            "Prop_histogram_borderColor": "Border color (Pro)",
+            "Prop_histogram_borderWidth": "Border width (Pro)",
+            "Prop_histogram_barGap": "Bar gap px (Pro)",
+            "Obj_axes": "Axes",
+            "Prop_axes_axisColor": "Axis text color",
+            "Prop_axes_gridColor": "Grid color",
+            "Prop_axes_fontSize": "Font size",
+            "Prop_axes_showXLabel": "Show X label",
+            "Prop_axes_showYLabel": "Show Y label",
+            "Obj_statistics": "Statistics",
+            "Prop_statistics_showMean": "Show mean line",
+            "Prop_statistics_meanColor": "Mean line color",
+            "Prop_statistics_showMedian": "Show median line",
+            "Prop_statistics_medianColor": "Median line color",
+            "Prop_statistics_showP25": "Show P25 line",
+            "Prop_statistics_p25Color": "P25 line color",
+            "Prop_statistics_showP75": "Show P75 line",
+            "Prop_statistics_p75Color": "P75 line color",
+            "Prop_statistics_showIQR": "Show IQR range",
+            "Prop_statistics_iqrColor": "IQR fill color",
+            "Prop_statistics_showNormal": "Normal curve (Pro)",
+            "Prop_statistics_normalColor": "Normal curve color (Pro)",
+            "Prop_statistics_showStats": "Stats panel (Pro)",
+            "Prop_statistics_statsColor": "Stats text color (Pro)",
+            "Obj_legend": "Legend",
+            "Prop_legend_show": "Show legend",
+            "Prop_legend_bottom": "Position: bottom",
+            "Prop_legend_meanLabel": "Mean label",
+            "Prop_legend_medianLabel": "Median label",
+            "Prop_legend_p25Label": "P25 label",
+            "Prop_legend_p75Label": "P75 label",
+            "Prop_legend_normalLabel": "Normal label",
+            "Obj_ibcs": "IBCS",
+            "Prop_ibcs_mode": "IBCS mode",
+            "Obj_benchmark": "Benchmark",
+            "Prop_benchmark_show": "Show benchmark line",
+            "Prop_benchmark_value": "Benchmark value",
+            "Prop_benchmark_color": "Line color",
+            "Prop_benchmark_label": "Benchmark label",
+            "Prop_benchmark_colorBars": "Color bars by benchmark",
+            "Prop_benchmark_aboveColor": "At or above benchmark",
+            "Prop_benchmark_belowColor": "Below benchmark",
+            "Obj_valueLabels": "Value labels (Pro)",
+            "Prop_valueLabels_show": "Show",
+            "Prop_valueLabels_fontSize": "Font size",
+            "Prop_valueLabels_color": "Color",
+            "Prop_valueLabels_showPercent": "Show percent",
+            "Feat_bins": "bin count",
+            "Feat_trim": "outlier trimming",
+            "Feat_style": "bar styling",
+            "Feat_stats": "statistics panel",
+            "Feat_normal": "normal curve",
+            "Feat_labels": "value labels",
+            "UI_NoticeBlocked": "Histogram Pro: {0} \u2014 part of the Pro plan.",
+            "UI_Clamp": "Axis clipped to the long tail \u00b7 the last bar holds everything above {0}",
+            "UI_TruncDesktop": "Showing the first {0} rows \u2014 Desktop cannot load more. Publish to the Service for the full distribution.",
+            "UI_TruncService": "Showing the first {0} rows \u2014 the dataset is larger than Power BI will hand to a visual.",
+            "UI_Oversized": "This bin holds over {0} distinct values \u2014 more than the {1} Power BI can cross-filter at once.",
+            "UI_OversizedPro": "Raise the bin count (Histogram \u2192 Bins) so each bar covers fewer rows, or trim the outliers.",
+            "UI_OversizedFree": "Pro lets you raise the bin count so each bar covers fewer rows.",
+            "UI_AriaBin": "Bin {0} to {1}, count {2}, {3} of total",
+            "UI_Blank": "(blank)",
+            "UI_TipRange": "Range",
+            "UI_TipCount": "Count",
+            "UI_TipShare": "% of total",
+            "UI_AriaChart": "Histogram of {0}, {1} bins.",
+            "UI_AxisY": "Count",
+            "UI_AxisX": "Value",
+            "UI_Target": "Target",
+            "UI_Trimmed": "{0} trimmed",
+            "UI_ProPreview": "Pro preview",
+            "UI_Landing": "Add a numeric field to get started",
+            "UI_LegMean": "Mean",
+            "UI_LegMedian": "Median",
+            "UI_LegNormal": "Normal",
+            "Obj_zones": "Value zones (Pro)",
+            "Prop_zones_show": "Show value zones",
+            "Prop_zones_cut1": "First cut",
+            "Prop_zones_cut2": "Second cut",
+            "Prop_zones_color1": "Low zone color",
+            "Prop_zones_color2": "Middle zone color",
+            "Prop_zones_color3": "High zone color",
+            "Prop_zones_showLabels": "Show zone labels",
+            "Prop_zones_showValueShare": "Show share of total value",
+            "Feat_zones": "value zones",
+            "UI_ZoneLow": "\u2264 {0}",
+            "UI_ZoneMid": "{0} \u2013 {1}",
+            "UI_ZoneHigh": "> {0}",
+            "UI_ZoneRows": "{0} of rows",
+            "UI_ZoneValue": "{0} of value",
+            "UI_TipZone": "Zone",
+            "Role_panel": "Small multiples (Pro)",
+            "Obj_smallMultiples": "Small multiples (Pro)",
+            "Prop_smallMultiples_columns": "Columns (0 = automatic)",
+            "Prop_smallMultiples_titleFontSize": "Title font size",
+            "Prop_smallMultiples_titleColor": "Title color",
+            "Feat_panels": "small multiples",
+            "Prop_statistics_statsBgColor": "Stats panel background",
+            "Prop_statistics_statsBgOpacity": "Stats panel opacity %",
+            "Prop_statistics_labelBgColor": "Label background",
+            "Prop_statistics_labelBgOpacity": "Label background opacity %",
+            "Prop_legend_fontSize": "Font size",
+            "Prop_legend_color": "Font color",
+            "Prop_statistics_showCumulative": "Cumulative frequency (Pro)",
+            "Prop_statistics_cumulativeColor": "Cumulative line color (Pro)",
+            "Feat_cumulative": "cumulative frequency",
+            "UI_TipCum": "Cumulative",
+            "UI_LegCum": "Cumulative",
+            "UI_NormalFlat": "Normal curve flat: data far from normal (\u03c3 = {0})"
+        },
+        "es-ES": {
+            "Role_measure": "Valores",
+            "Role_category": "Detalle (filas)",
+            "Role_tooltips": "Informaci\u00f3n sobre herramientas",
+            "Obj_general": "General",
+            "Obj_histogram": "Histograma",
+            "Prop_histogram_bins": "N\u00famero de intervalos (Pro)",
+            "Prop_histogram_trimLower": "Recorte inferior % (Pro)",
+            "Prop_histogram_trimUpper": "Recorte superior % (Pro)",
+            "Prop_histogram_barColor": "Color de barra (Pro)",
+            "Prop_histogram_barOpacity": "Opacidad de barra % (Pro)",
+            "Prop_histogram_borderColor": "Color del borde (Pro)",
+            "Prop_histogram_borderWidth": "Ancho del borde (Pro)",
+            "Prop_histogram_barGap": "Separaci\u00f3n entre barras px (Pro)",
+            "Obj_axes": "Ejes",
+            "Prop_axes_axisColor": "Color del texto de los ejes",
+            "Prop_axes_gridColor": "Color de la cuadr\u00edcula",
+            "Prop_axes_fontSize": "Tama\u00f1o de fuente",
+            "Prop_axes_showXLabel": "Mostrar t\u00edtulo del eje X",
+            "Prop_axes_showYLabel": "Mostrar t\u00edtulo del eje Y",
+            "Obj_statistics": "Estad\u00edsticas",
+            "Prop_statistics_showMean": "Mostrar l\u00ednea de la media",
+            "Prop_statistics_meanColor": "Color de la media",
+            "Prop_statistics_showMedian": "Mostrar l\u00ednea de la mediana",
+            "Prop_statistics_medianColor": "Color de la mediana",
+            "Prop_statistics_showP25": "Mostrar l\u00ednea P25",
+            "Prop_statistics_p25Color": "Color de la l\u00ednea P25",
+            "Prop_statistics_showP75": "Mostrar l\u00ednea P75",
+            "Prop_statistics_p75Color": "Color de la l\u00ednea P75",
+            "Prop_statistics_showIQR": "Mostrar rango intercuart\u00edlico",
+            "Prop_statistics_iqrColor": "Color del rango intercuart\u00edlico",
+            "Prop_statistics_showNormal": "Curva normal (Pro)",
+            "Prop_statistics_normalColor": "Color de la curva normal (Pro)",
+            "Prop_statistics_showStats": "Panel de estad\u00edsticas (Pro)",
+            "Prop_statistics_statsColor": "Color del texto de estad\u00edsticas (Pro)",
+            "Obj_legend": "Leyenda",
+            "Prop_legend_show": "Mostrar leyenda",
+            "Prop_legend_bottom": "Posici\u00f3n: abajo",
+            "Prop_legend_meanLabel": "Etiqueta de la media",
+            "Prop_legend_medianLabel": "Etiqueta de la mediana",
+            "Prop_legend_p25Label": "Etiqueta P25",
+            "Prop_legend_p75Label": "Etiqueta P75",
+            "Prop_legend_normalLabel": "Etiqueta de la curva normal",
+            "Obj_ibcs": "IBCS",
+            "Prop_ibcs_mode": "Modo IBCS",
+            "Obj_benchmark": "Referencia",
+            "Prop_benchmark_show": "Mostrar l\u00ednea de referencia",
+            "Prop_benchmark_value": "Valor de referencia",
+            "Prop_benchmark_color": "Color de la l\u00ednea",
+            "Prop_benchmark_label": "Etiqueta de la referencia",
+            "Prop_benchmark_colorBars": "Colorear barras seg\u00fan la referencia",
+            "Prop_benchmark_aboveColor": "En la referencia o por encima",
+            "Prop_benchmark_belowColor": "Por debajo de la referencia",
+            "Obj_valueLabels": "Etiquetas de valor (Pro)",
+            "Prop_valueLabels_show": "Mostrar",
+            "Prop_valueLabels_fontSize": "Tama\u00f1o de fuente",
+            "Prop_valueLabels_color": "Color",
+            "Prop_valueLabels_showPercent": "Mostrar porcentaje",
+            "Feat_bins": "n\u00famero de intervalos",
+            "Feat_trim": "recorte de valores at\u00edpicos",
+            "Feat_style": "estilo de barras",
+            "Feat_stats": "panel de estad\u00edsticas",
+            "Feat_normal": "curva normal",
+            "Feat_labels": "etiquetas de valor",
+            "UI_NoticeBlocked": "Histogram Pro: {0} \u2014 forma parte del plan Pro.",
+            "UI_Clamp": "Eje recortado a la cola larga \u00b7 la \u00faltima barra acumula todo lo que supera {0}",
+            "UI_TruncDesktop": "Se muestran las primeras {0} filas: Desktop no puede cargar m\u00e1s. Publica en el servicio para ver la distribuci\u00f3n completa.",
+            "UI_TruncService": "Se muestran las primeras {0} filas: el conjunto de datos es mayor de lo que Power BI entrega a un visual.",
+            "UI_Oversized": "Este intervalo tiene m\u00e1s de {0} valores distintos, m\u00e1s de los {1} que Power BI puede filtrar a la vez.",
+            "UI_OversizedPro": "Sube el n\u00famero de intervalos (Histograma \u2192 Intervalos) para que cada barra cubra menos filas, o recorta los at\u00edpicos.",
+            "UI_OversizedFree": "Con Pro puedes subir el n\u00famero de intervalos para que cada barra cubra menos filas.",
+            "UI_AriaBin": "Intervalo de {0} a {1}, {2} filas, {3} del total",
+            "UI_Blank": "(en blanco)",
+            "UI_TipRange": "Rango",
+            "UI_TipCount": "N\u00famero",
+            "UI_TipShare": "% del total",
+            "UI_AriaChart": "Histograma de {0}, {1} intervalos.",
+            "UI_AxisY": "N\u00famero",
+            "UI_AxisX": "Valor",
+            "UI_Target": "Objetivo",
+            "UI_Trimmed": "{0} recortados",
+            "UI_ProPreview": "Vista previa Pro",
+            "UI_Landing": "A\u00f1ade un campo num\u00e9rico para empezar",
+            "UI_LegMean": "Media",
+            "UI_LegMedian": "Mediana",
+            "UI_LegNormal": "Normal",
+            "Obj_zones": "Zonas por valor (Pro)",
+            "Prop_zones_show": "Mostrar zonas por valor",
+            "Prop_zones_cut1": "Primer corte",
+            "Prop_zones_cut2": "Segundo corte",
+            "Prop_zones_color1": "Color de la zona baja",
+            "Prop_zones_color2": "Color de la zona media",
+            "Prop_zones_color3": "Color de la zona alta",
+            "Prop_zones_showLabels": "Mostrar etiquetas de zona",
+            "Prop_zones_showValueShare": "Mostrar peso en el valor total",
+            "Feat_zones": "zonas por valor",
+            "UI_ZoneLow": "\u2264 {0}",
+            "UI_ZoneMid": "{0} \u2013 {1}",
+            "UI_ZoneHigh": "> {0}",
+            "UI_ZoneRows": "{0} de las filas",
+            "UI_ZoneValue": "{0} del valor",
+            "UI_TipZone": "Zona",
+            "Role_panel": "M\u00faltiplos peque\u00f1os (Pro)",
+            "Obj_smallMultiples": "M\u00faltiplos peque\u00f1os (Pro)",
+            "Prop_smallMultiples_columns": "Columnas (0 = autom\u00e1tico)",
+            "Prop_smallMultiples_titleFontSize": "Tama\u00f1o de fuente del t\u00edtulo",
+            "Prop_smallMultiples_titleColor": "Color del t\u00edtulo",
+            "Feat_panels": "m\u00faltiplos peque\u00f1os",
+            "Prop_statistics_statsBgColor": "Fondo del panel de estad\u00edsticas",
+            "Prop_statistics_statsBgOpacity": "Opacidad del panel de estad\u00edsticas %",
+            "Prop_statistics_labelBgColor": "Fondo de las etiquetas",
+            "Prop_statistics_labelBgOpacity": "Opacidad del fondo de las etiquetas %",
+            "Prop_legend_fontSize": "Tama\u00f1o de fuente",
+            "Prop_legend_color": "Color de fuente",
+            "Prop_statistics_showCumulative": "Frecuencia acumulada (Pro)",
+            "Prop_statistics_cumulativeColor": "Color de la l\u00ednea acumulada (Pro)",
+            "Feat_cumulative": "frecuencia acumulada",
+            "UI_TipCum": "Acumulado",
+            "UI_LegCum": "Acumulado",
+            "UI_NormalFlat": "Curva normal plana: datos lejos de la normal (\u03c3 = {0})"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Values",
+                "displayNameKey": "Role_measure",
+                "name": "measure",
+                "kind": "Measure",
+                "description": "Numeric field to plot as histogram"
+            },
+            {
+                "displayName": "Detail (rows)",
+                "displayNameKey": "Role_category",
+                "name": "category",
+                "kind": "Grouping",
+                "description": "Optional category for row-level data"
+            },
+            {
+                "displayName": "Tooltips",
+                "displayNameKey": "Role_tooltips",
+                "name": "tooltips",
+                "kind": "Measure",
+                "description": "Optional measures shown in the tooltip (displayed as average per bin)"
+            },
+            {
+                "displayName": "Small multiples (Pro)",
+                "displayNameKey": "Role_panel",
+                "name": "panel",
+                "kind": "Grouping",
+                "description": "One histogram per value of this field \u2014 region, product, channel \u2014 on a shared axis."
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "category"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "panel"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "measure"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "general": {
+                "displayName": "General",
+                "displayNameKey": "Obj_general",
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": true
+                        }
+                    }
+                }
+            },
+            "histogram": {
+                "displayName": "Histogram",
+                "displayNameKey": "Obj_histogram",
+                "properties": {
+                    "bins": {
+                        "displayName": "Number of bins (Pro)",
+                        "displayNameKey": "Prop_histogram_bins",
+                        "description": "Number of bins. Free tier is fixed at 10. Upgrade to Pro for 2\u2013100.",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "trimLower": {
+                        "displayName": "Lower trim % (Pro)",
+                        "displayNameKey": "Prop_histogram_trimLower",
+                        "description": "Trim bottom N% of values as outliers. Pro only.",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "trimUpper": {
+                        "displayName": "Upper trim % (Pro)",
+                        "displayNameKey": "Prop_histogram_trimUpper",
+                        "description": "Trim top N% of values as outliers. Pro only.",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "barColor": {
+                        "displayName": "Bar color (Pro)",
+                        "displayNameKey": "Prop_histogram_barColor",
+                        "description": "Fill color of the bars. Supports conditional formatting (fx): each bin takes the color the rule gives its middle row.",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        },
+                        "rule": {
+                            "inputRole": "measure",
+                            "output": {
+                                "property": "barColor",
+                                "selector": [
+                                    "category"
+                                ]
+                            }
+                        }
+                    },
+                    "barOpacity": {
+                        "displayName": "Bar opacity % (Pro)",
+                        "displayNameKey": "Prop_histogram_barOpacity",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "borderColor": {
+                        "displayName": "Border color (Pro)",
+                        "displayNameKey": "Prop_histogram_borderColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderWidth": {
+                        "displayName": "Border width (Pro)",
+                        "displayNameKey": "Prop_histogram_borderWidth",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "barGap": {
+                        "displayName": "Bar gap px (Pro)",
+                        "displayNameKey": "Prop_histogram_barGap",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "axes": {
+                "displayName": "Axes",
+                "displayNameKey": "Obj_axes",
+                "properties": {
+                    "axisColor": {
+                        "displayName": "Axis text color",
+                        "displayNameKey": "Prop_axes_axisColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "gridColor": {
+                        "displayName": "Grid color",
+                        "displayNameKey": "Prop_axes_gridColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font size",
+                        "displayNameKey": "Prop_axes_fontSize",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "showXLabel": {
+                        "displayName": "Show X label",
+                        "displayNameKey": "Prop_axes_showXLabel",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showYLabel": {
+                        "displayName": "Show Y label",
+                        "displayNameKey": "Prop_axes_showYLabel",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "statistics": {
+                "displayName": "Statistics",
+                "displayNameKey": "Obj_statistics",
+                "properties": {
+                    "showMean": {
+                        "displayName": "Show mean line",
+                        "displayNameKey": "Prop_statistics_showMean",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "meanColor": {
+                        "displayName": "Mean line color",
+                        "displayNameKey": "Prop_statistics_meanColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showMedian": {
+                        "displayName": "Show median line",
+                        "displayNameKey": "Prop_statistics_showMedian",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "medianColor": {
+                        "displayName": "Median line color",
+                        "displayNameKey": "Prop_statistics_medianColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showP25": {
+                        "displayName": "Show P25 line",
+                        "displayNameKey": "Prop_statistics_showP25",
+                        "description": "Show the 25th percentile (Q1) marker.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "p25Color": {
+                        "displayName": "P25 line color",
+                        "displayNameKey": "Prop_statistics_p25Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showP75": {
+                        "displayName": "Show P75 line",
+                        "displayNameKey": "Prop_statistics_showP75",
+                        "description": "Show the 75th percentile (Q3) marker.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "p75Color": {
+                        "displayName": "P75 line color",
+                        "displayNameKey": "Prop_statistics_p75Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showIQR": {
+                        "displayName": "Show IQR range",
+                        "displayNameKey": "Prop_statistics_showIQR",
+                        "description": "Shade the interquartile range (Q1\u2013Q3) behind the bars.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "iqrColor": {
+                        "displayName": "IQR fill color",
+                        "displayNameKey": "Prop_statistics_iqrColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showNormal": {
+                        "displayName": "Normal curve (Pro)",
+                        "displayNameKey": "Prop_statistics_showNormal",
+                        "description": "Overlay a normal distribution curve. Pro only.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "normalColor": {
+                        "displayName": "Normal curve color (Pro)",
+                        "displayNameKey": "Prop_statistics_normalColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showStats": {
+                        "displayName": "Stats panel (Pro)",
+                        "displayNameKey": "Prop_statistics_showStats",
+                        "description": "Show n, mean, median, \u03c3, min, max panel. Pro only.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "statsColor": {
+                        "displayName": "Stats text color (Pro)",
+                        "displayNameKey": "Prop_statistics_statsColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "statsBgColor": {
+                        "displayName": "Stats panel background",
+                        "displayNameKey": "Prop_statistics_statsBgColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "statsBgOpacity": {
+                        "displayName": "Stats panel opacity %",
+                        "displayNameKey": "Prop_statistics_statsBgOpacity",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "labelBgColor": {
+                        "displayName": "Label background",
+                        "displayNameKey": "Prop_statistics_labelBgColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "labelBgOpacity": {
+                        "displayName": "Label background opacity %",
+                        "displayNameKey": "Prop_statistics_labelBgOpacity",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showCumulative": {
+                        "displayName": "Cumulative frequency (Pro)",
+                        "displayNameKey": "Prop_statistics_showCumulative",
+                        "description": "A line from 0% to 100% on its own right axis: the share of rows up to each bin.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "cumulativeColor": {
+                        "displayName": "Cumulative line color (Pro)",
+                        "displayNameKey": "Prop_statistics_cumulativeColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "displayName": "Legend",
+                "displayNameKey": "Obj_legend",
+                "properties": {
+                    "show": {
+                        "displayName": "Show legend",
+                        "displayNameKey": "Prop_legend_show",
+                        "description": "Show a legend for all active reference lines.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bottom": {
+                        "displayName": "Position: bottom",
+                        "displayNameKey": "Prop_legend_bottom",
+                        "description": "Off = top of chart, On = bottom of chart.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "meanLabel": {
+                        "displayName": "Mean label",
+                        "displayNameKey": "Prop_legend_meanLabel",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "medianLabel": {
+                        "displayName": "Median label",
+                        "displayNameKey": "Prop_legend_medianLabel",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "p25Label": {
+                        "displayName": "P25 label",
+                        "displayNameKey": "Prop_legend_p25Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "p75Label": {
+                        "displayName": "P75 label",
+                        "displayNameKey": "Prop_legend_p75Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "normalLabel": {
+                        "displayName": "Normal label",
+                        "displayNameKey": "Prop_legend_normalLabel",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font size",
+                        "displayNameKey": "Prop_legend_fontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Font color",
+                        "displayNameKey": "Prop_legend_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "ibcs": {
+                "displayName": "IBCS",
+                "displayNameKey": "Obj_ibcs",
+                "properties": {
+                    "mode": {
+                        "displayName": "IBCS mode",
+                        "displayNameKey": "Prop_ibcs_mode",
+                        "description": "Apply International Business Communication Standards colors and styling.",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "benchmark": {
+                "displayName": "Benchmark",
+                "displayNameKey": "Obj_benchmark",
+                "properties": {
+                    "show": {
+                        "displayName": "Show benchmark line",
+                        "displayNameKey": "Prop_benchmark_show",
+                        "description": "Show a vertical reference line at a user-defined value.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "value": {
+                        "displayName": "Benchmark value",
+                        "displayNameKey": "Prop_benchmark_value",
+                        "description": "Position of the benchmark line on the X axis.",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Line color",
+                        "displayNameKey": "Prop_benchmark_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "label": {
+                        "displayName": "Benchmark label",
+                        "displayNameKey": "Prop_benchmark_label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "colorBars": {
+                        "displayName": "Color bars by benchmark",
+                        "displayNameKey": "Prop_benchmark_colorBars",
+                        "description": "Bins at or above the benchmark take one color, bins below it another.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "aboveColor": {
+                        "displayName": "At or above benchmark",
+                        "displayNameKey": "Prop_benchmark_aboveColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "belowColor": {
+                        "displayName": "Below benchmark",
+                        "displayNameKey": "Prop_benchmark_belowColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "zones": {
+                "displayName": "Value zones (Pro)",
+                "displayNameKey": "Obj_zones",
+                "properties": {
+                    "show": {
+                        "displayName": "Show value zones",
+                        "displayNameKey": "Prop_zones_show",
+                        "description": "Shade three bands of the value axis and label each with its share of rows and of the total value.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "cut1": {
+                        "displayName": "First cut",
+                        "displayNameKey": "Prop_zones_cut1",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cut2": {
+                        "displayName": "Second cut",
+                        "displayNameKey": "Prop_zones_cut2",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color1": {
+                        "displayName": "Low zone color",
+                        "displayNameKey": "Prop_zones_color1",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "color2": {
+                        "displayName": "Middle zone color",
+                        "displayNameKey": "Prop_zones_color2",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "color3": {
+                        "displayName": "High zone color",
+                        "displayNameKey": "Prop_zones_color3",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showLabels": {
+                        "displayName": "Show zone labels",
+                        "displayNameKey": "Prop_zones_showLabels",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showValueShare": {
+                        "displayName": "Show share of total value",
+                        "displayNameKey": "Prop_zones_showValueShare",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "smallMultiples": {
+                "displayName": "Small multiples (Pro)",
+                "displayNameKey": "Obj_smallMultiples",
+                "properties": {
+                    "columns": {
+                        "displayName": "Columns (0 = automatic)",
+                        "displayNameKey": "Prop_smallMultiples_columns",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "titleFontSize": {
+                        "displayName": "Title font size",
+                        "displayNameKey": "Prop_smallMultiples_titleFontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "titleColor": {
+                        "displayName": "Title color",
+                        "displayNameKey": "Prop_smallMultiples_titleColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "valueLabels": {
+                "displayName": "Value labels (Pro)",
+                "displayNameKey": "Obj_valueLabels",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "displayNameKey": "Prop_valueLabels_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font size",
+                        "displayNameKey": "Prop_valueLabels_fontSize",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "displayNameKey": "Prop_valueLabels_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showPercent": {
+                        "displayName": "Show percent",
+                        "displayNameKey": "Prop_valueLabels_showPercent",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "supportsHighlight": true,
+        "supportsSynchronizingFilterState": true,
+        "supportsLandingPage": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": []
+        },
+        "drilldown": {
+            "roles": [
+                "category"
+            ]
+        },
+        "sorting": {
+            "default": {}
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

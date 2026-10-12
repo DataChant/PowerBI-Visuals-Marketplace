@@ -1,0 +1,1817 @@
+{
+    "visual": {
+        "name": "ridgelinePulse",
+        "displayName": "Ridgeline Plume",
+        "guid": "ridgelinePulseCF957CB0A5DC40138058B1F71340838F",
+        "visualClassName": "Visual",
+        "version": "1.7.0.0",
+        "description": "Ridgeline (joy plot) with time animation, focus mode, cursor and analytics. Free core, premium features unlocked with a license key.",
+        "supportUrl": "https://plumevisuals.com/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Plume Studio",
+        "email": "contact@plumevisuals.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "role_ridge": "Ridge (one per value)",
+            "roleDesc_ridge": "Year, station, product\u2026",
+            "role_x": "X axis",
+            "roleDesc_x": "Day of year, month, date or number",
+            "role_height": "Height",
+            "roleDesc_height": "Ridge amplitude",
+            "role_color": "Color",
+            "roleDesc_color": "Colors the ridge (e.g. max temperature)",
+            "role_tooltips": "Tooltips",
+            "roleDesc_tooltips": "Extra values in the tooltip",
+            "role_sortBy": "Order",
+            "roleDesc_sortBy": "Sort ridges by this value",
+            "role_label": "Ridge label",
+            "roleDesc_label": "Text shown instead of the ridge name",
+            "role_reference": "Reference \u2605",
+            "roleDesc_reference": "Normal, target, previous year\u2026",
+            "role_bandLow": "Band low \u2605",
+            "roleDesc_bandLow": "Lower bound of the envelope",
+            "role_bandHigh": "Band high \u2605",
+            "roleDesc_bandHigh": "Upper bound of the envelope",
+            "role_cursor": "Cursor: current ridge \u2605",
+            "roleDesc_cursor": "e.g. SELECTEDVALUE of a disconnected table",
+            "role_cursorX": "Cursor: X position \u2605",
+            "roleDesc_cursorX": "Vertical line at this X",
+            "role_annotation": "Annotation text \u2605",
+            "roleDesc_annotation": "Text shown at this ridge and X",
+            "role_format": "Dynamic format",
+            "roleDesc_format": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX",
+            "vis_back": "\u2190 Back",
+            "vis_all": "All",
+            "vis_youAreHere": "You are here",
+            "vis_play": "Play",
+            "vis_pause": "Pause",
+            "vis_replay": "Replay",
+            "vis_previous": "Previous",
+            "vis_next": "Next",
+            "vis_focus": "Focus",
+            "vis_open": "Open",
+            "vis_premiumTitle": "Premium features in use",
+            "vis_premiumUnlock": "Unlock \u2192",
+            "vis_premiumBadge": "Premium preview",
+            "vis_licenseInvalid": "Invalid license key",
+            "vis_licenseExpired": "License expired",
+            "vis_licenseOtherVisual": "This key does not cover this visual",
+            "vis_licenseBuy": "Buy or renew",
+            "vis_licensedTo": "Licensed to",
+            "vis_licenseValid": "License valid",
+            "vis_lifetime": "lifetime",
+            "vis_validUntil": "until",
+            "vis_landingTitle": "Ridgeline Plume",
+            "vis_landingText": "Drag a field into Ridge (e.g. Year), X axis (e.g. Day of year) and Height.",
+            "vis_landingText2": "Optional: Color, Reference, Cursor, Annotation\u2026 Full tutorial on our website.",
+            "vis_landingLink": "Open the tutorial",
+            "vis_noHeight": "Add a measure in Height.",
+            "vis_noX": "Add a field in X axis.",
+            "vis_tooMany": "ridges: too many to read. Use 'Keep N ridges' or scrolling.",
+            "vis_loadingMore": "Loading data\u2026 {n} rows",
+            "vis_ridgesCapped": "{total} ridges: only the first {shown} are drawn (limit {max}). Filter the data or use a field with fewer values.",
+            "vis_rowsCapped": "Only the first {n} rows are used (data limit).",
+            "vis_reference": "Reference",
+            "vis_max": "Max",
+            "vis_min": "Min",
+            "vis_mean": "Mean",
+            "vis_record": "Record",
+            "vis_band": "Band",
+            "vis_modes_ridgeline": "Ridges",
+            "vis_modes_minimal": "Minimal",
+            "vis_modes_comparison": "Compare",
+            "vis_modes_heatmap": "Heatmap",
+            "vis_modes_perspective": "3D",
+            "vis_ridgeAria": "Ridge",
+            "vis_chartAria": "Ridgeline chart with {n} ridges",
+            "vis_selected": "selected",
+            "vis_filterUnavailable": "This field cannot be used as a filter.",
+            "vis_themeInvalid": "Invalid theme JSON: ignored (see the 'JSON themes' tutorial)",
+            "vis_merged": "Several values per X on a ridge: averaged. Check the Ridge field (e.g. Year)."
+        },
+        "fr-FR": {
+            "role_ridge": "Cr\u00eate (une par valeur)",
+            "roleDesc_ridge": "Ann\u00e9e, station, produit\u2026",
+            "role_x": "Axe X",
+            "roleDesc_x": "Jour de l'ann\u00e9e, mois, date ou nombre",
+            "role_height": "Hauteur",
+            "roleDesc_height": "Amplitude de la cr\u00eate",
+            "role_color": "Couleur",
+            "roleDesc_color": "Colore la cr\u00eate (ex. temp\u00e9rature max)",
+            "role_tooltips": "Infobulles",
+            "roleDesc_tooltips": "Valeurs suppl\u00e9mentaires dans l'infobulle",
+            "role_sortBy": "Ordre",
+            "roleDesc_sortBy": "Trier les cr\u00eates selon cette valeur",
+            "role_label": "\u00c9tiquette de cr\u00eate",
+            "roleDesc_label": "Texte affich\u00e9 \u00e0 la place du nom",
+            "role_reference": "R\u00e9f\u00e9rence \u2605",
+            "roleDesc_reference": "Normale, objectif, N-1\u2026",
+            "role_bandLow": "Bande basse \u2605",
+            "roleDesc_bandLow": "Borne basse de l'enveloppe",
+            "role_bandHigh": "Bande haute \u2605",
+            "roleDesc_bandHigh": "Borne haute de l'enveloppe",
+            "role_cursor": "Curseur : cr\u00eate courante \u2605",
+            "roleDesc_cursor": "ex. SELECTEDVALUE d'une table d\u00e9connect\u00e9e",
+            "role_cursorX": "Curseur : position X \u2605",
+            "roleDesc_cursorX": "Ligne verticale \u00e0 ce X",
+            "role_annotation": "Texte d'annotation \u2605",
+            "roleDesc_annotation": "Texte affich\u00e9 \u00e0 cette cr\u00eate et ce X",
+            "role_format": "Format dynamique",
+            "roleDesc_format": "Mesures nomm\u00e9es carte.r\u00e9glage (ex. title.fontSize) : pilotez n'importe quel r\u00e9glage du volet Format en DAX",
+            "vis_back": "\u2190 Retour",
+            "vis_all": "Toutes",
+            "vis_youAreHere": "Vous \u00eates ici",
+            "vis_play": "Lecture",
+            "vis_pause": "Pause",
+            "vis_replay": "Rejouer",
+            "vis_previous": "Pr\u00e9c\u00e9dente",
+            "vis_next": "Suivante",
+            "vis_focus": "Focus",
+            "vis_open": "Ouvrir",
+            "vis_premiumTitle": "Fonctions premium utilis\u00e9es",
+            "vis_premiumUnlock": "D\u00e9bloquer \u2192",
+            "vis_premiumBadge": "Aper\u00e7u premium",
+            "vis_licenseInvalid": "Cl\u00e9 de licence invalide",
+            "vis_licenseExpired": "Licence expir\u00e9e",
+            "vis_licenseOtherVisual": "Cette cl\u00e9 ne couvre pas ce visuel",
+            "vis_licenseBuy": "Acheter ou renouveler",
+            "vis_licensedTo": "Licence :",
+            "vis_licenseValid": "Licence valide",
+            "vis_lifetime": "\u00e0 vie",
+            "vis_validUntil": "jusqu'au",
+            "vis_landingTitle": "Ridgeline Plume",
+            "vis_landingText": "Glissez un champ dans Cr\u00eate (ex. Ann\u00e9e), Axe X (ex. Jour de l'ann\u00e9e) et Hauteur.",
+            "vis_landingText2": "Optionnel : Couleur, R\u00e9f\u00e9rence, Curseur, Annotation\u2026 Tutoriel complet sur notre site.",
+            "vis_landingLink": "Voir le tutoriel",
+            "vis_noHeight": "Ajoutez une mesure dans Hauteur.",
+            "vis_noX": "Ajoutez un champ dans Axe X.",
+            "vis_tooMany": "cr\u00eates : trop pour \u00eatre lisibles. Utilisez \u00ab Garder N cr\u00eates \u00bb ou le d\u00e9filement.",
+            "vis_loadingMore": "Chargement des donn\u00e9es\u2026 {n} lignes",
+            "vis_ridgesCapped": "{total} cr\u00eates : seules les {shown} premi\u00e8res sont dessin\u00e9es (limite {max}). Filtrez les donn\u00e9es ou utilisez un champ avec moins de valeurs.",
+            "vis_rowsCapped": "Seules les {n} premi\u00e8res lignes sont utilis\u00e9es (limite de donn\u00e9es).",
+            "vis_reference": "R\u00e9f\u00e9rence",
+            "vis_max": "Max",
+            "vis_min": "Min",
+            "vis_mean": "Moyenne",
+            "vis_record": "Record",
+            "vis_band": "Bande",
+            "vis_modes_ridgeline": "Cr\u00eates",
+            "vis_modes_minimal": "Minimal",
+            "vis_modes_comparison": "Comparer",
+            "vis_modes_heatmap": "Heatmap",
+            "vis_modes_perspective": "3D",
+            "vis_ridgeAria": "Cr\u00eate",
+            "vis_chartAria": "Graphique en cr\u00eates, {n} cr\u00eates",
+            "vis_selected": "s\u00e9lectionn\u00e9e",
+            "vis_filterUnavailable": "Ce champ ne peut pas servir de filtre.",
+            "vis_themeInvalid": "Th\u00e8me JSON invalide : ignor\u00e9 (voir le tutoriel \u00ab Th\u00e8mes JSON \u00bb)",
+            "vis_merged": "Plusieurs valeurs par X sur une cr\u00eate : moyenn\u00e9es. V\u00e9rifiez le champ Cr\u00eate (ex. Ann\u00e9e)."
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "ridge",
+                "kind": "Grouping",
+                "displayName": "Ridge (one per value)",
+                "displayNameKey": "role_ridge",
+                "description": "Year, station, product\u2026",
+                "descriptionKey": "roleDesc_ridge"
+            },
+            {
+                "name": "x",
+                "kind": "Grouping",
+                "displayName": "X axis",
+                "displayNameKey": "role_x",
+                "description": "Day of year, month, date or number",
+                "descriptionKey": "roleDesc_x"
+            },
+            {
+                "name": "height",
+                "kind": "Measure",
+                "displayName": "Height",
+                "displayNameKey": "role_height",
+                "description": "Ridge amplitude",
+                "descriptionKey": "roleDesc_height"
+            },
+            {
+                "name": "color",
+                "kind": "Measure",
+                "displayName": "Color",
+                "displayNameKey": "role_color",
+                "description": "Colors the ridge (e.g. max temperature)",
+                "descriptionKey": "roleDesc_color"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "role_tooltips",
+                "description": "Extra values in the tooltip",
+                "descriptionKey": "roleDesc_tooltips"
+            },
+            {
+                "name": "sortBy",
+                "kind": "Measure",
+                "displayName": "Order",
+                "displayNameKey": "role_sortBy",
+                "description": "Sort ridges by this value",
+                "descriptionKey": "roleDesc_sortBy"
+            },
+            {
+                "name": "label",
+                "kind": "Measure",
+                "displayName": "Ridge label",
+                "displayNameKey": "role_label",
+                "description": "Text shown instead of the ridge name",
+                "descriptionKey": "roleDesc_label"
+            },
+            {
+                "name": "reference",
+                "kind": "Measure",
+                "displayName": "Reference \u2605",
+                "displayNameKey": "role_reference",
+                "description": "Normal, target, previous year\u2026",
+                "descriptionKey": "roleDesc_reference"
+            },
+            {
+                "name": "bandLow",
+                "kind": "Measure",
+                "displayName": "Band low \u2605",
+                "displayNameKey": "role_bandLow",
+                "description": "Lower bound of the envelope",
+                "descriptionKey": "roleDesc_bandLow"
+            },
+            {
+                "name": "bandHigh",
+                "kind": "Measure",
+                "displayName": "Band high \u2605",
+                "displayNameKey": "role_bandHigh",
+                "description": "Upper bound of the envelope",
+                "descriptionKey": "roleDesc_bandHigh"
+            },
+            {
+                "name": "cursor",
+                "kind": "Measure",
+                "displayName": "Cursor: current ridge \u2605",
+                "displayNameKey": "role_cursor",
+                "description": "e.g. SELECTEDVALUE of a disconnected table",
+                "descriptionKey": "roleDesc_cursor"
+            },
+            {
+                "name": "cursorX",
+                "kind": "Measure",
+                "displayName": "Cursor: X position \u2605",
+                "displayNameKey": "role_cursorX",
+                "description": "Vertical line at this X",
+                "descriptionKey": "roleDesc_cursorX"
+            },
+            {
+                "name": "annotation",
+                "kind": "Measure",
+                "displayName": "Annotation text \u2605",
+                "displayNameKey": "role_annotation",
+                "description": "Text shown at this ridge and X",
+                "descriptionKey": "roleDesc_annotation"
+            },
+            {
+                "name": "format",
+                "kind": "Measure",
+                "displayName": "Dynamic format",
+                "displayNameKey": "role_format",
+                "description": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX",
+                "descriptionKey": "roleDesc_format"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "ridge": {
+                            "max": 1
+                        },
+                        "x": {
+                            "max": 1
+                        },
+                        "height": {
+                            "max": 1
+                        },
+                        "color": {
+                            "max": 1
+                        },
+                        "sortBy": {
+                            "max": 1
+                        },
+                        "label": {
+                            "max": 1
+                        },
+                        "reference": {
+                            "max": 1
+                        },
+                        "bandLow": {
+                            "max": 1
+                        },
+                        "bandHigh": {
+                            "max": 1
+                        },
+                        "cursor": {
+                            "max": 1
+                        },
+                        "cursorX": {
+                            "max": 1
+                        },
+                        "annotation": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "ridge"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "x"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "height"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "color"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "tooltips"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "sortBy"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "label"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "reference"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "bandLow"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "bandHigh"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "cursor"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "cursorX"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "annotation"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "format"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "license": {
+                "displayName": "Plume Studio License",
+                "properties": {
+                    "buy": {
+                        "displayName": "Get a license",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "key": {
+                        "displayName": "License key",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showOwner": {
+                        "displayName": "Show license holder (edit mode)",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "style": {
+                "displayName": "Style",
+                "properties": {
+                    "preset": {
+                        "displayName": "Style",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "themeJson": {
+                        "displayName": "Theme JSON \u2605",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "followTheme": {
+                        "displayName": "Follow report theme",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "reverse": {
+                        "displayName": "Reverse gradients",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "customColors": {
+                        "displayName": "Customize colors",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorBackground": {
+                        "displayName": "Background",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorText": {
+                        "displayName": "Text",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorMuted": {
+                        "displayName": "Secondary text",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorGrid": {
+                        "displayName": "Lines and grid",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorAccent": {
+                        "displayName": "Accent",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorPositive": {
+                        "displayName": "Favorable",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorNegative": {
+                        "displayName": "Unfavorable",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series1": {
+                        "displayName": "Series 1",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series2": {
+                        "displayName": "Series 2",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series3": {
+                        "displayName": "Series 3",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series4": {
+                        "displayName": "Series 4",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series5": {
+                        "displayName": "Series 5",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series6": {
+                        "displayName": "Series 6",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series7": {
+                        "displayName": "Series 7",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series8": {
+                        "displayName": "Series 8",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "palette": {
+                        "displayName": "Gradient palette",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "custom1": {
+                        "displayName": "Color 1",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "custom2": {
+                        "displayName": "Color 2",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "custom3": {
+                        "displayName": "Color 3",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "custom4": {
+                        "displayName": "Color 4",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "custom5": {
+                        "displayName": "Color 5",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleLow": {
+                        "displayName": "Gradient: start",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleMid": {
+                        "displayName": "Gradient: middle (diverging)",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleHigh": {
+                        "displayName": "Gradient: end",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgShow": {
+                        "displayName": "Background",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgColor": {
+                        "displayName": "Background color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor2": {
+                        "displayName": "Gradient end (optional)",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "display": {
+                "displayName": "Display",
+                "properties": {
+                    "mode": {
+                        "displayName": "Display mode",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "modeSwitcher": {
+                        "displayName": "Mode buttons in visual \u2605",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "orientation": {
+                        "displayName": "Orientation",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "perspectiveTilt": {
+                        "displayName": "Perspective tilt",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "marginTop": {
+                        "displayName": "Top margin",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "marginRight": {
+                        "displayName": "Right margin",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "marginBottom": {
+                        "displayName": "Bottom margin",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "marginLeft": {
+                        "displayName": "Left margin",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "scrollable": {
+                        "displayName": "Scroll when crowded \u2605",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "minRidgeHeight": {
+                        "displayName": "Min. ridge spacing (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "autoHide": {
+                        "displayName": "Adapt to small sizes",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "ridges": {
+                "displayName": "Ridges",
+                "properties": {
+                    "overlap": {
+                        "displayName": "Overlap (%)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fixedHeight": {
+                        "displayName": "Ridge spacing px (0 = auto)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "curve": {
+                        "displayName": "Curve",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "smoothing": {
+                        "displayName": "Moving average (points) \u2605",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "order": {
+                        "displayName": "Ridge order",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "topN": {
+                        "displayName": "Keep N ridges (0 = all) \u2605",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "topNFrom": {
+                        "displayName": "Keep",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "normalization": {
+                        "displayName": "Height scale",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "percentile": {
+                        "displayName": "Percentile",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "baseline": {
+                        "displayName": "Baseline",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "negatives": {
+                        "displayName": "Negative values",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "negativeColor": {
+                        "displayName": "Negative color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "colors": {
+                "displayName": "Colors",
+                "properties": {
+                    "colorMode": {
+                        "displayName": "Color by",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "colorTarget": {
+                        "displayName": "Apply color to",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "singleColor": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fillOpacity": {
+                        "displayName": "Fill opacity (%)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fillStyle": {
+                        "displayName": "Fill style",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "strokeColor": {
+                        "displayName": "Outline color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "strokeWidth": {
+                        "displayName": "Outline width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "strokeTopOnly": {
+                        "displayName": "Outline on top edge only",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lineWidth": {
+                        "displayName": "Crest line width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "hideBehind": {
+                        "displayName": "Hide ridges behind (opaque)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underColor": {
+                        "displayName": "Color under the line",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadow": {
+                        "displayName": "Shadow",
+                        "type": {
+                            "enumeration": []
+                        }
+                    }
+                }
+            },
+            "labels": {
+                "displayName": "Ridge labels",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "displayName": "Position",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "everyN": {
+                        "displayName": "Show 1 label every N",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showValue": {
+                        "displayName": "Value next to label \u2605",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "showRank": {
+                        "displayName": "Show rank \u2605",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "decimals": {
+                        "displayName": "Decimals",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "prefix": {
+                        "displayName": "Prefix",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "suffix": {
+                        "displayName": "Suffix (\u00b0C, mm\u2026)",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "xAxis": {
+                "displayName": "X axis",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "format": {
+                        "displayName": "Format",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "ticks": {
+                        "displayName": "Tick count (0 = auto)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rotation": {
+                        "displayName": "Label rotation",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "grid": {
+                        "displayName": "Vertical gridlines",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gridColor": {
+                        "displayName": "Grid color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "gridDash": {
+                        "displayName": "Dashed grid",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "title": {
+                        "displayName": "Axis title",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "yAxis": {
+                "displayName": "Y axis (focus & comparison)",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "decimals": {
+                        "displayName": "Decimals",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "suffix": {
+                        "displayName": "Unit suffix",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "grid": {
+                        "displayName": "Horizontal gridlines",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "title": {
+                        "displayName": "Axis title",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "displayName": "Color legend",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "displayName": "Position",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "title": {
+                        "displayName": "Title (empty = field name)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "interactive": {
+                        "displayName": "Click to filter ridges \u2605",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "title": {
+                "displayName": "Title",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "displayName": "Text",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtitle": {
+                        "displayName": "Subtitle",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "displayName": "Alignment",
+                        "type": {
+                            "enumeration": []
+                        }
+                    }
+                }
+            },
+            "source": {
+                "displayName": "Source note",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "displayName": "Text",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "interaction": {
+                "displayName": "Interactions",
+                "properties": {
+                    "crossFilter": {
+                        "displayName": "Click filters other visuals",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "hoverEmphasis": {
+                        "displayName": "Emphasize hovered ridge",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "crosshair": {
+                        "displayName": "Crosshair across ridges \u2605",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "highlightMode": {
+                        "displayName": "Highlighted ridges",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "cursorStyle": {
+                        "displayName": "Cursor style \u2605",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "cursorLabel": {
+                        "displayName": "Cursor label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "cursorColor": {
+                        "displayName": "Cursor color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "keyboard": {
+                        "displayName": "Keyboard navigation",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "focus": {
+                "displayName": "Focus mode \u2605",
+                "properties": {
+                    "enabled": {
+                        "displayName": "Enable",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "trigger": {
+                        "displayName": "Open focus with",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "duration": {
+                        "displayName": "Animation duration (ms)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "transition": {
+                        "displayName": "Transition",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "ghosts": {
+                        "displayName": "Keep other ridges as ghosts",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ghostOpacity": {
+                        "displayName": "Ghost opacity (%)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "filterReport": {
+                        "displayName": "Focus also filters the report",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "backText": {
+                        "displayName": "Text",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "backPosition": {
+                        "displayName": "Position",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "backStyle": {
+                        "displayName": "Style",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "backColor": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "prevNext": {
+                        "displayName": "\u25c0 \u25b6 previous / next",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "breadcrumb": {
+                        "displayName": "Breadcrumb",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "breadcrumbRoot": {
+                        "displayName": "Breadcrumb root text",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "animation": {
+                "displayName": "Time animation \u2605",
+                "properties": {
+                    "enabled": {
+                        "displayName": "Show \u25b6 play button",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "playMode": {
+                        "displayName": "Animation",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "speed": {
+                        "displayName": "Time per ridge (ms)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "accelerate": {
+                        "displayName": "Accelerate progressively",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "loop": {
+                        "displayName": "Repeat",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "autoplay": {
+                        "displayName": "Autoplay on load",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "filterReport": {
+                        "displayName": "Current ridge filters the report",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "respectReducedMotion": {
+                        "displayName": "Respect 'reduce motion'",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "counterShow": {
+                        "displayName": "Big counter in background",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "counterSize": {
+                        "displayName": "Size (% of height)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "counterOpacity": {
+                        "displayName": "Opacity (%)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "counterPosition": {
+                        "displayName": "Position",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "progressShow": {
+                        "displayName": "Progress bar (draggable)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "trail": {
+                        "displayName": "Keep past ridges in gray",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "pauseOnAnnotations": {
+                        "displayName": "Pause on annotated ridges",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "pauseMs": {
+                        "displayName": "Pause duration (ms)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "transitionMs": {
+                        "displayName": "Filter change transition (ms)",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "analytics": {
+                "displayName": "Reference & analytics \u2605",
+                "properties": {
+                    "refShow": {
+                        "displayName": "Show reference (field)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "refStyle": {
+                        "displayName": "Line style",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "refColor": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "refWidth": {
+                        "displayName": "Width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "anomaly": {
+                        "displayName": "Color the gap to reference",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "anomalyAbove": {
+                        "displayName": "Above",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "anomalyBelow": {
+                        "displayName": "Below",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "meanShow": {
+                        "displayName": "Overlay mean curve",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "meanColor": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bandShow": {
+                        "displayName": "Show band",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bandColor": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bandOpacity": {
+                        "displayName": "Opacity (%)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "thresholdShow": {
+                        "displayName": "Show threshold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "thresholdValue": {
+                        "displayName": "Value",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "thresholdColor": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "thresholdFill": {
+                        "displayName": "Color parts above",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "markersMaxMin": {
+                        "displayName": "Max / min of each ridge",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "recordMarker": {
+                        "displayName": "Absolute record",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "markerColor": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "extremesN": {
+                        "displayName": "N extreme ridges (0 = off)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "extremesBy": {
+                        "displayName": "Ranked by",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "trendShow": {
+                        "displayName": "Sparkline of ridge means in margin",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "trendColor": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                },
+                "objectCategory": 2
+            },
+            "annotations": {
+                "displayName": "Annotations \u2605",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "style": {
+                        "displayName": "Style",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "state": {
+                "displayName": "State",
+                "properties": {
+                    "focusKey": {
+                        "displayName": "Focused ridge",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "modeOverride": {
+                        "displayName": "Mode override",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "ridgeColors": {
+                "displayName": "Ridge colors",
+                "properties": {
+                    "fill": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "general": {
+                "displayName": "General",
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": true
+                        }
+                    }
+                }
+            }
+        },
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ],
+            "supportEnhancedTooltips": true
+        },
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsMultiVisualSelection": true,
+        "supportsSynchronizingFilterState": true,
+        "suppressDefaultTitle": false,
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

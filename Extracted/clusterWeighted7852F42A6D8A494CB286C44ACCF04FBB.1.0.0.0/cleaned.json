@@ -1,0 +1,534 @@
+{
+    "visual": {
+        "name": "clusterWeighted",
+        "displayName": "Sales Territory Balancer",
+        "guid": "clusterWeighted7852F42A6D8A494CB286C44ACCF04FBB",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Balanced sales territories computed inside Power BI. Give it your points of sale with latitude, longitude and workload; it returns compact territories of equal workload, travel included, and tells you how many salespeople you need. No external service, no network requests.",
+        "supportUrl": "https://tinocallarisa-web.github.io/sales-territory-balancer/support.html",
+        "gitHubUrl": "https://github.com/tinocallarisa-web/sales-territory-balancer"
+    },
+    "author": {
+        "name": "TCViz",
+        "email": "support@tcviz.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "Obj_AreaBadges": "Area badges",
+            "Obj_AreaBadges_Desc": "A circle or a rectangle on each area with the number of salespeople it needs.",
+            "Obj_General": "General",
+            "Obj_Map": "Map Settings",
+            "Obj_Territories": "Territories",
+            "Prop_Areas": "Areas (automatic)",
+            "Prop_Areas_Desc": "Number of geographic commercial areas to draw when no Area field is bound; territories are built inside each. 0 = no areas.",
+            "Prop_BorderColor": "Border color",
+            "Prop_BadgeShape": "Shape",
+            "Enum_Circle": "Circle",
+            "Enum_Rectangle": "Rectangle",
+            "Prop_BorderWidth": "Border width",
+            "Prop_Capacity": "Hours / salesperson / month",
+            "Prop_Capacity_Desc": "Field hours available per month for ONE salesperson, visits and travel included: the size of a territory. The number of salespeople is derived from it.",
+            "Prop_Detour": "Road factor",
+            "Prop_Detour_Desc": "Road distance over straight line: 1.3 means 30% longer than the straight line.",
+            "Prop_FillColor": "Background color",
+            "Prop_FontFamily": "Font family",
+            "Prop_FontSize": "Font size",
+            "Prop_MarkerSize": "Marker Size",
+            "Prop_OutlierKm": "Outlier distance (km)",
+            "Prop_OutlierKm_Desc": "A point of sale whose third-nearest neighbour is farther than this is left out of the territories and flagged as an outlier. 0 = never.",
+            "Prop_WorkDays": "Working days / month",
+            "Prop_WorkDays_Desc": "Working days a month. A working day is the salesperson's monthly hours divided by this; the visits that fit in a day share the daily trip out to the territory and back.",
+            "Prop_Show": "Show",
+            "Prop_Speed": "Average speed (km/h)",
+            "Prop_Speed_Desc": "Converts distance into travel time.",
+            "Prop_TextColor": "Text color",
+            "Role_Area": "Area (Pro)",
+            "Role_Area_Desc": "Pro: size the sales force by your own areas (province, sales region...) instead of automatic ones. Without Pro it shows as a watermarked preview while editing; free, leave it empty and type a number of Areas in the bar.",
+            "Role_CustomerId": "Customer ID",
+            "Role_CustomerId_Desc": "Unique identifier for each point of sale",
+            "Role_Latitude": "Latitude",
+            "Role_Latitude_Desc": "Geographic latitude of the point of sale",
+            "Role_Longitude": "Longitude",
+            "Role_Longitude_Desc": "Geographic longitude of the point of sale",
+            "Role_Minutes": "Minutes per visit",
+            "Role_Minutes_Desc": "Time spent per visit, in minutes. Optional; used together with Visits per month.",
+            "Role_Postal": "Postal code",
+            "Role_Postal_Desc": "Optional postal code (or any basic area such as municipality). Areas are built from whole postal codes; a code wider than 25 km is split by town, and a column that is not geographic is ignored (the map says so).",
+            "Role_Speed": "Speed (km/h) (Pro)",
+            "Role_Speed_Desc": "Pro: travel time per point instead of one speed for everybody. Average speed around this point of sale (e.g. urban 25, semi-urban 45, rural 70); overrides the km/h in the bar. Without Pro it shows as a watermarked preview while editing.",
+            "Role_Tooltips": "Tooltips",
+            "Role_Tooltips_Desc": "Optional extra values shown in the tooltip of each point of sale (sales, segment...).",
+            "Role_Visits": "Visits per month",
+            "Role_Visits_Desc": "Monthly visit frequency for this point of sale. Optional: with Minutes per visit, the workload is visits x (minutes + travel).",
+            "UI_AndWorkload": "and the workload: ",
+            "UI_Area": "Area",
+            "UI_AreaN": "Area {0}",
+            "UI_Areas": "Areas",
+            "UI_AssignFields": "Assign these fields to get started:",
+            "UI_BadgeTitle": "{0}: {1} salespeople needed",
+            "UI_Balancing": "Balancing {0} points\u2026",
+            "UI_CheckingLicence": "Checking licence\u2026",
+            "UI_ExportPdf": "Export map PDF (Pro)",
+            "UI_Export": "Export CSV (Pro)",
+            "UI_ExportFailed": "Export failed: {0}. {1}",
+            "UI_ExportNA": "Export is not available in this host.",
+            "UI_ExportNotAllowed": "Export not allowed: {0}. {1}",
+            "UI_ExportNotCompleted": "Export was not completed. {0}",
+            "UI_ExportReason1": "the visual did not declare the ExportContent privilege",
+            "UI_ExportReason2": "this host does not support downloads from visuals",
+            "UI_ExportReason3": "downloads from custom visuals are disabled by your Power BI administrator (tenant setting)",
+            "UI_ExportTenant": "Enable 'Allow downloads from custom visuals' in the Fabric admin portal (Tenant settings > Power BI visuals) and sign in to Power BI.",
+            "UI_Hint": "Hours per salesperson, speed, road factor and number of areas live in the bar above the map, in reading view too",
+            "UI_Kmh": "km/h",
+            "UI_Load": "Load (h/month)",
+            "UI_LoadDetail": "{0} ({1} visit + {2} travel)",
+            "UI_LoadLine": "Load: {0} h/month ({1} visit + {2} travel)",
+            "UI_Loading": "Loading points\u2026 {0} so far",
+            "UI_Outlier": "Outlier",
+            "UI_OutlierLong": "Outlier: too far from any other client",
+            "UI_PointOfSale": "Point of sale",
+            "UI_Recalculate": "Recalculate",
+            "UI_Road": "Road \u00d7",
+            "UI_SalespeopleNeeded": "Salespeople needed",
+            "UI_Territory": "Territory",
+            "UI_Total": "Total",
+            "UI_Unassigned": "Unassigned",
+            "UI_UnassignedLong": "Unassigned: no territory with room within reach",
+            "UI_PostalIgnored": "Postal code does not look geographic: clients that share a code are far apart. Areas were built client by client, and the area filter selects rows instead of postal codes.",
+            "UI_TerrTip": "Territory {0} \u00b7 {1} h \u00b7 {2} clients",
+            "UI_WaitAreas": "Define the areas to size the sales force: bind a field to Area (province, region\u2026) or type a number of Areas in the bar.",
+            "UI_WaitAreasPro": "Type a number of Areas in the bar to size the sales force with automatic areas."
+        },
+        "es-ES": {
+            "Obj_AreaBadges": "C\u00edrculos de \u00e1rea",
+            "Obj_AreaBadges_Desc": "Un c\u00edrculo o un rect\u00e1ngulo sobre cada \u00e1rea con los comerciales que necesita.",
+            "Obj_General": "General",
+            "Obj_Map": "Mapa",
+            "Obj_Territories": "Territorios",
+            "Prop_Areas": "\u00c1reas (autom\u00e1ticas)",
+            "Prop_Areas_Desc": "N\u00famero de \u00e1reas comerciales geogr\u00e1ficas que se dibujan cuando no hay campo \u00c1rea; los territorios se forman dentro de cada una. 0 = sin \u00e1reas.",
+            "Prop_BorderColor": "Color del borde",
+            "Prop_BadgeShape": "Forma",
+            "Enum_Circle": "C\u00edrculo",
+            "Enum_Rectangle": "Rect\u00e1ngulo",
+            "Prop_BorderWidth": "Grosor del borde",
+            "Prop_Capacity": "Horas / comercial / mes",
+            "Prop_Capacity_Desc": "Horas de campo disponibles al mes para UN comercial, visitas y desplazamientos incluidos: el tama\u00f1o de un territorio. El n\u00famero de comerciales sale de aqu\u00ed.",
+            "Prop_Detour": "Factor de carretera",
+            "Prop_Detour_Desc": "Distancia por carretera sobre la l\u00ednea recta: 1,3 significa un 30 % m\u00e1s que en l\u00ednea recta.",
+            "Prop_FillColor": "Color de fondo",
+            "Prop_FontFamily": "Fuente",
+            "Prop_FontSize": "Tama\u00f1o de fuente",
+            "Prop_MarkerSize": "Tama\u00f1o del punto",
+            "Prop_OutlierKm": "Distancia de valor at\u00edpico (km)",
+            "Prop_OutlierKm_Desc": "Un punto de venta cuyo tercer vecino m\u00e1s cercano est\u00e1 m\u00e1s lejos que esto queda fuera de los territorios y se marca como valor at\u00edpico. 0 = nunca.",
+            "Prop_WorkDays": "D\u00edas laborables / mes",
+            "Prop_WorkDays_Desc": "D\u00edas laborables al mes. La jornada son las horas mensuales del comercial divididas por este n\u00famero; las visitas que caben en un d\u00eda se reparten el viaje diario al territorio y de vuelta.",
+            "Prop_Show": "Mostrar",
+            "Prop_Speed": "Velocidad media (km/h)",
+            "Prop_Speed_Desc": "Convierte la distancia en tiempo de desplazamiento.",
+            "Prop_TextColor": "Color del texto",
+            "Role_Area": "\u00c1rea (Pro)",
+            "Role_Area_Desc": "Pro: dimensiona el equipo por tus propias \u00e1reas (provincia, regi\u00f3n de ventas...) en lugar de las autom\u00e1ticas. Sin Pro se ve como vista previa con marca de agua mientras editas; en la versi\u00f3n gratuita, d\u00e9jalo vac\u00edo y escribe un n\u00famero de \u00c1reas en la barra.",
+            "Role_CustomerId": "ID de cliente",
+            "Role_CustomerId_Desc": "Identificador \u00fanico de cada punto de venta.",
+            "Role_Latitude": "Latitud",
+            "Role_Latitude_Desc": "Latitud geogr\u00e1fica del punto de venta.",
+            "Role_Longitude": "Longitud",
+            "Role_Longitude_Desc": "Longitud geogr\u00e1fica del punto de venta.",
+            "Role_Minutes": "Minutos por visita",
+            "Role_Minutes_Desc": "Tiempo de cada visita, en minutos. Se usa junto con Visitas al mes.",
+            "Role_Postal": "C\u00f3digo postal",
+            "Role_Postal_Desc": "C\u00f3digo postal opcional (o cualquier \u00e1rea b\u00e1sica, como el municipio). Las \u00e1reas se forman con c\u00f3digos postales enteros; un c\u00f3digo de m\u00e1s de 25 km se parte por pueblos, y una columna que no es geogr\u00e1fica se ignora (el mapa lo dice).",
+            "Role_Speed": "Velocidad (km/h) (Pro)",
+            "Role_Speed_Desc": "Pro: tiempo de viaje por punto en lugar de una velocidad \u00fanica. Velocidad media alrededor de este punto de venta (p. ej. urbano 25, semiurbano 45, rural 70); sustituye a los km/h de la barra. Sin Pro se ve como vista previa con marca de agua mientras editas.",
+            "Role_Tooltips": "Informaci\u00f3n sobre herramientas",
+            "Role_Tooltips_Desc": "Valores adicionales opcionales en la informaci\u00f3n sobre herramientas de cada punto de venta (ventas, segmento...).",
+            "Role_Visits": "Visitas al mes",
+            "Role_Visits_Desc": "Frecuencia de visita mensual del punto de venta. Con Minutos por visita, la carga es visitas \u00d7 (minutos + desplazamiento).",
+            "UI_AndWorkload": "y la carga de trabajo: ",
+            "UI_Area": "\u00c1rea",
+            "UI_AreaN": "\u00c1rea {0}",
+            "UI_Areas": "\u00c1reas",
+            "UI_AssignFields": "Asigna estos campos para empezar:",
+            "UI_BadgeTitle": "{0}: {1} comerciales necesarios",
+            "UI_Balancing": "Repartiendo {0} puntos\u2026",
+            "UI_CheckingLicence": "Comprobando licencia\u2026",
+            "UI_ExportPdf": "Exportar mapa PDF (Pro)",
+            "UI_Export": "Exportar CSV (Pro)",
+            "UI_ExportFailed": "La exportaci\u00f3n fall\u00f3: {0}. {1}",
+            "UI_ExportNA": "Exportar no est\u00e1 disponible en este entorno.",
+            "UI_ExportNotAllowed": "No se permite exportar: {0}. {1}",
+            "UI_ExportNotCompleted": "La exportaci\u00f3n no se complet\u00f3. {0}",
+            "UI_ExportReason1": "el visual no declar\u00f3 el privilegio ExportContent",
+            "UI_ExportReason2": "este entorno no admite descargas desde visuales",
+            "UI_ExportReason3": "tu administrador de Power BI tiene desactivadas las descargas desde visuales personalizados (configuraci\u00f3n del inquilino)",
+            "UI_ExportTenant": "Activa 'Allow downloads from custom visuals' en el portal de administraci\u00f3n de Fabric (Configuraci\u00f3n del inquilino > Objetos visuales de Power BI) e inicia sesi\u00f3n en Power BI.",
+            "UI_Hint": "Las horas por comercial, la velocidad, el factor de carretera y el n\u00famero de \u00e1reas est\u00e1n en la barra sobre el mapa, tambi\u00e9n en modo lectura",
+            "UI_Kmh": "km/h",
+            "UI_Load": "Carga (h/mes)",
+            "UI_LoadDetail": "{0} ({1} visita + {2} desplazamiento)",
+            "UI_LoadLine": "Carga: {0} h/mes ({1} visita + {2} desplazamiento)",
+            "UI_Loading": "Cargando puntos\u2026 {0} hasta ahora",
+            "UI_Outlier": "Valor at\u00edpico",
+            "UI_OutlierLong": "Valor at\u00edpico: demasiado lejos de cualquier otro cliente",
+            "UI_PointOfSale": "Punto de venta",
+            "UI_Recalculate": "Recalcular",
+            "UI_Road": "Carretera \u00d7",
+            "UI_SalespeopleNeeded": "Comerciales necesarios",
+            "UI_Territory": "Territorio",
+            "UI_Total": "Total",
+            "UI_Unassigned": "Sin asignar",
+            "UI_UnassignedLong": "Sin asignar: ning\u00fan territorio con hueco a su alcance",
+            "UI_PostalIgnored": "El c\u00f3digo postal no parece geogr\u00e1fico: los clientes con el mismo c\u00f3digo est\u00e1n lejos entre s\u00ed. Las \u00e1reas se han construido cliente a cliente y el filtro de \u00e1rea selecciona filas en vez de c\u00f3digos postales.",
+            "UI_TerrTip": "Territorio {0} \u00b7 {1} h \u00b7 {2} clientes",
+            "UI_WaitAreas": "Define las \u00e1reas para dimensionar el equipo: pon un campo en \u00c1rea (provincia, regi\u00f3n\u2026) o escribe un n\u00famero de \u00c1reas en la barra.",
+            "UI_WaitAreasPro": "Escribe un n\u00famero de \u00c1reas en la barra para dimensionar el equipo con \u00e1reas autom\u00e1ticas."
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Customer ID",
+                "displayNameKey": "Role_CustomerId",
+                "name": "customer_id",
+                "kind": "GroupingOrMeasure",
+                "description": "Unique identifier for each point of sale",
+                "descriptionKey": "Role_CustomerId_Desc"
+            },
+            {
+                "displayName": "Latitude",
+                "displayNameKey": "Role_Latitude",
+                "name": "latitude",
+                "kind": "Measure",
+                "description": "Geographic latitude of the point of sale",
+                "descriptionKey": "Role_Latitude_Desc"
+            },
+            {
+                "displayName": "Longitude",
+                "displayNameKey": "Role_Longitude",
+                "name": "longitude",
+                "kind": "Measure",
+                "description": "Geographic longitude of the point of sale",
+                "descriptionKey": "Role_Longitude_Desc"
+            },
+            {
+                "displayName": "Visits per month",
+                "displayNameKey": "Role_Visits",
+                "name": "visits",
+                "kind": "Measure",
+                "description": "Monthly visit frequency for this point of sale. Optional: with Minutes per visit, the workload is visits x (minutes + travel).",
+                "descriptionKey": "Role_Visits_Desc"
+            },
+            {
+                "displayName": "Minutes per visit",
+                "displayNameKey": "Role_Minutes",
+                "name": "minutes",
+                "kind": "Measure",
+                "description": "Time spent per visit, in minutes. Optional; used together with Visits per month.",
+                "descriptionKey": "Role_Minutes_Desc"
+            },
+            {
+                "displayName": "Speed (km/h) (Pro)",
+                "displayNameKey": "Role_Speed",
+                "name": "speed",
+                "kind": "Measure",
+                "description": "Pro: travel time per point instead of one speed for everybody. Average speed around this point of sale (e.g. urban 25, semi-urban 45, rural 70); overrides the km/h in the bar. Without Pro it shows as a watermarked preview while editing.",
+                "descriptionKey": "Role_Speed_Desc"
+            },
+            {
+                "displayName": "Postal code",
+                "displayNameKey": "Role_Postal",
+                "name": "postal",
+                "kind": "Grouping",
+                "description": "Optional postal code (or any basic area such as municipality). Areas are built from whole postal codes; a code wider than 25 km is split by town, and a column that is not geographic is ignored (the map says so).",
+                "descriptionKey": "Role_Postal_Desc"
+            },
+            {
+                "displayName": "Area (Pro)",
+                "displayNameKey": "Role_Area",
+                "name": "area",
+                "kind": "Grouping",
+                "description": "Pro: size the sales force by your own areas (province, sales region...) instead of automatic ones. Without Pro it shows as a watermarked preview while editing; free, leave it empty and type a number of Areas in the bar.",
+                "descriptionKey": "Role_Area_Desc"
+            },
+            {
+                "displayName": "Tooltips",
+                "displayNameKey": "Role_Tooltips",
+                "name": "tooltips",
+                "kind": "Measure",
+                "description": "Optional extra values shown in the tooltip of each point of sale (sales, segment...).",
+                "descriptionKey": "Role_Tooltips_Desc"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "customer_id"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "latitude"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "longitude"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "visits"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "minutes"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "speed"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "postal"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "area"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "general": {
+                "displayName": "General",
+                "displayNameKey": "Obj_General",
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": true
+                        }
+                    }
+                }
+            },
+            "clusterSettings": {
+                "displayName": "Territories",
+                "displayNameKey": "Obj_Territories",
+                "properties": {
+                    "capacityHours": {
+                        "displayName": "Hours / salesperson / month",
+                        "displayNameKey": "Prop_Capacity",
+                        "description": "Field hours available per month for ONE salesperson, visits and travel included: the size of a territory. The number of salespeople is derived from it.",
+                        "descriptionKey": "Prop_Capacity_Desc",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "speedKmh": {
+                        "displayName": "Average speed (km/h)",
+                        "displayNameKey": "Prop_Speed",
+                        "description": "Converts distance into travel time.",
+                        "descriptionKey": "Prop_Speed_Desc",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "detour": {
+                        "displayName": "Road factor",
+                        "displayNameKey": "Prop_Detour",
+                        "description": "Road distance over straight line: 1.3 means 30% longer than the straight line.",
+                        "descriptionKey": "Prop_Detour_Desc",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "workDays": {
+                        "displayName": "Working days / month",
+                        "displayNameKey": "Prop_WorkDays",
+                        "description": "Working days a month. A working day is the salesperson's monthly hours divided by this; the visits that fit in a day share the daily trip out to the territory and back.",
+                        "descriptionKey": "Prop_WorkDays_Desc",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "outlierKm": {
+                        "displayName": "Outlier distance (km)",
+                        "displayNameKey": "Prop_OutlierKm",
+                        "description": "A point of sale whose third-nearest neighbour is farther than this is left out of the territories and flagged as an outlier. 0 = never.",
+                        "descriptionKey": "Prop_OutlierKm_Desc",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "areas": {
+                        "displayName": "Areas (automatic)",
+                        "displayNameKey": "Prop_Areas",
+                        "description": "Number of geographic commercial areas to draw when no Area field is bound; territories are built inside each. 0 = no areas.",
+                        "descriptionKey": "Prop_Areas_Desc",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "areaBadges": {
+                "displayName": "Area badges",
+                "displayNameKey": "Obj_AreaBadges",
+                "description": "A circle or a rectangle on each area with the number of salespeople it needs.",
+                "descriptionKey": "Obj_AreaBadges_Desc",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "displayNameKey": "Prop_Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "shape": {
+                        "displayName": "Shape",
+                        "displayNameKey": "Prop_BadgeShape",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle",
+                                    "displayNameKey": "Enum_Circle"
+                                },
+                                {
+                                    "value": "rect",
+                                    "displayName": "Rectangle",
+                                    "displayNameKey": "Enum_Rectangle"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font size",
+                        "displayNameKey": "Prop_FontSize",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "displayNameKey": "Prop_FontFamily",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fillColor": {
+                        "displayName": "Background color",
+                        "displayNameKey": "Prop_FillColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "displayName": "Text color",
+                        "displayNameKey": "Prop_TextColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderColor": {
+                        "displayName": "Border color",
+                        "displayNameKey": "Prop_BorderColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderWidth": {
+                        "displayName": "Border width",
+                        "displayNameKey": "Prop_BorderWidth",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "mapSettings": {
+                "displayName": "Map Settings",
+                "displayNameKey": "Obj_Map",
+                "properties": {
+                    "markerSize": {
+                        "displayName": "Marker Size",
+                        "displayNameKey": "Prop_MarkerSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            }
+        },
+        "supportsHighlight": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "supportsSynchronizingFilterState": true,
+        "supportsLandingPage": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "privileges": [
+            {
+                "name": "ExportContent",
+                "essential": false
+            },
+            {
+                "name": "LocalStorage",
+                "essential": false
+            }
+        ]
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
