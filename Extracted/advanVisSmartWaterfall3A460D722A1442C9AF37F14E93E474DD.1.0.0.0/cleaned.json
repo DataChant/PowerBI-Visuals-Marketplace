@@ -1,0 +1,1210 @@
+{
+    "visual": {
+        "name": "advanVisSmartWaterfall",
+        "displayName": "AdvanVis - Smart Waterfall and Bridge",
+        "guid": "advanVisSmartWaterfall3A460D722A1442C9AF37F14E93E474DD",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Waterfall and bridge charts that add up and explain themselves in plain English. Free: steps from a category or from several measures, subtotals found for you or added where you want them, costs subtracted so the subtotals add up, a period bridge with a breakdown, Top N with Other, sorting by impact, a marked axis break so small steps stay visible, columns or bars, value and % labels, connectors, conditional formatting, drill-down, vector export and a basic headline. Pro (one-month free trial): a budget-to-actual or last-year bridge from two measures, the total change marker, the full smart headline and findings with How calculated, and smart design tips.",
+        "supportUrl": "https://advanvis.co.uk/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "AdvanVis Technologies Limited",
+        "email": "arpit@advanvis.co.uk"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "privileges": [],
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsLandingPage": true,
+        "supportsMultiVisualSelection": true,
+        "sorting": {
+            "default": {}
+        },
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "supportEnhancedTooltips": true
+        },
+        "drilldown": {
+            "roles": [
+                "category"
+            ]
+        },
+        "dataRoles": [
+            {
+                "displayName": "Category",
+                "description": "The steps, in order: accounts, drivers, regions or periods. Add more fields to drill down. Leave empty to make each measure in Values a step.",
+                "name": "category",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Breakdown",
+                "description": "Optional. With periods in Category, shows what changed between one period and the next, by this field: each period a total, the changes between.",
+                "name": "breakdown",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Values",
+                "description": "The numeric field for each step. Without a Category, add several measures: each becomes a step, in the order they are listed.",
+                "name": "measure",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Compare to (last period)",
+                "description": "Optional, Pro. Last year or last month: the chart becomes a bridge from that total to this one, by Category.",
+                "name": "comparison",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Target or budget",
+                "description": "Optional, Pro. A budget or plan: the chart becomes a bridge from budget to actual, by Category.",
+                "name": "target",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Tooltips",
+                "description": "Optional. Extra measures to show when hovering a step.",
+                "name": "tooltips",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Show condition",
+                "description": "Optional. A 0/1 measure: the chart is drawn only when it is 1. When it is 0 or blank, a message is shown instead and no values are revealed.",
+                "name": "showCondition",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "category": {
+                            "max": 4
+                        },
+                        "breakdown": {
+                            "max": 0
+                        },
+                        "measure": {
+                            "max": 1
+                        },
+                        "comparison": {
+                            "max": 1
+                        },
+                        "target": {
+                            "max": 1
+                        },
+                        "tooltips": {
+                            "max": 5
+                        },
+                        "showCondition": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "category": {
+                            "max": 4
+                        },
+                        "breakdown": {
+                            "max": 1
+                        },
+                        "measure": {
+                            "max": 1
+                        },
+                        "comparison": {
+                            "max": 0
+                        },
+                        "target": {
+                            "max": 0
+                        },
+                        "tooltips": {
+                            "max": 5
+                        },
+                        "showCondition": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "category": {
+                            "max": 0
+                        },
+                        "breakdown": {
+                            "max": 0
+                        },
+                        "measure": {
+                            "max": 40
+                        },
+                        "comparison": {
+                            "max": 1
+                        },
+                        "target": {
+                            "max": 1
+                        },
+                        "tooltips": {
+                            "max": 5
+                        },
+                        "showCondition": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "for": {
+                            "in": "category"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 2000
+                            }
+                        }
+                    },
+                    "values": {
+                        "group": {
+                            "by": "breakdown",
+                            "select": [
+                                {
+                                    "bind": {
+                                        "to": "measure"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "comparison"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "target"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "tooltips"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "showCondition"
+                                    }
+                                }
+                            ],
+                            "dataReductionAlgorithm": {
+                                "top": {
+                                    "count": 200
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "chart": {
+                "displayName": "Chart",
+                "properties": {
+                    "orientation": {
+                        "displayName": "Direction",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (bars when the names are long)"
+                                },
+                                {
+                                    "value": "columns",
+                                    "displayName": "Columns (left to right)"
+                                },
+                                {
+                                    "value": "bars",
+                                    "displayName": "Bars (top to bottom)"
+                                }
+                            ]
+                        }
+                    },
+                    "stepWidth": {
+                        "displayName": "Step width %",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cornerRadius": {
+                        "displayName": "Rounded corners",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "connectors": {
+                        "displayName": "Connector lines",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "connectorColor": {
+                        "displayName": "Connector colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "additive": {
+                        "displayName": "Values add up to a total",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (not for % or averages)"
+                                },
+                                {
+                                    "value": "yes",
+                                    "displayName": "Yes"
+                                },
+                                {
+                                    "value": "no",
+                                    "displayName": "No"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "steps": {
+                "displayName": "Steps and subtotals",
+                "properties": {
+                    "firstStep": {
+                        "displayName": "First step",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (a total when it is the opening figure)"
+                                },
+                                {
+                                    "value": "step",
+                                    "displayName": "An ordinary step"
+                                },
+                                {
+                                    "value": "total",
+                                    "displayName": "The opening total"
+                                }
+                            ]
+                        }
+                    },
+                    "endTotal": {
+                        "displayName": "Total at the end",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (unless the last step is a total)"
+                                },
+                                {
+                                    "value": "on",
+                                    "displayName": "On"
+                                },
+                                {
+                                    "value": "off",
+                                    "displayName": "Off"
+                                }
+                            ]
+                        }
+                    },
+                    "totalLabel": {
+                        "displayName": "Total name",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "detectTotals": {
+                        "displayName": "Find subtotals",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "totals": {
+                        "displayName": "These steps are totals",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtotalAfter": {
+                        "displayName": "Add a subtotal after",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtotalNames": {
+                        "displayName": "Call those subtotals",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "autoSubtract": {
+                        "displayName": "Subtract costs",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "subtract": {
+                        "displayName": "Subtract these steps",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "bridge": {
+                "displayName": "Bridge (Pro)",
+                "properties": {
+                    "show": {
+                        "displayName": "Show bridge",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "basis": {
+                        "displayName": "Start from",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (target, else comparison)"
+                                },
+                                {
+                                    "value": "comparison",
+                                    "displayName": "Compare to"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Target or budget"
+                                },
+                                {
+                                    "value": "both",
+                                    "displayName": "Compare to, then target (two bridges)"
+                                }
+                            ]
+                        }
+                    },
+                    "startCaption": {
+                        "displayName": "Start name",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "endCaption": {
+                        "displayName": "End name",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "sorting": {
+                "displayName": "Sort and group",
+                "properties": {
+                    "sort": {
+                        "displayName": "Order of the steps",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (data order; a bridge by size)"
+                                },
+                                {
+                                    "value": "dataOrder",
+                                    "displayName": "Data order"
+                                },
+                                {
+                                    "value": "deltaDesc",
+                                    "displayName": "Increases first, largest to smallest"
+                                },
+                                {
+                                    "value": "deltaAsc",
+                                    "displayName": "Decreases first, largest to smallest"
+                                },
+                                {
+                                    "value": "sizeDesc",
+                                    "displayName": "Largest movement first"
+                                }
+                            ]
+                        }
+                    },
+                    "group": {
+                        "displayName": "Group small steps",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maxSteps": {
+                        "displayName": "Most steps",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "otherLabel": {
+                        "displayName": "Name of the group",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "colours": {
+                "displayName": "Colours",
+                "properties": {
+                    "goodColor": {
+                        "displayName": "Increase colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "badColor": {
+                        "displayName": "Decrease colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "increaseIsGood": {
+                        "displayName": "Increase is good",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "totalColor": {
+                        "displayName": "Total colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "subtotalColor": {
+                        "displayName": "Subtotal colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "otherColor": {
+                        "displayName": "Other colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "dataPoint": {
+                "displayName": "Step colour by rule",
+                "properties": {
+                    "stepFill": {
+                        "displayName": "Step colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "insights": {
+                "displayName": "\u2726 Smart insights (Pro)",
+                "properties": {
+                    "show": {
+                        "displayName": "\u2726 Smart insights",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showChange": {
+                        "displayName": "Overall change",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showDrivers": {
+                        "displayName": "Biggest movers",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showOffset": {
+                        "displayName": "Offsetting",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showConcentration": {
+                        "displayName": "Concentration",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showMargins": {
+                        "displayName": "Subtotals as % of first",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showChecks": {
+                        "displayName": "Totals that don't add up",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "stepNoun": {
+                        "displayName": "Call the steps",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "measureNoun": {
+                        "displayName": "Call the measure",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showHeadline": {
+                        "displayName": "\u2726 Smart headline",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "designTips": {
+                        "displayName": "\u2726 Smart design tips (edit mode only)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "displayName": "Position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (left when wide, top when tall)"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left panel"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right panel"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "style": {
+                        "displayName": "Style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bullets",
+                                    "displayName": "Bullet points"
+                                },
+                                {
+                                    "value": "paragraph",
+                                    "displayName": "Paragraph"
+                                }
+                            ]
+                        }
+                    },
+                    "maxInsights": {
+                        "displayName": "Number of insights",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "autoSize": {
+                        "displayName": "Grow text in large visuals",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showHeading": {
+                        "displayName": "Heading",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "headingText": {
+                        "displayName": "Heading text",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "spotlight": {
+                        "displayName": "Spotlight on chart",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "mark",
+                                    "displayName": "Mark with \u2726"
+                                },
+                                {
+                                    "value": "focus",
+                                    "displayName": "Focus (fade the rest)"
+                                },
+                                {
+                                    "value": "off",
+                                    "displayName": "Off"
+                                }
+                            ]
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "displayName": "Text colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "accentColor": {
+                        "displayName": "Accent colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "statusColours": {
+                        "displayName": "Status colours (red / green)",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "dataLabels": {
+                "displayName": "Data labels",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showSign": {
+                        "displayName": "+ on increases",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "extra": {
+                        "displayName": "Second line",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "pctOfStart",
+                                    "displayName": "% of the first total"
+                                },
+                                {
+                                    "value": "pctOfPrevious",
+                                    "displayName": "% of the total before it"
+                                },
+                                {
+                                    "value": "pctChange",
+                                    "displayName": "Change % of that step (bridge)"
+                                }
+                            ]
+                        }
+                    },
+                    "totalsOnly": {
+                        "displayName": "Totals only",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "valueDisplayUnits": {
+                        "displayName": "Display units",
+                        "type": {
+                            "formatting": {
+                                "labelDisplayUnits": true
+                            }
+                        }
+                    },
+                    "valueDecimals": {
+                        "displayName": "Value decimals",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "0",
+                                    "displayName": "0"
+                                },
+                                {
+                                    "value": "1",
+                                    "displayName": "1"
+                                },
+                                {
+                                    "value": "2",
+                                    "displayName": "2"
+                                },
+                                {
+                                    "value": "3",
+                                    "displayName": "3"
+                                },
+                                {
+                                    "value": "4",
+                                    "displayName": "4"
+                                },
+                                {
+                                    "value": "5",
+                                    "displayName": "5"
+                                },
+                                {
+                                    "value": "6",
+                                    "displayName": "6"
+                                }
+                            ]
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "categoryAxis": {
+                "displayName": "Step names",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "boldTotals": {
+                        "displayName": "Totals in bold",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "valueAxis": {
+                "displayName": "Value axis",
+                "properties": {
+                    "mode": {
+                        "displayName": "Show",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "on",
+                                    "displayName": "On"
+                                },
+                                {
+                                    "value": "off",
+                                    "displayName": "Off"
+                                }
+                            ]
+                        }
+                    },
+                    "gridlines": {
+                        "displayName": "Gridlines",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "start": {
+                        "displayName": "Axis start",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (break when the steps are small)"
+                                },
+                                {
+                                    "value": "zero",
+                                    "displayName": "Always at zero"
+                                },
+                                {
+                                    "value": "break",
+                                    "displayName": "Always break when possible"
+                                }
+                            ]
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "displayUnits": {
+                        "displayName": "Display units",
+                        "type": {
+                            "formatting": {
+                                "labelDisplayUnits": true
+                            }
+                        }
+                    }
+                }
+            },
+            "totalChange": {
+                "displayName": "Total change (Pro)",
+                "properties": {
+                    "show": {
+                        "displayName": "Show total change",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showAmount": {
+                        "displayName": "Difference (amount)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPercent": {
+                        "displayName": "Difference (%)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Line colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                },
+                "objectCategory": 2
+            },
+            "referenceLines": {
+                "displayName": "Reference line",
+                "properties": {
+                    "showConstant": {
+                        "displayName": "Fixed value",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "constantValue": {
+                        "displayName": "Value",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "constantLabel": {
+                        "displayName": "Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "lineColor": {
+                        "displayName": "Line colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                },
+                "objectCategory": 2
+            },
+            "legend": {
+                "displayName": "Legend",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "displayName": "Position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "showCondition": {
+                "displayName": "Show condition",
+                "properties": {
+                    "message": {
+                        "displayName": "Message when hidden",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
