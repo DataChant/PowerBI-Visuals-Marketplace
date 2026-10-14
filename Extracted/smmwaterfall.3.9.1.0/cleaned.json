@@ -1,0 +1,217 @@
+{
+    "visual": {
+        "name": "smmwaterfall",
+        "displayName": "Waterfall Chart",
+        "guid": "smmwaterfall",
+        "visualClassName": "ShowMeMorePBI",
+        "version": "3.9.1.0",
+        "description": "Waterfall Chart by Infotopics AppsforPowerBI",
+        "supportUrl": "https://appsforpowerbi.infotopics.com/contact-support",
+        "githubUrl": ""
+    },
+    "author": {
+        "name": "AppsForPowerBI",
+        "email": "info@appsforpowerbi.infotopics.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Category",
+                "name": "smm-waterfall+category",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "X-Axis",
+                "name": "smm-waterfall+xAxis",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Measure",
+                "name": "smm-waterfall+measures",
+                "kind": "Measure"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "smm-waterfall+category"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "smm-waterfall+xAxis"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "smm-waterfall+measures"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "mock": {
+                "displayName": "API layer",
+                "properties": {
+                    "settings": {
+                        "displayName": "Settings KV string",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "smmGeneral": {
+                "displayName": "Configuration",
+                "properties": {
+                    "openConfigDialog": {
+                        "displayName": "Open Configuration",
+                        "description": "Open the configuration dialog",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font",
+                        "description": "Font used by the visual",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    }
+                }
+            },
+            "licensing": {
+                "displayName": "License",
+                "properties": {
+                    "key": {
+                        "displayName": "License Key",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "company": {
+                        "displayName": "Company",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "expiryDate": {
+                        "displayName": "Expiry Date",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "nOfUsers": {
+                        "displayName": "Licensed Users",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "licenseType": {
+                        "displayName": "License Type",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "companyMail": {
+                        "displayName": "Company Email",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "products": {
+                        "displayName": "Products",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "valid": {
+                        "displayName": "Valid",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "expired": {
+                        "displayName": "Expired",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "modules": {
+                        "displayName": "Supported modules",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "reset": {
+                        "displayName": "Reset",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "extension": {
+                "displayName": "Extension State",
+                "properties": {
+                    "key": {
+                        "displayName": "License Key",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "licensed": {
+                        "displayName": "Licensed",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "trial": {
+                        "displayName": "Trial",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "active": {
+                        "displayName": "Active",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "expired": {
+                        "displayName": "Expired",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "privileges": [],
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "suppressDefaultTitle": true
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "public/img/logos/waterfall.png"
+    }
+}

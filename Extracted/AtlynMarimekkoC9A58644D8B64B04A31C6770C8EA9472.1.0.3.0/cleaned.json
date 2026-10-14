@@ -1,0 +1,202 @@
+{
+    "visual": {
+        "name": "AtlynMarimekko",
+        "displayName": "Atlyn Marimekko",
+        "guid": "AtlynMarimekkoC9A58644D8B64B04A31C6770C8EA9472",
+        "visualClassName": "Visual",
+        "version": "1.0.3.0",
+        "description": "Variable-width 100% stacked composition of nonnegative additive values. Width is segment share; height is within-segment share; area is overall contribution.",
+        "supportUrl": "https://atlynco.github.io/atlyn-powerbi-support/docs/faq/",
+        "gitHubUrl": "https://github.com/AtlynCo/powerbi-marimekko-chart"
+    },
+    "author": {
+        "name": "Atlyn",
+        "email": "atlyn.help@gmail.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "Role_Segment": "Segment",
+            "Role_Component": "Component",
+            "Role_Value": "Additive value"
+        },
+        "fr-FR": {
+            "Role_Segment": "Segment",
+            "Role_Component": "Composante",
+            "Role_Value": "Valeur additive"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "segment",
+                "displayName": "Segment",
+                "displayNameKey": "Role_Segment",
+                "kind": "Grouping"
+            },
+            {
+                "name": "component",
+                "displayName": "Component",
+                "displayNameKey": "Role_Component",
+                "kind": "Grouping"
+            },
+            {
+                "name": "value",
+                "displayName": "Additive value",
+                "displayNameKey": "Role_Value",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ]
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "segment": {
+                            "max": 1
+                        },
+                        "component": {
+                            "max": 1
+                        },
+                        "value": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "for": {
+                            "in": "segment"
+                        },
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 100
+                            }
+                        }
+                    },
+                    "values": {
+                        "group": {
+                            "by": "component",
+                            "select": [
+                                {
+                                    "bind": {
+                                        "to": "value"
+                                    }
+                                }
+                            ],
+                            "dataReductionAlgorithm": {
+                                "top": {
+                                    "count": 41
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "dataContract": {
+                "displayName": "Data contract",
+                "properties": {
+                    "additiveConfirmed": {
+                        "displayName": "Value is additive, not a ratio or distinct count",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "appearance": {
+                "displayName": "Presentation",
+                "properties": {
+                    "showLabels": {
+                        "displayName": "Show labels",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelContent": {
+                        "displayName": "Label content",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Within-segment share",
+                                    "value": "segmentShare"
+                                },
+                                {
+                                    "displayName": "Raw value",
+                                    "value": "raw"
+                                },
+                                {
+                                    "displayName": "Overall share",
+                                    "value": "overallShare"
+                                }
+                            ]
+                        }
+                    },
+                    "minLabelWidth": {
+                        "displayName": "Minimum label width (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font size (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showTable": {
+                        "displayName": "Show accessible data table",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "direction": {
+                        "displayName": "Text direction",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Automatic",
+                                    "value": "auto"
+                                },
+                                {
+                                    "displayName": "Left to right",
+                                    "value": "ltr"
+                                },
+                                {
+                                    "displayName": "Right to left",
+                                    "value": "rtl"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "sorting": {
+            "default": {}
+        },
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsEmptyDataView": true,
+        "supportsLandingPage": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true
+            }
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

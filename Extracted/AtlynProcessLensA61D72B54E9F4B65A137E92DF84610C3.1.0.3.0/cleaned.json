@@ -1,0 +1,274 @@
+{
+    "visual": {
+        "name": "AtlynProcessLens",
+        "displayName": "Atlyn Process Lens",
+        "guid": "AtlynProcessLensA61D72B54E9F4B65A137E92DF84610C3",
+        "visualClassName": "Visual",
+        "version": "1.0.3.0",
+        "description": "Offline analysis of prepared activity transitions. Preserves cycles and exposes frequency, supplied duration statistics, and data completeness.",
+        "supportUrl": "https://atlynco.github.io/atlyn-powerbi-support/docs/faq/",
+        "gitHubUrl": "https://github.com/AtlynCo/powerbi-process-lens"
+    },
+    "author": {
+        "name": "Atlyn",
+        "email": "atlyn.help@gmail.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "roleSource": "Source Activity ID",
+            "roleTarget": "Target Activity ID",
+            "roleFrequency": "Transition Frequency",
+            "roleDuration": "Prepared Duration Statistic",
+            "roleVariant": "Variant",
+            "roleRowKey": "Prepared Row ID (optional grain)",
+            "roleTooltip": "Tooltips"
+        },
+        "fr-FR": {
+            "roleSource": "Identifiant de l'activite source",
+            "roleTarget": "Identifiant de l'activite cible",
+            "roleFrequency": "Frequence de transition",
+            "roleDuration": "Statistique de duree preparee",
+            "roleVariant": "Variante",
+            "roleRowKey": "Identifiant de ligne preparee (grain facultatif)",
+            "roleTooltip": "Infobulles"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "source",
+                "displayName": "Source Activity ID",
+                "displayNameKey": "roleSource",
+                "kind": "Grouping",
+                "requiredTypes": [
+                    {
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "target",
+                "displayName": "Target Activity ID",
+                "displayNameKey": "roleTarget",
+                "kind": "Grouping",
+                "requiredTypes": [
+                    {
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "frequency",
+                "displayName": "Transition Frequency",
+                "displayNameKey": "roleFrequency",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "name": "duration",
+                "displayName": "Prepared Duration Statistic",
+                "displayNameKey": "roleDuration",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "name": "variant",
+                "displayName": "Variant",
+                "displayNameKey": "roleVariant",
+                "kind": "Grouping",
+                "requiredTypes": [
+                    {
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "rowKey",
+                "displayName": "Prepared Row ID (optional grain)",
+                "displayNameKey": "roleRowKey",
+                "kind": "Grouping"
+            },
+            {
+                "name": "tooltip",
+                "displayName": "Tooltips",
+                "displayNameKey": "roleTooltip",
+                "kind": "GroupingOrMeasure"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "source": {
+                            "max": 1
+                        },
+                        "target": {
+                            "max": 1
+                        },
+                        "frequency": {
+                            "max": 1
+                        },
+                        "duration": {
+                            "max": 1
+                        },
+                        "variant": {
+                            "max": 1
+                        },
+                        "rowKey": {
+                            "max": 1
+                        },
+                        "tooltip": {
+                            "max": 6
+                        }
+                    }
+                ],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "source"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "target"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "frequency"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "duration"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "variant"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "rowKey"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltip"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 2000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "appearance": {
+                "displayName": "Graph",
+                "properties": {
+                    "edgeColor": {
+                        "displayName": "Transition color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "nodeColor": {
+                        "displayName": "Activity color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showLabels": {
+                        "displayName": "Show edge metrics",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "navigation": {
+                "displayName": "Local view state",
+                "properties": {
+                    "state": {
+                        "displayName": "Bookmark state",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "metrics": {
+                "displayName": "Duration provenance",
+                "properties": {
+                    "statistic": {
+                        "displayName": "Supplied statistic (e.g. mean, p95)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "unit": {
+                        "displayName": "Supplied unit (e.g. hours)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "provenance": {
+                        "displayName": "Preparation / metric definition",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        },
+        "privileges": [],
+        "supportsHighlight": false,
+        "supportsKeyboardFocus": true,
+        "supportsEmptyDataView": true,
+        "supportsLandingPage": true,
+        "supportsMultiVisualSelection": true,
+        "suppressDefaultTitle": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true
+            },
+            "roles": [
+                "tooltip"
+            ]
+        },
+        "sorting": {
+            "default": {}
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

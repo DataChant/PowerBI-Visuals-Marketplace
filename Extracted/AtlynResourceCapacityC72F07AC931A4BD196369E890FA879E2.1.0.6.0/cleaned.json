@@ -1,0 +1,434 @@
+{
+    "visual": {
+        "name": "atlynResourceCapacity",
+        "displayName": "Atlyn Resource Capacity",
+        "guid": "AtlynResourceCapacityC72F07AC931A4BD196369E890FA879E2",
+        "visualClassName": "Visual",
+        "version": "1.0.6.0",
+        "description": "Read-only resource-period capacity exception analysis with explicit units and partial-data disclosure.",
+        "supportUrl": "https://atlynco.github.io/atlyn-powerbi-support/docs/faq/",
+        "gitHubUrl": "https://github.com/AtlynCo/powerbi-resource-capacity"
+    },
+    "author": {
+        "name": "Atlyn",
+        "email": "atlyn.help@gmail.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "Title": "Atlyn Resource Capacity",
+            "ReadOnly": "Read-only capacity analysis",
+            "ClearShort": "Clear",
+            "Details": "Cell details",
+            "CloseDetails": "Close details",
+            "MultiSelect": "Toggle multi-select for touch or pointer",
+            "NextException": "Next overloaded cell (Alt+ArrowDown)",
+            "NextShort": "Next !",
+            "Summary": "{0} overloaded | {1} missing or invalid | {2} delivered records",
+            "SummaryCompact": "! {0} overloaded | ? {1} unknown",
+            "TinyHelp": "Enlarge to inspect cells.",
+            "TinyTitle": "Capacity",
+            "PartialShort": "PARTIAL",
+            "BoundShort": "LIMIT",
+            "EmptyShort": "No data",
+            "Guide": "Guide and legend",
+            "Onboarding": "Compare workload with available capacity",
+            "OnboardingFields": "1. Bind Resource, Period, Allocated amount and Available capacity.",
+            "OnboardingUnit": "2. Set one compatible unit in Analysis contract, such as hours or FTE.",
+            "OnboardingGrain": "3. Supply one model-authoritative value per resource-period. Totals stay off unless both amounts are additive.",
+            "TotalsOff": "Totals off",
+            "TotalsOn": "Additive row totals",
+            "ModelResource": "Model resource key",
+            "ModelPeriod": "Model period value",
+            "RawAllocated": "Unformatted allocated value",
+            "RawCapacity": "Unformatted capacity value",
+            "AmbiguousLabels": "Different model keys have identical formatted labels. Inspect cell details or make the model format more specific.",
+            "SelectForDetails": "Focus a cell to inspect its model values. Next ! moves without selecting.",
+            "NoIdentityCell": "This cell has no native identity and cannot filter the report.",
+            "ZeroCapacityShort": "Zero capacity",
+            "RoleResource": "Resource (stable key)",
+            "RolePeriod": "Period",
+            "RoleAllocated": "Allocated amount",
+            "RoleCapacity": "Available capacity",
+            "RoleOrder": "Period order (optional)",
+            "RoleNonworking": "Nonworking (0/1, optional)",
+            "RoleTooltips": "Tooltip measures",
+            "Analysis": "Analysis contract",
+            "Unit": "Compatible unit",
+            "UnitHelp": "Required. Both measures must use this same unit. No conversions or availability assumptions are made.",
+            "AdditiveTotals": "Measures additive across periods",
+            "TotalsHelp": "Enable only when both amounts are additive across non-overlapping periods. FTE, rates and snapshots usually are not.",
+            "Layout": "Layout",
+            "CellWidth": "Cell width",
+            "FontSize": "Font size",
+            "Rtl": "Right-to-left layout",
+            "Clear": "Clear selection",
+            "More": "Load more",
+            "Loading": "Loading more data...",
+            "Rejected": "Host refused more data. Analysis remains partial; narrow report filters.",
+            "Waiting": "Still waiting for the host. Narrow report filters or refresh the report if loading does not finish.",
+            "InteractionError": "Host interaction failed. Try again or refresh the report.",
+            "InteractionsDisabled": "Report filtering interactions are disabled by this host.",
+            "RenderError": "The visual could not render this data. Check field bindings and refresh.",
+            "bind": "Bind one stable Resource, one Period, Allocated amount and Available capacity. Use only the optional measures shown in the field wells.",
+            "shape": "Inconsistent category/measure lengths or a source format longer than 512 characters. No analysis is shown; check the model or refresh.",
+            "keys": "Resource and Period must be nonblank, finite keys of at most 512 characters. Dates must be valid dates; do not bind a date hierarchy.",
+            "KeyDiagnostic": "Input diagnostic: visual {0}; row {1}; role {2}; type {3}; expected {4}.",
+            "SerializedDateDiagnostic": "Serialized date format: {0}; validity: {1}.",
+            "order": "Period order is missing, nonfinite, inconsistent for a label, or shared by different labels. Supply one unique order per label.",
+            "UnitRequired": "Set Analysis contract > Compatible unit (for example hours or FTE). Both measures must use the same unit.",
+            "Empty": "No resource-period data in this report context.",
+            "Partial": "PARTIAL data: not all resource-period records are available. Totals are suppressed.",
+            "Reduced": "Host reports data reduction. Completeness cannot be established.",
+            "Bounds": "Bound reached: 200 resources, 104 periods, 10,000 cells/source records maximum. Narrow report filters.",
+            "Scope": "{0} resources x {1} periods; {2} loaded records. Scope: host-delivered report context, not the entire model.",
+            "Problems": "{0} invalid cells; {1} duplicate intersections. Duplicates are not summed.",
+            "NoIdentity": "Some cells lack native identities; those cells cannot filter related visuals.",
+            "TotalsUnavailable": "Totals unavailable for incomplete, missing or invalid periods, nonadditive metadata, or numeric overflow.",
+            "UnitCaption": "Unit: {0} | allocated / capacity",
+            "Legend": "+ spare | = full | ! overload | N nonworking | / unavailable | ? missing | X invalid | D duplicate | H highlighted",
+            "Help": "Arrow keys move; Home/End move within a row; Ctrl+Home/End move to grid corners; Page Up/Down move by a viewport. Enter/Space select; Ctrl/Meta/Shift or the + toggle adds selections. Alt+ArrowDown moves to the next overload without selecting. Escape closes details, then clears selection; Shift+F10 or a touch long-press opens the host menu. Headers stay pinned while scrolling. No automatic rebucketing.",
+            "Resource": "Resource",
+            "Total": "Resource total",
+            "Status": "State",
+            "Utilization": "Utilization",
+            "Overload": "Overload amount",
+            "Undefined": "Not defined",
+            "MissingRecord": "No delivered record (missing or not yet loaded)",
+            "SuppliedNonworking": "Model-supplied nonworking",
+            "Yes": "Yes",
+            "HighlightedAllocation": "Highlighted allocated amount",
+            "HighlightedCapacity": "Highlighted capacity",
+            "HighlightHelp": "H shows host-highlighted values; the heat state still uses full supplied amounts.",
+            "available": "Spare capacity",
+            "full": "Fully allocated",
+            "overload": "Overallocated",
+            "nonworking": "Nonworking (model supplied)",
+            "unavailable": "Unavailable (0 / 0)",
+            "missing": "Missing amount",
+            "invalid": "Invalid input",
+            "duplicate": "Duplicate resource-period",
+            "absent": "No delivered record",
+            "invalidValue": "Amounts must be finite, nonnegative numbers or blank. No invalid amounts are treated as zero.",
+            "invalidNonworking": "Nonworking must be 0, 1 or blank.",
+            "overflow": "Numeric range exceeded. No ratio or total is displayed.",
+            "ZeroCapacity": "Positive allocation against zero capacity is overload; utilization is undefined."
+        },
+        "fr-FR": {
+            "Title": "Atlyn Resource Capacity",
+            "ReadOnly": "Analyse de capacite en lecture seule",
+            "ClearShort": "Effacer",
+            "Details": "Details de cellule",
+            "CloseDetails": "Fermer les details",
+            "MultiSelect": "Activer la selection multiple tactile ou au pointeur",
+            "NextException": "Prochaine cellule surchargee (Alt+FlecheBas)",
+            "NextShort": "Suite !",
+            "Summary": "{0} surcharges | {1} absents ou invalides | {2} enregistrements livres",
+            "SummaryCompact": "! {0} surcharges | ? {1} inconnus",
+            "TinyHelp": "Agrandir pour inspecter.",
+            "TinyTitle": "Capacite",
+            "PartialShort": "PARTIEL",
+            "BoundShort": "LIMITE",
+            "EmptyShort": "Aucune donnee",
+            "Guide": "Guide et legende",
+            "Onboarding": "Comparer la charge avec la capacite disponible",
+            "OnboardingFields": "1. Lier Ressource, Periode, Quantite allouee et Capacite disponible.",
+            "OnboardingUnit": "2. Definir une unite compatible dans Contrat d'analyse, par exemple heures ou ETP.",
+            "OnboardingGrain": "3. Fournir une valeur de modele par ressource-periode. Totaux desactives sauf si les deux quantites sont additives.",
+            "TotalsOff": "Sans totaux",
+            "TotalsOn": "Totaux additifs par ressource",
+            "ModelResource": "Cle ressource du modele",
+            "ModelPeriod": "Valeur periode du modele",
+            "RawAllocated": "Valeur allouee non formatee",
+            "RawCapacity": "Valeur de capacite non formatee",
+            "AmbiguousLabels": "Des cles distinctes ont le meme libelle formate. Inspecter les details ou preciser le format du modele.",
+            "SelectForDetails": "Focaliser une cellule pour inspecter ses valeurs. Suite ! se deplace sans selection.",
+            "NoIdentityCell": "Cette cellule sans identite native ne peut pas filtrer le rapport.",
+            "ZeroCapacityShort": "Capacite nulle",
+            "RoleResource": "Ressource (cle stable)",
+            "RolePeriod": "Periode",
+            "RoleAllocated": "Quantite allouee",
+            "RoleCapacity": "Capacite disponible",
+            "RoleOrder": "Ordre des periodes (facultatif)",
+            "RoleNonworking": "Non travaille (0/1, facultatif)",
+            "RoleTooltips": "Mesures des info-bulles",
+            "Analysis": "Contrat d'analyse",
+            "Unit": "Unite compatible",
+            "UnitHelp": "Obligatoire. Les deux mesures doivent utiliser la meme unite. Aucune conversion ni hypothese de disponibilite.",
+            "AdditiveTotals": "Mesures additives entre periodes",
+            "TotalsHelp": "Activer uniquement pour deux quantites additives sur des periodes sans chevauchement. ETP, taux et instantanes ne le sont generalement pas.",
+            "Layout": "Disposition",
+            "CellWidth": "Largeur des cellules",
+            "FontSize": "Taille du texte",
+            "Rtl": "Disposition de droite a gauche",
+            "Clear": "Effacer la selection",
+            "More": "Charger la suite",
+            "Loading": "Chargement en cours...",
+            "Rejected": "Chargement refuse par l'hote. Analyse partielle ; reduisez les filtres du rapport.",
+            "Waiting": "En attente de l'hote. Reduisez les filtres ou actualisez le rapport si le chargement ne se termine pas.",
+            "InteractionError": "Interaction avec l'hote echouee. Reessayez ou actualisez le rapport.",
+            "InteractionsDisabled": "Les interactions de filtrage sont desactivees par cet hote.",
+            "RenderError": "Impossible d'afficher ces donnees. Verifiez les champs et actualisez.",
+            "bind": "Liez une Ressource stable, une Periode, la Quantite allouee et la Capacite disponible. Utilisez uniquement les mesures facultatives indiquees.",
+            "shape": "Longueurs de categories/mesures incoherentes ou format de plus de 512 caracteres. Aucune analyse ; verifiez le modele ou actualisez.",
+            "keys": "Ressource et Periode doivent etre des cles finies non vides de 512 caracteres maximum. Utilisez une date valide, pas une hierarchie.",
+            "KeyDiagnostic": "Diagnostic d'entree : visuel {0} ; ligne {1} ; role {2} ; type {3} ; attendu {4}.",
+            "SerializedDateDiagnostic": "Format de date serialisee : {0} ; validite : {1}.",
+            "order": "Ordre de periode absent, non fini, incoherent ou partage par plusieurs libelles. Fournissez un ordre unique par libelle.",
+            "UnitRequired": "Definissez Contrat d'analyse > Unite compatible (heures ou ETP). Les deux mesures doivent avoir la meme unite.",
+            "Empty": "Aucune donnee ressource-periode dans ce contexte.",
+            "Partial": "Donnees PARTIELLES : certains enregistrements manquent. Totaux masques.",
+            "Reduced": "L'hote signale une reduction des donnees. Exhaustivite non etablie.",
+            "Bounds": "Limite atteinte : 200 ressources, 104 periodes, 10 000 cellules/enregistrements maximum. Reduisez les filtres.",
+            "Scope": "{0} ressources x {1} periodes ; {2} enregistrements charges. Portee : contexte livre par l'hote, pas le modele entier.",
+            "Problems": "{0} cellules invalides ; {1} intersections en double. Les doublons ne sont pas additionnes.",
+            "NoIdentity": "Certaines cellules sans identite native ne peuvent pas filtrer les autres visuels.",
+            "TotalsUnavailable": "Totaux indisponibles : periodes incompletes, absentes ou invalides, mesures non additives ou depassement numerique.",
+            "UnitCaption": "Unite : {0} | alloue / capacite",
+            "Legend": "+ libre | = plein | ! surcharge | N non travaille | / indisponible | ? absent | X invalide | D doublon | H surbrillance",
+            "Help": "Fleches : deplacement ; Debut/Fin : ligne ; Ctrl+Debut/Fin : coins ; Page haut/bas : ecran. Entree/Espace : selection ; Ctrl/Meta/Maj ou bouton + : selection multiple. Alt+FlecheBas : prochaine surcharge sans selection. Echap : fermer les details puis effacer ; Maj+F10 ou appui tactile long : menu hote. En-tetes fixes. Aucun regroupement automatique.",
+            "Resource": "Ressource",
+            "Total": "Total ressource",
+            "Status": "Etat",
+            "Utilization": "Utilisation",
+            "Overload": "Quantite en surcharge",
+            "Undefined": "Non defini",
+            "MissingRecord": "Aucun enregistrement livre (absent ou non charge)",
+            "SuppliedNonworking": "Non travaille fourni par le modele",
+            "Yes": "Oui",
+            "HighlightedAllocation": "Quantite allouee en surbrillance",
+            "HighlightedCapacity": "Capacite en surbrillance",
+            "HighlightHelp": "H indique les valeurs en surbrillance de l'hote ; l'etat utilise les quantites completes.",
+            "available": "Capacite libre",
+            "full": "Entierement alloue",
+            "overload": "Surcharge",
+            "nonworking": "Non travaille (modele)",
+            "unavailable": "Indisponible (0 / 0)",
+            "missing": "Quantite absente",
+            "invalid": "Entree invalide",
+            "duplicate": "Doublon ressource-periode",
+            "absent": "Aucun enregistrement livre",
+            "invalidValue": "Les quantites doivent etre finies, positives ou nulles, ou vides. Une valeur invalide n'est jamais remplacee par zero.",
+            "invalidNonworking": "Non travaille doit etre 0, 1 ou vide.",
+            "overflow": "Plage numerique depassee. Aucun taux ni total affiche.",
+            "ZeroCapacity": "Une allocation positive avec capacite nulle est une surcharge ; utilisation non definie."
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "resource",
+                "displayName": "Resource (stable key)",
+                "displayNameKey": "RoleResource",
+                "kind": "Grouping"
+            },
+            {
+                "name": "period",
+                "displayName": "Period",
+                "displayNameKey": "RolePeriod",
+                "kind": "Grouping"
+            },
+            {
+                "name": "allocated",
+                "displayName": "Allocated amount",
+                "displayNameKey": "RoleAllocated",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "name": "capacity",
+                "displayName": "Available capacity",
+                "displayNameKey": "RoleCapacity",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "name": "periodOrder",
+                "displayName": "Period order (optional)",
+                "displayNameKey": "RoleOrder",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "name": "nonworking",
+                "displayName": "Nonworking (0/1, optional)",
+                "displayNameKey": "RoleNonworking",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "name": "tooltips",
+                "displayName": "Tooltip measures",
+                "displayNameKey": "RoleTooltips",
+                "kind": "Measure"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "resource": {
+                            "max": 1
+                        },
+                        "period": {
+                            "max": 1
+                        },
+                        "allocated": {
+                            "max": 1
+                        },
+                        "capacity": {
+                            "max": 1
+                        },
+                        "periodOrder": {
+                            "max": 1
+                        },
+                        "nonworking": {
+                            "max": 1
+                        },
+                        "tooltips": {
+                            "max": 5
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "resource"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "period"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 1000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "allocated"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "capacity"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "periodOrder"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "nonworking"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "analysis": {
+                "displayName": "Analysis contract",
+                "displayNameKey": "Analysis",
+                "properties": {
+                    "unit": {
+                        "displayName": "Compatible unit",
+                        "displayNameKey": "Unit",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "additiveTotals": {
+                        "displayName": "Measures additive across periods",
+                        "displayNameKey": "AdditiveTotals",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "displayName": "Layout",
+                "displayNameKey": "Layout",
+                "properties": {
+                    "cellWidth": {
+                        "displayName": "Cell width",
+                        "displayNameKey": "CellWidth",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font size",
+                        "displayNameKey": "FontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rtl": {
+                        "displayName": "Right-to-left layout",
+                        "displayNameKey": "Rtl",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "sorting": {
+            "default": {}
+        },
+        "supportsHighlight": true,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
