@@ -1,0 +1,426 @@
+{
+    "visual": {
+        "name": "atlynFinancialMatrix",
+        "displayName": "Atlyn Financial Matrix",
+        "guid": "AtlynFinancialMatrixCA42B8646E934AF1B6252CB8E39C0D71",
+        "visualClassName": "Visual",
+        "version": "1.0.2.0",
+        "description": "Read-only financial statements with explicit line semantics, model-supplied totals and bounded scrolling.",
+        "supportUrl": "https://atlynco.github.io/atlyn-powerbi-support/docs/faq/",
+        "gitHubUrl": "https://github.com/AtlynCo/powerbi-financial-matrix"
+    },
+    "author": {
+        "name": "Atlyn",
+        "email": "atlyn.help@gmail.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "Setup_Title": "Build a financial statement",
+            "Setup_Fields": "Bind text Line IDs and a numeric Actual measure. Add Budget, Prior and one Period field if needed.",
+            "Setup_Metadata": "Open Format > Statement > Line metadata JSON. Define each delivered ID, including parents, with an explicit order, format and sign convention.",
+            "Setup_Model": "The model supplies totals, rates and counts. Use the included bound offline sample for a working P&L, balance sheet or cash-flow starting point.",
+            "Setup_Example": "Copyable metadata example",
+            "Setup_ExampleNote": "Replace the example ID with an exact model Line ID. Add one explicit entry per delivered line; no formulas or accounting rules are inferred.",
+            "Column_Versus": "vs",
+            "Column_Absolute": "diff",
+            "Column_CurrentContext": "Current filter context",
+            "Column_AbsoluteHelp": "Difference columns show Actual minus the named reference, in row units; percentage rows use percentage points (pp). Columns ending in % are relative changes, never percentage-point differences.",
+            "Action_Help": "Help",
+            "Status_Enlarge": "Enlarge visual to at least 256 x 160 to read the statement.",
+            "Status_EnlargeShort": "Enlarge visual",
+            "Status_CountHelp": "Locally expanded rows / bounded delivered rows, including hierarchy parents. Scroll renders a window of these rows.",
+            "Status_ViewportShort": "Viewport export",
+            "Value_Unrounded": "Unrounded result (favorability uses this value)",
+            "Error_DuplicateProperty": "A JSON object repeats a property, including escaped spellings. Remove the conflicting definition.",
+            "Role_Lines": "Line ID hierarchy",
+            "Role_Period": "Period",
+            "Role_Actual": "Actual",
+            "Role_Budget": "Budget",
+            "Role_Prior": "Prior period",
+            "Card_Statement": "Statement",
+            "Card_Totals": "Host totals",
+            "Setting_Lines": "Line metadata JSON",
+            "Setting_Variances": "Show eligible variances",
+            "Setting_Direction": "Right-to-left layout",
+            "Column_Line": "Statement line",
+            "Column_Delta": "difference / pp",
+            "Column_Relative": "difference %",
+            "Grid_Label": "Financial statement. Arrow keys navigate; Enter selects; plus/minus expands or collapses delivered rows; Shift F10 opens the host context menu.",
+            "Action_Expand": "Expand delivered children of",
+            "Action_Collapse": "Collapse children of",
+            "Status_Empty": "Bind Line ID hierarchy and Actual. Configure Statement > Line metadata JSON using the documented schema.",
+            "Status_Partial": "PARTIAL DATA: only delivered rows/periods within 1000 lines, 24 periods and 24000 cells are shown. No segments fetched, no missing totals reconstructed. Host totals may cover more data than shown.",
+            "Status_GrandTotal": "Automatic statement grand totals are omitted: mixed units and presentation subtotals must not be combined.",
+            "Status_HostCollapsed": "The host supplied a collapsed hierarchy. Local controls can only expand descendants already delivered; they do not fetch or drill.",
+            "Status_Legend": "- missing; ! invalid/nonfinite; N/A zero reference; blank not eligible. F favorable, U unfavorable; difference % = (Actual - Reference) / abs(Reference).",
+            "Status_Highlights": "H shows model-supplied highlighted values, not replacement totals. Differences use full supplied values.",
+            "Status_Rows": "expanded/bounded lines",
+            "Status_Viewport": "Export may capture this viewport only",
+            "Value_NA": "N/A",
+            "Value_missing": "Missing supplied value",
+            "Value_invalid": "Invalid or nonfinite value",
+            "Value_zeroReference": "Relative difference undefined because reference is zero",
+            "Value_ineligible": "No numeric value or difference eligible for this line",
+            "Value_Favorable": "Favorable",
+            "Value_Unfavorable": "Unfavorable",
+            "Value_Neutral": "Neutral",
+            "Value_Highlight": "Highlighted value",
+            "Value_Details": "Details",
+            "Value_Raw": "Raw supplied value",
+            "Value_Sign": "Display sign multiplier",
+            "Mark_Favorable": "F",
+            "Mark_Unfavorable": "U",
+            "Mark_Highlight": "H",
+            "Formula_Relative": "(Displayed Actual - Displayed Reference) / abs(Displayed Reference); zero reference is N/A",
+            "Formula_Absolute": "Displayed Actual - Displayed Reference",
+            "Formula_Points": "(Displayed Actual - Displayed Reference) times 100, in percentage points",
+            "Error_ConfigSize": "Line metadata exceeds the 256000-character bound.",
+            "Error_Json": "Invalid line metadata JSON. Paste a JSON array, not a formula.",
+            "Error_ConfigArray": "Line metadata must be a nonempty JSON array of at most 1000 entries.",
+            "Error_Metadata": "Invalid line metadata. Supply id, label, integer order, type, unit, sign, favorable and variance; only format is optional. Unknown properties are not allowed.",
+            "Error_DuplicateMetadata": "Duplicate metadata ID; each line must be defined exactly once.",
+            "Error_VariancePolicy": "Percent rows cannot request relative variance; heading rows require variance none.",
+            "Error_CompositeGroup": "Composite grouping is unsupported. Bind one text Line ID column per hierarchy level and at most one Period field.",
+            "Error_RowRoles": "Bind one to six Line ID hierarchy levels; each level must contain one Lines grouping field.",
+            "Error_Measures": "Bind one Actual and at most one Budget/Prior numeric measure, each with its own query name and single scenario role.",
+            "Error_PeriodRoles": "Bind at most one Period grouping field, not a date hierarchy.",
+            "Error_Columns": "Ambiguous or incomplete matrix column/value-source mapping; no guessed values are displayed.",
+            "Error_LineId": "Every row group must have a nonempty stable text Line ID and a consistent hierarchy level.",
+            "Error_MissingMetadata": "No metadata exists for a delivered Line ID.",
+            "Error_RepeatedLine": "A Line ID is repeated on multiple hierarchy paths. Supply globally unique IDs rather than ambiguous metadata.",
+            "Error_Order": "Two sibling lines share the same order. Supply unique explicit sibling sort positions.",
+            "Error_Subtotals": "Ambiguous host subtotal data for a parent. Conflicting or multiple subtotal nodes cannot be combined.",
+            "Error_Render": "The statement could not be rendered. Inspect the data binding and report this error.",
+            "Error_Identity": "The host did not supply a usable selection identity for this data. Selection/drill-through is unavailable.",
+            "Error_Interaction": "The host rejected the interaction. Check report permissions and host support.",
+            "ThirdParty_Notices": "THIRD-PARTY NOTICES - Atlyn Financial Matrix 1.0.2.0\nGenerated from installed, locked production dependencies. Full package sources are available through package-lock.json integrity-pinned npm references.\nThese notices describe third-party licenses only. No project license, commercial terms, Microsoft certification or other legal approval is granted by this file.\n\n========================================================================\npowerbi-visuals-api@5.11.1 - declared license: MIT\n\n    MIT License\n\n    Copyright (c) Microsoft Corporation. All rights reserved.\n\n    Permission is hereby granted, free of charge, to any person obtaining a copy\n    of this software and associated documentation files (the \"Software\"), to deal\n    in the Software without restriction, including without limitation the rights\n    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n    copies of the Software, and to permit persons to whom the Software is\n    furnished to do so, subject to the following conditions:\n\n    The above copyright notice and this permission notice shall be included in all\n    copies or substantial portions of the Software.\n\n    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n    SOFTWARE\n\n\n========================================================================\npowerbi-visuals-utils-formattingmodel@7.1.0 - declared license: MIT\n\n    MIT License\n\n    Copyright (c) Microsoft Corporation.\n\n    Permission is hereby granted, free of charge, to any person obtaining a copy\n    of this software and associated documentation files (the \"Software\"), to deal\n    in the Software without restriction, including without limitation the rights\n    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n    copies of the Software, and to permit persons to whom the Software is\n    furnished to do so, subject to the following conditions:\n\n    The above copyright notice and this permission notice shall be included in all\n    copies or substantial portions of the Software.\n\n    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n    SOFTWARE\n\n\n========================================================================\npowerbi-visuals-utils-formattingutils@7.0.0 - declared license: MIT\n\nPower BI Visualizations\n\nCopyright (c) Microsoft Corporation\n\nAll rights reserved.\n\nMIT License\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n\nEmbedded upstream component notice (globalize.js):\n/*!\n * Globalize\n *\n * http://github.com/jquery/globalize\n *\n * Copyright Software Freedom Conservancy, Inc.\n * Dual licensed under the MIT or GPL Version 2 licenses.\n * http://jquery.org/license\n */\n\n\nEmbedded upstream component notice (globalize.cultures.js):\n/*\n * Globalize Cultures\n *\n * http://github.com/jquery/globalize\n *\n * Copyright Software Freedom Conservancy, Inc.\n * Dual licensed under the MIT or GPL Version 2 licenses.\n * http://jquery.org/license\n *\n * This file was generated by the Globalize Culture Generator\n * Translation: bugs found in this file need to be fixed in the generator\n */\n\n\n========================================================================\nsemver@7.8.5 - declared license: ISC\n\nThe ISC License\n\nCopyright (c) Isaac Z. Schlueter and Contributors\n\nPermission to use, copy, modify, and/or distribute this software for any\npurpose with or without fee is hereby granted, provided that the above\ncopyright notice and this permission notice appear in all copies.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES\nWITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF\nMERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR\nANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES\nWHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN\nACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR\nIN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.\n\n\n========================================================================\npowerbi-visuals-utils-dataviewutils@7.0.0 - declared license: MIT\n\nPower BI Visualizations\n\nCopyright (c) Microsoft Corporation\n\nAll rights reserved.\n\nMIT License\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n\n========================================================================\npowerbi-visuals-utils-typeutils@7.0.0 - declared license: MIT\n\nPower BI Visualizations\n\nCopyright (c) Microsoft Corporation\n\nAll rights reserved.\n\nMIT License\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+        },
+        "fr-FR": {
+            "Setup_Title": "Construire un etat financier",
+            "Setup_Fields": "Lier des identifiants texte et une mesure numerique Actual. Ajouter Budget, Prior et un champ Period si necessaire.",
+            "Setup_Metadata": "Ouvrir Format > Etat financier > Metadonnees JSON. Definir chaque identifiant recu, parents compris, avec ordre, format et signe explicites.",
+            "Setup_Model": "Le modele fournit totaux, taux et nombres. Utiliser le projet hors ligne fourni pour le resultat, le bilan ou les flux de tresorerie.",
+            "Setup_Example": "Exemple de metadonnees a copier",
+            "Setup_ExampleNote": "Remplacer l'identifiant par la valeur exacte du modele. Ajouter une entree explicite par ligne recue; aucune formule ni regle comptable n'est deduite.",
+            "Column_Versus": "vs",
+            "Column_Absolute": "ecart",
+            "Column_CurrentContext": "Contexte de filtre actuel",
+            "Column_AbsoluteHelp": "Les ecarts montrent Reel moins Reference, dans l'unite de la ligne; les taux utilisent des points (pp). Les colonnes % sont des variations relatives, jamais des points.",
+            "Action_Help": "Aide",
+            "Status_Enlarge": "Agrandir le visuel a au moins 256 x 160 pour lire l'etat.",
+            "Status_EnlargeShort": "Agrandir le visuel",
+            "Status_CountHelp": "Lignes developpees localement / lignes recues dans les limites, parents compris. Le defilement affiche une fenetre de ces lignes.",
+            "Status_ViewportShort": "Export visible",
+            "Value_Unrounded": "Resultat non arrondi (utilise pour le sens favorable)",
+            "Error_DuplicateProperty": "Un objet JSON repete une propriete, y compris les noms echappes. Supprimer la definition contradictoire.",
+            "Role_Lines": "Hierarchie des identifiants de ligne",
+            "Role_Period": "Periode",
+            "Role_Actual": "Reel",
+            "Role_Budget": "Budget",
+            "Role_Prior": "Periode precedente",
+            "Card_Statement": "Etat financier",
+            "Card_Totals": "Totaux du modele",
+            "Setting_Lines": "Metadonnees des lignes JSON",
+            "Setting_Variances": "Afficher les ecarts autorises",
+            "Setting_Direction": "Disposition de droite a gauche",
+            "Column_Line": "Ligne de l'etat",
+            "Column_Delta": "ecart / points",
+            "Column_Relative": "ecart %",
+            "Grid_Label": "Etat financier. Fleches pour naviguer; Entree pour selectionner; plus/moins pour ouvrir ou fermer les lignes recues; Maj F10 pour le menu du logiciel hote.",
+            "Action_Expand": "Developper les enfants recus de",
+            "Action_Collapse": "Reduire les enfants de",
+            "Status_Empty": "Lier la hierarchie des identifiants et le Reel. Configurer les metadonnees JSON selon le schema documente.",
+            "Status_Partial": "DONNEES PARTIELLES : seules les donnees recues dans les limites de 1000 lignes, 24 periodes et 24000 cellules sont affichees. Aucun segment charge ni total reconstruit. Les totaux du modele peuvent couvrir plus de donnees.",
+            "Status_GrandTotal": "Les totaux generaux automatiques sont omis : les unites mixtes et sous-totaux de presentation ne doivent pas etre additionnes.",
+            "Status_HostCollapsed": "Le logiciel hote a fourni une hierarchie reduite. Les commandes locales ouvrent seulement les descendants recus, sans requete ni exploration.",
+            "Status_Legend": "- absent; ! invalide/non fini; N/D reference nulle; vide non autorise. F favorable, D defavorable; ecart % = (Reel - Reference) / abs(Reference).",
+            "Status_Highlights": "S indique les valeurs mises en surbrillance fournies par le modele, pas des totaux de remplacement. Les ecarts utilisent les valeurs completes.",
+            "Status_Rows": "lignes ouvertes/limitees",
+            "Status_Viewport": "L'export peut ne capturer que la zone visible",
+            "Value_NA": "N/D",
+            "Value_missing": "Valeur fournie absente",
+            "Value_invalid": "Valeur invalide ou non finie",
+            "Value_zeroReference": "Ecart relatif non defini car la reference est nulle",
+            "Value_ineligible": "Aucune valeur ou aucun ecart autorise pour cette ligne",
+            "Value_Favorable": "Favorable",
+            "Value_Unfavorable": "Defavorable",
+            "Value_Neutral": "Neutre",
+            "Value_Highlight": "Valeur en surbrillance",
+            "Value_Details": "Details",
+            "Value_Raw": "Valeur brute fournie",
+            "Value_Sign": "Multiplicateur du signe affiche",
+            "Mark_Favorable": "F",
+            "Mark_Unfavorable": "D",
+            "Mark_Highlight": "S",
+            "Formula_Relative": "(Reel affiche - Reference affichee) / abs(Reference affichee); reference nulle = N/D",
+            "Formula_Absolute": "Reel affiche - Reference affichee",
+            "Formula_Points": "(Reel affiche - Reference affichee) fois 100, en points de pourcentage",
+            "Error_ConfigSize": "Les metadonnees depassent 256000 caracteres.",
+            "Error_Json": "JSON invalide. Coller un tableau JSON et non une formule.",
+            "Error_ConfigArray": "Les metadonnees doivent etre un tableau JSON non vide de 1000 entrees au maximum.",
+            "Error_Metadata": "Metadonnees invalides. Fournir id, label, order entier, type, unit, sign, favorable et variance; seul format est facultatif. Les proprietes inconnues sont interdites.",
+            "Error_DuplicateMetadata": "Identifiant de metadonnees duplique; definir chaque ligne une seule fois.",
+            "Error_VariancePolicy": "Les lignes de pourcentage interdisent l'ecart relatif; les titres exigent variance none.",
+            "Error_CompositeGroup": "Regroupement composite non pris en charge. Lier une colonne de texte par niveau et au maximum une periode.",
+            "Error_RowRoles": "Lier un a six niveaux, chacun contenant un seul champ Lines.",
+            "Error_Measures": "Lier une mesure Actual et au maximum une Budget/Prior, avec noms de requete et roles distincts.",
+            "Error_PeriodRoles": "Lier au maximum un champ Period, pas une hierarchie de dates.",
+            "Error_Columns": "Correspondance colonnes/mesures ambigue ou incomplete; aucune valeur devinee.",
+            "Error_LineId": "Chaque groupe exige un identifiant texte stable et non vide et un niveau coherent.",
+            "Error_MissingMetadata": "Metadonnees absentes pour un identifiant recu.",
+            "Error_RepeatedLine": "Identifiant repete sur plusieurs chemins. Utiliser des identifiants globalement uniques.",
+            "Error_Order": "Deux lignes du meme niveau partagent le meme ordre. Utiliser des positions uniques.",
+            "Error_Subtotals": "Sous-totaux du modele ambigus. Les noeuds multiples ou contradictoires ne peuvent pas etre combines.",
+            "Error_Render": "Impossible d'afficher l'etat. Examiner les liaisons et signaler l'erreur.",
+            "Error_Identity": "Identite de selection inutilisable fournie par le logiciel hote. Selection et extraction indisponibles.",
+            "Error_Interaction": "Interaction refusee par le logiciel hote. Verifier les autorisations et la compatibilite.",
+            "ThirdParty_Notices": "THIRD-PARTY NOTICES - Atlyn Financial Matrix 1.0.2.0\nGenerated from installed, locked production dependencies. Full package sources are available through package-lock.json integrity-pinned npm references.\nThese notices describe third-party licenses only. No project license, commercial terms, Microsoft certification or other legal approval is granted by this file.\n\n========================================================================\npowerbi-visuals-api@5.11.1 - declared license: MIT\n\n    MIT License\n\n    Copyright (c) Microsoft Corporation. All rights reserved.\n\n    Permission is hereby granted, free of charge, to any person obtaining a copy\n    of this software and associated documentation files (the \"Software\"), to deal\n    in the Software without restriction, including without limitation the rights\n    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n    copies of the Software, and to permit persons to whom the Software is\n    furnished to do so, subject to the following conditions:\n\n    The above copyright notice and this permission notice shall be included in all\n    copies or substantial portions of the Software.\n\n    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n    SOFTWARE\n\n\n========================================================================\npowerbi-visuals-utils-formattingmodel@7.1.0 - declared license: MIT\n\n    MIT License\n\n    Copyright (c) Microsoft Corporation.\n\n    Permission is hereby granted, free of charge, to any person obtaining a copy\n    of this software and associated documentation files (the \"Software\"), to deal\n    in the Software without restriction, including without limitation the rights\n    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n    copies of the Software, and to permit persons to whom the Software is\n    furnished to do so, subject to the following conditions:\n\n    The above copyright notice and this permission notice shall be included in all\n    copies or substantial portions of the Software.\n\n    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n    SOFTWARE\n\n\n========================================================================\npowerbi-visuals-utils-formattingutils@7.0.0 - declared license: MIT\n\nPower BI Visualizations\n\nCopyright (c) Microsoft Corporation\n\nAll rights reserved.\n\nMIT License\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n\nEmbedded upstream component notice (globalize.js):\n/*!\n * Globalize\n *\n * http://github.com/jquery/globalize\n *\n * Copyright Software Freedom Conservancy, Inc.\n * Dual licensed under the MIT or GPL Version 2 licenses.\n * http://jquery.org/license\n */\n\n\nEmbedded upstream component notice (globalize.cultures.js):\n/*\n * Globalize Cultures\n *\n * http://github.com/jquery/globalize\n *\n * Copyright Software Freedom Conservancy, Inc.\n * Dual licensed under the MIT or GPL Version 2 licenses.\n * http://jquery.org/license\n *\n * This file was generated by the Globalize Culture Generator\n * Translation: bugs found in this file need to be fixed in the generator\n */\n\n\n========================================================================\nsemver@7.8.5 - declared license: ISC\n\nThe ISC License\n\nCopyright (c) Isaac Z. Schlueter and Contributors\n\nPermission to use, copy, modify, and/or distribute this software for any\npurpose with or without fee is hereby granted, provided that the above\ncopyright notice and this permission notice appear in all copies.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES\nWITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF\nMERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR\nANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES\nWHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN\nACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR\nIN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.\n\n\n========================================================================\npowerbi-visuals-utils-dataviewutils@7.0.0 - declared license: MIT\n\nPower BI Visualizations\n\nCopyright (c) Microsoft Corporation\n\nAll rights reserved.\n\nMIT License\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n\n========================================================================\npowerbi-visuals-utils-typeutils@7.0.0 - declared license: MIT\n\nPower BI Visualizations\n\nCopyright (c) Microsoft Corporation\n\nAll rights reserved.\n\nMIT License\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "Lines",
+                "displayName": "Line ID hierarchy",
+                "displayNameKey": "Role_Lines",
+                "kind": "Grouping"
+            },
+            {
+                "name": "Period",
+                "displayName": "Period",
+                "displayNameKey": "Role_Period",
+                "kind": "Grouping"
+            },
+            {
+                "name": "Actual",
+                "displayName": "Actual",
+                "displayNameKey": "Role_Actual",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "name": "Budget",
+                "displayName": "Budget",
+                "displayNameKey": "Role_Budget",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "name": "Prior",
+                "displayName": "Prior period",
+                "displayNameKey": "Role_Prior",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ]
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "Lines": {
+                            "max": 6
+                        },
+                        "Period": {
+                            "max": 1
+                        },
+                        "Actual": {
+                            "max": 1
+                        },
+                        "Budget": {
+                            "max": 1
+                        },
+                        "Prior": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "matrix": {
+                    "rows": {
+                        "for": {
+                            "in": "Lines"
+                        },
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 1001
+                            }
+                        }
+                    },
+                    "columns": {
+                        "for": {
+                            "in": "Period"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 25
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "Actual"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "Budget"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "Prior"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "statement": {
+                "displayName": "Statement",
+                "displayNameKey": "Card_Statement",
+                "properties": {
+                    "lines": {
+                        "displayName": "Line metadata JSON",
+                        "displayNameKey": "Setting_Lines",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "variances": {
+                        "displayName": "Show eligible variances",
+                        "displayNameKey": "Setting_Variances",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "direction": {
+                        "displayName": "Right-to-left layout",
+                        "displayNameKey": "Setting_Direction",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "subTotals": {
+                "displayName": "Host totals",
+                "displayNameKey": "Card_Totals",
+                "properties": {
+                    "rowSubtotals": {
+                        "displayName": "Request row subtotals",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rowSubtotalsPerLevel": {
+                        "displayName": "Row subtotals per level",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "columnSubtotals": {
+                        "displayName": "Request column subtotals",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "columnSubtotalsPerLevel": {
+                        "displayName": "Column subtotals per level",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "levelSubtotalEnabled": {
+                        "displayName": "Enable subtotal",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "subtotals": {
+            "matrix": {
+                "rowSubtotals": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "rowSubtotals"
+                    },
+                    "defaultValue": true
+                },
+                "rowSubtotalsPerLevel": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "rowSubtotalsPerLevel"
+                    },
+                    "defaultValue": false
+                },
+                "columnSubtotals": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "columnSubtotals"
+                    },
+                    "defaultValue": false
+                },
+                "columnSubtotalsPerLevel": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "columnSubtotalsPerLevel"
+                    },
+                    "defaultValue": false
+                },
+                "levelSubtotalEnabled": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "levelSubtotalEnabled"
+                    },
+                    "defaultValue": true
+                }
+            }
+        },
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsEmptyDataView": true,
+        "supportsLandingPage": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "Actual",
+                "Budget",
+                "Prior"
+            ]
+        },
+        "drilldown": {
+            "roles": [
+                "Lines"
+            ]
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

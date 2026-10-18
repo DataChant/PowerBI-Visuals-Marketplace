@@ -1,0 +1,392 @@
+{
+    "visual": {
+        "name": "atlynPareto",
+        "displayName": "Atlyn Pareto",
+        "guid": "atlynPareto18722664651549C392ABF6B1EBA46945",
+        "visualClassName": "Visual",
+        "version": "1.1.2.0",
+        "description": "Rank nonnegative additive contributions and analyze cumulative concentration with explicit data-universe and threshold semantics.",
+        "supportUrl": "https://atlynco.github.io/atlyn-powerbi-support/docs/faq/",
+        "gitHubUrl": "https://github.com/AtlynCo/powerbi-pareto-chart"
+    },
+    "author": {
+        "name": "Atlyn",
+        "email": "atlyn.help@gmail.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "Role_Category": "Category",
+            "Role_Contribution": "Contribution",
+            "Role_Tooltips": "Tooltips",
+            "Card_Analysis": "Analysis",
+            "Card_Appearance": "Appearance",
+            "Setting_Threshold": "Threshold (%)",
+            "Setting_PartialPolicy": "Incomplete data",
+            "Policy_Withhold": "Withhold shares",
+            "Policy_Subset": "Analyze received subset",
+            "Setting_PageSize": "Maximum categories per page",
+            "Setting_StartRank": "Saved rank position",
+            "Setting_BarColor": "Bars",
+            "Setting_ThresholdColor": "Threshold contributors",
+            "Setting_LineColor": "Cumulative share",
+            "Setting_FontSize": "Text size",
+            "Setting_ShowTable": "Show data table",
+            "Title": "Atlyn Pareto",
+            "Notices": "Third-party notices",
+            "Bind": "Add one Category and one nonnegative additive Contribution measure.",
+            "BindCategory": "Add a Category field to group this contribution.",
+            "NoRowsDelivered": "No categorical rows were delivered. Check the current filters and field bindings.",
+            "BindContribution": "Add a nonnegative additive Contribution measure for these categories.",
+            "BindCompact": "Bind fields",
+            "InvalidCompact": "Invalid data",
+            "IncompleteCompact": "Partial data",
+            "ZeroCompact": "Zero total",
+            "CompleteBrief": "Completed query \u00b7 {0} categories",
+            "SubsetBrief": "Received subset only \u00b7 full population unknown",
+            "WithholdBrief": "Partial data \u00b7 shares withheld",
+            "ThresholdBrief": "{0} threshold \u00b7 {1} of {2} categories",
+            "Details": "Analysis details and keyboard help",
+            "GoRank": "Go to rank",
+            "Go": "Go",
+            "ThresholdRanks": "Show threshold",
+            "PageBrief": "{0}\u2013{1} / {2}",
+            "Overview": "Analyzed ranks \u00b7 cumulative share",
+            "OverviewHelp": "Overview samples the cumulative curve for display only. Totals and threshold use all analyzed categories. Use Go to rank or Show threshold for exact category details.",
+            "CountsCompact": "{0} categories",
+            "Empty": "No categories in the current filter context.",
+            "Invalid": "Analysis withheld: unsupported contributions. No rows were excluded to manufacture a total.",
+            "Missing": "Blank or missing",
+            "InvalidNumber": "Non-numeric or nonfinite",
+            "Negative": "Negative",
+            "Overflow": "The sum exceeds the finite numeric range. Rescale the contribution measure.",
+            "Zero": "The analyzed contribution total is zero. Cumulative percentages and threshold contributors are undefined.",
+            "Blank": "(Blank)",
+            "Complete": "Universe: all categories delivered by the completed query in the current filter context.",
+            "Subset": "RECEIVED SUBSET ONLY. Percentages use valid contributions in the analyzed received subset, bounded to 100,000 categories, not the full population. Full-population ranking and threshold are unknown.",
+            "Withhold": "Incomplete data: bars and ranks describe only the received subset. Exact shares and threshold contributors are withheld. Choose 'Analyze received subset' in Analysis to use an explicitly partial denominator.",
+            "Loading": "More data requested from Power BI.",
+            "Refused": "Power BI declined or does not support further data retrieval.",
+            "Limit": "The 100,000-category analysis limit was reached; remaining categories are not analyzed.",
+            "Stalled": "The next aggregated segment contained no additional rows. Retrieval stopped.",
+            "Unexpected": "Unexpected incremental segment received; only the current received subset is available.",
+            "Counts": "Within the analysis bound: {0} categories; {1} rows received.",
+            "Total": "Denominator total",
+            "Universe": "Universe",
+            "Rank": "Rank",
+            "Share": "Contribution share",
+            "CumulativeValue": "Cumulative contribution",
+            "CumulativeShare": "Cumulative share (%)",
+            "Threshold": "Threshold",
+            "Included": "Threshold contributor (ties included)",
+            "Crossing": "First threshold crossing",
+            "After": "After threshold set",
+            "ThresholdSummary": "{0} threshold; {1} of {2} categories included, including all boundary ties.",
+            "Convention": "Threshold is a configurable convention, not a universal 80/20 law. * marks included contributors; X marks the first crossing.",
+            "Highlights": "Highlights overlay the original contributions. Ranking and denominator stay unchanged.",
+            "InvalidHighlight": "{0} unsupported highlight values are not drawn; base contributions are unchanged.",
+            "HighlightedValue": "Highlighted contribution",
+            "Paging": "Ranks {0}-{1} of {2}. Cumulative values include earlier pages.",
+            "Previous": "Previous ranks",
+            "Next": "Next ranks",
+            "Clear": "Clear selection",
+            "Keyboard": "Select a bar or category with Enter/Space; Ctrl or Command adds to selection. Arrow keys navigate bars; Home/End jump. Escape clears. Shift+F10 opens the context menu.",
+            "Table": "Ranked contributions for the current page",
+            "Unavailable": "Unavailable",
+            "Small": "Expand this tile to view the chart and data table.",
+            "Failure": "The visual could not render. Refresh the visual; details were reported to the host.",
+            "InteractionFailure": "The host could not complete the interaction.",
+            "NoOther": "Top N / Other is not calculated. Pages change display only, not the denominator.",
+            "Excluded": "Excluded contributions: none.",
+            "Limited": "Excluded from analysis: categories beyond the received/bounded subset; their total is unknown."
+        },
+        "fr-FR": {
+            "Role_Category": "Cat\u00e9gorie",
+            "Role_Contribution": "Contribution",
+            "Role_Tooltips": "Info-bulles",
+            "Card_Analysis": "Analyse",
+            "Card_Appearance": "Apparence",
+            "Setting_Threshold": "Seuil (%)",
+            "Setting_PartialPolicy": "Donn\u00e9es incompl\u00e8tes",
+            "Policy_Withhold": "Masquer les parts",
+            "Policy_Subset": "Analyser le sous-ensemble re\u00e7u",
+            "Setting_PageSize": "Maximum de cat\u00e9gories par page",
+            "Setting_StartRank": "Position de rang enregistr\u00e9e",
+            "Setting_BarColor": "Barres",
+            "Setting_ThresholdColor": "Contributeurs du seuil",
+            "Setting_LineColor": "Part cumul\u00e9e",
+            "Setting_FontSize": "Taille du texte",
+            "Setting_ShowTable": "Afficher le tableau",
+            "Title": "Atlyn Pareto",
+            "Notices": "Mentions des composants tiers",
+            "Bind": "Ajoutez une Cat\u00e9gorie et une mesure Contribution additive et non n\u00e9gative.",
+            "BindCategory": "Ajoutez une Cat\u00e9gorie pour regrouper cette contribution.",
+            "NoRowsDelivered": "Aucune ligne de cat\u00e9gorie re\u00e7ue. V\u00e9rifiez les filtres actuels et les champs li\u00e9s.",
+            "BindContribution": "Ajoutez une mesure Contribution additive et non n\u00e9gative pour ces cat\u00e9gories.",
+            "BindCompact": "Ajouter des champs",
+            "InvalidCompact": "Donn\u00e9es invalides",
+            "IncompleteCompact": "Donn\u00e9es partielles",
+            "ZeroCompact": "Total nul",
+            "CompleteBrief": "Requ\u00eate termin\u00e9e \u00b7 {0} cat\u00e9gories",
+            "SubsetBrief": "Sous-ensemble re\u00e7u uniquement \u00b7 population enti\u00e8re inconnue",
+            "WithholdBrief": "Donn\u00e9es partielles \u00b7 parts masqu\u00e9es",
+            "ThresholdBrief": "Seuil de {0} \u00b7 {1} cat\u00e9gories sur {2}",
+            "Details": "D\u00e9tails de l'analyse et aide clavier",
+            "GoRank": "Aller au rang",
+            "Go": "Aller",
+            "ThresholdRanks": "Afficher le seuil",
+            "PageBrief": "{0}\u2013{1} / {2}",
+            "Overview": "Rangs analys\u00e9s \u00b7 part cumul\u00e9e",
+            "OverviewHelp": "La vue d'ensemble \u00e9chantillonne la courbe uniquement pour l'affichage. Les totaux et le seuil utilisent toutes les cat\u00e9gories analys\u00e9es. Aller au rang ou Afficher le seuil permet d'obtenir les d\u00e9tails exacts.",
+            "CountsCompact": "{0} cat\u00e9gories",
+            "Empty": "Aucune cat\u00e9gorie dans le contexte de filtre actuel.",
+            "Invalid": "Analyse suspendue : contributions non prises en charge. Aucune ligne exclue pour fabriquer un total.",
+            "Missing": "Vide ou manquante",
+            "InvalidNumber": "Non num\u00e9rique ou non finie",
+            "Negative": "N\u00e9gative",
+            "Overflow": "La somme d\u00e9passe la plage num\u00e9rique finie. Changez l'\u00e9chelle de la mesure.",
+            "Zero": "Le total des contributions analys\u00e9es est nul. Les pourcentages cumul\u00e9s et les contributeurs du seuil ne sont pas d\u00e9finis.",
+            "Blank": "(Vide)",
+            "Complete": "Univers : toutes les cat\u00e9gories fournies par la requ\u00eate termin\u00e9e dans le contexte de filtre actuel.",
+            "Subset": "SOUS-ENSEMBLE RE\u00c7U UNIQUEMENT. Les pourcentages utilisent les contributions valides du sous-ensemble re\u00e7u analys\u00e9, limit\u00e9 \u00e0 100 000 cat\u00e9gories, pas la population enti\u00e8re. Le classement et le seuil globaux sont inconnus.",
+            "Withhold": "Donn\u00e9es incompl\u00e8tes : les barres et les rangs d\u00e9crivent seulement le sous-ensemble re\u00e7u. Les parts exactes et les contributeurs du seuil sont masqu\u00e9s. Choisissez \u00ab Analyser le sous-ensemble re\u00e7u \u00bb dans Analyse pour un d\u00e9nominateur partiel explicite.",
+            "Loading": "Donn\u00e9es suppl\u00e9mentaires demand\u00e9es \u00e0 Power BI.",
+            "Refused": "Power BI a refus\u00e9 ou ne prend pas en charge le chargement de donn\u00e9es suppl\u00e9mentaires.",
+            "Limit": "La limite de 100 000 cat\u00e9gories est atteinte ; les cat\u00e9gories restantes ne sont pas analys\u00e9es.",
+            "Stalled": "Le segment agr\u00e9g\u00e9 suivant ne contient aucune nouvelle ligne. Chargement arr\u00eat\u00e9.",
+            "Unexpected": "Segment incr\u00e9mentiel inattendu ; seul le sous-ensemble actuellement re\u00e7u est disponible.",
+            "Counts": "Dans la limite d'analyse : {0} cat\u00e9gories ; {1} lignes re\u00e7ues.",
+            "Total": "Total du d\u00e9nominateur",
+            "Universe": "Univers",
+            "Rank": "Rang",
+            "Share": "Part de contribution",
+            "CumulativeValue": "Contribution cumul\u00e9e",
+            "CumulativeShare": "Part cumul\u00e9e (%)",
+            "Threshold": "Seuil",
+            "Included": "Contributeur du seuil (ex \u00e6quo inclus)",
+            "Crossing": "Premier franchissement du seuil",
+            "After": "Apr\u00e8s le groupe du seuil",
+            "ThresholdSummary": "Seuil de {0} ; {1} cat\u00e9gories sur {2} incluses, avec tous les ex \u00e6quo \u00e0 la limite.",
+            "Convention": "Le seuil est une convention configurable, pas une loi universelle 80/20. * indique les contributeurs inclus ; X indique le premier franchissement.",
+            "Highlights": "Les surbrillances se superposent aux contributions initiales. Le classement et le d\u00e9nominateur restent inchang\u00e9s.",
+            "InvalidHighlight": "{0} valeurs de surbrillance non prises en charge ne sont pas trac\u00e9es ; les contributions initiales sont inchang\u00e9es.",
+            "HighlightedValue": "Contribution en surbrillance",
+            "Paging": "Rangs {0}-{1} sur {2}. Les valeurs cumul\u00e9es incluent les pages pr\u00e9c\u00e9dentes.",
+            "Previous": "Rangs pr\u00e9c\u00e9dents",
+            "Next": "Rangs suivants",
+            "Clear": "Effacer la s\u00e9lection",
+            "Keyboard": "Entr\u00e9e/Espace s\u00e9lectionne une barre ou cat\u00e9gorie ; Ctrl ou Commande ajoute \u00e0 la s\u00e9lection. Les fl\u00e8ches parcourent les barres ; D\u00e9but/Fin acc\u00e8dent aux extr\u00e9mit\u00e9s. \u00c9chap efface. Maj+F10 ouvre le menu contextuel.",
+            "Table": "Contributions class\u00e9es pour la page actuelle",
+            "Unavailable": "Indisponible",
+            "Small": "Agrandissez cette tuile pour afficher le graphique et le tableau.",
+            "Failure": "Le visuel n'a pas pu s'afficher. Actualisez-le ; les d\u00e9tails ont \u00e9t\u00e9 transmis \u00e0 l'h\u00f4te.",
+            "InteractionFailure": "L'h\u00f4te n'a pas pu terminer l'interaction.",
+            "NoOther": "Top N / Autres n'est pas calcul\u00e9. Les pages changent l'affichage, pas le d\u00e9nominateur.",
+            "Excluded": "Contributions exclues : aucune.",
+            "Limited": "Exclues de l'analyse : cat\u00e9gories hors du sous-ensemble re\u00e7u ou limit\u00e9 ; leur total est inconnu."
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "Category",
+                "displayName": "Category",
+                "displayNameKey": "Role_Category",
+                "kind": "Grouping"
+            },
+            {
+                "name": "Contribution",
+                "displayName": "Contribution",
+                "displayNameKey": "Role_Contribution",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "name": "Tooltips",
+                "displayName": "Tooltips",
+                "displayNameKey": "Role_Tooltips",
+                "kind": "Measure"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "Category": {
+                            "max": 1
+                        },
+                        "Contribution": {
+                            "max": 1
+                        },
+                        "Tooltips": {
+                            "max": 5
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "for": {
+                            "in": "Category"
+                        },
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 10000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "Contribution"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "Tooltips"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "analysis": {
+                "displayName": "Analysis",
+                "displayNameKey": "Card_Analysis",
+                "properties": {
+                    "threshold": {
+                        "displayName": "Threshold (%)",
+                        "displayNameKey": "Setting_Threshold",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "partialPolicy": {
+                        "displayName": "Incomplete data",
+                        "displayNameKey": "Setting_PartialPolicy",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "withhold",
+                                    "displayName": "Withhold shares",
+                                    "displayNameKey": "Policy_Withhold"
+                                },
+                                {
+                                    "value": "subset",
+                                    "displayName": "Analyze received subset",
+                                    "displayNameKey": "Policy_Subset"
+                                }
+                            ]
+                        }
+                    },
+                    "pageSize": {
+                        "displayName": "Maximum categories per page",
+                        "displayNameKey": "Setting_PageSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "startRank": {
+                        "displayName": "Saved rank position",
+                        "displayNameKey": "Setting_StartRank",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "appearance": {
+                "displayName": "Appearance",
+                "displayNameKey": "Card_Appearance",
+                "properties": {
+                    "barColor": {
+                        "displayName": "Bars",
+                        "displayNameKey": "Setting_BarColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "thresholdColor": {
+                        "displayName": "Threshold contributors",
+                        "displayNameKey": "Setting_ThresholdColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "lineColor": {
+                        "displayName": "Cumulative share",
+                        "displayNameKey": "Setting_LineColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "displayNameKey": "Setting_FontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showTable": {
+                        "displayName": "Show data table",
+                        "displayNameKey": "Setting_ShowTable",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "supportsHighlight": true,
+        "supportsMultiVisualSelection": true,
+        "supportsKeyboardFocus": true,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true
+            },
+            "roles": [
+                "Tooltips"
+            ]
+        },
+        "sorting": {
+            "implicit": {
+                "clauses": [
+                    {
+                        "role": "Category",
+                        "direction": 1
+                    }
+                ]
+            }
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

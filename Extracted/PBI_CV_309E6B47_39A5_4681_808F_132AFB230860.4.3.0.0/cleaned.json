@@ -1,0 +1,313 @@
+{
+    "visual": {
+        "name": "GridByMAQSoftware",
+        "displayName": "Grid by MAQ Software",
+        "guid": "PBI_CV_309E6B47_39A5_4681_808F_132AFB230860",
+        "visualClassName": "Visual",
+        "version": "4.3.0.0",
+        "description": "Navigate large data sets with ease by showcasing data in a paginated grid format that can be sorted.",
+        "supportUrl": "https://bit.ly/maqsoftware-support",
+        "gitHubUrl": "https://github.com/MAQ-Software-Solutions/JSONGrid"
+    },
+    "author": {
+        "name": "MAQ Software",
+        "email": "support@maqsoftware.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "privileges": [],
+        "dataRoles": [
+            {
+                "displayName": "Values",
+                "name": "Values",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "Tooltip",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Tooltip"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "Values"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "Tooltip"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30000000
+                            }
+                        }
+                    },
+                    "rowCount": {
+                        "preferred": {
+                            "min": 1
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "GridConfig": {
+                "displayName": "Grid configuration",
+                "properties": {
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "isBold": {
+                        "displayName": "Font weight (Bold)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "isItalic": {
+                        "displayName": "Font style (Italic)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "isUnderline": {
+                        "displayName": "Font style (Underline)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maxRows": {
+                        "displayName": "Max rows",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "sortKey": {
+                        "displayName": "Sort key",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "sortOrder": {
+                        "displayName": "Sort order",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "isCustomRedirect": {
+                        "displayName": "Enable custom redirection",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "apiUrl": {
+                        "displayName": "API URL",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "columnNumber": {
+                        "displayName": "Column number",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "ColorConfig": {
+                "displayName": "Color configuration",
+                "properties": {
+                    "headerBackgroundColor": {
+                        "displayName": "Header background color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "headerTextColor": {
+                        "displayName": "Header text color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "cellBackgroundColor": {
+                        "displayName": "Cell background color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "cellTextColor": {
+                        "displayName": "Cell text color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "alternateRowBackgroundColor": {
+                        "displayName": "Alternate row background color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "urlColor": {
+                        "displayName": "URL color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "gridlineColor": {
+                        "displayName": "Gridline color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "RowTotalConfig": {
+                "displayName": "Row total configuration",
+                "properties": {
+                    "showRowTotal": {
+                        "displayName": "Row total",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "totalLabel": {
+                        "displayName": "Total label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "backgroundColor": {
+                        "displayName": "Background color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "fontColor": {
+                        "displayName": "Font color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "isBold": {
+                        "displayName": "Font weight (Bold)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "isItalic": {
+                        "displayName": "Font style (Italic)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "isUnderline": {
+                        "displayName": "Font style (Underline)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderColor": {
+                        "displayName": "Border color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "supportsEmptyDataView": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "Tooltip"
+            ]
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

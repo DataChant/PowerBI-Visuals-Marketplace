@@ -1,0 +1,354 @@
+{
+    "visual": {
+        "name": "atlynOverlapExplorer",
+        "displayName": "Atlyn Overlap Explorer",
+        "guid": "AtlynOverlapExplorerA83D5B49F72E4CA693D0C8260159BE42",
+        "visualClassName": "Visual",
+        "version": "1.0.2.0",
+        "description": "Explore bounded, distinct entity membership intersections with explicit universe and completeness.",
+        "supportUrl": "https://atlynco.github.io/atlyn-powerbi-support/docs/faq/",
+        "gitHubUrl": "https://github.com/AtlynCo/powerbi-overlap-explorer"
+    },
+    "author": {
+        "name": "Atlyn",
+        "email": "atlyn.help@gmail.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "Role_Entity": "Entity ID",
+            "Role_Set": "Set Name",
+            "Role_Signal": "Highlight signal (optional)",
+            "Analysis": "Intersection analysis",
+            "Appearance": "Appearance",
+            "InclusiveSetting": "Inclusive intersections (counts overlap)",
+            "MaxSets": "Maximum retained sets (1-10)",
+            "Top": "Top combinations (1-50)",
+            "Minimum": "Minimum entities",
+            "BarColor": "Bar color",
+            "FontSize": "Text size",
+            "Title": "Atlyn Overlap Explorer",
+            "Exact": "EXACT / exclusive over retained sets",
+            "Inclusive": "INCLUSIVE / at least these retained sets",
+            "ExactHelp": "Each entity appears in one exact combination. Hollow dots exclude a retained set.",
+            "InclusiveHelp": "Entities with additional memberships are included. Counts overlap: never sum bars. Hollow dots mean unrestricted.",
+            "Universe": "Current filtered, received valid entity universe: {0}.",
+            "Zero": "Entities with no retained memberships: {0}.",
+            "Partial": "PARTIAL: memberships, ranking and denominator may change; do not infer complete-population intersections.",
+            "Complete": "No further host segment reported. Universe includes only represented valid entities.",
+            "Stats": "Received rows: {0}; invalid: {1}; deduplicated: {2}; dropped by row bound: {3}.",
+            "Unloaded": "Unloaded rows: unknown (host has more data).",
+            "Loaded": "Unloaded rows: 0 reported by host.",
+            "Reduction": "{0} sets omitted. Exactness is ONLY over retained sets; omitted memberships are ignored, not excluded.",
+            "Hidden": "{0} combinations hidden by minimum/top limits. No Other bucket.",
+            "Binding": "Bind exactly one Entity ID and one Set Name as categories; optionally add one positive Highlight signal measure.",
+            "Shape": "Inconsistent category or highlight lengths. No counts are shown.",
+            "NoData": "No valid entities in the received data.",
+            "NoCombinations": "No combinations meet these limits. Inclusive mode excludes the zero-membership group.",
+            "Clear": "Clear selection",
+            "Load": "Load more rows",
+            "Loading": "Waiting for the next host segment...",
+            "Rejected": "Host declined more data. Results remain partial.",
+            "RowBound": "30,000-row processing bound reached. Unloaded total is unknown when more segments exist.",
+            "UnexpectedSegment": "Unexpected incremental segment; counts withheld. This visual requires aggregated segments.",
+            "Retry": "Retry loading",
+            "SetSizes": "Set sizes / distinct entities",
+            "Combinations": "Intersection sizes / distinct entities",
+            "None": "No retained sets",
+            "Included": "Included: {0}",
+            "Excluded": "Excluded: {0}",
+            "Unrestricted": "Other retained sets unrestricted",
+            "Count": "Distinct entities",
+            "Share": "Share of received universe",
+            "Highlighted": "Highlighted entities",
+            "HighlightHelp": "Highlight outlines count entities with at least one positive highlighted signal row; bars keep original memberships.",
+            "NoSignal": "Optional positive Highlight signal enables cross-highlighting; entity counts never sum that measure.",
+            "Details": "Contributing entities",
+            "DetailsCount": "Showing {0} of {1} contributors. Select an entity below to filter natively.",
+            "SelectEntity": "Select entity {0}",
+            "MissingIdentity": "Selection unavailable: some contributors have no host identity. No label-based identities are invented.",
+            "SelectionLimit": "Selection exceeds 1,000 native identities; nothing was selected. Select an individual contributor instead.",
+            "SelectionFailed": "The host could not apply this selection.",
+            "Context": "Context menu uses the first represented contributor, not an invented combination identity.",
+            "ContextEntity": "Context menu contributor: {0}.",
+            "RenderFailed": "The visual could not render. Correct the binding or refresh the visual.",
+            "Keyboard": "Arrow keys move between combinations; Enter selects and opens contributors; Ctrl/Command adds to selection; Escape clears; Shift+F10 opens the first contributor's menu.",
+            "Close": "Close contributors",
+            "InvalidColor": "Invalid bar color; using the default color. Choose a six-digit hexadecimal color in the format pane.",
+            "InteractionsDisabled": "Native interactions are disabled by the host in this view.",
+            "ShortTitle": "Overlap",
+            "Enlarge": "Enlarge visual",
+            "EnlargeAdvice": "Enlarge to at least 180 by 150 pixels to explore intersections.",
+            "ShortUniverse": "{0} entities in received universe",
+            "ClearShort": "Clear",
+            "ModeExact": "EXACT / retained sets",
+            "ModeInclusive": "INCLUSIVE / retained sets",
+            "PartialShort": "PARTIAL data: memberships and counts may change.",
+            "ReductionShort": "{0} sets omitted; exactness is only over retained sets.",
+            "InclusiveShort": "Inclusive counts overlap. Do not sum bars.",
+            "Diagnostics": "Data & definitions ({0} rows)",
+            "RawValue": "Typed source value",
+            "ChartHelp": "Intersection sizes and aligned set memberships. Scroll horizontally for more combinations and vertically for more sets.",
+            "BarMeaning": "Bar = distinct entities. Filled dots = membership. Open Data & definitions for full set names.",
+            "Inspect": "Inspect",
+            "SetsShort": "Sets / size",
+            "NoneShort": "None",
+            "DataStatus": "Data completeness",
+            "OnboardingTitle": "Explore memberships, not aggregated counts",
+            "OnboardingEntity": "Bind a stable Entity ID: one customer, account, product, or user.",
+            "OnboardingSet": "Bind Set Name from a long-form table, one row per membership.",
+            "OnboardingSignal": "Optionally bind a positive COUNTROWS measure for cross-highlights; entity counts never sum it.",
+            "OnboardingBlank": "A blank Set Name with a valid Entity ID adds a zero-membership entity to the received universe.",
+            "SearchEntities": "Find contributor",
+            "DetailRange": "Showing {0}-{1} of {2} matches / {3} contributors.",
+            "IdentityCount": "{0} native identities",
+            "Previous": "Previous",
+            "Next": "Next",
+            "SelectionPending": "A native selection is still pending. Wait before adding another group.",
+            "ClearQueued": "Selection pending; clear will run immediately afterward.",
+            "CompactUniverse": "{0} received entities",
+            "SelectSet": "Select all {1} entities in {0}, including additional memberships in either mode.",
+            "SetDetails": "All members of {0}"
+        },
+        "fr-FR": {
+            "Role_Entity": "Identifiant d'entite",
+            "Role_Set": "Nom de l'ensemble",
+            "Role_Signal": "Signal de surbrillance (facultatif)",
+            "Analysis": "Analyse des intersections",
+            "Appearance": "Apparence",
+            "InclusiveSetting": "Intersections inclusives (comptages chevauchants)",
+            "MaxSets": "Nombre maximal d'ensembles retenus (1-10)",
+            "Top": "Premieres combinaisons (1-50)",
+            "Minimum": "Nombre minimal d'entites",
+            "BarColor": "Couleur des barres",
+            "FontSize": "Taille du texte",
+            "Title": "Atlyn Overlap Explorer",
+            "Exact": "EXACT / exclusif sur les ensembles retenus",
+            "Inclusive": "INCLUSIF / au moins ces ensembles retenus",
+            "ExactHelp": "Chaque entite appartient a une combinaison exacte. Un point vide exclut un ensemble retenu.",
+            "InclusiveHelp": "Les appartenances supplementaires sont incluses. Les comptages se chevauchent : ne pas sommer les barres. Un point vide signifie sans restriction.",
+            "Universe": "Univers actuel filtre des entites valides recues : {0}.",
+            "Zero": "Entites sans appartenance retenue : {0}.",
+            "Partial": "PARTIEL : appartenances, classement et denominateur peuvent changer ; aucune conclusion sur la population complete.",
+            "Complete": "Aucun segment supplementaire signale. L'univers comprend seulement les entites valides representees.",
+            "Stats": "Lignes recues : {0} ; invalides : {1} ; dedupliquees : {2} ; ignorees par la limite : {3}.",
+            "Unloaded": "Lignes non chargees : nombre inconnu (donnees restantes).",
+            "Loaded": "Lignes non chargees : 0 signale par l'hote.",
+            "Reduction": "{0} ensembles omis. L'exactitude concerne UNIQUEMENT les ensembles retenus ; les appartenances omises sont ignorees.",
+            "Hidden": "{0} combinaisons masquees par les limites. Aucune categorie Autres.",
+            "Binding": "Lier exactement un identifiant d'entite et un nom d'ensemble comme categories ; mesure positive de surbrillance facultative.",
+            "Shape": "Longueurs de categories ou de surbrillance incoherentes. Aucun comptage affiche.",
+            "NoData": "Aucune entite valide dans les donnees recues.",
+            "NoCombinations": "Aucune combinaison ne satisfait les limites. Le mode inclusif exclut le groupe sans appartenance.",
+            "Clear": "Effacer la selection",
+            "Load": "Charger plus de lignes",
+            "Loading": "En attente du prochain segment...",
+            "Rejected": "L'hote a refuse les donnees supplementaires. Resultats partiels.",
+            "RowBound": "Limite de 30 000 lignes atteinte. Total non charge inconnu si des segments restent.",
+            "UnexpectedSegment": "Segment incremental inattendu ; comptages masques. Ce visuel exige des segments agreges.",
+            "Retry": "Reessayer le chargement",
+            "SetSizes": "Tailles des ensembles / entites distinctes",
+            "Combinations": "Tailles des intersections / entites distinctes",
+            "None": "Aucun ensemble retenu",
+            "Included": "Inclus : {0}",
+            "Excluded": "Exclus : {0}",
+            "Unrestricted": "Autres ensembles retenus sans restriction",
+            "Count": "Entites distinctes",
+            "Share": "Part de l'univers recu",
+            "Highlighted": "Entites en surbrillance",
+            "HighlightHelp": "Les contours comptent les entites ayant une ligne de signal positif en surbrillance ; les appartenances initiales restent inchangees.",
+            "NoSignal": "Un signal positif facultatif permet la surbrillance croisee ; les comptages d'entites ne somment jamais cette mesure.",
+            "Details": "Entites contributrices",
+            "DetailsCount": "{0} contributeurs affiches sur {1}. Selectionner une entite ci-dessous pour filtrer.",
+            "SelectEntity": "Selectionner l'entite {0}",
+            "MissingIdentity": "Selection indisponible : certains contributeurs n'ont pas d'identite hote. Aucune identite inventee.",
+            "SelectionLimit": "Selection superieure a 1 000 identites ; rien n'a ete selectionne. Choisir un contributeur.",
+            "SelectionFailed": "L'hote n'a pas pu appliquer cette selection.",
+            "Context": "Le menu utilise le premier contributeur represente, pas une identite de combinaison inventee.",
+            "ContextEntity": "Contributeur du menu : {0}.",
+            "RenderFailed": "Impossible d'afficher le visuel. Corriger la liaison ou actualiser.",
+            "Keyboard": "Fleches : combinaisons ; Entree : selection et contributeurs ; Ctrl/Commande : ajouter ; Echap : effacer ; Maj+F10 : menu du premier contributeur.",
+            "Close": "Fermer les contributeurs",
+            "InvalidColor": "Couleur invalide ; couleur par defaut utilisee. Choisir une couleur hexadecimale a six chiffres.",
+            "InteractionsDisabled": "Les interactions natives sont desactivees par l'hote dans cette vue.",
+            "ShortTitle": "Ensembles",
+            "Enlarge": "Agrandir le visuel",
+            "EnlargeAdvice": "Agrandir a au moins 180 par 150 pixels pour explorer les intersections.",
+            "ShortUniverse": "{0} entites dans l'univers recu",
+            "ClearShort": "Effacer",
+            "ModeExact": "EXACT / ensembles retenus",
+            "ModeInclusive": "INCLUSIF / ensembles retenus",
+            "PartialShort": "Donnees PARTIELLES : appartenances et comptages peuvent changer.",
+            "ReductionShort": "{0} ensembles omis ; exactitude limitee aux ensembles retenus.",
+            "InclusiveShort": "Comptages inclusifs chevauchants. Ne pas sommer les barres.",
+            "Diagnostics": "Donnees et definitions ({0} lignes)",
+            "RawValue": "Valeur source typee",
+            "ChartHelp": "Intersections et appartenances alignees. Defiler horizontalement pour les combinaisons, verticalement pour les ensembles.",
+            "BarMeaning": "Barre = entites distinctes. Points pleins = appartenance. Voir les noms complets dans Donnees et definitions.",
+            "Inspect": "Inspecter",
+            "SetsShort": "Ensembles / taille",
+            "NoneShort": "Aucun",
+            "DataStatus": "Completude des donnees",
+            "OnboardingTitle": "Explorer les appartenances, pas les agregats",
+            "OnboardingEntity": "Lier un identifiant stable de client, compte, produit ou utilisateur.",
+            "OnboardingSet": "Lier le nom d'ensemble d'une table longue, une ligne par appartenance.",
+            "OnboardingSignal": "Mesure COUNTROWS positive facultative pour la surbrillance, jamais sommee pour compter les entites.",
+            "OnboardingBlank": "Un nom d'ensemble vide avec un identifiant valide ajoute une entite sans appartenance a l'univers recu.",
+            "SearchEntities": "Chercher un contributeur",
+            "DetailRange": "{0}-{1} affiches sur {2} correspondances / {3} contributeurs.",
+            "IdentityCount": "{0} identites natives",
+            "Previous": "Precedent",
+            "Next": "Suivant",
+            "SelectionPending": "Une selection native est en attente. Patienter avant d'ajouter un groupe.",
+            "ClearQueued": "Selection en attente ; effacement juste apres.",
+            "CompactUniverse": "{0} entites recues",
+            "SelectSet": "Selectionner les {1} entites de {0}, y compris les appartenances supplementaires dans les deux modes.",
+            "SetDetails": "Tous les membres de {0}"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "entity",
+                "displayName": "Entity ID",
+                "displayNameKey": "Role_Entity",
+                "kind": "Grouping"
+            },
+            {
+                "name": "set",
+                "displayName": "Set Name",
+                "displayNameKey": "Role_Set",
+                "kind": "Grouping"
+            },
+            {
+                "name": "signal",
+                "displayName": "Highlight signal (optional)",
+                "displayNameKey": "Role_Signal",
+                "kind": "Measure"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "entity": {
+                            "min": 1,
+                            "max": 1
+                        },
+                        "set": {
+                            "max": 1
+                        },
+                        "signal": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "entity"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "set"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 10000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "signal"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "analysis": {
+                "displayName": "Intersection analysis",
+                "displayNameKey": "Analysis",
+                "properties": {
+                    "inclusive": {
+                        "displayName": "Inclusive intersections",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maxSets": {
+                        "displayName": "Maximum retained sets",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "top": {
+                        "displayName": "Top combinations",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "minimum": {
+                        "displayName": "Minimum entities",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "appearance": {
+                "displayName": "Appearance",
+                "displayNameKey": "Appearance",
+                "properties": {
+                    "barColor": {
+                        "displayName": "Bar color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            }
+        },
+        "privileges": [],
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsEmptyDataView": true,
+        "supportsLandingPage": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true
+            }
+        },
+        "sorting": {
+            "default": {}
+        },
+        "suppressDefaultTitle": true
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

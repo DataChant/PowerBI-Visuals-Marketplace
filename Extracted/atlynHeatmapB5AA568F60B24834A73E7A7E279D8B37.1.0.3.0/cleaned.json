@@ -1,0 +1,366 @@
+{
+    "visual": {
+        "name": "atlynHeatmap",
+        "displayName": "Atlyn Heatmap",
+        "guid": "atlynHeatmapB5AA568F60B24834A73E7A7E279D8B37",
+        "visualClassName": "Visual",
+        "version": "1.0.3.0",
+        "description": "A general row-by-column analytical heatmap with explicit color scales, safe optional shares, and model-backed selections.",
+        "supportUrl": "https://atlynco.github.io/atlyn-powerbi-support/docs/faq/",
+        "gitHubUrl": "https://github.com/AtlynCo/powerbi-heatmap"
+    },
+    "author": {
+        "name": "Atlyn",
+        "email": "atlyn.help@gmail.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "Role_Row": "Row",
+            "Role_Column": "Column",
+            "Role_Value": "Value",
+            "Role_Denominator": "Denominator (optional)",
+            "Role_Tooltips": "Tooltips",
+            "Format_Scale": "Color scale",
+            "Format_Scope": "Scale scope",
+            "Format_Palette": "Palette",
+            "Choice_Sequential": "Sequential blue",
+            "Choice_Raw": "Raw (model value)",
+            "Choice_Row": "Share of row",
+            "Choice_Column": "Share of column",
+            "Choice_All": "Share of all cells",
+            "Choice_Denominator": "Value / supplied denominator",
+            "Format_Values": "Values and denominators",
+            "Format_Normalization": "Display values",
+            "Format_Additive": "Value is a nonnegative additive measure",
+            "Format_AdditiveHelp": "Author assertion. Allows computed shares of observed cells only. Never enable for ratios, averages or distinct counts.",
+            "Format_ShowValues": "Show cell values",
+            "Format_Layout": "Grid layout",
+            "Format_CellWidth": "Cell width (56-180 px)",
+            "Format_CellHeight": "Cell height (28-64 px)",
+            "Format_LabelWidth": "Row label width (80-240 px)",
+            "Format_FontSize": "Text size (10-20 px)",
+            "Title": "Atlyn Heatmap",
+            "Clear": "Clear selection",
+            "ClearShort": "Clear",
+            "LoadShort": "Load rows",
+            "LoadMore": "Load more rows",
+            "Loading": "Loading more rows; current data is incomplete.",
+            "FetchRejected": "The host declined more data. Current data remains incomplete.",
+            "FetchFailed": "The host data request failed. Current data remains incomplete.",
+            "FetchStalled": "No additional cells were returned. Current data remains incomplete.",
+            "FetchPending": "A data request is pending. The host has not yet delivered the next segment.",
+            "Partial": "Incomplete / possibly reduced data. Domains cover loaded cells only; computed shares are disabled.",
+            "Complete": "Host-delivered matrix; report filters and host query reductions still apply.",
+            "Tiny": "Enlarge the tile to view the heatmap (at least 180 x 120 px).",
+            "TinyShort": "Enlarge tile",
+            "Empty": "No row-by-column observations in the current filter context.",
+            "Help": "Arrow keys: navigate. Home/End: row edges; Ctrl+Home/End: grid edges. Page Up/Down: visible rows. Enter/Space: select. Ctrl/Cmd+select: multiselect. Escape: clear. Shift+F10: context menu.",
+            "Grid": "Analytical heatmap",
+            "Row": "Row",
+            "Column": "Column",
+            "Raw": "Raw model value",
+            "Displayed": "Displayed value",
+            "Denominator": "Supplied denominator",
+            "Highlight": "Incoming highlighted value (raw)",
+            "Scale": "Color domain",
+            "Global": "Global",
+            "PerRow": "Per row",
+            "PerColumn": "Per column",
+            "Sequential": "Sequential",
+            "Diverging": "Diverging, centered at zero",
+            "CompactDiverging": "Diverging (0)",
+            "CompactDenominator": "Value / model denom.",
+            "NoDomain": "No finite values to color.",
+            "LocalDomain": "Each group has its own domain. Colors are not comparable between groups. Focus or hover a cell for its exact bounds.",
+            "LocalWarning": "Colors are not comparable between groups.",
+            "LocalWarningCompact": "No cross-group color comparison.",
+            "RawSemantics": "Raw model values; no denominator or totals computed.",
+            "RowSemantics": "Share of row: denominator is the sum of observed finite, nonnegative values in that row; BLANK and absent cells are excluded.",
+            "ColumnSemantics": "Share of column: denominator is the sum of observed finite, nonnegative values in that column; BLANK and absent cells are excluded.",
+            "AllSemantics": "Share of all cells: denominator is the sum of observed finite, nonnegative values in the delivered matrix; BLANK and absent cells are excluded.",
+            "DenominatorSemantics": "Value / supplied denominator: the model's positive denominator at each intersection. No sum is computed; scope is defined by that measure.",
+            "Key": "0 = observed zero; B = BLANK; - = absent intersection; ? = unloaded/unknown; ! = invalid; n/a = unavailable share.",
+            "State_value": "Observed value",
+            "State_blank": "BLANK",
+            "State_absent": "Absent intersection",
+            "State_unloaded": "Unloaded or unknown",
+            "State_invalid": "Invalid numeric value",
+            "State_unavailable": "Unavailable share",
+            "NoIdentity": "Some categories lack host identities. Selection is unavailable for those headers and cells.",
+            "NoSelection": "This item has no complete host identity and cannot be selected.",
+            "InteractionDisabled": "Report interactions are disabled by the host.",
+            "SelectionFailed": "The host could not apply this selection.",
+            "ContextFailed": "The host could not open the context menu.",
+            "RenderFailed": "The heatmap could not render the host data.",
+            "HighContrast": "High contrast: colors replaced with host foreground/background; values and state symbols remain visible.",
+            "Highlights": "Incoming highlights are outlined with a dot; excluded cells have dashed borders, not faded text. Colors still encode the base value.",
+            "Details": "Heatmap interpretation and keyboard help",
+            "ThirdParty": "Third-party licenses",
+            "Selected": "Selection updated.",
+            "Cleared": "Selection cleared.",
+            "Data_Binding": "Add one Row field, one Column field, and one numeric Value measure.",
+            "Data_Structure": "The host returned an invalid matrix structure.",
+            "Data_Fields": "Use exactly one Row field and one Column field; additional category hierarchy levels are not supported.",
+            "Data_Measures": "Use one numeric Value, at most one numeric Denominator, and up to three tooltip measures.",
+            "Data_Hierarchy": "Additional category hierarchy levels are not supported.",
+            "Data_Leaves": "The host returned too many measure leaves for a column.",
+            "Data_Segment": "The host supplied a data segment; some intersections may not be loaded.",
+            "Data_Reduced": "The host reports data reduction; the matrix may be incomplete.",
+            "Data_Columns": "The 100-column host limit was reached; additional columns may be omitted.",
+            "Data_Cap": "The displayed matrix is capped at 500 rows, 100 columns, and 20,000 cells.",
+            "Data_Processing": "The matrix hierarchy exceeds the safe processing limit; remaining categories were not loaded.",
+            "Data_Partial": "Computed shares are unavailable while the data is incomplete; supplied model denominators remain usable.",
+            "Data_Empty": "No category intersections were returned for the current filters.",
+            "Data_Index": "The host returned an invalid matrix measure index.",
+            "Analysis_Complete": "Computed shares require complete data. Load all data or use raw values.",
+            "Analysis_BindDenominator": "Bind a numeric Denominator measure to calculate ratios.",
+            "Analysis_Denominator": "Ratios require a finite positive denominator and a finite result; unavailable ratios are not shown as zero.",
+            "Analysis_Additive": "Share normalization requires explicit confirmation that Value is additive. Rates and ratios must not be summed.",
+            "Analysis_ShareScope": "Share normalization supports only nonnegative additive values. BLANK and absent intersections are excluded, not treated as zero.",
+            "Analysis_InvalidGroup": "Share normalization is unavailable for groups containing negative, invalid, or unloaded values.",
+            "Analysis_ZeroGroup": "Shares are unavailable for zero-total groups; a zero total is not a percentage denominator."
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "row",
+                "displayName": "Row",
+                "displayNameKey": "Role_Row",
+                "kind": "Grouping"
+            },
+            {
+                "name": "column",
+                "displayName": "Column",
+                "displayNameKey": "Role_Column",
+                "kind": "Grouping"
+            },
+            {
+                "name": "value",
+                "displayName": "Value",
+                "displayNameKey": "Role_Value",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "name": "denominator",
+                "displayName": "Denominator (optional)",
+                "displayNameKey": "Role_Denominator",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "name": "tooltips",
+                "displayName": "Tooltips",
+                "displayNameKey": "Role_Tooltips",
+                "kind": "Measure"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "row": {
+                            "max": 1
+                        },
+                        "column": {
+                            "max": 1
+                        },
+                        "value": {
+                            "max": 1
+                        },
+                        "denominator": {
+                            "max": 1
+                        },
+                        "tooltips": {
+                            "max": 3
+                        }
+                    }
+                ],
+                "matrix": {
+                    "rows": {
+                        "for": {
+                            "in": "row"
+                        },
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 200
+                            }
+                        }
+                    },
+                    "columns": {
+                        "for": {
+                            "in": "column"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 100
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "value"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "denominator"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "scale": {
+                "displayName": "Color scale",
+                "displayNameKey": "Format_Scale",
+                "properties": {
+                    "scope": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "global",
+                                    "displayName": "Global"
+                                },
+                                {
+                                    "value": "row",
+                                    "displayName": "Per row"
+                                },
+                                {
+                                    "value": "column",
+                                    "displayName": "Per column"
+                                }
+                            ]
+                        }
+                    },
+                    "palette": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sequential",
+                                    "displayName": "Sequential blue"
+                                },
+                                {
+                                    "value": "diverging",
+                                    "displayName": "Diverging, centered at zero"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "values": {
+                "displayName": "Values and denominators",
+                "displayNameKey": "Format_Values",
+                "properties": {
+                    "normalization": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "raw",
+                                    "displayName": "Raw (model value)"
+                                },
+                                {
+                                    "value": "row",
+                                    "displayName": "Share of row"
+                                },
+                                {
+                                    "value": "column",
+                                    "displayName": "Share of column"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "Share of all cells"
+                                },
+                                {
+                                    "value": "denominator",
+                                    "displayName": "Value / supplied denominator"
+                                }
+                            ]
+                        }
+                    },
+                    "additive": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showValues": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "displayName": "Grid layout",
+                "displayNameKey": "Format_Layout",
+                "properties": {
+                    "cellWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cellHeight": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "labelWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "sorting": {
+            "default": {}
+        },
+        "supportsHighlight": true,
+        "supportsMultiVisualSelection": true,
+        "supportsKeyboardFocus": true,
+        "supportsEmptyDataView": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
