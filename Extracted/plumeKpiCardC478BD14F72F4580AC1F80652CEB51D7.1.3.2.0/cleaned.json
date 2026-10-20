@@ -1,0 +1,4049 @@
+{
+    "visual": {
+        "name": "plumeKpiCard",
+        "displayName": "KPI Plume",
+        "guid": "plumeKpiCardC478BD14F72F4580AC1F80652CEB51D7",
+        "visualClassName": "Visual",
+        "version": "1.3.2.0",
+        "description": "KPI cards with the Plume Studio look: one or many KPIs, value, comparison, target, sparkline, icons, card shapes and layouts, and cards that flip on hover or click to reveal an information text.",
+        "supportUrl": "https://plumevisuals.com/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Plume Studio",
+        "email": "contact@plumevisuals.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "premium_desc": "Premium feature: usable for free with a \u00ab Premium preview \u00bb watermark, unlocked by a Plume Studio license key.",
+            "card_license": "Plume Studio License",
+            "license_buy": "Get a license",
+            "license_key": "License key",
+            "license_key_desc": "Paste the key received after purchase on plumevisuals.com (starts with PLUM1.). Checked offline.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Show license holder (edit mode)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Custom colors",
+            "group_style_text": "Text",
+            "group_style_background": "Background and corners",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Complete look shared by all Plume visuals: colors, three palettes, fonts, frame, table header, marks and effects. Customize colors below.",
+            "style_preset_none": "None",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Black & White",
+            "style_preset_press": "Newspaper \u2605",
+            "style_preset_vintage": "Vintage (antique plate) \u2605",
+            "style_preset_earth": "Earth \u2605",
+            "style_preset_nordic": "Nordic \u2605",
+            "style_preset_executive": "Executive \u2605",
+            "style_preset_accessible": "Accessible (high legibility) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climate \u2605",
+            "style_preset_blueprint": "Blueprint \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (dark) \u2605",
+            "style_preset_neon": "Neon \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographic \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologram \u2605",
+            "style_themeJson": "Theme JSON \u2605",
+            "style_themeJson_desc": "Paste a JSON theme: see the 'JSON themes' tutorial on plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Follow report theme",
+            "style_followTheme_desc": "Text, background, accent and data colors come from the Power BI report theme.",
+            "style_reverse": "Reverse gradients",
+            "style_customColors": "Customize colors",
+            "style_customColors_desc": "Start from the style and pick your own colors. A color left empty keeps the style's color.",
+            "style_colorBackground": "Background",
+            "style_colorText": "Text",
+            "style_colorMuted": "Secondary text",
+            "style_colorGrid": "Lines and grid",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "Unfavorable",
+            "style_series1": "Series 1",
+            "style_series2": "Series 2",
+            "style_series3": "Series 3",
+            "style_series4": "Series 4",
+            "style_series5": "Series 5",
+            "style_series6": "Series 6",
+            "style_series7": "Series 7",
+            "style_series8": "Series 8",
+            "style_palette": "Gradient palette",
+            "style_palette_desc": "Gradient from the catalog (Viridis, Magma\u2026). The start, middle and end colors below replace it.",
+            "style_palette_auto": "Style or theme palette",
+            "style_palette_crest": "Plume (sequential)",
+            "style_palette_crestDiverging": "Plume (diverging)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (colorblind-safe) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Red\u2013Yellow\u2013Blue \u2605",
+            "style_palette_brBG": "Brown\u2013Teal (drought) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Blues \u2605",
+            "style_palette_reds": "Reds \u2605",
+            "style_palette_grays": "Grays \u2605",
+            "style_palette_press": "Press (ink and paper) \u2605",
+            "style_palette_nordic": "Nordic \u2605",
+            "style_palette_earth": "Earth (ochre to umber) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (colorblind-safe) \u2605",
+            "style_scaleLow": "Gradient: start",
+            "style_scaleMid": "Gradient: middle (diverging)",
+            "style_scaleHigh": "Gradient: end",
+            "style_fontFamily": "Font",
+            "style_fontFamily_desc": "Used by every text of the visual (title, axes, labels, cells).",
+            "style_textColor": "Text color (empty = style)",
+            "style_mutedColor": "Secondary text (empty = style)",
+            "style_bgShow": "Background",
+            "style_bgColor": "Background color",
+            "style_bgColor2": "Gradient end (optional)",
+            "style_radius": "Corner radius",
+            "style_animate": "Animations",
+            "style_animate_desc": "Smooth transitions when data changes. Automatically disabled when the system asks to reduce motion.",
+            "card_kpiFormat": "Per-KPI settings",
+            "kpiFormat_title": "Title (empty = measure name)",
+            "kpiFormat_note": "Note under the value",
+            "kpiFormat_note_desc": "Short text such as \u00ab Year to date \u00bb. Placeholders: {value}, {ref}, {delta}, {target}, {progress}, {period}.",
+            "kpiFormat_icon": "Icon",
+            "kpiFormat_icon_desc": "Choose \u00ab All KPIs \u00bb or one measure in \u00ab Apply settings to \u00bb above, then its icon (134 Lucide icons, by theme).",
+            "kpiFormat_icon_auto": "Automatic (from the name)",
+            "kpiFormat_icon_none": "None",
+            "kpiFormat_icon_euro": "Finance \u00b7 Euro",
+            "kpiFormat_icon_dollar": "Finance \u00b7 Dollar",
+            "kpiFormat_icon_pound": "Finance \u00b7 Pound sterling",
+            "kpiFormat_icon_coins": "Finance \u00b7 Coins",
+            "kpiFormat_icon_banknote": "Finance \u00b7 Banknote",
+            "kpiFormat_icon_wallet": "Finance \u00b7 Wallet",
+            "kpiFormat_icon_piggyBank": "Finance \u00b7 Piggy bank (savings)",
+            "kpiFormat_icon_creditCard": "Finance \u00b7 Credit card",
+            "kpiFormat_icon_receipt": "Finance \u00b7 Receipt",
+            "kpiFormat_icon_landmark": "Finance \u00b7 Bank",
+            "kpiFormat_icon_handCoins": "Finance \u00b7 Payment",
+            "kpiFormat_icon_calculator": "Finance \u00b7 Calculator",
+            "kpiFormat_icon_percent": "Finance \u00b7 Percent",
+            "kpiFormat_icon_badgePercent": "Finance \u00b7 Discount",
+            "kpiFormat_icon_cart": "Sales \u00b7 Cart",
+            "kpiFormat_icon_bag": "Sales \u00b7 Shopping bag",
+            "kpiFormat_icon_store": "Sales \u00b7 Store",
+            "kpiFormat_icon_tag": "Sales \u00b7 Tag (price)",
+            "kpiFormat_icon_ticket": "Sales \u00b7 Ticket",
+            "kpiFormat_icon_handshake": "Sales \u00b7 Handshake (deals)",
+            "kpiFormat_icon_briefcase": "Sales \u00b7 Briefcase",
+            "kpiFormat_icon_gift": "Sales \u00b7 Gift",
+            "kpiFormat_icon_megaphone": "Sales \u00b7 Megaphone (marketing)",
+            "kpiFormat_icon_users": "People \u00b7 People",
+            "kpiFormat_icon_user": "People \u00b7 Person",
+            "kpiFormat_icon_userPlus": "People \u00b7 New customer",
+            "kpiFormat_icon_userCheck": "People \u00b7 Verified customer",
+            "kpiFormat_icon_userMinus": "People \u00b7 Lost customer",
+            "kpiFormat_icon_contact": "People \u00b7 Contact",
+            "kpiFormat_icon_baby": "People \u00b7 Baby",
+            "kpiFormat_icon_smile": "People \u00b7 Smile (satisfaction)",
+            "kpiFormat_icon_frown": "People \u00b7 Frown",
+            "kpiFormat_icon_thumbsUp": "People \u00b7 Thumbs up",
+            "kpiFormat_icon_messages": "People \u00b7 Messages",
+            "kpiFormat_icon_target": "Performance \u00b7 Target",
+            "kpiFormat_icon_trendUp": "Performance \u00b7 Rise",
+            "kpiFormat_icon_trendDown": "Performance \u00b7 Fall",
+            "kpiFormat_icon_bars": "Performance \u00b7 Column chart",
+            "kpiFormat_icon_barsH": "Performance \u00b7 Bar chart",
+            "kpiFormat_icon_line": "Performance \u00b7 Line chart",
+            "kpiFormat_icon_pie": "Performance \u00b7 Pie chart",
+            "kpiFormat_icon_gauge": "Performance \u00b7 Gauge",
+            "kpiFormat_icon_activity": "Performance \u00b7 Activity",
+            "kpiFormat_icon_award": "Performance \u00b7 Award",
+            "kpiFormat_icon_trophy": "Performance \u00b7 Trophy",
+            "kpiFormat_icon_medal": "Performance \u00b7 Medal",
+            "kpiFormat_icon_flag": "Performance \u00b7 Flag (milestone)",
+            "kpiFormat_icon_rocket": "Performance \u00b7 Rocket (launch)",
+            "kpiFormat_icon_star": "Performance \u00b7 Star",
+            "kpiFormat_icon_zapFast": "Performance \u00b7 Speedometer",
+            "kpiFormat_icon_layers": "Performance \u00b7 Layers",
+            "kpiFormat_icon_sigma": "Performance \u00b7 Sum",
+            "kpiFormat_icon_clock": "Time \u00b7 Clock",
+            "kpiFormat_icon_timer": "Time \u00b7 Timer",
+            "kpiFormat_icon_hourglass": "Time \u00b7 Hourglass",
+            "kpiFormat_icon_calendar": "Time \u00b7 Calendar",
+            "kpiFormat_icon_calendarCheck": "Time \u00b7 Calendar check",
+            "kpiFormat_icon_calendarDays": "Time \u00b7 Days",
+            "kpiFormat_icon_history": "Time \u00b7 History",
+            "kpiFormat_icon_truck": "Operations \u00b7 Truck (delivery)",
+            "kpiFormat_icon_box": "Operations \u00b7 Box (stock)",
+            "kpiFormat_icon_packageCheck": "Operations \u00b7 Package delivered",
+            "kpiFormat_icon_boxes": "Operations \u00b7 Boxes",
+            "kpiFormat_icon_warehouse": "Operations \u00b7 Warehouse",
+            "kpiFormat_icon_factory": "Operations \u00b7 Factory",
+            "kpiFormat_icon_wrench": "Operations \u00b7 Wrench (maintenance)",
+            "kpiFormat_icon_settings": "Operations \u00b7 Settings",
+            "kpiFormat_icon_hardHat": "Operations \u00b7 Hard hat",
+            "kpiFormat_icon_forklift": "Operations \u00b7 Forklift",
+            "kpiFormat_icon_ship": "Operations \u00b7 Ship",
+            "kpiFormat_icon_plane": "Operations \u00b7 Plane",
+            "kpiFormat_icon_car": "Operations \u00b7 Car",
+            "kpiFormat_icon_route": "Operations \u00b7 Route",
+            "kpiFormat_icon_fuel": "Operations \u00b7 Fuel",
+            "kpiFormat_icon_clipboard": "Operations \u00b7 Checklist",
+            "kpiFormat_icon_check": "Status \u00b7 Check",
+            "kpiFormat_icon_checkPlain": "Status \u00b7 Tick",
+            "kpiFormat_icon_circleX": "Status \u00b7 Rejected",
+            "kpiFormat_icon_alert": "Status \u00b7 Alert",
+            "kpiFormat_icon_alertCircle": "Status \u00b7 Warning",
+            "kpiFormat_icon_info": "Status \u00b7 Information",
+            "kpiFormat_icon_shield": "Status \u00b7 Shield",
+            "kpiFormat_icon_shieldCheck": "Status \u00b7 Security",
+            "kpiFormat_icon_lock": "Status \u00b7 Lock",
+            "kpiFormat_icon_bell": "Status \u00b7 Bell",
+            "kpiFormat_icon_bug": "Status \u00b7 Bug",
+            "kpiFormat_icon_eye": "Status \u00b7 Eye (views)",
+            "kpiFormat_icon_leaf": "Energy and environment \u00b7 Leaf",
+            "kpiFormat_icon_sprout": "Energy and environment \u00b7 Sprout",
+            "kpiFormat_icon_recycle": "Energy and environment \u00b7 Recycle",
+            "kpiFormat_icon_bolt": "Energy and environment \u00b7 Bolt (energy)",
+            "kpiFormat_icon_battery": "Energy and environment \u00b7 Battery",
+            "kpiFormat_icon_plug": "Energy and environment \u00b7 Plug",
+            "kpiFormat_icon_sun": "Energy and environment \u00b7 Sun",
+            "kpiFormat_icon_cloud": "Energy and environment \u00b7 Cloud",
+            "kpiFormat_icon_cloudRain": "Energy and environment \u00b7 Rain",
+            "kpiFormat_icon_wind": "Energy and environment \u00b7 Wind",
+            "kpiFormat_icon_flame": "Energy and environment \u00b7 Flame",
+            "kpiFormat_icon_drop": "Energy and environment \u00b7 Drop (water)",
+            "kpiFormat_icon_waves": "Energy and environment \u00b7 Waves",
+            "kpiFormat_icon_thermometer": "Energy and environment \u00b7 Thermometer",
+            "kpiFormat_icon_trees": "Energy and environment \u00b7 Trees",
+            "kpiFormat_icon_globe": "Energy and environment \u00b7 Globe",
+            "kpiFormat_icon_heart": "Health and education \u00b7 Heart",
+            "kpiFormat_icon_heartPulse": "Health and education \u00b7 Heart pulse",
+            "kpiFormat_icon_stethoscope": "Health and education \u00b7 Stethoscope",
+            "kpiFormat_icon_pill": "Health and education \u00b7 Pill",
+            "kpiFormat_icon_hospital": "Health and education \u00b7 Hospital",
+            "kpiFormat_icon_graduation": "Health and education \u00b7 Graduation",
+            "kpiFormat_icon_book": "Health and education \u00b7 Book",
+            "kpiFormat_icon_school": "Health and education \u00b7 School",
+            "kpiFormat_icon_dumbbell": "Health and education \u00b7 Dumbbell (sport)",
+            "kpiFormat_icon_utensils": "Health and education \u00b7 Utensils (meals)",
+            "kpiFormat_icon_coffee": "Health and education \u00b7 Coffee",
+            "kpiFormat_icon_phone": "Digital \u00b7 Phone",
+            "kpiFormat_icon_mail": "Digital \u00b7 Mail",
+            "kpiFormat_icon_message": "Digital \u00b7 Message",
+            "kpiFormat_icon_click": "Digital \u00b7 Click",
+            "kpiFormat_icon_monitor": "Digital \u00b7 Monitor",
+            "kpiFormat_icon_smartphone": "Digital \u00b7 Smartphone",
+            "kpiFormat_icon_server": "Digital \u00b7 Server",
+            "kpiFormat_icon_database": "Digital \u00b7 Database",
+            "kpiFormat_icon_wifi": "Digital \u00b7 Wi-Fi",
+            "kpiFormat_icon_download": "Digital \u00b7 Download",
+            "kpiFormat_icon_upload": "Digital \u00b7 Upload",
+            "kpiFormat_icon_share": "Digital \u00b7 Share",
+            "kpiFormat_icon_search": "Digital \u00b7 Search",
+            "kpiFormat_icon_link": "Digital \u00b7 Link",
+            "kpiFormat_icon_fileText": "Digital \u00b7 Document",
+            "kpiFormat_icon_home": "Places \u00b7 House",
+            "kpiFormat_icon_building": "Places \u00b7 Building",
+            "kpiFormat_icon_mapPin": "Places \u00b7 Location",
+            "kpiFormat_icon_map": "Places \u00b7 Map",
+            "kpiFormat_icon_hotel": "Places \u00b7 Hotel",
+            "kpiFormat_symbol": "Or symbol / emoji (replaces the icon)",
+            "kpiFormat_color": "KPI color (empty = \u00ab Card \u00bb card)",
+            "kpiFormat_units": "Display units",
+            "kpiFormat_units_auto": "Auto",
+            "kpiFormat_units_none": "None",
+            "kpiFormat_units_k": "Thousands",
+            "kpiFormat_units_m": "Millions",
+            "kpiFormat_units_b": "Billions",
+            "kpiFormat_decimals": "Decimals (-1 = automatic)",
+            "kpiFormat_prefix": "Prefix",
+            "kpiFormat_suffix": "Suffix",
+            "kpiFormat_lowerIsBetter": "Lower is better",
+            "kpiFormat_lowerIsBetter_desc": "A decrease is shown in the \u00ab good \u00bb color (costs, delays, incidents\u2026).",
+            "kpiFormat_refLabel": "Comparison label",
+            "kpiFormat_refLabel_desc": "Empty: \u00ab vs \u00bb + name of the comparison measure (or of the previous period).",
+            "kpiFormat_refLabel_ph": "vs \u2026",
+            "kpiFormat_refLabel2": "Comparison 2 label",
+            "kpiFormat_refLabel2_desc": "Second comparison (\u00ab Comparison 2 \u00bb field). Empty: \u00ab vs \u00bb + name of the measure.",
+            "kpiFormat_refLabel2_ph": "vs \u2026",
+            "kpiFormat_targetValue": "Fixed target (0 = \u00ab Target \u00bb field)",
+            "kpiFormat_targetValue_desc": "A target typed here for this KPI, without a measure. It replaces the \u00ab Target \u00bb field.",
+            "kpiFormat_targetField": "\u00ab Target \u00bb field number (0 = same rank, -1 = none)",
+            "kpiFormat_targetField_desc": "By default the 1st target goes with the 1st value, the 2nd with the 2nd\u2026 Type 2 to use the 2nd measure of \u00ab Target \u00bb for this KPI.",
+            "kpiFormat_refField": "\u00ab Comparison \u00bb field number (0 = same rank, -1 = none)",
+            "kpiFormat_link": "Link (web address)",
+            "kpiFormat_link_desc": "Adds a \u2197 button to the card that opens this address (https://, mailto:). Power BI asks for confirmation.",
+            "kpiFormat_link_ph": "https://\u2026",
+            "kpiFormat_backText": "Back of the card text",
+            "kpiFormat_backText_desc": "Shown when the card flips (a definition, for instance). **bold**, line breaks and placeholders: {name}, {value}, {ref}, {delta}, {deltaPct}, {ref2}, {delta2}, {deltaPct2}, {target}, {progress}, {min}, {max}, {avg}, {first}, {last}, {period}.",
+            "card_backItems": "Back of the card: content per KPI",
+            "backItems_text": "Text (Per-KPI settings or \u00ab Back of the card \u00bb field)",
+            "backItems_textAfter": "Text after the figures",
+            "backItems_ref": "Comparison value",
+            "backItems_delta": "Change",
+            "backItems_ref2": "Comparison 2 and change",
+            "backItems_target": "Target",
+            "backItems_progress": "Target achievement",
+            "backItems_period": "Period",
+            "backItems_last": "Last period",
+            "backItems_min": "Minimum",
+            "backItems_max": "Maximum",
+            "backItems_avg": "Average",
+            "backItems_tooltips": "\u00ab Tooltips \u00bb fields",
+            "backItems_f1": "Back figure 1",
+            "backItems_f2": "Back figure 2",
+            "backItems_f3": "Back figure 3",
+            "backItems_f4": "Back figure 4",
+            "backItems_f5": "Back figure 5",
+            "backItems_f6": "Back figure 6",
+            "backItems_f7": "Back figure 7",
+            "backItems_f8": "Back figure 8",
+            "card_layout": "Content layout",
+            "layout_arrange": "Arrangement",
+            "layout_arrange_desc": "Automatic: the number of columns that gives the best card proportions.",
+            "layout_arrange_auto": "Automatic grid",
+            "layout_arrange_row": "One row",
+            "layout_arrange_column": "One column",
+            "layout_arrange_grid": "Grid (number of columns)",
+            "layout_arrange_heroLeft": "First one large, on the left \u2605",
+            "layout_arrange_heroTop": "First one large, on top \u2605",
+            "layout_columns": "Number of columns",
+            "layout_heroSize": "First KPI size (%)",
+            "layout_gap": "Gap between cards",
+            "layout_overflow": "When the cards do not fit",
+            "layout_overflow_desc": "Shrink: every card stays visible, the minimum sizes only choose the number of columns.",
+            "layout_overflow_fit": "Shrink them (never a scroll bar)",
+            "layout_overflow_scroll": "Keep the minimum sizes and scroll",
+            "layout_minWidth": "Minimum card width (px)",
+            "layout_minWidth_desc": "Below this size, the cards wrap (and scroll if \u00ab Keep the minimum sizes \u00bb is chosen).",
+            "layout_minHeight": "Minimum card height (px)",
+            "layout_lastRow": "Incomplete last row",
+            "layout_lastRow_left": "Aligned left",
+            "layout_lastRow_center": "Centered",
+            "layout_lastRow_stretch": "Stretched",
+            "layout_order": "KPI order",
+            "layout_order_data": "Field order",
+            "layout_order_valueDesc": "Value, descending",
+            "layout_order_valueAsc": "Value, ascending",
+            "layout_order_deltaDesc": "Best change first",
+            "layout_order_nameAsc": "Name A \u2192 Z",
+            "layout_hideBlank": "Hide blank KPIs",
+            "layout_hideBlank_desc": "A card whose value is blank is not drawn (for instance a region without sales).",
+            "layout_totalCard": "\u00ab Total \u00bb card (with \u00ab One KPI per\u2026 \u00bb)",
+            "layout_totalCard_desc": "Adds a card with the total over all categories, first.",
+            "layout_totalLabel": "Total label",
+            "layout_totalLabel_ph": "Total",
+            "card_card": "Card",
+            "group_card_shapeGroup": "Shape",
+            "group_card_colorGroup": "Colors and status",
+            "group_card_contentGroup": "Content",
+            "card_shape": "Shape",
+            "card_shape_rect": "Rectangle",
+            "card_shape_rounded": "Rounded corners (Style \u203a Corner radius)",
+            "card_shape_pill": "Pill",
+            "card_shape_circle": "Circle \u2605",
+            "card_shape_leaf": "Leaf (two rounded corners) \u2605",
+            "card_shape_chamfer": "Cut corners \u2605",
+            "card_shape_ticket": "Ticket (notches) \u2605",
+            "card_shape_underline": "Underlined (no fill)",
+            "card_shape_none": "None (text only)",
+            "card_fill": "Fill (empty = automatic)",
+            "card_fill_desc": "Automatic: the style background, slightly raised on dark backgrounds.",
+            "card_fillOpacity": "Fill opacity (%)",
+            "card_tint": "KPI color tint in the fill (%)",
+            "card_border": "Outline",
+            "card_borderColor": "Outline color (empty = grid)",
+            "card_borderWidth": "Outline width",
+            "card_shadow": "Soft shadow",
+            "card_colorBy": "KPI color",
+            "card_colorBy_desc": "Used by the icon, the sparkline and the status bar.",
+            "card_colorBy_accent": "Style accent (same for all)",
+            "card_colorBy_palette": "One color per KPI (palette)",
+            "card_colorBy_status": "By status (good / bad)",
+            "card_statusBar": "Status bar",
+            "card_statusBar_none": "None",
+            "card_statusBar_left": "Left",
+            "card_statusBar_top": "Top",
+            "card_statusBar_bottom": "Bottom",
+            "card_statusWidth": "Status bar width",
+            "card_layout_stack": "Stacked (title, value, details)",
+            "card_layout_center": "Centered",
+            "card_layout_split": "Value left, trend right",
+            "card_align": "Alignment",
+            "card_align_left": "Left",
+            "card_align_center": "Center",
+            "card_align_right": "Right",
+            "card_vAlign": "Vertical position",
+            "card_vAlign_top": "Top",
+            "card_vAlign_middle": "Middle",
+            "card_vAlign_bottom": "Bottom",
+            "card_padding": "Inner padding",
+            "card_hover": "Hover effect",
+            "card_hover_none": "None",
+            "card_hover_lift": "Lift",
+            "card_hover_outline": "Accent outline",
+            "card_hover_glow": "Glow",
+            "card_kpiTitle": "KPI titles",
+            "kpiTitle_show": "Show",
+            "kpiTitle_fontSize": "Size",
+            "kpiTitle_color": "Color (empty = secondary text)",
+            "kpiTitle_bold": "Bold",
+            "kpiTitle_caps": "Small caps",
+            "kpiTitle_wrap": "Two lines if needed",
+            "card_value": "Value",
+            "value_autoSize": "Automatic size",
+            "value_autoSize_desc": "The value fills the room left in the card, up to the maximum size.",
+            "value_fontSize": "Size (maximum if automatic)",
+            "value_weight": "Weight",
+            "value_weight_400": "Regular",
+            "value_weight_600": "Semibold",
+            "value_weight_700": "Bold",
+            "value_color": "Color (empty = text)",
+            "value_statusColor": "Color by status (good / bad)",
+            "value_aggregate": "Displayed value (with a trend axis)",
+            "value_aggregate_desc": "Total: the measure evaluated over the whole filter context (exact for ratios and averages).",
+            "value_aggregate_total": "Period total (computed by the measure)",
+            "value_aggregate_last": "Last period",
+            "value_aggregate_first": "First period",
+            "value_aggregate_avg": "Average of the periods",
+            "value_aggregate_max": "Maximum",
+            "value_aggregate_min": "Minimum",
+            "value_countUp": "Animated counter",
+            "value_countUp_desc": "The value counts up when data changes (respects Style \u203a Animations).",
+            "value_blank": "Text when blank",
+            "value_blank_ph": "\u2014",
+            "card_icon": "Icon",
+            "icon_show": "Show",
+            "icon_show_desc": "The icon of each KPI is chosen in Per-KPI settings \u203a Icon, or by a text measure in the \u00ab Icon \u00bb field.",
+            "icon_position": "Position",
+            "icon_position_topRight": "Top right",
+            "icon_position_topLeft": "Before the title",
+            "icon_position_left": "Left of the value",
+            "icon_position_above": "Above (centered)",
+            "icon_position_background": "Watermark",
+            "icon_style": "Icon background",
+            "icon_style_plain": "None",
+            "icon_style_circle": "Round badge",
+            "icon_style_square": "Square badge",
+            "icon_style_ring": "Ring",
+            "icon_style_solid": "Solid badge",
+            "icon_size": "Size",
+            "icon_color": "Color (empty = KPI color)",
+            "card_compare": "Comparison",
+            "compare_show": "Show",
+            "compare_source": "Compare with",
+            "compare_source_desc": "Automatic: the \u00ab Comparison \u00bb field if present, otherwise the previous period of the trend axis.",
+            "compare_source_auto": "Automatic",
+            "compare_source_reference": "\u00ab Comparison \u00bb field",
+            "compare_source_previous": "Previous period (trend axis)",
+            "compare_source_first": "First period (trend axis)",
+            "compare_mode": "Display",
+            "compare_mode_pct": "Change in %",
+            "compare_mode_abs": "Change in value",
+            "compare_mode_both": "Change in value and %",
+            "compare_mode_ref": "Comparison value",
+            "compare_arrow": "Arrow",
+            "compare_arrow_triangle": "\u25b2 \u25bc",
+            "compare_arrow_arrow": "\u2191 \u2193",
+            "compare_arrow_chevron": "\u2303 \u2304",
+            "compare_arrow_none": "None",
+            "compare_badge": "As a badge",
+            "compare_showLabel": "Label (\u00ab vs \u2026 \u00bb)",
+            "compare_fontSize": "Size",
+            "compare_neutral": "Neutral zone (\u00b1 %)",
+            "compare_neutral_desc": "A change smaller than this percentage is shown in the neutral color.",
+            "compare_show2": "Comparison 2 (\u00ab Comparison 2 \u00bb field)",
+            "compare_show2_desc": "A second change under the first one, for instance vs budget and vs last year.",
+            "compare_statusFrom": "Card status (good, warning, bad)",
+            "compare_statusFrom_desc": "Colors the status bar, the value and the cards \u00ab by status \u00bb. Target and comparison: good when the target is reached, warning when only the comparison is favorable, bad otherwise.",
+            "compare_statusFrom_auto": "Automatic (comparison, otherwise target)",
+            "compare_statusFrom_compare": "Comparison",
+            "compare_statusFrom_compare2": "Comparison 2",
+            "compare_statusFrom_target": "Target (thresholds)",
+            "compare_statusFrom_both": "Target and comparison (green, amber, red) \u2605",
+            "compare_warnFrom": "Warning from (% of target)",
+            "compare_warnFrom_desc": "With \u00ab Target \u00bb: good from 100 %, warning from this percentage, bad below. 0 = no warning level.",
+            "compare_goodColor": "\u00ab Good \u00bb color",
+            "compare_warnColor": "\u00ab Warning \u00bb color",
+            "compare_badColor": "\u00ab Bad \u00bb color",
+            "compare_neutralColor": "Neutral color (empty = secondary text)",
+            "card_target": "Target",
+            "target_show": "Show",
+            "target_show_desc": "Drawn when a field is placed in \u00ab Target \u00bb.",
+            "target_style": "Shape",
+            "target_style_bar": "Progress bar",
+            "target_style_ring": "Ring \u2605",
+            "target_style_bullet": "Bullet (bar and marker) \u2605",
+            "target_style_text": "Text only",
+            "target_thickness": "Thickness",
+            "target_showPct": "Percentage reached",
+            "target_label": "Label",
+            "target_label_ph": "of target",
+            "target_color": "Color (empty = KPI color, \u00ab good \u00bb when reached)",
+            "target_trackColor": "Track color (empty = grid)",
+            "card_trend": "Trend",
+            "trend_show": "Show",
+            "trend_show_desc": "Drawn when a field is placed in \u00ab Trend axis \u00bb.",
+            "trend_dateFormat": "Period format (empty = automatic)",
+            "trend_dateFormat_desc": "Dates of the trend axis in the comparison label, the back and the tooltips. Automatic: month and year for monthly dates (Dec 2025), the year for yearly dates. Examples: mmm yy, dd/mm/yyyy.",
+            "trend_dateFormat_ph": "mmm yyyy",
+            "trend_type": "Type",
+            "trend_type_line": "Line",
+            "trend_type_area": "Area",
+            "trend_type_smooth": "Smooth area",
+            "trend_type_columns": "Columns \u2605",
+            "trend_type_step": "Step \u2605",
+            "trend_position": "Position",
+            "trend_position_bottom": "Bottom of the card",
+            "trend_position_background": "Card background",
+            "trend_position_right": "Right",
+            "trend_height": "Height (% of the card)",
+            "trend_color": "Color (empty = KPI color)",
+            "trend_width": "Line width",
+            "trend_opacity": "Area opacity (%)",
+            "trend_lastDot": "Dot on the last value",
+            "trend_minMax": "Minimum and maximum markers",
+            "trend_refLine": "Target line",
+            "trend_refLine_desc": "Horizontal line at the target value (per period: target \u00f7 number of periods when \u00ab Displayed value \u00bb is the total).",
+            "trend_zero": "Start at zero",
+            "trend_hoverTip": "Tooltip per period on hover",
+            "card_flip": "Flip",
+            "flip_trigger": "Flip the card",
+            "flip_trigger_desc": "The back shows the information text (Per-KPI settings or \u00ab Back of the card \u00bb field) and key figures (card \u00ab Back of the card: content per KPI \u00bb). Keyboard: Enter.",
+            "flip_trigger_none": "Never",
+            "flip_trigger_hover": "On hover",
+            "flip_trigger_click": "On click",
+            "flip_trigger_icon": "On click on the \u21bb icon",
+            "flip_animation": "Animation",
+            "flip_animation_flipX": "Horizontal flip",
+            "flip_animation_flipY": "Vertical flip",
+            "flip_animation_fade": "Fade",
+            "flip_animation_slide": "Sliding panel \u2605",
+            "flip_animation_door": "Door (swing) \u2605",
+            "flip_animation_curtain": "Curtain \u2605",
+            "flip_animation_zoom": "Zoom \u2605",
+            "flip_animation_cube": "Cube \u2605",
+            "flip_direction": "Direction",
+            "flip_direction_left": "To the left",
+            "flip_direction_right": "To the right",
+            "flip_direction_up": "Upwards",
+            "flip_direction_down": "Downwards",
+            "flip_duration": "Duration (ms)",
+            "flip_easing": "Motion",
+            "flip_easing_smooth": "Smooth",
+            "flip_easing_easeInOut": "Ease in and out",
+            "flip_easing_linear": "Linear",
+            "flip_easing_bounce": "Bounce \u2605",
+            "flip_autoBack": "Flip back after (s, 0 = never)",
+            "flip_single": "One flipped card at a time",
+            "flip_hint": "\u21bb indicator on the cards",
+            "flip_preview": "Show the back (preview in edit mode)",
+            "flip_preview_desc": "Shows every back while you format them. Ignored in reading view.",
+            "card_back": "Back of the card",
+            "back_content": "Content",
+            "back_content_both": "Text and key figures",
+            "back_content_text": "Text only (figures if no text)",
+            "back_content_figures": "Key figures only",
+            "back_figures": "Key figures",
+            "back_figures_all": "All available",
+            "back_figures_compare": "Comparison and target",
+            "back_figures_trend": "Trend (min, max, average)",
+            "back_figLayout": "Figures layout",
+            "back_figLayout_auto": "Automatic (two columns, stacked when the card is narrow)",
+            "back_figLayout_columns": "Label left, value right",
+            "back_figLayout_stacked": "Value under the label",
+            "back_fit": "Shrink the text to fit",
+            "back_fit_desc": "The text gets smaller (down to 75 %) before the back scrolls.",
+            "back_showTitle": "Repeat the title",
+            "back_fontSize": "Text size",
+            "back_align": "Alignment",
+            "back_align_left": "Left",
+            "back_align_center": "Center",
+            "back_fill": "Fill (empty = KPI tint)",
+            "back_solid": "Solid KPI color fill",
+            "back_solid_desc": "Text in white or black for contrast.",
+            "back_textColor": "Text color (empty = automatic)",
+            "card_interaction": "Interactions",
+            "interaction_tooltips": "Power BI tooltips",
+            "interaction_tooltips_desc": "Not shown on the card itself when it flips on hover (the back already gives the details).",
+            "interaction_select": "Click = filter the report (with \u00ab One KPI per\u2026 \u00bb)",
+            "interaction_select_desc": "With \u00ab Flip on click \u00bb, use Ctrl + click to select.",
+            "interaction_dim": "Opacity of unselected cards (%)",
+            "card_title": "Title",
+            "title_show": "Show",
+            "title_text": "Title",
+            "title_text_desc": "Leave empty for an automatic title built from the fields.",
+            "title_text_ph": "Automatic",
+            "title_subtitle": "Subtitle",
+            "title_fontSize": "Size",
+            "title_bold": "Bold",
+            "title_color": "Color (empty = text)",
+            "title_align": "Alignment",
+            "title_align_left": "Left",
+            "title_align_center": "Center",
+            "title_align_right": "Right",
+            "card_source": "Source note",
+            "source_show": "Show",
+            "source_text": "Text",
+            "source_text_ph": "Source: \u2026",
+            "source_fontSize": "Size",
+            "source_align": "Alignment",
+            "source_align_left": "Left",
+            "source_align_center": "Center",
+            "source_align_right": "Right",
+            "card_container": "Frame",
+            "container_border": "Border",
+            "container_borderWidth": "Border width",
+            "container_borderColor": "Border color (empty = grid)",
+            "container_shadow": "Shadow",
+            "container_padding": "Inner padding",
+            "card_texts": "Language and texts",
+            "texts_language": "Interface language",
+            "texts_language_auto": "Same as Power BI",
+            "texts_language_fr": "French",
+            "texts_language_en": "English",
+            "texts_numberLocale": "Number format locale (e.g. en-GB)",
+            "texts_numberLocale_ph": "auto",
+            "role_tooltips": "Tooltips",
+            "role_reference": "Comparison (previous year\u2026)",
+            "apply_all": "All KPIs",
+            "apply_to": "Apply settings to",
+            "role_values": "Values (one KPI per measure)",
+            "role_values_desc": "Each measure is one KPI card.",
+            "role_reference_desc": "Compared with the value of the same rank (1st with 1st\u2026).",
+            "role_target": "Target",
+            "role_target_desc": "Goal of the KPI of the same rank: progress bar or ring.",
+            "role_trend": "Trend axis (date)",
+            "role_trend_desc": "Draws the sparkline (month, week, year\u2026).",
+            "role_category": "One KPI per\u2026 (category)",
+            "role_category_desc": "Repeats the KPIs for each value of the field (region, product\u2026).",
+            "role_backText": "Back of the card (text)",
+            "role_backText_desc": "Text measure shown on the back of the KPI of the same rank (a definition, a comment\u2026).",
+            "role_reference2": "Comparison 2 (budget\u2026)",
+            "role_reference2_desc": "Second comparison of the KPI of the same rank, shown under the first one.",
+            "role_backFields": "Back of the card: figures",
+            "role_backFields_desc": "Measures shown only on the back (label and value). Choose them per KPI in \u00ab Back of the card: content per KPI \u00bb.",
+            "role_icon": "Icon (text measure)",
+            "role_icon_desc": "Icon name (trending-up, euro\u2026), emoji or SVG image (data:image/svg+xml\u2026) for the KPI of the same rank, for instance per category.",
+            "role_format": "Dynamic format",
+            "roleDesc_format": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX"
+        },
+        "fr-FR": {
+            "premium_desc": "Fonction premium : utilisable avec un filigrane \u00ab Aper\u00e7u premium \u00bb, d\u00e9bloqu\u00e9e par une cl\u00e9 de licence Plume Studio.",
+            "card_license": "Licence Plume Studio",
+            "license_buy": "Obtenir une licence",
+            "license_key": "Cl\u00e9 de licence",
+            "license_key_desc": "Collez la cl\u00e9 re\u00e7ue apr\u00e8s l'achat sur plumevisuals.com (commence par PLUM1.). V\u00e9rifi\u00e9e hors ligne.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Afficher le titulaire (mode \u00e9dition)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Couleurs personnalis\u00e9es",
+            "group_style_text": "Texte",
+            "group_style_background": "Arri\u00e8re-plan et angles",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Habillage complet commun \u00e0 tous les visuels Plume : couleurs, trois palettes, polices, cadre, en-t\u00eate des tableaux, marques et effets. Personnalisez les couleurs plus bas.",
+            "style_preset_none": "Aucun",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Noir et blanc",
+            "style_preset_press": "Journal \u2605",
+            "style_preset_vintage": "Vintage (planche ancienne) \u2605",
+            "style_preset_earth": "Terre \u2605",
+            "style_preset_nordic": "Nordique \u2605",
+            "style_preset_executive": "Direction \u2605",
+            "style_preset_accessible": "Accessible (lisibilit\u00e9) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climat \u2605",
+            "style_preset_blueprint": "Plan d'architecte \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (sombre) \u2605",
+            "style_preset_neon": "N\u00e9on \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographie \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologramme \u2605",
+            "style_themeJson": "Th\u00e8me JSON \u2605",
+            "style_themeJson_desc": "Collez un th\u00e8me JSON : voir le tutoriel \u00ab Th\u00e8mes JSON \u00bb sur plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Suivre le th\u00e8me du rapport",
+            "style_followTheme_desc": "Texte, fond, accent et couleurs des donn\u00e9es viennent du th\u00e8me du rapport Power BI.",
+            "style_reverse": "Inverser les d\u00e9grad\u00e9s",
+            "style_customColors": "Personnaliser les couleurs",
+            "style_customColors_desc": "Partez du style et choisissez vos propres couleurs. Une couleur laiss\u00e9e vide garde celle du style.",
+            "style_colorBackground": "Fond",
+            "style_colorText": "Texte",
+            "style_colorMuted": "Texte secondaire",
+            "style_colorGrid": "Traits et grille",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "D\u00e9favorable",
+            "style_series1": "S\u00e9rie 1",
+            "style_series2": "S\u00e9rie 2",
+            "style_series3": "S\u00e9rie 3",
+            "style_series4": "S\u00e9rie 4",
+            "style_series5": "S\u00e9rie 5",
+            "style_series6": "S\u00e9rie 6",
+            "style_series7": "S\u00e9rie 7",
+            "style_series8": "S\u00e9rie 8",
+            "style_palette": "Palette du d\u00e9grad\u00e9",
+            "style_palette_desc": "D\u00e9grad\u00e9 tir\u00e9 du catalogue (Viridis, Magma\u2026). Les couleurs de d\u00e9but, milieu et fin ci-dessous le remplacent.",
+            "style_palette_auto": "Palette du style ou du th\u00e8me",
+            "style_palette_crest": "Plume (s\u00e9quentielle)",
+            "style_palette_crestDiverging": "Plume (divergente)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (daltonisme) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Rouge\u2013Jaune\u2013Bleu \u2605",
+            "style_palette_brBG": "Brun\u2013Bleu-vert (s\u00e9cheresse) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Bleus \u2605",
+            "style_palette_reds": "Rouges \u2605",
+            "style_palette_grays": "Gris \u2605",
+            "style_palette_press": "Presse (encre et papier) \u2605",
+            "style_palette_nordic": "Nordique \u2605",
+            "style_palette_earth": "Terre (ocre \u00e0 terre d'ombre) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (daltonisme) \u2605",
+            "style_scaleLow": "D\u00e9grad\u00e9 : d\u00e9but",
+            "style_scaleMid": "D\u00e9grad\u00e9 : milieu (\u00e9carts)",
+            "style_scaleHigh": "D\u00e9grad\u00e9 : fin",
+            "style_fontFamily": "Police",
+            "style_fontFamily_desc": "Utilis\u00e9e par tous les textes du visuel (titre, axes, \u00e9tiquettes, cellules).",
+            "style_textColor": "Couleur du texte (vide = style)",
+            "style_mutedColor": "Texte secondaire (vide = style)",
+            "style_bgShow": "Arri\u00e8re-plan",
+            "style_bgColor": "Couleur de fond",
+            "style_bgColor2": "Fin du d\u00e9grad\u00e9 (optionnel)",
+            "style_radius": "Arrondi des angles",
+            "style_animate": "Animations",
+            "style_animate_desc": "Transitions fluides quand les donn\u00e9es changent. D\u00e9sactiv\u00e9es automatiquement si le syst\u00e8me demande de r\u00e9duire les animations.",
+            "card_kpiFormat": "R\u00e9glages par KPI",
+            "kpiFormat_title": "Titre (vide = nom de la mesure)",
+            "kpiFormat_note": "Note sous la valeur",
+            "kpiFormat_note_desc": "Texte court, par exemple \u00ab Cumul annuel \u00bb. Variables : {value}, {ref}, {delta}, {target}, {progress}, {period}.",
+            "kpiFormat_icon": "Ic\u00f4ne",
+            "kpiFormat_icon_desc": "Choisissez \u00ab Tous les KPI \u00bb ou une mesure dans \u00ab Appliquer les r\u00e9glages \u00e0 \u00bb ci-dessus, puis son ic\u00f4ne (134 ic\u00f4nes Lucide, par th\u00e8me).",
+            "kpiFormat_icon_auto": "Automatique (d'apr\u00e8s le nom)",
+            "kpiFormat_icon_none": "Aucune",
+            "kpiFormat_icon_euro": "Finance \u00b7 Euro",
+            "kpiFormat_icon_dollar": "Finance \u00b7 Dollar",
+            "kpiFormat_icon_pound": "Finance \u00b7 Livre sterling",
+            "kpiFormat_icon_coins": "Finance \u00b7 Pi\u00e8ces",
+            "kpiFormat_icon_banknote": "Finance \u00b7 Billet",
+            "kpiFormat_icon_wallet": "Finance \u00b7 Portefeuille",
+            "kpiFormat_icon_piggyBank": "Finance \u00b7 Tirelire (\u00e9pargne)",
+            "kpiFormat_icon_creditCard": "Finance \u00b7 Carte bancaire",
+            "kpiFormat_icon_receipt": "Finance \u00b7 Ticket de caisse",
+            "kpiFormat_icon_landmark": "Finance \u00b7 Banque",
+            "kpiFormat_icon_handCoins": "Finance \u00b7 Paiement",
+            "kpiFormat_icon_calculator": "Finance \u00b7 Calculatrice",
+            "kpiFormat_icon_percent": "Finance \u00b7 Pourcentage",
+            "kpiFormat_icon_badgePercent": "Finance \u00b7 Remise",
+            "kpiFormat_icon_cart": "Ventes \u00b7 Panier",
+            "kpiFormat_icon_bag": "Ventes \u00b7 Sac (achats)",
+            "kpiFormat_icon_store": "Ventes \u00b7 Magasin",
+            "kpiFormat_icon_tag": "Ventes \u00b7 \u00c9tiquette (prix)",
+            "kpiFormat_icon_ticket": "Ventes \u00b7 Ticket",
+            "kpiFormat_icon_handshake": "Ventes \u00b7 Poign\u00e9e de main (contrats)",
+            "kpiFormat_icon_briefcase": "Ventes \u00b7 Mallette",
+            "kpiFormat_icon_gift": "Ventes \u00b7 Cadeau",
+            "kpiFormat_icon_megaphone": "Ventes \u00b7 M\u00e9gaphone (marketing)",
+            "kpiFormat_icon_users": "Personnes \u00b7 Personnes",
+            "kpiFormat_icon_user": "Personnes \u00b7 Personne",
+            "kpiFormat_icon_userPlus": "Personnes \u00b7 Nouveau client",
+            "kpiFormat_icon_userCheck": "Personnes \u00b7 Client valid\u00e9",
+            "kpiFormat_icon_userMinus": "Personnes \u00b7 Client perdu",
+            "kpiFormat_icon_contact": "Personnes \u00b7 Contact",
+            "kpiFormat_icon_baby": "Personnes \u00b7 B\u00e9b\u00e9",
+            "kpiFormat_icon_smile": "Personnes \u00b7 Sourire (satisfaction)",
+            "kpiFormat_icon_frown": "Personnes \u00b7 M\u00e9content",
+            "kpiFormat_icon_thumbsUp": "Personnes \u00b7 Pouce lev\u00e9",
+            "kpiFormat_icon_messages": "Personnes \u00b7 Messages",
+            "kpiFormat_icon_target": "Performance \u00b7 Cible",
+            "kpiFormat_icon_trendUp": "Performance \u00b7 Hausse",
+            "kpiFormat_icon_trendDown": "Performance \u00b7 Baisse",
+            "kpiFormat_icon_bars": "Performance \u00b7 Histogramme",
+            "kpiFormat_icon_barsH": "Performance \u00b7 Barres",
+            "kpiFormat_icon_line": "Performance \u00b7 Courbe",
+            "kpiFormat_icon_pie": "Performance \u00b7 Secteurs",
+            "kpiFormat_icon_gauge": "Performance \u00b7 Jauge",
+            "kpiFormat_icon_activity": "Performance \u00b7 Activit\u00e9",
+            "kpiFormat_icon_award": "Performance \u00b7 R\u00e9compense",
+            "kpiFormat_icon_trophy": "Performance \u00b7 Troph\u00e9e",
+            "kpiFormat_icon_medal": "Performance \u00b7 M\u00e9daille",
+            "kpiFormat_icon_flag": "Performance \u00b7 Drapeau (jalon)",
+            "kpiFormat_icon_rocket": "Performance \u00b7 Fus\u00e9e (lancement)",
+            "kpiFormat_icon_star": "Performance \u00b7 \u00c9toile",
+            "kpiFormat_icon_zapFast": "Performance \u00b7 Compteur",
+            "kpiFormat_icon_layers": "Performance \u00b7 Couches",
+            "kpiFormat_icon_sigma": "Performance \u00b7 Somme",
+            "kpiFormat_icon_clock": "Temps \u00b7 Horloge",
+            "kpiFormat_icon_timer": "Temps \u00b7 Chronom\u00e8tre",
+            "kpiFormat_icon_hourglass": "Temps \u00b7 Sablier",
+            "kpiFormat_icon_calendar": "Temps \u00b7 Calendrier",
+            "kpiFormat_icon_calendarCheck": "Temps \u00b7 Calendrier valid\u00e9",
+            "kpiFormat_icon_calendarDays": "Temps \u00b7 Jours",
+            "kpiFormat_icon_history": "Temps \u00b7 Historique",
+            "kpiFormat_icon_truck": "Logistique \u00b7 Camion (livraison)",
+            "kpiFormat_icon_box": "Logistique \u00b7 Colis (stock)",
+            "kpiFormat_icon_packageCheck": "Logistique \u00b7 Colis livr\u00e9",
+            "kpiFormat_icon_boxes": "Logistique \u00b7 Cartons",
+            "kpiFormat_icon_warehouse": "Logistique \u00b7 Entrep\u00f4t",
+            "kpiFormat_icon_factory": "Logistique \u00b7 Usine",
+            "kpiFormat_icon_wrench": "Logistique \u00b7 Cl\u00e9 (maintenance)",
+            "kpiFormat_icon_settings": "Logistique \u00b7 R\u00e9glages",
+            "kpiFormat_icon_hardHat": "Logistique \u00b7 Casque (chantier)",
+            "kpiFormat_icon_forklift": "Logistique \u00b7 Chariot \u00e9l\u00e9vateur",
+            "kpiFormat_icon_ship": "Logistique \u00b7 Bateau",
+            "kpiFormat_icon_plane": "Logistique \u00b7 Avion",
+            "kpiFormat_icon_car": "Logistique \u00b7 Voiture",
+            "kpiFormat_icon_route": "Logistique \u00b7 Itin\u00e9raire",
+            "kpiFormat_icon_fuel": "Logistique \u00b7 Carburant",
+            "kpiFormat_icon_clipboard": "Logistique \u00b7 Liste",
+            "kpiFormat_icon_check": "\u00c9tat \u00b7 Valid\u00e9",
+            "kpiFormat_icon_checkPlain": "\u00c9tat \u00b7 Coche",
+            "kpiFormat_icon_circleX": "\u00c9tat \u00b7 Refus\u00e9",
+            "kpiFormat_icon_alert": "\u00c9tat \u00b7 Alerte",
+            "kpiFormat_icon_alertCircle": "\u00c9tat \u00b7 Attention",
+            "kpiFormat_icon_info": "\u00c9tat \u00b7 Information",
+            "kpiFormat_icon_shield": "\u00c9tat \u00b7 Bouclier",
+            "kpiFormat_icon_shieldCheck": "\u00c9tat \u00b7 S\u00e9curit\u00e9",
+            "kpiFormat_icon_lock": "\u00c9tat \u00b7 Cadenas",
+            "kpiFormat_icon_bell": "\u00c9tat \u00b7 Cloche",
+            "kpiFormat_icon_bug": "\u00c9tat \u00b7 Bogue",
+            "kpiFormat_icon_eye": "\u00c9tat \u00b7 \u0152il (vues)",
+            "kpiFormat_icon_leaf": "\u00c9nergie et environnement \u00b7 Feuille",
+            "kpiFormat_icon_sprout": "\u00c9nergie et environnement \u00b7 Pousse",
+            "kpiFormat_icon_recycle": "\u00c9nergie et environnement \u00b7 Recyclage",
+            "kpiFormat_icon_bolt": "\u00c9nergie et environnement \u00b7 \u00c9clair (\u00e9nergie)",
+            "kpiFormat_icon_battery": "\u00c9nergie et environnement \u00b7 Batterie",
+            "kpiFormat_icon_plug": "\u00c9nergie et environnement \u00b7 Prise",
+            "kpiFormat_icon_sun": "\u00c9nergie et environnement \u00b7 Soleil",
+            "kpiFormat_icon_cloud": "\u00c9nergie et environnement \u00b7 Nuage",
+            "kpiFormat_icon_cloudRain": "\u00c9nergie et environnement \u00b7 Pluie",
+            "kpiFormat_icon_wind": "\u00c9nergie et environnement \u00b7 Vent",
+            "kpiFormat_icon_flame": "\u00c9nergie et environnement \u00b7 Flamme",
+            "kpiFormat_icon_drop": "\u00c9nergie et environnement \u00b7 Goutte (eau)",
+            "kpiFormat_icon_waves": "\u00c9nergie et environnement \u00b7 Vagues",
+            "kpiFormat_icon_thermometer": "\u00c9nergie et environnement \u00b7 Thermom\u00e8tre",
+            "kpiFormat_icon_trees": "\u00c9nergie et environnement \u00b7 Arbres",
+            "kpiFormat_icon_globe": "\u00c9nergie et environnement \u00b7 Globe",
+            "kpiFormat_icon_heart": "Sant\u00e9 et \u00e9ducation \u00b7 C\u0153ur",
+            "kpiFormat_icon_heartPulse": "Sant\u00e9 et \u00e9ducation \u00b7 Pouls",
+            "kpiFormat_icon_stethoscope": "Sant\u00e9 et \u00e9ducation \u00b7 St\u00e9thoscope",
+            "kpiFormat_icon_pill": "Sant\u00e9 et \u00e9ducation \u00b7 M\u00e9dicament",
+            "kpiFormat_icon_hospital": "Sant\u00e9 et \u00e9ducation \u00b7 H\u00f4pital",
+            "kpiFormat_icon_graduation": "Sant\u00e9 et \u00e9ducation \u00b7 Dipl\u00f4me",
+            "kpiFormat_icon_book": "Sant\u00e9 et \u00e9ducation \u00b7 Livre",
+            "kpiFormat_icon_school": "Sant\u00e9 et \u00e9ducation \u00b7 \u00c9cole",
+            "kpiFormat_icon_dumbbell": "Sant\u00e9 et \u00e9ducation \u00b7 Halt\u00e8re (sport)",
+            "kpiFormat_icon_utensils": "Sant\u00e9 et \u00e9ducation \u00b7 Couverts (repas)",
+            "kpiFormat_icon_coffee": "Sant\u00e9 et \u00e9ducation \u00b7 Caf\u00e9",
+            "kpiFormat_icon_phone": "Num\u00e9rique \u00b7 T\u00e9l\u00e9phone",
+            "kpiFormat_icon_mail": "Num\u00e9rique \u00b7 Courriel",
+            "kpiFormat_icon_message": "Num\u00e9rique \u00b7 Message",
+            "kpiFormat_icon_click": "Num\u00e9rique \u00b7 Clic",
+            "kpiFormat_icon_monitor": "Num\u00e9rique \u00b7 \u00c9cran",
+            "kpiFormat_icon_smartphone": "Num\u00e9rique \u00b7 Smartphone",
+            "kpiFormat_icon_server": "Num\u00e9rique \u00b7 Serveur",
+            "kpiFormat_icon_database": "Num\u00e9rique \u00b7 Base de donn\u00e9es",
+            "kpiFormat_icon_wifi": "Num\u00e9rique \u00b7 Wi-Fi",
+            "kpiFormat_icon_download": "Num\u00e9rique \u00b7 T\u00e9l\u00e9chargement",
+            "kpiFormat_icon_upload": "Num\u00e9rique \u00b7 Envoi",
+            "kpiFormat_icon_share": "Num\u00e9rique \u00b7 Partage",
+            "kpiFormat_icon_search": "Num\u00e9rique \u00b7 Recherche",
+            "kpiFormat_icon_link": "Num\u00e9rique \u00b7 Lien",
+            "kpiFormat_icon_fileText": "Num\u00e9rique \u00b7 Document",
+            "kpiFormat_icon_home": "Lieux \u00b7 Maison",
+            "kpiFormat_icon_building": "Lieux \u00b7 Immeuble",
+            "kpiFormat_icon_mapPin": "Lieux \u00b7 Lieu",
+            "kpiFormat_icon_map": "Lieux \u00b7 Carte",
+            "kpiFormat_icon_hotel": "Lieux \u00b7 H\u00f4tel",
+            "kpiFormat_symbol": "Ou symbole / emoji (remplace l'ic\u00f4ne)",
+            "kpiFormat_color": "Couleur du KPI (vide = carte \u00ab Carte \u00bb)",
+            "kpiFormat_units": "Unit\u00e9s d'affichage",
+            "kpiFormat_units_auto": "Auto",
+            "kpiFormat_units_none": "Aucune",
+            "kpiFormat_units_k": "Milliers",
+            "kpiFormat_units_m": "Millions",
+            "kpiFormat_units_b": "Milliards",
+            "kpiFormat_decimals": "D\u00e9cimales (-1 = automatique)",
+            "kpiFormat_prefix": "Pr\u00e9fixe",
+            "kpiFormat_suffix": "Suffixe",
+            "kpiFormat_lowerIsBetter": "Plus bas = mieux",
+            "kpiFormat_lowerIsBetter_desc": "Une baisse s'affiche dans la couleur \u00ab bon \u00bb (co\u00fbts, d\u00e9lais, incidents\u2026).",
+            "kpiFormat_refLabel": "Libell\u00e9 de la comparaison",
+            "kpiFormat_refLabel_desc": "Vide : \u00ab vs \u00bb + nom de la mesure de comparaison (ou de la p\u00e9riode pr\u00e9c\u00e9dente).",
+            "kpiFormat_refLabel_ph": "vs \u2026",
+            "kpiFormat_refLabel2": "Libell\u00e9 de la comparaison 2",
+            "kpiFormat_refLabel2_desc": "Deuxi\u00e8me comparaison (champ \u00ab Comparaison 2 \u00bb). Vide : \u00ab vs \u00bb + nom de la mesure.",
+            "kpiFormat_refLabel2_ph": "vs \u2026",
+            "kpiFormat_targetValue": "Objectif fixe (0 = champ \u00ab Objectif \u00bb)",
+            "kpiFormat_targetValue_desc": "Un objectif saisi ici pour ce KPI, sans mesure. Il remplace le champ \u00ab Objectif \u00bb.",
+            "kpiFormat_targetField": "N\u00b0 du champ \u00ab Objectif \u00bb (0 = m\u00eame rang, -1 = aucun)",
+            "kpiFormat_targetField_desc": "Par d\u00e9faut, le 1er objectif va avec la 1re valeur, le 2e avec la 2e\u2026 Tapez 2 pour donner \u00e0 ce KPI la 2e mesure de \u00ab Objectif \u00bb.",
+            "kpiFormat_refField": "N\u00b0 du champ \u00ab Comparaison \u00bb (0 = m\u00eame rang, -1 = aucun)",
+            "kpiFormat_link": "Lien (adresse web)",
+            "kpiFormat_link_desc": "Ajoute \u00e0 la carte un bouton \u2197 qui ouvre cette adresse (https://, mailto:). Power BI demande confirmation.",
+            "kpiFormat_link_ph": "https://\u2026",
+            "kpiFormat_backText": "Texte du dos de la carte",
+            "kpiFormat_backText_desc": "Affich\u00e9 quand la carte se retourne (une d\u00e9finition, par exemple). **gras**, retours \u00e0 la ligne et variables : {name}, {value}, {ref}, {delta}, {deltaPct}, {ref2}, {delta2}, {deltaPct2}, {target}, {progress}, {min}, {max}, {avg}, {first}, {last}, {period}.",
+            "card_backItems": "Dos de la carte : contenu par KPI",
+            "backItems_text": "Texte (R\u00e9glages par KPI ou champ \u00ab Dos de la carte \u00bb)",
+            "backItems_textAfter": "Texte apr\u00e8s les chiffres",
+            "backItems_ref": "Valeur de comparaison",
+            "backItems_delta": "\u00c9cart",
+            "backItems_ref2": "Comparaison 2 et \u00e9cart",
+            "backItems_target": "Objectif",
+            "backItems_progress": "Atteinte de l'objectif",
+            "backItems_period": "P\u00e9riode",
+            "backItems_last": "Derni\u00e8re p\u00e9riode",
+            "backItems_min": "Minimum",
+            "backItems_max": "Maximum",
+            "backItems_avg": "Moyenne",
+            "backItems_tooltips": "Champs \u00ab Infobulles \u00bb",
+            "backItems_f1": "Chiffre 1 du dos",
+            "backItems_f2": "Chiffre 2 du dos",
+            "backItems_f3": "Chiffre 3 du dos",
+            "backItems_f4": "Chiffre 4 du dos",
+            "backItems_f5": "Chiffre 5 du dos",
+            "backItems_f6": "Chiffre 6 du dos",
+            "backItems_f7": "Chiffre 7 du dos",
+            "backItems_f8": "Chiffre 8 du dos",
+            "card_layout": "Disposition du contenu",
+            "layout_arrange": "Agencement",
+            "layout_arrange_desc": "Automatique : le nombre de colonnes qui donne les meilleures proportions de carte.",
+            "layout_arrange_auto": "Grille automatique",
+            "layout_arrange_row": "Sur une ligne",
+            "layout_arrange_column": "En colonne",
+            "layout_arrange_grid": "Grille (nombre de colonnes)",
+            "layout_arrange_heroLeft": "Le premier en grand, \u00e0 gauche \u2605",
+            "layout_arrange_heroTop": "Le premier en grand, en haut \u2605",
+            "layout_columns": "Nombre de colonnes",
+            "layout_heroSize": "Taille du premier KPI (%)",
+            "layout_gap": "Espace entre les cartes",
+            "layout_overflow": "Quand les cartes ne tiennent pas",
+            "layout_overflow_desc": "R\u00e9duire : toutes les cartes restent visibles, les tailles minimales servent seulement \u00e0 choisir le nombre de colonnes.",
+            "layout_overflow_fit": "Les r\u00e9duire (jamais de barre de d\u00e9filement)",
+            "layout_overflow_scroll": "Garder les tailles minimales et faire d\u00e9filer",
+            "layout_minWidth": "Largeur minimale d'une carte (px)",
+            "layout_minWidth_desc": "En dessous, les cartes passent \u00e0 la ligne (et d\u00e9filent si \u00ab Garder les tailles minimales \u00bb est choisi).",
+            "layout_minHeight": "Hauteur minimale d'une carte (px)",
+            "layout_lastRow": "Derni\u00e8re ligne incompl\u00e8te",
+            "layout_lastRow_left": "Align\u00e9e \u00e0 gauche",
+            "layout_lastRow_center": "Centr\u00e9e",
+            "layout_lastRow_stretch": "\u00c9tir\u00e9e",
+            "layout_order": "Ordre des KPI",
+            "layout_order_data": "Ordre des champs",
+            "layout_order_valueDesc": "Valeur d\u00e9croissante",
+            "layout_order_valueAsc": "Valeur croissante",
+            "layout_order_deltaDesc": "Meilleure \u00e9volution d'abord",
+            "layout_order_nameAsc": "Nom A \u2192 Z",
+            "layout_hideBlank": "Masquer les KPI vides",
+            "layout_hideBlank_desc": "Une carte dont la valeur est vide n'est pas dessin\u00e9e (par exemple une r\u00e9gion sans ventes).",
+            "layout_totalCard": "Carte \u00ab Total \u00bb (avec \u00ab Un KPI par\u2026 \u00bb)",
+            "layout_totalCard_desc": "Ajoute en premier une carte avec le total de toutes les cat\u00e9gories.",
+            "layout_totalLabel": "Libell\u00e9 du total",
+            "layout_totalLabel_ph": "Total",
+            "card_card": "Carte",
+            "group_card_shapeGroup": "Forme",
+            "group_card_colorGroup": "Couleurs et \u00e9tat",
+            "group_card_contentGroup": "Contenu",
+            "card_shape": "Forme",
+            "card_shape_rect": "Rectangle",
+            "card_shape_rounded": "Angles arrondis (Style \u203a Arrondi)",
+            "card_shape_pill": "Pilule",
+            "card_shape_circle": "Cercle \u2605",
+            "card_shape_leaf": "Feuille (deux angles arrondis) \u2605",
+            "card_shape_chamfer": "Coins coup\u00e9s \u2605",
+            "card_shape_ticket": "Ticket (encoches) \u2605",
+            "card_shape_underline": "Soulign\u00e9 (sans fond)",
+            "card_shape_none": "Aucune (texte seul)",
+            "card_fill": "Fond (vide = automatique)",
+            "card_fill_desc": "Automatique : le fond du style, l\u00e9g\u00e8rement \u00e9clairci sur fond sombre.",
+            "card_fillOpacity": "Opacit\u00e9 du fond (%)",
+            "card_tint": "Teinte de la couleur du KPI dans le fond (%)",
+            "card_border": "Contour",
+            "card_borderColor": "Couleur du contour (vide = grille)",
+            "card_borderWidth": "\u00c9paisseur du contour",
+            "card_shadow": "Ombre douce",
+            "card_colorBy": "Couleur des KPI",
+            "card_colorBy_desc": "Utilis\u00e9e par l'ic\u00f4ne, la courbe de tendance et la barre d'\u00e9tat.",
+            "card_colorBy_accent": "Accent du style (la m\u00eame pour tous)",
+            "card_colorBy_palette": "Une couleur par KPI (palette)",
+            "card_colorBy_status": "Selon l'\u00e9tat (bon / mauvais)",
+            "card_statusBar": "Barre d'\u00e9tat",
+            "card_statusBar_none": "Aucune",
+            "card_statusBar_left": "\u00c0 gauche",
+            "card_statusBar_top": "En haut",
+            "card_statusBar_bottom": "En bas",
+            "card_statusWidth": "\u00c9paisseur de la barre d'\u00e9tat",
+            "card_layout_stack": "Empil\u00e9 (titre, valeur, d\u00e9tails)",
+            "card_layout_center": "Centr\u00e9",
+            "card_layout_split": "Valeur \u00e0 gauche, tendance \u00e0 droite",
+            "card_align": "Alignement",
+            "card_align_left": "Gauche",
+            "card_align_center": "Centr\u00e9",
+            "card_align_right": "Droite",
+            "card_vAlign": "Position verticale",
+            "card_vAlign_top": "En haut",
+            "card_vAlign_middle": "Au milieu",
+            "card_vAlign_bottom": "En bas",
+            "card_padding": "Marge int\u00e9rieure",
+            "card_hover": "Effet au survol",
+            "card_hover_none": "Aucun",
+            "card_hover_lift": "Soulever",
+            "card_hover_outline": "Contour \u00e0 l'accent",
+            "card_hover_glow": "Halo",
+            "card_kpiTitle": "Titre des KPI",
+            "kpiTitle_show": "Afficher",
+            "kpiTitle_fontSize": "Taille",
+            "kpiTitle_color": "Couleur (vide = texte secondaire)",
+            "kpiTitle_bold": "Gras",
+            "kpiTitle_caps": "Petites majuscules",
+            "kpiTitle_wrap": "Sur deux lignes si besoin",
+            "card_value": "Valeur",
+            "value_autoSize": "Taille automatique",
+            "value_autoSize_desc": "La valeur occupe la place libre de la carte, jusqu'\u00e0 la taille maximale.",
+            "value_fontSize": "Taille (maximale si automatique)",
+            "value_weight": "Graisse",
+            "value_weight_400": "Normale",
+            "value_weight_600": "Semi-grasse",
+            "value_weight_700": "Grasse",
+            "value_color": "Couleur (vide = texte)",
+            "value_statusColor": "Couleur selon l'\u00e9tat (bon / mauvais)",
+            "value_aggregate": "Valeur affich\u00e9e (avec un axe de tendance)",
+            "value_aggregate_desc": "Total : la mesure \u00e9valu\u00e9e sur tout le contexte de filtre (exact pour les taux et les moyennes).",
+            "value_aggregate_total": "Total de la p\u00e9riode (calcul\u00e9 par la mesure)",
+            "value_aggregate_last": "Derni\u00e8re p\u00e9riode",
+            "value_aggregate_first": "Premi\u00e8re p\u00e9riode",
+            "value_aggregate_avg": "Moyenne des p\u00e9riodes",
+            "value_aggregate_max": "Maximum",
+            "value_aggregate_min": "Minimum",
+            "value_countUp": "Compteur anim\u00e9",
+            "value_countUp_desc": "La valeur d\u00e9file quand les donn\u00e9es changent (suit Style \u203a Animations).",
+            "value_blank": "Texte si vide",
+            "value_blank_ph": "\u2014",
+            "card_icon": "Ic\u00f4ne",
+            "icon_show": "Afficher",
+            "icon_show_desc": "L'ic\u00f4ne de chaque KPI se choisit dans R\u00e9glages par KPI \u203a Ic\u00f4ne, ou par une mesure texte dans le champ \u00ab Ic\u00f4ne \u00bb.",
+            "icon_position": "Position",
+            "icon_position_topRight": "En haut \u00e0 droite",
+            "icon_position_topLeft": "Avant le titre",
+            "icon_position_left": "\u00c0 gauche de la valeur",
+            "icon_position_above": "Au-dessus (centr\u00e9)",
+            "icon_position_background": "En filigrane",
+            "icon_style": "Fond de l'ic\u00f4ne",
+            "icon_style_plain": "Aucun",
+            "icon_style_circle": "Pastille ronde",
+            "icon_style_square": "Pastille carr\u00e9e",
+            "icon_style_ring": "Anneau",
+            "icon_style_solid": "Pastille pleine",
+            "icon_size": "Taille",
+            "icon_color": "Couleur (vide = couleur du KPI)",
+            "card_compare": "Comparaison",
+            "compare_show": "Afficher",
+            "compare_source": "Comparer \u00e0",
+            "compare_source_desc": "Automatique : le champ \u00ab Comparaison \u00bb s'il est rempli, sinon la p\u00e9riode pr\u00e9c\u00e9dente de l'axe de tendance.",
+            "compare_source_auto": "Automatique",
+            "compare_source_reference": "Champ \u00ab Comparaison \u00bb",
+            "compare_source_previous": "P\u00e9riode pr\u00e9c\u00e9dente (axe de tendance)",
+            "compare_source_first": "Premi\u00e8re p\u00e9riode (axe de tendance)",
+            "compare_mode": "Afficher",
+            "compare_mode_pct": "\u00c9cart en %",
+            "compare_mode_abs": "\u00c9cart en valeur",
+            "compare_mode_both": "\u00c9cart en valeur et en %",
+            "compare_mode_ref": "Valeur de comparaison",
+            "compare_arrow": "Fl\u00e8che",
+            "compare_arrow_triangle": "\u25b2 \u25bc",
+            "compare_arrow_arrow": "\u2191 \u2193",
+            "compare_arrow_chevron": "\u2303 \u2304",
+            "compare_arrow_none": "Aucune",
+            "compare_badge": "En pastille",
+            "compare_showLabel": "Libell\u00e9 (\u00ab vs \u2026 \u00bb)",
+            "compare_fontSize": "Taille",
+            "compare_neutral": "Zone neutre (\u00b1 %)",
+            "compare_neutral_desc": "Un \u00e9cart plus petit que ce pourcentage s'affiche dans la couleur neutre.",
+            "compare_show2": "Comparaison 2 (champ \u00ab Comparaison 2 \u00bb)",
+            "compare_show2_desc": "Un deuxi\u00e8me \u00e9cart sous le premier, par exemple vs budget et vs N-1.",
+            "compare_statusFrom": "\u00c9tat de la carte (bon, alerte, mauvais)",
+            "compare_statusFrom_desc": "Colore la barre d'\u00e9tat, la valeur et les cartes \u00ab selon l'\u00e9tat \u00bb. Objectif et comparaison : bon si l'objectif est atteint, alerte si seule la comparaison est favorable, mauvais sinon.",
+            "compare_statusFrom_auto": "Automatique (comparaison, sinon objectif)",
+            "compare_statusFrom_compare": "Comparaison",
+            "compare_statusFrom_compare2": "Comparaison 2",
+            "compare_statusFrom_target": "Objectif (seuils)",
+            "compare_statusFrom_both": "Objectif et comparaison (vert, orange, rouge) \u2605",
+            "compare_warnFrom": "Alerte \u00e0 partir de (% de l'objectif)",
+            "compare_warnFrom_desc": "Avec \u00ab Objectif \u00bb : bon d\u00e8s 100 %, alerte \u00e0 partir de ce pourcentage, mauvais en dessous. 0 = pas de niveau d'alerte.",
+            "compare_goodColor": "Couleur \u00ab bon \u00bb",
+            "compare_warnColor": "Couleur \u00ab alerte \u00bb",
+            "compare_badColor": "Couleur \u00ab mauvais \u00bb",
+            "compare_neutralColor": "Couleur neutre (vide = texte secondaire)",
+            "card_target": "Objectif",
+            "target_show": "Afficher",
+            "target_show_desc": "Dessin\u00e9 quand un champ est plac\u00e9 dans \u00ab Objectif \u00bb.",
+            "target_style": "Forme",
+            "target_style_bar": "Barre de progression",
+            "target_style_ring": "Anneau \u2605",
+            "target_style_bullet": "Puce (barre et rep\u00e8re) \u2605",
+            "target_style_text": "Texte seul",
+            "target_thickness": "\u00c9paisseur",
+            "target_showPct": "Pourcentage atteint",
+            "target_label": "Libell\u00e9",
+            "target_label_ph": "de l'objectif",
+            "target_color": "Couleur (vide = couleur du KPI, \u00ab bon \u00bb si atteint)",
+            "target_trackColor": "Couleur du rail (vide = grille)",
+            "card_trend": "Tendance",
+            "trend_show": "Afficher",
+            "trend_show_desc": "Dessin\u00e9e quand un champ est plac\u00e9 dans \u00ab Axe de tendance \u00bb.",
+            "trend_dateFormat": "Format des p\u00e9riodes (vide = automatique)",
+            "trend_dateFormat_desc": "Dates de l'axe de tendance dans le libell\u00e9 de la comparaison, le dos et les infobulles. Automatique : mois et ann\u00e9e pour des dates mensuelles (d\u00e9c. 2025), l'ann\u00e9e pour des dates annuelles. Exemples : mmm yy, dd/mm/yyyy.",
+            "trend_dateFormat_ph": "mmm yyyy",
+            "trend_type": "Type",
+            "trend_type_line": "Courbe",
+            "trend_type_area": "Aire",
+            "trend_type_smooth": "Aire liss\u00e9e",
+            "trend_type_columns": "Colonnes \u2605",
+            "trend_type_step": "Escalier \u2605",
+            "trend_position": "Position",
+            "trend_position_bottom": "En bas de la carte",
+            "trend_position_background": "En fond de carte",
+            "trend_position_right": "\u00c0 droite",
+            "trend_height": "Hauteur (% de la carte)",
+            "trend_color": "Couleur (vide = couleur du KPI)",
+            "trend_width": "\u00c9paisseur du trait",
+            "trend_opacity": "Opacit\u00e9 de l'aire (%)",
+            "trend_lastDot": "Point sur la derni\u00e8re valeur",
+            "trend_minMax": "Rep\u00e8res minimum et maximum",
+            "trend_refLine": "Ligne de l'objectif",
+            "trend_refLine_desc": "Ligne horizontale \u00e0 la valeur de l'objectif par p\u00e9riode (objectif \u00f7 nombre de p\u00e9riodes quand la valeur affich\u00e9e est le total).",
+            "trend_zero": "Partir de z\u00e9ro",
+            "trend_hoverTip": "Infobulle par p\u00e9riode au survol",
+            "card_flip": "Retournement",
+            "flip_trigger": "Retourner la carte",
+            "flip_trigger_desc": "Le dos montre le texte d'information (R\u00e9glages par KPI ou champ \u00ab Dos de la carte \u00bb) et les chiffres cl\u00e9s (carte \u00ab Dos de la carte : contenu par KPI \u00bb). Clavier : Entr\u00e9e.",
+            "flip_trigger_none": "Jamais",
+            "flip_trigger_hover": "Au survol",
+            "flip_trigger_click": "Au clic",
+            "flip_trigger_icon": "Au clic sur l'ic\u00f4ne \u21bb",
+            "flip_animation": "Animation",
+            "flip_animation_flipX": "Retournement horizontal",
+            "flip_animation_flipY": "Retournement vertical",
+            "flip_animation_fade": "Fondu",
+            "flip_animation_slide": "Volet glissant \u2605",
+            "flip_animation_door": "Porte (battant) \u2605",
+            "flip_animation_curtain": "Rideau \u2605",
+            "flip_animation_zoom": "Zoom \u2605",
+            "flip_animation_cube": "Cube \u2605",
+            "flip_direction": "Sens",
+            "flip_direction_left": "Vers la gauche",
+            "flip_direction_right": "Vers la droite",
+            "flip_direction_up": "Vers le haut",
+            "flip_direction_down": "Vers le bas",
+            "flip_duration": "Dur\u00e9e (ms)",
+            "flip_easing": "Mouvement",
+            "flip_easing_smooth": "Doux",
+            "flip_easing_easeInOut": "Acc\u00e9l\u00e9r\u00e9 puis ralenti",
+            "flip_easing_linear": "R\u00e9gulier",
+            "flip_easing_bounce": "Rebond \u2605",
+            "flip_autoBack": "Revenir seule apr\u00e8s (s, 0 = jamais)",
+            "flip_single": "Une seule carte retourn\u00e9e \u00e0 la fois",
+            "flip_hint": "Indicateur \u21bb sur les cartes",
+            "flip_preview": "Montrer le dos (aper\u00e7u en mode \u00e9dition)",
+            "flip_preview_desc": "Montre tous les dos pendant la mise en forme. Ignor\u00e9 en mode lecture.",
+            "card_back": "Dos de la carte",
+            "back_content": "Contenu",
+            "back_content_both": "Texte et chiffres cl\u00e9s",
+            "back_content_text": "Texte seul (chiffres si aucun texte)",
+            "back_content_figures": "Chiffres cl\u00e9s seuls",
+            "back_figures": "Chiffres cl\u00e9s",
+            "back_figures_all": "Tous ceux disponibles",
+            "back_figures_compare": "Comparaison et objectif",
+            "back_figures_trend": "Tendance (min, max, moyenne)",
+            "back_figLayout": "Disposition des chiffres",
+            "back_figLayout_auto": "Automatique (deux colonnes, l'une sous l'autre si la carte est \u00e9troite)",
+            "back_figLayout_columns": "Libell\u00e9 \u00e0 gauche, valeur \u00e0 droite",
+            "back_figLayout_stacked": "Valeur sous le libell\u00e9",
+            "back_fit": "R\u00e9duire le texte pour tout afficher",
+            "back_fit_desc": "Le texte rapetisse (jusqu'\u00e0 75 %) avant que le dos ne d\u00e9file.",
+            "back_showTitle": "Rappeler le titre",
+            "back_fontSize": "Taille du texte",
+            "back_align": "Alignement",
+            "back_align_left": "Gauche",
+            "back_align_center": "Centr\u00e9",
+            "back_fill": "Fond (vide = teinte du KPI)",
+            "back_solid": "Fond plein \u00e0 la couleur du KPI",
+            "back_solid_desc": "Texte en blanc ou en noir selon le contraste.",
+            "back_textColor": "Couleur du texte (vide = automatique)",
+            "card_interaction": "Interactions",
+            "interaction_tooltips": "Infobulles Power BI",
+            "interaction_tooltips_desc": "Pas sur la carte elle-m\u00eame quand elle se retourne au survol (le dos donne d\u00e9j\u00e0 les d\u00e9tails).",
+            "interaction_select": "Clic = filtrer le rapport (avec \u00ab Un KPI par\u2026 \u00bb)",
+            "interaction_select_desc": "Avec \u00ab Retourner au clic \u00bb, Ctrl + clic pour s\u00e9lectionner.",
+            "interaction_dim": "Opacit\u00e9 des cartes non s\u00e9lectionn\u00e9es (%)",
+            "card_title": "Titre",
+            "title_show": "Afficher",
+            "title_text": "Titre",
+            "title_text_desc": "Laisser vide pour un titre automatique construit \u00e0 partir des champs.",
+            "title_text_ph": "Automatique",
+            "title_subtitle": "Sous-titre",
+            "title_fontSize": "Taille",
+            "title_bold": "Gras",
+            "title_color": "Couleur (vide = texte)",
+            "title_align": "Alignement",
+            "title_align_left": "Gauche",
+            "title_align_center": "Centr\u00e9",
+            "title_align_right": "Droite",
+            "card_source": "Note de source",
+            "source_show": "Afficher",
+            "source_text": "Texte",
+            "source_text_ph": "Source : \u2026",
+            "source_fontSize": "Taille",
+            "source_align": "Alignement",
+            "source_align_left": "Gauche",
+            "source_align_center": "Centr\u00e9",
+            "source_align_right": "Droite",
+            "card_container": "Cadre",
+            "container_border": "Bordure",
+            "container_borderWidth": "\u00c9paisseur de la bordure",
+            "container_borderColor": "Couleur de la bordure (vide = grille)",
+            "container_shadow": "Ombre",
+            "container_padding": "Marge int\u00e9rieure",
+            "card_texts": "Langue et textes",
+            "texts_language": "Langue de l'interface",
+            "texts_language_auto": "Comme Power BI",
+            "texts_language_fr": "Fran\u00e7ais",
+            "texts_language_en": "Anglais",
+            "texts_numberLocale": "Format des nombres (ex. fr-FR)",
+            "texts_numberLocale_ph": "auto",
+            "role_tooltips": "Infobulles",
+            "role_reference": "Comparaison (ann\u00e9e pr\u00e9c\u00e9dente\u2026)",
+            "apply_all": "Tous les KPI",
+            "apply_to": "Appliquer les r\u00e9glages \u00e0",
+            "role_values": "Valeurs (un KPI par mesure)",
+            "role_values_desc": "Chaque mesure est une carte KPI.",
+            "role_reference_desc": "Compar\u00e9e \u00e0 la valeur de m\u00eame rang (la 1re avec la 1re\u2026).",
+            "role_target": "Objectif",
+            "role_target_desc": "Objectif du KPI de m\u00eame rang : barre de progression ou anneau.",
+            "role_trend": "Axe de tendance (date)",
+            "role_trend_desc": "Dessine la courbe de tendance (mois, semaine, ann\u00e9e\u2026).",
+            "role_category": "Un KPI par\u2026 (cat\u00e9gorie)",
+            "role_category_desc": "R\u00e9p\u00e8te les KPI pour chaque valeur du champ (r\u00e9gion, produit\u2026).",
+            "role_backText": "Dos de la carte (texte)",
+            "role_backText_desc": "Mesure texte affich\u00e9e au dos du KPI de m\u00eame rang (une d\u00e9finition, un commentaire\u2026).",
+            "role_reference2": "Comparaison 2 (budget\u2026)",
+            "role_reference2_desc": "Deuxi\u00e8me comparaison du KPI de m\u00eame rang, affich\u00e9e sous la premi\u00e8re.",
+            "role_backFields": "Dos de la carte : chiffres",
+            "role_backFields_desc": "Mesures affich\u00e9es seulement au dos (libell\u00e9 et valeur). Choisissez-les par KPI dans \u00ab Dos de la carte : contenu par KPI \u00bb.",
+            "role_icon": "Ic\u00f4ne (mesure texte)",
+            "role_icon_desc": "Nom d'ic\u00f4ne (trending-up, euro\u2026), emoji ou image SVG (data:image/svg+xml\u2026) du KPI de m\u00eame rang, par exemple selon la cat\u00e9gorie.",
+            "role_format": "Format dynamique",
+            "roleDesc_format": "Mesures nomm\u00e9es carte.r\u00e9glage (ex. title.fontSize) : pilotez n'importe quel r\u00e9glage du volet Format en DAX"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "values",
+                "kind": "Measure",
+                "displayName": "Values (one KPI per measure)",
+                "displayNameKey": "role_values",
+                "description": "Each measure is one KPI card.",
+                "descriptionKey": "role_values_desc"
+            },
+            {
+                "name": "reference",
+                "kind": "Measure",
+                "displayName": "Comparison (previous year\u2026)",
+                "displayNameKey": "role_reference",
+                "description": "Compared with the value of the same rank (1st with 1st\u2026).",
+                "descriptionKey": "role_reference_desc"
+            },
+            {
+                "name": "reference2",
+                "kind": "Measure",
+                "displayName": "Comparison 2 (budget\u2026)",
+                "displayNameKey": "role_reference2",
+                "description": "Second comparison of the KPI of the same rank, shown under the first one.",
+                "descriptionKey": "role_reference2_desc"
+            },
+            {
+                "name": "target",
+                "kind": "Measure",
+                "displayName": "Target",
+                "displayNameKey": "role_target",
+                "description": "Goal of the KPI of the same rank: progress bar or ring.",
+                "descriptionKey": "role_target_desc"
+            },
+            {
+                "name": "trend",
+                "kind": "Grouping",
+                "displayName": "Trend axis (date)",
+                "displayNameKey": "role_trend",
+                "description": "Draws the sparkline (month, week, year\u2026).",
+                "descriptionKey": "role_trend_desc"
+            },
+            {
+                "name": "category",
+                "kind": "Grouping",
+                "displayName": "One KPI per\u2026 (category)",
+                "displayNameKey": "role_category",
+                "description": "Repeats the KPIs for each value of the field (region, product\u2026).",
+                "descriptionKey": "role_category_desc"
+            },
+            {
+                "name": "backText",
+                "kind": "Measure",
+                "displayName": "Back of the card (text)",
+                "displayNameKey": "role_backText",
+                "description": "Text measure shown on the back of the KPI of the same rank.",
+                "descriptionKey": "role_backText_desc"
+            },
+            {
+                "name": "backFields",
+                "kind": "Measure",
+                "displayName": "Back of the card: figures",
+                "displayNameKey": "role_backFields",
+                "description": "Measures shown only on the back (label and value). Choose them per KPI in \u00ab Back of the card: content per KPI \u00bb.",
+                "descriptionKey": "role_backFields_desc"
+            },
+            {
+                "name": "icon",
+                "kind": "Measure",
+                "displayName": "Icon (text measure)",
+                "displayNameKey": "role_icon",
+                "description": "Icon name (trending-up, euro\u2026), emoji or SVG image (data:image/svg+xml\u2026) for the KPI of the same rank.",
+                "descriptionKey": "role_icon_desc"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "role_tooltips"
+            },
+            {
+                "name": "format",
+                "kind": "Measure",
+                "displayName": "Dynamic format",
+                "displayNameKey": "role_format",
+                "description": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX",
+                "descriptionKey": "roleDesc_format"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "trend": {
+                            "max": 1
+                        },
+                        "category": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "matrix": {
+                    "rows": {
+                        "for": {
+                            "in": "trend"
+                        },
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 2000
+                            }
+                        }
+                    },
+                    "columns": {
+                        "for": {
+                            "in": "category"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "values"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "reference"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "reference2"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "target"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "backText"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "backFields"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "icon"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "format"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "subtotals": {
+            "matrix": {
+                "rowSubtotals": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "rowSubtotals"
+                    },
+                    "defaultValue": true
+                },
+                "rowSubtotalsPerLevel": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "perRowLevel"
+                    },
+                    "defaultValue": false
+                },
+                "columnSubtotals": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "columnSubtotals"
+                    },
+                    "defaultValue": true
+                },
+                "columnSubtotalsPerLevel": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "perColumnLevel"
+                    },
+                    "defaultValue": false
+                },
+                "levelSubtotalEnabled": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "levelSubtotalEnabled"
+                    },
+                    "defaultValue": true
+                },
+                "rowSubtotalsType": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "rowSubtotalsType"
+                    },
+                    "defaultValue": "Bottom"
+                }
+            }
+        },
+        "supportsHighlight": false,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "suppressDefaultTitle": true,
+        "privileges": [],
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "objects": {
+            "license": {
+                "properties": {
+                    "buy": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "key": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showOwner": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "style": {
+                "properties": {
+                    "preset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal"
+                                },
+                                {
+                                    "value": "blackWhite",
+                                    "displayName": "Black & White"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Newspaper \u2605"
+                                },
+                                {
+                                    "value": "vintage",
+                                    "displayName": "Vintage (antique plate) \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "executive",
+                                    "displayName": "Executive \u2605"
+                                },
+                                {
+                                    "value": "accessible",
+                                    "displayName": "Accessible (high legibility) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "bauhaus",
+                                    "displayName": "Bauhaus (pop) \u2605"
+                                },
+                                {
+                                    "value": "climate",
+                                    "displayName": "Climate \u2605"
+                                },
+                                {
+                                    "value": "blueprint",
+                                    "displayName": "Blueprint \u2605"
+                                },
+                                {
+                                    "value": "unknownPleasures",
+                                    "displayName": "Unknown Pleasures \u2605"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Graphite (dark) \u2605"
+                                },
+                                {
+                                    "value": "neon",
+                                    "displayName": "Neon \u2605"
+                                },
+                                {
+                                    "value": "terminal",
+                                    "displayName": "Terminal (Matrix) \u2605"
+                                },
+                                {
+                                    "value": "infographic",
+                                    "displayName": "Infographic \u2605"
+                                },
+                                {
+                                    "value": "cockpit",
+                                    "displayName": "Cockpit (HUD) \u2605"
+                                },
+                                {
+                                    "value": "hologram",
+                                    "displayName": "Hologram \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "themeJson": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "followTheme": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "reverse": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "customColors": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorText": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorMuted": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorGrid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorAccent": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorPositive": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorNegative": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series1": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series3": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series4": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series5": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series6": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series7": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series8": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "palette": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Style or theme palette"
+                                },
+                                {
+                                    "value": "crest",
+                                    "displayName": "Plume (sequential)"
+                                },
+                                {
+                                    "value": "crestDiverging",
+                                    "displayName": "Plume (diverging)"
+                                },
+                                {
+                                    "value": "viridis",
+                                    "displayName": "Viridis \u2605"
+                                },
+                                {
+                                    "value": "magma",
+                                    "displayName": "Magma \u2605"
+                                },
+                                {
+                                    "value": "inferno",
+                                    "displayName": "Inferno \u2605"
+                                },
+                                {
+                                    "value": "cividis",
+                                    "displayName": "Cividis (colorblind-safe) \u2605"
+                                },
+                                {
+                                    "value": "warmingStripes",
+                                    "displayName": "Warming stripes \u2605"
+                                },
+                                {
+                                    "value": "rdYlBu",
+                                    "displayName": "Red\u2013Yellow\u2013Blue \u2605"
+                                },
+                                {
+                                    "value": "brBG",
+                                    "displayName": "Brown\u2013Teal (drought) \u2605"
+                                },
+                                {
+                                    "value": "spectral",
+                                    "displayName": "Spectral \u2605"
+                                },
+                                {
+                                    "value": "blues",
+                                    "displayName": "Blues \u2605"
+                                },
+                                {
+                                    "value": "reds",
+                                    "displayName": "Reds \u2605"
+                                },
+                                {
+                                    "value": "grays",
+                                    "displayName": "Grays \u2605"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Press (ink and paper) \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth (ochre to umber) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "okabeIto",
+                                    "displayName": "Okabe-Ito (colorblind-safe) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "scaleLow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleMid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleHigh": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "mutedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "animate": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "kpiFormat": {
+                "properties": {
+                    "title": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "note": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "icon": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (from the name)"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "euro",
+                                    "displayName": "Finance \u00b7 Euro"
+                                },
+                                {
+                                    "value": "dollar",
+                                    "displayName": "Finance \u00b7 Dollar"
+                                },
+                                {
+                                    "value": "pound",
+                                    "displayName": "Finance \u00b7 Pound sterling"
+                                },
+                                {
+                                    "value": "coins",
+                                    "displayName": "Finance \u00b7 Coins"
+                                },
+                                {
+                                    "value": "banknote",
+                                    "displayName": "Finance \u00b7 Banknote"
+                                },
+                                {
+                                    "value": "wallet",
+                                    "displayName": "Finance \u00b7 Wallet"
+                                },
+                                {
+                                    "value": "piggyBank",
+                                    "displayName": "Finance \u00b7 Piggy bank (savings)"
+                                },
+                                {
+                                    "value": "creditCard",
+                                    "displayName": "Finance \u00b7 Credit card"
+                                },
+                                {
+                                    "value": "receipt",
+                                    "displayName": "Finance \u00b7 Receipt"
+                                },
+                                {
+                                    "value": "landmark",
+                                    "displayName": "Finance \u00b7 Bank"
+                                },
+                                {
+                                    "value": "handCoins",
+                                    "displayName": "Finance \u00b7 Payment"
+                                },
+                                {
+                                    "value": "calculator",
+                                    "displayName": "Finance \u00b7 Calculator"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "Finance \u00b7 Percent"
+                                },
+                                {
+                                    "value": "badgePercent",
+                                    "displayName": "Finance \u00b7 Discount"
+                                },
+                                {
+                                    "value": "cart",
+                                    "displayName": "Sales \u00b7 Cart"
+                                },
+                                {
+                                    "value": "bag",
+                                    "displayName": "Sales \u00b7 Shopping bag"
+                                },
+                                {
+                                    "value": "store",
+                                    "displayName": "Sales \u00b7 Store"
+                                },
+                                {
+                                    "value": "tag",
+                                    "displayName": "Sales \u00b7 Tag (price)"
+                                },
+                                {
+                                    "value": "ticket",
+                                    "displayName": "Sales \u00b7 Ticket"
+                                },
+                                {
+                                    "value": "handshake",
+                                    "displayName": "Sales \u00b7 Handshake (deals)"
+                                },
+                                {
+                                    "value": "briefcase",
+                                    "displayName": "Sales \u00b7 Briefcase"
+                                },
+                                {
+                                    "value": "gift",
+                                    "displayName": "Sales \u00b7 Gift"
+                                },
+                                {
+                                    "value": "megaphone",
+                                    "displayName": "Sales \u00b7 Megaphone (marketing)"
+                                },
+                                {
+                                    "value": "users",
+                                    "displayName": "People \u00b7 People"
+                                },
+                                {
+                                    "value": "user",
+                                    "displayName": "People \u00b7 Person"
+                                },
+                                {
+                                    "value": "userPlus",
+                                    "displayName": "People \u00b7 New customer"
+                                },
+                                {
+                                    "value": "userCheck",
+                                    "displayName": "People \u00b7 Verified customer"
+                                },
+                                {
+                                    "value": "userMinus",
+                                    "displayName": "People \u00b7 Lost customer"
+                                },
+                                {
+                                    "value": "contact",
+                                    "displayName": "People \u00b7 Contact"
+                                },
+                                {
+                                    "value": "baby",
+                                    "displayName": "People \u00b7 Baby"
+                                },
+                                {
+                                    "value": "smile",
+                                    "displayName": "People \u00b7 Smile (satisfaction)"
+                                },
+                                {
+                                    "value": "frown",
+                                    "displayName": "People \u00b7 Frown"
+                                },
+                                {
+                                    "value": "thumbsUp",
+                                    "displayName": "People \u00b7 Thumbs up"
+                                },
+                                {
+                                    "value": "messages",
+                                    "displayName": "People \u00b7 Messages"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Performance \u00b7 Target"
+                                },
+                                {
+                                    "value": "trendUp",
+                                    "displayName": "Performance \u00b7 Rise"
+                                },
+                                {
+                                    "value": "trendDown",
+                                    "displayName": "Performance \u00b7 Fall"
+                                },
+                                {
+                                    "value": "bars",
+                                    "displayName": "Performance \u00b7 Column chart"
+                                },
+                                {
+                                    "value": "barsH",
+                                    "displayName": "Performance \u00b7 Bar chart"
+                                },
+                                {
+                                    "value": "line",
+                                    "displayName": "Performance \u00b7 Line chart"
+                                },
+                                {
+                                    "value": "pie",
+                                    "displayName": "Performance \u00b7 Pie chart"
+                                },
+                                {
+                                    "value": "gauge",
+                                    "displayName": "Performance \u00b7 Gauge"
+                                },
+                                {
+                                    "value": "activity",
+                                    "displayName": "Performance \u00b7 Activity"
+                                },
+                                {
+                                    "value": "award",
+                                    "displayName": "Performance \u00b7 Award"
+                                },
+                                {
+                                    "value": "trophy",
+                                    "displayName": "Performance \u00b7 Trophy"
+                                },
+                                {
+                                    "value": "medal",
+                                    "displayName": "Performance \u00b7 Medal"
+                                },
+                                {
+                                    "value": "flag",
+                                    "displayName": "Performance \u00b7 Flag (milestone)"
+                                },
+                                {
+                                    "value": "rocket",
+                                    "displayName": "Performance \u00b7 Rocket (launch)"
+                                },
+                                {
+                                    "value": "star",
+                                    "displayName": "Performance \u00b7 Star"
+                                },
+                                {
+                                    "value": "zapFast",
+                                    "displayName": "Performance \u00b7 Speedometer"
+                                },
+                                {
+                                    "value": "layers",
+                                    "displayName": "Performance \u00b7 Layers"
+                                },
+                                {
+                                    "value": "sigma",
+                                    "displayName": "Performance \u00b7 Sum"
+                                },
+                                {
+                                    "value": "clock",
+                                    "displayName": "Time \u00b7 Clock"
+                                },
+                                {
+                                    "value": "timer",
+                                    "displayName": "Time \u00b7 Timer"
+                                },
+                                {
+                                    "value": "hourglass",
+                                    "displayName": "Time \u00b7 Hourglass"
+                                },
+                                {
+                                    "value": "calendar",
+                                    "displayName": "Time \u00b7 Calendar"
+                                },
+                                {
+                                    "value": "calendarCheck",
+                                    "displayName": "Time \u00b7 Calendar check"
+                                },
+                                {
+                                    "value": "calendarDays",
+                                    "displayName": "Time \u00b7 Days"
+                                },
+                                {
+                                    "value": "history",
+                                    "displayName": "Time \u00b7 History"
+                                },
+                                {
+                                    "value": "truck",
+                                    "displayName": "Operations \u00b7 Truck (delivery)"
+                                },
+                                {
+                                    "value": "box",
+                                    "displayName": "Operations \u00b7 Box (stock)"
+                                },
+                                {
+                                    "value": "packageCheck",
+                                    "displayName": "Operations \u00b7 Package delivered"
+                                },
+                                {
+                                    "value": "boxes",
+                                    "displayName": "Operations \u00b7 Boxes"
+                                },
+                                {
+                                    "value": "warehouse",
+                                    "displayName": "Operations \u00b7 Warehouse"
+                                },
+                                {
+                                    "value": "factory",
+                                    "displayName": "Operations \u00b7 Factory"
+                                },
+                                {
+                                    "value": "wrench",
+                                    "displayName": "Operations \u00b7 Wrench (maintenance)"
+                                },
+                                {
+                                    "value": "settings",
+                                    "displayName": "Operations \u00b7 Settings"
+                                },
+                                {
+                                    "value": "hardHat",
+                                    "displayName": "Operations \u00b7 Hard hat"
+                                },
+                                {
+                                    "value": "forklift",
+                                    "displayName": "Operations \u00b7 Forklift"
+                                },
+                                {
+                                    "value": "ship",
+                                    "displayName": "Operations \u00b7 Ship"
+                                },
+                                {
+                                    "value": "plane",
+                                    "displayName": "Operations \u00b7 Plane"
+                                },
+                                {
+                                    "value": "car",
+                                    "displayName": "Operations \u00b7 Car"
+                                },
+                                {
+                                    "value": "route",
+                                    "displayName": "Operations \u00b7 Route"
+                                },
+                                {
+                                    "value": "fuel",
+                                    "displayName": "Operations \u00b7 Fuel"
+                                },
+                                {
+                                    "value": "clipboard",
+                                    "displayName": "Operations \u00b7 Checklist"
+                                },
+                                {
+                                    "value": "check",
+                                    "displayName": "Status \u00b7 Check"
+                                },
+                                {
+                                    "value": "checkPlain",
+                                    "displayName": "Status \u00b7 Tick"
+                                },
+                                {
+                                    "value": "circleX",
+                                    "displayName": "Status \u00b7 Rejected"
+                                },
+                                {
+                                    "value": "alert",
+                                    "displayName": "Status \u00b7 Alert"
+                                },
+                                {
+                                    "value": "alertCircle",
+                                    "displayName": "Status \u00b7 Warning"
+                                },
+                                {
+                                    "value": "info",
+                                    "displayName": "Status \u00b7 Information"
+                                },
+                                {
+                                    "value": "shield",
+                                    "displayName": "Status \u00b7 Shield"
+                                },
+                                {
+                                    "value": "shieldCheck",
+                                    "displayName": "Status \u00b7 Security"
+                                },
+                                {
+                                    "value": "lock",
+                                    "displayName": "Status \u00b7 Lock"
+                                },
+                                {
+                                    "value": "bell",
+                                    "displayName": "Status \u00b7 Bell"
+                                },
+                                {
+                                    "value": "bug",
+                                    "displayName": "Status \u00b7 Bug"
+                                },
+                                {
+                                    "value": "eye",
+                                    "displayName": "Status \u00b7 Eye (views)"
+                                },
+                                {
+                                    "value": "leaf",
+                                    "displayName": "Energy and environment \u00b7 Leaf"
+                                },
+                                {
+                                    "value": "sprout",
+                                    "displayName": "Energy and environment \u00b7 Sprout"
+                                },
+                                {
+                                    "value": "recycle",
+                                    "displayName": "Energy and environment \u00b7 Recycle"
+                                },
+                                {
+                                    "value": "bolt",
+                                    "displayName": "Energy and environment \u00b7 Bolt (energy)"
+                                },
+                                {
+                                    "value": "battery",
+                                    "displayName": "Energy and environment \u00b7 Battery"
+                                },
+                                {
+                                    "value": "plug",
+                                    "displayName": "Energy and environment \u00b7 Plug"
+                                },
+                                {
+                                    "value": "sun",
+                                    "displayName": "Energy and environment \u00b7 Sun"
+                                },
+                                {
+                                    "value": "cloud",
+                                    "displayName": "Energy and environment \u00b7 Cloud"
+                                },
+                                {
+                                    "value": "cloudRain",
+                                    "displayName": "Energy and environment \u00b7 Rain"
+                                },
+                                {
+                                    "value": "wind",
+                                    "displayName": "Energy and environment \u00b7 Wind"
+                                },
+                                {
+                                    "value": "flame",
+                                    "displayName": "Energy and environment \u00b7 Flame"
+                                },
+                                {
+                                    "value": "drop",
+                                    "displayName": "Energy and environment \u00b7 Drop (water)"
+                                },
+                                {
+                                    "value": "waves",
+                                    "displayName": "Energy and environment \u00b7 Waves"
+                                },
+                                {
+                                    "value": "thermometer",
+                                    "displayName": "Energy and environment \u00b7 Thermometer"
+                                },
+                                {
+                                    "value": "trees",
+                                    "displayName": "Energy and environment \u00b7 Trees"
+                                },
+                                {
+                                    "value": "globe",
+                                    "displayName": "Energy and environment \u00b7 Globe"
+                                },
+                                {
+                                    "value": "heart",
+                                    "displayName": "Health and education \u00b7 Heart"
+                                },
+                                {
+                                    "value": "heartPulse",
+                                    "displayName": "Health and education \u00b7 Heart pulse"
+                                },
+                                {
+                                    "value": "stethoscope",
+                                    "displayName": "Health and education \u00b7 Stethoscope"
+                                },
+                                {
+                                    "value": "pill",
+                                    "displayName": "Health and education \u00b7 Pill"
+                                },
+                                {
+                                    "value": "hospital",
+                                    "displayName": "Health and education \u00b7 Hospital"
+                                },
+                                {
+                                    "value": "graduation",
+                                    "displayName": "Health and education \u00b7 Graduation"
+                                },
+                                {
+                                    "value": "book",
+                                    "displayName": "Health and education \u00b7 Book"
+                                },
+                                {
+                                    "value": "school",
+                                    "displayName": "Health and education \u00b7 School"
+                                },
+                                {
+                                    "value": "dumbbell",
+                                    "displayName": "Health and education \u00b7 Dumbbell (sport)"
+                                },
+                                {
+                                    "value": "utensils",
+                                    "displayName": "Health and education \u00b7 Utensils (meals)"
+                                },
+                                {
+                                    "value": "coffee",
+                                    "displayName": "Health and education \u00b7 Coffee"
+                                },
+                                {
+                                    "value": "phone",
+                                    "displayName": "Digital \u00b7 Phone"
+                                },
+                                {
+                                    "value": "mail",
+                                    "displayName": "Digital \u00b7 Mail"
+                                },
+                                {
+                                    "value": "message",
+                                    "displayName": "Digital \u00b7 Message"
+                                },
+                                {
+                                    "value": "click",
+                                    "displayName": "Digital \u00b7 Click"
+                                },
+                                {
+                                    "value": "monitor",
+                                    "displayName": "Digital \u00b7 Monitor"
+                                },
+                                {
+                                    "value": "smartphone",
+                                    "displayName": "Digital \u00b7 Smartphone"
+                                },
+                                {
+                                    "value": "server",
+                                    "displayName": "Digital \u00b7 Server"
+                                },
+                                {
+                                    "value": "database",
+                                    "displayName": "Digital \u00b7 Database"
+                                },
+                                {
+                                    "value": "wifi",
+                                    "displayName": "Digital \u00b7 Wi-Fi"
+                                },
+                                {
+                                    "value": "download",
+                                    "displayName": "Digital \u00b7 Download"
+                                },
+                                {
+                                    "value": "upload",
+                                    "displayName": "Digital \u00b7 Upload"
+                                },
+                                {
+                                    "value": "share",
+                                    "displayName": "Digital \u00b7 Share"
+                                },
+                                {
+                                    "value": "search",
+                                    "displayName": "Digital \u00b7 Search"
+                                },
+                                {
+                                    "value": "link",
+                                    "displayName": "Digital \u00b7 Link"
+                                },
+                                {
+                                    "value": "fileText",
+                                    "displayName": "Digital \u00b7 Document"
+                                },
+                                {
+                                    "value": "home",
+                                    "displayName": "Places \u00b7 House"
+                                },
+                                {
+                                    "value": "building",
+                                    "displayName": "Places \u00b7 Building"
+                                },
+                                {
+                                    "value": "mapPin",
+                                    "displayName": "Places \u00b7 Location"
+                                },
+                                {
+                                    "value": "map",
+                                    "displayName": "Places \u00b7 Map"
+                                },
+                                {
+                                    "value": "hotel",
+                                    "displayName": "Places \u00b7 Hotel"
+                                }
+                            ]
+                        }
+                    },
+                    "symbol": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "units": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "k",
+                                    "displayName": "Thousands"
+                                },
+                                {
+                                    "value": "m",
+                                    "displayName": "Millions"
+                                },
+                                {
+                                    "value": "b",
+                                    "displayName": "Billions"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "prefix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "suffix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "lowerIsBetter": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "refLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "refLabel2": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "targetValue": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "targetField": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "refField": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "link": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "backText": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "backItems": {
+                "properties": {
+                    "text": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "textAfter": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ref": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "delta": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ref2": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "target": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "progress": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "period": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "last": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "min": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "max": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "avg": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "tooltips": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "f1": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "f2": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "f3": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "f4": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "f5": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "f6": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "f7": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "f8": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "properties": {
+                    "arrange": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic grid"
+                                },
+                                {
+                                    "value": "row",
+                                    "displayName": "One row"
+                                },
+                                {
+                                    "value": "column",
+                                    "displayName": "One column"
+                                },
+                                {
+                                    "value": "grid",
+                                    "displayName": "Grid (number of columns)"
+                                },
+                                {
+                                    "value": "heroLeft",
+                                    "displayName": "First one large, on the left \u2605"
+                                },
+                                {
+                                    "value": "heroTop",
+                                    "displayName": "First one large, on top \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "columns": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "heroSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "gap": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "overflow": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "fit",
+                                    "displayName": "Shrink them (never a scroll bar)"
+                                },
+                                {
+                                    "value": "scroll",
+                                    "displayName": "Keep the minimum sizes and scroll"
+                                }
+                            ]
+                        }
+                    },
+                    "minWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "minHeight": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "lastRow": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Aligned left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Centered"
+                                },
+                                {
+                                    "value": "stretch",
+                                    "displayName": "Stretched"
+                                }
+                            ]
+                        }
+                    },
+                    "order": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "data",
+                                    "displayName": "Field order"
+                                },
+                                {
+                                    "value": "valueDesc",
+                                    "displayName": "Value, descending"
+                                },
+                                {
+                                    "value": "valueAsc",
+                                    "displayName": "Value, ascending"
+                                },
+                                {
+                                    "value": "deltaDesc",
+                                    "displayName": "Best change first"
+                                },
+                                {
+                                    "value": "nameAsc",
+                                    "displayName": "Name A \u2192 Z"
+                                }
+                            ]
+                        }
+                    },
+                    "hideBlank": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "totalCard": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "totalLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "card": {
+                "properties": {
+                    "shape": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "rect",
+                                    "displayName": "Rectangle"
+                                },
+                                {
+                                    "value": "rounded",
+                                    "displayName": "Rounded corners (Style \u203a Corner radius)"
+                                },
+                                {
+                                    "value": "pill",
+                                    "displayName": "Pill"
+                                },
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle \u2605"
+                                },
+                                {
+                                    "value": "leaf",
+                                    "displayName": "Leaf (two rounded corners) \u2605"
+                                },
+                                {
+                                    "value": "chamfer",
+                                    "displayName": "Cut corners \u2605"
+                                },
+                                {
+                                    "value": "ticket",
+                                    "displayName": "Ticket (notches) \u2605"
+                                },
+                                {
+                                    "value": "underline",
+                                    "displayName": "Underlined (no fill)"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None (text only)"
+                                }
+                            ]
+                        }
+                    },
+                    "fill": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fillOpacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "tint": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "shadow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorBy": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "accent",
+                                    "displayName": "Style accent (same for all)"
+                                },
+                                {
+                                    "value": "palette",
+                                    "displayName": "One color per KPI (palette)"
+                                },
+                                {
+                                    "value": "status",
+                                    "displayName": "By status (good / bad)"
+                                }
+                            ]
+                        }
+                    },
+                    "statusBar": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "statusWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "layout": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "stack",
+                                    "displayName": "Stacked (title, value, details)"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Centered"
+                                },
+                                {
+                                    "value": "split",
+                                    "displayName": "Value left, trend right"
+                                }
+                            ]
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "vAlign": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "middle",
+                                    "displayName": "Middle"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "padding": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "hover": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "lift",
+                                    "displayName": "Lift"
+                                },
+                                {
+                                    "value": "outline",
+                                    "displayName": "Accent outline"
+                                },
+                                {
+                                    "value": "glow",
+                                    "displayName": "Glow"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "kpiTitle": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "caps": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "wrap": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "value": {
+                "properties": {
+                    "autoSize": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "weight": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "400",
+                                    "displayName": "Regular"
+                                },
+                                {
+                                    "value": "600",
+                                    "displayName": "Semibold"
+                                },
+                                {
+                                    "value": "700",
+                                    "displayName": "Bold"
+                                }
+                            ]
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "statusColor": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "aggregate": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "total",
+                                    "displayName": "Period total (computed by the measure)"
+                                },
+                                {
+                                    "value": "last",
+                                    "displayName": "Last period"
+                                },
+                                {
+                                    "value": "first",
+                                    "displayName": "First period"
+                                },
+                                {
+                                    "value": "avg",
+                                    "displayName": "Average of the periods"
+                                },
+                                {
+                                    "value": "max",
+                                    "displayName": "Maximum"
+                                },
+                                {
+                                    "value": "min",
+                                    "displayName": "Minimum"
+                                }
+                            ]
+                        }
+                    },
+                    "countUp": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "blank": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "icon": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "topRight",
+                                    "displayName": "Top right"
+                                },
+                                {
+                                    "value": "topLeft",
+                                    "displayName": "Before the title"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left of the value"
+                                },
+                                {
+                                    "value": "above",
+                                    "displayName": "Above (centered)"
+                                },
+                                {
+                                    "value": "background",
+                                    "displayName": "Watermark"
+                                }
+                            ]
+                        }
+                    },
+                    "style": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "plain",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "circle",
+                                    "displayName": "Round badge"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Square badge"
+                                },
+                                {
+                                    "value": "ring",
+                                    "displayName": "Ring"
+                                },
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid badge"
+                                }
+                            ]
+                        }
+                    },
+                    "size": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "compare": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "source": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic"
+                                },
+                                {
+                                    "value": "reference",
+                                    "displayName": "\u00ab Comparison \u00bb field"
+                                },
+                                {
+                                    "value": "previous",
+                                    "displayName": "Previous period (trend axis)"
+                                },
+                                {
+                                    "value": "first",
+                                    "displayName": "First period (trend axis)"
+                                }
+                            ]
+                        }
+                    },
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "pct",
+                                    "displayName": "Change in %"
+                                },
+                                {
+                                    "value": "abs",
+                                    "displayName": "Change in value"
+                                },
+                                {
+                                    "value": "both",
+                                    "displayName": "Change in value and %"
+                                },
+                                {
+                                    "value": "ref",
+                                    "displayName": "Comparison value"
+                                }
+                            ]
+                        }
+                    },
+                    "arrow": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "triangle",
+                                    "displayName": "\u25b2 \u25bc"
+                                },
+                                {
+                                    "value": "arrow",
+                                    "displayName": "\u2191 \u2193"
+                                },
+                                {
+                                    "value": "chevron",
+                                    "displayName": "\u2303 \u2304"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "badge": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showLabel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "neutral": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "show2": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "statusFrom": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (comparison, otherwise target)"
+                                },
+                                {
+                                    "value": "compare",
+                                    "displayName": "Comparison"
+                                },
+                                {
+                                    "value": "compare2",
+                                    "displayName": "Comparison 2"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Target (thresholds)"
+                                },
+                                {
+                                    "value": "both",
+                                    "displayName": "Target and comparison (green, amber, red) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "warnFrom": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "goodColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "warnColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "badColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "neutralColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "target": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "style": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bar",
+                                    "displayName": "Progress bar"
+                                },
+                                {
+                                    "value": "ring",
+                                    "displayName": "Ring \u2605"
+                                },
+                                {
+                                    "value": "bullet",
+                                    "displayName": "Bullet (bar and marker) \u2605"
+                                },
+                                {
+                                    "value": "text",
+                                    "displayName": "Text only"
+                                }
+                            ]
+                        }
+                    },
+                    "thickness": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "showPct": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "label": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "trackColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "trend": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dateFormat": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "type": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "line",
+                                    "displayName": "Line"
+                                },
+                                {
+                                    "value": "area",
+                                    "displayName": "Area"
+                                },
+                                {
+                                    "value": "smooth",
+                                    "displayName": "Smooth area"
+                                },
+                                {
+                                    "value": "columns",
+                                    "displayName": "Columns \u2605"
+                                },
+                                {
+                                    "value": "step",
+                                    "displayName": "Step \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom of the card"
+                                },
+                                {
+                                    "value": "background",
+                                    "displayName": "Card background"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "height": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "width": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "opacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "lastDot": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "minMax": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "refLine": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "zero": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "hoverTip": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "flip": {
+                "properties": {
+                    "trigger": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "Never"
+                                },
+                                {
+                                    "value": "hover",
+                                    "displayName": "On hover"
+                                },
+                                {
+                                    "value": "click",
+                                    "displayName": "On click"
+                                },
+                                {
+                                    "value": "icon",
+                                    "displayName": "On click on the \u21bb icon"
+                                }
+                            ]
+                        }
+                    },
+                    "animation": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "flipX",
+                                    "displayName": "Horizontal flip"
+                                },
+                                {
+                                    "value": "flipY",
+                                    "displayName": "Vertical flip"
+                                },
+                                {
+                                    "value": "fade",
+                                    "displayName": "Fade"
+                                },
+                                {
+                                    "value": "slide",
+                                    "displayName": "Sliding panel \u2605"
+                                },
+                                {
+                                    "value": "door",
+                                    "displayName": "Door (swing) \u2605"
+                                },
+                                {
+                                    "value": "curtain",
+                                    "displayName": "Curtain \u2605"
+                                },
+                                {
+                                    "value": "zoom",
+                                    "displayName": "Zoom \u2605"
+                                },
+                                {
+                                    "value": "cube",
+                                    "displayName": "Cube \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "direction": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "To the left"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "To the right"
+                                },
+                                {
+                                    "value": "up",
+                                    "displayName": "Upwards"
+                                },
+                                {
+                                    "value": "down",
+                                    "displayName": "Downwards"
+                                }
+                            ]
+                        }
+                    },
+                    "duration": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "easing": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "smooth",
+                                    "displayName": "Smooth"
+                                },
+                                {
+                                    "value": "easeInOut",
+                                    "displayName": "Ease in and out"
+                                },
+                                {
+                                    "value": "linear",
+                                    "displayName": "Linear"
+                                },
+                                {
+                                    "value": "bounce",
+                                    "displayName": "Bounce \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "autoBack": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "single": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "hint": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "preview": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "back": {
+                "properties": {
+                    "content": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "both",
+                                    "displayName": "Text and key figures"
+                                },
+                                {
+                                    "value": "text",
+                                    "displayName": "Text only (figures if no text)"
+                                },
+                                {
+                                    "value": "figures",
+                                    "displayName": "Key figures only"
+                                }
+                            ]
+                        }
+                    },
+                    "figures": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "all",
+                                    "displayName": "All available"
+                                },
+                                {
+                                    "value": "compare",
+                                    "displayName": "Comparison and target"
+                                },
+                                {
+                                    "value": "trend",
+                                    "displayName": "Trend (min, max, average)"
+                                }
+                            ]
+                        }
+                    },
+                    "figLayout": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (two columns, stacked when the card is narrow)"
+                                },
+                                {
+                                    "value": "columns",
+                                    "displayName": "Label left, value right"
+                                },
+                                {
+                                    "value": "stacked",
+                                    "displayName": "Value under the label"
+                                }
+                            ]
+                        }
+                    },
+                    "fit": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                }
+                            ]
+                        }
+                    },
+                    "fill": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "solid": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "interaction": {
+                "properties": {
+                    "tooltips": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "select": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dim": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "title": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "source": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "container": {
+                "properties": {
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "padding": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "texts": {
+                "properties": {
+                    "language": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Same as Power BI"
+                                },
+                                {
+                                    "value": "fr",
+                                    "displayName": "French"
+                                },
+                                {
+                                    "value": "en",
+                                    "displayName": "English"
+                                }
+                            ]
+                        }
+                    },
+                    "numberLocale": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "subTotals": {
+                "properties": {
+                    "rowSubtotals": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "perRowLevel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "columnSubtotals": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "perColumnLevel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "levelSubtotalEnabled": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rowSubtotalsType": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "Bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

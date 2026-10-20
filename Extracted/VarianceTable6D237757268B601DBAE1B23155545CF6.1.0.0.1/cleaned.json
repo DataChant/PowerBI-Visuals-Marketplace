@@ -1,0 +1,653 @@
+{
+    "visual": {
+        "name": "varianceTable",
+        "displayName": "Variance Table",
+        "guid": "VarianceTable6D237757268B601DBAE1B23155545CF6",
+        "visualClassName": "Visual",
+        "version": "1.0.0.1",
+        "description": "Actual vs Previous Year vs Plan variance table with variance bars, markers and Act % of Plan",
+        "supportUrl": "https://www.example.com",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Jahjah Ibrahim",
+        "email": "jahjah.ibrahim@isae.edu.lb"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Category",
+                "name": "category",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Values",
+                "name": "values",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Previous Year",
+                "name": "previousYear",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Plan",
+                "name": "plan",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Forecast",
+                "name": "forecast",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Measure with Share %",
+                "name": "extraMeasures",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Tooltips",
+                "name": "tooltips",
+                "kind": "Measure"
+            }
+        ],
+        "objects": {
+            "tableSettings": {
+                "displayName": "Table Settings",
+                "properties": {
+                    "autoFit": {
+                        "displayName": "Auto-Fit to Visual Size",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "autoHideBars": {
+                        "displayName": "Auto-Hide Bars When Narrow",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPY": {
+                        "displayName": "Show PY Column",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPlan": {
+                        "displayName": "Show Plan Column",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showForecast": {
+                        "displayName": "Show Forecast Column",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showVarBar": {
+                        "displayName": "Show Variance vs PY Bar",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showVarPct": {
+                        "displayName": "Show Variance vs PY % Markers",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPlanBar": {
+                        "displayName": "Show Variance vs Plan Bar",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPlanPct": {
+                        "displayName": "Show Variance vs Plan % Markers",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "invertVariance": {
+                        "displayName": "Invert Variance Colors",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "sharedVarScale": {
+                        "displayName": "Same Scale for PY and Plan",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTotal": {
+                        "displayName": "Show Total Row",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTooltip": {
+                        "displayName": "Show Tooltip on Hover",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showGridlines": {
+                        "displayName": "Show Horizontal Gridlines",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showVertGridlines": {
+                        "displayName": "Show Vertical Gridlines",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gridlineColor": {
+                        "displayName": "Gridline Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showExtraPct": {
+                        "displayName": "Show % of Total Columns",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showActPlanPct": {
+                        "displayName": "Show Act % of Plan Column",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showActPlanBar": {
+                        "displayName": "Show Act % of Plan Bar",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showActPlanTarget": {
+                        "displayName": "Show Act % of Plan Target Line",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "actPlanTargetPct": {
+                        "displayName": "Target Line At (%)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "actPlanTargetWidth": {
+                        "displayName": "Target Line Thickness (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "actPlanTargetColor": {
+                        "displayName": "Target Line Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "actPlanPctLabel": {
+                        "displayName": "Act % of Plan Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "actPlanPctColW": {
+                        "displayName": "Act % of Plan Col Width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "actPlanGreenThreshold": {
+                        "displayName": "Act % Plan Green Threshold (%)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "actPlanAmberThreshold": {
+                        "displayName": "Act % Plan Amber Threshold (%)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "markerShape": {
+                        "displayName": "Marker Shape",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle"
+                                },
+                                {
+                                    "value": "pill",
+                                    "displayName": "Pill"
+                                },
+                                {
+                                    "value": "bar",
+                                    "displayName": "Bar"
+                                },
+                                {
+                                    "value": "triangle",
+                                    "displayName": "Triangle"
+                                },
+                                {
+                                    "value": "arrow",
+                                    "displayName": "Arrow"
+                                }
+                            ]
+                        }
+                    },
+                    "markerSize": {
+                        "displayName": "Marker Size (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "markerScale": {
+                        "displayName": "Scale Marker with Value",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "actualLabel": {
+                        "displayName": "Actual Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "pyLabel": {
+                        "displayName": "PY Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "planLabel": {
+                        "displayName": "Plan Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "forecastLabel": {
+                        "displayName": "Forecast Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "varLabel": {
+                        "displayName": "Variance vs PY Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "varPctLabel": {
+                        "displayName": "Variance vs PY % Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "planVarLabel": {
+                        "displayName": "Variance vs Plan Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "planVarPctLabel": {
+                        "displayName": "Variance vs Plan % Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "totalLabel": {
+                        "displayName": "Total Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "headerLabels": {
+                        "displayName": "Renamed Headers",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "columnOrder": {
+                        "displayName": "Column Order",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "columnWidths": {
+                        "displayName": "Column Widths",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "numberFormat": {
+                        "displayName": "Number Format",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "thousands",
+                                    "displayName": "Thousands (K)"
+                                },
+                                {
+                                    "value": "millions",
+                                    "displayName": "Millions (M)"
+                                },
+                                {
+                                    "value": "full",
+                                    "displayName": "Full Number"
+                                }
+                            ]
+                        }
+                    },
+                    "negativeFormat": {
+                        "displayName": "Negative Format",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "minus",
+                                    "displayName": "-1,234"
+                                },
+                                {
+                                    "value": "parenthesis",
+                                    "displayName": "(1,234)"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "displayName": "Decimal Places",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "pctDecimals": {
+                        "displayName": "% Decimal Places",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font Family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font Size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rowHeight": {
+                        "displayName": "Row Height (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "catColWidth": {
+                        "displayName": "Category Column Width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "valColWidth": {
+                        "displayName": "Value Column Width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "barColWidth": {
+                        "displayName": "Bar Column Width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "dotColWidth": {
+                        "displayName": "Dot Column Width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "pctColWidth": {
+                        "displayName": "% of Total Column Width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bgColor": {
+                        "displayName": "Background Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "headerBgColor": {
+                        "displayName": "Header Background",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "altRowColor": {
+                        "displayName": "Alt Row Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "colorSettings": {
+                "displayName": "Colors",
+                "properties": {
+                    "positiveColor": {
+                        "displayName": "Positive Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "negativeColor": {
+                        "displayName": "Negative Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "actualColor": {
+                        "displayName": "Actual Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "pyColor": {
+                        "displayName": "PY Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "planColor": {
+                        "displayName": "Plan Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryColor": {
+                        "displayName": "Category Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "totalColor": {
+                        "displayName": "Total Row Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "extraColor": {
+                        "displayName": "Extra Measures Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "values": {
+                            "max": 1
+                        },
+                        "previousYear": {
+                            "max": 1
+                        },
+                        "plan": {
+                            "max": 1
+                        },
+                        "forecast": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "category"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 10000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "values"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "previousYear"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "plan"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "forecast"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "extraMeasures"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 10000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "supportsHighlight": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
