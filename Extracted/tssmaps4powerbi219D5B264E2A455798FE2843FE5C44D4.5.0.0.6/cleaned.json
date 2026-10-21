@@ -1,0 +1,2193 @@
+{
+    "visual": {
+        "name": "tssmaps4powerbi",
+        "displayName": "TSS Maps for Power BI",
+        "guid": "tssmaps4powerbi219D5B264E2A455798FE2843FE5C44D4",
+        "visualClassName": "Visual",
+        "version": "5.0.0.6",
+        "description": "TSS Maps for Power BI control provides bi-directional interaction with ArcGIS map layers",
+        "supportUrl": "https://www.thesolutionstack.com/",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "The Solution Stack",
+        "email": "support@thesolutionstack.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "advancedEditModeSupport": 1,
+        "privileges": [
+            {
+                "name": "LocalStorage",
+                "essential": true
+            },
+            {
+                "name": "WebAccess",
+                "essential": true,
+                "parameters": [
+                    "https://*"
+                ]
+            },
+            {
+                "name": "AADAuthentication",
+                "essential": false,
+                "parameters": {
+                    "COM": "https://tssmaps.thesolutionstack.com"
+                }
+            }
+        ],
+        "dataRoles": [
+            {
+                "displayName": "Location",
+                "name": "location",
+                "kind": "Grouping",
+                "description": "Geographic data type used to represent location of data on the map. Accepts addresses, postal codes, counties, states/provinces, or countries",
+                "requiredTypes": [
+                    {
+                        "geography": {
+                            "address": true
+                        }
+                    },
+                    {
+                        "geography": {
+                            "city": true
+                        }
+                    },
+                    {
+                        "geography": {
+                            "continent": true
+                        }
+                    },
+                    {
+                        "geography": {
+                            "country": true
+                        }
+                    },
+                    {
+                        "geography": {
+                            "county": true
+                        }
+                    },
+                    {
+                        "geography": {
+                            "place": true
+                        }
+                    },
+                    {
+                        "geography": {
+                            "postalCode": true
+                        }
+                    },
+                    {
+                        "geography": {
+                            "region": true
+                        }
+                    },
+                    {
+                        "geography": {
+                            "stateOrProvince": true
+                        }
+                    },
+                    {
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Geometry",
+                "name": "geometry",
+                "kind": "GroupingOrMeasure",
+                "description": "GeoJSON used to create geometry objects with Power BI data."
+            },
+            {
+                "name": "latitude",
+                "kind": "Grouping",
+                "displayName": "Latitude",
+                "displayNameKey": "Role_DisplayName_Latitude",
+                "description": "Latitude data used to define the latitude values of a map coordinates. To use this data you must have the 'Latitude' and 'Longitude' fields occupied."
+            },
+            {
+                "name": "longitude",
+                "kind": "Grouping",
+                "displayName": "Longitude",
+                "displayNameKey": "Role_DisplayName_Longitude",
+                "description": "Longitude data used to define the longitude values of a map coordinates. To use this data you must have the 'Latitude' and 'Longitude' fields occupied."
+            },
+            {
+                "displayName": "Query",
+                "name": "query",
+                "kind": "GroupingOrMeasure",
+                "description": "Data used to connect and query reference layer with Power BI data."
+            },
+            {
+                "displayName": "Layer Name",
+                "name": "differentiator",
+                "kind": "Grouping",
+                "description": "The field that will be used to differentiate and title different geometry layers"
+            },
+            {
+                "displayName": "Start Time",
+                "name": "startTime",
+                "kind": "GroupingOrMeasure",
+                "description": "The field that will be used to define the starting temporal values of geometry objects."
+            },
+            {
+                "displayName": "End Time",
+                "name": "endTime",
+                "kind": "GroupingOrMeasure",
+                "description": "The field that will be used to define the ending temporal values of geometry objects."
+            },
+            {
+                "displayName": "Size",
+                "name": "size",
+                "kind": "Measure",
+                "description": "Measure to control circle radius size. Must be a numeric or integer type.",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "name": "Gradient",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Color",
+                "description": "Measure to apply qualitative or quantitative color groups to features.",
+                "displayNameKey": "Role_DisplayName_Gradient"
+            },
+            {
+                "displayName": "Tooltips",
+                "name": "tooltips",
+                "description": "Measures to be displayed when hovering on a feature.",
+                "kind": "Measure"
+            }
+        ],
+        "objects": {
+            "licensingSettings": {
+                "displayName": "Licensing",
+                "description": "TSS Maps is free to use with a watermark. Organizations can purchase a license key that removes it - contact sales@thesolutionstack.com.",
+                "properties": {
+                    "licenseKey": {
+                        "displayName": "License Key",
+                        "description": "The license key provided by The Solution Stack.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "cachedEntitlement": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "cachedAt": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "forceStateDebug": {
+                        "displayName": "Force License State (debug)",
+                        "description": "Dev only \u2014 forces licenseState directly, bypassing verification and the call-home flow entirely. Has no effect in production builds.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "",
+                                    "displayName": "(off \u2014 normal verification)"
+                                },
+                                {
+                                    "value": "unlicensed",
+                                    "displayName": "Unlicensed"
+                                },
+                                {
+                                    "value": "valid",
+                                    "displayName": "Valid"
+                                },
+                                {
+                                    "value": "expired",
+                                    "displayName": "Expired"
+                                },
+                                {
+                                    "value": "wrongOrg",
+                                    "displayName": "Wrong organization"
+                                },
+                                {
+                                    "value": "invalid",
+                                    "displayName": "Invalid"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "symbologyProperties": {
+                "properties": {
+                    "layerRenderers": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "symbologySettings": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customBreaks": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "sceneView": {
+                "displayName": "3D",
+                "properties": {
+                    "show": {
+                        "displayName": "My Property Switch",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "elevationModel": {
+                        "displayName": "Base Elevation Model",
+                        "description": "Select a standard elevation model service, or 'Custom URL' to use a custom elevation service",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "world-elevation",
+                                    "displayName": "Esri World Elevation"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom URL"
+                                }
+                            ]
+                        }
+                    },
+                    "elevationCustomUrl": {
+                        "displayName": "Custom Elevation Layer",
+                        "description": "Override with the url of a custom elevation layer",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "rLayers": {
+                "displayName": "Reference Layers",
+                "properties": {
+                    "layer1": {
+                        "displayName": "Layer 1",
+                        "description": "The layer url or portal (or ArcGIS Online) item id for the layer.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "portalUrl1": {
+                        "displayName": "Portal Url",
+                        "description": "Custom portal url.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "attribute1": {
+                        "displayName": "Query",
+                        "description": "Data used to connect and query reference layer with Power BI data. (Aliased field names not accepted)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer2": {
+                        "displayName": "Layer 2",
+                        "description": "The layer url or portal (or ArcGIS Online) item id for the layer.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "portalUrl2": {
+                        "displayName": "Portal Url",
+                        "description": "Custom portal url.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "attribute2": {
+                        "displayName": "Query",
+                        "description": "Data used to connect and query reference layer with Power BI data. (Aliased field names not accepted)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer3": {
+                        "displayName": "Layer 3",
+                        "description": "The layer url or portal (or ArcGIS Online) item id for the layer.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "portalUrl3": {
+                        "displayName": "Portal Url",
+                        "description": "Custom portal url.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "attribute3": {
+                        "displayName": "Query",
+                        "description": "Data used to connect and query reference layer with Power BI data. (Aliased field names not accepted)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer4": {
+                        "displayName": "Layer 4",
+                        "description": "The layer url or portal (or ArcGIS Online) item id for the layer.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "portalUrl4": {
+                        "displayName": "Portal Url",
+                        "description": "Custom portal url.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "attribute4": {
+                        "displayName": "Query",
+                        "description": "Data used to connect and query reference layer with Power BI data. (Aliased field names not accepted)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer5": {
+                        "displayName": "Layer 5",
+                        "description": "The layer url or portal (or ArcGIS Online) item id for the layer.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "portalUrl5": {
+                        "displayName": "Portal Url",
+                        "description": "Custom portal url.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "attribute5": {
+                        "displayName": "Query",
+                        "description": "Data used to connect and query reference layer with Power BI data. (Aliased field names not accepted)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer6": {
+                        "displayName": "Layer 6",
+                        "description": "The layer url or portal (or ArcGIS Online) item id for the layer.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "portalUrl6": {
+                        "displayName": "Portal Url",
+                        "description": "Custom portal url.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "attribute6": {
+                        "displayName": "Query",
+                        "description": "Data used to connect and query reference layer with Power BI data. (Aliased field names not accepted)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer7": {
+                        "displayName": "Layer 7",
+                        "description": "The layer url or portal (or ArcGIS Online) item id for the layer.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "portalUrl7": {
+                        "displayName": "Portal Url",
+                        "description": "Custom portal url.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "attribute7": {
+                        "displayName": "Query",
+                        "description": "Data used to connect and query reference layer with Power BI data. (Aliased field names not accepted)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer8": {
+                        "displayName": "Layer 8",
+                        "description": "The layer url or portal (or ArcGIS Online) item id for the layer.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "portalUrl8": {
+                        "displayName": "Portal Url",
+                        "description": "Custom portal url.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "attribute8": {
+                        "displayName": "Query",
+                        "description": "Data used to connect and query reference layer with Power BI data. (Aliased field names not accepted)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer9": {
+                        "displayName": "Layer 9",
+                        "description": "The layer url or portal (or ArcGIS Online) item id for the layer.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "portalUrl9": {
+                        "displayName": "Portal Url",
+                        "description": "Custom portal url.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "attribute9": {
+                        "displayName": "Query",
+                        "description": "Data used to connect and query reference layer with Power BI data. (Aliased field names not accepted)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer10": {
+                        "displayName": "Layer 10",
+                        "description": "The layer url or portal (or ArcGIS Online) item id for the layer.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "portalUrl10": {
+                        "displayName": "Portal Url",
+                        "description": "Custom portal url.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "attribute10": {
+                        "displayName": "Query",
+                        "description": "Data used to connect and query reference layer with Power BI data. (Aliased field names not accepted)",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "bLayers": {
+                "displayName": "Base Layers",
+                "properties": {
+                    "bLayer1": {
+                        "displayName": "Base Layer",
+                        "description": "The default basemap shown when the report opens. Viewers can switch at runtime via the Basemap Gallery widget.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "satellite",
+                                    "displayName": "Imagery"
+                                },
+                                {
+                                    "value": "hybrid",
+                                    "displayName": "Imagery Hybrid"
+                                },
+                                {
+                                    "value": "streets",
+                                    "displayName": "Streets"
+                                },
+                                {
+                                    "value": "streets-navigation-vector",
+                                    "displayName": "Navigation"
+                                },
+                                {
+                                    "value": "streets-night-vector",
+                                    "displayName": "Streets (Night)"
+                                },
+                                {
+                                    "value": "topo",
+                                    "displayName": "Topographic"
+                                },
+                                {
+                                    "value": "terrain",
+                                    "displayName": "Terrain"
+                                },
+                                {
+                                    "value": "dark-gray-vector",
+                                    "displayName": "Dark Gray Canvas"
+                                },
+                                {
+                                    "value": "gray-vector",
+                                    "displayName": "Light Gray Canvas"
+                                },
+                                {
+                                    "value": "oceans",
+                                    "displayName": "Oceans"
+                                }
+                            ]
+                        }
+                    },
+                    "customLabel1": {
+                        "displayName": "Custom Basemap 1 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customUrl1": {
+                        "displayName": "Custom Basemap 1 - URL",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customSublayer1": {
+                        "displayName": "Custom Basemap 1 - WMS/WMTS Layer",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customLabel2": {
+                        "displayName": "Custom Basemap 2 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customUrl2": {
+                        "displayName": "Custom Basemap 2 - URL",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customSublayer2": {
+                        "displayName": "Custom Basemap 2 - WMS/WMTS Layer",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customLabel3": {
+                        "displayName": "Custom Basemap 3 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customUrl3": {
+                        "displayName": "Custom Basemap 3 - URL",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customSublayer3": {
+                        "displayName": "Custom Basemap 3 - WMS/WMTS Layer",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customLabel4": {
+                        "displayName": "Custom Basemap 4 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customUrl4": {
+                        "displayName": "Custom Basemap 4 - URL",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customSublayer4": {
+                        "displayName": "Custom Basemap 4 - WMS/WMTS Layer",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customLabel5": {
+                        "displayName": "Custom Basemap 5 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customUrl5": {
+                        "displayName": "Custom Basemap 5 - URL",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customSublayer5": {
+                        "displayName": "Custom Basemap 5 - WMS/WMTS Layer",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customLabel6": {
+                        "displayName": "Custom Basemap 6 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customUrl6": {
+                        "displayName": "Custom Basemap 6 - URL",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customSublayer6": {
+                        "displayName": "Custom Basemap 6 - WMS/WMTS Layer",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customLabel7": {
+                        "displayName": "Custom Basemap 7 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customUrl7": {
+                        "displayName": "Custom Basemap 7 - URL",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customSublayer7": {
+                        "displayName": "Custom Basemap 7 - WMS/WMTS Layer",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customLabel8": {
+                        "displayName": "Custom Basemap 8 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customUrl8": {
+                        "displayName": "Custom Basemap 8 - URL",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customSublayer8": {
+                        "displayName": "Custom Basemap 8 - WMS/WMTS Layer",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customLabel9": {
+                        "displayName": "Custom Basemap 9 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customUrl9": {
+                        "displayName": "Custom Basemap 9 - URL",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customSublayer9": {
+                        "displayName": "Custom Basemap 9 - WMS/WMTS Layer",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customLabel10": {
+                        "displayName": "Custom Basemap 10 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customUrl10": {
+                        "displayName": "Custom Basemap 10 - URL",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customSublayer10": {
+                        "displayName": "Custom Basemap 10 - WMS/WMTS Layer",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "entraSettings": {
+                "displayName": "ArcGIS Authentication",
+                "description": "Authentication settings for secured ArcGIS layers. Set the Token Broker URL to load AGOL or Enterprise reference layers automatically.",
+                "properties": {
+                    "brokerPortal": {
+                        "displayName": "Choose ArcGIS Connection",
+                        "description": "The ArcGIS connection report viewers sign in to via the Token Broker \u2014 either an ArcGIS Enterprise portal or ArcGIS Online.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "enterprise",
+                                    "displayName": "ArcGIS Enterprise"
+                                },
+                                {
+                                    "value": "agol",
+                                    "displayName": "ArcGIS Online"
+                                }
+                            ]
+                        }
+                    },
+                    "brokerUrl": {
+                        "displayName": "Token Broker URL",
+                        "description": "Base URL of the TSS Token Broker (e.g. https://tss-token-broker.azurewebsites.net). Validates the Power BI Entra token and returns a per-user ArcGIS portal token, prompting a one-time account link if needed.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "aadTokenDebug": {
+                        "displayName": "AAD Token (debug)",
+                        "description": "Dev only \u2014 paste a CLI-obtained Entra access token here to test the broker without AppSource listing. Has no effect in production builds.",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "proxyRules": {
+                "displayName": "Proxy Rules",
+                "properties": {
+                    "urlPrefix1": {
+                        "displayName": "URL Prefix 1",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "proxyUrl1": {
+                        "displayName": "Proxy URL 1",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "urlPrefix2": {
+                        "displayName": "URL Prefix 2",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "proxyUrl2": {
+                        "displayName": "Proxy URL 2",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "urlPrefix3": {
+                        "displayName": "URL Prefix 3",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "proxyUrl3": {
+                        "displayName": "Proxy URL 3",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "spatialReference": {
+                "displayName": "Geometry Spatial Reference",
+                "description": "Use a custom WKID for the spatial reference",
+                "properties": {
+                    "srid": {
+                        "displayName": "WKID",
+                        "description": "Spatial reference WKID applied to incoming geometry. Pick from the catalog, or define a Custom WKID below for off-catalog codes.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "4326",
+                                    "displayName": "4326 - WGS 84"
+                                },
+                                {
+                                    "value": "3857",
+                                    "displayName": "3857 - WGS 84 / Web Mercator Auxiliary Sphere"
+                                },
+                                {
+                                    "value": "4979",
+                                    "displayName": "4979 - WGS 84 (3D geographic)"
+                                },
+                                {
+                                    "value": "4978",
+                                    "displayName": "4978 - WGS 84 (geocentric / ECEF)"
+                                },
+                                {
+                                    "value": "4269",
+                                    "displayName": "4269 - NAD83"
+                                },
+                                {
+                                    "value": "4267",
+                                    "displayName": "4267 - NAD27"
+                                },
+                                {
+                                    "value": "4152",
+                                    "displayName": "4152 - NAD83(HARN)"
+                                },
+                                {
+                                    "value": "4759",
+                                    "displayName": "4759 - NAD83(NSRS2007)"
+                                },
+                                {
+                                    "value": "4617",
+                                    "displayName": "4617 - NAD83(CSRS)"
+                                },
+                                {
+                                    "value": "26907",
+                                    "displayName": "26907 - NAD83 / UTM zone 7N"
+                                },
+                                {
+                                    "value": "26908",
+                                    "displayName": "26908 - NAD83 / UTM zone 8N"
+                                },
+                                {
+                                    "value": "26909",
+                                    "displayName": "26909 - NAD83 / UTM zone 9N"
+                                },
+                                {
+                                    "value": "26910",
+                                    "displayName": "26910 - NAD83 / UTM zone 10N"
+                                },
+                                {
+                                    "value": "26911",
+                                    "displayName": "26911 - NAD83 / UTM zone 11N"
+                                },
+                                {
+                                    "value": "26912",
+                                    "displayName": "26912 - NAD83 / UTM zone 12N"
+                                },
+                                {
+                                    "value": "26913",
+                                    "displayName": "26913 - NAD83 / UTM zone 13N"
+                                },
+                                {
+                                    "value": "26914",
+                                    "displayName": "26914 - NAD83 / UTM zone 14N"
+                                },
+                                {
+                                    "value": "26915",
+                                    "displayName": "26915 - NAD83 / UTM zone 15N"
+                                },
+                                {
+                                    "value": "26916",
+                                    "displayName": "26916 - NAD83 / UTM zone 16N"
+                                },
+                                {
+                                    "value": "26917",
+                                    "displayName": "26917 - NAD83 / UTM zone 17N"
+                                },
+                                {
+                                    "value": "26918",
+                                    "displayName": "26918 - NAD83 / UTM zone 18N"
+                                },
+                                {
+                                    "value": "26919",
+                                    "displayName": "26919 - NAD83 / UTM zone 19N"
+                                },
+                                {
+                                    "value": "26920",
+                                    "displayName": "26920 - NAD83 / UTM zone 20N"
+                                },
+                                {
+                                    "value": "26921",
+                                    "displayName": "26921 - NAD83 / UTM zone 21N"
+                                },
+                                {
+                                    "value": "26922",
+                                    "displayName": "26922 - NAD83 / UTM zone 22N"
+                                },
+                                {
+                                    "value": "32601",
+                                    "displayName": "32601 - WGS 84 / UTM zone 1N"
+                                },
+                                {
+                                    "value": "32602",
+                                    "displayName": "32602 - WGS 84 / UTM zone 2N"
+                                },
+                                {
+                                    "value": "32603",
+                                    "displayName": "32603 - WGS 84 / UTM zone 3N"
+                                },
+                                {
+                                    "value": "32604",
+                                    "displayName": "32604 - WGS 84 / UTM zone 4N"
+                                },
+                                {
+                                    "value": "32605",
+                                    "displayName": "32605 - WGS 84 / UTM zone 5N"
+                                },
+                                {
+                                    "value": "32606",
+                                    "displayName": "32606 - WGS 84 / UTM zone 6N"
+                                },
+                                {
+                                    "value": "32607",
+                                    "displayName": "32607 - WGS 84 / UTM zone 7N"
+                                },
+                                {
+                                    "value": "32608",
+                                    "displayName": "32608 - WGS 84 / UTM zone 8N"
+                                },
+                                {
+                                    "value": "32609",
+                                    "displayName": "32609 - WGS 84 / UTM zone 9N"
+                                },
+                                {
+                                    "value": "32610",
+                                    "displayName": "32610 - WGS 84 / UTM zone 10N"
+                                },
+                                {
+                                    "value": "32611",
+                                    "displayName": "32611 - WGS 84 / UTM zone 11N"
+                                },
+                                {
+                                    "value": "32612",
+                                    "displayName": "32612 - WGS 84 / UTM zone 12N"
+                                },
+                                {
+                                    "value": "32613",
+                                    "displayName": "32613 - WGS 84 / UTM zone 13N"
+                                },
+                                {
+                                    "value": "32614",
+                                    "displayName": "32614 - WGS 84 / UTM zone 14N"
+                                },
+                                {
+                                    "value": "32615",
+                                    "displayName": "32615 - WGS 84 / UTM zone 15N"
+                                },
+                                {
+                                    "value": "32616",
+                                    "displayName": "32616 - WGS 84 / UTM zone 16N"
+                                },
+                                {
+                                    "value": "32617",
+                                    "displayName": "32617 - WGS 84 / UTM zone 17N"
+                                },
+                                {
+                                    "value": "32618",
+                                    "displayName": "32618 - WGS 84 / UTM zone 18N"
+                                },
+                                {
+                                    "value": "32619",
+                                    "displayName": "32619 - WGS 84 / UTM zone 19N"
+                                },
+                                {
+                                    "value": "32620",
+                                    "displayName": "32620 - WGS 84 / UTM zone 20N"
+                                },
+                                {
+                                    "value": "32718",
+                                    "displayName": "32718 - WGS 84 / UTM zone 18S"
+                                },
+                                {
+                                    "value": "32719",
+                                    "displayName": "32719 - WGS 84 / UTM zone 19S"
+                                },
+                                {
+                                    "value": "32720",
+                                    "displayName": "32720 - WGS 84 / UTM zone 20S"
+                                },
+                                {
+                                    "value": "32721",
+                                    "displayName": "32721 - WGS 84 / UTM zone 21S"
+                                },
+                                {
+                                    "value": "32722",
+                                    "displayName": "32722 - WGS 84 / UTM zone 22S"
+                                },
+                                {
+                                    "value": "32754",
+                                    "displayName": "32754 - WGS 84 / UTM zone 54S"
+                                },
+                                {
+                                    "value": "32755",
+                                    "displayName": "32755 - WGS 84 / UTM zone 55S"
+                                },
+                                {
+                                    "value": "32756",
+                                    "displayName": "32756 - WGS 84 / UTM zone 56S"
+                                },
+                                {
+                                    "value": "4258",
+                                    "displayName": "4258 - ETRS89"
+                                },
+                                {
+                                    "value": "3035",
+                                    "displayName": "3035 - ETRS89 / LAEA Europe"
+                                },
+                                {
+                                    "value": "25828",
+                                    "displayName": "25828 - ETRS89 / UTM zone 28N"
+                                },
+                                {
+                                    "value": "25829",
+                                    "displayName": "25829 - ETRS89 / UTM zone 29N"
+                                },
+                                {
+                                    "value": "25830",
+                                    "displayName": "25830 - ETRS89 / UTM zone 30N"
+                                },
+                                {
+                                    "value": "25831",
+                                    "displayName": "25831 - ETRS89 / UTM zone 31N"
+                                },
+                                {
+                                    "value": "25832",
+                                    "displayName": "25832 - ETRS89 / UTM zone 32N"
+                                },
+                                {
+                                    "value": "25833",
+                                    "displayName": "25833 - ETRS89 / UTM zone 33N"
+                                },
+                                {
+                                    "value": "25834",
+                                    "displayName": "25834 - ETRS89 / UTM zone 34N"
+                                },
+                                {
+                                    "value": "25835",
+                                    "displayName": "25835 - ETRS89 / UTM zone 35N"
+                                },
+                                {
+                                    "value": "27700",
+                                    "displayName": "27700 - OSGB 1936 / British National Grid"
+                                },
+                                {
+                                    "value": "2154",
+                                    "displayName": "2154 - RGF93 / Lambert-93"
+                                },
+                                {
+                                    "value": "31468",
+                                    "displayName": "31468 - DHDN / Gauss-Kruger zone 4"
+                                },
+                                {
+                                    "value": "3006",
+                                    "displayName": "3006 - SWEREF99 TM (Sweden)"
+                                },
+                                {
+                                    "value": "4283",
+                                    "displayName": "4283 - GDA94"
+                                },
+                                {
+                                    "value": "7843",
+                                    "displayName": "7843 - GDA2020"
+                                },
+                                {
+                                    "value": "28354",
+                                    "displayName": "28354 - GDA94 / MGA zone 54"
+                                },
+                                {
+                                    "value": "28355",
+                                    "displayName": "28355 - GDA94 / MGA zone 55"
+                                },
+                                {
+                                    "value": "28356",
+                                    "displayName": "28356 - GDA94 / MGA zone 56"
+                                },
+                                {
+                                    "value": "7854",
+                                    "displayName": "7854 - GDA2020 / MGA zone 54"
+                                },
+                                {
+                                    "value": "7855",
+                                    "displayName": "7855 - GDA2020 / MGA zone 55"
+                                },
+                                {
+                                    "value": "7856",
+                                    "displayName": "7856 - GDA2020 / MGA zone 56"
+                                },
+                                {
+                                    "value": "4612",
+                                    "displayName": "4612 - JGD2000 (Japan)"
+                                },
+                                {
+                                    "value": "6668",
+                                    "displayName": "6668 - JGD2011 (Japan)"
+                                },
+                                {
+                                    "value": "4214",
+                                    "displayName": "4214 - Beijing 1954"
+                                },
+                                {
+                                    "value": "4490",
+                                    "displayName": "4490 - China Geodetic Coordinate System 2000"
+                                },
+                                {
+                                    "value": "4737",
+                                    "displayName": "4737 - Korea 2000"
+                                },
+                                {
+                                    "value": "4618",
+                                    "displayName": "4618 - SAD69"
+                                },
+                                {
+                                    "value": "4674",
+                                    "displayName": "4674 - SIRGAS 2000"
+                                },
+                                {
+                                    "value": "29168",
+                                    "displayName": "29168 - SAD69 / UTM zone 18S"
+                                },
+                                {
+                                    "value": "31978",
+                                    "displayName": "31978 - SIRGAS 2000 / UTM zone 18S"
+                                },
+                                {
+                                    "value": "31979",
+                                    "displayName": "31979 - SIRGAS 2000 / UTM zone 19S"
+                                },
+                                {
+                                    "value": "4201",
+                                    "displayName": "4201 - Adindan"
+                                },
+                                {
+                                    "value": "4210",
+                                    "displayName": "4210 - Arc 1960"
+                                },
+                                {
+                                    "value": "4222",
+                                    "displayName": "4222 - Cape"
+                                },
+                                {
+                                    "value": "4148",
+                                    "displayName": "4148 - Hartebeesthoek94"
+                                }
+                            ]
+                        }
+                    },
+                    "customWkid1": {
+                        "displayName": "Custom WKID 1 - Code",
+                        "description": "EPSG/ESRI WKID number",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkidLabel1": {
+                        "displayName": "Custom WKID 1 - Label",
+                        "description": "Display name",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkid2": {
+                        "displayName": "Custom WKID 2 - Code",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkidLabel2": {
+                        "displayName": "Custom WKID 2 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkid3": {
+                        "displayName": "Custom WKID 3 - Code",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkidLabel3": {
+                        "displayName": "Custom WKID 3 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkid4": {
+                        "displayName": "Custom WKID 4 - Code",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkidLabel4": {
+                        "displayName": "Custom WKID 4 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkid5": {
+                        "displayName": "Custom WKID 5 - Code",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkidLabel5": {
+                        "displayName": "Custom WKID 5 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkid6": {
+                        "displayName": "Custom WKID 6 - Code",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkidLabel6": {
+                        "displayName": "Custom WKID 6 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkid7": {
+                        "displayName": "Custom WKID 7 - Code",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkidLabel7": {
+                        "displayName": "Custom WKID 7 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkid8": {
+                        "displayName": "Custom WKID 8 - Code",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkidLabel8": {
+                        "displayName": "Custom WKID 8 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkid9": {
+                        "displayName": "Custom WKID 9 - Code",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkidLabel9": {
+                        "displayName": "Custom WKID 9 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkid10": {
+                        "displayName": "Custom WKID 10 - Code",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "customWkidLabel10": {
+                        "displayName": "Custom WKID 10 - Label",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "mapSymbology": {
+                "displayName": "Map Symbology",
+                "displayNameKey": "Map Symbology",
+                "description": "Settings for how data is displayed in the visualization",
+                "descriptionKey": "Settings for how data is displayed in the visualization",
+                "properties": {
+                    "editSymbology": {
+                        "displayName": "Edit Symbology",
+                        "displayNameKey": "editSymbology",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "default",
+                                    "displayName": "Default"
+                                },
+                                {
+                                    "value": "0",
+                                    "displayName": "Layer 1"
+                                },
+                                {
+                                    "value": "1",
+                                    "displayName": "Layer 2"
+                                },
+                                {
+                                    "value": "2",
+                                    "displayName": "Layer 3"
+                                },
+                                {
+                                    "value": "3",
+                                    "displayName": "Layer 4"
+                                },
+                                {
+                                    "value": "4",
+                                    "displayName": "Layer 5"
+                                },
+                                {
+                                    "value": "5",
+                                    "displayName": "Layer 6"
+                                },
+                                {
+                                    "value": "6",
+                                    "displayName": "Layer 7"
+                                },
+                                {
+                                    "value": "7",
+                                    "displayName": "Layer 8"
+                                },
+                                {
+                                    "value": "8",
+                                    "displayName": "Layer 9"
+                                },
+                                {
+                                    "value": "9",
+                                    "displayName": "Layer 10"
+                                }
+                            ]
+                        }
+                    },
+                    "selectedLayer": {
+                        "displayName": "Selected Layer",
+                        "type": {
+                            "text": true
+                        },
+                        "placeHolderText": "(No Layer Found)"
+                    },
+                    "zIndex": {
+                        "displayName": "Z-Index",
+                        "displayNameKey": "Z-Index",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "useDefault": {
+                        "displayName": "Use Default",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maxScale": {
+                        "displayName": "Max Scale",
+                        "displayNameKey": "maxScale",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "minScale": {
+                        "displayName": "Min Scale",
+                        "displayNameKey": "minScale",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "mapTheme": {
+                        "displayName": "Map Theme",
+                        "description": "Theme type for map visual",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "geometric",
+                                    "displayName": "Geometric"
+                                },
+                                {
+                                    "value": "heatmap",
+                                    "displayName": "Heat Map"
+                                }
+                            ]
+                        }
+                    },
+                    "transparency": {
+                        "displayName": "Opacity (%)",
+                        "displayNameKey": "Opacity",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "useSizeRole": {
+                        "displayName": "Use Size Role",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bubbleSize": {
+                        "displayName": "Symbol Size",
+                        "displayNameKey": "Symbol Size",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "useColorRole": {
+                        "displayName": "Use Color Role",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "useDataColor": {
+                        "displayName": "Use Data Color",
+                        "description": "Use CSS color values from the Color role directly (e.g. #FF0000, rgb(255,0,0), red). When off, a gradient is applied instead.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gradientType": {
+                        "displayName": "Color Scale",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "qualitative",
+                                    "displayName": "Qualitative"
+                                },
+                                {
+                                    "value": "quantitative",
+                                    "displayName": "Quantitative"
+                                },
+                                {
+                                    "value": "colorValue",
+                                    "displayName": "Color Value"
+                                }
+                            ]
+                        }
+                    },
+                    "quantitativeGradient": {
+                        "displayName": "Quantitative Gradient",
+                        "displayNameKey": "Visual_Gradient",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sequential",
+                                    "displayName": "Sequential"
+                                },
+                                {
+                                    "value": "diverging",
+                                    "displayName": "Diverging"
+                                }
+                            ]
+                        }
+                    },
+                    "fill": {
+                        "displayName": "Color",
+                        "displayNameKey": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fillPattern": {
+                        "displayName": "Polygon Fill Pattern",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "backward-diagonal",
+                                    "displayName": "Backward-diagonal"
+                                },
+                                {
+                                    "value": "cross",
+                                    "displayName": "Cross"
+                                },
+                                {
+                                    "value": "diagonal-cross",
+                                    "displayName": "Diagonal-cross"
+                                },
+                                {
+                                    "value": "forward-diagonal",
+                                    "displayName": "Forward-diagonal"
+                                },
+                                {
+                                    "value": "horizontal",
+                                    "displayName": "Horizontal"
+                                },
+                                {
+                                    "value": "vertical",
+                                    "displayName": "Vertical"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "glow": {
+                        "displayName": "3D Glow Effect",
+                        "description": "Make features emit light in 3D mode (points, lines, polygons)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "glowStrength": {
+                        "displayName": "Glow Intensity (%)",
+                        "description": "Controls emissive strength and bloom effect (0-100)",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "outlineFill": {
+                        "displayName": "Outline Color",
+                        "displayNameKey": "Outline-Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "sequentialColorScheme": {
+                        "displayName": "Sequential Color Scheme",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "pbi-default",
+                                    "displayName": "Power BI Default (Blue)"
+                                },
+                                {
+                                    "value": "Purples",
+                                    "displayName": "Purples"
+                                },
+                                {
+                                    "value": "YlOrRd",
+                                    "displayName": "Yellow-Orange-Red"
+                                },
+                                {
+                                    "value": "YlGnBu",
+                                    "displayName": "Yellow-Green-Blue"
+                                },
+                                {
+                                    "value": "YlGn",
+                                    "displayName": "Yellow-Green"
+                                },
+                                {
+                                    "value": "RdPu",
+                                    "displayName": "Red-Purple"
+                                },
+                                {
+                                    "value": "PuRd",
+                                    "displayName": "Purple-Red"
+                                },
+                                {
+                                    "value": "PuBu",
+                                    "displayName": "Purple-Blue"
+                                },
+                                {
+                                    "value": "OrRd",
+                                    "displayName": "Orange-Red"
+                                },
+                                {
+                                    "value": "GnBu",
+                                    "displayName": "Green-Blue"
+                                },
+                                {
+                                    "value": "BuPu",
+                                    "displayName": "Purple-Red"
+                                },
+                                {
+                                    "value": "BuGn",
+                                    "displayName": "Blue-Green"
+                                }
+                            ]
+                        }
+                    },
+                    "divergingColorScheme": {
+                        "displayName": "Diverging Color Scheme",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "pbi-default",
+                                    "displayName": "Power BI Default"
+                                },
+                                {
+                                    "value": "pbi-sentiment",
+                                    "displayName": "Power BI Sentiment (Red-Yellow-Green)"
+                                },
+                                {
+                                    "value": "BrBG",
+                                    "displayName": "Brown-Blue-Green"
+                                },
+                                {
+                                    "value": "BlRdYl",
+                                    "displayName": "Blue-Red-Yellow"
+                                },
+                                {
+                                    "value": "BlOrYl",
+                                    "displayName": "Blue-Orange-Yellow"
+                                },
+                                {
+                                    "value": "BlGrYl",
+                                    "displayName": "Blue-Green-Yellow"
+                                },
+                                {
+                                    "value": "CyBlMg",
+                                    "displayName": "Cyan-Blue-Magenta"
+                                },
+                                {
+                                    "value": "DrblPuYl",
+                                    "displayName": "DarkBlue-Purple-Yellow"
+                                },
+                                {
+                                    "value": "OrYlGr",
+                                    "displayName": "Orange-Yellow-Green"
+                                },
+                                {
+                                    "value": "OrYlTl",
+                                    "displayName": "Orange-Yellow-Teal"
+                                },
+                                {
+                                    "value": "PiYG",
+                                    "displayName": "Pink-Yellow-Green"
+                                },
+                                {
+                                    "value": "PRGn",
+                                    "displayName": "Purple-Green"
+                                },
+                                {
+                                    "value": "PrMgYl",
+                                    "displayName": "Purple-Magenta-Yellow"
+                                },
+                                {
+                                    "value": "PuOr",
+                                    "displayName": "Purple-Orange"
+                                },
+                                {
+                                    "value": "RdBu",
+                                    "displayName": "Red-Blue"
+                                },
+                                {
+                                    "value": "RdGy",
+                                    "displayName": "Red-Grey"
+                                },
+                                {
+                                    "value": "RdYlBu",
+                                    "displayName": "Red-Yellow-Blue"
+                                },
+                                {
+                                    "value": "RdYlGn",
+                                    "displayName": "Red-Yellow-Green"
+                                },
+                                {
+                                    "value": "Spectral",
+                                    "displayName": "Spectral"
+                                },
+                                {
+                                    "value": "WhPnRd",
+                                    "displayName": "White-Pink-Red"
+                                },
+                                {
+                                    "value": "clrbldRdYlGr",
+                                    "displayName": "Colorblind-Red-Yellow-Green"
+                                },
+                                {
+                                    "value": "blueHues",
+                                    "displayName": "Colorblind-Blue-Hues"
+                                },
+                                {
+                                    "value": "orangeGlow",
+                                    "displayName": "Colorblind-Orange-Glow"
+                                },
+                                {
+                                    "value": "neutrals",
+                                    "displayName": "Colorblind-Neutrals"
+                                },
+                                {
+                                    "value": "clrbldsixpast",
+                                    "displayName": "Colorblind-Six-Pastels"
+                                }
+                            ]
+                        }
+                    },
+                    "qualitativeColorScheme": {
+                        "displayName": "Qualitative Color Scheme",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "pbi-default",
+                                    "displayName": "Power BI Default"
+                                },
+                                {
+                                    "value": "Default",
+                                    "displayName": "Default"
+                                },
+                                {
+                                    "value": "Set1",
+                                    "displayName": "Additive"
+                                },
+                                {
+                                    "value": "Paired",
+                                    "displayName": "Paired Light-Dark"
+                                },
+                                {
+                                    "value": "Set3",
+                                    "displayName": "Pastel-Dark"
+                                },
+                                {
+                                    "value": "Pastel1",
+                                    "displayName": "Pastel-Light"
+                                }
+                            ]
+                        }
+                    },
+                    "classBreakType": {
+                        "displayName": " Color Class Breaks",
+                        "displayNameKey": "Class_Breaks",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "q",
+                                    "displayName": "Quantile"
+                                },
+                                {
+                                    "value": "k",
+                                    "displayName": "Natural"
+                                },
+                                {
+                                    "value": "e",
+                                    "displayName": "Equidistant"
+                                },
+                                {
+                                    "value": "l",
+                                    "displayName": "Logarithmic"
+                                }
+                            ]
+                        }
+                    },
+                    "numberOfBreaks": {
+                        "displayName": "# of Color Classes",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "classBreakEditor": {
+                        "displayName": "Class Break Editor",
+                        "description": "Interactive slider to adjust color class break boundaries directly on the map",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "geocode": {
+                "displayName": "Geocoding",
+                "description": "Use geocoding service to locate latitude and longitude of data points",
+                "properties": {
+                    "geocodeType": {
+                        "displayName": "Geocode State",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "free",
+                                    "displayName": "Free"
+                                },
+                                {
+                                    "value": "paid",
+                                    "displayName": "Paid"
+                                }
+                            ]
+                        }
+                    },
+                    "srcCountry": {
+                        "displayName": "Source Country",
+                        "type": {
+                            "text": true
+                        },
+                        "placeHolderText": "Ex. CAN for Canada"
+                    },
+                    "paidGeocodeUrl": {
+                        "displayName": "Geocode Url",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "paidGeocodeToken": {
+                        "displayName": "Geocode Token",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "widgets": {
+                "displayName": "Widgets",
+                "description": "Zoom, home extent and measurement",
+                "properties": {
+                    "zoom": {
+                        "displayName": "Zoom In/Out",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "selection": {
+                        "displayName": "Selection",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "measurement": {
+                        "displayName": "Measurement",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "elevGroundColor": {
+                        "displayName": "Elevation Ground Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "elevSceneColor": {
+                        "displayName": "Elevation Scene Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "freezeAutoZoom": {
+                        "displayName": "Extent Lock",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scaleLayerVisibility": {
+                        "displayName": "View Scale",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "basemapGallery": {
+                        "displayName": "Basemap Gallery",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "daylight": {
+                        "displayName": "Daylight / Weather",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "mapTimeSlider": {
+                "displayName": "Time Slider",
+                "displayNameKey": "Time Slider",
+                "description": "Set a time slider for the map",
+                "properties": {
+                    "timeSlider": {
+                        "displayName": "Time Slider",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "playrate": {
+                        "displayName": "Play Rate",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "stops": {
+                        "displayName": "Stops",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "mode": {
+                        "displayName": "Mode",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "time-window",
+                                    "displayName": "Time Window"
+                                },
+                                {
+                                    "value": "instant",
+                                    "displayName": "Instant"
+                                },
+                                {
+                                    "value": "cumulative-from-start",
+                                    "displayName": "Cumulative From Start"
+                                },
+                                {
+                                    "value": "cumulative-from-end",
+                                    "displayName": "Cumulative From End"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "mapExtent": {
+                "displayName": "Home Extent",
+                "displayNameKey": "Home Extent",
+                "description": "Set a home extent for the map",
+                "properties": {
+                    "show": {
+                        "displayName": "Use Custom Extent",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "xmin": {
+                        "displayName": "Min X",
+                        "description": "The left boundary of the extent",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "xmax": {
+                        "displayName": "Max X",
+                        "description": "The right boundary of the extent",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "ymin": {
+                        "displayName": "Min Y",
+                        "description": "The bottom of the extent",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "ymax": {
+                        "displayName": "Max Y",
+                        "description": "The top of the extent",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "useCurrentExtent": {
+                        "displayName": "Use Current Extent",
+                        "description": "Set custom extent to the current extent of the map",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "location": {
+                            "min": 1,
+                            "max": 1
+                        },
+                        "latitude": {
+                            "max": 0
+                        },
+                        "longitude": {
+                            "max": 0
+                        },
+                        "query": {
+                            "max": 1
+                        },
+                        "size": {
+                            "max": 1
+                        },
+                        "Gradient": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "location": {
+                            "max": 0
+                        },
+                        "latitude": {
+                            "max": 1
+                        },
+                        "longitude": {
+                            "max": 1
+                        },
+                        "geometry": {
+                            "max": 0
+                        },
+                        "query": {
+                            "max": 1
+                        },
+                        "size": {
+                            "max": 1
+                        },
+                        "Gradient": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "location": {
+                            "max": 0
+                        },
+                        "latitude": {
+                            "max": 0
+                        },
+                        "longitude": {
+                            "max": 0
+                        },
+                        "geometry": {
+                            "max": 1
+                        },
+                        "query": {
+                            "max": 1
+                        },
+                        "startTime": {
+                            "max": 1
+                        },
+                        "endTime": {
+                            "max": 1
+                        },
+                        "size": {
+                            "max": 1
+                        },
+                        "Gradient": {
+                            "max": 1
+                        }
+                    },
+                    {
+                        "location": {
+                            "max": 0
+                        },
+                        "latitude": {
+                            "max": 0
+                        },
+                        "longitude": {
+                            "max": 0
+                        },
+                        "geometry": {
+                            "max": 1
+                        },
+                        "query": {
+                            "min": 1,
+                            "max": 1
+                        },
+                        "startTime": {
+                            "max": 1
+                        },
+                        "endTime": {
+                            "max": 1
+                        },
+                        "size": {
+                            "max": 1
+                        },
+                        "Gradient": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "location"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "geometry"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "latitude"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "longitude"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "Gradient"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "query"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "differentiator"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "startTime"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "endTime"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "startTime"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "endTime"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "query"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "size"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "Gradient"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "tooltips"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
