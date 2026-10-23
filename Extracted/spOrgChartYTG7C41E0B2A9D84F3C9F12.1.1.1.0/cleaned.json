@@ -1,0 +1,284 @@
+{
+    "visual": {
+        "name": "spOrgChart",
+        "displayName": "Org Chart by YT Global",
+        "guid": "spOrgChartYTG7C41E0B2A9D84F3C9F12",
+        "visualClassName": "Visual",
+        "version": "1.1.1.0",
+        "description": "Interactive, multilevel organization chart built from any table with Employee ID and Manager ID columns, such as an HR list in Microsoft SharePoint, Excel or a database. Expand and collapse teams, search for a person, color cards by department and cross-filter the rest of your report.",
+        "supportUrl": "https://ytgllc.com/org-chart-support.html",
+        "gitHubUrl": "https://github.com/YT-Global-LLC/org-chart-powerbi-visual"
+    },
+    "author": {
+        "name": "YT Global LLC",
+        "email": "appsupport@ytgllc.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "employeeId",
+                "displayName": "Employee ID",
+                "kind": "Grouping",
+                "description": "Unique key for each person (e.g. EmployeeID or email)"
+            },
+            {
+                "name": "managerId",
+                "displayName": "Manager ID",
+                "kind": "Grouping",
+                "description": "Employee ID of this person's manager. Blank = top of the org"
+            },
+            {
+                "name": "name",
+                "displayName": "Name",
+                "kind": "Grouping"
+            },
+            {
+                "name": "jobTitle",
+                "displayName": "Job Title",
+                "kind": "Grouping"
+            },
+            {
+                "name": "department",
+                "displayName": "Department",
+                "kind": "Grouping",
+                "description": "Used for the card accent color"
+            },
+            {
+                "name": "photoUrl",
+                "displayName": "Photo",
+                "kind": "Grouping",
+                "description": "Embedded image (data:image/png or jpeg, base64). Blank = initials"
+            },
+            {
+                "name": "extra",
+                "displayName": "Tooltip fields",
+                "kind": "GroupingOrMeasure",
+                "description": "Extra fields shown in the tooltip (email, location, phone...)"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "employeeId": {
+                            "max": 1
+                        },
+                        "managerId": {
+                            "max": 1
+                        },
+                        "name": {
+                            "max": 1
+                        },
+                        "jobTitle": {
+                            "max": 1
+                        },
+                        "department": {
+                            "max": 1
+                        },
+                        "photoUrl": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "employeeId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "managerId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "name"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "jobTitle"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "department"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "photoUrl"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "extra"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "layout": {
+                "properties": {
+                    "orientation": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "vertical",
+                                    "displayName": "Top to bottom"
+                                },
+                                {
+                                    "value": "horizontal",
+                                    "displayName": "Left to right"
+                                }
+                            ]
+                        }
+                    },
+                    "initialDepth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "levelSpacing": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "siblingSpacing": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showSearch": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "cards": {
+                "properties": {
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "subTextColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "cornerRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showPhoto": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showDepartment": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showReportCount": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "colors": {
+                "properties": {
+                    "colorByDepartment": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "accentColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "linkColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "linkWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            }
+        },
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "privileges": [],
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "extra"
+            ]
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
