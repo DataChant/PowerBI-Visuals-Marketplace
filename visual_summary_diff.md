@@ -1,84 +1,98 @@
-[2026-10-23] 1 new visual, 6 new versions
+[2026-10-24] No new visuals
 
-Here are the latest updates to the Power BI Visuals on Microsoft Marketplace as of 2026-10-23:
-## 1 New Custom Visual: ##
-
-<table style="width: 800px; border: none !important; border-collapse: collapse; border-spacing: 0;">
-<tr>
-  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/ytgloballlc1792004555641.org-chart-ytg-visual"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/Org Chart by YT Global.png?raw=true" width="100" alt="Org Chart by YT Global" style="max-width: 100%; height: auto;"/>
-</a></td>
-  <td style="width: 680px; border: none !important; padding: 4px;"><b>Org Chart by YT Global</b></td>
-</tr>
-<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://ytgllc.com/org-chart-support.html">YT Global LLC</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">Interactive, multilevel org chart from any Employee ID / Manager ID table.</td></tr>
-<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/spOrgChartYTG7C41E0B2A9D84F3C9F12.pbiviz">spOrgChartYTG7C41E0B2A9D84F3C9F12.pbiviz</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">Version: 1.1.1.0<br>Release Date: 2026-10-23</td></tr>
-<tr><td style="border: none !important; padding: 4px;"></td></tr>
-</table>
-
-
-## 6 New Versions: ##
+Here are the latest updates to the Power BI Visuals on Microsoft Marketplace as of 2026-10-24:
+## 9 Changes in Listings or Terms: ##
 
 <table style="width: 800px; border: none !important; border-collapse: collapse; border-spacing: 0;">
 <tr>
-  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/accobat.accoplanning_preview"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/accoPLANNING Preview - Writeback, Planning, Matrix.png?raw=true" width="100" alt="accoPLANNING Preview - Writeback, Planning, Matrix" style="max-width: 100%; height: auto;"/>
+  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/WA104380950"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/Enlighten Data Story.png?raw=true" width="100" alt="Enlighten Data Story" style="max-width: 100%; height: auto;"/>
 </a></td>
-  <td style="width: 680px; border: none !important; padding: 4px;"><b>accoPLANNING Preview - Writeback, Planning, Matrix</b></td>
+  <td style="width: 680px; border: none !important; padding: 4px;"><b>Enlighten Data Story</b></td>
 </tr>
-<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://support.accobat.com/">Accobat A/S</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">Visual with writeback directly in Power BI for planning, master data (MDM), budgeting, forecasting</td></tr>
-<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/accoPLANNING_4DAA52ABFBF441E2A7898A79384CAFA9_preview.pbiviz">accoPLANNING_4DAA52ABFBF441E2A7898A79384CAFA9_preview.pbiviz</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">Version Change: 1.1.2.5 ➔ 1.1.2.6<br>Release Date: 2026-10-23<br>Previous Release Date: 2026-09-29</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://www.enlighten.co.nz/contact">ENLIGHTEN DESIGNS</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">Use beautifully designed text to tell your story.</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/enlightenDataStoryDDFB78A6143E42CFAFBC50CCF18D978D.pbiviz">enlightenDataStoryDDFB78A6143E42CFAFBC50CCF18D978D.pbiviz</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">SupportLink: https://www.enlighten.co.nz/Contact ➔ https://www.enlighten.co.nz/contact</td></tr>
 <tr><td style="border: none !important; padding: 4px;"></td></tr>
 <tr>
-  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/greenstep1681667712528.bibook_table_editor"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/BI Book Table Writeback.png?raw=true" width="100" alt="BI Book Table Writeback" style="max-width: 100%; height: auto;"/>
+  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/enlightendesignsltd1587194661332.enlightenstoryteller"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/Enlighten Storyteller.png?raw=true" width="100" alt="Enlighten Storyteller" style="max-width: 100%; height: auto;"/>
 </a></td>
-  <td style="width: 680px; border: none !important; padding: 4px;"><b>BI Book Table Writeback</b></td>
+  <td style="width: 680px; border: none !important; padding: 4px;"><b>Enlighten Storyteller</b></td>
 </tr>
-<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://help.bibook.com/articles/7986933-getting-started-with-the-table-writeback-visual">Greenstep</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">The Table Writeback allows to create and edit database tables directly from BI Book/Power BI report</td></tr>
-<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/BIBookTableEditor.pbiviz">BIBookTableEditor.pbiviz</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">Version Change: 1.0.0.19 ➔ 1.0.0.27<br>Release Date: 2026-10-23<br>Previous Release Date: 2026-08-17</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://www.enlighten.co.nz/contact">ENLIGHTEN DESIGNS</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">Transform your data into compelling narratives with Enlighten AI Storyteller!</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/enlightenstorytellerE5CA73CE1C2C43878E5C0EBB4652BDD5.pbiviz">enlightenstorytellerE5CA73CE1C2C43878E5C0EBB4652BDD5.pbiviz</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">SupportLink: https://www.enlighten.co.nz/Contact ➔ https://www.enlighten.co.nz/contact</td></tr>
 <tr><td style="border: none !important; padding: 4px;"></td></tr>
 <tr>
-  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/accobat.accoplanningv2"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/accoPLANNINGV2 - Writeback, Planning, Matrix.png?raw=true" width="100" alt="accoPLANNINGV2 - Writeback, Planning, Matrix" style="max-width: 100%; height: auto;"/>
+  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/WA104381948"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/Enlighten Legend.png?raw=true" width="100" alt="Enlighten Legend" style="max-width: 100%; height: auto;"/>
 </a></td>
-  <td style="width: 680px; border: none !important; padding: 4px;"><b>accoPLANNINGV2 - Writeback, Planning, Matrix</b></td>
+  <td style="width: 680px; border: none !important; padding: 4px;"><b>Enlighten Legend</b></td>
 </tr>
-<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://support.accobat.com/">Accobat A/S</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">Advanced Power BI matrix with custom calcs, in-cell graphs and writeback for planning & master data</td></tr>
-<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/accoPLANNINGV2_4DAA52ABFBF441E2A7898A79384CAFD9.pbiviz">accoPLANNINGV2_4DAA52ABFBF441E2A7898A79384CAFD9.pbiviz</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">Version Change: 2.1.0.1 ➔ 2.2.0.0<br>Release Date: 2026-10-23<br>Previous Release Date: 2026-10-16</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://www.enlighten.co.nz/contact">ENLIGHTEN DESIGNS</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">Create independent interactives legends, allowing you creativity and flexibility</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/enlightenLegend0ED91DCE508743998CF5A23E37414AD6.pbiviz">enlightenLegend0ED91DCE508743998CF5A23E37414AD6.pbiviz</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">SupportLink: https://www.enlighten.co.nz/Contact ➔ https://www.enlighten.co.nz/contact</td></tr>
 <tr><td style="border: none !important; padding: 4px;"></td></tr>
 <tr>
-  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/accobat.accocomment_preview"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/accoCOMMENT Preview - Writeback for contextual text based commentary and ratings.png?raw=true" width="100" alt="accoCOMMENT Preview - Writeback for contextual text based commentary and ratings" style="max-width: 100%; height: auto;"/>
+  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/WA104380849"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/Enlighten Stack Shuffle.png?raw=true" width="100" alt="Enlighten Stack Shuffle" style="max-width: 100%; height: auto;"/>
 </a></td>
-  <td style="width: 680px; border: none !important; padding: 4px;"><b>accoCOMMENT Preview - Writeback for contextual text based commentary and ratings</b></td>
+  <td style="width: 680px; border: none !important; padding: 4px;"><b>Enlighten Stack Shuffle</b></td>
 </tr>
-<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://support.accobat.com/">Accobat A/S</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">A contextual, text-based commentary tool with support for ratings, attachments, and workflow options</td></tr>
-<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/accoCOMMENT_4DAA52ABFBF441E2A7898A79384CAFC9_preview.pbiviz">accoCOMMENT_4DAA52ABFBF441E2A7898A79384CAFC9_preview.pbiviz</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">Version Change: 1.2.0.1 ➔ 1.2.1.0<br>Release Date: 2026-10-23<br>Previous Release Date: 2026-05-27</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://www.enlighten.co.nz/contact">ENLIGHTEN DESIGNS</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">Visually communicate data items in a beautiful, dynamic stack.</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/enlightenStackShuffle33EDB050C2424C618953642FFC0B291A.pbiviz">enlightenStackShuffle33EDB050C2424C618953642FFC0B291A.pbiviz</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">SupportLink: https://www.enlighten.co.nz/Contact ➔ https://www.enlighten.co.nz/contact</td></tr>
 <tr><td style="border: none !important; padding: 4px;"></td></tr>
 <tr>
-  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/WA200002600"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/accoPLANNING - Writeback, Planning, Matrix.png?raw=true" width="100" alt="accoPLANNING - Writeback, Planning, Matrix" style="max-width: 100%; height: auto;"/>
+  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/enlightendesignsltd1587194661332.enlightenouterspace"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/Enlighten Outer Space.png?raw=true" width="100" alt="Enlighten Outer Space" style="max-width: 100%; height: auto;"/>
 </a></td>
-  <td style="width: 680px; border: none !important; padding: 4px;"><b>accoPLANNING - Writeback, Planning, Matrix</b></td>
+  <td style="width: 680px; border: none !important; padding: 4px;"><b>Enlighten Outer Space</b></td>
 </tr>
-<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://support.accobat.com/">Accobat A/S</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">Visual with writeback directly in Power BI for planning, master data (MDM), budgeting, forecasting</td></tr>
-<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/accoPLANNING_4DAA52ABFBF441E2A7898A79384CAFA9.pbiviz">accoPLANNING_4DAA52ABFBF441E2A7898A79384CAFA9.pbiviz</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">Version Change: 1.1.2.5 ➔ 1.1.2.6<br>Release Date: 2026-10-23<br>Previous Release Date: 2026-10-07</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://www.enlighten.co.nz/contact">ENLIGHTEN DESIGNS</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">Create a report that is out of this world with this space-themed visualization!</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/Outerspace1442671919391.pbiviz">Outerspace1442671919391.pbiviz</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">SupportLink: https://www.enlighten.co.nz/Contact ➔ https://www.enlighten.co.nz/contact</td></tr>
 <tr><td style="border: none !important; padding: 4px;"></td></tr>
 <tr>
-  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/accobat.accocomment"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/accoCOMMENT - Writeback for contextual text based commentary and ratings.png?raw=true" width="100" alt="accoCOMMENT - Writeback for contextual text based commentary and ratings" style="max-width: 100%; height: auto;"/>
+  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/WA104380850"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/Enlighten Waffle Chart.png?raw=true" width="100" alt="Enlighten Waffle Chart" style="max-width: 100%; height: auto;"/>
 </a></td>
-  <td style="width: 680px; border: none !important; padding: 4px;"><b>accoCOMMENT - Writeback for contextual text based commentary and ratings</b></td>
+  <td style="width: 680px; border: none !important; padding: 4px;"><b>Enlighten Waffle Chart</b></td>
 </tr>
-<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://support.accobat.com/">Accobat A/S</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">A contextual, text-based commentary tool with support for ratings, attachments, and workflow options</td></tr>
-<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/accoCOMMENT_4DAA52ABFBF441E2A7898A79384CAFC9.pbiviz">accoCOMMENT_4DAA52ABFBF441E2A7898A79384CAFC9.pbiviz</a></td></tr>
-<tr><td style="border: none !important; padding: 4px;">Version Change: 1.2.0.1 ➔ 1.2.1.0<br>Release Date: 2026-10-23<br>Previous Release Date: 2026-05-27</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://www.enlighten.co.nz/contact">ENLIGHTEN DESIGNS</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">Show your data effectively with a waffle pop-out number and quote.</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/enlightenWaffleChartC94C0BDE416B413A8071A92B5E75A718.pbiviz">enlightenWaffleChartC94C0BDE416B413A8071A92B5E75A718.pbiviz</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">SupportLink: https://www.enlighten.co.nz/Contact ➔ https://www.enlighten.co.nz/contact</td></tr>
+<tr><td style="border: none !important; padding: 4px;"></td></tr>
+<tr>
+  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/WA104380960"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/Enlighten Slicer.png?raw=true" width="100" alt="Enlighten Slicer" style="max-width: 100%; height: auto;"/>
+</a></td>
+  <td style="width: 680px; border: none !important; padding: 4px;"><b>Enlighten Slicer</b></td>
+</tr>
+<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://www.enlighten.co.nz/contact">ENLIGHTEN DESIGNS</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">Provides a simple way to interact with your data.</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/enlightenSlicerB18DC0CE4A1F4BA79CE49FBE40F3965F.pbiviz">enlightenSlicerB18DC0CE4A1F4BA79CE49FBE40F3965F.pbiviz</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">SupportLink: https://www.enlighten.co.nz/Contact ➔ https://www.enlighten.co.nz/contact</td></tr>
+<tr><td style="border: none !important; padding: 4px;"></td></tr>
+<tr>
+  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/WA104380923"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/Enlighten World Flag Slicer.png?raw=true" width="100" alt="Enlighten World Flag Slicer" style="max-width: 100%; height: auto;"/>
+</a></td>
+  <td style="width: 680px; border: none !important; padding: 4px;"><b>Enlighten World Flag Slicer</b></td>
+</tr>
+<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://www.enlighten.co.nz/contact">ENLIGHTEN DESIGNS</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">Create a visually compelling country slicer to filter your report.</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/enlightenWorldFlagsE887F52F76244B1C927F80CF9724AEF6.pbiviz">enlightenWorldFlagsE887F52F76244B1C927F80CF9724AEF6.pbiviz</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">SupportLink: https://www.enlighten.co.nz/Contact ➔ https://www.enlighten.co.nz/contact</td></tr>
+<tr><td style="border: none !important; padding: 4px;"></td></tr>
+<tr>
+  <td rowspan="5" style="width: 120px; border: none !important; vertical-align: top; text-align: center;"><a href="https://appsource.microsoft.com/en-us/product/power-bi-visuals/WA104380868"><img src="https://github.com/DataChant/PowerBI-Visuals-Marketplace/blob/main/All%20Visuals/Images/Enlighten Bubble Stack.png?raw=true" width="100" alt="Enlighten Bubble Stack" style="max-width: 100%; height: auto;"/>
+</a></td>
+  <td style="width: 680px; border: none !important; padding: 4px;"><b>Enlighten Bubble Stack</b></td>
+</tr>
+<tr><td style="border: none !important; padding: 4px;">Publisher: <a href="https://www.enlighten.co.nz/contact">ENLIGHTEN DESIGNS</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">Fun with bubbles! Visualize each portion of your data as a stacked percentage bubble.</td></tr>
+<tr><td style="border: none !important; padding: 4px;">Direct Download: <a href="https://github.com/DataChant/PowerBI-Visuals-Marketplace/raw/refs/heads/main/All%20Visuals/PBIVIZ%20with%20guid/enlightenBubbleStack13709305C6AD4E59B8F78FFEA36FB62E.pbiviz">enlightenBubbleStack13709305C6AD4E59B8F78FFEA36FB62E.pbiviz</a></td></tr>
+<tr><td style="border: none !important; padding: 4px;">SupportLink: https://www.enlighten.co.nz/Contact ➔ https://www.enlighten.co.nz/contact</td></tr>
 <tr><td style="border: none !important; padding: 4px;"></td></tr>
 </table>
 
