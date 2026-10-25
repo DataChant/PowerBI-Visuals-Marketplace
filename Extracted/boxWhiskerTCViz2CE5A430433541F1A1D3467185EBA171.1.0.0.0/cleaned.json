@@ -1,0 +1,3204 @@
+{
+    "visual": {
+        "name": "boxWhiskerTCViz",
+        "displayName": "Box & Whisker by TCViz",
+        "guid": "boxWhiskerTCViz2CE5A430433541F1A1D3467185EBA171",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "A box plot that reads well: quartiles, whiskers and outliers per category, n on every box, documented quartile method. Pro adds points with jitter, mean and notches, violin, groups and small multiples, reference lines and sorting by median.",
+        "supportUrl": "https://tinocallarisa-web.github.io/box-whisker/support.html",
+        "gitHubUrl": "https://github.com/tinocallarisa-web/box-whisker"
+    },
+    "author": {
+        "name": "TCViz",
+        "email": "support@tcviz.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "de-DE": {
+            "Role_category": "Kategorie",
+            "Role_category_Desc": "Ein Kasten pro Wert. Eine Hierarchie erm\u00f6glicht Drilldown.",
+            "Role_value": "Wert",
+            "Role_value_Desc": "Das Measure, dessen Verteilung gezeichnet wird, je Detail-Zeile ausgewertet.",
+            "Role_detail": "Detail (Zeilen)",
+            "Role_detail_Desc": "Die ID jeder Beobachtung: Auftrag, Mitarbeiter, Ticket. Ohne sie gibt es keine Verteilung.",
+            "Role_group": "Gruppe (Pro)",
+            "Role_group_Desc": "K\u00e4sten nebeneinander je Kategorie, mit Legende.",
+            "Role_panel": "Kleine Vielfache (Pro)",
+            "Role_panel_Desc": "Ein Feld pro Wert, mit gemeinsamer Skala.",
+            "Role_tooltips": "QuickInfos",
+            "Role_tooltips_Desc": "Zus\u00e4tzliche Werte in der QuickInfo.",
+            "Obj_style": "Stilvorlage",
+            "Prop_style_template": "Vorlage",
+            "Enum_tpl_clean": "Klar",
+            "Enum_tpl_classic": "Klassisch",
+            "Enum_tpl_minimal": "Minimal",
+            "Enum_tpl_contrast": "Kontrast",
+            "Enum_tpl_compact": "Kompakt",
+            "Enum_tpl_ibcs": "IBCS-Stil",
+            "Obj_boxes": "K\u00e4sten",
+            "Prop_boxes_orientation": "Ausrichtung",
+            "Enum_or_vertical": "Vertikal",
+            "Enum_or_horizontal": "Horizontal",
+            "Prop_boxes_fill": "Kastenfarbe",
+            "Prop_boxes_border": "Rahmenfarbe",
+            "Prop_boxes_borderWidth": "Rahmenbreite",
+            "Prop_boxes_width": "Kastenbreite %",
+            "Prop_boxes_radius": "Abgerundete Ecken",
+            "Prop_boxes_opacity": "F\u00fcllungsdeckkraft %",
+            "Prop_boxes_quartileColors": "Farbe nach Quartil (Pro)",
+            "Prop_boxes_lowerColor": "Farbe untere H\u00e4lfte",
+            "Prop_boxes_upperColor": "Farbe obere H\u00e4lfte",
+            "Prop_boxes_medianColor": "Farbe der Medianlinie",
+            "Obj_whiskers": "Whisker",
+            "Prop_whiskers_rule": "Whisker-Reichweite",
+            "Enum_wh_tukey": "1,5 \u00d7 IQR (Tukey)",
+            "Enum_wh_minmax": "Minimum bis Maximum",
+            "Enum_wh_p5": "5. bis 95. Perzentil (Pro)",
+            "Enum_wh_p10": "10. bis 90. Perzentil (Pro)",
+            "Prop_whiskers_caps": "Endstriche",
+            "Prop_whiskers_color": "Whisker-Farbe",
+            "Obj_statistics": "Statistiken",
+            "Prop_statistics_method": "Quartilmethode",
+            "Enum_m_linear": "Inklusiv (Excel QUARTILE.INKL)",
+            "Enum_m_exclusive": "Exklusiv (Excel QUARTILE.EXKL) (Pro)",
+            "Enum_m_hinges": "Tukey-Angelpunkte (Pro)",
+            "Prop_statistics_showN": "n unter jedem Kasten anzeigen",
+            "Prop_statistics_medianLabel": "Medianbeschriftung",
+            "Prop_statistics_showMean": "Mittelwertmarkierung (Pro)",
+            "Prop_statistics_meanColor": "Mittelwertfarbe",
+            "Prop_statistics_notches": "Kerben (Pro)",
+            "Obj_points": "Punkte",
+            "Prop_points_show": "Alle Punkte anzeigen (Pro)",
+            "Prop_points_jitter": "Punktabstand %",
+            "Prop_points_size": "Punktgr\u00f6\u00dfe",
+            "Prop_points_color": "Punktfarbe",
+            "Prop_points_borderColor": "Punktrahmenfarbe",
+            "Prop_points_borderWidth": "Punktrahmenbreite",
+            "Prop_points_opacity": "Punktdeckkraft %",
+            "Prop_points_outlierSize": "Gr\u00f6\u00dfe der Ausrei\u00dfer",
+            "Prop_points_outlierColor": "Farbe der Ausrei\u00dfer",
+            "Obj_violin": "Violine",
+            "Prop_violin_show": "Violine anzeigen (Pro)",
+            "Prop_violin_opacity": "Violinen-Deckkraft %",
+            "Prop_violin_color": "Violinenfarbe",
+            "Obj_sort": "Sortieren",
+            "Prop_sort_by": "K\u00e4sten sortieren nach",
+            "Enum_s_data": "Datenreihenfolge",
+            "Enum_s_name": "Name",
+            "Enum_s_median": "Median (Pro)",
+            "Enum_s_mean": "Mittelwert (Pro)",
+            "Enum_s_iqr": "Streuung (IQR) (Pro)",
+            "Enum_s_count": "Anzahl (Pro)",
+            "Prop_sort_descending": "Absteigend",
+            "Obj_reference": "Bezugslinien",
+            "Prop_reference_show": "Bezugslinie (Pro)",
+            "Prop_reference_value": "Wert",
+            "Prop_reference_label": "Beschriftung",
+            "Prop_reference_color": "Linienfarbe",
+            "Prop_reference_show2": "Zweite Linie (Pro)",
+            "Prop_reference_value2": "Zweiter Wert",
+            "Prop_reference_label2": "Zweite Beschriftung",
+            "Obj_valueAxis": "Werteachse",
+            "Prop_valueAxis_show": "Anzeigen",
+            "Prop_valueAxis_title": "Titel",
+            "Prop_valueAxis_titleText": "Titeltext",
+            "Prop_valueAxis_gridlines": "Gitternetzlinien",
+            "Prop_valueAxis_auto": "Automatischer Bereich",
+            "Prop_valueAxis_min": "Minimum",
+            "Prop_valueAxis_max": "Maximum",
+            "Prop_valueAxis_fontSize": "Textgr\u00f6\u00dfe",
+            "Prop_valueAxis_color": "Textfarbe",
+            "Prop_valueAxis_fontFamily": "Schriftart",
+            "Prop_valueAxis_bold": "Fett",
+            "Obj_categoryAxis": "Kategorieachse",
+            "Prop_categoryAxis_show": "Anzeigen",
+            "Prop_categoryAxis_fontSize": "Textgr\u00f6\u00dfe",
+            "Prop_categoryAxis_color": "Textfarbe",
+            "Prop_categoryAxis_fontFamily": "Schriftart",
+            "Prop_categoryAxis_bold": "Fett",
+            "Obj_legend": "Legende",
+            "Prop_legend_show": "Anzeigen",
+            "Prop_legend_position": "Position",
+            "Enum_lg_top": "Oben",
+            "Enum_lg_bottom": "Unten",
+            "Prop_legend_fontSize": "Textgr\u00f6\u00dfe",
+            "Prop_legend_color": "Textfarbe",
+            "Obj_statsTable": "Statistiktabelle",
+            "Prop_statsTable_show": "Tabelle anzeigen (Pro)",
+            "Prop_statsTable_fontSize": "Textgr\u00f6\u00dfe",
+            "Prop_statsTable_color": "Textfarbe",
+            "Prop_statsTable_headerBackground": "Kopfzeilenhintergrund",
+            "Prop_statsTable_headerColor": "Textfarbe der Kopfzeile",
+            "Prop_statsTable_banding": "Farbe abwechselnder Zeilen",
+            "Obj_smallMultiples": "Kleine Vielfache",
+            "Prop_smallMultiples_columns": "Spalten (0 = automatisch)",
+            "Prop_smallMultiples_gap": "Abstand zwischen Feldern",
+            "Prop_smallMultiples_titleSize": "Titelgr\u00f6\u00dfe",
+            "Prop_smallMultiples_titleColor": "Titelfarbe",
+            "Prop_smallMultiples_titleBold": "Fetter Titel",
+            "Prop_smallMultiples_titleAlign": "Titelausrichtung",
+            "Enum_al_left": "Links",
+            "Enum_al_center": "Mitte",
+            "Prop_smallMultiples_background": "Feldhintergrund",
+            "Prop_smallMultiples_border": "Feldrahmen",
+            "Prop_smallMultiples_borderColor": "Farbe des Feldrahmens",
+            "Obj_background": "Hintergrund",
+            "Prop_background_color": "Farbe",
+            "UI_Blank": "(Leer)",
+            "UI_Median": "Median",
+            "UI_Category": "Kategorie",
+            "UI_Group": "Gruppe",
+            "UI_Panel": "Feld",
+            "UI_Min": "Min",
+            "UI_Max": "Max",
+            "UI_Mean": "Mittelwert",
+            "UI_SD": "Std.-Abw.",
+            "UI_Outliers": "Ausrei\u00dfer",
+            "UI_NoDetail": "F\u00fcgen Sie eine ID unter Detail (Zeilen) hinzu \u2013 Auftrag, Mitarbeiter, Ticket \u2013, damit jeder Kasten eine Verteilung zeigt und nicht eine Summe pro Kategorie.",
+            "UI_ReadingFree": "In der Leseansicht nicht angewendete Pro-Funktionen:",
+            "UI_ProPreview": "Pro-Vorschau",
+            "UI_WarnTitle": "Box & Whisker",
+            "UI_WarnRowsDesktop": "In Power BI Desktop verwendet das Visual die ersten Zeilen, die Power BI sendet: Ver\u00f6ffentlichen Sie im Dienst, um alle zu nutzen.",
+            "UI_WarnRows": "Power BI hat nur einen Teil der Zeilen gesendet: Die K\u00e4sten zeigen die empfangenen Zeilen.",
+            "UI_Method": "Quartile",
+            "UI_Avg": "Mittel",
+            "Landing_Tagline": "Sehen Sie, wie sich die Werte je Kategorie verteilen: Median, Quartile und Ausrei\u00dfer.",
+            "Landing_TaglineShort": "Wie sich die Werte je Kategorie verteilen.",
+            "Landing_Guide": "Anleitung",
+            "Landing_GuideSub": "Supportseite",
+            "Landing_Product": "Produktseite",
+            "Landing_Video": "Video",
+            "Landing_Small": "F\u00fcgen Sie {cat}, {val} und {det} hinzu.",
+            "Landing_Step1": "ein Kasten pro Wert: Region, Produkt, Team",
+            "Landing_Step1Short": "ein Kasten pro Wert",
+            "Landing_Step2": "das zu untersuchende Measure, z. B. Tage oder Betrag",
+            "Landing_Step2Short": "das zu untersuchende Measure",
+            "Landing_Step3": "die ID jeder Zeile: Auftrag, Mitarbeiter, Ticket",
+            "Landing_Step3Short": "die ID jeder Zeile",
+            "Landing_Start": "In 3 Schritten starten",
+            "Landing_Help": "Hilfe",
+            "Landing_Pro": "Alle Punkte mit Streuung, Mittelwert und Kerben, Violine, Gruppen und kleine Vielfache, Sortierung nach Median, Bezugslinien.",
+            "Landing_ProShort": "Punkte, Violine, Gruppen, kleine Vielfache, Sortierung nach Median.",
+            "UI_NoticePreview": "Box & Whisker: {0} geh\u00f6rt zum Pro-Plan und wird hier als Vorschau mit Wasserzeichen gezeigt. Die Leseansicht zeigt das kostenlose Ergebnis.",
+            "UI_NoticeBlocked": "Box & Whisker: {0} geh\u00f6rt zum Pro-Plan. Erwerben Sie eine Lizenz, um es zu aktivieren.",
+            "UI_HideGrid": "Gitternetzlinien ausblenden",
+            "UI_ShowGrid": "Gitternetzlinien anzeigen",
+            "Feat_group": "Gruppen",
+            "Feat_panel": "kleine Vielfache",
+            "Feat_points": "alle Punkte",
+            "Feat_violin": "Violine",
+            "Feat_quartile": "Farbe nach Quartil",
+            "Feat_mean": "Mittelwertmarkierung",
+            "Feat_notches": "Kerben",
+            "Feat_method": "Quartilmethode",
+            "Feat_whiskers": "Perzentil-Whisker",
+            "Feat_sort": "Sortierung nach Statistik",
+            "Feat_reference": "Bezugslinien",
+            "Feat_table": "Statistiktabelle"
+        },
+        "en-US": {
+            "Role_category": "Category",
+            "Role_category_Desc": "One box per value. A hierarchy gives drilldown.",
+            "Role_value": "Value",
+            "Role_value_Desc": "The measure whose distribution is drawn, evaluated per Detail row.",
+            "Role_detail": "Detail (rows)",
+            "Role_detail_Desc": "The ID of each observation: order, employee, ticket. Without it there is no distribution.",
+            "Role_group": "Group (Pro)",
+            "Role_group_Desc": "Side-by-side boxes within each category, with a legend.",
+            "Role_panel": "Small multiples (Pro)",
+            "Role_panel_Desc": "One panel per value, on a shared scale.",
+            "Role_tooltips": "Tooltips",
+            "Role_tooltips_Desc": "Extra values in the tooltip.",
+            "Obj_style": "Style template",
+            "Prop_style_template": "Template",
+            "Enum_tpl_clean": "Clean",
+            "Enum_tpl_classic": "Classic",
+            "Enum_tpl_minimal": "Minimal",
+            "Enum_tpl_contrast": "Contrast",
+            "Enum_tpl_compact": "Compact",
+            "Enum_tpl_ibcs": "IBCS style",
+            "Obj_boxes": "Boxes",
+            "Prop_boxes_orientation": "Orientation",
+            "Enum_or_vertical": "Vertical",
+            "Enum_or_horizontal": "Horizontal",
+            "Prop_boxes_fill": "Box color",
+            "Prop_boxes_border": "Border color",
+            "Prop_boxes_borderWidth": "Border width",
+            "Prop_boxes_width": "Box width %",
+            "Prop_boxes_radius": "Rounded corners",
+            "Prop_boxes_opacity": "Fill opacity %",
+            "Prop_boxes_quartileColors": "Color by quartile (Pro)",
+            "Prop_boxes_lowerColor": "Lower half color",
+            "Prop_boxes_upperColor": "Upper half color",
+            "Prop_boxes_medianColor": "Median line color",
+            "Obj_whiskers": "Whiskers",
+            "Prop_whiskers_rule": "Whiskers reach",
+            "Enum_wh_tukey": "1.5 \u00d7 IQR (Tukey)",
+            "Enum_wh_minmax": "Minimum to maximum",
+            "Enum_wh_p5": "5th to 95th percentile (Pro)",
+            "Enum_wh_p10": "10th to 90th percentile (Pro)",
+            "Prop_whiskers_caps": "Caps",
+            "Prop_whiskers_color": "Whisker color",
+            "Obj_statistics": "Statistics",
+            "Prop_statistics_method": "Quartile method",
+            "Enum_m_linear": "Inclusive (Excel QUARTILE.INC)",
+            "Enum_m_exclusive": "Exclusive (Excel QUARTILE.EXC) (Pro)",
+            "Enum_m_hinges": "Tukey hinges (Pro)",
+            "Prop_statistics_showN": "Show n under each box",
+            "Prop_statistics_medianLabel": "Median label",
+            "Prop_statistics_showMean": "Mean marker (Pro)",
+            "Prop_statistics_meanColor": "Mean color",
+            "Prop_statistics_notches": "Notches (Pro)",
+            "Obj_points": "Points",
+            "Prop_points_show": "Show all points (Pro)",
+            "Prop_points_jitter": "Jitter %",
+            "Prop_points_size": "Point size",
+            "Prop_points_color": "Point color",
+            "Prop_points_borderColor": "Point border color",
+            "Prop_points_borderWidth": "Point border width",
+            "Prop_points_opacity": "Point opacity %",
+            "Prop_points_outlierSize": "Outlier size",
+            "Prop_points_outlierColor": "Outlier color",
+            "Obj_violin": "Violin",
+            "Prop_violin_show": "Show violin (Pro)",
+            "Prop_violin_opacity": "Violin opacity %",
+            "Prop_violin_color": "Violin color",
+            "Obj_sort": "Sort",
+            "Prop_sort_by": "Sort boxes by",
+            "Enum_s_data": "Data order",
+            "Enum_s_name": "Name",
+            "Enum_s_median": "Median (Pro)",
+            "Enum_s_mean": "Mean (Pro)",
+            "Enum_s_iqr": "Spread (IQR) (Pro)",
+            "Enum_s_count": "Count (Pro)",
+            "Prop_sort_descending": "Descending",
+            "Obj_reference": "Reference lines",
+            "Prop_reference_show": "Reference line (Pro)",
+            "Prop_reference_value": "Value",
+            "Prop_reference_label": "Label",
+            "Prop_reference_color": "Line color",
+            "Prop_reference_show2": "Second line (Pro)",
+            "Prop_reference_value2": "Second value",
+            "Prop_reference_label2": "Second label",
+            "Obj_valueAxis": "Value axis",
+            "Prop_valueAxis_show": "Show",
+            "Prop_valueAxis_title": "Title",
+            "Prop_valueAxis_titleText": "Title text",
+            "Prop_valueAxis_gridlines": "Gridlines",
+            "Prop_valueAxis_auto": "Automatic range",
+            "Prop_valueAxis_min": "Minimum",
+            "Prop_valueAxis_max": "Maximum",
+            "Prop_valueAxis_fontSize": "Text size",
+            "Prop_valueAxis_color": "Text color",
+            "Prop_valueAxis_fontFamily": "Font",
+            "Prop_valueAxis_bold": "Bold",
+            "Obj_categoryAxis": "Category axis",
+            "Prop_categoryAxis_show": "Show",
+            "Prop_categoryAxis_fontSize": "Text size",
+            "Prop_categoryAxis_color": "Text color",
+            "Prop_categoryAxis_fontFamily": "Font",
+            "Prop_categoryAxis_bold": "Bold",
+            "Obj_legend": "Legend",
+            "Prop_legend_show": "Show",
+            "Prop_legend_position": "Position",
+            "Enum_lg_top": "Top",
+            "Enum_lg_bottom": "Bottom",
+            "Prop_legend_fontSize": "Text size",
+            "Prop_legend_color": "Text color",
+            "Obj_statsTable": "Statistics table",
+            "Prop_statsTable_show": "Show table (Pro)",
+            "Prop_statsTable_fontSize": "Text size",
+            "Prop_statsTable_color": "Text color",
+            "Prop_statsTable_headerBackground": "Header background",
+            "Prop_statsTable_headerColor": "Header text color",
+            "Prop_statsTable_banding": "Alternate row color",
+            "Obj_smallMultiples": "Small multiples",
+            "Prop_smallMultiples_columns": "Columns (0 = automatic)",
+            "Prop_smallMultiples_gap": "Space between panels",
+            "Prop_smallMultiples_titleSize": "Title size",
+            "Prop_smallMultiples_titleColor": "Title color",
+            "Prop_smallMultiples_titleBold": "Bold title",
+            "Prop_smallMultiples_titleAlign": "Title alignment",
+            "Enum_al_left": "Left",
+            "Enum_al_center": "Center",
+            "Prop_smallMultiples_background": "Panel background",
+            "Prop_smallMultiples_border": "Panel border",
+            "Prop_smallMultiples_borderColor": "Panel border color",
+            "Obj_background": "Background",
+            "Prop_background_color": "Color",
+            "UI_Blank": "(Blank)",
+            "UI_Median": "Median",
+            "UI_Category": "Category",
+            "UI_Group": "Group",
+            "UI_Panel": "Panel",
+            "UI_Min": "Min",
+            "UI_Max": "Max",
+            "UI_Mean": "Mean",
+            "UI_SD": "Std dev",
+            "UI_Outliers": "Outliers",
+            "UI_NoDetail": "Add an ID to Detail (rows) \u2014 order, employee, ticket \u2014 so each box shows a distribution, not one total per category.",
+            "UI_ReadingFree": "Pro features not applied in reading view:",
+            "UI_ProPreview": "Pro preview",
+            "UI_WarnTitle": "Box & Whisker",
+            "UI_WarnRowsDesktop": "In Power BI Desktop the visual uses the first rows Power BI sends: publish to the service to use them all.",
+            "UI_WarnRows": "Power BI sent only part of the rows: the boxes reflect the rows received.",
+            "UI_Method": "Quartiles",
+            "UI_Avg": "avg",
+            "Landing_Tagline": "See how values spread in each category: median, quartiles and outliers.",
+            "Landing_TaglineShort": "How values spread in each category.",
+            "Landing_Guide": "Guide",
+            "Landing_GuideSub": "support page",
+            "Landing_Product": "Product page",
+            "Landing_Video": "Video",
+            "Landing_Small": "Add {cat}, {val} and {det}.",
+            "Landing_Step1": "one box per value: region, product, team",
+            "Landing_Step1Short": "one box per value",
+            "Landing_Step2": "the measure to study, such as days or amount",
+            "Landing_Step2Short": "the measure to study",
+            "Landing_Step3": "the ID of each row: order, employee, ticket",
+            "Landing_Step3Short": "the ID of each row",
+            "Landing_Start": "Start in 3 steps",
+            "Landing_Help": "Help",
+            "Landing_Pro": "All points with jitter, mean and notches, violin, groups and small multiples, sorting by median, reference lines.",
+            "Landing_ProShort": "Points, violin, groups, small multiples, sort by median.",
+            "UI_NoticePreview": "Box & Whisker: {0} \u2014 part of the Pro plan, shown here as a watermarked preview. Reading view shows the free result.",
+            "UI_NoticeBlocked": "Box & Whisker: {0} \u2014 part of the Pro plan. Get a licence to enable it.",
+            "UI_HideGrid": "Hide gridlines",
+            "UI_ShowGrid": "Show gridlines",
+            "Feat_group": "groups",
+            "Feat_panel": "small multiples",
+            "Feat_points": "all points",
+            "Feat_violin": "violin",
+            "Feat_quartile": "color by quartile",
+            "Feat_mean": "mean marker",
+            "Feat_notches": "notches",
+            "Feat_method": "quartile method",
+            "Feat_whiskers": "percentile whiskers",
+            "Feat_sort": "sort by statistic",
+            "Feat_reference": "reference lines",
+            "Feat_table": "statistics table"
+        },
+        "es-ES": {
+            "Role_category": "Categor\u00eda",
+            "Role_category_Desc": "Una caja por valor. Una jerarqu\u00eda permite explorar en profundidad.",
+            "Role_value": "Valor",
+            "Role_value_Desc": "La medida cuya distribuci\u00f3n se dibuja, evaluada por cada fila de Detalle.",
+            "Role_detail": "Detalle (filas)",
+            "Role_detail_Desc": "El ID de cada observaci\u00f3n: pedido, empleado, ticket. Sin \u00e9l no hay distribuci\u00f3n.",
+            "Role_group": "Grupo (Pro)",
+            "Role_group_Desc": "Cajas lado a lado dentro de cada categor\u00eda, con leyenda.",
+            "Role_panel": "M\u00faltiplos peque\u00f1os (Pro)",
+            "Role_panel_Desc": "Un panel por valor, con la misma escala.",
+            "Role_tooltips": "Informaci\u00f3n sobre herramientas",
+            "Role_tooltips_Desc": "Valores adicionales en la informaci\u00f3n sobre herramientas.",
+            "Obj_style": "Plantilla de estilo",
+            "Prop_style_template": "Plantilla",
+            "Enum_tpl_clean": "Limpia",
+            "Enum_tpl_classic": "Cl\u00e1sica",
+            "Enum_tpl_minimal": "M\u00ednima",
+            "Enum_tpl_contrast": "Contraste",
+            "Enum_tpl_compact": "Compacta",
+            "Enum_tpl_ibcs": "Estilo IBCS",
+            "Obj_boxes": "Cajas",
+            "Prop_boxes_orientation": "Orientaci\u00f3n",
+            "Enum_or_vertical": "Vertical",
+            "Enum_or_horizontal": "Horizontal",
+            "Prop_boxes_fill": "Color de la caja",
+            "Prop_boxes_border": "Color del borde",
+            "Prop_boxes_borderWidth": "Grosor del borde",
+            "Prop_boxes_width": "Ancho de la caja %",
+            "Prop_boxes_radius": "Esquinas redondeadas",
+            "Prop_boxes_opacity": "Opacidad del relleno %",
+            "Prop_boxes_quartileColors": "Color por cuartil (Pro)",
+            "Prop_boxes_lowerColor": "Color de la mitad inferior",
+            "Prop_boxes_upperColor": "Color de la mitad superior",
+            "Prop_boxes_medianColor": "Color de la l\u00ednea de mediana",
+            "Obj_whiskers": "Bigotes",
+            "Prop_whiskers_rule": "Alcance de los bigotes",
+            "Enum_wh_tukey": "1,5 \u00d7 RIC (Tukey)",
+            "Enum_wh_minmax": "Del m\u00ednimo al m\u00e1ximo",
+            "Enum_wh_p5": "Percentil 5 a 95 (Pro)",
+            "Enum_wh_p10": "Percentil 10 a 90 (Pro)",
+            "Prop_whiskers_caps": "Remates",
+            "Prop_whiskers_color": "Color de los bigotes",
+            "Obj_statistics": "Estad\u00edsticos",
+            "Prop_statistics_method": "M\u00e9todo de cuartiles",
+            "Enum_m_linear": "Inclusivo (Excel CUARTIL.INC)",
+            "Enum_m_exclusive": "Exclusivo (Excel CUARTIL.EXC) (Pro)",
+            "Enum_m_hinges": "Bisagras de Tukey (Pro)",
+            "Prop_statistics_showN": "Mostrar n bajo cada caja",
+            "Prop_statistics_medianLabel": "Etiqueta de la mediana",
+            "Prop_statistics_showMean": "Marca de la media (Pro)",
+            "Prop_statistics_meanColor": "Color de la media",
+            "Prop_statistics_notches": "Muescas (Pro)",
+            "Obj_points": "Puntos",
+            "Prop_points_show": "Mostrar todos los puntos (Pro)",
+            "Prop_points_jitter": "Separaci\u00f3n de los puntos %",
+            "Prop_points_size": "Tama\u00f1o de punto",
+            "Prop_points_color": "Color de los puntos",
+            "Prop_points_borderColor": "Color del borde de los puntos",
+            "Prop_points_borderWidth": "Grosor del borde de los puntos",
+            "Prop_points_opacity": "Opacidad de los puntos %",
+            "Prop_points_outlierSize": "Tama\u00f1o de los valores at\u00edpicos",
+            "Prop_points_outlierColor": "Color de los valores at\u00edpicos",
+            "Obj_violin": "Viol\u00edn",
+            "Prop_violin_show": "Mostrar viol\u00edn (Pro)",
+            "Prop_violin_opacity": "Opacidad del viol\u00edn %",
+            "Prop_violin_color": "Color del viol\u00edn",
+            "Obj_sort": "Ordenar",
+            "Prop_sort_by": "Ordenar cajas por",
+            "Enum_s_data": "Orden de los datos",
+            "Enum_s_name": "Nombre",
+            "Enum_s_median": "Mediana (Pro)",
+            "Enum_s_mean": "Media (Pro)",
+            "Enum_s_iqr": "Dispersi\u00f3n (RIC) (Pro)",
+            "Enum_s_count": "Recuento (Pro)",
+            "Prop_sort_descending": "Descendente",
+            "Obj_reference": "L\u00edneas de referencia",
+            "Prop_reference_show": "L\u00ednea de referencia (Pro)",
+            "Prop_reference_value": "Valor",
+            "Prop_reference_label": "Etiqueta",
+            "Prop_reference_color": "Color de la l\u00ednea",
+            "Prop_reference_show2": "Segunda l\u00ednea (Pro)",
+            "Prop_reference_value2": "Segundo valor",
+            "Prop_reference_label2": "Segunda etiqueta",
+            "Obj_valueAxis": "Eje de valores",
+            "Prop_valueAxis_show": "Mostrar",
+            "Prop_valueAxis_title": "T\u00edtulo",
+            "Prop_valueAxis_titleText": "Texto del t\u00edtulo",
+            "Prop_valueAxis_gridlines": "L\u00edneas de cuadr\u00edcula",
+            "Prop_valueAxis_auto": "Rango autom\u00e1tico",
+            "Prop_valueAxis_min": "M\u00ednimo",
+            "Prop_valueAxis_max": "M\u00e1ximo",
+            "Prop_valueAxis_fontSize": "Tama\u00f1o del texto",
+            "Prop_valueAxis_color": "Color del texto",
+            "Prop_valueAxis_fontFamily": "Fuente",
+            "Prop_valueAxis_bold": "Negrita",
+            "Obj_categoryAxis": "Eje de categor\u00edas",
+            "Prop_categoryAxis_show": "Mostrar",
+            "Prop_categoryAxis_fontSize": "Tama\u00f1o del texto",
+            "Prop_categoryAxis_color": "Color del texto",
+            "Prop_categoryAxis_fontFamily": "Fuente",
+            "Prop_categoryAxis_bold": "Negrita",
+            "Obj_legend": "Leyenda",
+            "Prop_legend_show": "Mostrar",
+            "Prop_legend_position": "Posici\u00f3n",
+            "Enum_lg_top": "Arriba",
+            "Enum_lg_bottom": "Abajo",
+            "Prop_legend_fontSize": "Tama\u00f1o del texto",
+            "Prop_legend_color": "Color del texto",
+            "Obj_statsTable": "Tabla de estad\u00edsticos",
+            "Prop_statsTable_show": "Mostrar tabla (Pro)",
+            "Prop_statsTable_fontSize": "Tama\u00f1o del texto",
+            "Prop_statsTable_color": "Color del texto",
+            "Prop_statsTable_headerBackground": "Fondo de la cabecera",
+            "Prop_statsTable_headerColor": "Color del texto de la cabecera",
+            "Prop_statsTable_banding": "Color de filas alternas",
+            "Obj_smallMultiples": "M\u00faltiplos peque\u00f1os",
+            "Prop_smallMultiples_columns": "Columnas (0 = autom\u00e1tico)",
+            "Prop_smallMultiples_gap": "Espacio entre paneles",
+            "Prop_smallMultiples_titleSize": "Tama\u00f1o del t\u00edtulo",
+            "Prop_smallMultiples_titleColor": "Color del t\u00edtulo",
+            "Prop_smallMultiples_titleBold": "T\u00edtulo en negrita",
+            "Prop_smallMultiples_titleAlign": "Alineaci\u00f3n del t\u00edtulo",
+            "Enum_al_left": "Izquierda",
+            "Enum_al_center": "Centro",
+            "Prop_smallMultiples_background": "Fondo del panel",
+            "Prop_smallMultiples_border": "Borde del panel",
+            "Prop_smallMultiples_borderColor": "Color del borde del panel",
+            "Obj_background": "Fondo",
+            "Prop_background_color": "Color",
+            "UI_Blank": "(En blanco)",
+            "UI_Median": "Mediana",
+            "UI_Category": "Categor\u00eda",
+            "UI_Group": "Grupo",
+            "UI_Panel": "Panel",
+            "UI_Min": "M\u00edn.",
+            "UI_Max": "M\u00e1x.",
+            "UI_Mean": "Media",
+            "UI_SD": "Desv. est.",
+            "UI_Outliers": "Valores at\u00edpicos",
+            "UI_NoDetail": "A\u00f1ade un ID a Detalle (filas) \u2014pedido, empleado, ticket\u2014 para que cada caja muestre una distribuci\u00f3n y no un total por categor\u00eda.",
+            "UI_ReadingFree": "Funciones Pro no aplicadas en la vista de lectura:",
+            "UI_ProPreview": "Vista previa Pro",
+            "UI_WarnTitle": "Box & Whisker",
+            "UI_WarnRowsDesktop": "En Power BI Desktop el visual usa las primeras filas que env\u00eda Power BI: publica en el servicio para usarlas todas.",
+            "UI_WarnRows": "Power BI solo ha enviado parte de las filas: las cajas reflejan las filas recibidas.",
+            "UI_Method": "Cuartiles",
+            "UI_Avg": "media",
+            "Landing_Tagline": "Mira c\u00f3mo se reparten los valores en cada categor\u00eda: mediana, cuartiles y valores at\u00edpicos.",
+            "Landing_TaglineShort": "C\u00f3mo se reparten los valores en cada categor\u00eda.",
+            "Landing_Guide": "Gu\u00eda",
+            "Landing_GuideSub": "p\u00e1gina de soporte",
+            "Landing_Product": "Ficha del producto",
+            "Landing_Video": "V\u00eddeo",
+            "Landing_Small": "A\u00f1ade {cat}, {val} y {det}.",
+            "Landing_Step1": "una caja por valor: regi\u00f3n, producto, equipo",
+            "Landing_Step1Short": "una caja por valor",
+            "Landing_Step2": "la medida que quieres estudiar, como d\u00edas o importe",
+            "Landing_Step2Short": "la medida que quieres estudiar",
+            "Landing_Step3": "el ID de cada fila: pedido, empleado, ticket",
+            "Landing_Step3Short": "el ID de cada fila",
+            "Landing_Start": "Empieza en 3 pasos",
+            "Landing_Help": "Ayuda",
+            "Landing_Pro": "Todos los puntos separados, media y muescas, viol\u00edn, grupos y m\u00faltiplos peque\u00f1os, orden por mediana y l\u00edneas de referencia.",
+            "Landing_ProShort": "Puntos, viol\u00edn, grupos, m\u00faltiplos peque\u00f1os, orden por mediana.",
+            "UI_NoticePreview": "Box & Whisker: {0} forma parte del plan Pro y aqu\u00ed se muestra como vista previa con marca de agua. La vista de lectura muestra el resultado gratuito.",
+            "UI_NoticeBlocked": "Box & Whisker: {0} forma parte del plan Pro. Consigue una licencia para activarlo.",
+            "UI_HideGrid": "Ocultar l\u00edneas de cuadr\u00edcula",
+            "UI_ShowGrid": "Mostrar l\u00edneas de cuadr\u00edcula",
+            "Feat_group": "grupos",
+            "Feat_panel": "m\u00faltiplos peque\u00f1os",
+            "Feat_points": "todos los puntos",
+            "Feat_violin": "viol\u00edn",
+            "Feat_quartile": "color por cuartil",
+            "Feat_mean": "marca de la media",
+            "Feat_notches": "muescas",
+            "Feat_method": "m\u00e9todo de cuartiles",
+            "Feat_whiskers": "bigotes por percentil",
+            "Feat_sort": "orden por estad\u00edstico",
+            "Feat_reference": "l\u00edneas de referencia",
+            "Feat_table": "tabla de estad\u00edsticos"
+        },
+        "fr-FR": {
+            "Role_category": "Cat\u00e9gorie",
+            "Role_category_Desc": "Une bo\u00eete par valeur. Une hi\u00e9rarchie permet l\u2019exploration.",
+            "Role_value": "Valeur",
+            "Role_value_Desc": "La mesure dont la distribution est trac\u00e9e, \u00e9valu\u00e9e par ligne de D\u00e9tail.",
+            "Role_detail": "D\u00e9tail (lignes)",
+            "Role_detail_Desc": "L\u2019ID de chaque observation : commande, employ\u00e9, ticket. Sans lui, pas de distribution.",
+            "Role_group": "Groupe (Pro)",
+            "Role_group_Desc": "Bo\u00eetes c\u00f4te \u00e0 c\u00f4te dans chaque cat\u00e9gorie, avec l\u00e9gende.",
+            "Role_panel": "Multiples petits (Pro)",
+            "Role_panel_Desc": "Un panneau par valeur, sur une \u00e9chelle commune.",
+            "Role_tooltips": "Info-bulles",
+            "Role_tooltips_Desc": "Valeurs suppl\u00e9mentaires dans l\u2019info-bulle.",
+            "Obj_style": "Mod\u00e8le de style",
+            "Prop_style_template": "Mod\u00e8le",
+            "Enum_tpl_clean": "\u00c9pur\u00e9",
+            "Enum_tpl_classic": "Classique",
+            "Enum_tpl_minimal": "Minimal",
+            "Enum_tpl_contrast": "Contraste",
+            "Enum_tpl_compact": "Compact",
+            "Enum_tpl_ibcs": "Style IBCS",
+            "Obj_boxes": "Bo\u00eetes",
+            "Prop_boxes_orientation": "Orientation",
+            "Enum_or_vertical": "Verticale",
+            "Enum_or_horizontal": "Horizontale",
+            "Prop_boxes_fill": "Couleur de la bo\u00eete",
+            "Prop_boxes_border": "Couleur de bordure",
+            "Prop_boxes_borderWidth": "\u00c9paisseur de bordure",
+            "Prop_boxes_width": "Largeur de la bo\u00eete %",
+            "Prop_boxes_radius": "Coins arrondis",
+            "Prop_boxes_opacity": "Opacit\u00e9 du remplissage %",
+            "Prop_boxes_quartileColors": "Couleur par quartile (Pro)",
+            "Prop_boxes_lowerColor": "Couleur de la moiti\u00e9 inf\u00e9rieure",
+            "Prop_boxes_upperColor": "Couleur de la moiti\u00e9 sup\u00e9rieure",
+            "Prop_boxes_medianColor": "Couleur de la ligne m\u00e9diane",
+            "Obj_whiskers": "Moustaches",
+            "Prop_whiskers_rule": "Port\u00e9e des moustaches",
+            "Enum_wh_tukey": "1,5 \u00d7 EIQ (Tukey)",
+            "Enum_wh_minmax": "Du minimum au maximum",
+            "Enum_wh_p5": "5e au 95e centile (Pro)",
+            "Enum_wh_p10": "10e au 90e centile (Pro)",
+            "Prop_whiskers_caps": "Embouts",
+            "Prop_whiskers_color": "Couleur des moustaches",
+            "Obj_statistics": "Statistiques",
+            "Prop_statistics_method": "M\u00e9thode des quartiles",
+            "Enum_m_linear": "Inclusif (Excel QUARTILE.INCLURE)",
+            "Enum_m_exclusive": "Exclusif (Excel QUARTILE.EXCLURE) (Pro)",
+            "Enum_m_hinges": "Charni\u00e8res de Tukey (Pro)",
+            "Prop_statistics_showN": "Afficher n sous chaque bo\u00eete",
+            "Prop_statistics_medianLabel": "\u00c9tiquette de la m\u00e9diane",
+            "Prop_statistics_showMean": "Rep\u00e8re de la moyenne (Pro)",
+            "Prop_statistics_meanColor": "Couleur de la moyenne",
+            "Prop_statistics_notches": "Encoches (Pro)",
+            "Obj_points": "Points",
+            "Prop_points_show": "Afficher tous les points (Pro)",
+            "Prop_points_jitter": "\u00c9cartement des points %",
+            "Prop_points_size": "Taille des points",
+            "Prop_points_color": "Couleur des points",
+            "Prop_points_borderColor": "Couleur de bordure des points",
+            "Prop_points_borderWidth": "\u00c9paisseur de bordure des points",
+            "Prop_points_opacity": "Opacit\u00e9 des points %",
+            "Prop_points_outlierSize": "Taille des valeurs aberrantes",
+            "Prop_points_outlierColor": "Couleur des valeurs aberrantes",
+            "Obj_violin": "Violon",
+            "Prop_violin_show": "Afficher le violon (Pro)",
+            "Prop_violin_opacity": "Opacit\u00e9 du violon %",
+            "Prop_violin_color": "Couleur du violon",
+            "Obj_sort": "Trier",
+            "Prop_sort_by": "Trier les bo\u00eetes par",
+            "Enum_s_data": "Ordre des donn\u00e9es",
+            "Enum_s_name": "Nom",
+            "Enum_s_median": "M\u00e9diane (Pro)",
+            "Enum_s_mean": "Moyenne (Pro)",
+            "Enum_s_iqr": "Dispersion (EIQ) (Pro)",
+            "Enum_s_count": "Nombre (Pro)",
+            "Prop_sort_descending": "D\u00e9croissant",
+            "Obj_reference": "Lignes de r\u00e9f\u00e9rence",
+            "Prop_reference_show": "Ligne de r\u00e9f\u00e9rence (Pro)",
+            "Prop_reference_value": "Valeur",
+            "Prop_reference_label": "\u00c9tiquette",
+            "Prop_reference_color": "Couleur de la ligne",
+            "Prop_reference_show2": "Deuxi\u00e8me ligne (Pro)",
+            "Prop_reference_value2": "Deuxi\u00e8me valeur",
+            "Prop_reference_label2": "Deuxi\u00e8me \u00e9tiquette",
+            "Obj_valueAxis": "Axe des valeurs",
+            "Prop_valueAxis_show": "Afficher",
+            "Prop_valueAxis_title": "Titre",
+            "Prop_valueAxis_titleText": "Texte du titre",
+            "Prop_valueAxis_gridlines": "Quadrillage",
+            "Prop_valueAxis_auto": "Plage automatique",
+            "Prop_valueAxis_min": "Minimum",
+            "Prop_valueAxis_max": "Maximum",
+            "Prop_valueAxis_fontSize": "Taille du texte",
+            "Prop_valueAxis_color": "Couleur du texte",
+            "Prop_valueAxis_fontFamily": "Police",
+            "Prop_valueAxis_bold": "Gras",
+            "Obj_categoryAxis": "Axe des cat\u00e9gories",
+            "Prop_categoryAxis_show": "Afficher",
+            "Prop_categoryAxis_fontSize": "Taille du texte",
+            "Prop_categoryAxis_color": "Couleur du texte",
+            "Prop_categoryAxis_fontFamily": "Police",
+            "Prop_categoryAxis_bold": "Gras",
+            "Obj_legend": "L\u00e9gende",
+            "Prop_legend_show": "Afficher",
+            "Prop_legend_position": "Position",
+            "Enum_lg_top": "Haut",
+            "Enum_lg_bottom": "Bas",
+            "Prop_legend_fontSize": "Taille du texte",
+            "Prop_legend_color": "Couleur du texte",
+            "Obj_statsTable": "Tableau de statistiques",
+            "Prop_statsTable_show": "Afficher le tableau (Pro)",
+            "Prop_statsTable_fontSize": "Taille du texte",
+            "Prop_statsTable_color": "Couleur du texte",
+            "Prop_statsTable_headerBackground": "Arri\u00e8re-plan de l\u2019en-t\u00eate",
+            "Prop_statsTable_headerColor": "Couleur du texte de l\u2019en-t\u00eate",
+            "Prop_statsTable_banding": "Couleur des lignes altern\u00e9es",
+            "Obj_smallMultiples": "Multiples petits",
+            "Prop_smallMultiples_columns": "Colonnes (0 = automatique)",
+            "Prop_smallMultiples_gap": "Espace entre les panneaux",
+            "Prop_smallMultiples_titleSize": "Taille du titre",
+            "Prop_smallMultiples_titleColor": "Couleur du titre",
+            "Prop_smallMultiples_titleBold": "Titre en gras",
+            "Prop_smallMultiples_titleAlign": "Alignement du titre",
+            "Enum_al_left": "Gauche",
+            "Enum_al_center": "Centre",
+            "Prop_smallMultiples_background": "Arri\u00e8re-plan du panneau",
+            "Prop_smallMultiples_border": "Bordure du panneau",
+            "Prop_smallMultiples_borderColor": "Couleur de bordure du panneau",
+            "Obj_background": "Arri\u00e8re-plan",
+            "Prop_background_color": "Couleur",
+            "UI_Blank": "(Vide)",
+            "UI_Median": "M\u00e9diane",
+            "UI_Category": "Cat\u00e9gorie",
+            "UI_Group": "Groupe",
+            "UI_Panel": "Panneau",
+            "UI_Min": "Min",
+            "UI_Max": "Max",
+            "UI_Mean": "Moyenne",
+            "UI_SD": "\u00c9cart type",
+            "UI_Outliers": "Valeurs aberrantes",
+            "UI_NoDetail": "Ajoutez un ID dans D\u00e9tail (lignes) \u2014 commande, employ\u00e9, ticket \u2014 pour que chaque bo\u00eete montre une distribution, pas un total par cat\u00e9gorie.",
+            "UI_ReadingFree": "Fonctions Pro non appliqu\u00e9es en mode lecture :",
+            "UI_ProPreview": "Aper\u00e7u Pro",
+            "UI_WarnTitle": "Box & Whisker",
+            "UI_WarnRowsDesktop": "Dans Power BI Desktop, le visuel utilise les premi\u00e8res lignes envoy\u00e9es par Power BI : publiez dans le service pour toutes les utiliser.",
+            "UI_WarnRows": "Power BI n\u2019a envoy\u00e9 qu\u2019une partie des lignes : les bo\u00eetes refl\u00e8tent les lignes re\u00e7ues.",
+            "UI_Method": "Quartiles",
+            "UI_Avg": "moy.",
+            "Landing_Tagline": "Voyez comment les valeurs se r\u00e9partissent dans chaque cat\u00e9gorie : m\u00e9diane, quartiles et valeurs aberrantes.",
+            "Landing_TaglineShort": "Comment les valeurs se r\u00e9partissent par cat\u00e9gorie.",
+            "Landing_Guide": "Guide",
+            "Landing_GuideSub": "page d\u2019assistance",
+            "Landing_Product": "Page du produit",
+            "Landing_Video": "Vid\u00e9o",
+            "Landing_Small": "Ajoutez {cat}, {val} et {det}.",
+            "Landing_Step1": "une bo\u00eete par valeur : r\u00e9gion, produit, \u00e9quipe",
+            "Landing_Step1Short": "une bo\u00eete par valeur",
+            "Landing_Step2": "la mesure \u00e0 \u00e9tudier, comme des jours ou un montant",
+            "Landing_Step2Short": "la mesure \u00e0 \u00e9tudier",
+            "Landing_Step3": "l\u2019ID de chaque ligne : commande, employ\u00e9, ticket",
+            "Landing_Step3Short": "l\u2019ID de chaque ligne",
+            "Landing_Start": "Commencer en 3 \u00e9tapes",
+            "Landing_Help": "Aide",
+            "Landing_Pro": "Tous les points dispers\u00e9s, moyenne et encoches, violon, groupes et multiples petits, tri par m\u00e9diane, lignes de r\u00e9f\u00e9rence.",
+            "Landing_ProShort": "Points, violon, groupes, multiples petits, tri par m\u00e9diane.",
+            "UI_NoticePreview": "Box & Whisker : {0} fait partie du plan Pro, affich\u00e9 ici en aper\u00e7u avec filigrane. Le mode lecture montre le r\u00e9sultat gratuit.",
+            "UI_NoticeBlocked": "Box & Whisker : {0} fait partie du plan Pro. Obtenez une licence pour l\u2019activer.",
+            "UI_HideGrid": "Masquer le quadrillage",
+            "UI_ShowGrid": "Afficher le quadrillage",
+            "Feat_group": "groupes",
+            "Feat_panel": "multiples petits",
+            "Feat_points": "tous les points",
+            "Feat_violin": "violon",
+            "Feat_quartile": "couleur par quartile",
+            "Feat_mean": "rep\u00e8re de la moyenne",
+            "Feat_notches": "encoches",
+            "Feat_method": "m\u00e9thode des quartiles",
+            "Feat_whiskers": "moustaches par centile",
+            "Feat_sort": "tri par statistique",
+            "Feat_reference": "lignes de r\u00e9f\u00e9rence",
+            "Feat_table": "tableau de statistiques"
+        },
+        "it-IT": {
+            "Role_category": "Categoria",
+            "Role_category_Desc": "Una scatola per valore. Una gerarchia consente il drill-down.",
+            "Role_value": "Valore",
+            "Role_value_Desc": "La misura di cui si disegna la distribuzione, valutata per riga di Dettaglio.",
+            "Role_detail": "Dettaglio (righe)",
+            "Role_detail_Desc": "L\u2019ID di ogni osservazione: ordine, dipendente, ticket. Senza di esso non c\u2019\u00e8 distribuzione.",
+            "Role_group": "Gruppo (Pro)",
+            "Role_group_Desc": "Scatole affiancate in ogni categoria, con legenda.",
+            "Role_panel": "Multipli piccoli (Pro)",
+            "Role_panel_Desc": "Un pannello per valore, su scala comune.",
+            "Role_tooltips": "Descrizioni comandi",
+            "Role_tooltips_Desc": "Valori aggiuntivi nella descrizione comando.",
+            "Obj_style": "Modello di stile",
+            "Prop_style_template": "Modello",
+            "Enum_tpl_clean": "Pulito",
+            "Enum_tpl_classic": "Classico",
+            "Enum_tpl_minimal": "Minimale",
+            "Enum_tpl_contrast": "Contrasto",
+            "Enum_tpl_compact": "Compatto",
+            "Enum_tpl_ibcs": "Stile IBCS",
+            "Obj_boxes": "Scatole",
+            "Prop_boxes_orientation": "Orientamento",
+            "Enum_or_vertical": "Verticale",
+            "Enum_or_horizontal": "Orizzontale",
+            "Prop_boxes_fill": "Colore scatola",
+            "Prop_boxes_border": "Colore bordo",
+            "Prop_boxes_borderWidth": "Spessore bordo",
+            "Prop_boxes_width": "Larghezza scatola %",
+            "Prop_boxes_radius": "Angoli arrotondati",
+            "Prop_boxes_opacity": "Opacit\u00e0 riempimento %",
+            "Prop_boxes_quartileColors": "Colore per quartile (Pro)",
+            "Prop_boxes_lowerColor": "Colore met\u00e0 inferiore",
+            "Prop_boxes_upperColor": "Colore met\u00e0 superiore",
+            "Prop_boxes_medianColor": "Colore linea mediana",
+            "Obj_whiskers": "Baffi",
+            "Prop_whiskers_rule": "Estensione dei baffi",
+            "Enum_wh_tukey": "1,5 \u00d7 IQR (Tukey)",
+            "Enum_wh_minmax": "Dal minimo al massimo",
+            "Enum_wh_p5": "Dal 5\u00b0 al 95\u00b0 percentile (Pro)",
+            "Enum_wh_p10": "Dal 10\u00b0 al 90\u00b0 percentile (Pro)",
+            "Prop_whiskers_caps": "Terminali",
+            "Prop_whiskers_color": "Colore baffi",
+            "Obj_statistics": "Statistiche",
+            "Prop_statistics_method": "Metodo dei quartili",
+            "Enum_m_linear": "Inclusivo (Excel ESC.QUARTILE.INC)",
+            "Enum_m_exclusive": "Esclusivo (Excel ESC.QUARTILE.ESC) (Pro)",
+            "Enum_m_hinges": "Cerniere di Tukey (Pro)",
+            "Prop_statistics_showN": "Mostra n sotto ogni scatola",
+            "Prop_statistics_medianLabel": "Etichetta mediana",
+            "Prop_statistics_showMean": "Indicatore della media (Pro)",
+            "Prop_statistics_meanColor": "Colore media",
+            "Prop_statistics_notches": "Tacche (Pro)",
+            "Obj_points": "Punti",
+            "Prop_points_show": "Mostra tutti i punti (Pro)",
+            "Prop_points_jitter": "Separazione dei punti %",
+            "Prop_points_size": "Dimensione punti",
+            "Prop_points_color": "Colore punti",
+            "Prop_points_borderColor": "Colore bordo punti",
+            "Prop_points_borderWidth": "Spessore bordo punti",
+            "Prop_points_opacity": "Opacit\u00e0 punti %",
+            "Prop_points_outlierSize": "Dimensione valori anomali",
+            "Prop_points_outlierColor": "Colore valori anomali",
+            "Obj_violin": "Violino",
+            "Prop_violin_show": "Mostra violino (Pro)",
+            "Prop_violin_opacity": "Opacit\u00e0 violino %",
+            "Prop_violin_color": "Colore del violino",
+            "Obj_sort": "Ordina",
+            "Prop_sort_by": "Ordina scatole per",
+            "Enum_s_data": "Ordine dei dati",
+            "Enum_s_name": "Nome",
+            "Enum_s_median": "Mediana (Pro)",
+            "Enum_s_mean": "Media (Pro)",
+            "Enum_s_iqr": "Dispersione (IQR) (Pro)",
+            "Enum_s_count": "Conteggio (Pro)",
+            "Prop_sort_descending": "Decrescente",
+            "Obj_reference": "Linee di riferimento",
+            "Prop_reference_show": "Linea di riferimento (Pro)",
+            "Prop_reference_value": "Valore",
+            "Prop_reference_label": "Etichetta",
+            "Prop_reference_color": "Colore linea",
+            "Prop_reference_show2": "Seconda linea (Pro)",
+            "Prop_reference_value2": "Secondo valore",
+            "Prop_reference_label2": "Seconda etichetta",
+            "Obj_valueAxis": "Asse dei valori",
+            "Prop_valueAxis_show": "Mostra",
+            "Prop_valueAxis_title": "Titolo",
+            "Prop_valueAxis_titleText": "Testo del titolo",
+            "Prop_valueAxis_gridlines": "Griglia",
+            "Prop_valueAxis_auto": "Intervallo automatico",
+            "Prop_valueAxis_min": "Minimo",
+            "Prop_valueAxis_max": "Massimo",
+            "Prop_valueAxis_fontSize": "Dimensione testo",
+            "Prop_valueAxis_color": "Colore testo",
+            "Prop_valueAxis_fontFamily": "Carattere",
+            "Prop_valueAxis_bold": "Grassetto",
+            "Obj_categoryAxis": "Asse delle categorie",
+            "Prop_categoryAxis_show": "Mostra",
+            "Prop_categoryAxis_fontSize": "Dimensione testo",
+            "Prop_categoryAxis_color": "Colore testo",
+            "Prop_categoryAxis_fontFamily": "Carattere",
+            "Prop_categoryAxis_bold": "Grassetto",
+            "Obj_legend": "Legenda",
+            "Prop_legend_show": "Mostra",
+            "Prop_legend_position": "Posizione",
+            "Enum_lg_top": "In alto",
+            "Enum_lg_bottom": "In basso",
+            "Prop_legend_fontSize": "Dimensione testo",
+            "Prop_legend_color": "Colore testo",
+            "Obj_statsTable": "Tabella statistiche",
+            "Prop_statsTable_show": "Mostra tabella (Pro)",
+            "Prop_statsTable_fontSize": "Dimensione testo",
+            "Prop_statsTable_color": "Colore testo",
+            "Prop_statsTable_headerBackground": "Sfondo dell\u2019intestazione",
+            "Prop_statsTable_headerColor": "Colore testo intestazione",
+            "Prop_statsTable_banding": "Colore righe alternate",
+            "Obj_smallMultiples": "Multipli piccoli",
+            "Prop_smallMultiples_columns": "Colonne (0 = automatico)",
+            "Prop_smallMultiples_gap": "Spazio tra i pannelli",
+            "Prop_smallMultiples_titleSize": "Dimensione titolo",
+            "Prop_smallMultiples_titleColor": "Colore titolo",
+            "Prop_smallMultiples_titleBold": "Titolo in grassetto",
+            "Prop_smallMultiples_titleAlign": "Allineamento titolo",
+            "Enum_al_left": "Sinistra",
+            "Enum_al_center": "Centro",
+            "Prop_smallMultiples_background": "Sfondo del pannello",
+            "Prop_smallMultiples_border": "Bordo del pannello",
+            "Prop_smallMultiples_borderColor": "Colore bordo pannello",
+            "Obj_background": "Sfondo",
+            "Prop_background_color": "Colore",
+            "UI_Blank": "(Vuoto)",
+            "UI_Median": "Mediana",
+            "UI_Category": "Categoria",
+            "UI_Group": "Gruppo",
+            "UI_Panel": "Pannello",
+            "UI_Min": "Min",
+            "UI_Max": "Max",
+            "UI_Mean": "Media",
+            "UI_SD": "Dev. std.",
+            "UI_Outliers": "Valori anomali",
+            "UI_NoDetail": "Aggiungi un ID in Dettaglio (righe) \u2014 ordine, dipendente, ticket \u2014 perch\u00e9 ogni scatola mostri una distribuzione e non un totale per categoria.",
+            "UI_ReadingFree": "Funzioni Pro non applicate in visualizzazione lettura:",
+            "UI_ProPreview": "Anteprima Pro",
+            "UI_WarnTitle": "Box & Whisker",
+            "UI_WarnRowsDesktop": "In Power BI Desktop l\u2019oggetto visivo usa le prime righe inviate da Power BI: pubblica nel servizio per usarle tutte.",
+            "UI_WarnRows": "Power BI ha inviato solo una parte delle righe: le scatole riflettono le righe ricevute.",
+            "UI_Method": "Quartili",
+            "UI_Avg": "media",
+            "Landing_Tagline": "Guarda come si distribuiscono i valori in ogni categoria: mediana, quartili e valori anomali.",
+            "Landing_TaglineShort": "Come si distribuiscono i valori per categoria.",
+            "Landing_Guide": "Guida",
+            "Landing_GuideSub": "pagina di supporto",
+            "Landing_Product": "Pagina del prodotto",
+            "Landing_Video": "Video",
+            "Landing_Small": "Aggiungi {cat}, {val} e {det}.",
+            "Landing_Step1": "una scatola per valore: regione, prodotto, team",
+            "Landing_Step1Short": "una scatola per valore",
+            "Landing_Step2": "la misura da studiare, come giorni o importo",
+            "Landing_Step2Short": "la misura da studiare",
+            "Landing_Step3": "l\u2019ID di ogni riga: ordine, dipendente, ticket",
+            "Landing_Step3Short": "l\u2019ID di ogni riga",
+            "Landing_Start": "Inizia in 3 passi",
+            "Landing_Help": "Aiuto",
+            "Landing_Pro": "Tutti i punti con dispersione, media e tacche, violino, gruppi e multipli piccoli, ordinamento per mediana, linee di riferimento.",
+            "Landing_ProShort": "Punti, violino, gruppi, multipli piccoli, ordinamento per mediana.",
+            "UI_NoticePreview": "Box & Whisker: {0} fa parte del piano Pro ed \u00e8 mostrato qui come anteprima con filigrana. La visualizzazione lettura mostra il risultato gratuito.",
+            "UI_NoticeBlocked": "Box & Whisker: {0} fa parte del piano Pro. Ottieni una licenza per attivarlo.",
+            "UI_HideGrid": "Nascondi griglia",
+            "UI_ShowGrid": "Mostra griglia",
+            "Feat_group": "gruppi",
+            "Feat_panel": "multipli piccoli",
+            "Feat_points": "tutti i punti",
+            "Feat_violin": "violino",
+            "Feat_quartile": "colore per quartile",
+            "Feat_mean": "indicatore della media",
+            "Feat_notches": "tacche",
+            "Feat_method": "metodo dei quartili",
+            "Feat_whiskers": "baffi per percentile",
+            "Feat_sort": "ordinamento per statistica",
+            "Feat_reference": "linee di riferimento",
+            "Feat_table": "tabella statistiche"
+        },
+        "ja-JP": {
+            "Role_category": "\u30ab\u30c6\u30b4\u30ea",
+            "Role_category_Desc": "\u5024\u3054\u3068\u306b 1 \u3064\u306e\u7bb1\u3002\u968e\u5c64\u3067\u30c9\u30ea\u30eb\u30c0\u30a6\u30f3\u3067\u304d\u307e\u3059\u3002",
+            "Role_value": "\u5024",
+            "Role_value_Desc": "\u5206\u5e03\u3092\u63cf\u304f\u30e1\u30b8\u30e3\u30fc\u3002\u8a73\u7d30\u306e\u884c\u3054\u3068\u306b\u8a55\u4fa1\u3055\u308c\u307e\u3059\u3002",
+            "Role_detail": "\u8a73\u7d30 (\u884c)",
+            "Role_detail_Desc": "\u5404\u89b3\u6e2c\u5024\u306e ID (\u6ce8\u6587\u3001\u5f93\u696d\u54e1\u3001\u30c1\u30b1\u30c3\u30c8)\u3002\u3053\u308c\u304c\u306a\u3044\u3068\u5206\u5e03\u306b\u306a\u308a\u307e\u305b\u3093\u3002",
+            "Role_group": "\u30b0\u30eb\u30fc\u30d7 (Pro)",
+            "Role_group_Desc": "\u30ab\u30c6\u30b4\u30ea\u5185\u306b\u4e26\u3079\u305f\u7bb1\u3068\u51e1\u4f8b\u3002",
+            "Role_panel": "\u30b9\u30e2\u30fc\u30eb \u30de\u30eb\u30c1\u30d7\u30eb (Pro)",
+            "Role_panel_Desc": "\u5024\u3054\u3068\u306b 1 \u3064\u306e\u30d1\u30cd\u30eb (\u5171\u901a\u30b9\u30b1\u30fc\u30eb)\u3002",
+            "Role_tooltips": "\u30c4\u30fc\u30eb\u30d2\u30f3\u30c8",
+            "Role_tooltips_Desc": "\u30c4\u30fc\u30eb\u30d2\u30f3\u30c8\u306e\u8ffd\u52a0\u306e\u5024\u3002",
+            "Obj_style": "\u30b9\u30bf\u30a4\u30eb \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8",
+            "Prop_style_template": "\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8",
+            "Enum_tpl_clean": "\u30af\u30ea\u30fc\u30f3",
+            "Enum_tpl_classic": "\u30af\u30e9\u30b7\u30c3\u30af",
+            "Enum_tpl_minimal": "\u30df\u30cb\u30de\u30eb",
+            "Enum_tpl_contrast": "\u30b3\u30f3\u30c8\u30e9\u30b9\u30c8",
+            "Enum_tpl_compact": "\u30b3\u30f3\u30d1\u30af\u30c8",
+            "Enum_tpl_ibcs": "IBCS \u30b9\u30bf\u30a4\u30eb",
+            "Obj_boxes": "\u7bb1",
+            "Prop_boxes_orientation": "\u5411\u304d",
+            "Enum_or_vertical": "\u7e26",
+            "Enum_or_horizontal": "\u6a2a",
+            "Prop_boxes_fill": "\u7bb1\u306e\u8272",
+            "Prop_boxes_border": "\u67a0\u7dda\u306e\u8272",
+            "Prop_boxes_borderWidth": "\u67a0\u7dda\u306e\u5e45",
+            "Prop_boxes_width": "\u7bb1\u306e\u5e45 %",
+            "Prop_boxes_radius": "\u89d2\u306e\u4e38\u307f",
+            "Prop_boxes_opacity": "\u5857\u308a\u3064\u3076\u3057\u306e\u4e0d\u900f\u660e\u5ea6 %",
+            "Prop_boxes_quartileColors": "\u56db\u5206\u4f4d\u3067\u8272\u5206\u3051 (Pro)",
+            "Prop_boxes_lowerColor": "\u4e0b\u534a\u5206\u306e\u8272",
+            "Prop_boxes_upperColor": "\u4e0a\u534a\u5206\u306e\u8272",
+            "Prop_boxes_medianColor": "\u4e2d\u592e\u5024\u306e\u7dda\u306e\u8272",
+            "Obj_whiskers": "\u3072\u3052",
+            "Prop_whiskers_rule": "\u3072\u3052\u306e\u7bc4\u56f2",
+            "Enum_wh_tukey": "1.5 \u00d7 IQR (Tukey)",
+            "Enum_wh_minmax": "\u6700\u5c0f\u5024\u304b\u3089\u6700\u5927\u5024",
+            "Enum_wh_p5": "5 \uff5e 95 \u30d1\u30fc\u30bb\u30f3\u30bf\u30a4\u30eb (Pro)",
+            "Enum_wh_p10": "10 \uff5e 90 \u30d1\u30fc\u30bb\u30f3\u30bf\u30a4\u30eb (Pro)",
+            "Prop_whiskers_caps": "\u30ad\u30e3\u30c3\u30d7",
+            "Prop_whiskers_color": "\u3072\u3052\u306e\u8272",
+            "Obj_statistics": "\u7d71\u8a08",
+            "Prop_statistics_method": "\u56db\u5206\u4f4d\u306e\u8a08\u7b97\u65b9\u6cd5",
+            "Enum_m_linear": "\u5305\u62ec (Excel QUARTILE.INC)",
+            "Enum_m_exclusive": "\u9664\u5916 (Excel QUARTILE.EXC) (Pro)",
+            "Enum_m_hinges": "Tukey \u306e\u30d2\u30f3\u30b8 (Pro)",
+            "Prop_statistics_showN": "\u5404\u7bb1\u306e\u4e0b\u306b n \u3092\u8868\u793a",
+            "Prop_statistics_medianLabel": "\u4e2d\u592e\u5024\u306e\u30e9\u30d9\u30eb",
+            "Prop_statistics_showMean": "\u5e73\u5747\u306e\u30de\u30fc\u30ab\u30fc (Pro)",
+            "Prop_statistics_meanColor": "\u5e73\u5747\u306e\u8272",
+            "Prop_statistics_notches": "\u30ce\u30c3\u30c1 (Pro)",
+            "Obj_points": "\u70b9",
+            "Prop_points_show": "\u3059\u3079\u3066\u306e\u70b9\u3092\u8868\u793a (Pro)",
+            "Prop_points_jitter": "\u70b9\u306e\u30b8\u30c3\u30bf\u30fc %",
+            "Prop_points_size": "\u70b9\u306e\u30b5\u30a4\u30ba",
+            "Prop_points_color": "\u70b9\u306e\u8272",
+            "Prop_points_borderColor": "\u70b9\u306e\u67a0\u7dda\u306e\u8272",
+            "Prop_points_borderWidth": "\u70b9\u306e\u67a0\u7dda\u306e\u5e45",
+            "Prop_points_opacity": "\u70b9\u306e\u4e0d\u900f\u660e\u5ea6 %",
+            "Prop_points_outlierSize": "\u5916\u308c\u5024\u306e\u30b5\u30a4\u30ba",
+            "Prop_points_outlierColor": "\u5916\u308c\u5024\u306e\u8272",
+            "Obj_violin": "\u30d0\u30a4\u30aa\u30ea\u30f3",
+            "Prop_violin_show": "\u30d0\u30a4\u30aa\u30ea\u30f3\u3092\u8868\u793a (Pro)",
+            "Prop_violin_opacity": "\u30d0\u30a4\u30aa\u30ea\u30f3\u306e\u4e0d\u900f\u660e\u5ea6 %",
+            "Prop_violin_color": "\u30d0\u30a4\u30aa\u30ea\u30f3\u306e\u8272",
+            "Obj_sort": "\u4e26\u3079\u66ff\u3048",
+            "Prop_sort_by": "\u7bb1\u306e\u4e26\u3079\u66ff\u3048",
+            "Enum_s_data": "\u30c7\u30fc\u30bf\u306e\u9806\u5e8f",
+            "Enum_s_name": "\u540d\u524d",
+            "Enum_s_median": "\u4e2d\u592e\u5024 (Pro)",
+            "Enum_s_mean": "\u5e73\u5747 (Pro)",
+            "Enum_s_iqr": "\u6563\u3089\u3070\u308a (IQR) (Pro)",
+            "Enum_s_count": "\u4ef6\u6570 (Pro)",
+            "Prop_sort_descending": "\u964d\u9806",
+            "Obj_reference": "\u53c2\u7167\u7dda",
+            "Prop_reference_show": "\u53c2\u7167\u7dda (Pro)",
+            "Prop_reference_value": "\u5024",
+            "Prop_reference_label": "\u30e9\u30d9\u30eb",
+            "Prop_reference_color": "\u7dda\u306e\u8272",
+            "Prop_reference_show2": "2 \u672c\u76ee\u306e\u7dda (Pro)",
+            "Prop_reference_value2": "2 \u3064\u76ee\u306e\u5024",
+            "Prop_reference_label2": "2 \u3064\u76ee\u306e\u30e9\u30d9\u30eb",
+            "Obj_valueAxis": "\u5024\u306e\u8ef8",
+            "Prop_valueAxis_show": "\u8868\u793a",
+            "Prop_valueAxis_title": "\u30bf\u30a4\u30c8\u30eb",
+            "Prop_valueAxis_titleText": "\u30bf\u30a4\u30c8\u30eb\u306e\u30c6\u30ad\u30b9\u30c8",
+            "Prop_valueAxis_gridlines": "\u30b0\u30ea\u30c3\u30c9\u7dda",
+            "Prop_valueAxis_auto": "\u81ea\u52d5\u7bc4\u56f2",
+            "Prop_valueAxis_min": "\u6700\u5c0f\u5024",
+            "Prop_valueAxis_max": "\u6700\u5927\u5024",
+            "Prop_valueAxis_fontSize": "\u30c6\u30ad\u30b9\u30c8\u306e\u30b5\u30a4\u30ba",
+            "Prop_valueAxis_color": "\u30c6\u30ad\u30b9\u30c8\u306e\u8272",
+            "Prop_valueAxis_fontFamily": "\u30d5\u30a9\u30f3\u30c8",
+            "Prop_valueAxis_bold": "\u592a\u5b57",
+            "Obj_categoryAxis": "\u30ab\u30c6\u30b4\u30ea\u8ef8",
+            "Prop_categoryAxis_show": "\u8868\u793a",
+            "Prop_categoryAxis_fontSize": "\u30c6\u30ad\u30b9\u30c8\u306e\u30b5\u30a4\u30ba",
+            "Prop_categoryAxis_color": "\u30c6\u30ad\u30b9\u30c8\u306e\u8272",
+            "Prop_categoryAxis_fontFamily": "\u30d5\u30a9\u30f3\u30c8",
+            "Prop_categoryAxis_bold": "\u592a\u5b57",
+            "Obj_legend": "\u51e1\u4f8b",
+            "Prop_legend_show": "\u8868\u793a",
+            "Prop_legend_position": "\u4f4d\u7f6e",
+            "Enum_lg_top": "\u4e0a",
+            "Enum_lg_bottom": "\u4e0b",
+            "Prop_legend_fontSize": "\u30c6\u30ad\u30b9\u30c8\u306e\u30b5\u30a4\u30ba",
+            "Prop_legend_color": "\u30c6\u30ad\u30b9\u30c8\u306e\u8272",
+            "Obj_statsTable": "\u7d71\u8a08\u30c6\u30fc\u30d6\u30eb",
+            "Prop_statsTable_show": "\u30c6\u30fc\u30d6\u30eb\u3092\u8868\u793a (Pro)",
+            "Prop_statsTable_fontSize": "\u30c6\u30ad\u30b9\u30c8\u306e\u30b5\u30a4\u30ba",
+            "Prop_statsTable_color": "\u30c6\u30ad\u30b9\u30c8\u306e\u8272",
+            "Prop_statsTable_headerBackground": "\u30d8\u30c3\u30c0\u30fc\u306e\u80cc\u666f",
+            "Prop_statsTable_headerColor": "\u30d8\u30c3\u30c0\u30fc\u306e\u30c6\u30ad\u30b9\u30c8\u306e\u8272",
+            "Prop_statsTable_banding": "\u4ea4\u4e92\u306e\u884c\u306e\u8272",
+            "Obj_smallMultiples": "\u30b9\u30e2\u30fc\u30eb \u30de\u30eb\u30c1\u30d7\u30eb",
+            "Prop_smallMultiples_columns": "\u5217 (0 = \u81ea\u52d5)",
+            "Prop_smallMultiples_gap": "\u30d1\u30cd\u30eb\u9593\u306e\u9593\u9694",
+            "Prop_smallMultiples_titleSize": "\u30bf\u30a4\u30c8\u30eb\u306e\u30b5\u30a4\u30ba",
+            "Prop_smallMultiples_titleColor": "\u30bf\u30a4\u30c8\u30eb\u306e\u8272",
+            "Prop_smallMultiples_titleBold": "\u30bf\u30a4\u30c8\u30eb\u3092\u592a\u5b57",
+            "Prop_smallMultiples_titleAlign": "\u30bf\u30a4\u30c8\u30eb\u306e\u914d\u7f6e",
+            "Enum_al_left": "\u5de6",
+            "Enum_al_center": "\u4e2d\u592e",
+            "Prop_smallMultiples_background": "\u30d1\u30cd\u30eb\u306e\u80cc\u666f",
+            "Prop_smallMultiples_border": "\u30d1\u30cd\u30eb\u306e\u67a0\u7dda",
+            "Prop_smallMultiples_borderColor": "\u30d1\u30cd\u30eb\u306e\u67a0\u7dda\u306e\u8272",
+            "Obj_background": "\u80cc\u666f",
+            "Prop_background_color": "\u8272",
+            "UI_Blank": "(\u7a7a\u767d)",
+            "UI_Median": "\u4e2d\u592e\u5024",
+            "UI_Category": "\u30ab\u30c6\u30b4\u30ea",
+            "UI_Group": "\u30b0\u30eb\u30fc\u30d7",
+            "UI_Panel": "\u30d1\u30cd\u30eb",
+            "UI_Min": "\u6700\u5c0f",
+            "UI_Max": "\u6700\u5927",
+            "UI_Mean": "\u5e73\u5747",
+            "UI_SD": "\u6a19\u6e96\u504f\u5dee",
+            "UI_Outliers": "\u5916\u308c\u5024",
+            "UI_NoDetail": "\u8a73\u7d30 (\u884c) \u306b ID (\u6ce8\u6587\u3001\u5f93\u696d\u54e1\u3001\u30c1\u30b1\u30c3\u30c8) \u3092\u8ffd\u52a0\u3059\u308b\u3068\u3001\u5404\u7bb1\u304c\u30ab\u30c6\u30b4\u30ea\u3054\u3068\u306e\u5408\u8a08\u3067\u306f\u306a\u304f\u5206\u5e03\u3092\u793a\u3057\u307e\u3059\u3002",
+            "UI_ReadingFree": "\u95b2\u89a7\u30d3\u30e5\u30fc\u3067\u306f\u9069\u7528\u3055\u308c\u306a\u3044 Pro \u6a5f\u80fd:",
+            "UI_ProPreview": "Pro \u30d7\u30ec\u30d3\u30e5\u30fc",
+            "UI_WarnTitle": "Box & Whisker",
+            "UI_WarnRowsDesktop": "Power BI Desktop \u3067\u306f\u3001Power BI \u304c\u9001\u308b\u6700\u521d\u306e\u884c\u3060\u3051\u3092\u4f7f\u3044\u307e\u3059\u3002\u3059\u3079\u3066\u4f7f\u3046\u306b\u306f\u30b5\u30fc\u30d3\u30b9\u306b\u767a\u884c\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+            "UI_WarnRows": "Power BI \u306f\u884c\u306e\u4e00\u90e8\u3060\u3051\u3092\u9001\u308a\u307e\u3057\u305f\u3002\u7bb1\u306f\u53d7\u3051\u53d6\u3063\u305f\u884c\u3092\u8868\u3057\u3066\u3044\u307e\u3059\u3002",
+            "UI_Method": "\u56db\u5206\u4f4d",
+            "UI_Avg": "\u5e73\u5747",
+            "Landing_Tagline": "\u30ab\u30c6\u30b4\u30ea\u3054\u3068\u306e\u5024\u306e\u5206\u5e03 (\u4e2d\u592e\u5024\u3001\u56db\u5206\u4f4d\u3001\u5916\u308c\u5024) \u3092\u78ba\u8a8d\u3057\u307e\u3059\u3002",
+            "Landing_TaglineShort": "\u30ab\u30c6\u30b4\u30ea\u3054\u3068\u306e\u5024\u306e\u5206\u5e03\u3002",
+            "Landing_Guide": "\u30ac\u30a4\u30c9",
+            "Landing_GuideSub": "\u30b5\u30dd\u30fc\u30c8 \u30da\u30fc\u30b8",
+            "Landing_Product": "\u88fd\u54c1\u30da\u30fc\u30b8",
+            "Landing_Video": "\u30d3\u30c7\u30aa",
+            "Landing_Small": "{cat}\u3001{val}\u3001{det} \u3092\u8ffd\u52a0\u3057\u307e\u3059\u3002",
+            "Landing_Step1": "\u5024\u3054\u3068\u306b 1 \u3064\u306e\u7bb1 (\u5730\u57df\u3001\u88fd\u54c1\u3001\u30c1\u30fc\u30e0)",
+            "Landing_Step1Short": "\u5024\u3054\u3068\u306b 1 \u3064\u306e\u7bb1",
+            "Landing_Step2": "\u8abf\u3079\u308b\u30e1\u30b8\u30e3\u30fc (\u65e5\u6570\u3084\u91d1\u984d\u306a\u3069)",
+            "Landing_Step2Short": "\u8abf\u3079\u308b\u30e1\u30b8\u30e3\u30fc",
+            "Landing_Step3": "\u5404\u884c\u306e ID (\u6ce8\u6587\u3001\u5f93\u696d\u54e1\u3001\u30c1\u30b1\u30c3\u30c8)",
+            "Landing_Step3Short": "\u5404\u884c\u306e ID",
+            "Landing_Start": "3 \u30b9\u30c6\u30c3\u30d7\u3067\u958b\u59cb",
+            "Landing_Help": "\u30d8\u30eb\u30d7",
+            "Landing_Pro": "\u30b8\u30c3\u30bf\u30fc\u4ed8\u304d\u306e\u5168\u70b9\u3001\u5e73\u5747\u3068\u30ce\u30c3\u30c1\u3001\u30d0\u30a4\u30aa\u30ea\u30f3\u3001\u30b0\u30eb\u30fc\u30d7\u3068\u30b9\u30e2\u30fc\u30eb \u30de\u30eb\u30c1\u30d7\u30eb\u3001\u4e2d\u592e\u5024\u3067\u4e26\u3079\u66ff\u3048\u3001\u53c2\u7167\u7dda\u3002",
+            "Landing_ProShort": "\u70b9\u3001\u30d0\u30a4\u30aa\u30ea\u30f3\u3001\u30b0\u30eb\u30fc\u30d7\u3001\u30b9\u30e2\u30fc\u30eb \u30de\u30eb\u30c1\u30d7\u30eb\u3001\u4e2d\u592e\u5024\u3067\u4e26\u3079\u66ff\u3048\u3002",
+            "UI_NoticePreview": "Box & Whisker: {0} \u306f Pro \u30d7\u30e9\u30f3\u306e\u6a5f\u80fd\u3067\u3001\u3053\u3053\u3067\u306f\u900f\u304b\u3057\u4ed8\u304d\u306e\u30d7\u30ec\u30d3\u30e5\u30fc\u3067\u3059\u3002\u95b2\u89a7\u30d3\u30e5\u30fc\u3067\u306f\u7121\u6599\u306e\u7d50\u679c\u304c\u8868\u793a\u3055\u308c\u307e\u3059\u3002",
+            "UI_NoticeBlocked": "Box & Whisker: {0} \u306f Pro \u30d7\u30e9\u30f3\u306e\u6a5f\u80fd\u3067\u3059\u3002\u6709\u52b9\u306b\u3059\u308b\u306b\u306f\u30e9\u30a4\u30bb\u30f3\u30b9\u3092\u53d6\u5f97\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+            "UI_HideGrid": "\u30b0\u30ea\u30c3\u30c9\u7dda\u3092\u975e\u8868\u793a",
+            "UI_ShowGrid": "\u30b0\u30ea\u30c3\u30c9\u7dda\u3092\u8868\u793a",
+            "Feat_group": "\u30b0\u30eb\u30fc\u30d7",
+            "Feat_panel": "\u30b9\u30e2\u30fc\u30eb \u30de\u30eb\u30c1\u30d7\u30eb",
+            "Feat_points": "\u3059\u3079\u3066\u306e\u70b9",
+            "Feat_violin": "\u30d0\u30a4\u30aa\u30ea\u30f3",
+            "Feat_quartile": "\u56db\u5206\u4f4d\u306e\u8272\u5206\u3051",
+            "Feat_mean": "\u5e73\u5747\u306e\u30de\u30fc\u30ab\u30fc",
+            "Feat_notches": "\u30ce\u30c3\u30c1",
+            "Feat_method": "\u56db\u5206\u4f4d\u306e\u8a08\u7b97\u65b9\u6cd5",
+            "Feat_whiskers": "\u30d1\u30fc\u30bb\u30f3\u30bf\u30a4\u30eb\u306e\u3072\u3052",
+            "Feat_sort": "\u7d71\u8a08\u3067\u4e26\u3079\u66ff\u3048",
+            "Feat_reference": "\u53c2\u7167\u7dda",
+            "Feat_table": "\u7d71\u8a08\u30c6\u30fc\u30d6\u30eb"
+        },
+        "ko-KR": {
+            "Role_category": "\ubc94\uc8fc",
+            "Role_category_Desc": "\uac12\ub9c8\ub2e4 \uc0c1\uc790 \ud558\ub098. \uacc4\uce35 \uad6c\uc870\ub85c \ub4dc\ub9b4\ub2e4\uc6b4\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.",
+            "Role_value": "\uac12",
+            "Role_value_Desc": "\ubd84\ud3ec\ub97c \uadf8\ub9ac\ub294 \uce21\uc815\uac12\uc73c\ub85c, \uc138\ubd80 \uc815\ubcf4 \ud589\ub9c8\ub2e4 \uacc4\uc0b0\ub429\ub2c8\ub2e4.",
+            "Role_detail": "\uc138\ubd80 \uc815\ubcf4(\ud589)",
+            "Role_detail_Desc": "\uac01 \uad00\uce21\uac12\uc758 ID(\uc8fc\ubb38, \uc9c1\uc6d0, \ud2f0\ucf13). \uc5c6\uc73c\uba74 \ubd84\ud3ec\uac00 \uc5c6\uc2b5\ub2c8\ub2e4.",
+            "Role_group": "\uadf8\ub8f9(Pro)",
+            "Role_group_Desc": "\uac01 \ubc94\uc8fc \uc548\uc5d0 \ub098\ub780\ud788 \ub193\uc778 \uc0c1\uc790\uc640 \ubc94\ub840.",
+            "Role_panel": "\uc791\uc740 \ubc30\uc218(Pro)",
+            "Role_panel_Desc": "\uac12\ub9c8\ub2e4 \ud328\ub110 \ud558\ub098, \uac19\uc740 \ub208\uae08.",
+            "Role_tooltips": "\ub3c4\uad6c \uc124\uba85",
+            "Role_tooltips_Desc": "\ub3c4\uad6c \uc124\uba85\uc758 \ucd94\uac00 \uac12.",
+            "Obj_style": "\uc2a4\ud0c0\uc77c \ud15c\ud50c\ub9bf",
+            "Prop_style_template": "\ud15c\ud50c\ub9bf",
+            "Enum_tpl_clean": "\uae54\ub054",
+            "Enum_tpl_classic": "\ud074\ub798\uc2dd",
+            "Enum_tpl_minimal": "\ubbf8\ub2c8\uba40",
+            "Enum_tpl_contrast": "\ub300\ube44",
+            "Enum_tpl_compact": "\uac04\uacb0",
+            "Enum_tpl_ibcs": "IBCS \uc2a4\ud0c0\uc77c",
+            "Obj_boxes": "\uc0c1\uc790",
+            "Prop_boxes_orientation": "\ubc29\ud5a5",
+            "Enum_or_vertical": "\uc138\ub85c",
+            "Enum_or_horizontal": "\uac00\ub85c",
+            "Prop_boxes_fill": "\uc0c1\uc790 \uc0c9",
+            "Prop_boxes_border": "\ud14c\ub450\ub9ac \uc0c9",
+            "Prop_boxes_borderWidth": "\ud14c\ub450\ub9ac \ub450\uaed8",
+            "Prop_boxes_width": "\uc0c1\uc790 \ub108\ube44 %",
+            "Prop_boxes_radius": "\ub465\uadfc \ubaa8\uc11c\ub9ac",
+            "Prop_boxes_opacity": "\ucc44\uc6b0\uae30 \ubd88\ud22c\uba85\ub3c4 %",
+            "Prop_boxes_quartileColors": "\uc0ac\ubd84\uc704\ubcc4 \uc0c9(Pro)",
+            "Prop_boxes_lowerColor": "\uc544\ub798\ucabd \uc808\ubc18 \uc0c9",
+            "Prop_boxes_upperColor": "\uc704\ucabd \uc808\ubc18 \uc0c9",
+            "Prop_boxes_medianColor": "\uc911\uc559\uac12 \uc120 \uc0c9",
+            "Obj_whiskers": "\uc218\uc5fc",
+            "Prop_whiskers_rule": "\uc218\uc5fc \ubc94\uc704",
+            "Enum_wh_tukey": "1.5 \u00d7 IQR(Tukey)",
+            "Enum_wh_minmax": "\ucd5c\uc18c\uac12\ubd80\ud130 \ucd5c\ub300\uac12",
+            "Enum_wh_p5": "5~95 \ubc31\ubd84\uc704\uc218(Pro)",
+            "Enum_wh_p10": "10~90 \ubc31\ubd84\uc704\uc218(Pro)",
+            "Prop_whiskers_caps": "\ub05d\uc120",
+            "Prop_whiskers_color": "\uc218\uc5fc \uc0c9",
+            "Obj_statistics": "\ud1b5\uacc4",
+            "Prop_statistics_method": "\uc0ac\ubd84\uc704\uc218 \ubc29\ubc95",
+            "Enum_m_linear": "\ud3ec\ud568(Excel QUARTILE.INC)",
+            "Enum_m_exclusive": "\uc81c\uc678(Excel QUARTILE.EXC)(Pro)",
+            "Enum_m_hinges": "Tukey \ud78c\uc9c0(Pro)",
+            "Prop_statistics_showN": "\uac01 \uc0c1\uc790 \uc544\ub798 n \ud45c\uc2dc",
+            "Prop_statistics_medianLabel": "\uc911\uc559\uac12 \ub808\uc774\ube14",
+            "Prop_statistics_showMean": "\ud3c9\uade0 \ud45c\uc2dd(Pro)",
+            "Prop_statistics_meanColor": "\ud3c9\uade0 \uc0c9",
+            "Prop_statistics_notches": "\ub178\uce58(Pro)",
+            "Obj_points": "\uc810",
+            "Prop_points_show": "\ubaa8\ub4e0 \uc810 \ud45c\uc2dc(Pro)",
+            "Prop_points_jitter": "\uc810 \uc9c0\ud130 %",
+            "Prop_points_size": "\uc810 \ud06c\uae30",
+            "Prop_points_color": "\uc810 \uc0c9",
+            "Prop_points_borderColor": "\uc810 \ud14c\ub450\ub9ac \uc0c9",
+            "Prop_points_borderWidth": "\uc810 \ud14c\ub450\ub9ac \ub450\uaed8",
+            "Prop_points_opacity": "\uc810 \ubd88\ud22c\uba85\ub3c4 %",
+            "Prop_points_outlierSize": "\uc774\uc0c1\uac12 \ud06c\uae30",
+            "Prop_points_outlierColor": "\uc774\uc0c1\uac12 \uc0c9",
+            "Obj_violin": "\ubc14\uc774\uc62c\ub9b0",
+            "Prop_violin_show": "\ubc14\uc774\uc62c\ub9b0 \ud45c\uc2dc(Pro)",
+            "Prop_violin_opacity": "\ubc14\uc774\uc62c\ub9b0 \ubd88\ud22c\uba85\ub3c4 %",
+            "Prop_violin_color": "\ubc14\uc774\uc62c\ub9b0 \uc0c9",
+            "Obj_sort": "\uc815\ub82c",
+            "Prop_sort_by": "\uc0c1\uc790 \uc815\ub82c \uae30\uc900",
+            "Enum_s_data": "\ub370\uc774\ud130 \uc21c\uc11c",
+            "Enum_s_name": "\uc774\ub984",
+            "Enum_s_median": "\uc911\uc559\uac12(Pro)",
+            "Enum_s_mean": "\ud3c9\uade0(Pro)",
+            "Enum_s_iqr": "\ubd84\uc0b0(IQR)(Pro)",
+            "Enum_s_count": "\uac1c\uc218(Pro)",
+            "Prop_sort_descending": "\ub0b4\ub9bc\ucc28\uc21c",
+            "Obj_reference": "\ucc38\uc870\uc120",
+            "Prop_reference_show": "\ucc38\uc870\uc120(Pro)",
+            "Prop_reference_value": "\uac12",
+            "Prop_reference_label": "\ub808\uc774\ube14",
+            "Prop_reference_color": "\uc120 \uc0c9",
+            "Prop_reference_show2": "\ub450 \ubc88\uc9f8 \uc120(Pro)",
+            "Prop_reference_value2": "\ub450 \ubc88\uc9f8 \uac12",
+            "Prop_reference_label2": "\ub450 \ubc88\uc9f8 \ub808\uc774\ube14",
+            "Obj_valueAxis": "\uac12 \ucd95",
+            "Prop_valueAxis_show": "\ud45c\uc2dc",
+            "Prop_valueAxis_title": "\uc81c\ubaa9",
+            "Prop_valueAxis_titleText": "\uc81c\ubaa9 \ud14d\uc2a4\ud2b8",
+            "Prop_valueAxis_gridlines": "\ub208\uae08\uc120",
+            "Prop_valueAxis_auto": "\uc790\ub3d9 \ubc94\uc704",
+            "Prop_valueAxis_min": "\ucd5c\uc18c\uac12",
+            "Prop_valueAxis_max": "\ucd5c\ub300\uac12",
+            "Prop_valueAxis_fontSize": "\ud14d\uc2a4\ud2b8 \ud06c\uae30",
+            "Prop_valueAxis_color": "\ud14d\uc2a4\ud2b8 \uc0c9",
+            "Prop_valueAxis_fontFamily": "\uae00\uaf34",
+            "Prop_valueAxis_bold": "\uad75\uac8c",
+            "Obj_categoryAxis": "\ubc94\uc8fc \ucd95",
+            "Prop_categoryAxis_show": "\ud45c\uc2dc",
+            "Prop_categoryAxis_fontSize": "\ud14d\uc2a4\ud2b8 \ud06c\uae30",
+            "Prop_categoryAxis_color": "\ud14d\uc2a4\ud2b8 \uc0c9",
+            "Prop_categoryAxis_fontFamily": "\uae00\uaf34",
+            "Prop_categoryAxis_bold": "\uad75\uac8c",
+            "Obj_legend": "\ubc94\ub840",
+            "Prop_legend_show": "\ud45c\uc2dc",
+            "Prop_legend_position": "\uc704\uce58",
+            "Enum_lg_top": "\uc704\ucabd",
+            "Enum_lg_bottom": "\uc544\ub798\ucabd",
+            "Prop_legend_fontSize": "\ud14d\uc2a4\ud2b8 \ud06c\uae30",
+            "Prop_legend_color": "\ud14d\uc2a4\ud2b8 \uc0c9",
+            "Obj_statsTable": "\ud1b5\uacc4 \ud45c",
+            "Prop_statsTable_show": "\ud45c \ud45c\uc2dc(Pro)",
+            "Prop_statsTable_fontSize": "\ud14d\uc2a4\ud2b8 \ud06c\uae30",
+            "Prop_statsTable_color": "\ud14d\uc2a4\ud2b8 \uc0c9",
+            "Prop_statsTable_headerBackground": "\uba38\ub9ac\uae00 \ubc30\uacbd",
+            "Prop_statsTable_headerColor": "\uba38\ub9ac\uae00 \ud14d\uc2a4\ud2b8 \uc0c9",
+            "Prop_statsTable_banding": "\uad50\ub300 \ud589 \uc0c9",
+            "Obj_smallMultiples": "\uc791\uc740 \ubc30\uc218",
+            "Prop_smallMultiples_columns": "\uc5f4(0 = \uc790\ub3d9)",
+            "Prop_smallMultiples_gap": "\ud328\ub110 \uac04 \uac04\uaca9",
+            "Prop_smallMultiples_titleSize": "\uc81c\ubaa9 \ud06c\uae30",
+            "Prop_smallMultiples_titleColor": "\uc81c\ubaa9 \uc0c9",
+            "Prop_smallMultiples_titleBold": "\uad75\uc740 \uc81c\ubaa9",
+            "Prop_smallMultiples_titleAlign": "\uc81c\ubaa9 \ub9de\ucda4",
+            "Enum_al_left": "\uc67c\ucabd",
+            "Enum_al_center": "\uac00\uc6b4\ub370",
+            "Prop_smallMultiples_background": "\ud328\ub110 \ubc30\uacbd",
+            "Prop_smallMultiples_border": "\ud328\ub110 \ud14c\ub450\ub9ac",
+            "Prop_smallMultiples_borderColor": "\ud328\ub110 \ud14c\ub450\ub9ac \uc0c9",
+            "Obj_background": "\ubc30\uacbd",
+            "Prop_background_color": "\uc0c9",
+            "UI_Blank": "(\ube44\uc5b4 \uc788\uc74c)",
+            "UI_Median": "\uc911\uc559\uac12",
+            "UI_Category": "\ubc94\uc8fc",
+            "UI_Group": "\uadf8\ub8f9",
+            "UI_Panel": "\ud328\ub110",
+            "UI_Min": "\ucd5c\uc18c",
+            "UI_Max": "\ucd5c\ub300",
+            "UI_Mean": "\ud3c9\uade0",
+            "UI_SD": "\ud45c\uc900 \ud3b8\ucc28",
+            "UI_Outliers": "\uc774\uc0c1\uac12",
+            "UI_NoDetail": "\uc138\ubd80 \uc815\ubcf4(\ud589)\uc5d0 ID(\uc8fc\ubb38, \uc9c1\uc6d0, \ud2f0\ucf13)\ub97c \ucd94\uac00\ud574\uc57c \uac01 \uc0c1\uc790\uac00 \ubc94\uc8fc\ubcc4 \ud569\uacc4\uac00 \uc544\ub2cc \ubd84\ud3ec\ub97c \ubcf4\uc5ec \uc90d\ub2c8\ub2e4.",
+            "UI_ReadingFree": "\uc77d\uae30\uc6a9 \ubcf4\uae30\uc5d0 \uc801\uc6a9\ub418\uc9c0 \uc54a\uc740 Pro \uae30\ub2a5:",
+            "UI_ProPreview": "Pro \ubbf8\ub9ac \ubcf4\uae30",
+            "UI_WarnTitle": "Box & Whisker",
+            "UI_WarnRowsDesktop": "Power BI Desktop\uc5d0\uc11c\ub294 Power BI\uac00 \ubcf4\ub0b8 \ucc98\uc74c \ud589\uc744 \uc0ac\uc6a9\ud569\ub2c8\ub2e4. \ubaa8\ub450 \uc0ac\uc6a9\ud558\ub824\uba74 \uc11c\ube44\uc2a4\uc5d0 \uac8c\uc2dc\ud558\uc138\uc694.",
+            "UI_WarnRows": "Power BI\uac00 \ud589\uc758 \uc77c\ubd80\ub9cc \ubcf4\ub0c8\uc2b5\ub2c8\ub2e4. \uc0c1\uc790\ub294 \ubc1b\uc740 \ud589\uc744 \ubc18\uc601\ud569\ub2c8\ub2e4.",
+            "UI_Method": "\uc0ac\ubd84\uc704\uc218",
+            "UI_Avg": "\ud3c9\uade0",
+            "Landing_Tagline": "\ubc94\uc8fc\ubcc4 \uac12\uc758 \ubd84\ud3ec(\uc911\uc559\uac12, \uc0ac\ubd84\uc704\uc218, \uc774\uc0c1\uac12)\ub97c \ud655\uc778\ud558\uc138\uc694.",
+            "Landing_TaglineShort": "\ubc94\uc8fc\ubcc4 \uac12\uc758 \ubd84\ud3ec.",
+            "Landing_Guide": "\uac00\uc774\ub4dc",
+            "Landing_GuideSub": "\uc9c0\uc6d0 \ud398\uc774\uc9c0",
+            "Landing_Product": "\uc81c\ud488 \ud398\uc774\uc9c0",
+            "Landing_Video": "\ub3d9\uc601\uc0c1",
+            "Landing_Small": "{cat}, {val}, {det}\uc744(\ub97c) \ucd94\uac00\ud558\uc138\uc694.",
+            "Landing_Step1": "\uac12\ub9c8\ub2e4 \uc0c1\uc790 \ud558\ub098: \uc9c0\uc5ed, \uc81c\ud488, \ud300",
+            "Landing_Step1Short": "\uac12\ub9c8\ub2e4 \uc0c1\uc790 \ud558\ub098",
+            "Landing_Step2": "\uc0b4\ud3b4\ubcfc \uce21\uc815\uac12(\uc608: \uc77c\uc218, \uae08\uc561)",
+            "Landing_Step2Short": "\uc0b4\ud3b4\ubcfc \uce21\uc815\uac12",
+            "Landing_Step3": "\uac01 \ud589\uc758 ID: \uc8fc\ubb38, \uc9c1\uc6d0, \ud2f0\ucf13",
+            "Landing_Step3Short": "\uac01 \ud589\uc758 ID",
+            "Landing_Start": "3\ub2e8\uacc4\ub85c \uc2dc\uc791",
+            "Landing_Help": "\ub3c4\uc6c0\ub9d0",
+            "Landing_Pro": "\uc9c0\ud130\ub97c \uc801\uc6a9\ud55c \ubaa8\ub4e0 \uc810, \ud3c9\uade0\uacfc \ub178\uce58, \ubc14\uc774\uc62c\ub9b0, \uadf8\ub8f9\uacfc \uc791\uc740 \ubc30\uc218, \uc911\uc559\uac12 \uc815\ub82c, \ucc38\uc870\uc120.",
+            "Landing_ProShort": "\uc810, \ubc14\uc774\uc62c\ub9b0, \uadf8\ub8f9, \uc791\uc740 \ubc30\uc218, \uc911\uc559\uac12 \uc815\ub82c.",
+            "UI_NoticePreview": "Box & Whisker: {0}\uc740(\ub294) Pro \ud50c\ub79c \uae30\ub2a5\uc774\uba70 \uc5ec\uae30\uc11c\ub294 \uc6cc\ud130\ub9c8\ud06c\uac00 \uc788\ub294 \ubbf8\ub9ac \ubcf4\uae30\ub85c \ud45c\uc2dc\ub429\ub2c8\ub2e4. \uc77d\uae30\uc6a9 \ubcf4\uae30\ub294 \ubb34\ub8cc \uacb0\uacfc\ub97c \ubcf4\uc5ec \uc90d\ub2c8\ub2e4.",
+            "UI_NoticeBlocked": "Box & Whisker: {0}\uc740(\ub294) Pro \ud50c\ub79c \uae30\ub2a5\uc785\ub2c8\ub2e4. \uc0ac\uc6a9\ud558\ub824\uba74 \ub77c\uc774\uc120\uc2a4\ub97c \ubc1b\uc73c\uc138\uc694.",
+            "UI_HideGrid": "\ub208\uae08\uc120 \uc228\uae30\uae30",
+            "UI_ShowGrid": "\ub208\uae08\uc120 \ud45c\uc2dc",
+            "Feat_group": "\uadf8\ub8f9",
+            "Feat_panel": "\uc791\uc740 \ubc30\uc218",
+            "Feat_points": "\ubaa8\ub4e0 \uc810",
+            "Feat_violin": "\ubc14\uc774\uc62c\ub9b0",
+            "Feat_quartile": "\uc0ac\ubd84\uc704\ubcc4 \uc0c9",
+            "Feat_mean": "\ud3c9\uade0 \ud45c\uc2dd",
+            "Feat_notches": "\ub178\uce58",
+            "Feat_method": "\uc0ac\ubd84\uc704\uc218 \ubc29\ubc95",
+            "Feat_whiskers": "\ubc31\ubd84\uc704\uc218 \uc218\uc5fc",
+            "Feat_sort": "\ud1b5\uacc4 \uae30\uc900 \uc815\ub82c",
+            "Feat_reference": "\ucc38\uc870\uc120",
+            "Feat_table": "\ud1b5\uacc4 \ud45c"
+        },
+        "nl-NL": {
+            "Role_category": "Categorie",
+            "Role_category_Desc": "E\u00e9n box per waarde. Een hi\u00ebrarchie maakt inzoomen mogelijk.",
+            "Role_value": "Waarde",
+            "Role_value_Desc": "De meting waarvan de verdeling wordt getekend, per Detail-rij berekend.",
+            "Role_detail": "Detail (rijen)",
+            "Role_detail_Desc": "De ID van elke waarneming: order, medewerker, ticket. Zonder ID geen verdeling.",
+            "Role_group": "Groep (Pro)",
+            "Role_group_Desc": "Boxen naast elkaar per categorie, met legenda.",
+            "Role_panel": "Kleine veelvouden (Pro)",
+            "Role_panel_Desc": "E\u00e9n paneel per waarde, met dezelfde schaal.",
+            "Role_tooltips": "Knopinfo",
+            "Role_tooltips_Desc": "Extra waarden in de knopinfo.",
+            "Obj_style": "Stijlsjabloon",
+            "Prop_style_template": "Sjabloon",
+            "Enum_tpl_clean": "Strak",
+            "Enum_tpl_classic": "Klassiek",
+            "Enum_tpl_minimal": "Minimaal",
+            "Enum_tpl_contrast": "Contrast",
+            "Enum_tpl_compact": "Compact",
+            "Enum_tpl_ibcs": "IBCS-stijl",
+            "Obj_boxes": "Boxen",
+            "Prop_boxes_orientation": "Richting",
+            "Enum_or_vertical": "Verticaal",
+            "Enum_or_horizontal": "Horizontaal",
+            "Prop_boxes_fill": "Boxkleur",
+            "Prop_boxes_border": "Randkleur",
+            "Prop_boxes_borderWidth": "Randbreedte",
+            "Prop_boxes_width": "Boxbreedte %",
+            "Prop_boxes_radius": "Afgeronde hoeken",
+            "Prop_boxes_opacity": "Dekking vulling %",
+            "Prop_boxes_quartileColors": "Kleur per kwartiel (Pro)",
+            "Prop_boxes_lowerColor": "Kleur onderste helft",
+            "Prop_boxes_upperColor": "Kleur bovenste helft",
+            "Prop_boxes_medianColor": "Kleur mediaanlijn",
+            "Obj_whiskers": "Snorharen",
+            "Prop_whiskers_rule": "Bereik snorharen",
+            "Enum_wh_tukey": "1,5 \u00d7 IKA (Tukey)",
+            "Enum_wh_minmax": "Minimum tot maximum",
+            "Enum_wh_p5": "5e tot 95e percentiel (Pro)",
+            "Enum_wh_p10": "10e tot 90e percentiel (Pro)",
+            "Prop_whiskers_caps": "Dwarsstreepjes",
+            "Prop_whiskers_color": "Kleur snorharen",
+            "Obj_statistics": "Statistieken",
+            "Prop_statistics_method": "Kwartielmethode",
+            "Enum_m_linear": "Inclusief (Excel KWARTIEL.INC)",
+            "Enum_m_exclusive": "Exclusief (Excel KWARTIEL.EXC) (Pro)",
+            "Enum_m_hinges": "Tukey-scharnieren (Pro)",
+            "Prop_statistics_showN": "n onder elke box tonen",
+            "Prop_statistics_medianLabel": "Label mediaan",
+            "Prop_statistics_showMean": "Markering gemiddelde (Pro)",
+            "Prop_statistics_meanColor": "Kleur gemiddelde",
+            "Prop_statistics_notches": "Inkepingen (Pro)",
+            "Obj_points": "Punten",
+            "Prop_points_show": "Alle punten tonen (Pro)",
+            "Prop_points_jitter": "Puntafstand %",
+            "Prop_points_size": "Puntgrootte",
+            "Prop_points_color": "Puntkleur",
+            "Prop_points_borderColor": "Randkleur punten",
+            "Prop_points_borderWidth": "Randbreedte punten",
+            "Prop_points_opacity": "Dekking punten %",
+            "Prop_points_outlierSize": "Grootte uitschieters",
+            "Prop_points_outlierColor": "Kleur uitschieters",
+            "Obj_violin": "Viool",
+            "Prop_violin_show": "Viool tonen (Pro)",
+            "Prop_violin_opacity": "Dekking viool %",
+            "Prop_violin_color": "Kleur viool",
+            "Obj_sort": "Sorteren",
+            "Prop_sort_by": "Boxen sorteren op",
+            "Enum_s_data": "Volgorde van gegevens",
+            "Enum_s_name": "Naam",
+            "Enum_s_median": "Mediaan (Pro)",
+            "Enum_s_mean": "Gemiddelde (Pro)",
+            "Enum_s_iqr": "Spreiding (IKA) (Pro)",
+            "Enum_s_count": "Aantal (Pro)",
+            "Prop_sort_descending": "Aflopend",
+            "Obj_reference": "Referentielijnen",
+            "Prop_reference_show": "Referentielijn (Pro)",
+            "Prop_reference_value": "Waarde",
+            "Prop_reference_label": "Label",
+            "Prop_reference_color": "Lijnkleur",
+            "Prop_reference_show2": "Tweede lijn (Pro)",
+            "Prop_reference_value2": "Tweede waarde",
+            "Prop_reference_label2": "Tweede label",
+            "Obj_valueAxis": "Waardeas",
+            "Prop_valueAxis_show": "Tonen",
+            "Prop_valueAxis_title": "Titel",
+            "Prop_valueAxis_titleText": "Titeltekst",
+            "Prop_valueAxis_gridlines": "Rasterlijnen",
+            "Prop_valueAxis_auto": "Automatisch bereik",
+            "Prop_valueAxis_min": "Minimum",
+            "Prop_valueAxis_max": "Maximum",
+            "Prop_valueAxis_fontSize": "Tekstgrootte",
+            "Prop_valueAxis_color": "Tekstkleur",
+            "Prop_valueAxis_fontFamily": "Lettertype",
+            "Prop_valueAxis_bold": "Vet",
+            "Obj_categoryAxis": "Categorie-as",
+            "Prop_categoryAxis_show": "Tonen",
+            "Prop_categoryAxis_fontSize": "Tekstgrootte",
+            "Prop_categoryAxis_color": "Tekstkleur",
+            "Prop_categoryAxis_fontFamily": "Lettertype",
+            "Prop_categoryAxis_bold": "Vet",
+            "Obj_legend": "Legenda",
+            "Prop_legend_show": "Tonen",
+            "Prop_legend_position": "Positie",
+            "Enum_lg_top": "Boven",
+            "Enum_lg_bottom": "Onder",
+            "Prop_legend_fontSize": "Tekstgrootte",
+            "Prop_legend_color": "Tekstkleur",
+            "Obj_statsTable": "Statistiektabel",
+            "Prop_statsTable_show": "Tabel tonen (Pro)",
+            "Prop_statsTable_fontSize": "Tekstgrootte",
+            "Prop_statsTable_color": "Tekstkleur",
+            "Prop_statsTable_headerBackground": "Achtergrond koptekst",
+            "Prop_statsTable_headerColor": "Tekstkleur koptekst",
+            "Prop_statsTable_banding": "Kleur afwisselende rijen",
+            "Obj_smallMultiples": "Kleine veelvouden",
+            "Prop_smallMultiples_columns": "Kolommen (0 = automatisch)",
+            "Prop_smallMultiples_gap": "Ruimte tussen panelen",
+            "Prop_smallMultiples_titleSize": "Titelgrootte",
+            "Prop_smallMultiples_titleColor": "Titelkleur",
+            "Prop_smallMultiples_titleBold": "Vette titel",
+            "Prop_smallMultiples_titleAlign": "Titeluitlijning",
+            "Enum_al_left": "Links",
+            "Enum_al_center": "Midden",
+            "Prop_smallMultiples_background": "Achtergrond paneel",
+            "Prop_smallMultiples_border": "Paneelrand",
+            "Prop_smallMultiples_borderColor": "Kleur paneelrand",
+            "Obj_background": "Achtergrond",
+            "Prop_background_color": "Kleur",
+            "UI_Blank": "(Leeg)",
+            "UI_Median": "Mediaan",
+            "UI_Category": "Categorie",
+            "UI_Group": "Groep",
+            "UI_Panel": "Paneel",
+            "UI_Min": "Min",
+            "UI_Max": "Max",
+            "UI_Mean": "Gemiddelde",
+            "UI_SD": "Std.afw.",
+            "UI_Outliers": "Uitschieters",
+            "UI_NoDetail": "Voeg een ID toe aan Detail (rijen) \u2014 order, medewerker, ticket \u2014 zodat elke box een verdeling toont en geen totaal per categorie.",
+            "UI_ReadingFree": "Pro-functies niet toegepast in leesweergave:",
+            "UI_ProPreview": "Pro-voorbeeld",
+            "UI_WarnTitle": "Box & Whisker",
+            "UI_WarnRowsDesktop": "In Power BI Desktop gebruikt de visual de eerste rijen die Power BI stuurt: publiceer naar de service om ze allemaal te gebruiken.",
+            "UI_WarnRows": "Power BI heeft maar een deel van de rijen gestuurd: de boxen tonen de ontvangen rijen.",
+            "UI_Method": "Kwartielen",
+            "UI_Avg": "gem.",
+            "Landing_Tagline": "Zie hoe de waarden per categorie verdeeld zijn: mediaan, kwartielen en uitschieters.",
+            "Landing_TaglineShort": "Hoe de waarden per categorie verdeeld zijn.",
+            "Landing_Guide": "Handleiding",
+            "Landing_GuideSub": "ondersteuningspagina",
+            "Landing_Product": "Productpagina",
+            "Landing_Video": "Video",
+            "Landing_Small": "Voeg {cat}, {val} en {det} toe.",
+            "Landing_Step1": "\u00e9\u00e9n box per waarde: regio, product, team",
+            "Landing_Step1Short": "\u00e9\u00e9n box per waarde",
+            "Landing_Step2": "de meting die u wilt bestuderen, zoals dagen of bedrag",
+            "Landing_Step2Short": "de meting die u wilt bestuderen",
+            "Landing_Step3": "de ID van elke rij: order, medewerker, ticket",
+            "Landing_Step3Short": "de ID van elke rij",
+            "Landing_Start": "Begin in 3 stappen",
+            "Landing_Help": "Help",
+            "Landing_Pro": "Alle punten met spreiding, gemiddelde en inkepingen, viool, groepen en kleine veelvouden, sorteren op mediaan, referentielijnen.",
+            "Landing_ProShort": "Punten, viool, groepen, kleine veelvouden, sorteren op mediaan.",
+            "UI_NoticePreview": "Box & Whisker: {0} hoort bij het Pro-abonnement en wordt hier als voorbeeld met watermerk getoond. De leesweergave toont het gratis resultaat.",
+            "UI_NoticeBlocked": "Box & Whisker: {0} hoort bij het Pro-abonnement. Neem een licentie om het in te schakelen.",
+            "UI_HideGrid": "Rasterlijnen verbergen",
+            "UI_ShowGrid": "Rasterlijnen tonen",
+            "Feat_group": "groepen",
+            "Feat_panel": "kleine veelvouden",
+            "Feat_points": "alle punten",
+            "Feat_violin": "viool",
+            "Feat_quartile": "kleur per kwartiel",
+            "Feat_mean": "markering gemiddelde",
+            "Feat_notches": "inkepingen",
+            "Feat_method": "kwartielmethode",
+            "Feat_whiskers": "snorharen op percentiel",
+            "Feat_sort": "sorteren op statistiek",
+            "Feat_reference": "referentielijnen",
+            "Feat_table": "statistiektabel"
+        },
+        "pl-PL": {
+            "Role_category": "Kategoria",
+            "Role_category_Desc": "Jedno pude\u0142ko na warto\u015b\u0107. Hierarchia umo\u017cliwia dr\u0105\u017cenie.",
+            "Role_value": "Warto\u015b\u0107",
+            "Role_value_Desc": "Miara, kt\u00f3rej rozk\u0142ad jest rysowany, liczona dla ka\u017cdego wiersza Szczeg\u00f3\u0142\u00f3w.",
+            "Role_detail": "Szczeg\u00f3\u0142y (wiersze)",
+            "Role_detail_Desc": "ID ka\u017cdej obserwacji: zam\u00f3wienie, pracownik, zg\u0142oszenie. Bez niego nie ma rozk\u0142adu.",
+            "Role_group": "Grupa (Pro)",
+            "Role_group_Desc": "Pude\u0142ka obok siebie w ka\u017cdej kategorii, z legend\u0105.",
+            "Role_panel": "Ma\u0142e wielokrotno\u015bci (Pro)",
+            "Role_panel_Desc": "Jeden panel na warto\u015b\u0107, ze wsp\u00f3ln\u0105 skal\u0105.",
+            "Role_tooltips": "Etykietki narz\u0119dzi",
+            "Role_tooltips_Desc": "Dodatkowe warto\u015bci w etykietce.",
+            "Obj_style": "Szablon stylu",
+            "Prop_style_template": "Szablon",
+            "Enum_tpl_clean": "Czysty",
+            "Enum_tpl_classic": "Klasyczny",
+            "Enum_tpl_minimal": "Minimalny",
+            "Enum_tpl_contrast": "Kontrast",
+            "Enum_tpl_compact": "Kompaktowy",
+            "Enum_tpl_ibcs": "Styl IBCS",
+            "Obj_boxes": "Pude\u0142ka",
+            "Prop_boxes_orientation": "Orientacja",
+            "Enum_or_vertical": "Pionowa",
+            "Enum_or_horizontal": "Pozioma",
+            "Prop_boxes_fill": "Kolor pude\u0142ka",
+            "Prop_boxes_border": "Kolor obramowania",
+            "Prop_boxes_borderWidth": "Grubo\u015b\u0107 obramowania",
+            "Prop_boxes_width": "Szeroko\u015b\u0107 pude\u0142ka %",
+            "Prop_boxes_radius": "Zaokr\u0105glone rogi",
+            "Prop_boxes_opacity": "Krycie wype\u0142nienia %",
+            "Prop_boxes_quartileColors": "Kolor wed\u0142ug kwartyla (Pro)",
+            "Prop_boxes_lowerColor": "Kolor dolnej po\u0142owy",
+            "Prop_boxes_upperColor": "Kolor g\u00f3rnej po\u0142owy",
+            "Prop_boxes_medianColor": "Kolor linii mediany",
+            "Obj_whiskers": "W\u0105sy",
+            "Prop_whiskers_rule": "Zasi\u0119g w\u0105s\u00f3w",
+            "Enum_wh_tukey": "1,5 \u00d7 IQR (Tukey)",
+            "Enum_wh_minmax": "Od minimum do maksimum",
+            "Enum_wh_p5": "Od 5. do 95. percentyla (Pro)",
+            "Enum_wh_p10": "Od 10. do 90. percentyla (Pro)",
+            "Prop_whiskers_caps": "Zako\u0144czenia",
+            "Prop_whiskers_color": "Kolor w\u0105s\u00f3w",
+            "Obj_statistics": "Statystyki",
+            "Prop_statistics_method": "Metoda kwartyli",
+            "Enum_m_linear": "W\u0142\u0105czny (Excel QUARTYL.PRZEDZ.ZAMK)",
+            "Enum_m_exclusive": "Wy\u0142\u0105czny (Excel QUARTYL.PRZEDZ.OTW) (Pro)",
+            "Enum_m_hinges": "Zawiasy Tukeya (Pro)",
+            "Prop_statistics_showN": "Poka\u017c n pod ka\u017cdym pude\u0142kiem",
+            "Prop_statistics_medianLabel": "Etykieta mediany",
+            "Prop_statistics_showMean": "Znacznik \u015bredniej (Pro)",
+            "Prop_statistics_meanColor": "Kolor \u015bredniej",
+            "Prop_statistics_notches": "Wci\u0119cia (Pro)",
+            "Obj_points": "Punkty",
+            "Prop_points_show": "Poka\u017c wszystkie punkty (Pro)",
+            "Prop_points_jitter": "Rozsuni\u0119cie punkt\u00f3w %",
+            "Prop_points_size": "Rozmiar punktu",
+            "Prop_points_color": "Kolor punkt\u00f3w",
+            "Prop_points_borderColor": "Kolor obramowania punkt\u00f3w",
+            "Prop_points_borderWidth": "Grubo\u015b\u0107 obramowania punkt\u00f3w",
+            "Prop_points_opacity": "Krycie punkt\u00f3w %",
+            "Prop_points_outlierSize": "Rozmiar warto\u015bci odstaj\u0105cych",
+            "Prop_points_outlierColor": "Kolor warto\u015bci odstaj\u0105cych",
+            "Obj_violin": "Skrzypce",
+            "Prop_violin_show": "Poka\u017c skrzypce (Pro)",
+            "Prop_violin_opacity": "Krycie skrzypiec %",
+            "Prop_violin_color": "Kolor skrzypiec",
+            "Obj_sort": "Sortuj",
+            "Prop_sort_by": "Sortuj pude\u0142ka wed\u0142ug",
+            "Enum_s_data": "Kolejno\u015b\u0107 danych",
+            "Enum_s_name": "Nazwa",
+            "Enum_s_median": "Mediana (Pro)",
+            "Enum_s_mean": "\u015arednia (Pro)",
+            "Enum_s_iqr": "Rozproszenie (IQR) (Pro)",
+            "Enum_s_count": "Liczba (Pro)",
+            "Prop_sort_descending": "Malej\u0105co",
+            "Obj_reference": "Linie odniesienia",
+            "Prop_reference_show": "Linia odniesienia (Pro)",
+            "Prop_reference_value": "Warto\u015b\u0107",
+            "Prop_reference_label": "Etykieta",
+            "Prop_reference_color": "Kolor linii",
+            "Prop_reference_show2": "Druga linia (Pro)",
+            "Prop_reference_value2": "Druga warto\u015b\u0107",
+            "Prop_reference_label2": "Druga etykieta",
+            "Obj_valueAxis": "O\u015b warto\u015bci",
+            "Prop_valueAxis_show": "Poka\u017c",
+            "Prop_valueAxis_title": "Tytu\u0142",
+            "Prop_valueAxis_titleText": "Tekst tytu\u0142u",
+            "Prop_valueAxis_gridlines": "Linie siatki",
+            "Prop_valueAxis_auto": "Zakres automatyczny",
+            "Prop_valueAxis_min": "Minimum",
+            "Prop_valueAxis_max": "Maksimum",
+            "Prop_valueAxis_fontSize": "Rozmiar tekstu",
+            "Prop_valueAxis_color": "Kolor tekstu",
+            "Prop_valueAxis_fontFamily": "Czcionka",
+            "Prop_valueAxis_bold": "Pogrubienie",
+            "Obj_categoryAxis": "O\u015b kategorii",
+            "Prop_categoryAxis_show": "Poka\u017c",
+            "Prop_categoryAxis_fontSize": "Rozmiar tekstu",
+            "Prop_categoryAxis_color": "Kolor tekstu",
+            "Prop_categoryAxis_fontFamily": "Czcionka",
+            "Prop_categoryAxis_bold": "Pogrubienie",
+            "Obj_legend": "Legenda",
+            "Prop_legend_show": "Poka\u017c",
+            "Prop_legend_position": "Po\u0142o\u017cenie",
+            "Enum_lg_top": "G\u00f3ra",
+            "Enum_lg_bottom": "D\u00f3\u0142",
+            "Prop_legend_fontSize": "Rozmiar tekstu",
+            "Prop_legend_color": "Kolor tekstu",
+            "Obj_statsTable": "Tabela statystyk",
+            "Prop_statsTable_show": "Poka\u017c tabel\u0119 (Pro)",
+            "Prop_statsTable_fontSize": "Rozmiar tekstu",
+            "Prop_statsTable_color": "Kolor tekstu",
+            "Prop_statsTable_headerBackground": "T\u0142o nag\u0142\u00f3wka",
+            "Prop_statsTable_headerColor": "Kolor tekstu nag\u0142\u00f3wka",
+            "Prop_statsTable_banding": "Kolor naprzemiennych wierszy",
+            "Obj_smallMultiples": "Ma\u0142e wielokrotno\u015bci",
+            "Prop_smallMultiples_columns": "Kolumny (0 = automatycznie)",
+            "Prop_smallMultiples_gap": "Odst\u0119p mi\u0119dzy panelami",
+            "Prop_smallMultiples_titleSize": "Rozmiar tytu\u0142u",
+            "Prop_smallMultiples_titleColor": "Kolor tytu\u0142u",
+            "Prop_smallMultiples_titleBold": "Pogrubiony tytu\u0142",
+            "Prop_smallMultiples_titleAlign": "Wyr\u00f3wnanie tytu\u0142u",
+            "Enum_al_left": "Do lewej",
+            "Enum_al_center": "Do \u015brodka",
+            "Prop_smallMultiples_background": "T\u0142o panelu",
+            "Prop_smallMultiples_border": "Obramowanie panelu",
+            "Prop_smallMultiples_borderColor": "Kolor obramowania panelu",
+            "Obj_background": "T\u0142o",
+            "Prop_background_color": "Kolor",
+            "UI_Blank": "(Puste)",
+            "UI_Median": "Mediana",
+            "UI_Category": "Kategoria",
+            "UI_Group": "Grupa",
+            "UI_Panel": "Panel",
+            "UI_Min": "Min",
+            "UI_Max": "Maks",
+            "UI_Mean": "\u015arednia",
+            "UI_SD": "Odch. std.",
+            "UI_Outliers": "Warto\u015bci odstaj\u0105ce",
+            "UI_NoDetail": "Dodaj ID w Szczeg\u00f3\u0142y (wiersze) \u2014 zam\u00f3wienie, pracownik, zg\u0142oszenie \u2014 aby ka\u017cde pude\u0142ko pokazywa\u0142o rozk\u0142ad, a nie sum\u0119 dla kategorii.",
+            "UI_ReadingFree": "Funkcje Pro niezastosowane w widoku do odczytu:",
+            "UI_ProPreview": "Podgl\u0105d Pro",
+            "UI_WarnTitle": "Box & Whisker",
+            "UI_WarnRowsDesktop": "W Power BI Desktop wizualizacja u\u017cywa pierwszych wierszy wys\u0142anych przez Power BI: opublikuj w us\u0142udze, aby u\u017cy\u0107 wszystkich.",
+            "UI_WarnRows": "Power BI wys\u0142a\u0142 tylko cz\u0119\u015b\u0107 wierszy: pude\u0142ka odzwierciedlaj\u0105 otrzymane wiersze.",
+            "UI_Method": "Kwartyle",
+            "UI_Avg": "\u015br.",
+            "Landing_Tagline": "Zobacz, jak rozk\u0142adaj\u0105 si\u0119 warto\u015bci w ka\u017cdej kategorii: mediana, kwartyle i warto\u015bci odstaj\u0105ce.",
+            "Landing_TaglineShort": "Jak rozk\u0142adaj\u0105 si\u0119 warto\u015bci w kategoriach.",
+            "Landing_Guide": "Przewodnik",
+            "Landing_GuideSub": "strona pomocy",
+            "Landing_Product": "Strona produktu",
+            "Landing_Video": "Wideo",
+            "Landing_Small": "Dodaj {cat}, {val} i {det}.",
+            "Landing_Step1": "jedno pude\u0142ko na warto\u015b\u0107: region, produkt, zesp\u00f3\u0142",
+            "Landing_Step1Short": "jedno pude\u0142ko na warto\u015b\u0107",
+            "Landing_Step2": "miara do analizy, np. dni lub kwota",
+            "Landing_Step2Short": "miara do analizy",
+            "Landing_Step3": "ID ka\u017cdego wiersza: zam\u00f3wienie, pracownik, zg\u0142oszenie",
+            "Landing_Step3Short": "ID ka\u017cdego wiersza",
+            "Landing_Start": "Zacznij w 3 krokach",
+            "Landing_Help": "Pomoc",
+            "Landing_Pro": "Wszystkie punkty z rozrzutem, \u015brednia i wci\u0119cia, skrzypce, grupy i ma\u0142e wielokrotno\u015bci, sortowanie wed\u0142ug mediany, linie odniesienia.",
+            "Landing_ProShort": "Punkty, skrzypce, grupy, ma\u0142e wielokrotno\u015bci, sortowanie wed\u0142ug mediany.",
+            "UI_NoticePreview": "Box & Whisker: {0} nale\u017cy do planu Pro i jest tu pokazane jako podgl\u0105d ze znakiem wodnym. Widok do odczytu pokazuje wynik bezp\u0142atny.",
+            "UI_NoticeBlocked": "Box & Whisker: {0} nale\u017cy do planu Pro. Uzyskaj licencj\u0119, aby to w\u0142\u0105czy\u0107.",
+            "UI_HideGrid": "Ukryj linie siatki",
+            "UI_ShowGrid": "Poka\u017c linie siatki",
+            "Feat_group": "grupy",
+            "Feat_panel": "ma\u0142e wielokrotno\u015bci",
+            "Feat_points": "wszystkie punkty",
+            "Feat_violin": "skrzypce",
+            "Feat_quartile": "kolor wed\u0142ug kwartyla",
+            "Feat_mean": "znacznik \u015bredniej",
+            "Feat_notches": "wci\u0119cia",
+            "Feat_method": "metoda kwartyli",
+            "Feat_whiskers": "w\u0105sy wed\u0142ug percentyla",
+            "Feat_sort": "sortowanie wed\u0142ug statystyki",
+            "Feat_reference": "linie odniesienia",
+            "Feat_table": "tabela statystyk"
+        },
+        "pt-BR": {
+            "Role_category": "Categoria",
+            "Role_category_Desc": "Uma caixa por valor. Uma hierarquia permite fazer drill down.",
+            "Role_value": "Valor",
+            "Role_value_Desc": "A medida cuja distribui\u00e7\u00e3o \u00e9 desenhada, avaliada por linha de Detalhe.",
+            "Role_detail": "Detalhe (linhas)",
+            "Role_detail_Desc": "O ID de cada observa\u00e7\u00e3o: pedido, funcion\u00e1rio, chamado. Sem ele n\u00e3o h\u00e1 distribui\u00e7\u00e3o.",
+            "Role_group": "Grupo (Pro)",
+            "Role_group_Desc": "Caixas lado a lado em cada categoria, com legenda.",
+            "Role_panel": "M\u00faltiplos pequenos (Pro)",
+            "Role_panel_Desc": "Um painel por valor, na mesma escala.",
+            "Role_tooltips": "Dicas de ferramenta",
+            "Role_tooltips_Desc": "Valores adicionais na dica de ferramenta.",
+            "Obj_style": "Modelo de estilo",
+            "Prop_style_template": "Modelo",
+            "Enum_tpl_clean": "Limpo",
+            "Enum_tpl_classic": "Cl\u00e1ssico",
+            "Enum_tpl_minimal": "M\u00ednimo",
+            "Enum_tpl_contrast": "Contraste",
+            "Enum_tpl_compact": "Compacto",
+            "Enum_tpl_ibcs": "Estilo IBCS",
+            "Obj_boxes": "Caixas",
+            "Prop_boxes_orientation": "Orienta\u00e7\u00e3o",
+            "Enum_or_vertical": "Vertical",
+            "Enum_or_horizontal": "Horizontal",
+            "Prop_boxes_fill": "Cor da caixa",
+            "Prop_boxes_border": "Cor da borda",
+            "Prop_boxes_borderWidth": "Largura da borda",
+            "Prop_boxes_width": "Largura da caixa %",
+            "Prop_boxes_radius": "Cantos arredondados",
+            "Prop_boxes_opacity": "Opacidade do preenchimento %",
+            "Prop_boxes_quartileColors": "Cor por quartil (Pro)",
+            "Prop_boxes_lowerColor": "Cor da metade inferior",
+            "Prop_boxes_upperColor": "Cor da metade superior",
+            "Prop_boxes_medianColor": "Cor da linha da mediana",
+            "Obj_whiskers": "Bigodes",
+            "Prop_whiskers_rule": "Alcance dos bigodes",
+            "Enum_wh_tukey": "1,5 \u00d7 AIQ (Tukey)",
+            "Enum_wh_minmax": "Do m\u00ednimo ao m\u00e1ximo",
+            "Enum_wh_p5": "Percentil 5 a 95 (Pro)",
+            "Enum_wh_p10": "Percentil 10 a 90 (Pro)",
+            "Prop_whiskers_caps": "Terminais",
+            "Prop_whiskers_color": "Cor dos bigodes",
+            "Obj_statistics": "Estat\u00edsticas",
+            "Prop_statistics_method": "M\u00e9todo de quartis",
+            "Enum_m_linear": "Inclusivo (Excel QUARTIL.INC)",
+            "Enum_m_exclusive": "Exclusivo (Excel QUARTIL.EXC) (Pro)",
+            "Enum_m_hinges": "Dobradi\u00e7as de Tukey (Pro)",
+            "Prop_statistics_showN": "Mostrar n sob cada caixa",
+            "Prop_statistics_medianLabel": "R\u00f3tulo da mediana",
+            "Prop_statistics_showMean": "Marcador da m\u00e9dia (Pro)",
+            "Prop_statistics_meanColor": "Cor da m\u00e9dia",
+            "Prop_statistics_notches": "Entalhes (Pro)",
+            "Obj_points": "Pontos",
+            "Prop_points_show": "Mostrar todos os pontos (Pro)",
+            "Prop_points_jitter": "Separa\u00e7\u00e3o dos pontos %",
+            "Prop_points_size": "Tamanho do ponto",
+            "Prop_points_color": "Cor dos pontos",
+            "Prop_points_borderColor": "Cor da borda dos pontos",
+            "Prop_points_borderWidth": "Largura da borda dos pontos",
+            "Prop_points_opacity": "Opacidade dos pontos %",
+            "Prop_points_outlierSize": "Tamanho dos valores discrepantes",
+            "Prop_points_outlierColor": "Cor dos valores discrepantes",
+            "Obj_violin": "Violino",
+            "Prop_violin_show": "Mostrar violino (Pro)",
+            "Prop_violin_opacity": "Opacidade do violino %",
+            "Prop_violin_color": "Cor do violino",
+            "Obj_sort": "Classificar",
+            "Prop_sort_by": "Classificar caixas por",
+            "Enum_s_data": "Ordem dos dados",
+            "Enum_s_name": "Nome",
+            "Enum_s_median": "Mediana (Pro)",
+            "Enum_s_mean": "M\u00e9dia (Pro)",
+            "Enum_s_iqr": "Dispers\u00e3o (AIQ) (Pro)",
+            "Enum_s_count": "Contagem (Pro)",
+            "Prop_sort_descending": "Decrescente",
+            "Obj_reference": "Linhas de refer\u00eancia",
+            "Prop_reference_show": "Linha de refer\u00eancia (Pro)",
+            "Prop_reference_value": "Valor",
+            "Prop_reference_label": "R\u00f3tulo",
+            "Prop_reference_color": "Cor da linha",
+            "Prop_reference_show2": "Segunda linha (Pro)",
+            "Prop_reference_value2": "Segundo valor",
+            "Prop_reference_label2": "Segundo r\u00f3tulo",
+            "Obj_valueAxis": "Eixo de valores",
+            "Prop_valueAxis_show": "Mostrar",
+            "Prop_valueAxis_title": "T\u00edtulo",
+            "Prop_valueAxis_titleText": "Texto do t\u00edtulo",
+            "Prop_valueAxis_gridlines": "Linhas de grade",
+            "Prop_valueAxis_auto": "Intervalo autom\u00e1tico",
+            "Prop_valueAxis_min": "M\u00ednimo",
+            "Prop_valueAxis_max": "M\u00e1ximo",
+            "Prop_valueAxis_fontSize": "Tamanho do texto",
+            "Prop_valueAxis_color": "Cor do texto",
+            "Prop_valueAxis_fontFamily": "Fonte",
+            "Prop_valueAxis_bold": "Negrito",
+            "Obj_categoryAxis": "Eixo de categorias",
+            "Prop_categoryAxis_show": "Mostrar",
+            "Prop_categoryAxis_fontSize": "Tamanho do texto",
+            "Prop_categoryAxis_color": "Cor do texto",
+            "Prop_categoryAxis_fontFamily": "Fonte",
+            "Prop_categoryAxis_bold": "Negrito",
+            "Obj_legend": "Legenda",
+            "Prop_legend_show": "Mostrar",
+            "Prop_legend_position": "Posi\u00e7\u00e3o",
+            "Enum_lg_top": "Superior",
+            "Enum_lg_bottom": "Inferior",
+            "Prop_legend_fontSize": "Tamanho do texto",
+            "Prop_legend_color": "Cor do texto",
+            "Obj_statsTable": "Tabela de estat\u00edsticas",
+            "Prop_statsTable_show": "Mostrar tabela (Pro)",
+            "Prop_statsTable_fontSize": "Tamanho do texto",
+            "Prop_statsTable_color": "Cor do texto",
+            "Prop_statsTable_headerBackground": "Fundo do cabe\u00e7alho",
+            "Prop_statsTable_headerColor": "Cor do texto do cabe\u00e7alho",
+            "Prop_statsTable_banding": "Cor das linhas alternadas",
+            "Obj_smallMultiples": "M\u00faltiplos pequenos",
+            "Prop_smallMultiples_columns": "Colunas (0 = autom\u00e1tico)",
+            "Prop_smallMultiples_gap": "Espa\u00e7o entre pain\u00e9is",
+            "Prop_smallMultiples_titleSize": "Tamanho do t\u00edtulo",
+            "Prop_smallMultiples_titleColor": "Cor do t\u00edtulo",
+            "Prop_smallMultiples_titleBold": "T\u00edtulo em negrito",
+            "Prop_smallMultiples_titleAlign": "Alinhamento do t\u00edtulo",
+            "Enum_al_left": "Esquerda",
+            "Enum_al_center": "Centro",
+            "Prop_smallMultiples_background": "Fundo do painel",
+            "Prop_smallMultiples_border": "Borda do painel",
+            "Prop_smallMultiples_borderColor": "Cor da borda do painel",
+            "Obj_background": "Plano de fundo",
+            "Prop_background_color": "Cor",
+            "UI_Blank": "(Em branco)",
+            "UI_Median": "Mediana",
+            "UI_Category": "Categoria",
+            "UI_Group": "Grupo",
+            "UI_Panel": "Painel",
+            "UI_Min": "M\u00edn.",
+            "UI_Max": "M\u00e1x.",
+            "UI_Mean": "M\u00e9dia",
+            "UI_SD": "Desv. pad.",
+            "UI_Outliers": "Valores discrepantes",
+            "UI_NoDetail": "Adicione um ID em Detalhe (linhas) \u2014 pedido, funcion\u00e1rio, chamado \u2014 para que cada caixa mostre uma distribui\u00e7\u00e3o, n\u00e3o um total por categoria.",
+            "UI_ReadingFree": "Recursos Pro n\u00e3o aplicados no modo de leitura:",
+            "UI_ProPreview": "Pr\u00e9via Pro",
+            "UI_WarnTitle": "Box & Whisker",
+            "UI_WarnRowsDesktop": "No Power BI Desktop o visual usa as primeiras linhas que o Power BI envia: publique no servi\u00e7o para usar todas.",
+            "UI_WarnRows": "O Power BI enviou s\u00f3 parte das linhas: as caixas refletem as linhas recebidas.",
+            "UI_Method": "Quartis",
+            "UI_Avg": "m\u00e9dia",
+            "Landing_Tagline": "Veja como os valores se distribuem em cada categoria: mediana, quartis e valores discrepantes.",
+            "Landing_TaglineShort": "Como os valores se distribuem em cada categoria.",
+            "Landing_Guide": "Guia",
+            "Landing_GuideSub": "p\u00e1gina de suporte",
+            "Landing_Product": "P\u00e1gina do produto",
+            "Landing_Video": "V\u00eddeo",
+            "Landing_Small": "Adicione {cat}, {val} e {det}.",
+            "Landing_Step1": "uma caixa por valor: regi\u00e3o, produto, equipe",
+            "Landing_Step1Short": "uma caixa por valor",
+            "Landing_Step2": "a medida a estudar, como dias ou valor",
+            "Landing_Step2Short": "a medida a estudar",
+            "Landing_Step3": "o ID de cada linha: pedido, funcion\u00e1rio, chamado",
+            "Landing_Step3Short": "o ID de cada linha",
+            "Landing_Start": "Comece em 3 passos",
+            "Landing_Help": "Ajuda",
+            "Landing_Pro": "Todos os pontos separados, m\u00e9dia e entalhes, violino, grupos e m\u00faltiplos pequenos, classifica\u00e7\u00e3o pela mediana e linhas de refer\u00eancia.",
+            "Landing_ProShort": "Pontos, violino, grupos, m\u00faltiplos pequenos, classifica\u00e7\u00e3o pela mediana.",
+            "UI_NoticePreview": "Box & Whisker: {0} faz parte do plano Pro e aparece aqui como pr\u00e9via com marca d\u2019\u00e1gua. O modo de leitura mostra o resultado gratuito.",
+            "UI_NoticeBlocked": "Box & Whisker: {0} faz parte do plano Pro. Obtenha uma licen\u00e7a para ativ\u00e1-lo.",
+            "UI_HideGrid": "Ocultar linhas de grade",
+            "UI_ShowGrid": "Mostrar linhas de grade",
+            "Feat_group": "grupos",
+            "Feat_panel": "m\u00faltiplos pequenos",
+            "Feat_points": "todos os pontos",
+            "Feat_violin": "violino",
+            "Feat_quartile": "cor por quartil",
+            "Feat_mean": "marcador da m\u00e9dia",
+            "Feat_notches": "entalhes",
+            "Feat_method": "m\u00e9todo de quartis",
+            "Feat_whiskers": "bigodes por percentil",
+            "Feat_sort": "classifica\u00e7\u00e3o por estat\u00edstica",
+            "Feat_reference": "linhas de refer\u00eancia",
+            "Feat_table": "tabela de estat\u00edsticas"
+        },
+        "pt-PT": {
+            "Role_category": "Categoria",
+            "Role_category_Desc": "Uma caixa por valor. Uma hierarquia permite fazer drill down.",
+            "Role_value": "Valor",
+            "Role_value_Desc": "A medida cuja distribui\u00e7\u00e3o \u00e9 desenhada, avaliada por linha de Detalhe.",
+            "Role_detail": "Detalhe (linhas)",
+            "Role_detail_Desc": "O ID de cada observa\u00e7\u00e3o: pedido, funcion\u00e1rio, chamado. Sem ele n\u00e3o h\u00e1 distribui\u00e7\u00e3o.",
+            "Role_group": "Grupo (Pro)",
+            "Role_group_Desc": "Caixas lado a lado em cada categoria, com legenda.",
+            "Role_panel": "M\u00faltiplos pequenos (Pro)",
+            "Role_panel_Desc": "Um painel por valor, na mesma escala.",
+            "Role_tooltips": "Dicas de ferramenta",
+            "Role_tooltips_Desc": "Valores adicionais na dica de ferramenta.",
+            "Obj_style": "Modelo de estilo",
+            "Prop_style_template": "Modelo",
+            "Enum_tpl_clean": "Limpo",
+            "Enum_tpl_classic": "Cl\u00e1ssico",
+            "Enum_tpl_minimal": "M\u00ednimo",
+            "Enum_tpl_contrast": "Contraste",
+            "Enum_tpl_compact": "Compacto",
+            "Enum_tpl_ibcs": "Estilo IBCS",
+            "Obj_boxes": "Caixas",
+            "Prop_boxes_orientation": "Orienta\u00e7\u00e3o",
+            "Enum_or_vertical": "Vertical",
+            "Enum_or_horizontal": "Horizontal",
+            "Prop_boxes_fill": "Cor da caixa",
+            "Prop_boxes_border": "Cor da borda",
+            "Prop_boxes_borderWidth": "Largura da borda",
+            "Prop_boxes_width": "Largura da caixa %",
+            "Prop_boxes_radius": "Cantos arredondados",
+            "Prop_boxes_opacity": "Opacidade do preenchimento %",
+            "Prop_boxes_quartileColors": "Cor por quartil (Pro)",
+            "Prop_boxes_lowerColor": "Cor da metade inferior",
+            "Prop_boxes_upperColor": "Cor da metade superior",
+            "Prop_boxes_medianColor": "Cor da linha da mediana",
+            "Obj_whiskers": "Bigodes",
+            "Prop_whiskers_rule": "Alcance dos bigodes",
+            "Enum_wh_tukey": "1,5 \u00d7 AIQ (Tukey)",
+            "Enum_wh_minmax": "Do m\u00ednimo ao m\u00e1ximo",
+            "Enum_wh_p5": "Percentil 5 a 95 (Pro)",
+            "Enum_wh_p10": "Percentil 10 a 90 (Pro)",
+            "Prop_whiskers_caps": "Terminais",
+            "Prop_whiskers_color": "Cor dos bigodes",
+            "Obj_statistics": "Estat\u00edsticas",
+            "Prop_statistics_method": "M\u00e9todo de quartis",
+            "Enum_m_linear": "Inclusivo (Excel QUARTIL.INC)",
+            "Enum_m_exclusive": "Exclusivo (Excel QUARTIL.EXC) (Pro)",
+            "Enum_m_hinges": "Dobradi\u00e7as de Tukey (Pro)",
+            "Prop_statistics_showN": "Mostrar n sob cada caixa",
+            "Prop_statistics_medianLabel": "R\u00f3tulo da mediana",
+            "Prop_statistics_showMean": "Marcador da m\u00e9dia (Pro)",
+            "Prop_statistics_meanColor": "Cor da m\u00e9dia",
+            "Prop_statistics_notches": "Entalhes (Pro)",
+            "Obj_points": "Pontos",
+            "Prop_points_show": "Mostrar todos os pontos (Pro)",
+            "Prop_points_jitter": "Separa\u00e7\u00e3o dos pontos %",
+            "Prop_points_size": "Tamanho do ponto",
+            "Prop_points_color": "Cor dos pontos",
+            "Prop_points_borderColor": "Cor da borda dos pontos",
+            "Prop_points_borderWidth": "Largura da borda dos pontos",
+            "Prop_points_opacity": "Opacidade dos pontos %",
+            "Prop_points_outlierSize": "Tamanho dos valores discrepantes",
+            "Prop_points_outlierColor": "Cor dos valores discrepantes",
+            "Obj_violin": "Violino",
+            "Prop_violin_show": "Mostrar violino (Pro)",
+            "Prop_violin_opacity": "Opacidade do violino %",
+            "Prop_violin_color": "Cor do violino",
+            "Obj_sort": "Classificar",
+            "Prop_sort_by": "Classificar caixas por",
+            "Enum_s_data": "Ordem dos dados",
+            "Enum_s_name": "Nome",
+            "Enum_s_median": "Mediana (Pro)",
+            "Enum_s_mean": "M\u00e9dia (Pro)",
+            "Enum_s_iqr": "Dispers\u00e3o (AIQ) (Pro)",
+            "Enum_s_count": "Contagem (Pro)",
+            "Prop_sort_descending": "Decrescente",
+            "Obj_reference": "Linhas de refer\u00eancia",
+            "Prop_reference_show": "Linha de refer\u00eancia (Pro)",
+            "Prop_reference_value": "Valor",
+            "Prop_reference_label": "R\u00f3tulo",
+            "Prop_reference_color": "Cor da linha",
+            "Prop_reference_show2": "Segunda linha (Pro)",
+            "Prop_reference_value2": "Segundo valor",
+            "Prop_reference_label2": "Segundo r\u00f3tulo",
+            "Obj_valueAxis": "Eixo de valores",
+            "Prop_valueAxis_show": "Mostrar",
+            "Prop_valueAxis_title": "T\u00edtulo",
+            "Prop_valueAxis_titleText": "Texto do t\u00edtulo",
+            "Prop_valueAxis_gridlines": "Linhas de grade",
+            "Prop_valueAxis_auto": "Intervalo autom\u00e1tico",
+            "Prop_valueAxis_min": "M\u00ednimo",
+            "Prop_valueAxis_max": "M\u00e1ximo",
+            "Prop_valueAxis_fontSize": "Tamanho do texto",
+            "Prop_valueAxis_color": "Cor do texto",
+            "Prop_valueAxis_fontFamily": "Fonte",
+            "Prop_valueAxis_bold": "Negrito",
+            "Obj_categoryAxis": "Eixo de categorias",
+            "Prop_categoryAxis_show": "Mostrar",
+            "Prop_categoryAxis_fontSize": "Tamanho do texto",
+            "Prop_categoryAxis_color": "Cor do texto",
+            "Prop_categoryAxis_fontFamily": "Fonte",
+            "Prop_categoryAxis_bold": "Negrito",
+            "Obj_legend": "Legenda",
+            "Prop_legend_show": "Mostrar",
+            "Prop_legend_position": "Posi\u00e7\u00e3o",
+            "Enum_lg_top": "Superior",
+            "Enum_lg_bottom": "Inferior",
+            "Prop_legend_fontSize": "Tamanho do texto",
+            "Prop_legend_color": "Cor do texto",
+            "Obj_statsTable": "Tabela de estat\u00edsticas",
+            "Prop_statsTable_show": "Mostrar tabela (Pro)",
+            "Prop_statsTable_fontSize": "Tamanho do texto",
+            "Prop_statsTable_color": "Cor do texto",
+            "Prop_statsTable_headerBackground": "Fundo do cabe\u00e7alho",
+            "Prop_statsTable_headerColor": "Cor do texto do cabe\u00e7alho",
+            "Prop_statsTable_banding": "Cor das linhas alternadas",
+            "Obj_smallMultiples": "M\u00faltiplos pequenos",
+            "Prop_smallMultiples_columns": "Colunas (0 = autom\u00e1tico)",
+            "Prop_smallMultiples_gap": "Espa\u00e7o entre pain\u00e9is",
+            "Prop_smallMultiples_titleSize": "Tamanho do t\u00edtulo",
+            "Prop_smallMultiples_titleColor": "Cor do t\u00edtulo",
+            "Prop_smallMultiples_titleBold": "T\u00edtulo em negrito",
+            "Prop_smallMultiples_titleAlign": "Alinhamento do t\u00edtulo",
+            "Enum_al_left": "Esquerda",
+            "Enum_al_center": "Centro",
+            "Prop_smallMultiples_background": "Fundo do painel",
+            "Prop_smallMultiples_border": "Borda do painel",
+            "Prop_smallMultiples_borderColor": "Cor da borda do painel",
+            "Obj_background": "Plano de fundo",
+            "Prop_background_color": "Cor",
+            "UI_Blank": "(Em branco)",
+            "UI_Median": "Mediana",
+            "UI_Category": "Categoria",
+            "UI_Group": "Grupo",
+            "UI_Panel": "Painel",
+            "UI_Min": "M\u00edn.",
+            "UI_Max": "M\u00e1x.",
+            "UI_Mean": "M\u00e9dia",
+            "UI_SD": "Desv. pad.",
+            "UI_Outliers": "Valores discrepantes",
+            "UI_NoDetail": "Adicione um ID em Detalhe (linhas) \u2014 pedido, funcion\u00e1rio, chamado \u2014 para que cada caixa mostre uma distribui\u00e7\u00e3o, n\u00e3o um total por categoria.",
+            "UI_ReadingFree": "Recursos Pro n\u00e3o aplicados no modo de leitura:",
+            "UI_ProPreview": "Pr\u00e9via Pro",
+            "UI_WarnTitle": "Box & Whisker",
+            "UI_WarnRowsDesktop": "No Power BI Desktop o visual usa as primeiras linhas que o Power BI envia: publique no servi\u00e7o para usar todas.",
+            "UI_WarnRows": "O Power BI enviou s\u00f3 parte das linhas: as caixas refletem as linhas recebidas.",
+            "UI_Method": "Quartis",
+            "UI_Avg": "m\u00e9dia",
+            "Landing_Tagline": "Veja como os valores se distribuem em cada categoria: mediana, quartis e valores discrepantes.",
+            "Landing_TaglineShort": "Como os valores se distribuem em cada categoria.",
+            "Landing_Guide": "Guia",
+            "Landing_GuideSub": "p\u00e1gina de suporte",
+            "Landing_Product": "P\u00e1gina do produto",
+            "Landing_Video": "V\u00eddeo",
+            "Landing_Small": "Adicione {cat}, {val} e {det}.",
+            "Landing_Step1": "uma caixa por valor: regi\u00e3o, produto, equipe",
+            "Landing_Step1Short": "uma caixa por valor",
+            "Landing_Step2": "a medida a estudar, como dias ou valor",
+            "Landing_Step2Short": "a medida a estudar",
+            "Landing_Step3": "o ID de cada linha: pedido, funcion\u00e1rio, chamado",
+            "Landing_Step3Short": "o ID de cada linha",
+            "Landing_Start": "Comece em 3 passos",
+            "Landing_Help": "Ajuda",
+            "Landing_Pro": "Todos os pontos separados, m\u00e9dia e entalhes, violino, grupos e m\u00faltiplos pequenos, classifica\u00e7\u00e3o pela mediana e linhas de refer\u00eancia.",
+            "Landing_ProShort": "Pontos, violino, grupos, m\u00faltiplos pequenos, classifica\u00e7\u00e3o pela mediana.",
+            "UI_NoticePreview": "Box & Whisker: {0} faz parte do plano Pro e aparece aqui como pr\u00e9via com marca d\u2019\u00e1gua. O modo de leitura mostra o resultado gratuito.",
+            "UI_NoticeBlocked": "Box & Whisker: {0} faz parte do plano Pro. Obtenha uma licen\u00e7a para ativ\u00e1-lo.",
+            "UI_HideGrid": "Ocultar linhas de grade",
+            "UI_ShowGrid": "Mostrar linhas de grade",
+            "Feat_group": "grupos",
+            "Feat_panel": "m\u00faltiplos pequenos",
+            "Feat_points": "todos os pontos",
+            "Feat_violin": "violino",
+            "Feat_quartile": "cor por quartil",
+            "Feat_mean": "marcador da m\u00e9dia",
+            "Feat_notches": "entalhes",
+            "Feat_method": "m\u00e9todo de quartis",
+            "Feat_whiskers": "bigodes por percentil",
+            "Feat_sort": "classifica\u00e7\u00e3o por estat\u00edstica",
+            "Feat_reference": "linhas de refer\u00eancia",
+            "Feat_table": "tabela de estat\u00edsticas"
+        },
+        "zh-CN": {
+            "Role_category": "\u7c7b\u522b",
+            "Role_category_Desc": "\u6bcf\u4e2a\u503c\u4e00\u4e2a\u7bb1\u4f53\u3002\u5c42\u6b21\u7ed3\u6784\u53ef\u5411\u4e0b\u94bb\u53d6\u3002",
+            "Role_value": "\u503c",
+            "Role_value_Desc": "\u7ed8\u5236\u5176\u5206\u5e03\u7684\u5ea6\u91cf\u503c\uff0c\u6309\u6bcf\u4e2a\u660e\u7ec6\u884c\u8ba1\u7b97\u3002",
+            "Role_detail": "\u660e\u7ec6 (\u884c)",
+            "Role_detail_Desc": "\u6bcf\u4e2a\u89c2\u6d4b\u503c\u7684 ID\uff1a\u8ba2\u5355\u3001\u5458\u5de5\u3001\u5de5\u5355\u3002\u6ca1\u6709\u5b83\u5c31\u6ca1\u6709\u5206\u5e03\u3002",
+            "Role_group": "\u5206\u7ec4 (Pro)",
+            "Role_group_Desc": "\u6bcf\u4e2a\u7c7b\u522b\u5185\u5e76\u6392\u7684\u7bb1\u4f53\uff0c\u5e26\u56fe\u4f8b\u3002",
+            "Role_panel": "\u5c0f\u578b\u5e8f\u5217\u56fe (Pro)",
+            "Role_panel_Desc": "\u6bcf\u4e2a\u503c\u4e00\u4e2a\u9762\u677f\uff0c\u4f7f\u7528\u76f8\u540c\u523b\u5ea6\u3002",
+            "Role_tooltips": "\u5de5\u5177\u63d0\u793a",
+            "Role_tooltips_Desc": "\u5de5\u5177\u63d0\u793a\u4e2d\u7684\u5176\u4ed6\u503c\u3002",
+            "Obj_style": "\u6837\u5f0f\u6a21\u677f",
+            "Prop_style_template": "\u6a21\u677f",
+            "Enum_tpl_clean": "\u7b80\u6d01",
+            "Enum_tpl_classic": "\u7ecf\u5178",
+            "Enum_tpl_minimal": "\u6781\u7b80",
+            "Enum_tpl_contrast": "\u5bf9\u6bd4",
+            "Enum_tpl_compact": "\u7d27\u51d1",
+            "Enum_tpl_ibcs": "IBCS \u6837\u5f0f",
+            "Obj_boxes": "\u7bb1\u4f53",
+            "Prop_boxes_orientation": "\u65b9\u5411",
+            "Enum_or_vertical": "\u5782\u76f4",
+            "Enum_or_horizontal": "\u6c34\u5e73",
+            "Prop_boxes_fill": "\u7bb1\u4f53\u989c\u8272",
+            "Prop_boxes_border": "\u8fb9\u6846\u989c\u8272",
+            "Prop_boxes_borderWidth": "\u8fb9\u6846\u5bbd\u5ea6",
+            "Prop_boxes_width": "\u7bb1\u4f53\u5bbd\u5ea6 %",
+            "Prop_boxes_radius": "\u5706\u89d2",
+            "Prop_boxes_opacity": "\u586b\u5145\u4e0d\u900f\u660e\u5ea6 %",
+            "Prop_boxes_quartileColors": "\u6309\u56db\u5206\u4f4d\u7740\u8272 (Pro)",
+            "Prop_boxes_lowerColor": "\u4e0b\u534a\u90e8\u989c\u8272",
+            "Prop_boxes_upperColor": "\u4e0a\u534a\u90e8\u989c\u8272",
+            "Prop_boxes_medianColor": "\u4e2d\u4f4d\u6570\u7ebf\u989c\u8272",
+            "Obj_whiskers": "\u987b\u7ebf",
+            "Prop_whiskers_rule": "\u987b\u7ebf\u8303\u56f4",
+            "Enum_wh_tukey": "1.5 \u00d7 IQR (Tukey)",
+            "Enum_wh_minmax": "\u6700\u5c0f\u503c\u5230\u6700\u5927\u503c",
+            "Enum_wh_p5": "\u7b2c 5 \u5230\u7b2c 95 \u767e\u5206\u4f4d (Pro)",
+            "Enum_wh_p10": "\u7b2c 10 \u5230\u7b2c 90 \u767e\u5206\u4f4d (Pro)",
+            "Prop_whiskers_caps": "\u7aef\u7ebf",
+            "Prop_whiskers_color": "\u987b\u7ebf\u989c\u8272",
+            "Obj_statistics": "\u7edf\u8ba1",
+            "Prop_statistics_method": "\u56db\u5206\u4f4d\u6570\u65b9\u6cd5",
+            "Enum_m_linear": "\u5305\u542b (Excel QUARTILE.INC)",
+            "Enum_m_exclusive": "\u6392\u9664 (Excel QUARTILE.EXC) (Pro)",
+            "Enum_m_hinges": "Tukey \u67a2\u7ebd (Pro)",
+            "Prop_statistics_showN": "\u5728\u6bcf\u4e2a\u7bb1\u4f53\u4e0b\u663e\u793a n",
+            "Prop_statistics_medianLabel": "\u4e2d\u4f4d\u6570\u6807\u7b7e",
+            "Prop_statistics_showMean": "\u5e73\u5747\u503c\u6807\u8bb0 (Pro)",
+            "Prop_statistics_meanColor": "\u5e73\u5747\u503c\u989c\u8272",
+            "Prop_statistics_notches": "\u51f9\u53e3 (Pro)",
+            "Obj_points": "\u70b9",
+            "Prop_points_show": "\u663e\u793a\u6240\u6709\u70b9 (Pro)",
+            "Prop_points_jitter": "\u70b9\u7684\u6296\u52a8 %",
+            "Prop_points_size": "\u70b9\u5927\u5c0f",
+            "Prop_points_color": "\u70b9\u989c\u8272",
+            "Prop_points_borderColor": "\u70b9\u8fb9\u6846\u989c\u8272",
+            "Prop_points_borderWidth": "\u70b9\u8fb9\u6846\u5bbd\u5ea6",
+            "Prop_points_opacity": "\u70b9\u4e0d\u900f\u660e\u5ea6 %",
+            "Prop_points_outlierSize": "\u79bb\u7fa4\u503c\u5927\u5c0f",
+            "Prop_points_outlierColor": "\u79bb\u7fa4\u503c\u989c\u8272",
+            "Obj_violin": "\u5c0f\u63d0\u7434\u56fe",
+            "Prop_violin_show": "\u663e\u793a\u5c0f\u63d0\u7434\u56fe (Pro)",
+            "Prop_violin_opacity": "\u5c0f\u63d0\u7434\u56fe\u4e0d\u900f\u660e\u5ea6 %",
+            "Prop_violin_color": "\u5c0f\u63d0\u7434\u56fe\u989c\u8272",
+            "Obj_sort": "\u6392\u5e8f",
+            "Prop_sort_by": "\u7bb1\u4f53\u6392\u5e8f\u4f9d\u636e",
+            "Enum_s_data": "\u6570\u636e\u987a\u5e8f",
+            "Enum_s_name": "\u540d\u79f0",
+            "Enum_s_median": "\u4e2d\u4f4d\u6570 (Pro)",
+            "Enum_s_mean": "\u5e73\u5747\u503c (Pro)",
+            "Enum_s_iqr": "\u79bb\u6563\u5ea6 (IQR) (Pro)",
+            "Enum_s_count": "\u8ba1\u6570 (Pro)",
+            "Prop_sort_descending": "\u964d\u5e8f",
+            "Obj_reference": "\u53c2\u8003\u7ebf",
+            "Prop_reference_show": "\u53c2\u8003\u7ebf (Pro)",
+            "Prop_reference_value": "\u503c",
+            "Prop_reference_label": "\u6807\u7b7e",
+            "Prop_reference_color": "\u7ebf\u6761\u989c\u8272",
+            "Prop_reference_show2": "\u7b2c\u4e8c\u6761\u7ebf (Pro)",
+            "Prop_reference_value2": "\u7b2c\u4e8c\u4e2a\u503c",
+            "Prop_reference_label2": "\u7b2c\u4e8c\u4e2a\u6807\u7b7e",
+            "Obj_valueAxis": "\u503c\u8f74",
+            "Prop_valueAxis_show": "\u663e\u793a",
+            "Prop_valueAxis_title": "\u6807\u9898",
+            "Prop_valueAxis_titleText": "\u6807\u9898\u6587\u672c",
+            "Prop_valueAxis_gridlines": "\u7f51\u683c\u7ebf",
+            "Prop_valueAxis_auto": "\u81ea\u52a8\u8303\u56f4",
+            "Prop_valueAxis_min": "\u6700\u5c0f\u503c",
+            "Prop_valueAxis_max": "\u6700\u5927\u503c",
+            "Prop_valueAxis_fontSize": "\u6587\u672c\u5927\u5c0f",
+            "Prop_valueAxis_color": "\u6587\u672c\u989c\u8272",
+            "Prop_valueAxis_fontFamily": "\u5b57\u4f53",
+            "Prop_valueAxis_bold": "\u52a0\u7c97",
+            "Obj_categoryAxis": "\u7c7b\u522b\u8f74",
+            "Prop_categoryAxis_show": "\u663e\u793a",
+            "Prop_categoryAxis_fontSize": "\u6587\u672c\u5927\u5c0f",
+            "Prop_categoryAxis_color": "\u6587\u672c\u989c\u8272",
+            "Prop_categoryAxis_fontFamily": "\u5b57\u4f53",
+            "Prop_categoryAxis_bold": "\u52a0\u7c97",
+            "Obj_legend": "\u56fe\u4f8b",
+            "Prop_legend_show": "\u663e\u793a",
+            "Prop_legend_position": "\u4f4d\u7f6e",
+            "Enum_lg_top": "\u9876\u90e8",
+            "Enum_lg_bottom": "\u5e95\u90e8",
+            "Prop_legend_fontSize": "\u6587\u672c\u5927\u5c0f",
+            "Prop_legend_color": "\u6587\u672c\u989c\u8272",
+            "Obj_statsTable": "\u7edf\u8ba1\u8868",
+            "Prop_statsTable_show": "\u663e\u793a\u8868\u683c (Pro)",
+            "Prop_statsTable_fontSize": "\u6587\u672c\u5927\u5c0f",
+            "Prop_statsTable_color": "\u6587\u672c\u989c\u8272",
+            "Prop_statsTable_headerBackground": "\u6807\u9898\u80cc\u666f",
+            "Prop_statsTable_headerColor": "\u6807\u9898\u6587\u672c\u989c\u8272",
+            "Prop_statsTable_banding": "\u4ea4\u66ff\u884c\u989c\u8272",
+            "Obj_smallMultiples": "\u5c0f\u578b\u5e8f\u5217\u56fe",
+            "Prop_smallMultiples_columns": "\u5217 (0 = \u81ea\u52a8)",
+            "Prop_smallMultiples_gap": "\u9762\u677f\u95f4\u8ddd",
+            "Prop_smallMultiples_titleSize": "\u6807\u9898\u5927\u5c0f",
+            "Prop_smallMultiples_titleColor": "\u6807\u9898\u989c\u8272",
+            "Prop_smallMultiples_titleBold": "\u6807\u9898\u52a0\u7c97",
+            "Prop_smallMultiples_titleAlign": "\u6807\u9898\u5bf9\u9f50",
+            "Enum_al_left": "\u5de6",
+            "Enum_al_center": "\u5c45\u4e2d",
+            "Prop_smallMultiples_background": "\u9762\u677f\u80cc\u666f",
+            "Prop_smallMultiples_border": "\u9762\u677f\u8fb9\u6846",
+            "Prop_smallMultiples_borderColor": "\u9762\u677f\u8fb9\u6846\u989c\u8272",
+            "Obj_background": "\u80cc\u666f",
+            "Prop_background_color": "\u989c\u8272",
+            "UI_Blank": "(\u7a7a\u767d)",
+            "UI_Median": "\u4e2d\u4f4d\u6570",
+            "UI_Category": "\u7c7b\u522b",
+            "UI_Group": "\u5206\u7ec4",
+            "UI_Panel": "\u9762\u677f",
+            "UI_Min": "\u6700\u5c0f",
+            "UI_Max": "\u6700\u5927",
+            "UI_Mean": "\u5e73\u5747\u503c",
+            "UI_SD": "\u6807\u51c6\u5dee",
+            "UI_Outliers": "\u79bb\u7fa4\u503c",
+            "UI_NoDetail": "\u8bf7\u5728\u660e\u7ec6 (\u884c) \u4e2d\u6dfb\u52a0 ID\uff08\u8ba2\u5355\u3001\u5458\u5de5\u3001\u5de5\u5355\uff09\uff0c\u6bcf\u4e2a\u7bb1\u4f53\u624d\u4f1a\u663e\u793a\u5206\u5e03\uff0c\u800c\u4e0d\u662f\u6bcf\u4e2a\u7c7b\u522b\u4e00\u4e2a\u603b\u8ba1\u3002",
+            "UI_ReadingFree": "\u9605\u8bfb\u89c6\u56fe\u4e2d\u672a\u5e94\u7528\u7684 Pro \u529f\u80fd\uff1a",
+            "UI_ProPreview": "Pro \u9884\u89c8",
+            "UI_WarnTitle": "Box & Whisker",
+            "UI_WarnRowsDesktop": "\u5728 Power BI Desktop \u4e2d\uff0c\u89c6\u89c9\u5bf9\u8c61\u4f7f\u7528 Power BI \u53d1\u9001\u7684\u524d\u51e0\u884c\uff1a\u53d1\u5e03\u5230\u670d\u52a1\u5373\u53ef\u4f7f\u7528\u5168\u90e8\u884c\u3002",
+            "UI_WarnRows": "Power BI \u53ea\u53d1\u9001\u4e86\u90e8\u5206\u884c\uff1a\u7bb1\u4f53\u53cd\u6620\u5df2\u6536\u5230\u7684\u884c\u3002",
+            "UI_Method": "\u56db\u5206\u4f4d\u6570",
+            "UI_Avg": "\u5e73\u5747",
+            "Landing_Tagline": "\u67e5\u770b\u6bcf\u4e2a\u7c7b\u522b\u4e2d\u6570\u503c\u7684\u5206\u5e03\uff1a\u4e2d\u4f4d\u6570\u3001\u56db\u5206\u4f4d\u6570\u548c\u79bb\u7fa4\u503c\u3002",
+            "Landing_TaglineShort": "\u6bcf\u4e2a\u7c7b\u522b\u4e2d\u6570\u503c\u7684\u5206\u5e03\u3002",
+            "Landing_Guide": "\u6307\u5357",
+            "Landing_GuideSub": "\u652f\u6301\u9875\u9762",
+            "Landing_Product": "\u4ea7\u54c1\u9875\u9762",
+            "Landing_Video": "\u89c6\u9891",
+            "Landing_Small": "\u6dfb\u52a0 {cat}\u3001{val} \u548c {det}\u3002",
+            "Landing_Step1": "\u6bcf\u4e2a\u503c\u4e00\u4e2a\u7bb1\u4f53\uff1a\u533a\u57df\u3001\u4ea7\u54c1\u3001\u56e2\u961f",
+            "Landing_Step1Short": "\u6bcf\u4e2a\u503c\u4e00\u4e2a\u7bb1\u4f53",
+            "Landing_Step2": "\u8981\u7814\u7a76\u7684\u5ea6\u91cf\u503c\uff0c\u4f8b\u5982\u5929\u6570\u6216\u91d1\u989d",
+            "Landing_Step2Short": "\u8981\u7814\u7a76\u7684\u5ea6\u91cf\u503c",
+            "Landing_Step3": "\u6bcf\u4e00\u884c\u7684 ID\uff1a\u8ba2\u5355\u3001\u5458\u5de5\u3001\u5de5\u5355",
+            "Landing_Step3Short": "\u6bcf\u4e00\u884c\u7684 ID",
+            "Landing_Start": "3 \u6b65\u5f00\u59cb",
+            "Landing_Help": "\u5e2e\u52a9",
+            "Landing_Pro": "\u5e26\u6296\u52a8\u7684\u5168\u90e8\u70b9\u3001\u5e73\u5747\u503c\u548c\u51f9\u53e3\u3001\u5c0f\u63d0\u7434\u56fe\u3001\u5206\u7ec4\u548c\u5c0f\u578b\u5e8f\u5217\u56fe\u3001\u6309\u4e2d\u4f4d\u6570\u6392\u5e8f\u3001\u53c2\u8003\u7ebf\u3002",
+            "Landing_ProShort": "\u70b9\u3001\u5c0f\u63d0\u7434\u56fe\u3001\u5206\u7ec4\u3001\u5c0f\u578b\u5e8f\u5217\u56fe\u3001\u6309\u4e2d\u4f4d\u6570\u6392\u5e8f\u3002",
+            "UI_NoticePreview": "Box & Whisker\uff1a{0} \u5c5e\u4e8e Pro \u8ba1\u5212\uff0c\u6b64\u5904\u4ee5\u5e26\u6c34\u5370\u7684\u9884\u89c8\u663e\u793a\u3002\u9605\u8bfb\u89c6\u56fe\u663e\u793a\u514d\u8d39\u7ed3\u679c\u3002",
+            "UI_NoticeBlocked": "Box & Whisker\uff1a{0} \u5c5e\u4e8e Pro \u8ba1\u5212\u3002\u83b7\u53d6\u8bb8\u53ef\u8bc1\u5373\u53ef\u542f\u7528\u3002",
+            "UI_HideGrid": "\u9690\u85cf\u7f51\u683c\u7ebf",
+            "UI_ShowGrid": "\u663e\u793a\u7f51\u683c\u7ebf",
+            "Feat_group": "\u5206\u7ec4",
+            "Feat_panel": "\u5c0f\u578b\u5e8f\u5217\u56fe",
+            "Feat_points": "\u6240\u6709\u70b9",
+            "Feat_violin": "\u5c0f\u63d0\u7434\u56fe",
+            "Feat_quartile": "\u6309\u56db\u5206\u4f4d\u7740\u8272",
+            "Feat_mean": "\u5e73\u5747\u503c\u6807\u8bb0",
+            "Feat_notches": "\u51f9\u53e3",
+            "Feat_method": "\u56db\u5206\u4f4d\u6570\u65b9\u6cd5",
+            "Feat_whiskers": "\u767e\u5206\u4f4d\u987b\u7ebf",
+            "Feat_sort": "\u6309\u7edf\u8ba1\u91cf\u6392\u5e8f",
+            "Feat_reference": "\u53c2\u8003\u7ebf",
+            "Feat_table": "\u7edf\u8ba1\u8868"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "category",
+                "kind": "Grouping",
+                "displayName": "Category",
+                "displayNameKey": "Role_category",
+                "description": "One box per value. A hierarchy gives drilldown.",
+                "descriptionKey": "Role_category_Desc"
+            },
+            {
+                "name": "value",
+                "kind": "Measure",
+                "displayName": "Value",
+                "displayNameKey": "Role_value",
+                "description": "The measure whose distribution is drawn, evaluated per Detail row.",
+                "descriptionKey": "Role_value_Desc"
+            },
+            {
+                "name": "detail",
+                "kind": "Grouping",
+                "displayName": "Detail (rows)",
+                "displayNameKey": "Role_detail",
+                "description": "The ID of each observation: order, employee, ticket. Without it there is no distribution.",
+                "descriptionKey": "Role_detail_Desc"
+            },
+            {
+                "name": "group",
+                "kind": "Grouping",
+                "displayName": "Group (Pro)",
+                "displayNameKey": "Role_group",
+                "description": "Side-by-side boxes within each category, with a legend.",
+                "descriptionKey": "Role_group_Desc"
+            },
+            {
+                "name": "panel",
+                "kind": "Grouping",
+                "displayName": "Small multiples (Pro)",
+                "displayNameKey": "Role_panel",
+                "description": "One panel per value, on a shared scale.",
+                "descriptionKey": "Role_panel_Desc"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "Role_tooltips",
+                "description": "Extra values in the tooltip.",
+                "descriptionKey": "Role_tooltips_Desc"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "value": {
+                            "max": 1
+                        },
+                        "detail": {
+                            "max": 1
+                        },
+                        "group": {
+                            "max": 1
+                        },
+                        "panel": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "category"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "group"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "panel"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "detail"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "value"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "tooltips"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "style": {
+                "displayName": "Style template",
+                "displayNameKey": "Obj_style",
+                "properties": {
+                    "template": {
+                        "displayName": "Template",
+                        "displayNameKey": "Prop_style_template",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "clean",
+                                    "displayName": "Clean",
+                                    "displayNameKey": "Enum_tpl_clean"
+                                },
+                                {
+                                    "value": "classic",
+                                    "displayName": "Classic",
+                                    "displayNameKey": "Enum_tpl_classic"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal",
+                                    "displayNameKey": "Enum_tpl_minimal"
+                                },
+                                {
+                                    "value": "contrast",
+                                    "displayName": "Contrast",
+                                    "displayNameKey": "Enum_tpl_contrast"
+                                },
+                                {
+                                    "value": "compact",
+                                    "displayName": "Compact",
+                                    "displayNameKey": "Enum_tpl_compact"
+                                },
+                                {
+                                    "value": "ibcs",
+                                    "displayName": "IBCS style",
+                                    "displayNameKey": "Enum_tpl_ibcs"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "boxes": {
+                "displayName": "Boxes",
+                "displayNameKey": "Obj_boxes",
+                "properties": {
+                    "orientation": {
+                        "displayName": "Orientation",
+                        "displayNameKey": "Prop_boxes_orientation",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "vertical",
+                                    "displayName": "Vertical",
+                                    "displayNameKey": "Enum_or_vertical"
+                                },
+                                {
+                                    "value": "horizontal",
+                                    "displayName": "Horizontal",
+                                    "displayNameKey": "Enum_or_horizontal"
+                                }
+                            ]
+                        }
+                    },
+                    "fill": {
+                        "displayName": "Box color",
+                        "displayNameKey": "Prop_boxes_fill",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "border": {
+                        "displayName": "Border color",
+                        "displayNameKey": "Prop_boxes_border",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderWidth": {
+                        "displayName": "Border width",
+                        "displayNameKey": "Prop_boxes_borderWidth",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "width": {
+                        "displayName": "Box width %",
+                        "displayNameKey": "Prop_boxes_width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "radius": {
+                        "displayName": "Rounded corners",
+                        "displayNameKey": "Prop_boxes_radius",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "opacity": {
+                        "displayName": "Fill opacity %",
+                        "displayNameKey": "Prop_boxes_opacity",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "quartileColors": {
+                        "displayName": "Color by quartile (Pro)",
+                        "displayNameKey": "Prop_boxes_quartileColors",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lowerColor": {
+                        "displayName": "Lower half color",
+                        "displayNameKey": "Prop_boxes_lowerColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "upperColor": {
+                        "displayName": "Upper half color",
+                        "displayNameKey": "Prop_boxes_upperColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "medianColor": {
+                        "displayName": "Median line color",
+                        "displayNameKey": "Prop_boxes_medianColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "whiskers": {
+                "displayName": "Whiskers",
+                "displayNameKey": "Obj_whiskers",
+                "properties": {
+                    "rule": {
+                        "displayName": "Whiskers reach",
+                        "displayNameKey": "Prop_whiskers_rule",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "tukey",
+                                    "displayName": "1.5 \u00d7 IQR (Tukey)",
+                                    "displayNameKey": "Enum_wh_tukey"
+                                },
+                                {
+                                    "value": "minmax",
+                                    "displayName": "Minimum to maximum",
+                                    "displayNameKey": "Enum_wh_minmax"
+                                },
+                                {
+                                    "value": "p5",
+                                    "displayName": "5th to 95th percentile (Pro)",
+                                    "displayNameKey": "Enum_wh_p5"
+                                },
+                                {
+                                    "value": "p10",
+                                    "displayName": "10th to 90th percentile (Pro)",
+                                    "displayNameKey": "Enum_wh_p10"
+                                }
+                            ]
+                        }
+                    },
+                    "caps": {
+                        "displayName": "Caps",
+                        "displayNameKey": "Prop_whiskers_caps",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Whisker color",
+                        "displayNameKey": "Prop_whiskers_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "statistics": {
+                "displayName": "Statistics",
+                "displayNameKey": "Obj_statistics",
+                "properties": {
+                    "method": {
+                        "displayName": "Quartile method",
+                        "displayNameKey": "Prop_statistics_method",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "linear",
+                                    "displayName": "Inclusive (Excel QUARTILE.INC)",
+                                    "displayNameKey": "Enum_m_linear"
+                                },
+                                {
+                                    "value": "exclusive",
+                                    "displayName": "Exclusive (Excel QUARTILE.EXC) (Pro)",
+                                    "displayNameKey": "Enum_m_exclusive"
+                                },
+                                {
+                                    "value": "hinges",
+                                    "displayName": "Tukey hinges (Pro)",
+                                    "displayNameKey": "Enum_m_hinges"
+                                }
+                            ]
+                        }
+                    },
+                    "showN": {
+                        "displayName": "Show n under each box",
+                        "displayNameKey": "Prop_statistics_showN",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "medianLabel": {
+                        "displayName": "Median label",
+                        "displayNameKey": "Prop_statistics_medianLabel",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showMean": {
+                        "displayName": "Mean marker (Pro)",
+                        "displayNameKey": "Prop_statistics_showMean",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "meanColor": {
+                        "displayName": "Mean color",
+                        "displayNameKey": "Prop_statistics_meanColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "notches": {
+                        "displayName": "Notches (Pro)",
+                        "displayNameKey": "Prop_statistics_notches",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "points": {
+                "displayName": "Points",
+                "displayNameKey": "Obj_points",
+                "properties": {
+                    "show": {
+                        "displayName": "Show all points (Pro)",
+                        "displayNameKey": "Prop_points_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "jitter": {
+                        "displayName": "Jitter %",
+                        "displayNameKey": "Prop_points_jitter",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "size": {
+                        "displayName": "Point size",
+                        "displayNameKey": "Prop_points_size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Point color",
+                        "displayNameKey": "Prop_points_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderColor": {
+                        "displayName": "Point border color",
+                        "displayNameKey": "Prop_points_borderColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderWidth": {
+                        "displayName": "Point border width",
+                        "displayNameKey": "Prop_points_borderWidth",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "opacity": {
+                        "displayName": "Point opacity %",
+                        "displayNameKey": "Prop_points_opacity",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "outlierSize": {
+                        "displayName": "Outlier size",
+                        "displayNameKey": "Prop_points_outlierSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "outlierColor": {
+                        "displayName": "Outlier color",
+                        "displayNameKey": "Prop_points_outlierColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "violin": {
+                "displayName": "Violin",
+                "displayNameKey": "Obj_violin",
+                "properties": {
+                    "show": {
+                        "displayName": "Show violin (Pro)",
+                        "displayNameKey": "Prop_violin_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "opacity": {
+                        "displayName": "Violin opacity %",
+                        "displayNameKey": "Prop_violin_opacity",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Violin color",
+                        "displayNameKey": "Prop_violin_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "sort": {
+                "displayName": "Sort",
+                "displayNameKey": "Obj_sort",
+                "properties": {
+                    "by": {
+                        "displayName": "Sort boxes by",
+                        "displayNameKey": "Prop_sort_by",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "data",
+                                    "displayName": "Data order",
+                                    "displayNameKey": "Enum_s_data"
+                                },
+                                {
+                                    "value": "name",
+                                    "displayName": "Name",
+                                    "displayNameKey": "Enum_s_name"
+                                },
+                                {
+                                    "value": "median",
+                                    "displayName": "Median (Pro)",
+                                    "displayNameKey": "Enum_s_median"
+                                },
+                                {
+                                    "value": "mean",
+                                    "displayName": "Mean (Pro)",
+                                    "displayNameKey": "Enum_s_mean"
+                                },
+                                {
+                                    "value": "iqr",
+                                    "displayName": "Spread (IQR) (Pro)",
+                                    "displayNameKey": "Enum_s_iqr"
+                                },
+                                {
+                                    "value": "count",
+                                    "displayName": "Count (Pro)",
+                                    "displayNameKey": "Enum_s_count"
+                                }
+                            ]
+                        }
+                    },
+                    "descending": {
+                        "displayName": "Descending",
+                        "displayNameKey": "Prop_sort_descending",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "reference": {
+                "displayName": "Reference lines",
+                "displayNameKey": "Obj_reference",
+                "properties": {
+                    "show": {
+                        "displayName": "Reference line (Pro)",
+                        "displayNameKey": "Prop_reference_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "value": {
+                        "displayName": "Value",
+                        "displayNameKey": "Prop_reference_value",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "label": {
+                        "displayName": "Label",
+                        "displayNameKey": "Prop_reference_label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Line color",
+                        "displayNameKey": "Prop_reference_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "show2": {
+                        "displayName": "Second line (Pro)",
+                        "displayNameKey": "Prop_reference_show2",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "value2": {
+                        "displayName": "Second value",
+                        "displayNameKey": "Prop_reference_value2",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "label2": {
+                        "displayName": "Second label",
+                        "displayNameKey": "Prop_reference_label2",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "valueAxis": {
+                "displayName": "Value axis",
+                "displayNameKey": "Obj_valueAxis",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "displayNameKey": "Prop_valueAxis_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "title": {
+                        "displayName": "Title",
+                        "displayNameKey": "Prop_valueAxis_title",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "displayName": "Title text",
+                        "displayNameKey": "Prop_valueAxis_titleText",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "gridlines": {
+                        "displayName": "Gridlines",
+                        "displayNameKey": "Prop_valueAxis_gridlines",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "auto": {
+                        "displayName": "Automatic range",
+                        "displayNameKey": "Prop_valueAxis_auto",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "min": {
+                        "displayName": "Minimum",
+                        "displayNameKey": "Prop_valueAxis_min",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "max": {
+                        "displayName": "Maximum",
+                        "displayNameKey": "Prop_valueAxis_max",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "displayNameKey": "Prop_valueAxis_fontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Text color",
+                        "displayNameKey": "Prop_valueAxis_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font",
+                        "displayNameKey": "Prop_valueAxis_fontFamily",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "displayNameKey": "Prop_valueAxis_bold",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "categoryAxis": {
+                "displayName": "Category axis",
+                "displayNameKey": "Obj_categoryAxis",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "displayNameKey": "Prop_categoryAxis_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "displayNameKey": "Prop_categoryAxis_fontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Text color",
+                        "displayNameKey": "Prop_categoryAxis_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font",
+                        "displayNameKey": "Prop_categoryAxis_fontFamily",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "displayNameKey": "Prop_categoryAxis_bold",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "displayName": "Legend",
+                "displayNameKey": "Obj_legend",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "displayNameKey": "Prop_legend_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "displayName": "Position",
+                        "displayNameKey": "Prop_legend_position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top",
+                                    "displayNameKey": "Enum_lg_top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom",
+                                    "displayNameKey": "Enum_lg_bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "displayNameKey": "Prop_legend_fontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Text color",
+                        "displayNameKey": "Prop_legend_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "statsTable": {
+                "displayName": "Statistics table",
+                "displayNameKey": "Obj_statsTable",
+                "properties": {
+                    "show": {
+                        "displayName": "Show table (Pro)",
+                        "displayNameKey": "Prop_statsTable_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "displayNameKey": "Prop_statsTable_fontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Text color",
+                        "displayNameKey": "Prop_statsTable_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "headerBackground": {
+                        "displayName": "Header background",
+                        "displayNameKey": "Prop_statsTable_headerBackground",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "headerColor": {
+                        "displayName": "Header text color",
+                        "displayNameKey": "Prop_statsTable_headerColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "banding": {
+                        "displayName": "Alternate row color",
+                        "displayNameKey": "Prop_statsTable_banding",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "smallMultiples": {
+                "displayName": "Small multiples",
+                "displayNameKey": "Obj_smallMultiples",
+                "properties": {
+                    "columns": {
+                        "displayName": "Columns (0 = automatic)",
+                        "displayNameKey": "Prop_smallMultiples_columns",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "gap": {
+                        "displayName": "Space between panels",
+                        "displayNameKey": "Prop_smallMultiples_gap",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "titleSize": {
+                        "displayName": "Title size",
+                        "displayNameKey": "Prop_smallMultiples_titleSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "titleColor": {
+                        "displayName": "Title color",
+                        "displayNameKey": "Prop_smallMultiples_titleColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "titleBold": {
+                        "displayName": "Bold title",
+                        "displayNameKey": "Prop_smallMultiples_titleBold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleAlign": {
+                        "displayName": "Title alignment",
+                        "displayNameKey": "Prop_smallMultiples_titleAlign",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left",
+                                    "displayNameKey": "Enum_al_left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center",
+                                    "displayNameKey": "Enum_al_center"
+                                }
+                            ]
+                        }
+                    },
+                    "background": {
+                        "displayName": "Panel background",
+                        "displayNameKey": "Prop_smallMultiples_background",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "border": {
+                        "displayName": "Panel border",
+                        "displayNameKey": "Prop_smallMultiples_border",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderColor": {
+                        "displayName": "Panel border color",
+                        "displayNameKey": "Prop_smallMultiples_borderColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "background": {
+                "displayName": "Background",
+                "displayNameKey": "Obj_background",
+                "properties": {
+                    "color": {
+                        "displayName": "Color",
+                        "displayNameKey": "Prop_background_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "drilldown": {
+            "roles": [
+                "category"
+            ]
+        },
+        "supportsHighlight": false,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "privileges": [],
+        "supportsOnObjectFormatting": true,
+        "enablePointerEventsFormatMode": true
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

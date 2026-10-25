@@ -1,0 +1,2879 @@
+{
+    "visual": {
+        "name": "plumeCandleChart",
+        "displayName": "Candle Plume",
+        "guid": "plumeCandleChart4DCBF4C29CE24C99BB068D8F6EC07CA0",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Candlestick (OHLC) chart with the Plume Studio look: candles, hollow candles, OHLC bars, line and area; no weekend gaps; built-in timeframes from 1 minute to 1 year; volume pane; moving averages, Bollinger Bands, RSI, MACD and 60+ technical indicators computed in the visual; crosshair legend, zoom and range buttons; event annotations; long and short positions with profit, risk/reward and statistics.",
+        "supportUrl": "https://plumevisuals.com/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Plume Studio",
+        "email": "contact@plumevisuals.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "premium_desc": "Premium feature: usable for free with a \u00ab Premium preview \u00bb watermark, unlocked by a Plume Studio license key.",
+            "card_license": "Plume Studio License",
+            "license_buy": "Get a license",
+            "license_key": "License key",
+            "license_key_desc": "Paste the key received after purchase on plumevisuals.com (starts with PLUM1.). Checked offline.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Show license holder (edit mode)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Custom colors",
+            "group_style_text": "Text",
+            "group_style_background": "Background and corners",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Complete look shared by all Plume visuals: colors, three palettes, fonts, frame, table header, marks and effects. Customize colors below.",
+            "style_preset_none": "None",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Black & White",
+            "style_preset_press": "Newspaper \u2605",
+            "style_preset_vintage": "Vintage (antique plate) \u2605",
+            "style_preset_earth": "Earth \u2605",
+            "style_preset_nordic": "Nordic \u2605",
+            "style_preset_executive": "Executive \u2605",
+            "style_preset_accessible": "Accessible (high legibility) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climate \u2605",
+            "style_preset_blueprint": "Blueprint \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (dark) \u2605",
+            "style_preset_neon": "Neon \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographic \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologram \u2605",
+            "style_themeJson": "Theme JSON \u2605",
+            "style_themeJson_desc": "Paste a JSON theme: see the 'JSON themes' tutorial on plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Follow report theme",
+            "style_followTheme_desc": "Text, background, accent and data colors come from the Power BI report theme.",
+            "style_reverse": "Reverse gradients",
+            "style_customColors": "Customize colors",
+            "style_customColors_desc": "Start from the style and pick your own colors. A color left empty keeps the style's color.",
+            "style_colorBackground": "Background",
+            "style_colorText": "Text",
+            "style_colorMuted": "Secondary text",
+            "style_colorGrid": "Lines and grid",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "Unfavorable",
+            "style_series1": "Series 1",
+            "style_series2": "Series 2",
+            "style_series3": "Series 3",
+            "style_series4": "Series 4",
+            "style_series5": "Series 5",
+            "style_series6": "Series 6",
+            "style_series7": "Series 7",
+            "style_series8": "Series 8",
+            "style_palette": "Gradient palette",
+            "style_palette_desc": "Gradient from the catalog (Viridis, Magma\u2026). The start, middle and end colors below replace it.",
+            "style_palette_auto": "Style or theme palette",
+            "style_palette_crest": "Plume (sequential)",
+            "style_palette_crestDiverging": "Plume (diverging)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (colorblind-safe) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Red\u2013Yellow\u2013Blue \u2605",
+            "style_palette_brBG": "Brown\u2013Teal (drought) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Blues \u2605",
+            "style_palette_reds": "Reds \u2605",
+            "style_palette_grays": "Grays \u2605",
+            "style_palette_press": "Press (ink and paper) \u2605",
+            "style_palette_nordic": "Nordic \u2605",
+            "style_palette_earth": "Earth (ochre to umber) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (colorblind-safe) \u2605",
+            "style_scaleLow": "Gradient: start",
+            "style_scaleMid": "Gradient: middle (diverging)",
+            "style_scaleHigh": "Gradient: end",
+            "style_fontFamily": "Font",
+            "style_fontFamily_desc": "Used by every text of the visual (title, axes, labels, cells).",
+            "style_textColor": "Text color (empty = style)",
+            "style_mutedColor": "Secondary text (empty = style)",
+            "style_bgShow": "Background",
+            "style_bgColor": "Background color",
+            "style_bgColor2": "Gradient end (optional)",
+            "style_radius": "Corner radius",
+            "style_animate": "Animations",
+            "style_animate_desc": "Smooth transitions when data changes. Automatically disabled when the system asks to reduce motion.",
+            "card_data": "Data and timeframe",
+            "group_data_time": "Timeframe",
+            "group_data_intraday": "Session and time zone",
+            "group_data_window": "Visible window",
+            "group_data_seriesGroup": "Series (Symbol field)",
+            "data_timeframe": "Default timeframe",
+            "data_timeframe_desc": "Bars are aggregated up only (minutes to hours, never the reverse): open = first open, high = highest, low = lowest, close = last close, volume = sum.",
+            "data_timeframe_auto": "Same as the data",
+            "data_timeframe_1m": "1 minute",
+            "data_timeframe_5m": "5 minutes",
+            "data_timeframe_15m": "15 minutes",
+            "data_timeframe_30m": "30 minutes",
+            "data_timeframe_1H": "1 hour",
+            "data_timeframe_4H": "4 hours",
+            "data_timeframe_1D": "1 day",
+            "data_timeframe_1W": "1 week",
+            "data_timeframe_1M": "1 month",
+            "data_timeframe_3M": "1 quarter",
+            "data_timeframe_1Y": "1 year",
+            "data_timeframes": "Timeframes offered to readers",
+            "data_timeframes_desc": "Buttons of the timeframe selector, separated by spaces: 1m 5m 15m 30m 1H 4H 1D 1W 1M 3M 1Y. Only units at least as long as the data are shown.",
+            "data_timeframes_ph": "all (e.g. 1D 1W 1M)",
+            "data_axis": "Time axis",
+            "data_axis_bars": "One bar per step (no weekend gaps)",
+            "data_axis_time": "Real time (gaps shown)",
+            "data_weekStart": "Week starts on",
+            "data_weekStart_1": "Monday",
+            "data_weekStart_0": "Sunday",
+            "data_weekStart_6": "Saturday",
+            "data_fiscalStart": "First month of the fiscal year (quarters, years)",
+            "data_session": "Market session (intraday)",
+            "data_session_desc": "Intraday rows outside this session are ignored; 1H and 4H bars start at the session start.",
+            "data_session_ph": "e.g. 09:00-17:30",
+            "data_tzOffset": "Time zone offset (hours)",
+            "data_range": "Initial range",
+            "data_range_auto": "Automatic (readable bars)",
+            "data_range_1M": "1 month",
+            "data_range_3M": "3 months",
+            "data_range_6M": "6 months",
+            "data_range_YTD": "Year to date",
+            "data_range_1Y": "1 year",
+            "data_range_5Y": "5 years",
+            "data_range_all": "All",
+            "data_displayFrom": "Display from",
+            "data_displayFrom_desc": "Earlier bars are only used to warm up the indicators (a 200-bar average starts at once). Drive it with a DAX measure through the fx button.",
+            "data_displayFrom_ph": "e.g. 2025-01-01",
+            "data_series": "Series shown",
+            "data_series_ph": "first one",
+            "data_compare": "Compare series in % \u2605",
+            "data_compare_desc": "The other series are drawn as lines, in % from the first visible bar.",
+            "card_chartType": "Chart type",
+            "chartType_type": "Style",
+            "chartType_type_candles": "Candles",
+            "chartType_type_hollow": "Hollow candles",
+            "chartType_type_bars": "OHLC bars",
+            "chartType_type_line": "Line",
+            "chartType_type_area": "Area",
+            "chartType_type_heikinAshi": "Heikin-Ashi \u2605",
+            "chartType_type_baseline": "Baseline \u2605",
+            "chartType_type_hlc": "HLC columns \u2605",
+            "chartType_type_lineMarkers": "Line with markers \u2605",
+            "chartType_baseline": "Baseline value",
+            "chartType_baseline_ph": "first visible close",
+            "chartType_lineWidth": "Line width",
+            "card_candles": "Candles",
+            "group_candles_colors": "Colors",
+            "group_candles_shape": "Shape",
+            "candles_upColor": "Up",
+            "candles_downColor": "Down",
+            "candles_neutralColor": "Unchanged (empty = secondary)",
+            "candles_upBorder": "Up border (empty = body)",
+            "candles_downBorder": "Down border (empty = body)",
+            "candles_upWick": "Up wick (empty = body)",
+            "candles_downWick": "Down wick (empty = body)",
+            "candles_width": "Body width (% of spacing)",
+            "candles_volumeShade": "Shade by volume",
+            "candles_volumeShade_desc": "Bars with a low volume are paler.",
+            "card_priceAxis": "Price axis",
+            "group_priceAxis_main": "Labels",
+            "group_priceAxis_range": "Scale",
+            "group_priceAxis_last": "Last price",
+            "priceAxis_show": "Show",
+            "priceAxis_position": "Position",
+            "priceAxis_position_right": "Right",
+            "priceAxis_position_left": "Left",
+            "priceAxis_fontSize": "Text size",
+            "priceAxis_color": "Color (empty = secondary)",
+            "priceAxis_units": "Display units",
+            "priceAxis_units_auto": "Auto",
+            "priceAxis_units_none": "None",
+            "priceAxis_units_k": "Thousands",
+            "priceAxis_units_m": "Millions",
+            "priceAxis_units_b": "Billions",
+            "priceAxis_decimals": "Decimals (-1 = auto)",
+            "priceAxis_prefix": "Prefix",
+            "priceAxis_suffix": "Suffix (e.g. \u20ac)",
+            "priceAxis_scale": "Scale",
+            "priceAxis_scale_linear": "Linear",
+            "priceAxis_scale_log": "Logarithmic",
+            "priceAxis_scale_percent": "Percent (from the first visible bar)",
+            "priceAxis_scale_base100": "Indexed to 100",
+            "priceAxis_invert": "Invert axis",
+            "priceAxis_marginTop": "Top margin (%)",
+            "priceAxis_marginBottom": "Bottom margin (%)",
+            "priceAxis_lastLine": "Last price line",
+            "priceAxis_lastLabel": "Label on the axis",
+            "card_timeAxis": "Time axis",
+            "timeAxis_show": "Show",
+            "timeAxis_fontSize": "Text size",
+            "timeAxis_color": "Color (empty = secondary)",
+            "timeAxis_spacing": "Label spacing (px)",
+            "timeAxis_separators": "Day / month / year separators",
+            "card_volume": "Volume",
+            "volume_show": "Show (with the Volume field)",
+            "volume_mode": "Placement",
+            "volume_mode_pane": "Pane below prices",
+            "volume_mode_overlay": "Overlay at the bottom of prices",
+            "volume_height": "Height (%)",
+            "volume_upColor": "Up (empty = candles)",
+            "volume_downColor": "Down (empty = candles)",
+            "volume_opacity": "Opacity (%)",
+            "volume_ma": "Volume average",
+            "volume_maLength": "Average length",
+            "card_indicators": "Indicators",
+            "group_indicators_manager": "Indicator list",
+            "group_indicators_ma1": "Moving average 1",
+            "group_indicators_ma2": "Moving average 2",
+            "group_indicators_ma3": "Moving average 3",
+            "group_indicators_bbGroup": "Bollinger Bands \u2605",
+            "group_indicators_rsiGroup": "RSI \u2605",
+            "group_indicators_macdGroup": "MACD \u2605",
+            "indicators_list": "Indicators (one per line)",
+            "indicators_list_desc": "Written by the Indicators button of the visual (edit mode), or by hand: name, parameters, then optionally a source (close, hl2, hlc3\u2026), a color #RRGGBB, signal=9, levels=70/30, signals, hidden.",
+            "indicators_list_ph": "sma 50\nrsi 14\nmacd 12 26 9",
+            "indicators_ma1Show": "Moving average 1",
+            "indicators_ma1Type": "Type",
+            "indicators_ma1Type_sma": "Simple (SMA)",
+            "indicators_ma1Type_ema": "Exponential (EMA)",
+            "indicators_ma1Type_wma": "Weighted (WMA) \u2605",
+            "indicators_ma1Type_vwma": "Volume-weighted (VWMA) \u2605",
+            "indicators_ma1Type_rma": "Smoothed (SMMA) \u2605",
+            "indicators_ma1Type_dema": "Double EMA (DEMA) \u2605",
+            "indicators_ma1Type_tema": "Triple EMA (TEMA) \u2605",
+            "indicators_ma1Type_hma": "Hull (HMA) \u2605",
+            "indicators_ma1Length": "Length (bars)",
+            "indicators_ma1Color": "Color (empty = palette)",
+            "indicators_ma2Show": "Moving average 2",
+            "indicators_ma2Type": "Type",
+            "indicators_ma2Type_sma": "Simple (SMA)",
+            "indicators_ma2Type_ema": "Exponential (EMA)",
+            "indicators_ma2Type_wma": "Weighted (WMA) \u2605",
+            "indicators_ma2Type_vwma": "Volume-weighted (VWMA) \u2605",
+            "indicators_ma2Type_rma": "Smoothed (SMMA) \u2605",
+            "indicators_ma2Type_dema": "Double EMA (DEMA) \u2605",
+            "indicators_ma2Type_tema": "Triple EMA (TEMA) \u2605",
+            "indicators_ma2Type_hma": "Hull (HMA) \u2605",
+            "indicators_ma2Length": "Length (bars)",
+            "indicators_ma2Color": "Color (empty = palette)",
+            "indicators_ma3Show": "Moving average 3",
+            "indicators_ma3Type": "Type",
+            "indicators_ma3Type_sma": "Simple (SMA)",
+            "indicators_ma3Type_ema": "Exponential (EMA)",
+            "indicators_ma3Type_wma": "Weighted (WMA) \u2605",
+            "indicators_ma3Type_vwma": "Volume-weighted (VWMA) \u2605",
+            "indicators_ma3Type_rma": "Smoothed (SMMA) \u2605",
+            "indicators_ma3Type_dema": "Double EMA (DEMA) \u2605",
+            "indicators_ma3Type_tema": "Triple EMA (TEMA) \u2605",
+            "indicators_ma3Type_hma": "Hull (HMA) \u2605",
+            "indicators_ma3Length": "Length (bars)",
+            "indicators_ma3Color": "Color (empty = palette)",
+            "indicators_bbShow": "Bollinger Bands \u2605",
+            "indicators_bbLength": "Length",
+            "indicators_bbMult": "Standard deviations",
+            "indicators_bbColor": "Color (empty = palette)",
+            "indicators_rsiShow": "RSI \u2605",
+            "indicators_rsiLength": "Length",
+            "indicators_rsiUpper": "Upper level",
+            "indicators_rsiLower": "Lower level",
+            "indicators_macdShow": "MACD \u2605",
+            "indicators_macdFast": "Fast length",
+            "indicators_macdSlow": "Slow length",
+            "indicators_macdSignal": "Signal",
+            "card_panes": "Panes",
+            "panes_height": "Height of each indicator pane (%)",
+            "panes_separators": "Separator lines",
+            "panes_levels": "Levels and band between them",
+            "card_annotations": "Annotations",
+            "annotations_show": "Show",
+            "annotations_labels": "Text",
+            "annotations_labels_label": "Label on the chart",
+            "annotations_labels_tooltip": "Tooltip only",
+            "annotations_place": "Marker position",
+            "annotations_place_auto": "Automatic (buy below, sell above)",
+            "annotations_place_above": "Above the high",
+            "annotations_place_below": "Below the low",
+            "annotations_vline": "Vertical line across panes",
+            "annotations_color": "Color (empty = accent)",
+            "annotations_fontSize": "Text size",
+            "annotations_labelBg": "Label background",
+            "annotations_labelBg_surface": "Visual background color",
+            "annotations_labelBg_none": "Transparent",
+            "annotations_list": "Manual annotations \u2605",
+            "annotations_list_desc": "Written by the Annotate button (edit mode) or by hand: date | text | icon (flag, up, down, circle, star, diamond, or a letter) | color | above, below or a price. Copy it to another report.",
+            "annotations_list_ph": "2025-03-14 | Supplier price rise | flag",
+            "card_positions": "Positions \u2605",
+            "group_positions_look": "Display",
+            "group_positions_calc": "Calculation",
+            "group_positions_manual": "Manual positions",
+            "positions_show": "Show",
+            "positions_show_desc": "Positions come from the Position state field (+1 long, -1 short, 0 out of the market) or from the Position button of the visual.",
+            "positions_winColor": "Profit",
+            "positions_lossColor": "Loss",
+            "positions_neutralColor": "Neutral period (empty = accent)",
+            "positions_labels": "Label",
+            "positions_labels_full": "Result, %, duration, risk / reward",
+            "positions_labels_result": "Result in %",
+            "positions_labels_none": "None",
+            "positions_labelBg": "Label background",
+            "positions_labelBg_surface": "Visual background color",
+            "positions_labelBg_none": "Transparent",
+            "positions_qty": "Default quantity",
+            "positions_fees": "Default fees (amount or %)",
+            "positions_fees_ph": "e.g. 0.1%",
+            "positions_stats": "Statistics panel",
+            "positions_equity": "Equity curve",
+            "positions_list": "Positions (one per line)",
+            "positions_list_desc": "Written by the Position button (edit mode) or by hand: long, short or neutral | entry date | exit date (empty = open) | entry= exit= stop= target= qty= fees= label=.",
+            "positions_list_ph": "long | 2025-03-03 | 2025-05-12 | stop=95 | target=120",
+            "card_crosshair": "Legend and crosshair",
+            "crosshair_legend": "Legend (OHLC and indicators)",
+            "crosshair_legendSize": "Legend text size",
+            "crosshair_legendSpace": "Keep room for the legend",
+            "crosshair_legendSpace_desc": "The price scale leaves the height of the legend free at the top: candles never run under the legend text.",
+            "crosshair_show": "Crosshair",
+            "crosshair_magnet": "Mode",
+            "crosshair_magnet_magnet": "Snapped to the close",
+            "crosshair_magnet_free": "Free",
+            "crosshair_style": "Line style",
+            "crosshair_style_solid": "Solid",
+            "crosshair_style_dashed": "Dashed",
+            "crosshair_style_dotted": "Dotted",
+            "crosshair_color": "Color (empty = secondary)",
+            "card_navigation": "Navigation",
+            "navigation_timeframes": "Timeframe selector",
+            "navigation_ranges": "Range buttons (1M, 3M\u2026 All)",
+            "navigation_wheel": "Mouse wheel zoom",
+            "navigation_navigator": "Navigator (mini chart) \u2605",
+            "navigation_barSpacing": "Initial bar spacing (px)",
+            "navigation_rightOffset": "Right margin (bars)",
+            "card_grid": "Grid and background",
+            "grid_horizontal": "Horizontal gridlines",
+            "grid_vertical": "Vertical gridlines",
+            "grid_style": "Line style",
+            "grid_style_solid": "Solid",
+            "grid_style_dashed": "Dashed",
+            "grid_style_dotted": "Dotted",
+            "grid_color": "Color (empty = style grid)",
+            "grid_sessions": "Alternate session bands",
+            "grid_watermark": "Symbol watermark",
+            "card_tooltip": "Tooltip",
+            "tooltip_show": "Power BI tooltip",
+            "tooltip_change": "Change and %",
+            "tooltip_volume": "Volume",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Highlight on hover",
+            "interaction_dim": "Dimmed items opacity (%)",
+            "card_title": "Title",
+            "title_show": "Show",
+            "title_text": "Title",
+            "title_text_desc": "Leave empty for an automatic title built from the fields.",
+            "title_text_ph": "Automatic",
+            "title_subtitle": "Subtitle",
+            "title_fontSize": "Size",
+            "title_bold": "Bold",
+            "title_color": "Color (empty = text)",
+            "title_align": "Alignment",
+            "title_align_left": "Left",
+            "title_align_center": "Center",
+            "title_align_right": "Right",
+            "card_source": "Source note",
+            "source_show": "Show",
+            "source_text": "Text",
+            "source_text_ph": "Source: \u2026",
+            "source_fontSize": "Size",
+            "source_align": "Alignment",
+            "source_align_left": "Left",
+            "source_align_center": "Center",
+            "source_align_right": "Right",
+            "card_container": "Frame",
+            "container_border": "Border",
+            "container_borderWidth": "Border width",
+            "container_borderColor": "Border color (empty = grid)",
+            "container_shadow": "Shadow",
+            "container_padding": "Inner padding",
+            "card_texts": "Language and texts",
+            "texts_language": "Interface language",
+            "texts_language_auto": "Same as Power BI",
+            "texts_language_fr": "French",
+            "texts_language_en": "English",
+            "texts_numberLocale": "Number format locale (e.g. en-GB)",
+            "texts_numberLocale_ph": "auto",
+            "role_time": "Date / time",
+            "roleDesc_time": "Date or date-time column (not the automatic date hierarchy): one row per source bar.",
+            "role_series": "Symbol (series)",
+            "role_open": "Open",
+            "role_high": "High",
+            "role_low": "Low",
+            "role_close": "Close",
+            "role_price": "Price (single value)",
+            "roleDesc_price": "Instead of Open, High, Low and Close: one price per row (ticks, readings); the visual builds each bar.",
+            "role_volume": "Volume",
+            "role_overlay": "Lines on prices",
+            "roleDesc_overlay": "Measures drawn over the prices: target, benchmark, forecast.",
+            "role_eventText": "Event text",
+            "roleDesc_eventText": "Text measure: a marker with this text on each bar where it is not empty.",
+            "role_eventType": "Event type",
+            "roleDesc_eventType": "Chooses the icon: buy, sell, flag, circle, star, diamond, or a letter.",
+            "role_position": "Position state \u2605",
+            "roleDesc_position": "Measure returning +1 (long), -1 (short) or 0 (out of the market) per bar: each change opens or closes a position.",
+            "role_entryPrice": "Entry price \u2605",
+            "role_exitPrice": "Exit price \u2605",
+            "role_tooltips": "Tooltips",
+            "role_format": "Dynamic format",
+            "roleDesc_format": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX"
+        },
+        "fr-FR": {
+            "premium_desc": "Fonction premium : utilisable avec un filigrane \u00ab Aper\u00e7u premium \u00bb, d\u00e9bloqu\u00e9e par une cl\u00e9 de licence Plume Studio.",
+            "card_license": "Licence Plume Studio",
+            "license_buy": "Obtenir une licence",
+            "license_key": "Cl\u00e9 de licence",
+            "license_key_desc": "Collez la cl\u00e9 re\u00e7ue apr\u00e8s l'achat sur plumevisuals.com (commence par PLUM1.). V\u00e9rifi\u00e9e hors ligne.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Afficher le titulaire (mode \u00e9dition)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Couleurs personnalis\u00e9es",
+            "group_style_text": "Texte",
+            "group_style_background": "Arri\u00e8re-plan et angles",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Habillage complet commun \u00e0 tous les visuels Plume : couleurs, trois palettes, polices, cadre, en-t\u00eate des tableaux, marques et effets. Personnalisez les couleurs plus bas.",
+            "style_preset_none": "Aucun",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Noir et blanc",
+            "style_preset_press": "Journal \u2605",
+            "style_preset_vintage": "Vintage (planche ancienne) \u2605",
+            "style_preset_earth": "Terre \u2605",
+            "style_preset_nordic": "Nordique \u2605",
+            "style_preset_executive": "Direction \u2605",
+            "style_preset_accessible": "Accessible (lisibilit\u00e9) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climat \u2605",
+            "style_preset_blueprint": "Plan d'architecte \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (sombre) \u2605",
+            "style_preset_neon": "N\u00e9on \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographie \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologramme \u2605",
+            "style_themeJson": "Th\u00e8me JSON \u2605",
+            "style_themeJson_desc": "Collez un th\u00e8me JSON : voir le tutoriel \u00ab Th\u00e8mes JSON \u00bb sur plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Suivre le th\u00e8me du rapport",
+            "style_followTheme_desc": "Texte, fond, accent et couleurs des donn\u00e9es viennent du th\u00e8me du rapport Power BI.",
+            "style_reverse": "Inverser les d\u00e9grad\u00e9s",
+            "style_customColors": "Personnaliser les couleurs",
+            "style_customColors_desc": "Partez du style et choisissez vos propres couleurs. Une couleur laiss\u00e9e vide garde celle du style.",
+            "style_colorBackground": "Fond",
+            "style_colorText": "Texte",
+            "style_colorMuted": "Texte secondaire",
+            "style_colorGrid": "Traits et grille",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "D\u00e9favorable",
+            "style_series1": "S\u00e9rie 1",
+            "style_series2": "S\u00e9rie 2",
+            "style_series3": "S\u00e9rie 3",
+            "style_series4": "S\u00e9rie 4",
+            "style_series5": "S\u00e9rie 5",
+            "style_series6": "S\u00e9rie 6",
+            "style_series7": "S\u00e9rie 7",
+            "style_series8": "S\u00e9rie 8",
+            "style_palette": "Palette du d\u00e9grad\u00e9",
+            "style_palette_desc": "D\u00e9grad\u00e9 tir\u00e9 du catalogue (Viridis, Magma\u2026). Les couleurs de d\u00e9but, milieu et fin ci-dessous le remplacent.",
+            "style_palette_auto": "Palette du style ou du th\u00e8me",
+            "style_palette_crest": "Plume (s\u00e9quentielle)",
+            "style_palette_crestDiverging": "Plume (divergente)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (daltonisme) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Rouge\u2013Jaune\u2013Bleu \u2605",
+            "style_palette_brBG": "Brun\u2013Bleu-vert (s\u00e9cheresse) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Bleus \u2605",
+            "style_palette_reds": "Rouges \u2605",
+            "style_palette_grays": "Gris \u2605",
+            "style_palette_press": "Presse (encre et papier) \u2605",
+            "style_palette_nordic": "Nordique \u2605",
+            "style_palette_earth": "Terre (ocre \u00e0 terre d'ombre) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (daltonisme) \u2605",
+            "style_scaleLow": "D\u00e9grad\u00e9 : d\u00e9but",
+            "style_scaleMid": "D\u00e9grad\u00e9 : milieu (\u00e9carts)",
+            "style_scaleHigh": "D\u00e9grad\u00e9 : fin",
+            "style_fontFamily": "Police",
+            "style_fontFamily_desc": "Utilis\u00e9e par tous les textes du visuel (titre, axes, \u00e9tiquettes, cellules).",
+            "style_textColor": "Couleur du texte (vide = style)",
+            "style_mutedColor": "Texte secondaire (vide = style)",
+            "style_bgShow": "Arri\u00e8re-plan",
+            "style_bgColor": "Couleur de fond",
+            "style_bgColor2": "Fin du d\u00e9grad\u00e9 (optionnel)",
+            "style_radius": "Arrondi des angles",
+            "style_animate": "Animations",
+            "style_animate_desc": "Transitions fluides quand les donn\u00e9es changent. D\u00e9sactiv\u00e9es automatiquement si le syst\u00e8me demande de r\u00e9duire les animations.",
+            "card_data": "Donn\u00e9es et unit\u00e9 de temps",
+            "group_data_time": "Unit\u00e9 de temps",
+            "group_data_intraday": "S\u00e9ance et fuseau",
+            "group_data_window": "Fen\u00eatre affich\u00e9e",
+            "group_data_seriesGroup": "S\u00e9ries (champ Symbole)",
+            "data_timeframe": "Unit\u00e9 par d\u00e9faut",
+            "data_timeframe_desc": "Les barres ne sont regroup\u00e9es que vers le haut (minutes vers heures, jamais l'inverse) : ouverture = premi\u00e8re, plus haut = maximum, plus bas = minimum, cl\u00f4ture = derni\u00e8re, volume = somme.",
+            "data_timeframe_auto": "Celle des donn\u00e9es",
+            "data_timeframe_1m": "1 minute",
+            "data_timeframe_5m": "5 minutes",
+            "data_timeframe_15m": "15 minutes",
+            "data_timeframe_30m": "30 minutes",
+            "data_timeframe_1H": "1 heure",
+            "data_timeframe_4H": "4 heures",
+            "data_timeframe_1D": "1 jour",
+            "data_timeframe_1W": "1 semaine",
+            "data_timeframe_1M": "1 mois",
+            "data_timeframe_3M": "1 trimestre",
+            "data_timeframe_1Y": "1 an",
+            "data_timeframes": "Unit\u00e9s propos\u00e9es au lecteur",
+            "data_timeframes_desc": "Boutons du s\u00e9lecteur d'unit\u00e9, s\u00e9par\u00e9s par des espaces : 1m 5m 15m 30m 1H 4H 1D 1W 1M 3M 1Y. Seules les unit\u00e9s au moins aussi longues que les donn\u00e9es s'affichent.",
+            "data_timeframes_ph": "toutes (ex. 1D 1W 1M)",
+            "data_axis": "Axe du temps",
+            "data_axis_bars": "Une barre par pas (sans trous de week-end)",
+            "data_axis_time": "Temps r\u00e9el (trous visibles)",
+            "data_weekStart": "D\u00e9but de semaine",
+            "data_weekStart_1": "Lundi",
+            "data_weekStart_0": "Dimanche",
+            "data_weekStart_6": "Samedi",
+            "data_fiscalStart": "Premier mois de l'exercice (trimestres, ann\u00e9es)",
+            "data_session": "S\u00e9ance (intrajournalier)",
+            "data_session_desc": "Les lignes intrajournali\u00e8res hors s\u00e9ance sont ignor\u00e9es ; les barres 1H et 4H commencent au d\u00e9but de la s\u00e9ance.",
+            "data_session_ph": "ex. 09:00-17:30",
+            "data_tzOffset": "D\u00e9calage horaire (heures)",
+            "data_range": "Plage au d\u00e9marrage",
+            "data_range_auto": "Automatique (barres lisibles)",
+            "data_range_1M": "1 mois",
+            "data_range_3M": "3 mois",
+            "data_range_6M": "6 mois",
+            "data_range_YTD": "Depuis le 1er janvier",
+            "data_range_1Y": "1 an",
+            "data_range_5Y": "5 ans",
+            "data_range_all": "Tout",
+            "data_displayFrom": "Afficher \u00e0 partir du",
+            "data_displayFrom_desc": "Les barres ant\u00e9rieures servent seulement au calcul des indicateurs (une moyenne sur 200 barres d\u00e9marre tout de suite). Pilotable par une mesure DAX (bouton fx).",
+            "data_displayFrom_ph": "ex. 2025-01-01",
+            "data_series": "S\u00e9rie affich\u00e9e",
+            "data_series_ph": "la premi\u00e8re",
+            "data_compare": "Comparer les s\u00e9ries en % \u2605",
+            "data_compare_desc": "Les autres s\u00e9ries sont trac\u00e9es en courbes, en % depuis la premi\u00e8re barre visible.",
+            "card_chartType": "Type de graphique",
+            "chartType_type": "Style",
+            "chartType_type_candles": "Bougies",
+            "chartType_type_hollow": "Bougies creuses",
+            "chartType_type_bars": "Barres OHLC",
+            "chartType_type_line": "Ligne",
+            "chartType_type_area": "Zone",
+            "chartType_type_heikinAshi": "Heikin-Ashi \u2605",
+            "chartType_type_baseline": "Ligne de base \u2605",
+            "chartType_type_hlc": "Colonnes HLC \u2605",
+            "chartType_type_lineMarkers": "Ligne \u00e0 marqueurs \u2605",
+            "chartType_baseline": "Valeur de base",
+            "chartType_baseline_ph": "premi\u00e8re cl\u00f4ture visible",
+            "chartType_lineWidth": "\u00c9paisseur de la ligne",
+            "card_candles": "Bougies",
+            "group_candles_colors": "Couleurs",
+            "group_candles_shape": "Forme",
+            "candles_upColor": "Haussi\u00e8re",
+            "candles_downColor": "Baissi\u00e8re",
+            "candles_neutralColor": "Neutre (vide = secondaire)",
+            "candles_upBorder": "Bordure haussi\u00e8re (vide = corps)",
+            "candles_downBorder": "Bordure baissi\u00e8re (vide = corps)",
+            "candles_upWick": "M\u00e8che haussi\u00e8re (vide = corps)",
+            "candles_downWick": "M\u00e8che baissi\u00e8re (vide = corps)",
+            "candles_width": "Largeur du corps (% du pas)",
+            "candles_volumeShade": "Opacit\u00e9 selon le volume",
+            "candles_volumeShade_desc": "Les barres de faible volume sont plus p\u00e2les.",
+            "card_priceAxis": "Axe des prix",
+            "group_priceAxis_main": "\u00c9tiquettes",
+            "group_priceAxis_range": "\u00c9chelle",
+            "group_priceAxis_last": "Dernier prix",
+            "priceAxis_show": "Afficher",
+            "priceAxis_position": "Position",
+            "priceAxis_position_right": "\u00c0 droite",
+            "priceAxis_position_left": "\u00c0 gauche",
+            "priceAxis_fontSize": "Taille du texte",
+            "priceAxis_color": "Couleur (vide = secondaire)",
+            "priceAxis_units": "Unit\u00e9s d'affichage",
+            "priceAxis_units_auto": "Auto",
+            "priceAxis_units_none": "Aucune",
+            "priceAxis_units_k": "Milliers",
+            "priceAxis_units_m": "Millions",
+            "priceAxis_units_b": "Milliards",
+            "priceAxis_decimals": "D\u00e9cimales (-1 = auto)",
+            "priceAxis_prefix": "Pr\u00e9fixe",
+            "priceAxis_suffix": "Suffixe (ex. \u20ac)",
+            "priceAxis_scale": "\u00c9chelle",
+            "priceAxis_scale_linear": "Lin\u00e9aire",
+            "priceAxis_scale_log": "Logarithmique",
+            "priceAxis_scale_percent": "Pourcentage (depuis la 1re barre visible)",
+            "priceAxis_scale_base100": "Base 100",
+            "priceAxis_invert": "Inverser l'axe",
+            "priceAxis_marginTop": "Marge haute (%)",
+            "priceAxis_marginBottom": "Marge basse (%)",
+            "priceAxis_lastLine": "Ligne du dernier prix",
+            "priceAxis_lastLabel": "\u00c9tiquette sur l'axe",
+            "card_timeAxis": "Axe du temps",
+            "timeAxis_show": "Afficher",
+            "timeAxis_fontSize": "Taille du texte",
+            "timeAxis_color": "Couleur (vide = secondaire)",
+            "timeAxis_spacing": "\u00c9cart entre les libell\u00e9s (px)",
+            "timeAxis_separators": "S\u00e9parateurs de jour / mois / ann\u00e9e",
+            "card_volume": "Volume",
+            "volume_show": "Afficher (avec le champ Volume)",
+            "volume_mode": "Placement",
+            "volume_mode_pane": "Panneau sous les prix",
+            "volume_mode_overlay": "Superpos\u00e9 en bas des prix",
+            "volume_height": "Hauteur (%)",
+            "volume_upColor": "Haussier (vide = bougies)",
+            "volume_downColor": "Baissier (vide = bougies)",
+            "volume_opacity": "Opacit\u00e9 (%)",
+            "volume_ma": "Moyenne du volume",
+            "volume_maLength": "P\u00e9riode de la moyenne",
+            "card_indicators": "Indicateurs",
+            "group_indicators_manager": "Liste des indicateurs",
+            "group_indicators_ma1": "Moyenne mobile 1",
+            "group_indicators_ma2": "Moyenne mobile 2",
+            "group_indicators_ma3": "Moyenne mobile 3",
+            "group_indicators_bbGroup": "Bandes de Bollinger \u2605",
+            "group_indicators_rsiGroup": "RSI \u2605",
+            "group_indicators_macdGroup": "MACD \u2605",
+            "indicators_list": "Indicateurs (une ligne chacun)",
+            "indicators_list_desc": "\u00c9crite par le bouton Indicateurs du visuel (mode \u00e9dition), ou \u00e0 la main : nom, param\u00e8tres, puis au choix une source (close, hl2, hlc3\u2026), une couleur #RRGGBB, signal=9, levels=70/30, signals, hidden.",
+            "indicators_list_ph": "sma 50\nrsi 14\nmacd 12 26 9",
+            "indicators_ma1Show": "Moyenne mobile 1",
+            "indicators_ma1Type": "Type",
+            "indicators_ma1Type_sma": "Simple (SMA)",
+            "indicators_ma1Type_ema": "Exponentielle (EMA)",
+            "indicators_ma1Type_wma": "Pond\u00e9r\u00e9e (WMA) \u2605",
+            "indicators_ma1Type_vwma": "Pond\u00e9r\u00e9e par le volume (VWMA) \u2605",
+            "indicators_ma1Type_rma": "Liss\u00e9e (SMMA) \u2605",
+            "indicators_ma1Type_dema": "Double EMA (DEMA) \u2605",
+            "indicators_ma1Type_tema": "Triple EMA (TEMA) \u2605",
+            "indicators_ma1Type_hma": "Hull (HMA) \u2605",
+            "indicators_ma1Length": "P\u00e9riode (barres)",
+            "indicators_ma1Color": "Couleur (vide = palette)",
+            "indicators_ma2Show": "Moyenne mobile 2",
+            "indicators_ma2Type": "Type",
+            "indicators_ma2Type_sma": "Simple (SMA)",
+            "indicators_ma2Type_ema": "Exponentielle (EMA)",
+            "indicators_ma2Type_wma": "Pond\u00e9r\u00e9e (WMA) \u2605",
+            "indicators_ma2Type_vwma": "Pond\u00e9r\u00e9e par le volume (VWMA) \u2605",
+            "indicators_ma2Type_rma": "Liss\u00e9e (SMMA) \u2605",
+            "indicators_ma2Type_dema": "Double EMA (DEMA) \u2605",
+            "indicators_ma2Type_tema": "Triple EMA (TEMA) \u2605",
+            "indicators_ma2Type_hma": "Hull (HMA) \u2605",
+            "indicators_ma2Length": "P\u00e9riode (barres)",
+            "indicators_ma2Color": "Couleur (vide = palette)",
+            "indicators_ma3Show": "Moyenne mobile 3",
+            "indicators_ma3Type": "Type",
+            "indicators_ma3Type_sma": "Simple (SMA)",
+            "indicators_ma3Type_ema": "Exponentielle (EMA)",
+            "indicators_ma3Type_wma": "Pond\u00e9r\u00e9e (WMA) \u2605",
+            "indicators_ma3Type_vwma": "Pond\u00e9r\u00e9e par le volume (VWMA) \u2605",
+            "indicators_ma3Type_rma": "Liss\u00e9e (SMMA) \u2605",
+            "indicators_ma3Type_dema": "Double EMA (DEMA) \u2605",
+            "indicators_ma3Type_tema": "Triple EMA (TEMA) \u2605",
+            "indicators_ma3Type_hma": "Hull (HMA) \u2605",
+            "indicators_ma3Length": "P\u00e9riode (barres)",
+            "indicators_ma3Color": "Couleur (vide = palette)",
+            "indicators_bbShow": "Bandes de Bollinger \u2605",
+            "indicators_bbLength": "P\u00e9riode",
+            "indicators_bbMult": "\u00c9carts types",
+            "indicators_bbColor": "Couleur (vide = palette)",
+            "indicators_rsiShow": "RSI \u2605",
+            "indicators_rsiLength": "P\u00e9riode",
+            "indicators_rsiUpper": "Seuil haut",
+            "indicators_rsiLower": "Seuil bas",
+            "indicators_macdShow": "MACD \u2605",
+            "indicators_macdFast": "P\u00e9riode rapide",
+            "indicators_macdSlow": "P\u00e9riode lente",
+            "indicators_macdSignal": "Signal",
+            "card_panes": "Panneaux",
+            "panes_height": "Hauteur de chaque panneau d'indicateur (%)",
+            "panes_separators": "Traits de s\u00e9paration",
+            "panes_levels": "Seuils et zone entre les seuils",
+            "card_annotations": "Annotations",
+            "annotations_show": "Afficher",
+            "annotations_labels": "Texte",
+            "annotations_labels_label": "\u00c9tiquette sur le graphique",
+            "annotations_labels_tooltip": "Infobulle seulement",
+            "annotations_place": "Position du rep\u00e8re",
+            "annotations_place_auto": "Automatique (achat dessous, vente dessus)",
+            "annotations_place_above": "Au-dessus du plus haut",
+            "annotations_place_below": "Sous le plus bas",
+            "annotations_vline": "Ligne verticale sur tous les panneaux",
+            "annotations_color": "Couleur (vide = accent)",
+            "annotations_fontSize": "Taille du texte",
+            "annotations_labelBg": "Fond des \u00e9tiquettes",
+            "annotations_labelBg_surface": "Couleur du fond du visuel",
+            "annotations_labelBg_none": "Transparent",
+            "annotations_list": "Annotations manuelles \u2605",
+            "annotations_list_desc": "\u00c9crites par le bouton Annoter (mode \u00e9dition) ou \u00e0 la main : date | texte | ic\u00f4ne (flag, up, down, circle, star, diamond, ou une lettre) | couleur | above, below ou un prix. Copiez-les vers un autre rapport.",
+            "annotations_list_ph": "2025-03-14 | Hausse tarif fournisseur | flag",
+            "card_positions": "Positions \u2605",
+            "group_positions_look": "Affichage",
+            "group_positions_calc": "Calcul",
+            "group_positions_manual": "Positions manuelles",
+            "positions_show": "Afficher",
+            "positions_show_desc": "Les positions viennent du champ \u00c9tat de position (+1 long, -1 court, 0 hors march\u00e9) ou du bouton Position du visuel.",
+            "positions_winColor": "Gain",
+            "positions_lossColor": "Perte",
+            "positions_neutralColor": "P\u00e9riode neutre (vide = accent)",
+            "positions_labels": "\u00c9tiquette",
+            "positions_labels_full": "R\u00e9sultat, %, dur\u00e9e, risque / rendement",
+            "positions_labels_result": "R\u00e9sultat en %",
+            "positions_labels_none": "Aucune",
+            "positions_labelBg": "Fond des \u00e9tiquettes",
+            "positions_labelBg_surface": "Couleur du fond du visuel",
+            "positions_labelBg_none": "Transparent",
+            "positions_qty": "Quantit\u00e9 par d\u00e9faut",
+            "positions_fees": "Frais par d\u00e9faut (montant ou %)",
+            "positions_fees_ph": "ex. 0,1%",
+            "positions_stats": "Panneau de statistiques",
+            "positions_equity": "Courbe de capital",
+            "positions_list": "Positions (une ligne chacune)",
+            "positions_list_desc": "\u00c9crites par le bouton Position (mode \u00e9dition) ou \u00e0 la main : long, short ou neutral | date d'entr\u00e9e | date de sortie (vide = ouverte) | entry= exit= stop= target= qty= fees= label=.",
+            "positions_list_ph": "long | 2025-03-03 | 2025-05-12 | stop=95 | target=120",
+            "card_crosshair": "L\u00e9gende et r\u00e9ticule",
+            "crosshair_legend": "L\u00e9gende (OHLC et indicateurs)",
+            "crosshair_legendSize": "Taille de la l\u00e9gende",
+            "crosshair_legendSpace": "R\u00e9server la place de la l\u00e9gende",
+            "crosshair_legendSpace_desc": "L'\u00e9chelle des prix laisse libre en haut la hauteur de la l\u00e9gende : les bougies ne passent jamais sous son texte.",
+            "crosshair_show": "R\u00e9ticule",
+            "crosshair_magnet": "Mode",
+            "crosshair_magnet_magnet": "Aimant\u00e9 sur la cl\u00f4ture",
+            "crosshair_magnet_free": "Libre",
+            "crosshair_style": "Style du trait",
+            "crosshair_style_solid": "Continu",
+            "crosshair_style_dashed": "Tirets",
+            "crosshair_style_dotted": "Pointill\u00e9s",
+            "crosshair_color": "Couleur (vide = secondaire)",
+            "card_navigation": "Navigation",
+            "navigation_timeframes": "S\u00e9lecteur d'unit\u00e9 de temps",
+            "navigation_ranges": "Boutons de plage (1M, 3M\u2026 Tout)",
+            "navigation_wheel": "Zoom \u00e0 la molette",
+            "navigation_navigator": "Navigateur (mini-graphique) \u2605",
+            "navigation_barSpacing": "\u00c9cart entre les barres au d\u00e9marrage (px)",
+            "navigation_rightOffset": "Espace \u00e0 droite (barres)",
+            "card_grid": "Quadrillage et fond",
+            "grid_horizontal": "Quadrillage horizontal",
+            "grid_vertical": "Quadrillage vertical",
+            "grid_style": "Style du trait",
+            "grid_style_solid": "Continu",
+            "grid_style_dashed": "Tirets",
+            "grid_style_dotted": "Pointill\u00e9s",
+            "grid_color": "Couleur (vide = grille du style)",
+            "grid_sessions": "Bandes de s\u00e9ances altern\u00e9es",
+            "grid_watermark": "Symbole en filigrane",
+            "card_tooltip": "Infobulle",
+            "tooltip_show": "Infobulle Power BI",
+            "tooltip_change": "Variation et %",
+            "tooltip_volume": "Volume",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Mettre en avant au survol",
+            "interaction_dim": "Opacit\u00e9 des \u00e9l\u00e9ments estomp\u00e9s (%)",
+            "card_title": "Titre",
+            "title_show": "Afficher",
+            "title_text": "Titre",
+            "title_text_desc": "Laisser vide pour un titre automatique construit \u00e0 partir des champs.",
+            "title_text_ph": "Automatique",
+            "title_subtitle": "Sous-titre",
+            "title_fontSize": "Taille",
+            "title_bold": "Gras",
+            "title_color": "Couleur (vide = texte)",
+            "title_align": "Alignement",
+            "title_align_left": "Gauche",
+            "title_align_center": "Centr\u00e9",
+            "title_align_right": "Droite",
+            "card_source": "Note de source",
+            "source_show": "Afficher",
+            "source_text": "Texte",
+            "source_text_ph": "Source : \u2026",
+            "source_fontSize": "Taille",
+            "source_align": "Alignement",
+            "source_align_left": "Gauche",
+            "source_align_center": "Centr\u00e9",
+            "source_align_right": "Droite",
+            "card_container": "Cadre",
+            "container_border": "Bordure",
+            "container_borderWidth": "\u00c9paisseur de la bordure",
+            "container_borderColor": "Couleur de la bordure (vide = grille)",
+            "container_shadow": "Ombre",
+            "container_padding": "Marge int\u00e9rieure",
+            "card_texts": "Langue et textes",
+            "texts_language": "Langue de l'interface",
+            "texts_language_auto": "Comme Power BI",
+            "texts_language_fr": "Fran\u00e7ais",
+            "texts_language_en": "Anglais",
+            "texts_numberLocale": "Format des nombres (ex. fr-FR)",
+            "texts_numberLocale_ph": "auto",
+            "role_time": "Date / heure",
+            "roleDesc_time": "Colonne date ou date-heure (pas la hi\u00e9rarchie automatique) : une ligne par barre source.",
+            "role_series": "Symbole (s\u00e9rie)",
+            "role_open": "Ouverture",
+            "role_high": "Plus haut",
+            "role_low": "Plus bas",
+            "role_close": "Cl\u00f4ture",
+            "role_price": "Prix (valeur unique)",
+            "roleDesc_price": "\u00c0 la place d'Ouverture, Plus haut, Plus bas et Cl\u00f4ture : un prix par ligne (relev\u00e9s) ; le visuel construit chaque barre.",
+            "role_volume": "Volume",
+            "role_overlay": "Courbes sur les prix",
+            "roleDesc_overlay": "Mesures trac\u00e9es sur les prix : objectif, indice de r\u00e9f\u00e9rence, pr\u00e9vision.",
+            "role_eventText": "Texte d'\u00e9v\u00e9nement",
+            "roleDesc_eventText": "Mesure texte : un rep\u00e8re avec ce texte sur chaque barre o\u00f9 elle n'est pas vide.",
+            "role_eventType": "Type d'\u00e9v\u00e9nement",
+            "roleDesc_eventType": "Choisit l'ic\u00f4ne : buy, sell, flag, circle, star, diamond, ou une lettre.",
+            "role_position": "\u00c9tat de position \u2605",
+            "roleDesc_position": "Mesure qui renvoie +1 (long), -1 (court) ou 0 (hors march\u00e9) par barre : chaque changement ouvre ou ferme une position.",
+            "role_entryPrice": "Prix d'entr\u00e9e \u2605",
+            "role_exitPrice": "Prix de sortie \u2605",
+            "role_tooltips": "Infobulles",
+            "role_format": "Format dynamique",
+            "roleDesc_format": "Mesures nomm\u00e9es carte.r\u00e9glage (ex. title.fontSize) : pilotez n'importe quel r\u00e9glage du volet Format en DAX"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "time",
+                "kind": "Grouping",
+                "displayName": "Date / time",
+                "displayNameKey": "role_time",
+                "description": "Date or date-time column (not the automatic date hierarchy): one row per source bar.",
+                "descriptionKey": "roleDesc_time"
+            },
+            {
+                "name": "series",
+                "kind": "Grouping",
+                "displayName": "Symbol (series)",
+                "displayNameKey": "role_series"
+            },
+            {
+                "name": "open",
+                "kind": "Measure",
+                "displayName": "Open",
+                "displayNameKey": "role_open"
+            },
+            {
+                "name": "high",
+                "kind": "Measure",
+                "displayName": "High",
+                "displayNameKey": "role_high"
+            },
+            {
+                "name": "low",
+                "kind": "Measure",
+                "displayName": "Low",
+                "displayNameKey": "role_low"
+            },
+            {
+                "name": "close",
+                "kind": "Measure",
+                "displayName": "Close",
+                "displayNameKey": "role_close"
+            },
+            {
+                "name": "price",
+                "kind": "Measure",
+                "displayName": "Price (single value)",
+                "displayNameKey": "role_price",
+                "description": "Instead of Open, High, Low and Close: one price per row (ticks, readings); the visual builds each bar.",
+                "descriptionKey": "roleDesc_price"
+            },
+            {
+                "name": "volume",
+                "kind": "Measure",
+                "displayName": "Volume",
+                "displayNameKey": "role_volume"
+            },
+            {
+                "name": "overlay",
+                "kind": "Measure",
+                "displayName": "Lines on prices",
+                "displayNameKey": "role_overlay",
+                "description": "Measures drawn over the prices: target, benchmark, forecast.",
+                "descriptionKey": "roleDesc_overlay"
+            },
+            {
+                "name": "eventText",
+                "kind": "Measure",
+                "displayName": "Event text",
+                "displayNameKey": "role_eventText",
+                "description": "Text measure: a marker with this text on each bar where it is not empty.",
+                "descriptionKey": "roleDesc_eventText",
+                "preferredTypes": [
+                    {
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "eventType",
+                "kind": "Measure",
+                "displayName": "Event type",
+                "displayNameKey": "role_eventType",
+                "description": "Chooses the icon: buy, sell, flag, circle, star, diamond, or a letter.",
+                "descriptionKey": "roleDesc_eventType",
+                "preferredTypes": [
+                    {
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "position",
+                "kind": "Measure",
+                "displayName": "Position state \u2605",
+                "displayNameKey": "role_position",
+                "description": "Measure returning +1 (long), -1 (short) or 0 (out of the market) per bar: each change opens or closes a position.",
+                "descriptionKey": "roleDesc_position"
+            },
+            {
+                "name": "entryPrice",
+                "kind": "Measure",
+                "displayName": "Entry price \u2605",
+                "displayNameKey": "role_entryPrice"
+            },
+            {
+                "name": "exitPrice",
+                "kind": "Measure",
+                "displayName": "Exit price \u2605",
+                "displayNameKey": "role_exitPrice"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "role_tooltips"
+            },
+            {
+                "name": "format",
+                "kind": "Measure",
+                "displayName": "Dynamic format",
+                "displayNameKey": "role_format",
+                "description": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX",
+                "descriptionKey": "roleDesc_format"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "time": {
+                            "max": 1
+                        },
+                        "series": {
+                            "max": 1
+                        },
+                        "open": {
+                            "max": 1
+                        },
+                        "high": {
+                            "max": 1
+                        },
+                        "low": {
+                            "max": 1
+                        },
+                        "close": {
+                            "max": 1
+                        },
+                        "price": {
+                            "max": 1
+                        },
+                        "volume": {
+                            "max": 1
+                        },
+                        "eventText": {
+                            "max": 1
+                        },
+                        "eventType": {
+                            "max": 1
+                        },
+                        "position": {
+                            "max": 1
+                        },
+                        "entryPrice": {
+                            "max": 1
+                        },
+                        "exitPrice": {
+                            "max": 1
+                        },
+                        "overlay": {
+                            "max": 5
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "for": {
+                            "in": "time"
+                        },
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "group": {
+                            "by": "series",
+                            "select": [
+                                {
+                                    "for": {
+                                        "in": "open"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "high"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "low"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "close"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "price"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "volume"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "overlay"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "eventText"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "eventType"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "position"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "entryPrice"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "exitPrice"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "tooltips"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "format"
+                                    }
+                                }
+                            ],
+                            "dataReductionAlgorithm": {
+                                "top": {
+                                    "count": 30
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "suppressDefaultTitle": true,
+        "privileges": [],
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "sorting": {
+            "default": {}
+        },
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "objects": {
+            "license": {
+                "properties": {
+                    "buy": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "key": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showOwner": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "style": {
+                "properties": {
+                    "preset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal"
+                                },
+                                {
+                                    "value": "blackWhite",
+                                    "displayName": "Black & White"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Newspaper \u2605"
+                                },
+                                {
+                                    "value": "vintage",
+                                    "displayName": "Vintage (antique plate) \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "executive",
+                                    "displayName": "Executive \u2605"
+                                },
+                                {
+                                    "value": "accessible",
+                                    "displayName": "Accessible (high legibility) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "bauhaus",
+                                    "displayName": "Bauhaus (pop) \u2605"
+                                },
+                                {
+                                    "value": "climate",
+                                    "displayName": "Climate \u2605"
+                                },
+                                {
+                                    "value": "blueprint",
+                                    "displayName": "Blueprint \u2605"
+                                },
+                                {
+                                    "value": "unknownPleasures",
+                                    "displayName": "Unknown Pleasures \u2605"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Graphite (dark) \u2605"
+                                },
+                                {
+                                    "value": "neon",
+                                    "displayName": "Neon \u2605"
+                                },
+                                {
+                                    "value": "terminal",
+                                    "displayName": "Terminal (Matrix) \u2605"
+                                },
+                                {
+                                    "value": "infographic",
+                                    "displayName": "Infographic \u2605"
+                                },
+                                {
+                                    "value": "cockpit",
+                                    "displayName": "Cockpit (HUD) \u2605"
+                                },
+                                {
+                                    "value": "hologram",
+                                    "displayName": "Hologram \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "themeJson": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "followTheme": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "reverse": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "customColors": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorText": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorMuted": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorGrid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorAccent": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorPositive": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorNegative": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series1": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series3": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series4": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series5": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series6": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series7": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series8": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "palette": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Style or theme palette"
+                                },
+                                {
+                                    "value": "crest",
+                                    "displayName": "Plume (sequential)"
+                                },
+                                {
+                                    "value": "crestDiverging",
+                                    "displayName": "Plume (diverging)"
+                                },
+                                {
+                                    "value": "viridis",
+                                    "displayName": "Viridis \u2605"
+                                },
+                                {
+                                    "value": "magma",
+                                    "displayName": "Magma \u2605"
+                                },
+                                {
+                                    "value": "inferno",
+                                    "displayName": "Inferno \u2605"
+                                },
+                                {
+                                    "value": "cividis",
+                                    "displayName": "Cividis (colorblind-safe) \u2605"
+                                },
+                                {
+                                    "value": "warmingStripes",
+                                    "displayName": "Warming stripes \u2605"
+                                },
+                                {
+                                    "value": "rdYlBu",
+                                    "displayName": "Red\u2013Yellow\u2013Blue \u2605"
+                                },
+                                {
+                                    "value": "brBG",
+                                    "displayName": "Brown\u2013Teal (drought) \u2605"
+                                },
+                                {
+                                    "value": "spectral",
+                                    "displayName": "Spectral \u2605"
+                                },
+                                {
+                                    "value": "blues",
+                                    "displayName": "Blues \u2605"
+                                },
+                                {
+                                    "value": "reds",
+                                    "displayName": "Reds \u2605"
+                                },
+                                {
+                                    "value": "grays",
+                                    "displayName": "Grays \u2605"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Press (ink and paper) \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth (ochre to umber) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "okabeIto",
+                                    "displayName": "Okabe-Ito (colorblind-safe) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "scaleLow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleMid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleHigh": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "mutedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "animate": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "data": {
+                "properties": {
+                    "timeframe": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Same as the data"
+                                },
+                                {
+                                    "value": "1m",
+                                    "displayName": "1 minute"
+                                },
+                                {
+                                    "value": "5m",
+                                    "displayName": "5 minutes"
+                                },
+                                {
+                                    "value": "15m",
+                                    "displayName": "15 minutes"
+                                },
+                                {
+                                    "value": "30m",
+                                    "displayName": "30 minutes"
+                                },
+                                {
+                                    "value": "1H",
+                                    "displayName": "1 hour"
+                                },
+                                {
+                                    "value": "4H",
+                                    "displayName": "4 hours"
+                                },
+                                {
+                                    "value": "1D",
+                                    "displayName": "1 day"
+                                },
+                                {
+                                    "value": "1W",
+                                    "displayName": "1 week"
+                                },
+                                {
+                                    "value": "1M",
+                                    "displayName": "1 month"
+                                },
+                                {
+                                    "value": "3M",
+                                    "displayName": "1 quarter"
+                                },
+                                {
+                                    "value": "1Y",
+                                    "displayName": "1 year"
+                                }
+                            ]
+                        }
+                    },
+                    "timeframes": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "axis": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bars",
+                                    "displayName": "One bar per step (no weekend gaps)"
+                                },
+                                {
+                                    "value": "time",
+                                    "displayName": "Real time (gaps shown)"
+                                }
+                            ]
+                        }
+                    },
+                    "weekStart": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "1",
+                                    "displayName": "Monday"
+                                },
+                                {
+                                    "value": "0",
+                                    "displayName": "Sunday"
+                                },
+                                {
+                                    "value": "6",
+                                    "displayName": "Saturday"
+                                }
+                            ]
+                        }
+                    },
+                    "fiscalStart": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "session": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "tzOffset": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "range": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (readable bars)"
+                                },
+                                {
+                                    "value": "1M",
+                                    "displayName": "1 month"
+                                },
+                                {
+                                    "value": "3M",
+                                    "displayName": "3 months"
+                                },
+                                {
+                                    "value": "6M",
+                                    "displayName": "6 months"
+                                },
+                                {
+                                    "value": "YTD",
+                                    "displayName": "Year to date"
+                                },
+                                {
+                                    "value": "1Y",
+                                    "displayName": "1 year"
+                                },
+                                {
+                                    "value": "5Y",
+                                    "displayName": "5 years"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "All"
+                                }
+                            ]
+                        }
+                    },
+                    "displayFrom": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "series": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "compare": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "chartType": {
+                "properties": {
+                    "type": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "candles",
+                                    "displayName": "Candles"
+                                },
+                                {
+                                    "value": "hollow",
+                                    "displayName": "Hollow candles"
+                                },
+                                {
+                                    "value": "bars",
+                                    "displayName": "OHLC bars"
+                                },
+                                {
+                                    "value": "line",
+                                    "displayName": "Line"
+                                },
+                                {
+                                    "value": "area",
+                                    "displayName": "Area"
+                                },
+                                {
+                                    "value": "heikinAshi",
+                                    "displayName": "Heikin-Ashi \u2605"
+                                },
+                                {
+                                    "value": "baseline",
+                                    "displayName": "Baseline \u2605"
+                                },
+                                {
+                                    "value": "hlc",
+                                    "displayName": "HLC columns \u2605"
+                                },
+                                {
+                                    "value": "lineMarkers",
+                                    "displayName": "Line with markers \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "baseline": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "lineWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "candles": {
+                "properties": {
+                    "upColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "downColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "neutralColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "upBorder": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "downBorder": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "upWick": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "downWick": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "width": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "volumeShade": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "priceAxis": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "units": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "k",
+                                    "displayName": "Thousands"
+                                },
+                                {
+                                    "value": "m",
+                                    "displayName": "Millions"
+                                },
+                                {
+                                    "value": "b",
+                                    "displayName": "Billions"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "prefix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "suffix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "scale": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "linear",
+                                    "displayName": "Linear"
+                                },
+                                {
+                                    "value": "log",
+                                    "displayName": "Logarithmic"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "Percent (from the first visible bar)"
+                                },
+                                {
+                                    "value": "base100",
+                                    "displayName": "Indexed to 100"
+                                }
+                            ]
+                        }
+                    },
+                    "invert": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "marginTop": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "marginBottom": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "lastLine": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lastLabel": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "timeAxis": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "spacing": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "separators": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "volume": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "pane",
+                                    "displayName": "Pane below prices"
+                                },
+                                {
+                                    "value": "overlay",
+                                    "displayName": "Overlay at the bottom of prices"
+                                }
+                            ]
+                        }
+                    },
+                    "height": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "upColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "downColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "opacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "ma": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maLength": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "indicators": {
+                "properties": {
+                    "list": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "ma1Show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ma1Type": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sma",
+                                    "displayName": "Simple (SMA)"
+                                },
+                                {
+                                    "value": "ema",
+                                    "displayName": "Exponential (EMA)"
+                                },
+                                {
+                                    "value": "wma",
+                                    "displayName": "Weighted (WMA) \u2605"
+                                },
+                                {
+                                    "value": "vwma",
+                                    "displayName": "Volume-weighted (VWMA) \u2605"
+                                },
+                                {
+                                    "value": "rma",
+                                    "displayName": "Smoothed (SMMA) \u2605"
+                                },
+                                {
+                                    "value": "dema",
+                                    "displayName": "Double EMA (DEMA) \u2605"
+                                },
+                                {
+                                    "value": "tema",
+                                    "displayName": "Triple EMA (TEMA) \u2605"
+                                },
+                                {
+                                    "value": "hma",
+                                    "displayName": "Hull (HMA) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "ma1Length": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "ma1Color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ma2Show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ma2Type": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sma",
+                                    "displayName": "Simple (SMA)"
+                                },
+                                {
+                                    "value": "ema",
+                                    "displayName": "Exponential (EMA)"
+                                },
+                                {
+                                    "value": "wma",
+                                    "displayName": "Weighted (WMA) \u2605"
+                                },
+                                {
+                                    "value": "vwma",
+                                    "displayName": "Volume-weighted (VWMA) \u2605"
+                                },
+                                {
+                                    "value": "rma",
+                                    "displayName": "Smoothed (SMMA) \u2605"
+                                },
+                                {
+                                    "value": "dema",
+                                    "displayName": "Double EMA (DEMA) \u2605"
+                                },
+                                {
+                                    "value": "tema",
+                                    "displayName": "Triple EMA (TEMA) \u2605"
+                                },
+                                {
+                                    "value": "hma",
+                                    "displayName": "Hull (HMA) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "ma2Length": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "ma2Color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ma3Show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ma3Type": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sma",
+                                    "displayName": "Simple (SMA)"
+                                },
+                                {
+                                    "value": "ema",
+                                    "displayName": "Exponential (EMA)"
+                                },
+                                {
+                                    "value": "wma",
+                                    "displayName": "Weighted (WMA) \u2605"
+                                },
+                                {
+                                    "value": "vwma",
+                                    "displayName": "Volume-weighted (VWMA) \u2605"
+                                },
+                                {
+                                    "value": "rma",
+                                    "displayName": "Smoothed (SMMA) \u2605"
+                                },
+                                {
+                                    "value": "dema",
+                                    "displayName": "Double EMA (DEMA) \u2605"
+                                },
+                                {
+                                    "value": "tema",
+                                    "displayName": "Triple EMA (TEMA) \u2605"
+                                },
+                                {
+                                    "value": "hma",
+                                    "displayName": "Hull (HMA) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "ma3Length": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "ma3Color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bbShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bbLength": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "bbMult": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bbColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "rsiShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rsiLength": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "rsiUpper": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rsiLower": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "macdShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "macdFast": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "macdSlow": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "macdSignal": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "panes": {
+                "properties": {
+                    "height": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "separators": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "levels": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "annotations": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labels": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "label",
+                                    "displayName": "Label on the chart"
+                                },
+                                {
+                                    "value": "tooltip",
+                                    "displayName": "Tooltip only"
+                                }
+                            ]
+                        }
+                    },
+                    "place": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (buy below, sell above)"
+                                },
+                                {
+                                    "value": "above",
+                                    "displayName": "Above the high"
+                                },
+                                {
+                                    "value": "below",
+                                    "displayName": "Below the low"
+                                }
+                            ]
+                        }
+                    },
+                    "vline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "labelBg": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "surface",
+                                    "displayName": "Visual background color"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "Transparent"
+                                }
+                            ]
+                        }
+                    },
+                    "list": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "positions": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "winColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "lossColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "neutralColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "labels": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "full",
+                                    "displayName": "Result, %, duration, risk / reward"
+                                },
+                                {
+                                    "value": "result",
+                                    "displayName": "Result in %"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "labelBg": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "surface",
+                                    "displayName": "Visual background color"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "Transparent"
+                                }
+                            ]
+                        }
+                    },
+                    "qty": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fees": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "stats": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "equity": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "list": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "crosshair": {
+                "properties": {
+                    "legend": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "legendSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "legendSpace": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "magnet": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "magnet",
+                                    "displayName": "Snapped to the close"
+                                },
+                                {
+                                    "value": "free",
+                                    "displayName": "Free"
+                                }
+                            ]
+                        }
+                    },
+                    "style": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "navigation": {
+                "properties": {
+                    "timeframes": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ranges": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "wheel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "navigator": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "barSpacing": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "rightOffset": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "grid": {
+                "properties": {
+                    "horizontal": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "vertical": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "style": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "sessions": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "watermark": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "tooltip": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "change": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "volume": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "interaction": {
+                "properties": {
+                    "hover": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dim": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "title": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "source": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "container": {
+                "properties": {
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "padding": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "texts": {
+                "properties": {
+                    "language": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Same as Power BI"
+                                },
+                                {
+                                    "value": "fr",
+                                    "displayName": "French"
+                                },
+                                {
+                                    "value": "en",
+                                    "displayName": "English"
+                                }
+                            ]
+                        }
+                    },
+                    "numberLocale": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

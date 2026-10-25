@@ -1,0 +1,2928 @@
+{
+    "visual": {
+        "name": "plumeGanttChart",
+        "displayName": "Gantt Plume",
+        "guid": "plumeGanttChartB2FEC518BC294539ACD7EE04DBA8CFE8",
+        "visualClassName": "Visual",
+        "version": "1.2.1.0",
+        "description": "Gantt chart with the Plume Studio look: multi-level collapsible hierarchy, task grid, reader-controlled zoom from hours to years, today line, milestones, several bars per row, dependencies with critical path, baseline versus actual, computed status, resource view, rollup of collapsed groups, custom sort order, outline numbers, bar labels and colors from your fields, and one-page plan for PDF export.",
+        "supportUrl": "https://plumevisuals.com/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Plume Studio",
+        "email": "contact@plumevisuals.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "premium_desc": "Premium feature: usable for free with a \u00ab Premium preview \u00bb watermark, unlocked by a Plume Studio license key.",
+            "card_license": "Plume Studio License",
+            "license_buy": "Get a license",
+            "license_key": "License key",
+            "license_key_desc": "Paste the key received after purchase on plumevisuals.com (starts with PLUM1.). Checked offline.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Show license holder (edit mode)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Custom colors",
+            "group_style_text": "Text",
+            "group_style_background": "Background and corners",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Complete look shared by all Plume visuals: colors, three palettes, fonts, frame, table header, marks and effects. Customize colors below.",
+            "style_preset_none": "None",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Black & White",
+            "style_preset_press": "Newspaper \u2605",
+            "style_preset_vintage": "Vintage (antique plate) \u2605",
+            "style_preset_earth": "Earth \u2605",
+            "style_preset_nordic": "Nordic \u2605",
+            "style_preset_executive": "Executive \u2605",
+            "style_preset_accessible": "Accessible (high legibility) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climate \u2605",
+            "style_preset_blueprint": "Blueprint \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (dark) \u2605",
+            "style_preset_neon": "Neon \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographic \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologram \u2605",
+            "style_themeJson": "Theme JSON \u2605",
+            "style_themeJson_desc": "Paste a JSON theme: see the 'JSON themes' tutorial on plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Follow report theme",
+            "style_followTheme_desc": "Text, background, accent and data colors come from the Power BI report theme.",
+            "style_reverse": "Reverse gradients",
+            "style_customColors": "Customize colors",
+            "style_customColors_desc": "Start from the style and pick your own colors. A color left empty keeps the style's color.",
+            "style_colorBackground": "Background",
+            "style_colorText": "Text",
+            "style_colorMuted": "Secondary text",
+            "style_colorGrid": "Lines and grid",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "Unfavorable",
+            "style_series1": "Series 1",
+            "style_series2": "Series 2",
+            "style_series3": "Series 3",
+            "style_series4": "Series 4",
+            "style_series5": "Series 5",
+            "style_series6": "Series 6",
+            "style_series7": "Series 7",
+            "style_series8": "Series 8",
+            "style_palette": "Gradient palette",
+            "style_palette_desc": "Gradient from the catalog (Viridis, Magma\u2026). The start, middle and end colors below replace it.",
+            "style_palette_auto": "Style or theme palette",
+            "style_palette_crest": "Plume (sequential)",
+            "style_palette_crestDiverging": "Plume (diverging)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (colorblind-safe) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Red\u2013Yellow\u2013Blue \u2605",
+            "style_palette_brBG": "Brown\u2013Teal (drought) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Blues \u2605",
+            "style_palette_reds": "Reds \u2605",
+            "style_palette_grays": "Grays \u2605",
+            "style_palette_press": "Press (ink and paper) \u2605",
+            "style_palette_nordic": "Nordic \u2605",
+            "style_palette_earth": "Earth (ochre to umber) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (colorblind-safe) \u2605",
+            "style_scaleLow": "Gradient: start",
+            "style_scaleMid": "Gradient: middle (diverging)",
+            "style_scaleHigh": "Gradient: end",
+            "style_fontFamily": "Font",
+            "style_fontFamily_desc": "Used by every text of the visual (title, axes, labels, cells).",
+            "style_textColor": "Text color (empty = style)",
+            "style_mutedColor": "Secondary text (empty = style)",
+            "style_bgShow": "Background",
+            "style_bgColor": "Background color",
+            "style_bgColor2": "Gradient end (optional)",
+            "style_radius": "Corner radius",
+            "style_animate": "Animations",
+            "style_animate_desc": "Smooth transitions when data changes. Automatically disabled when the system asks to reduce motion.",
+            "card_dataColors": "Data colors",
+            "dataColors_mode": "Coloring",
+            "dataColors_mode_auto": "Automatic (Color field, else first group)",
+            "dataColors_mode_legend": "By the Color field",
+            "dataColors_mode_group": "By the first group",
+            "dataColors_mode_resource": "By owner",
+            "dataColors_mode_single": "Single color",
+            "dataColors_mode_status": "Computed status (late, at risk\u2026) \u2605",
+            "dataColors_single": "Color",
+            "dataColors_fill": "Color",
+            "dataColors_summary": "Summary bars (empty = text)",
+            "dataColors_done": "Status: done",
+            "dataColors_onTrack": "Status: on track",
+            "dataColors_risk": "Status: at risk",
+            "dataColors_late": "Status: late",
+            "dataColors_upcoming": "Status: upcoming",
+            "dataColors_tolerance": "\u201cAt risk\u201d beyond (points behind)",
+            "dataColors_tolerance_desc": "Expected progress (elapsed time) minus actual progress, in percentage points.",
+            "card_view": "Display",
+            "view_mode": "View",
+            "view_mode_tasks": "Tasks (hierarchy)",
+            "view_mode_resources": "Resources (one row per owner) \u2605",
+            "view_fit": "Whole plan in the frame (PDF export) \u2605",
+            "view_fit_desc": "No scrolling: every row and the whole timeline fit in the visual, for printing and PDF or PowerPoint export.",
+            "view_startAt": "Initial position",
+            "view_startAt_today": "Today (status date)",
+            "view_startAt_start": "Start of the plan",
+            "view_startAt_end": "End of the plan",
+            "view_startAt_date": "Chosen date",
+            "view_startDate": "Initial date (yyyy-mm-dd)",
+            "view_startDate_desc": "The timeline opens at this date (it can come from a DAX measure with the Dynamic format field: view.startDate).",
+            "view_startDate_ph": "2026-11-02",
+            "view_statusDate": "Status date (empty = today)",
+            "view_statusDate_desc": "Date used for the today line, the computed status and the expected progress.",
+            "view_statusDate_ph": "yyyy-mm-dd",
+            "view_todayLine": "\u201cToday\u201d line",
+            "view_todayColor": "Line color (empty = accent)",
+            "card_timeline": "Timeline",
+            "group_timeline_scaleGroup": "Scale",
+            "group_timeline_calendar": "Calendar",
+            "group_timeline_look": "Header",
+            "timeline_scale": "Initial scale",
+            "timeline_scale_desc": "The reader can change it with the toolbar or Ctrl + mouse wheel.",
+            "timeline_scale_auto": "Automatic (fit if possible)",
+            "timeline_scale_fit": "Fit all",
+            "timeline_scale_hour": "Hours",
+            "timeline_scale_day": "Days",
+            "timeline_scale_week": "Weeks",
+            "timeline_scale_month": "Months",
+            "timeline_scale_quarter": "Quarters",
+            "timeline_scale_year": "Years",
+            "timeline_weekStart": "First day of the week",
+            "timeline_weekStart_monday": "Monday",
+            "timeline_weekStart_sunday": "Sunday",
+            "timeline_weekNumbers": "Week numbers",
+            "timeline_fiscalStart": "Fiscal year start (quarters, years)",
+            "timeline_fiscalStart_1": "January",
+            "timeline_fiscalStart_2": "February",
+            "timeline_fiscalStart_3": "March",
+            "timeline_fiscalStart_4": "April",
+            "timeline_fiscalStart_5": "May",
+            "timeline_fiscalStart_6": "June",
+            "timeline_fiscalStart_7": "July",
+            "timeline_fiscalStart_8": "August",
+            "timeline_fiscalStart_9": "September",
+            "timeline_fiscalStart_10": "October",
+            "timeline_fiscalStart_11": "November",
+            "timeline_fiscalStart_12": "December",
+            "timeline_weekends": "Shade weekends",
+            "timeline_holidays": "Holidays (yyyy-mm-dd; \u2026)",
+            "timeline_holidays_ph": "2026-12-25; 2027-01-01",
+            "timeline_endInclusive": "End date included",
+            "timeline_endInclusive_desc": "A task from the 3rd to the 5th lasts 3 days (dates without time).",
+            "timeline_durationUnit": "Durations counted in",
+            "timeline_durationUnit_desc": "Also used to add the Duration field to the start date.",
+            "timeline_durationUnit_workdays": "Business days",
+            "timeline_durationUnit_days": "Calendar days",
+            "timeline_durationUnit_hours": "Hours",
+            "timeline_fontSize": "Text size",
+            "timeline_color": "Color (empty = secondary)",
+            "timeline_gridLines": "Vertical lines",
+            "timeline_monthStyle": "Month names",
+            "timeline_monthStyle_auto": "Automatic (as space allows)",
+            "timeline_monthStyle_long": "Full (January)",
+            "timeline_monthStyle_short": "Short (Jan)",
+            "timeline_monthStyle_narrow": "Initial (J)",
+            "timeline_monthStyle_numeric": "Number (01)",
+            "timeline_hourCycle": "Hours",
+            "timeline_hourCycle_desc": "Timeline, grid dates and tooltips.",
+            "timeline_hourCycle_auto": "As the language",
+            "timeline_hourCycle_h24": "24-hour (14:00)",
+            "timeline_hourCycle_h12": "12-hour (2:00 PM)",
+            "timeline_quarterFormat": "Quarter format",
+            "timeline_quarterFormat_desc": "q = quarter, yyyy or yy = year (with a fiscal year: the year it ends), other Power BI date codes accepted. Empty: Q1, Q2\u2026",
+            "timeline_quarterFormat_ph": "\"Q\"q \"FY\"yy",
+            "timeline_yearFormat": "Year format",
+            "timeline_yearFormat_desc": "yyyy or yy = year (with a fiscal year: the year it ends). Empty: 2026, or FY 2026-27 with a fiscal year.",
+            "timeline_yearFormat_ph": "\"FY\"yyyy",
+            "card_grid": "Task grid",
+            "group_grid_main": "Grid",
+            "group_grid_cols": "Columns",
+            "grid_show": "Show",
+            "grid_width": "Width (px, 0 = automatic)",
+            "grid_width_desc": "Drag the separator between the grid and the timeline to change it.",
+            "grid_fontSize": "Text size",
+            "grid_dateFormat": "Date format",
+            "grid_dateFormat_ph": "auto (e.g. dd/MM/yy)",
+            "grid_indent": "Indent per level (px)",
+            "grid_nameWidth": "Task column width (px, 0 = automatic)",
+            "grid_nameWidth_desc": "Width of the name column. The other columns keep their width; those that no longer fit are hidden. Turn on Wrap long names to keep long names readable.",
+            "grid_wrap": "Wrap long names",
+            "grid_wrap_desc": "A name that does not fit goes on several lines (its row gets taller) instead of being cut.",
+            "grid_wrapLines": "Maximum lines",
+            "grid_wrapLines_desc": "Beyond this, the last line is cut with an ellipsis.",
+            "grid_banding": "Banded rows",
+            "grid_sumColumns": "Sum numeric columns in groups",
+            "grid_colWbs": "No. (1, 1.1, 1.1.1\u2026)",
+            "grid_colWbs_desc": "Outline number of each row, as in MS Project (WBS), following the displayed order.",
+            "grid_colResource": "Owner",
+            "grid_colStart": "Start",
+            "grid_colEnd": "End",
+            "grid_colDuration": "Duration",
+            "grid_colProgress": "Progress",
+            "grid_colStatus": "Status (computed status)",
+            "grid_colFloat": "Float (critical path)",
+            "grid_colVariance": "Variance (baseline)",
+            "card_rows": "Rows and hierarchy",
+            "rows_height": "Row height (px)",
+            "rows_barHeight": "Bar height (% of the row)",
+            "rows_sortBy": "Task order",
+            "rows_sortBy_desc": "Applied inside each group. Data order follows the Task ID field when there is one. With the Sort order field, this order only breaks ties.",
+            "rows_sortBy_start": "Start date",
+            "rows_sortBy_end": "End date",
+            "rows_sortBy_name": "Name",
+            "rows_sortBy_data": "Data order (ID)",
+            "rows_groupSort": "Group order",
+            "rows_groupSort_desc": "Projects and phases can follow their own order (e.g. by name) while tasks follow the plan.",
+            "rows_groupSort_same": "Same as tasks",
+            "rows_groupSort_start": "Start date",
+            "rows_groupSort_end": "End date",
+            "rows_groupSort_name": "Name",
+            "rows_groupSort_data": "Data order (ID)",
+            "rows_sortDesc": "Descending order",
+            "rows_startLevel": "Levels expanded at start",
+            "rows_startLevel_desc": "0: only the first level is shown. 1: its children are shown too\u2026",
+            "rows_remember": "Save the state in the report (edit mode)",
+            "rows_summary": "Group summary bars",
+            "rows_rollup": "Collapsed group: detail on its row \u2605",
+            "rows_rollup_desc": "Like the MS Project rollup: a collapsed project shows its milestones (with their names) and bars on one line, to compare many projects.",
+            "rows_rollup_none": "Summary bar only",
+            "rows_rollup_milestones": "Task milestones",
+            "rows_rollup_all": "Task bars and milestones",
+            "rows_sameRow": "Same task = same row (several bars)",
+            "rows_sameRow_desc": "Rows with the same task name in the same group share one line (absences, machines, split tasks).",
+            "card_bars": "Bars and labels",
+            "bars_progress": "Progress inside the bar",
+            "bars_radius": "Bar corner radius",
+            "bars_labelContent": "Label",
+            "bars_labelContent_desc": "When the Bar label field is filled, it replaces \u201cTask and owner\u201d.",
+            "bars_labelContent_nameResource": "Task and owner",
+            "bars_labelContent_name": "Task",
+            "bars_labelContent_resource": "Owner",
+            "bars_labelContent_progress": "Progress",
+            "bars_labelContent_dates": "Dates",
+            "bars_labelContent_field": "\u201cBar label\u201d field",
+            "bars_labelContent_none": "None",
+            "bars_labelPosition": "Position",
+            "bars_labelPosition_right": "Right of the bar",
+            "bars_labelPosition_inside": "Inside the bar when long enough",
+            "bars_labelPosition_left": "Left of the bar",
+            "bars_fontSize": "Text size",
+            "bars_color": "Color (empty = automatic)",
+            "card_milestones": "Milestones",
+            "milestones_shape": "Shape",
+            "milestones_shape_diamond": "Diamond",
+            "milestones_shape_circle": "Circle",
+            "milestones_shape_triangle": "Triangle",
+            "milestones_shape_square": "Square",
+            "milestones_size": "Size (px)",
+            "milestones_color": "Color (empty = task color)",
+            "milestones_showDate": "Date in the label",
+            "card_dependencies": "Dependencies \u2605",
+            "dependencies_show": "Show",
+            "dependencies_color": "Color (empty = secondary)",
+            "dependencies_width": "Width",
+            "dependencies_conflicts": "Flag conflicts (successor too early)",
+            "dependencies_conflictColor": "Conflict color",
+            "dependencies_hover": "Follow the chain on hover",
+            "card_critical": "Critical path \u2605",
+            "critical_show": "Show",
+            "critical_show_desc": "Computed from the dependencies: tasks whose delay delays the end of the plan.",
+            "critical_color": "Color",
+            "critical_tolerance": "Maximum float (days)",
+            "card_baseline": "Baseline \u2605",
+            "baseline_show": "Show",
+            "baseline_color": "Color (empty = gray)",
+            "baseline_variance": "Variance in days at the bar end",
+            "baseline_tolerance": "Accepted variance (days)",
+            "card_legend": "Legend",
+            "legend_show": "Show",
+            "legend_show_desc": "Shown when the chart has several series.",
+            "legend_position": "Position",
+            "legend_position_top": "Top",
+            "legend_position_bottom": "Bottom",
+            "legend_position_right": "Right",
+            "legend_position_left": "Left",
+            "legend_align": "Alignment",
+            "legend_align_left": "Start",
+            "legend_align_center": "Center",
+            "legend_align_right": "End",
+            "legend_showTitle": "Legend title",
+            "legend_titleText": "Title text",
+            "legend_titleText_ph": "Field name",
+            "legend_fontSize": "Text size",
+            "legend_color": "Color (empty = secondary)",
+            "legend_interactive": "Click = select the series",
+            "card_toolbar": "Toolbar",
+            "toolbar_show": "Show",
+            "toolbar_search": "Search",
+            "toolbar_zoom": "Scales and \u201cFit\u201d",
+            "toolbar_expand": "Expand / collapse all",
+            "toolbar_today": "\u201cToday\u201d button",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Highlight on hover",
+            "interaction_dim": "Dimmed items opacity (%)",
+            "card_markers": "Date markers \u2605",
+            "group_markers_line1": "Marker 1",
+            "group_markers_line2": "Marker 2",
+            "group_markers_line3": "Marker 3",
+            "group_markers_bandGroup": "Period",
+            "markers_show1": "Show",
+            "markers_date1": "Date (yyyy-mm-dd)",
+            "markers_date1_ph": "2026-12-15",
+            "markers_label1": "Label",
+            "markers_label1_ph": "Go-live",
+            "markers_color1": "Color (empty = accent)",
+            "markers_style1": "Line style",
+            "markers_style1_solid": "Solid",
+            "markers_style1_dashed": "Dashed",
+            "markers_style1_dotted": "Dotted",
+            "markers_show2": "Show",
+            "markers_date2": "Date (yyyy-mm-dd)",
+            "markers_date2_ph": "2026-12-15",
+            "markers_label2": "Label",
+            "markers_label2_ph": "Go-live",
+            "markers_color2": "Color (empty = accent)",
+            "markers_style2": "Line style",
+            "markers_style2_solid": "Solid",
+            "markers_style2_dashed": "Dashed",
+            "markers_style2_dotted": "Dotted",
+            "markers_show3": "Show",
+            "markers_date3": "Date (yyyy-mm-dd)",
+            "markers_date3_ph": "2026-12-15",
+            "markers_label3": "Label",
+            "markers_label3_ph": "Go-live",
+            "markers_color3": "Color (empty = accent)",
+            "markers_style3": "Line style",
+            "markers_style3_solid": "Solid",
+            "markers_style3_dashed": "Dashed",
+            "markers_style3_dotted": "Dotted",
+            "markers_band": "Show",
+            "markers_bandFrom": "From (yyyy-mm-dd)",
+            "markers_bandFrom_ph": "2026-12-20",
+            "markers_bandTo": "To (yyyy-mm-dd)",
+            "markers_bandTo_ph": "2027-01-03",
+            "markers_bandLabel": "Label",
+            "markers_bandLabel_ph": "Code freeze",
+            "markers_bandColor": "Color (empty = accent)",
+            "markers_bandOpacity": "Opacity (%)",
+            "card_title": "Title",
+            "title_show": "Show",
+            "title_text": "Title",
+            "title_text_desc": "Leave empty for an automatic title built from the fields.",
+            "title_text_ph": "Automatic",
+            "title_subtitle": "Subtitle",
+            "title_fontSize": "Size",
+            "title_bold": "Bold",
+            "title_color": "Color (empty = text)",
+            "title_align": "Alignment",
+            "title_align_left": "Left",
+            "title_align_center": "Center",
+            "title_align_right": "Right",
+            "card_source": "Source note",
+            "source_show": "Show",
+            "source_text": "Text",
+            "source_text_ph": "Source: \u2026",
+            "source_fontSize": "Size",
+            "source_align": "Alignment",
+            "source_align_left": "Left",
+            "source_align_center": "Center",
+            "source_align_right": "Right",
+            "card_container": "Frame",
+            "container_border": "Border",
+            "container_borderWidth": "Border width",
+            "container_borderColor": "Border color (empty = grid)",
+            "container_shadow": "Shadow",
+            "container_padding": "Inner padding",
+            "card_texts": "Language and texts",
+            "texts_language": "Interface language",
+            "texts_language_auto": "Same as Power BI",
+            "texts_language_fr": "French",
+            "texts_language_en": "English",
+            "texts_numberLocale": "Number format locale (e.g. en-GB)",
+            "texts_numberLocale_ph": "auto",
+            "role_tooltips": "Tooltips",
+            "role_reference": "Reference value",
+            "role_groups": "Groups (project, phase\u2026)",
+            "roleDesc_groups": "One field per hierarchy level, from the widest to the narrowest",
+            "role_task": "Task",
+            "role_start": "Start",
+            "roleDesc_start": "A date column (choose the field itself, not its date hierarchy)",
+            "role_end": "End",
+            "role_duration": "Duration (when there is no end)",
+            "role_progress": "Progress (%)",
+            "role_resource": "Owner / resource",
+            "role_legend": "Color (team, type\u2026)",
+            "role_milestone": "Milestone (yes / no)",
+            "role_id": "Task ID (for dependencies)",
+            "role_predecessors": "Predecessors \u2605",
+            "roleDesc_predecessors": "IDs separated by ; e.g. 3;5SS+2",
+            "role_baselineStart": "Baseline start \u2605",
+            "role_baselineEnd": "Baseline end \u2605",
+            "role_columns": "Grid columns",
+            "role_sort": "Sort order",
+            "roleDesc_sort": "Number, date or text: tasks (and groups) are sorted by it",
+            "role_label": "Bar label",
+            "roleDesc_label": "Text shown on the bar (e.g. status, phase, short note)",
+            "role_barColor": "Bar color (measure) \u2605",
+            "roleDesc_barColor": "A measure returning a color (#RRGGBB or a name), e.g. red when late",
+            "role_format": "Dynamic format",
+            "roleDesc_format": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX"
+        },
+        "fr-FR": {
+            "premium_desc": "Fonction premium : utilisable avec un filigrane \u00ab Aper\u00e7u premium \u00bb, d\u00e9bloqu\u00e9e par une cl\u00e9 de licence Plume Studio.",
+            "card_license": "Licence Plume Studio",
+            "license_buy": "Obtenir une licence",
+            "license_key": "Cl\u00e9 de licence",
+            "license_key_desc": "Collez la cl\u00e9 re\u00e7ue apr\u00e8s l'achat sur plumevisuals.com (commence par PLUM1.). V\u00e9rifi\u00e9e hors ligne.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Afficher le titulaire (mode \u00e9dition)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Couleurs personnalis\u00e9es",
+            "group_style_text": "Texte",
+            "group_style_background": "Arri\u00e8re-plan et angles",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Habillage complet commun \u00e0 tous les visuels Plume : couleurs, trois palettes, polices, cadre, en-t\u00eate des tableaux, marques et effets. Personnalisez les couleurs plus bas.",
+            "style_preset_none": "Aucun",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Noir et blanc",
+            "style_preset_press": "Journal \u2605",
+            "style_preset_vintage": "Vintage (planche ancienne) \u2605",
+            "style_preset_earth": "Terre \u2605",
+            "style_preset_nordic": "Nordique \u2605",
+            "style_preset_executive": "Direction \u2605",
+            "style_preset_accessible": "Accessible (lisibilit\u00e9) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climat \u2605",
+            "style_preset_blueprint": "Plan d'architecte \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (sombre) \u2605",
+            "style_preset_neon": "N\u00e9on \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographie \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologramme \u2605",
+            "style_themeJson": "Th\u00e8me JSON \u2605",
+            "style_themeJson_desc": "Collez un th\u00e8me JSON : voir le tutoriel \u00ab Th\u00e8mes JSON \u00bb sur plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Suivre le th\u00e8me du rapport",
+            "style_followTheme_desc": "Texte, fond, accent et couleurs des donn\u00e9es viennent du th\u00e8me du rapport Power BI.",
+            "style_reverse": "Inverser les d\u00e9grad\u00e9s",
+            "style_customColors": "Personnaliser les couleurs",
+            "style_customColors_desc": "Partez du style et choisissez vos propres couleurs. Une couleur laiss\u00e9e vide garde celle du style.",
+            "style_colorBackground": "Fond",
+            "style_colorText": "Texte",
+            "style_colorMuted": "Texte secondaire",
+            "style_colorGrid": "Traits et grille",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "D\u00e9favorable",
+            "style_series1": "S\u00e9rie 1",
+            "style_series2": "S\u00e9rie 2",
+            "style_series3": "S\u00e9rie 3",
+            "style_series4": "S\u00e9rie 4",
+            "style_series5": "S\u00e9rie 5",
+            "style_series6": "S\u00e9rie 6",
+            "style_series7": "S\u00e9rie 7",
+            "style_series8": "S\u00e9rie 8",
+            "style_palette": "Palette du d\u00e9grad\u00e9",
+            "style_palette_desc": "D\u00e9grad\u00e9 tir\u00e9 du catalogue (Viridis, Magma\u2026). Les couleurs de d\u00e9but, milieu et fin ci-dessous le remplacent.",
+            "style_palette_auto": "Palette du style ou du th\u00e8me",
+            "style_palette_crest": "Plume (s\u00e9quentielle)",
+            "style_palette_crestDiverging": "Plume (divergente)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (daltonisme) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Rouge\u2013Jaune\u2013Bleu \u2605",
+            "style_palette_brBG": "Brun\u2013Bleu-vert (s\u00e9cheresse) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Bleus \u2605",
+            "style_palette_reds": "Rouges \u2605",
+            "style_palette_grays": "Gris \u2605",
+            "style_palette_press": "Presse (encre et papier) \u2605",
+            "style_palette_nordic": "Nordique \u2605",
+            "style_palette_earth": "Terre (ocre \u00e0 terre d'ombre) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (daltonisme) \u2605",
+            "style_scaleLow": "D\u00e9grad\u00e9 : d\u00e9but",
+            "style_scaleMid": "D\u00e9grad\u00e9 : milieu (\u00e9carts)",
+            "style_scaleHigh": "D\u00e9grad\u00e9 : fin",
+            "style_fontFamily": "Police",
+            "style_fontFamily_desc": "Utilis\u00e9e par tous les textes du visuel (titre, axes, \u00e9tiquettes, cellules).",
+            "style_textColor": "Couleur du texte (vide = style)",
+            "style_mutedColor": "Texte secondaire (vide = style)",
+            "style_bgShow": "Arri\u00e8re-plan",
+            "style_bgColor": "Couleur de fond",
+            "style_bgColor2": "Fin du d\u00e9grad\u00e9 (optionnel)",
+            "style_radius": "Arrondi des angles",
+            "style_animate": "Animations",
+            "style_animate_desc": "Transitions fluides quand les donn\u00e9es changent. D\u00e9sactiv\u00e9es automatiquement si le syst\u00e8me demande de r\u00e9duire les animations.",
+            "card_dataColors": "Couleurs des donn\u00e9es",
+            "dataColors_mode": "Coloration",
+            "dataColors_mode_auto": "Automatique (champ Couleur, sinon premier groupe)",
+            "dataColors_mode_legend": "Selon le champ Couleur",
+            "dataColors_mode_group": "Selon le premier groupe",
+            "dataColors_mode_resource": "Selon le responsable",
+            "dataColors_mode_single": "Couleur unique",
+            "dataColors_mode_status": "Statut calcul\u00e9 (retard, \u00e0 risque\u2026) \u2605",
+            "dataColors_single": "Couleur",
+            "dataColors_fill": "Couleur",
+            "dataColors_summary": "Barres de synth\u00e8se (vide = texte)",
+            "dataColors_done": "Statut : termin\u00e9",
+            "dataColors_onTrack": "Statut : dans les temps",
+            "dataColors_risk": "Statut : \u00e0 risque",
+            "dataColors_late": "Statut : en retard",
+            "dataColors_upcoming": "Statut : \u00e0 venir",
+            "dataColors_tolerance": "\u00ab \u00c0 risque \u00bb au-del\u00e0 de (points de retard)",
+            "dataColors_tolerance_desc": "Avancement attendu (temps \u00e9coul\u00e9) moins avancement r\u00e9el, en points de pourcentage.",
+            "card_view": "Affichage",
+            "view_mode": "Vue",
+            "view_mode_tasks": "T\u00e2ches (hi\u00e9rarchie)",
+            "view_mode_resources": "Ressources (une ligne par responsable) \u2605",
+            "view_fit": "Tout le planning dans le cadre (export PDF) \u2605",
+            "view_fit_desc": "Sans d\u00e9filement : toutes les lignes et toute la p\u00e9riode tiennent dans le visuel, pour l'impression et l'export PDF ou PowerPoint.",
+            "view_startAt": "Position au d\u00e9part",
+            "view_startAt_today": "Aujourd'hui (date d'\u00e9tat)",
+            "view_startAt_start": "D\u00e9but du planning",
+            "view_startAt_end": "Fin du planning",
+            "view_startAt_date": "Date choisie",
+            "view_startDate": "Date de d\u00e9part (aaaa-mm-jj)",
+            "view_startDate_desc": "Le planning s'ouvre \u00e0 cette date (elle peut venir d'une mesure DAX avec le champ Format dynamique : view.startDate).",
+            "view_startDate_ph": "2026-11-02",
+            "view_statusDate": "Date d'\u00e9tat (vide = aujourd'hui)",
+            "view_statusDate_desc": "Date utilis\u00e9e pour la ligne \u00ab aujourd'hui \u00bb, le statut calcul\u00e9 et l'avancement attendu.",
+            "view_statusDate_ph": "aaaa-mm-jj",
+            "view_todayLine": "Ligne \u00ab aujourd'hui \u00bb",
+            "view_todayColor": "Couleur de la ligne (vide = accent)",
+            "card_timeline": "\u00c9chelle de temps",
+            "group_timeline_scaleGroup": "\u00c9chelle",
+            "group_timeline_calendar": "Calendrier",
+            "group_timeline_look": "En-t\u00eate",
+            "timeline_scale": "\u00c9chelle au d\u00e9part",
+            "timeline_scale_desc": "Le lecteur peut la changer avec la barre d'outils ou Ctrl + molette.",
+            "timeline_scale_auto": "Automatique (tout voir si possible)",
+            "timeline_scale_fit": "Tout voir",
+            "timeline_scale_hour": "Heures",
+            "timeline_scale_day": "Jours",
+            "timeline_scale_week": "Semaines",
+            "timeline_scale_month": "Mois",
+            "timeline_scale_quarter": "Trimestres",
+            "timeline_scale_year": "Ann\u00e9es",
+            "timeline_weekStart": "Premier jour de la semaine",
+            "timeline_weekStart_monday": "Lundi",
+            "timeline_weekStart_sunday": "Dimanche",
+            "timeline_weekNumbers": "Num\u00e9ros de semaine",
+            "timeline_fiscalStart": "D\u00e9but de l'exercice (trimestres, ann\u00e9es)",
+            "timeline_fiscalStart_1": "Janvier",
+            "timeline_fiscalStart_2": "F\u00e9vrier",
+            "timeline_fiscalStart_3": "Mars",
+            "timeline_fiscalStart_4": "Avril",
+            "timeline_fiscalStart_5": "Mai",
+            "timeline_fiscalStart_6": "Juin",
+            "timeline_fiscalStart_7": "Juillet",
+            "timeline_fiscalStart_8": "Ao\u00fbt",
+            "timeline_fiscalStart_9": "Septembre",
+            "timeline_fiscalStart_10": "Octobre",
+            "timeline_fiscalStart_11": "Novembre",
+            "timeline_fiscalStart_12": "D\u00e9cembre",
+            "timeline_weekends": "Griser les week-ends",
+            "timeline_holidays": "Jours f\u00e9ri\u00e9s (aaaa-mm-jj ; \u2026)",
+            "timeline_holidays_ph": "2026-12-25 ; 2027-01-01",
+            "timeline_endInclusive": "Date de fin incluse",
+            "timeline_endInclusive_desc": "Une t\u00e2che du 3 au 5 dure 3 jours (dates sans heure).",
+            "timeline_durationUnit": "Dur\u00e9es compt\u00e9es en",
+            "timeline_durationUnit_desc": "Sert aussi \u00e0 ajouter le champ Dur\u00e9e \u00e0 la date de d\u00e9but.",
+            "timeline_durationUnit_workdays": "Jours ouvr\u00e9s",
+            "timeline_durationUnit_days": "Jours calendaires",
+            "timeline_durationUnit_hours": "Heures",
+            "timeline_fontSize": "Taille du texte",
+            "timeline_color": "Couleur (vide = secondaire)",
+            "timeline_gridLines": "Traits verticaux",
+            "timeline_monthStyle": "Noms des mois",
+            "timeline_monthStyle_auto": "Automatique (selon la place)",
+            "timeline_monthStyle_long": "Complets (janvier)",
+            "timeline_monthStyle_short": "Abr\u00e9g\u00e9s (janv.)",
+            "timeline_monthStyle_narrow": "Initiale (J)",
+            "timeline_monthStyle_numeric": "Num\u00e9ro (01)",
+            "timeline_hourCycle": "Heures",
+            "timeline_hourCycle_desc": "\u00c9chelle de temps, dates du tableau et infobulles.",
+            "timeline_hourCycle_auto": "Selon la langue",
+            "timeline_hourCycle_h24": "Sur 24 h (14:00)",
+            "timeline_hourCycle_h12": "Sur 12 h (2:00 PM)",
+            "timeline_quarterFormat": "Format des trimestres",
+            "timeline_quarterFormat_desc": "q = trimestre, yyyy ou yy = ann\u00e9e (avec un exercice d\u00e9cal\u00e9 : l'ann\u00e9e o\u00f9 il se termine), autres codes de date Power BI accept\u00e9s. Vide : T1, T2\u2026",
+            "timeline_quarterFormat_ph": "\"T\"q yyyy",
+            "timeline_yearFormat": "Format des ann\u00e9es",
+            "timeline_yearFormat_desc": "yyyy ou yy = ann\u00e9e (avec un exercice d\u00e9cal\u00e9 : l'ann\u00e9e o\u00f9 il se termine). Vide : 2026, ou Ex. 2026-27 avec un exercice d\u00e9cal\u00e9.",
+            "timeline_yearFormat_ph": "\"Ex.\" yyyy",
+            "card_grid": "Tableau des t\u00e2ches",
+            "group_grid_main": "Tableau",
+            "group_grid_cols": "Colonnes",
+            "grid_show": "Afficher",
+            "grid_width": "Largeur (px, 0 = automatique)",
+            "grid_width_desc": "Faites glisser le s\u00e9parateur entre le tableau et le planning pour la changer.",
+            "grid_fontSize": "Taille du texte",
+            "grid_dateFormat": "Format des dates",
+            "grid_dateFormat_ph": "auto (ex. dd/MM/yy)",
+            "grid_indent": "Retrait par niveau (px)",
+            "grid_nameWidth": "Largeur de la colonne T\u00e2che (px, 0 = automatique)",
+            "grid_nameWidth_desc": "Largeur de la colonne des noms. Les autres colonnes gardent leur largeur ; celles qui ne tiennent plus sont masqu\u00e9es. Activez \u00ab Retour \u00e0 la ligne des noms longs \u00bb pour garder les noms lisibles.",
+            "grid_wrap": "Retour \u00e0 la ligne des noms longs",
+            "grid_wrap_desc": "Un nom qui ne tient pas passe sur plusieurs lignes (sa ligne s'agrandit) au lieu d'\u00eatre coup\u00e9.",
+            "grid_wrapLines": "Lignes au plus",
+            "grid_wrapLines_desc": "Au-del\u00e0, la derni\u00e8re ligne est coup\u00e9e avec des points de suspension.",
+            "grid_banding": "Lignes altern\u00e9es",
+            "grid_sumColumns": "Totaliser les colonnes num\u00e9riques des groupes",
+            "grid_colWbs": "N\u00b0 (1, 1.1, 1.1.1\u2026)",
+            "grid_colWbs_desc": "Num\u00e9ro hi\u00e9rarchique de chaque ligne, comme dans MS Project (WBS), dans l'ordre affich\u00e9.",
+            "grid_colResource": "Responsable",
+            "grid_colStart": "D\u00e9but",
+            "grid_colEnd": "Fin",
+            "grid_colDuration": "Dur\u00e9e",
+            "grid_colProgress": "Avancement",
+            "grid_colStatus": "Statut (statut calcul\u00e9)",
+            "grid_colFloat": "Marge (chemin critique)",
+            "grid_colVariance": "\u00c9cart (planning de r\u00e9f\u00e9rence)",
+            "card_rows": "Lignes et hi\u00e9rarchie",
+            "rows_height": "Hauteur des lignes (px)",
+            "rows_barHeight": "Hauteur des barres (% de la ligne)",
+            "rows_sortBy": "Ordre des t\u00e2ches",
+            "rows_sortBy_desc": "Appliqu\u00e9 dans chaque groupe. L'ordre des donn\u00e9es suit le champ Identifiant s'il est rempli. Avec le champ Ordre de tri, cet ordre ne d\u00e9partage que les ex \u00e6quo.",
+            "rows_sortBy_start": "Date de d\u00e9but",
+            "rows_sortBy_end": "Date de fin",
+            "rows_sortBy_name": "Nom",
+            "rows_sortBy_data": "Ordre des donn\u00e9es (ID)",
+            "rows_groupSort": "Ordre des groupes",
+            "rows_groupSort_desc": "Projets et phases peuvent suivre leur propre ordre (ex. par nom) pendant que les t\u00e2ches suivent le planning.",
+            "rows_groupSort_same": "Comme les t\u00e2ches",
+            "rows_groupSort_start": "Date de d\u00e9but",
+            "rows_groupSort_end": "Date de fin",
+            "rows_groupSort_name": "Nom",
+            "rows_groupSort_data": "Ordre des donn\u00e9es (ID)",
+            "rows_sortDesc": "Ordre d\u00e9croissant",
+            "rows_startLevel": "Niveaux d\u00e9velopp\u00e9s au d\u00e9part",
+            "rows_startLevel_desc": "0 : seul le premier niveau est affich\u00e9. 1 : ses enfants aussi\u2026",
+            "rows_remember": "M\u00e9moriser l'\u00e9tat dans le rapport (mode \u00e9dition)",
+            "rows_summary": "Barres de synth\u00e8se des groupes",
+            "rows_rollup": "Groupe r\u00e9duit : d\u00e9tail sur sa ligne \u2605",
+            "rows_rollup_desc": "Comme le \u00ab report \u00bb de MS Project : un projet r\u00e9duit montre ses jalons (avec leur nom) et ses barres sur une ligne, pour comparer de nombreux projets.",
+            "rows_rollup_none": "Barre de synth\u00e8se seule",
+            "rows_rollup_milestones": "Jalons des t\u00e2ches",
+            "rows_rollup_all": "Barres et jalons des t\u00e2ches",
+            "rows_sameRow": "M\u00eame t\u00e2che = m\u00eame ligne (plusieurs barres)",
+            "rows_sameRow_desc": "Les lignes au m\u00eame nom de t\u00e2che dans le m\u00eame groupe partagent une ligne (absences, machines, t\u00e2ches fractionn\u00e9es).",
+            "card_bars": "Barres et \u00e9tiquettes",
+            "bars_progress": "Avancement dans la barre",
+            "bars_radius": "Arrondi des barres",
+            "bars_labelContent": "\u00c9tiquette",
+            "bars_labelContent_desc": "Quand le champ \u00c9tiquette est rempli, il remplace \u00ab T\u00e2che et responsable \u00bb.",
+            "bars_labelContent_nameResource": "T\u00e2che et responsable",
+            "bars_labelContent_name": "T\u00e2che",
+            "bars_labelContent_resource": "Responsable",
+            "bars_labelContent_progress": "Avancement",
+            "bars_labelContent_dates": "Dates",
+            "bars_labelContent_field": "Champ \u00ab \u00c9tiquette \u00bb",
+            "bars_labelContent_none": "Aucune",
+            "bars_labelPosition": "Position",
+            "bars_labelPosition_right": "\u00c0 droite de la barre",
+            "bars_labelPosition_inside": "Dans la barre si elle est assez longue",
+            "bars_labelPosition_left": "\u00c0 gauche de la barre",
+            "bars_fontSize": "Taille du texte",
+            "bars_color": "Couleur (vide = automatique)",
+            "card_milestones": "Jalons",
+            "milestones_shape": "Forme",
+            "milestones_shape_diamond": "Losange",
+            "milestones_shape_circle": "Cercle",
+            "milestones_shape_triangle": "Triangle",
+            "milestones_shape_square": "Carr\u00e9",
+            "milestones_size": "Taille (px)",
+            "milestones_color": "Couleur (vide = couleur de la t\u00e2che)",
+            "milestones_showDate": "Date dans l'\u00e9tiquette",
+            "card_dependencies": "D\u00e9pendances \u2605",
+            "dependencies_show": "Afficher",
+            "dependencies_color": "Couleur (vide = secondaire)",
+            "dependencies_width": "\u00c9paisseur",
+            "dependencies_conflicts": "Signaler les conflits (successeur trop t\u00f4t)",
+            "dependencies_conflictColor": "Couleur des conflits",
+            "dependencies_hover": "Suivre la cha\u00eene au survol",
+            "card_critical": "Chemin critique \u2605",
+            "critical_show": "Afficher",
+            "critical_show_desc": "Calcul\u00e9 \u00e0 partir des d\u00e9pendances : les t\u00e2ches dont le retard retarde la fin du planning.",
+            "critical_color": "Couleur",
+            "critical_tolerance": "Marge maximale (jours)",
+            "card_baseline": "Planning de r\u00e9f\u00e9rence \u2605",
+            "baseline_show": "Afficher",
+            "baseline_color": "Couleur (vide = gris)",
+            "baseline_variance": "\u00c9cart en jours en bout de barre",
+            "baseline_tolerance": "\u00c9cart tol\u00e9r\u00e9 (jours)",
+            "card_legend": "L\u00e9gende",
+            "legend_show": "Afficher",
+            "legend_show_desc": "Affich\u00e9e quand le graphique a plusieurs s\u00e9ries.",
+            "legend_position": "Position",
+            "legend_position_top": "En haut",
+            "legend_position_bottom": "En bas",
+            "legend_position_right": "\u00c0 droite",
+            "legend_position_left": "\u00c0 gauche",
+            "legend_align": "Alignement",
+            "legend_align_left": "D\u00e9but",
+            "legend_align_center": "Centr\u00e9",
+            "legend_align_right": "Fin",
+            "legend_showTitle": "Titre de la l\u00e9gende",
+            "legend_titleText": "Texte du titre",
+            "legend_titleText_ph": "Nom du champ",
+            "legend_fontSize": "Taille du texte",
+            "legend_color": "Couleur (vide = secondaire)",
+            "legend_interactive": "Clic = s\u00e9lectionner la s\u00e9rie",
+            "card_toolbar": "Barre d'outils",
+            "toolbar_show": "Afficher",
+            "toolbar_search": "Recherche",
+            "toolbar_zoom": "\u00c9chelles et \u00ab Tout voir \u00bb",
+            "toolbar_expand": "Tout d\u00e9velopper / r\u00e9duire",
+            "toolbar_today": "Bouton \u00ab Aujourd'hui \u00bb",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Mettre en avant au survol",
+            "interaction_dim": "Opacit\u00e9 des \u00e9l\u00e9ments estomp\u00e9s (%)",
+            "card_markers": "Rep\u00e8res de date \u2605",
+            "group_markers_line1": "Rep\u00e8re 1",
+            "group_markers_line2": "Rep\u00e8re 2",
+            "group_markers_line3": "Rep\u00e8re 3",
+            "group_markers_bandGroup": "P\u00e9riode",
+            "markers_show1": "Afficher",
+            "markers_date1": "Date (aaaa-mm-jj)",
+            "markers_date1_ph": "2026-12-15",
+            "markers_label1": "Libell\u00e9",
+            "markers_label1_ph": "Mise en service",
+            "markers_color1": "Couleur (vide = accent)",
+            "markers_style1": "Style du trait",
+            "markers_style1_solid": "Continu",
+            "markers_style1_dashed": "Tirets",
+            "markers_style1_dotted": "Pointill\u00e9s",
+            "markers_show2": "Afficher",
+            "markers_date2": "Date (aaaa-mm-jj)",
+            "markers_date2_ph": "2026-12-15",
+            "markers_label2": "Libell\u00e9",
+            "markers_label2_ph": "Mise en service",
+            "markers_color2": "Couleur (vide = accent)",
+            "markers_style2": "Style du trait",
+            "markers_style2_solid": "Continu",
+            "markers_style2_dashed": "Tirets",
+            "markers_style2_dotted": "Pointill\u00e9s",
+            "markers_show3": "Afficher",
+            "markers_date3": "Date (aaaa-mm-jj)",
+            "markers_date3_ph": "2026-12-15",
+            "markers_label3": "Libell\u00e9",
+            "markers_label3_ph": "Mise en service",
+            "markers_color3": "Couleur (vide = accent)",
+            "markers_style3": "Style du trait",
+            "markers_style3_solid": "Continu",
+            "markers_style3_dashed": "Tirets",
+            "markers_style3_dotted": "Pointill\u00e9s",
+            "markers_band": "Afficher",
+            "markers_bandFrom": "Du (aaaa-mm-jj)",
+            "markers_bandFrom_ph": "2026-12-20",
+            "markers_bandTo": "Au (aaaa-mm-jj)",
+            "markers_bandTo_ph": "2027-01-03",
+            "markers_bandLabel": "Libell\u00e9",
+            "markers_bandLabel_ph": "Gel des mises en production",
+            "markers_bandColor": "Couleur (vide = accent)",
+            "markers_bandOpacity": "Opacit\u00e9 (%)",
+            "card_title": "Titre",
+            "title_show": "Afficher",
+            "title_text": "Titre",
+            "title_text_desc": "Laisser vide pour un titre automatique construit \u00e0 partir des champs.",
+            "title_text_ph": "Automatique",
+            "title_subtitle": "Sous-titre",
+            "title_fontSize": "Taille",
+            "title_bold": "Gras",
+            "title_color": "Couleur (vide = texte)",
+            "title_align": "Alignement",
+            "title_align_left": "Gauche",
+            "title_align_center": "Centr\u00e9",
+            "title_align_right": "Droite",
+            "card_source": "Note de source",
+            "source_show": "Afficher",
+            "source_text": "Texte",
+            "source_text_ph": "Source : \u2026",
+            "source_fontSize": "Taille",
+            "source_align": "Alignement",
+            "source_align_left": "Gauche",
+            "source_align_center": "Centr\u00e9",
+            "source_align_right": "Droite",
+            "card_container": "Cadre",
+            "container_border": "Bordure",
+            "container_borderWidth": "\u00c9paisseur de la bordure",
+            "container_borderColor": "Couleur de la bordure (vide = grille)",
+            "container_shadow": "Ombre",
+            "container_padding": "Marge int\u00e9rieure",
+            "card_texts": "Langue et textes",
+            "texts_language": "Langue de l'interface",
+            "texts_language_auto": "Comme Power BI",
+            "texts_language_fr": "Fran\u00e7ais",
+            "texts_language_en": "Anglais",
+            "texts_numberLocale": "Format des nombres (ex. fr-FR)",
+            "texts_numberLocale_ph": "auto",
+            "role_tooltips": "Infobulles",
+            "role_reference": "Valeur de r\u00e9f\u00e9rence",
+            "role_groups": "Groupes (projet, phase\u2026)",
+            "roleDesc_groups": "Un champ par niveau de la hi\u00e9rarchie, du plus large au plus fin",
+            "role_task": "T\u00e2che",
+            "role_start": "D\u00e9but",
+            "roleDesc_start": "Une colonne de dates (choisissez le champ lui-m\u00eame, pas sa hi\u00e9rarchie de dates)",
+            "role_end": "Fin",
+            "role_duration": "Dur\u00e9e (s'il n'y a pas de fin)",
+            "role_progress": "Avancement (%)",
+            "role_resource": "Responsable / ressource",
+            "role_legend": "Couleur (\u00e9quipe, type\u2026)",
+            "role_milestone": "Jalon (oui / non)",
+            "role_id": "Identifiant (pour les d\u00e9pendances)",
+            "role_predecessors": "Pr\u00e9d\u00e9cesseurs \u2605",
+            "roleDesc_predecessors": "Identifiants s\u00e9par\u00e9s par ; ex. 3;5DD+2",
+            "role_baselineStart": "D\u00e9but de r\u00e9f\u00e9rence \u2605",
+            "role_baselineEnd": "Fin de r\u00e9f\u00e9rence \u2605",
+            "role_columns": "Colonnes du tableau",
+            "role_sort": "Ordre de tri",
+            "roleDesc_sort": "Nombre, date ou texte : les t\u00e2ches (et les groupes) sont tri\u00e9es selon ce champ",
+            "role_label": "\u00c9tiquette",
+            "roleDesc_label": "Texte affich\u00e9 sur la barre (ex. statut, phase, courte note)",
+            "role_barColor": "Couleur des barres (mesure) \u2605",
+            "roleDesc_barColor": "Une mesure qui renvoie une couleur (#RRGGBB ou un nom), ex. rouge en cas de retard",
+            "role_format": "Format dynamique",
+            "roleDesc_format": "Mesures nomm\u00e9es carte.r\u00e9glage (ex. title.fontSize) : pilotez n'importe quel r\u00e9glage du volet Format en DAX"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "groups",
+                "kind": "Grouping",
+                "displayName": "Groups (project, phase\u2026)",
+                "displayNameKey": "role_groups",
+                "description": "One field per hierarchy level, from the widest to the narrowest",
+                "descriptionKey": "roleDesc_groups"
+            },
+            {
+                "name": "task",
+                "kind": "Grouping",
+                "displayName": "Task",
+                "displayNameKey": "role_task"
+            },
+            {
+                "name": "start",
+                "kind": "Grouping",
+                "displayName": "Start",
+                "displayNameKey": "role_start",
+                "description": "A date column (choose the field itself, not its date hierarchy)",
+                "descriptionKey": "roleDesc_start"
+            },
+            {
+                "name": "end",
+                "kind": "Grouping",
+                "displayName": "End",
+                "displayNameKey": "role_end"
+            },
+            {
+                "name": "duration",
+                "kind": "Measure",
+                "displayName": "Duration (when there is no end)",
+                "displayNameKey": "role_duration",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "name": "progress",
+                "kind": "Measure",
+                "displayName": "Progress (%)",
+                "displayNameKey": "role_progress",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "name": "resource",
+                "kind": "Grouping",
+                "displayName": "Owner / resource",
+                "displayNameKey": "role_resource"
+            },
+            {
+                "name": "legend",
+                "kind": "Grouping",
+                "displayName": "Color (team, type\u2026)",
+                "displayNameKey": "role_legend"
+            },
+            {
+                "name": "label",
+                "kind": "Grouping",
+                "displayName": "Bar label",
+                "displayNameKey": "role_label",
+                "description": "Text shown on the bar (e.g. status, phase, short note)",
+                "descriptionKey": "roleDesc_label"
+            },
+            {
+                "name": "barColor",
+                "kind": "Measure",
+                "displayName": "Bar color (measure) \u2605",
+                "displayNameKey": "role_barColor",
+                "description": "A measure returning a color (#RRGGBB or a name), e.g. red when late",
+                "descriptionKey": "roleDesc_barColor"
+            },
+            {
+                "name": "milestone",
+                "kind": "Grouping",
+                "displayName": "Milestone (yes / no)",
+                "displayNameKey": "role_milestone"
+            },
+            {
+                "name": "id",
+                "kind": "Grouping",
+                "displayName": "Task ID (for dependencies)",
+                "displayNameKey": "role_id"
+            },
+            {
+                "name": "sort",
+                "kind": "Grouping",
+                "displayName": "Sort order",
+                "displayNameKey": "role_sort",
+                "description": "Number, date or text: tasks (and groups) are sorted by it",
+                "descriptionKey": "roleDesc_sort"
+            },
+            {
+                "name": "predecessors",
+                "kind": "Grouping",
+                "displayName": "Predecessors \u2605",
+                "displayNameKey": "role_predecessors",
+                "description": "IDs separated by ; e.g. 3;5SS+2",
+                "descriptionKey": "roleDesc_predecessors"
+            },
+            {
+                "name": "baselineStart",
+                "kind": "Grouping",
+                "displayName": "Baseline start \u2605",
+                "displayNameKey": "role_baselineStart"
+            },
+            {
+                "name": "baselineEnd",
+                "kind": "Grouping",
+                "displayName": "Baseline end \u2605",
+                "displayNameKey": "role_baselineEnd"
+            },
+            {
+                "name": "columns",
+                "kind": "Grouping",
+                "displayName": "Grid columns",
+                "displayNameKey": "role_columns"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "role_tooltips"
+            },
+            {
+                "name": "format",
+                "kind": "Measure",
+                "displayName": "Dynamic format",
+                "displayNameKey": "role_format",
+                "description": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX",
+                "descriptionKey": "roleDesc_format"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "groups": {
+                            "max": 6
+                        },
+                        "task": {
+                            "max": 1
+                        },
+                        "start": {
+                            "max": 1
+                        },
+                        "end": {
+                            "max": 1
+                        },
+                        "duration": {
+                            "max": 1
+                        },
+                        "progress": {
+                            "max": 1
+                        },
+                        "resource": {
+                            "max": 1
+                        },
+                        "legend": {
+                            "max": 1
+                        },
+                        "label": {
+                            "max": 1
+                        },
+                        "barColor": {
+                            "max": 1
+                        },
+                        "milestone": {
+                            "max": 1
+                        },
+                        "id": {
+                            "max": 1
+                        },
+                        "sort": {
+                            "max": 1
+                        },
+                        "predecessors": {
+                            "max": 1
+                        },
+                        "baselineStart": {
+                            "max": 1
+                        },
+                        "baselineEnd": {
+                            "max": 1
+                        },
+                        "columns": {
+                            "max": 8
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "groups"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "task"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "start"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "end"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "resource"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "legend"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "label"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "milestone"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "id"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "sort"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "predecessors"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "baselineStart"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "baselineEnd"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "columns"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "duration"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "progress"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "barColor"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "format"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "supportsHighlight": false,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "suppressDefaultTitle": true,
+        "privileges": [],
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "objects": {
+            "license": {
+                "properties": {
+                    "buy": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "key": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showOwner": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "style": {
+                "properties": {
+                    "preset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal"
+                                },
+                                {
+                                    "value": "blackWhite",
+                                    "displayName": "Black & White"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Newspaper \u2605"
+                                },
+                                {
+                                    "value": "vintage",
+                                    "displayName": "Vintage (antique plate) \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "executive",
+                                    "displayName": "Executive \u2605"
+                                },
+                                {
+                                    "value": "accessible",
+                                    "displayName": "Accessible (high legibility) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "bauhaus",
+                                    "displayName": "Bauhaus (pop) \u2605"
+                                },
+                                {
+                                    "value": "climate",
+                                    "displayName": "Climate \u2605"
+                                },
+                                {
+                                    "value": "blueprint",
+                                    "displayName": "Blueprint \u2605"
+                                },
+                                {
+                                    "value": "unknownPleasures",
+                                    "displayName": "Unknown Pleasures \u2605"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Graphite (dark) \u2605"
+                                },
+                                {
+                                    "value": "neon",
+                                    "displayName": "Neon \u2605"
+                                },
+                                {
+                                    "value": "terminal",
+                                    "displayName": "Terminal (Matrix) \u2605"
+                                },
+                                {
+                                    "value": "infographic",
+                                    "displayName": "Infographic \u2605"
+                                },
+                                {
+                                    "value": "cockpit",
+                                    "displayName": "Cockpit (HUD) \u2605"
+                                },
+                                {
+                                    "value": "hologram",
+                                    "displayName": "Hologram \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "themeJson": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "followTheme": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "reverse": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "customColors": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorText": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorMuted": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorGrid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorAccent": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorPositive": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorNegative": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series1": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series3": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series4": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series5": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series6": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series7": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series8": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "palette": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Style or theme palette"
+                                },
+                                {
+                                    "value": "crest",
+                                    "displayName": "Plume (sequential)"
+                                },
+                                {
+                                    "value": "crestDiverging",
+                                    "displayName": "Plume (diverging)"
+                                },
+                                {
+                                    "value": "viridis",
+                                    "displayName": "Viridis \u2605"
+                                },
+                                {
+                                    "value": "magma",
+                                    "displayName": "Magma \u2605"
+                                },
+                                {
+                                    "value": "inferno",
+                                    "displayName": "Inferno \u2605"
+                                },
+                                {
+                                    "value": "cividis",
+                                    "displayName": "Cividis (colorblind-safe) \u2605"
+                                },
+                                {
+                                    "value": "warmingStripes",
+                                    "displayName": "Warming stripes \u2605"
+                                },
+                                {
+                                    "value": "rdYlBu",
+                                    "displayName": "Red\u2013Yellow\u2013Blue \u2605"
+                                },
+                                {
+                                    "value": "brBG",
+                                    "displayName": "Brown\u2013Teal (drought) \u2605"
+                                },
+                                {
+                                    "value": "spectral",
+                                    "displayName": "Spectral \u2605"
+                                },
+                                {
+                                    "value": "blues",
+                                    "displayName": "Blues \u2605"
+                                },
+                                {
+                                    "value": "reds",
+                                    "displayName": "Reds \u2605"
+                                },
+                                {
+                                    "value": "grays",
+                                    "displayName": "Grays \u2605"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Press (ink and paper) \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth (ochre to umber) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "okabeIto",
+                                    "displayName": "Okabe-Ito (colorblind-safe) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "scaleLow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleMid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleHigh": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "mutedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "animate": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "dataColors": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (Color field, else first group)"
+                                },
+                                {
+                                    "value": "legend",
+                                    "displayName": "By the Color field"
+                                },
+                                {
+                                    "value": "group",
+                                    "displayName": "By the first group"
+                                },
+                                {
+                                    "value": "resource",
+                                    "displayName": "By owner"
+                                },
+                                {
+                                    "value": "single",
+                                    "displayName": "Single color"
+                                },
+                                {
+                                    "value": "status",
+                                    "displayName": "Computed status (late, at risk\u2026) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "single": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fill": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "summary": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "done": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "onTrack": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "risk": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "late": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "upcoming": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "tolerance": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "view": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "tasks",
+                                    "displayName": "Tasks (hierarchy)"
+                                },
+                                {
+                                    "value": "resources",
+                                    "displayName": "Resources (one row per owner) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "fit": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "startAt": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "today",
+                                    "displayName": "Today (status date)"
+                                },
+                                {
+                                    "value": "start",
+                                    "displayName": "Start of the plan"
+                                },
+                                {
+                                    "value": "end",
+                                    "displayName": "End of the plan"
+                                },
+                                {
+                                    "value": "date",
+                                    "displayName": "Chosen date"
+                                }
+                            ]
+                        }
+                    },
+                    "startDate": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "statusDate": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "todayLine": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "todayColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "timeline": {
+                "properties": {
+                    "scale": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (fit if possible)"
+                                },
+                                {
+                                    "value": "fit",
+                                    "displayName": "Fit all"
+                                },
+                                {
+                                    "value": "hour",
+                                    "displayName": "Hours"
+                                },
+                                {
+                                    "value": "day",
+                                    "displayName": "Days"
+                                },
+                                {
+                                    "value": "week",
+                                    "displayName": "Weeks"
+                                },
+                                {
+                                    "value": "month",
+                                    "displayName": "Months"
+                                },
+                                {
+                                    "value": "quarter",
+                                    "displayName": "Quarters"
+                                },
+                                {
+                                    "value": "year",
+                                    "displayName": "Years"
+                                }
+                            ]
+                        }
+                    },
+                    "weekStart": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "monday",
+                                    "displayName": "Monday"
+                                },
+                                {
+                                    "value": "sunday",
+                                    "displayName": "Sunday"
+                                }
+                            ]
+                        }
+                    },
+                    "weekNumbers": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fiscalStart": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "1",
+                                    "displayName": "January"
+                                },
+                                {
+                                    "value": "2",
+                                    "displayName": "February"
+                                },
+                                {
+                                    "value": "3",
+                                    "displayName": "March"
+                                },
+                                {
+                                    "value": "4",
+                                    "displayName": "April"
+                                },
+                                {
+                                    "value": "5",
+                                    "displayName": "May"
+                                },
+                                {
+                                    "value": "6",
+                                    "displayName": "June"
+                                },
+                                {
+                                    "value": "7",
+                                    "displayName": "July"
+                                },
+                                {
+                                    "value": "8",
+                                    "displayName": "August"
+                                },
+                                {
+                                    "value": "9",
+                                    "displayName": "September"
+                                },
+                                {
+                                    "value": "10",
+                                    "displayName": "October"
+                                },
+                                {
+                                    "value": "11",
+                                    "displayName": "November"
+                                },
+                                {
+                                    "value": "12",
+                                    "displayName": "December"
+                                }
+                            ]
+                        }
+                    },
+                    "weekends": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "holidays": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "endInclusive": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "durationUnit": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "workdays",
+                                    "displayName": "Business days"
+                                },
+                                {
+                                    "value": "days",
+                                    "displayName": "Calendar days"
+                                },
+                                {
+                                    "value": "hours",
+                                    "displayName": "Hours"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "gridLines": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "monthStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (as space allows)"
+                                },
+                                {
+                                    "value": "long",
+                                    "displayName": "Full (January)"
+                                },
+                                {
+                                    "value": "short",
+                                    "displayName": "Short (Jan)"
+                                },
+                                {
+                                    "value": "narrow",
+                                    "displayName": "Initial (J)"
+                                },
+                                {
+                                    "value": "numeric",
+                                    "displayName": "Number (01)"
+                                }
+                            ]
+                        }
+                    },
+                    "hourCycle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "As the language"
+                                },
+                                {
+                                    "value": "h24",
+                                    "displayName": "24-hour (14:00)"
+                                },
+                                {
+                                    "value": "h12",
+                                    "displayName": "12-hour (2:00 PM)"
+                                }
+                            ]
+                        }
+                    },
+                    "quarterFormat": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "yearFormat": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "grid": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "width": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "dateFormat": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "indent": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "nameWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "wrap": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "wrapLines": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "banding": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "sumColumns": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colWbs": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colResource": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colStart": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colEnd": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colDuration": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colProgress": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colStatus": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colFloat": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colVariance": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "rows": {
+                "properties": {
+                    "height": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "barHeight": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "sortBy": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "start",
+                                    "displayName": "Start date"
+                                },
+                                {
+                                    "value": "end",
+                                    "displayName": "End date"
+                                },
+                                {
+                                    "value": "name",
+                                    "displayName": "Name"
+                                },
+                                {
+                                    "value": "data",
+                                    "displayName": "Data order (ID)"
+                                }
+                            ]
+                        }
+                    },
+                    "groupSort": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "same",
+                                    "displayName": "Same as tasks"
+                                },
+                                {
+                                    "value": "start",
+                                    "displayName": "Start date"
+                                },
+                                {
+                                    "value": "end",
+                                    "displayName": "End date"
+                                },
+                                {
+                                    "value": "name",
+                                    "displayName": "Name"
+                                },
+                                {
+                                    "value": "data",
+                                    "displayName": "Data order (ID)"
+                                }
+                            ]
+                        }
+                    },
+                    "sortDesc": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "startLevel": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "remember": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "summary": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rollup": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "Summary bar only"
+                                },
+                                {
+                                    "value": "milestones",
+                                    "displayName": "Task milestones"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "Task bars and milestones"
+                                }
+                            ]
+                        }
+                    },
+                    "sameRow": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "bars": {
+                "properties": {
+                    "progress": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "labelContent": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "nameResource",
+                                    "displayName": "Task and owner"
+                                },
+                                {
+                                    "value": "name",
+                                    "displayName": "Task"
+                                },
+                                {
+                                    "value": "resource",
+                                    "displayName": "Owner"
+                                },
+                                {
+                                    "value": "progress",
+                                    "displayName": "Progress"
+                                },
+                                {
+                                    "value": "dates",
+                                    "displayName": "Dates"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "\u201cBar label\u201d field"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "labelPosition": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "right",
+                                    "displayName": "Right of the bar"
+                                },
+                                {
+                                    "value": "inside",
+                                    "displayName": "Inside the bar when long enough"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left of the bar"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "milestones": {
+                "properties": {
+                    "shape": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "diamond",
+                                    "displayName": "Diamond"
+                                },
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle"
+                                },
+                                {
+                                    "value": "triangle",
+                                    "displayName": "Triangle"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Square"
+                                }
+                            ]
+                        }
+                    },
+                    "size": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showDate": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "dependencies": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "width": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "conflicts": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "conflictColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "hover": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "critical": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "tolerance": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "baseline": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "variance": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "tolerance": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                }
+                            ]
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Start"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "End"
+                                }
+                            ]
+                        }
+                    },
+                    "showTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "interactive": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "toolbar": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "search": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "zoom": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "expand": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "today": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "interaction": {
+                "properties": {
+                    "hover": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dim": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "markers": {
+                "properties": {
+                    "show1": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "date1": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "label1": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "color1": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "style1": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "show2": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "date2": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "label2": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "color2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "style2": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "show3": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "date3": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "label3": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "color3": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "style3": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "band": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bandFrom": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "bandTo": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "bandLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "bandColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bandOpacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "title": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "source": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "container": {
+                "properties": {
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "padding": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "texts": {
+                "properties": {
+                    "language": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Same as Power BI"
+                                },
+                                {
+                                    "value": "fr",
+                                    "displayName": "French"
+                                },
+                                {
+                                    "value": "en",
+                                    "displayName": "English"
+                                }
+                            ]
+                        }
+                    },
+                    "numberLocale": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "state": {
+                "properties": {
+                    "expanded": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "colors": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

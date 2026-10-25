@@ -1,0 +1,2479 @@
+{
+    "visual": {
+        "name": "dynamicMatrixHeatmap",
+        "displayName": "Dynamic Matrix Heatmap",
+        "guid": "dynamicMatrixHeatmap790912782D2A48CE80E680D64C793458",
+        "visualClassName": "Visual",
+        "version": "1.2.0.1",
+        "description": "Let report readers pivot on their own: pick the X dimension, the Y dimension and the value from dropdowns inside the visual, with a global heatmap colour scale. Aggregates client-side, so distinct counts stay exact for any combination.",
+        "supportUrl": "https://tinocallarisa-web.github.io/dynamic-matrix-heatmap/support.html",
+        "gitHubUrl": "https://github.com/tinocallarisa-web/dynamic-matrix-heatmap"
+    },
+    "author": {
+        "name": "TCViz",
+        "email": "support@tcviz.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "de-DE": {
+            "Visual_Axes": "Zeilen und Spalten",
+            "Visual_Axes_Desc": "Automatisch beh\u00e4lt die Datenreihenfolge bei und ordnet Wochentage und Monate kalendarisch. \u00dcber dem Maximum werden die Kategorien mit den kleinsten Summen als Sonstige gruppiert, damit die Summen stimmen.",
+            "Visual_AxisBg": "Hintergrund der Achsenbeschriftung",
+            "Visual_AxisColor": "Farbe der Achsenbeschriftung",
+            "Visual_AxisFont": "Schriftart der Achsenbeschriftung",
+            "Visual_AxisSize": "Gr\u00f6\u00dfe der Achsenbeschriftung",
+            "Visual_Blank": "(Leer)",
+            "Visual_CellGap": "Abstand zwischen Zellen (px)",
+            "Visual_CellRadius": "Eckenradius (px)",
+            "Visual_ClusterCols": "Spalten nach \u00c4hnlichkeit ordnen (Pro)",
+            "Visual_ClusterRows": "Zeilen nach \u00c4hnlichkeit ordnen (Pro)",
+            "Visual_CollapseAll": "Alle zuklappen",
+            "Visual_ColsOrder": "Spaltenreihenfolge",
+            "Visual_ColumnWidth": "Spaltenbreite (px)",
+            "Visual_ControlsBg": "Hintergrund der Steuerleiste",
+            "Visual_ControlsColor": "Farbe der Steuerbeschriftung",
+            "Visual_ControlsFont": "Schriftart der Steuerbeschriftung",
+            "Visual_ControlsPosition": "Steuerelemente",
+            "Visual_ControlsSize": "Gr\u00f6\u00dfe der Steuerbeschriftung",
+            "Visual_Ctl_Bar": "Steuerleiste",
+            "Visual_Ctl_Group": "Zeilen gruppieren",
+            "Visual_Ctl_Hide": "Steuerelemente ausblenden",
+            "Visual_Ctl_None": "(keine)",
+            "Visual_Ctl_Select": "-- ausw\u00e4hlen --",
+            "Visual_Ctl_Show": "Steuerelemente anzeigen",
+            "Visual_Ctl_ShowAs": "Anzeigen als",
+            "Visual_Ctl_Title": "Ansicht",
+            "Visual_Ctl_Totals": "Summen",
+            "Visual_Ctl_Value": "Wert",
+            "Visual_Ctl_X": "X-Achse",
+            "Visual_Ctl_Y": "Y-Achse",
+            "Visual_Dimensions": "Dimensionen",
+            "Visual_DisplayAs": "Anzeigen als",
+            "Visual_DistinctFields": "Detail (Zeilen)",
+            "Visual_DistinctPrefix": "Eindeutige",
+            "Visual_EmptyCells": "Leere Zellen",
+            "Visual_ExpandAll": "Alle aufklappen",
+            "Visual_HeaderOrientation": "Ausrichtung der Spalten\u00fcberschrift",
+            "Visual_Heatmap": "Heatmap-Farben",
+            "Visual_Item_absolute": "Absolut",
+            "Visual_Item_auto": "Automatisch",
+            "Visual_Item_blank": "Leer",
+            "Visual_Item_blues": "Blaut\u00f6ne",
+            "Visual_Item_cividis": "Cividis (farbenblindtauglich)",
+            "Visual_Item_classic": "Klassisch",
+            "Visual_Item_clean": "Klar",
+            "Visual_Item_compact": "Kompakt",
+            "Visual_Item_contrast": "Kontrast",
+            "Visual_Item_custom": "Benutzerdefiniert (Farben unten)",
+            "Visual_Item_dash": "Strich (-)",
+            "Visual_Item_diagonal": "Diagonal (45\u00b0)",
+            "Visual_Item_diverging": "Blau - Wei\u00df - Rot",
+            "Visual_Item_github": "Aktivit\u00e4t (GitHub-Stil)",
+            "Visual_Item_gray": "Graue F\u00fcllung",
+            "Visual_Item_greens": "Gr\u00fcnt\u00f6ne",
+            "Visual_Item_greys": "Graut\u00f6ne",
+            "Visual_Item_gte": "Gr\u00f6\u00dfer oder gleich",
+            "Visual_Item_hidden": "In der Leseansicht ausgeblendet",
+            "Visual_Item_horizontal": "Horizontal",
+            "Visual_Item_left": "Linker Bereich",
+            "Visual_Item_lte": "Kleiner oder gleich",
+            "Visual_Item_nameAsc": "Name A bis Z",
+            "Visual_Item_nameDesc": "Name Z bis A",
+            "Visual_Item_orange": "Orange",
+            "Visual_Item_pctCol": "% der Spalte",
+            "Visual_Item_pctRow": "% der Zeile",
+            "Visual_Item_pctTotal": "% der Gesamtsumme",
+            "Visual_Item_purples": "Lilat\u00f6ne",
+            "Visual_Item_tiles": "Kacheln",
+            "Visual_Item_top": "Obere Leiste",
+            "Visual_Item_trafficDown": "Gr\u00fcn - Gelb - Rot",
+            "Visual_Item_trafficUp": "Rot - Gelb - Gr\u00fcn",
+            "Visual_Item_valueAsc": "Summe, niedrigste zuerst",
+            "Visual_Item_valueDesc": "Summe, h\u00f6chste zuerst",
+            "Visual_Item_vertical": "Vertikal (90\u00b0)",
+            "Visual_Item_viridis": "Viridis (farbenblindtauglich)",
+            "Visual_Item_zero": "Null (0)",
+            "Visual_Landing": "F\u00fcgen Sie Dimensionen (mindestens 2) und ein Measure hinzu, um die dynamische Matrix zu erstellen. Optional: Eine ID in Detail (Zeilen) macht Mittelwerte und eindeutige Anzahlen exakt. Pro-Plan auf Microsoft AppSource: bis zu 10 Dimensionen und 5 Measures, eindeutige Anzahlen, Prozentwerte, Summen und Zeilengruppen.",
+            "Visual_Layout": "Layout",
+            "Visual_Limited": "Angezeigt: {list}.",
+            "Visual_Limited_Dims": "die ersten {n} von {total} Dimensionen",
+            "Visual_Limited_Measures": "die ersten {n} von {total} Measures",
+            "Visual_MaxColor": "Farbe des H\u00f6chstwerts",
+            "Visual_MaxCols": "Maximale Spalten",
+            "Visual_MaxRows": "Maximale Zeilen",
+            "Visual_Measures": "Measures",
+            "Visual_MidColor": "Farbe des Mittelwerts",
+            "Visual_MinColor": "Farbe des Mindestwerts",
+            "Visual_Msg_AddDimension": "F\u00fcgen Sie mindestens eine Dimension hinzu.",
+            "Visual_Msg_AddMeasure": "F\u00fcgen Sie mindestens ein Measure hinzu.",
+            "Visual_Msg_SelectXY": "W\u00e4hlen Sie X und Y, um zu beginnen.",
+            "Visual_Msg_TwoDimensions": "F\u00fcr die Matrix sind mindestens 2 Dimensionen n\u00f6tig.",
+            "Visual_Notice_AvgOfAvg": "Dies ist ein Mittelwert von Mittelwerten: Power BI hat das Feld auf der Ebene aller gebundenen Dimensionen gemittelt, und diese Mittelwerte werden hier kombiniert \u2013 jede Kombination z\u00e4hlt gleich, ob eine Zeile oder zehntausend. F\u00fcgen Sie eine ID in Detail (Zeilen) hinzu \u2013 Auftrag, Ticket oder Kunde \u2013, dann berechnet das Visual den genauen Mittelwert.",
+            "Visual_Notice_Hidden": "{dim}: {n} von {total} Werten ausgelassen, auch aus den Summen.",
+            "Visual_Notice_NonAdditive": "Dieses Measure wird im Visual zusammengefasst: Power BI hat es auf der Ebene aller gebundenen Dimensionen aggregiert, der Rest wird hier kombiniert. Ist es nicht additiv \u2013 ein Verh\u00e4ltnis, ein Prozentsatz \u2013, ist die Zahl evtl. nicht die erwartete. F\u00fcr eine eindeutige Anzahl legen Sie die Spalte in Dimensionen oder Detail (Zeilen) ab, dann wird genau gez\u00e4hlt; sonst binden Sie nur die verglichenen Dimensionen oder nutzen ein additives Measure.",
+            "Visual_Notice_Others": "{dim}: {n} von {total} Werten als Sonstige gruppiert.",
+            "Visual_Notice_Partial": "Teildaten: Das Zeilenlimit wurde erreicht. Verringern Sie die Anzahl der Dimensionen f\u00fcr genaue Werte.",
+            "Visual_Others": "Rest als Sonstige gruppieren",
+            "Visual_OthersLabel": "Sonstige",
+            "Visual_RowHeight": "Zeilenh\u00f6he (px)",
+            "Visual_RowsOrder": "Zeilenreihenfolge",
+            "Visual_Rule1": "Regel 1",
+            "Visual_Rule2": "Regel 2",
+            "Visual_Rule3": "Regel 3",
+            "Visual_RuleColor": "Farbe",
+            "Visual_RuleOp": "Bedingung",
+            "Visual_RuleValue": "Wert",
+            "Visual_Rules": "Farbregeln",
+            "Visual_Rules_Desc": "Eine Regel f\u00e4rbt die Zellen, die sie erf\u00fcllen, \u00fcber dem Verlauf. Die erste zutreffende Regel gewinnt. Prozents\u00e4tze werden als Bruch eingegeben: 0,25 f\u00fcr 25 %.",
+            "Visual_Scheme": "Farbschema",
+            "Visual_ShowTotals": "Summen anzeigen (Pro)",
+            "Visual_SortHint": "Klicken, um die Zeilen nach dieser Spalte zu sortieren",
+            "Visual_Style": "Stilvorlage",
+            "Visual_Sub_Labels": "Achsenbeschriftungen",
+            "Visual_Sub_Values": "Zellwerte",
+            "Visual_Template": "Vorlage",
+            "Visual_Text": "Text",
+            "Visual_Total": "Gesamt",
+            "Visual_ValueColor": "Wertfarbe",
+            "Visual_ValueFont": "Schriftart der Werte",
+            "Visual_ValueSize": "Gr\u00f6\u00dfe der Werte",
+            "Visual_Values": "Werte",
+            "Visual_Values_Desc": "Absolut oder Prozent w\u00e4hlen Sie im Visual selbst, mit der Liste \u201eAnzeigen als\u201c neben Wert, und jedes Measure merkt sich seine Wahl.",
+            "Landing_Tagline": "Kreuzen Sie zwei beliebige Dimensionen und sehen Sie, wo sich der Wert konzentriert.",
+            "Landing_TaglineShort": "Sehen Sie, wo sich der Wert konzentriert.",
+            "Landing_Start": "In 3 Schritten starten",
+            "Landing_Step1": "zwei oder mehr Spalten: Region, Produkt, Monat",
+            "Landing_Step1Short": "zwei oder mehr Spalten",
+            "Landing_Step2": "der Wert f\u00fcr die Farbe, z. B. Umsatz",
+            "Landing_Step2Short": "der Wert f\u00fcr die Farbe",
+            "Landing_Step3": "W\u00e4hlen Sie die Zeilen- und Spaltendimensionen im Seitenbereich",
+            "Landing_Step3Short": "Zeilen und Spalten im Seitenbereich w\u00e4hlen",
+            "Landing_Help": "Hilfe",
+            "Landing_Guide": "Anleitung",
+            "Landing_GuideSub": "Supportseite",
+            "Landing_Video": "Video",
+            "Landing_Product": "Produktseite",
+            "Landing_Pro": "Bis zu 10 Dimensionen und 5 Measures, eindeutige Anzahlen, Summen und Zeilengruppen. 30 Tage kostenlos testen auf AppSource.",
+            "Landing_ProShort": "10 Dimensionen, 5 Measures, eindeutige Anzahlen, Summen. 30 Tage Test.",
+            "Landing_Small": "F\u00fcgen Sie {dims} (2 oder mehr) und {meas} hinzu."
+        },
+        "en-US": {
+            "Visual_Axes": "Rows and columns",
+            "Visual_Axes_Desc": "Automatic keeps the data order, and puts days of the week and months in calendar order. Beyond the maximum, the categories with the smallest totals are grouped as Others so the totals still add up.",
+            "Visual_AxisBg": "Axis label background",
+            "Visual_AxisColor": "Axis label color",
+            "Visual_AxisFont": "Axis label font",
+            "Visual_AxisSize": "Axis label size",
+            "Visual_Blank": "(Blank)",
+            "Visual_CellGap": "Space between cells (px)",
+            "Visual_CellRadius": "Cell corner radius (px)",
+            "Visual_ClusterCols": "Order columns by similarity (Pro)",
+            "Visual_ClusterRows": "Order rows by similarity (Pro)",
+            "Visual_CollapseAll": "Collapse all",
+            "Visual_ColsOrder": "Column order",
+            "Visual_ColumnWidth": "Column width (px)",
+            "Visual_ControlsBg": "Controls bar background",
+            "Visual_ControlsColor": "Controls label color",
+            "Visual_ControlsFont": "Controls label font",
+            "Visual_ControlsPosition": "Controls",
+            "Visual_ControlsSize": "Controls label size",
+            "Visual_Ctl_Bar": "Controls bar",
+            "Visual_Ctl_Group": "Group rows",
+            "Visual_Ctl_Hide": "Hide controls",
+            "Visual_Ctl_None": "(none)",
+            "Visual_Ctl_Select": "-- select --",
+            "Visual_Ctl_Show": "Show controls",
+            "Visual_Ctl_ShowAs": "Show as",
+            "Visual_Ctl_Title": "View",
+            "Visual_Ctl_Totals": "Totals",
+            "Visual_Ctl_Value": "Value",
+            "Visual_Ctl_X": "X axis",
+            "Visual_Ctl_Y": "Y axis",
+            "Visual_Dimensions": "Dimensions",
+            "Visual_DisplayAs": "Display as",
+            "Visual_DistinctFields": "Detail (rows)",
+            "Visual_DistinctPrefix": "Distinct",
+            "Visual_EmptyCells": "Empty cells",
+            "Visual_ExpandAll": "Expand all",
+            "Visual_HeaderOrientation": "Column header orientation",
+            "Visual_Heatmap": "Heatmap colors",
+            "Visual_Item_absolute": "Absolute",
+            "Visual_Item_auto": "Automatic",
+            "Visual_Item_blank": "Blank",
+            "Visual_Item_blues": "Blues",
+            "Visual_Item_cividis": "Cividis (cb)",
+            "Visual_Item_classic": "Classic",
+            "Visual_Item_clean": "Clean",
+            "Visual_Item_compact": "Compact",
+            "Visual_Item_contrast": "Contrast",
+            "Visual_Item_custom": "Custom (colors below)",
+            "Visual_Item_dash": "Dash (-)",
+            "Visual_Item_diagonal": "Diagonal (45\u00b0)",
+            "Visual_Item_diverging": "Blue - white - red",
+            "Visual_Item_github": "Activity (GitHub style)",
+            "Visual_Item_gray": "Gray fill",
+            "Visual_Item_greens": "Greens",
+            "Visual_Item_greys": "Greys",
+            "Visual_Item_gte": "Greater than or equal to",
+            "Visual_Item_hidden": "Hidden in reading view",
+            "Visual_Item_horizontal": "Horizontal",
+            "Visual_Item_left": "Left panel",
+            "Visual_Item_lte": "Less than or equal to",
+            "Visual_Item_nameAsc": "Name A to Z",
+            "Visual_Item_nameDesc": "Name Z to A",
+            "Visual_Item_orange": "Orange",
+            "Visual_Item_pctCol": "% of column",
+            "Visual_Item_pctRow": "% of row",
+            "Visual_Item_pctTotal": "% of grand total",
+            "Visual_Item_purples": "Purples",
+            "Visual_Item_tiles": "Tiles",
+            "Visual_Item_top": "Top bar",
+            "Visual_Item_trafficDown": "Green - yellow - red",
+            "Visual_Item_trafficUp": "Red - yellow - green",
+            "Visual_Item_valueAsc": "Total, lowest first",
+            "Visual_Item_valueDesc": "Total, highest first",
+            "Visual_Item_vertical": "Vertical (90\u00b0)",
+            "Visual_Item_viridis": "Viridis (cb)",
+            "Visual_Item_zero": "Zero (0)",
+            "Visual_Landing": "Add Dimensions (at least 2) and a Measure to build the dynamic matrix. Optional: an ID in Detail (rows) makes averages and distinct counts exact. Pro plan on Microsoft AppSource: up to 10 dimensions and 5 measures, distinct counts, percentage values, totals and row groups.",
+            "Visual_Layout": "Layout",
+            "Visual_Limited": "Showing {list}.",
+            "Visual_Limited_Dims": "the first {n} of {total} dimensions",
+            "Visual_Limited_Measures": "the first {n} of {total} measures",
+            "Visual_MaxColor": "Maximum value color",
+            "Visual_MaxCols": "Maximum columns",
+            "Visual_MaxRows": "Maximum rows",
+            "Visual_Measures": "Measures",
+            "Visual_MidColor": "Middle value color",
+            "Visual_MinColor": "Minimum value color",
+            "Visual_Msg_AddDimension": "Add at least one dimension.",
+            "Visual_Msg_AddMeasure": "Add at least one measure.",
+            "Visual_Msg_SelectXY": "Select X and Y to begin.",
+            "Visual_Msg_TwoDimensions": "You need at least 2 dimensions to generate the matrix.",
+            "Visual_Notice_AvgOfAvg": "This is an average of averages. Power BI averaged the field at the grain of every bound dimension, and those averages are combined here, so each combination counts the same whether it holds one row or ten thousand. The weights are not in the data the visual receives, so it cannot correct for them. Add an ID to Detail (rows) \u2014 the order, ticket or customer \u2014 and the visual computes the exact average.",
+            "Visual_Notice_Hidden": "{dim}: {n} of {total} values left out, and out of the totals.",
+            "Visual_Notice_NonAdditive": "This measure is being collapsed in the visual: Power BI aggregated it at the grain of every bound dimension, and the rest is combined here. If the measure is not additive \u2014 a distinct count, a ratio, a percentage \u2014 the number may not be the one you expect. For a distinct count, put that column in Dimensions or Detail (rows) and it is counted exactly; otherwise bind only the dimensions you compare, or use an additive measure.",
+            "Visual_Notice_Others": "{dim}: {n} of {total} values grouped as Others.",
+            "Visual_Notice_Partial": "Showing a partial dataset \u2014 the row limit was reached. Reduce the number of dimensions for exact values.",
+            "Visual_Others": "Group the rest as Others",
+            "Visual_OthersLabel": "Others",
+            "Visual_RowHeight": "Row height (px)",
+            "Visual_RowsOrder": "Row order",
+            "Visual_Rule1": "Rule 1",
+            "Visual_Rule2": "Rule 2",
+            "Visual_Rule3": "Rule 3",
+            "Visual_RuleColor": "Color",
+            "Visual_RuleOp": "Condition",
+            "Visual_RuleValue": "Value",
+            "Visual_Rules": "Color rules",
+            "Visual_Rules_Desc": "A rule paints the cells that meet it with its own color, over the gradient. The first rule that matches wins. Percentages are written as fractions: 0.25 for 25%.",
+            "Visual_Scheme": "Color scheme",
+            "Visual_ShowTotals": "Show totals (Pro)",
+            "Visual_SortHint": "Click to sort the rows by this column",
+            "Visual_Style": "Style template",
+            "Visual_Sub_Labels": "Axis labels",
+            "Visual_Sub_Values": "Cell values",
+            "Visual_Template": "Template",
+            "Visual_Text": "Text",
+            "Visual_Total": "Total",
+            "Visual_ValueColor": "Value color",
+            "Visual_ValueFont": "Value font",
+            "Visual_ValueSize": "Value size",
+            "Visual_Values": "Values",
+            "Visual_Values_Desc": "Absolute or percentage is chosen in the visual itself, with the Show as dropdown next to Value, and each measure remembers its own.",
+            "Landing_Tagline": "Cross any two dimensions and see where the value concentrates.",
+            "Landing_TaglineShort": "See where the value concentrates.",
+            "Landing_Start": "Start in 3 steps",
+            "Landing_Step1": "two or more columns: region, product, month",
+            "Landing_Step1Short": "two or more columns",
+            "Landing_Step2": "the value to colour, such as sales",
+            "Landing_Step2Short": "the value to colour",
+            "Landing_Step3": "Pick the row and column dimensions in the side panel",
+            "Landing_Step3Short": "Pick rows and columns in the side panel",
+            "Landing_Help": "Help",
+            "Landing_Guide": "Guide",
+            "Landing_GuideSub": "support page",
+            "Landing_Video": "Video",
+            "Landing_Product": "Product page",
+            "Landing_Pro": "Up to 10 dimensions and 5 measures, distinct counts, totals and row groups. 30-day free trial on AppSource.",
+            "Landing_ProShort": "10 dimensions, 5 measures, distinct counts, totals. 30-day trial.",
+            "Landing_Small": "Add {dims} (2 or more) and {meas}."
+        },
+        "es-ES": {
+            "Visual_Axes": "Filas y columnas",
+            "Visual_Axes_Desc": "Autom\u00e1tico mantiene el orden de los datos y pone los d\u00edas de la semana y los meses en orden de calendario. Por encima del m\u00e1ximo, las categor\u00edas con menor total se agrupan en Otros para que los totales sigan cuadrando.",
+            "Visual_AxisBg": "Fondo de las etiquetas de eje",
+            "Visual_AxisColor": "Color de las etiquetas de eje",
+            "Visual_AxisFont": "Fuente de las etiquetas de eje",
+            "Visual_AxisSize": "Tama\u00f1o de las etiquetas de eje",
+            "Visual_Blank": "(En blanco)",
+            "Visual_CellGap": "Espacio entre celdas (px)",
+            "Visual_CellRadius": "Radio de las esquinas (px)",
+            "Visual_ClusterCols": "Ordenar columnas por similitud (Pro)",
+            "Visual_ClusterRows": "Ordenar filas por similitud (Pro)",
+            "Visual_CollapseAll": "Contraer todo",
+            "Visual_ColsOrder": "Orden de columnas",
+            "Visual_ColumnWidth": "Ancho de columna (px)",
+            "Visual_ControlsBg": "Fondo de la barra de controles",
+            "Visual_ControlsColor": "Color de las etiquetas de control",
+            "Visual_ControlsFont": "Fuente de las etiquetas de control",
+            "Visual_ControlsPosition": "Controles",
+            "Visual_ControlsSize": "Tama\u00f1o de las etiquetas de control",
+            "Visual_Ctl_Bar": "Barra de controles",
+            "Visual_Ctl_Group": "Agrupar filas",
+            "Visual_Ctl_Hide": "Ocultar controles",
+            "Visual_Ctl_None": "(ninguno)",
+            "Visual_Ctl_Select": "-- elegir --",
+            "Visual_Ctl_Show": "Mostrar controles",
+            "Visual_Ctl_ShowAs": "Mostrar como",
+            "Visual_Ctl_Title": "Vista",
+            "Visual_Ctl_Totals": "Totales",
+            "Visual_Ctl_Value": "Valor",
+            "Visual_Ctl_X": "Eje X",
+            "Visual_Ctl_Y": "Eje Y",
+            "Visual_Dimensions": "Dimensiones",
+            "Visual_DisplayAs": "Mostrar como",
+            "Visual_DistinctFields": "Detalle (filas)",
+            "Visual_DistinctPrefix": "Distintos",
+            "Visual_EmptyCells": "Celdas vac\u00edas",
+            "Visual_ExpandAll": "Expandir todo",
+            "Visual_HeaderOrientation": "Orientaci\u00f3n del encabezado de columna",
+            "Visual_Heatmap": "Colores del mapa de calor",
+            "Visual_Item_absolute": "Absoluto",
+            "Visual_Item_auto": "Autom\u00e1tico",
+            "Visual_Item_blank": "En blanco",
+            "Visual_Item_blues": "Azules",
+            "Visual_Item_cividis": "Cividis (daltonismo)",
+            "Visual_Item_classic": "Cl\u00e1sica",
+            "Visual_Item_clean": "Limpia",
+            "Visual_Item_compact": "Compacta",
+            "Visual_Item_contrast": "Contraste",
+            "Visual_Item_custom": "Personalizado (colores de abajo)",
+            "Visual_Item_dash": "Guion (-)",
+            "Visual_Item_diagonal": "Diagonal (45\u00b0)",
+            "Visual_Item_diverging": "Azul - blanco - rojo",
+            "Visual_Item_github": "Actividad (estilo GitHub)",
+            "Visual_Item_gray": "Relleno gris",
+            "Visual_Item_greens": "Verdes",
+            "Visual_Item_greys": "Grises",
+            "Visual_Item_gte": "Mayor o igual que",
+            "Visual_Item_hidden": "Ocultos en modo lectura",
+            "Visual_Item_horizontal": "Horizontal",
+            "Visual_Item_left": "Panel izquierdo",
+            "Visual_Item_lte": "Menor o igual que",
+            "Visual_Item_nameAsc": "Nombre de la A a la Z",
+            "Visual_Item_nameDesc": "Nombre de la Z a la A",
+            "Visual_Item_orange": "Naranja",
+            "Visual_Item_pctCol": "% de la columna",
+            "Visual_Item_pctRow": "% de la fila",
+            "Visual_Item_pctTotal": "% del total general",
+            "Visual_Item_purples": "Morados",
+            "Visual_Item_tiles": "Mosaico",
+            "Visual_Item_top": "Barra superior",
+            "Visual_Item_trafficDown": "Verde - amarillo - rojo",
+            "Visual_Item_trafficUp": "Rojo - amarillo - verde",
+            "Visual_Item_valueAsc": "Total, de menor a mayor",
+            "Visual_Item_valueDesc": "Total, de mayor a menor",
+            "Visual_Item_vertical": "Vertical (90\u00b0)",
+            "Visual_Item_viridis": "Viridis (daltonismo)",
+            "Visual_Item_zero": "Cero (0)",
+            "Visual_Landing": "A\u00f1ade Dimensiones (al menos 2) y una Medida para construir la matriz din\u00e1mica. Opcional: un ID en Detalle (filas) hace exactos los promedios y los recuentos distintos. Plan Pro en Microsoft AppSource: hasta 10 dimensiones y 5 medidas, recuentos distintos, valores en porcentaje, totales y grupos de filas.",
+            "Visual_Layout": "Dise\u00f1o",
+            "Visual_Limited": "Se muestran {list}.",
+            "Visual_Limited_Dims": "las primeras {n} de {total} dimensiones",
+            "Visual_Limited_Measures": "las primeras {n} de {total} medidas",
+            "Visual_MaxColor": "Color del valor m\u00e1ximo",
+            "Visual_MaxCols": "M\u00e1ximo de columnas",
+            "Visual_MaxRows": "M\u00e1ximo de filas",
+            "Visual_Measures": "Medidas",
+            "Visual_MidColor": "Color del valor medio",
+            "Visual_MinColor": "Color del valor m\u00ednimo",
+            "Visual_Msg_AddDimension": "A\u00f1ade al menos una dimensi\u00f3n.",
+            "Visual_Msg_AddMeasure": "A\u00f1ade al menos una medida.",
+            "Visual_Msg_SelectXY": "Elige X e Y para empezar.",
+            "Visual_Msg_TwoDimensions": "Hacen falta al menos 2 dimensiones para generar la matriz.",
+            "Visual_Notice_AvgOfAvg": "Esto es un promedio de promedios: Power BI promedi\u00f3 el campo al grano de todas las dimensiones enlazadas y aqu\u00ed se combinan esos promedios, as\u00ed que cada combinaci\u00f3n cuenta lo mismo tenga una fila o diez mil. A\u00f1ade un ID en Detalle (filas) \u2014el pedido, el ticket o el cliente\u2014 y el visual calcula el promedio exacto.",
+            "Visual_Notice_Hidden": "{dim}: {n} de {total} valores fuera de la matriz y de los totales.",
+            "Visual_Notice_NonAdditive": "Esta medida se colapsa en el visual: Power BI la agreg\u00f3 al grano de todas las dimensiones enlazadas y el resto se combina aqu\u00ed. Si no es aditiva \u2014un ratio, un porcentaje\u2014 el n\u00famero puede no ser el que esperas. Para un recuento distinto, pon esa columna en Dimensiones o en Detalle (filas) y se cuenta exacto; si no, enlaza solo las dimensiones que comparas o usa una medida aditiva.",
+            "Visual_Notice_Others": "{dim}: {n} de {total} valores agrupados en Otros.",
+            "Visual_Notice_Partial": "Se muestra un conjunto parcial: se alcanz\u00f3 el l\u00edmite de filas. Reduce el n\u00famero de dimensiones para valores exactos.",
+            "Visual_Others": "Agrupar el resto en Otros",
+            "Visual_OthersLabel": "Otros",
+            "Visual_RowHeight": "Alto de fila (px)",
+            "Visual_RowsOrder": "Orden de filas",
+            "Visual_Rule1": "Regla 1",
+            "Visual_Rule2": "Regla 2",
+            "Visual_Rule3": "Regla 3",
+            "Visual_RuleColor": "Color",
+            "Visual_RuleOp": "Condici\u00f3n",
+            "Visual_RuleValue": "Valor",
+            "Visual_Rules": "Reglas de color",
+            "Visual_Rules_Desc": "Una regla pinta con su color las celdas que la cumplen, por encima del degradado. Gana la primera que se cumple. Los porcentajes se escriben como fracci\u00f3n: 0,25 para el 25 %.",
+            "Visual_Scheme": "Esquema de color",
+            "Visual_ShowTotals": "Mostrar totales (Pro)",
+            "Visual_SortHint": "Clic para ordenar las filas por esta columna",
+            "Visual_Style": "Plantilla de estilo",
+            "Visual_Sub_Labels": "Etiquetas de eje",
+            "Visual_Sub_Values": "Valores de las celdas",
+            "Visual_Template": "Plantilla",
+            "Visual_Text": "Texto",
+            "Visual_Total": "Total",
+            "Visual_ValueColor": "Color de los valores",
+            "Visual_ValueFont": "Fuente de los valores",
+            "Visual_ValueSize": "Tama\u00f1o de los valores",
+            "Visual_Values": "Valores",
+            "Visual_Values_Desc": "Absoluto o porcentaje se elige en el propio visual, con el desplegable Mostrar como junto a Valor, y cada medida recuerda el suyo.",
+            "Landing_Tagline": "Cruza dos dimensiones cualesquiera y mira d\u00f3nde se concentra el valor.",
+            "Landing_TaglineShort": "Mira d\u00f3nde se concentra el valor.",
+            "Landing_Start": "Empieza en 3 pasos",
+            "Landing_Step1": "dos o m\u00e1s columnas: regi\u00f3n, producto, mes",
+            "Landing_Step1Short": "dos o m\u00e1s columnas",
+            "Landing_Step2": "el valor que se colorea, como las ventas",
+            "Landing_Step2Short": "el valor que se colorea",
+            "Landing_Step3": "Elige las dimensiones de filas y columnas en el panel lateral",
+            "Landing_Step3Short": "Elige filas y columnas en el panel lateral",
+            "Landing_Help": "Ayuda",
+            "Landing_Guide": "Gu\u00eda",
+            "Landing_GuideSub": "p\u00e1gina de soporte",
+            "Landing_Video": "V\u00eddeo",
+            "Landing_Product": "Ficha del producto",
+            "Landing_Pro": "Hasta 10 dimensiones y 5 medidas, recuentos distintos, totales y grupos de filas. Prueba gratis de 30 d\u00edas en AppSource.",
+            "Landing_ProShort": "10 dimensiones, 5 medidas, recuentos distintos, totales. Prueba de 30 d\u00edas.",
+            "Landing_Small": "A\u00f1ade {dims} (2 o m\u00e1s) y {meas}."
+        },
+        "fr-FR": {
+            "Visual_Axes": "Lignes et colonnes",
+            "Visual_Axes_Desc": "Automatique conserve l'ordre des donn\u00e9es et met jours et mois dans l'ordre du calendrier. Au-del\u00e0 du maximum, les cat\u00e9gories au total le plus faible sont regroup\u00e9es dans Autres pour que les totaux restent justes.",
+            "Visual_AxisBg": "Arri\u00e8re-plan des \u00e9tiquettes d'axe",
+            "Visual_AxisColor": "Couleur des \u00e9tiquettes d'axe",
+            "Visual_AxisFont": "Police des \u00e9tiquettes d'axe",
+            "Visual_AxisSize": "Taille des \u00e9tiquettes d'axe",
+            "Visual_Blank": "(Vide)",
+            "Visual_CellGap": "Espace entre les cellules (px)",
+            "Visual_CellRadius": "Rayon des coins (px)",
+            "Visual_ClusterCols": "Trier les colonnes par similarit\u00e9 (Pro)",
+            "Visual_ClusterRows": "Trier les lignes par similarit\u00e9 (Pro)",
+            "Visual_CollapseAll": "Tout r\u00e9duire",
+            "Visual_ColsOrder": "Ordre des colonnes",
+            "Visual_ColumnWidth": "Largeur de colonne (px)",
+            "Visual_ControlsBg": "Arri\u00e8re-plan de la barre de contr\u00f4les",
+            "Visual_ControlsColor": "Couleur des \u00e9tiquettes de contr\u00f4le",
+            "Visual_ControlsFont": "Police des \u00e9tiquettes de contr\u00f4le",
+            "Visual_ControlsPosition": "Contr\u00f4les",
+            "Visual_ControlsSize": "Taille des \u00e9tiquettes de contr\u00f4le",
+            "Visual_Ctl_Bar": "Barre de contr\u00f4les",
+            "Visual_Ctl_Group": "Grouper les lignes",
+            "Visual_Ctl_Hide": "Masquer les contr\u00f4les",
+            "Visual_Ctl_None": "(aucun)",
+            "Visual_Ctl_Select": "-- choisir --",
+            "Visual_Ctl_Show": "Afficher les contr\u00f4les",
+            "Visual_Ctl_ShowAs": "Afficher comme",
+            "Visual_Ctl_Title": "Vue",
+            "Visual_Ctl_Totals": "Totaux",
+            "Visual_Ctl_Value": "Valeur",
+            "Visual_Ctl_X": "Axe X",
+            "Visual_Ctl_Y": "Axe Y",
+            "Visual_Dimensions": "Dimensions",
+            "Visual_DisplayAs": "Afficher comme",
+            "Visual_DistinctFields": "D\u00e9tail (lignes)",
+            "Visual_DistinctPrefix": "Distincts",
+            "Visual_EmptyCells": "Cellules vides",
+            "Visual_ExpandAll": "Tout d\u00e9velopper",
+            "Visual_HeaderOrientation": "Orientation de l'en-t\u00eate de colonne",
+            "Visual_Heatmap": "Couleurs de la carte thermique",
+            "Visual_Item_absolute": "Absolu",
+            "Visual_Item_auto": "Automatique",
+            "Visual_Item_blank": "Vide",
+            "Visual_Item_blues": "Bleus",
+            "Visual_Item_cividis": "Cividis (daltonisme)",
+            "Visual_Item_classic": "Classique",
+            "Visual_Item_clean": "\u00c9pur\u00e9",
+            "Visual_Item_compact": "Compact",
+            "Visual_Item_contrast": "Contraste",
+            "Visual_Item_custom": "Personnalis\u00e9 (couleurs ci-dessous)",
+            "Visual_Item_dash": "Tiret (-)",
+            "Visual_Item_diagonal": "Diagonale (45\u00b0)",
+            "Visual_Item_diverging": "Bleu - blanc - rouge",
+            "Visual_Item_github": "Activit\u00e9 (style GitHub)",
+            "Visual_Item_gray": "Remplissage gris",
+            "Visual_Item_greens": "Verts",
+            "Visual_Item_greys": "Gris",
+            "Visual_Item_gte": "Sup\u00e9rieur ou \u00e9gal \u00e0",
+            "Visual_Item_hidden": "Masqu\u00e9s en mode lecture",
+            "Visual_Item_horizontal": "Horizontale",
+            "Visual_Item_left": "Panneau gauche",
+            "Visual_Item_lte": "Inf\u00e9rieur ou \u00e9gal \u00e0",
+            "Visual_Item_nameAsc": "Nom de A \u00e0 Z",
+            "Visual_Item_nameDesc": "Nom de Z \u00e0 A",
+            "Visual_Item_orange": "Orange",
+            "Visual_Item_pctCol": "% de la colonne",
+            "Visual_Item_pctRow": "% de la ligne",
+            "Visual_Item_pctTotal": "% du total g\u00e9n\u00e9ral",
+            "Visual_Item_purples": "Violets",
+            "Visual_Item_tiles": "Tuiles",
+            "Visual_Item_top": "Barre du haut",
+            "Visual_Item_trafficDown": "Vert - jaune - rouge",
+            "Visual_Item_trafficUp": "Rouge - jaune - vert",
+            "Visual_Item_valueAsc": "Total, du plus bas au plus \u00e9lev\u00e9",
+            "Visual_Item_valueDesc": "Total, du plus \u00e9lev\u00e9 au plus bas",
+            "Visual_Item_vertical": "Verticale (90\u00b0)",
+            "Visual_Item_viridis": "Viridis (daltonisme)",
+            "Visual_Item_zero": "Z\u00e9ro (0)",
+            "Visual_Landing": "Ajoutez des Dimensions (au moins 2) et une Mesure pour cr\u00e9er la matrice dynamique. Facultatif : un ID dans D\u00e9tail (lignes) rend exacts les moyennes et nombres distincts. Plan Pro sur Microsoft AppSource : jusqu\u2019\u00e0 10 dimensions et 5 mesures, nombres distincts, pourcentages, totaux et groupes de lignes.",
+            "Visual_Layout": "Disposition",
+            "Visual_Limited": "Affichage : {list}.",
+            "Visual_Limited_Dims": "les {n} premi\u00e8res dimensions sur {total}",
+            "Visual_Limited_Measures": "les {n} premi\u00e8res mesures sur {total}",
+            "Visual_MaxColor": "Couleur de la valeur maximale",
+            "Visual_MaxCols": "Nombre maximal de colonnes",
+            "Visual_MaxRows": "Nombre maximal de lignes",
+            "Visual_Measures": "Mesures",
+            "Visual_MidColor": "Couleur de la valeur m\u00e9diane",
+            "Visual_MinColor": "Couleur de la valeur minimale",
+            "Visual_Msg_AddDimension": "Ajoutez au moins une dimension.",
+            "Visual_Msg_AddMeasure": "Ajoutez au moins une mesure.",
+            "Visual_Msg_SelectXY": "Choisissez X et Y pour commencer.",
+            "Visual_Msg_TwoDimensions": "Il faut au moins 2 dimensions pour g\u00e9n\u00e9rer la matrice.",
+            "Visual_Notice_AvgOfAvg": "Ceci est une moyenne de moyennes : Power BI a moyenn\u00e9 le champ au grain de toutes les dimensions li\u00e9es et ces moyennes sont combin\u00e9es ici, chaque combinaison comptant autant qu\u2019elle ait une ligne ou dix mille. Ajoutez un ID dans D\u00e9tail (lignes) \u2014 la commande, le ticket ou le client \u2014 et le visuel calcule la moyenne exacte.",
+            "Visual_Notice_Hidden": "{dim} : {n} valeurs sur {total} exclues de la matrice et des totaux.",
+            "Visual_Notice_NonAdditive": "Cette mesure est r\u00e9duite dans le visuel : Power BI l\u2019a agr\u00e9g\u00e9e au grain de toutes les dimensions li\u00e9es, et le reste est combin\u00e9 ici. Si elle n\u2019est pas additive \u2014 un ratio, un pourcentage \u2014 le r\u00e9sultat peut surprendre. Pour un nombre distinct, placez la colonne dans Dimensions ou D\u00e9tail (lignes) : elle est compt\u00e9e exactement ; sinon, liez seulement les dimensions compar\u00e9es ou utilisez une mesure additive.",
+            "Visual_Notice_Others": "{dim} : {n} valeurs sur {total} regroup\u00e9es dans Autres.",
+            "Visual_Notice_Partial": "Jeu de donn\u00e9es partiel : la limite de lignes est atteinte. R\u00e9duisez le nombre de dimensions pour des valeurs exactes.",
+            "Visual_Others": "Regrouper le reste dans Autres",
+            "Visual_OthersLabel": "Autres",
+            "Visual_RowHeight": "Hauteur de ligne (px)",
+            "Visual_RowsOrder": "Ordre des lignes",
+            "Visual_Rule1": "R\u00e8gle 1",
+            "Visual_Rule2": "R\u00e8gle 2",
+            "Visual_Rule3": "R\u00e8gle 3",
+            "Visual_RuleColor": "Couleur",
+            "Visual_RuleOp": "Condition",
+            "Visual_RuleValue": "Valeur",
+            "Visual_Rules": "R\u00e8gles de couleur",
+            "Visual_Rules_Desc": "Une r\u00e8gle colore les cellules qui la respectent, par-dessus le d\u00e9grad\u00e9. La premi\u00e8re r\u00e8gle satisfaite l'emporte. Les pourcentages s'\u00e9crivent en fraction : 0,25 pour 25 %.",
+            "Visual_Scheme": "Palette de couleurs",
+            "Visual_ShowTotals": "Afficher les totaux (Pro)",
+            "Visual_SortHint": "Cliquez pour trier les lignes par cette colonne",
+            "Visual_Style": "Mod\u00e8le de style",
+            "Visual_Sub_Labels": "\u00c9tiquettes d'axe",
+            "Visual_Sub_Values": "Valeurs des cellules",
+            "Visual_Template": "Mod\u00e8le",
+            "Visual_Text": "Texte",
+            "Visual_Total": "Total",
+            "Visual_ValueColor": "Couleur des valeurs",
+            "Visual_ValueFont": "Police des valeurs",
+            "Visual_ValueSize": "Taille des valeurs",
+            "Visual_Values": "Valeurs",
+            "Visual_Values_Desc": "Absolu ou pourcentage se choisit dans le visuel lui-m\u00eame, avec la liste Afficher comme \u00e0 c\u00f4t\u00e9 de Valeur, et chaque mesure garde le sien.",
+            "Landing_Tagline": "Croisez deux dimensions et voyez o\u00f9 se concentre la valeur.",
+            "Landing_TaglineShort": "Voyez o\u00f9 se concentre la valeur.",
+            "Landing_Start": "Commencer en 3 \u00e9tapes",
+            "Landing_Step1": "deux colonnes ou plus : r\u00e9gion, produit, mois",
+            "Landing_Step1Short": "deux colonnes ou plus",
+            "Landing_Step2": "la valeur \u00e0 colorer, comme les ventes",
+            "Landing_Step2Short": "la valeur \u00e0 colorer",
+            "Landing_Step3": "Choisissez les dimensions des lignes et des colonnes dans le panneau lat\u00e9ral",
+            "Landing_Step3Short": "Choisissez lignes et colonnes dans le panneau lat\u00e9ral",
+            "Landing_Help": "Aide",
+            "Landing_Guide": "Guide",
+            "Landing_GuideSub": "page d\u2019assistance",
+            "Landing_Video": "Vid\u00e9o",
+            "Landing_Product": "Page du produit",
+            "Landing_Pro": "Jusqu\u2019\u00e0 10 dimensions et 5 mesures, comptages distincts, totaux et groupes de lignes. Essai gratuit de 30 jours sur AppSource.",
+            "Landing_ProShort": "10 dimensions, 5 mesures, comptages distincts, totaux. Essai de 30 jours.",
+            "Landing_Small": "Ajoutez {dims} (2 ou plus) et {meas}."
+        },
+        "it-IT": {
+            "Visual_Axes": "Righe e colonne",
+            "Visual_Axes_Desc": "Automatico mantiene l'ordine dei dati e mette giorni della settimana e mesi in ordine di calendario. Oltre il massimo, le categorie con il totale minore sono raggruppate in Altri cos\u00ec i totali tornano.",
+            "Visual_AxisBg": "Sfondo delle etichette degli assi",
+            "Visual_AxisColor": "Colore delle etichette degli assi",
+            "Visual_AxisFont": "Carattere delle etichette degli assi",
+            "Visual_AxisSize": "Dimensione delle etichette degli assi",
+            "Visual_Blank": "(Vuoto)",
+            "Visual_CellGap": "Spazio tra le celle (px)",
+            "Visual_CellRadius": "Raggio degli angoli (px)",
+            "Visual_ClusterCols": "Ordina le colonne per somiglianza (Pro)",
+            "Visual_ClusterRows": "Ordina le righe per somiglianza (Pro)",
+            "Visual_CollapseAll": "Comprimi tutto",
+            "Visual_ColsOrder": "Ordine delle colonne",
+            "Visual_ColumnWidth": "Larghezza colonna (px)",
+            "Visual_ControlsBg": "Sfondo della barra dei controlli",
+            "Visual_ControlsColor": "Colore delle etichette dei controlli",
+            "Visual_ControlsFont": "Carattere delle etichette dei controlli",
+            "Visual_ControlsPosition": "Controlli",
+            "Visual_ControlsSize": "Dimensione delle etichette dei controlli",
+            "Visual_Ctl_Bar": "Barra dei controlli",
+            "Visual_Ctl_Group": "Raggruppa righe",
+            "Visual_Ctl_Hide": "Nascondi i controlli",
+            "Visual_Ctl_None": "(nessuno)",
+            "Visual_Ctl_Select": "-- scegli --",
+            "Visual_Ctl_Show": "Mostra i controlli",
+            "Visual_Ctl_ShowAs": "Mostra come",
+            "Visual_Ctl_Title": "Vista",
+            "Visual_Ctl_Totals": "Totali",
+            "Visual_Ctl_Value": "Valore",
+            "Visual_Ctl_X": "Asse X",
+            "Visual_Ctl_Y": "Asse Y",
+            "Visual_Dimensions": "Dimensioni",
+            "Visual_DisplayAs": "Visualizza come",
+            "Visual_DistinctFields": "Dettaglio (righe)",
+            "Visual_DistinctPrefix": "Distinti",
+            "Visual_EmptyCells": "Celle vuote",
+            "Visual_ExpandAll": "Espandi tutto",
+            "Visual_HeaderOrientation": "Orientamento intestazione di colonna",
+            "Visual_Heatmap": "Colori della mappa di calore",
+            "Visual_Item_absolute": "Assoluto",
+            "Visual_Item_auto": "Automatico",
+            "Visual_Item_blank": "Vuoto",
+            "Visual_Item_blues": "Blu",
+            "Visual_Item_cividis": "Cividis (daltonismo)",
+            "Visual_Item_classic": "Classico",
+            "Visual_Item_clean": "Pulito",
+            "Visual_Item_compact": "Compatto",
+            "Visual_Item_contrast": "Contrasto",
+            "Visual_Item_custom": "Personalizzato (colori sotto)",
+            "Visual_Item_dash": "Trattino (-)",
+            "Visual_Item_diagonal": "Diagonale (45\u00b0)",
+            "Visual_Item_diverging": "Blu - bianco - rosso",
+            "Visual_Item_github": "Attivit\u00e0 (stile GitHub)",
+            "Visual_Item_gray": "Riempimento grigio",
+            "Visual_Item_greens": "Verdi",
+            "Visual_Item_greys": "Grigi",
+            "Visual_Item_gte": "Maggiore o uguale a",
+            "Visual_Item_hidden": "Nascosti in lettura",
+            "Visual_Item_horizontal": "Orizzontale",
+            "Visual_Item_left": "Pannello sinistro",
+            "Visual_Item_lte": "Minore o uguale a",
+            "Visual_Item_nameAsc": "Nome dalla A alla Z",
+            "Visual_Item_nameDesc": "Nome dalla Z alla A",
+            "Visual_Item_orange": "Arancione",
+            "Visual_Item_pctCol": "% della colonna",
+            "Visual_Item_pctRow": "% della riga",
+            "Visual_Item_pctTotal": "% del totale complessivo",
+            "Visual_Item_purples": "Viola",
+            "Visual_Item_tiles": "Tessere",
+            "Visual_Item_top": "Barra in alto",
+            "Visual_Item_trafficDown": "Verde - giallo - rosso",
+            "Visual_Item_trafficUp": "Rosso - giallo - verde",
+            "Visual_Item_valueAsc": "Totale, dal pi\u00f9 basso",
+            "Visual_Item_valueDesc": "Totale, dal pi\u00f9 alto",
+            "Visual_Item_vertical": "Verticale (90\u00b0)",
+            "Visual_Item_viridis": "Viridis (daltonismo)",
+            "Visual_Item_zero": "Zero (0)",
+            "Visual_Landing": "Aggiungi Dimensioni (almeno 2) e una Misura per creare la matrice dinamica. Facoltativo: un ID in Dettaglio (righe) rende esatte medie e conteggi distinti. Piano Pro su Microsoft AppSource: fino a 10 dimensioni e 5 misure, conteggi distinti, percentuali, totali e gruppi di righe.",
+            "Visual_Layout": "Layout",
+            "Visual_Limited": "Sono mostrate {list}.",
+            "Visual_Limited_Dims": "le prime {n} di {total} dimensioni",
+            "Visual_Limited_Measures": "le prime {n} di {total} misure",
+            "Visual_MaxColor": "Colore del valore massimo",
+            "Visual_MaxCols": "Numero massimo di colonne",
+            "Visual_MaxRows": "Numero massimo di righe",
+            "Visual_Measures": "Misure",
+            "Visual_MidColor": "Colore del valore medio",
+            "Visual_MinColor": "Colore del valore minimo",
+            "Visual_Msg_AddDimension": "Aggiungi almeno una dimensione.",
+            "Visual_Msg_AddMeasure": "Aggiungi almeno una misura.",
+            "Visual_Msg_SelectXY": "Scegli X e Y per iniziare.",
+            "Visual_Msg_TwoDimensions": "Servono almeno 2 dimensioni per generare la matrice.",
+            "Visual_Notice_AvgOfAvg": "Questa \u00e8 una media di medie: Power BI ha calcolato la media del campo al livello di tutte le dimensioni collegate e qui quelle medie si combinano, cos\u00ec ogni combinazione conta uguale con una riga o diecimila. Aggiungi un ID in Dettaglio (righe) \u2014 l\u2019ordine, il ticket o il cliente \u2014 e il visual calcola la media esatta.",
+            "Visual_Notice_Hidden": "{dim}: {n} valori su {total} esclusi dalla matrice e dai totali.",
+            "Visual_Notice_NonAdditive": "Questa misura viene compressa nel visual: Power BI l\u2019ha aggregata al livello di tutte le dimensioni collegate e il resto si combina qui. Se non \u00e8 additiva \u2014 un rapporto, una percentuale \u2014 il numero pu\u00f2 non essere quello atteso. Per un conteggio distinto, metti la colonna in Dimensioni o in Dettaglio (righe) e viene contata esattamente; altrimenti collega solo le dimensioni che confronti o usa una misura additiva.",
+            "Visual_Notice_Others": "{dim}: {n} valori su {total} raggruppati in Altri.",
+            "Visual_Notice_Partial": "Dati parziali: \u00e8 stato raggiunto il limite di righe. Riduci il numero di dimensioni per valori esatti.",
+            "Visual_Others": "Raggruppa il resto in Altri",
+            "Visual_OthersLabel": "Altri",
+            "Visual_RowHeight": "Altezza riga (px)",
+            "Visual_RowsOrder": "Ordine delle righe",
+            "Visual_Rule1": "Regola 1",
+            "Visual_Rule2": "Regola 2",
+            "Visual_Rule3": "Regola 3",
+            "Visual_RuleColor": "Colore",
+            "Visual_RuleOp": "Condizione",
+            "Visual_RuleValue": "Valore",
+            "Visual_Rules": "Regole di colore",
+            "Visual_Rules_Desc": "Una regola colora le celle che la soddisfano, sopra il gradiente. Vince la prima regola soddisfatta. Le percentuali si scrivono come frazione: 0,25 per il 25%.",
+            "Visual_Scheme": "Combinazione di colori",
+            "Visual_ShowTotals": "Mostra i totali (Pro)",
+            "Visual_SortHint": "Fai clic per ordinare le righe per questa colonna",
+            "Visual_Style": "Modello di stile",
+            "Visual_Sub_Labels": "Etichette degli assi",
+            "Visual_Sub_Values": "Valori delle celle",
+            "Visual_Template": "Modello",
+            "Visual_Text": "Testo",
+            "Visual_Total": "Totale",
+            "Visual_ValueColor": "Colore dei valori",
+            "Visual_ValueFont": "Carattere dei valori",
+            "Visual_ValueSize": "Dimensione dei valori",
+            "Visual_Values": "Valori",
+            "Visual_Values_Desc": "Assoluto o percentuale si sceglie nel visual stesso, con l\u2019elenco Mostra come accanto a Valore, e ogni misura ricorda il suo.",
+            "Landing_Tagline": "Incrocia due dimensioni qualsiasi e scopri dove si concentra il valore.",
+            "Landing_TaglineShort": "Scopri dove si concentra il valore.",
+            "Landing_Start": "Inizia in 3 passi",
+            "Landing_Step1": "due o pi\u00f9 colonne: regione, prodotto, mese",
+            "Landing_Step1Short": "due o pi\u00f9 colonne",
+            "Landing_Step2": "il valore da colorare, come le vendite",
+            "Landing_Step2Short": "il valore da colorare",
+            "Landing_Step3": "Scegli le dimensioni di righe e colonne nel pannello laterale",
+            "Landing_Step3Short": "Scegli righe e colonne nel pannello laterale",
+            "Landing_Help": "Aiuto",
+            "Landing_Guide": "Guida",
+            "Landing_GuideSub": "pagina di supporto",
+            "Landing_Video": "Video",
+            "Landing_Product": "Pagina del prodotto",
+            "Landing_Pro": "Fino a 10 dimensioni e 5 misure, conteggi distinti, totali e gruppi di righe. Prova gratuita di 30 giorni su AppSource.",
+            "Landing_ProShort": "10 dimensioni, 5 misure, conteggi distinti, totali. Prova di 30 giorni.",
+            "Landing_Small": "Aggiungi {dims} (2 o pi\u00f9) e {meas}."
+        },
+        "ja-JP": {
+            "Visual_Axes": "\u884c\u3068\u5217",
+            "Visual_Axes_Desc": "[\u81ea\u52d5] \u306f\u30c7\u30fc\u30bf\u306e\u9806\u5e8f\u3092\u4fdd\u3061\u3001\u66dc\u65e5\u3068\u6708\u306f\u30ab\u30ec\u30f3\u30c0\u30fc\u9806\u306b\u4e26\u3079\u307e\u3059\u3002\u6700\u5927\u6570\u3092\u8d85\u3048\u308b\u3068\u3001\u5408\u8a08\u306e\u5c0f\u3055\u3044\u30ab\u30c6\u30b4\u30ea\u306f [\u305d\u306e\u4ed6] \u306b\u307e\u3068\u3081\u3089\u308c\u3001\u5408\u8a08\u306f\u6b63\u3057\u3044\u307e\u307e\u3067\u3059\u3002",
+            "Visual_AxisBg": "\u8ef8\u30e9\u30d9\u30eb\u306e\u80cc\u666f",
+            "Visual_AxisColor": "\u8ef8\u30e9\u30d9\u30eb\u306e\u8272",
+            "Visual_AxisFont": "\u8ef8\u30e9\u30d9\u30eb\u306e\u30d5\u30a9\u30f3\u30c8",
+            "Visual_AxisSize": "\u8ef8\u30e9\u30d9\u30eb\u306e\u30b5\u30a4\u30ba",
+            "Visual_Blank": "(\u7a7a\u767d)",
+            "Visual_CellGap": "\u30bb\u30eb\u306e\u9593\u9694 (px)",
+            "Visual_CellRadius": "\u89d2\u306e\u534a\u5f84 (px)",
+            "Visual_ClusterCols": "\u985e\u4f3c\u5ea6\u3067\u5217\u3092\u4e26\u3079\u66ff\u3048 (Pro)",
+            "Visual_ClusterRows": "\u985e\u4f3c\u5ea6\u3067\u884c\u3092\u4e26\u3079\u66ff\u3048 (Pro)",
+            "Visual_CollapseAll": "\u3059\u3079\u3066\u6298\u308a\u305f\u305f\u3080",
+            "Visual_ColsOrder": "\u5217\u306e\u9806\u5e8f",
+            "Visual_ColumnWidth": "\u5217\u306e\u5e45 (px)",
+            "Visual_ControlsBg": "\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb \u30d0\u30fc\u306e\u80cc\u666f",
+            "Visual_ControlsColor": "\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb \u30e9\u30d9\u30eb\u306e\u8272",
+            "Visual_ControlsFont": "\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb \u30e9\u30d9\u30eb\u306e\u30d5\u30a9\u30f3\u30c8",
+            "Visual_ControlsPosition": "\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb",
+            "Visual_ControlsSize": "\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb \u30e9\u30d9\u30eb\u306e\u30b5\u30a4\u30ba",
+            "Visual_Ctl_Bar": "\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb \u30d0\u30fc",
+            "Visual_Ctl_Group": "\u884c\u306e\u30b0\u30eb\u30fc\u30d7\u5316",
+            "Visual_Ctl_Hide": "\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb\u3092\u96a0\u3059",
+            "Visual_Ctl_None": "(\u306a\u3057)",
+            "Visual_Ctl_Select": "-- \u9078\u629e --",
+            "Visual_Ctl_Show": "\u30b3\u30f3\u30c8\u30ed\u30fc\u30eb\u3092\u8868\u793a",
+            "Visual_Ctl_ShowAs": "\u8868\u793a\u5f62\u5f0f",
+            "Visual_Ctl_Title": "\u8868\u793a",
+            "Visual_Ctl_Totals": "\u5408\u8a08",
+            "Visual_Ctl_Value": "\u5024",
+            "Visual_Ctl_X": "X \u8ef8",
+            "Visual_Ctl_Y": "Y \u8ef8",
+            "Visual_Dimensions": "\u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3",
+            "Visual_DisplayAs": "\u8868\u793a\u65b9\u6cd5",
+            "Visual_DistinctFields": "\u8a73\u7d30 (\u884c)",
+            "Visual_DistinctPrefix": "\u4e00\u610f\u306e",
+            "Visual_EmptyCells": "\u7a7a\u306e\u30bb\u30eb",
+            "Visual_ExpandAll": "\u3059\u3079\u3066\u5c55\u958b",
+            "Visual_HeaderOrientation": "\u5217\u898b\u51fa\u3057\u306e\u5411\u304d",
+            "Visual_Heatmap": "\u30d2\u30fc\u30c8\u30de\u30c3\u30d7\u306e\u8272",
+            "Visual_Item_absolute": "\u7d76\u5bfe\u5024",
+            "Visual_Item_auto": "\u81ea\u52d5",
+            "Visual_Item_blank": "\u7a7a\u767d",
+            "Visual_Item_blues": "\u30d6\u30eb\u30fc\u7cfb",
+            "Visual_Item_cividis": "Cividis\uff08\u8272\u899a\u5bfe\u5fdc\uff09",
+            "Visual_Item_classic": "\u30af\u30e9\u30b7\u30c3\u30af",
+            "Visual_Item_clean": "\u30af\u30ea\u30fc\u30f3",
+            "Visual_Item_compact": "\u30b3\u30f3\u30d1\u30af\u30c8",
+            "Visual_Item_contrast": "\u30b3\u30f3\u30c8\u30e9\u30b9\u30c8",
+            "Visual_Item_custom": "\u30ab\u30b9\u30bf\u30e0 (\u4e0b\u306e\u8272)",
+            "Visual_Item_dash": "\u30c0\u30c3\u30b7\u30e5 (-)",
+            "Visual_Item_diagonal": "\u659c\u3081 (45\u00b0)",
+            "Visual_Item_diverging": "\u9752 - \u767d - \u8d64",
+            "Visual_Item_github": "\u30a2\u30af\u30c6\u30a3\u30d3\u30c6\u30a3 (GitHub \u98a8)",
+            "Visual_Item_gray": "\u7070\u8272\u306e\u5857\u308a\u3064\u3076\u3057",
+            "Visual_Item_greens": "\u30b0\u30ea\u30fc\u30f3\u7cfb",
+            "Visual_Item_greys": "\u30b0\u30ec\u30fc\u7cfb",
+            "Visual_Item_gte": "\u4ee5\u4e0a",
+            "Visual_Item_hidden": "\u95b2\u89a7\u8868\u793a\u3067\u306f\u975e\u8868\u793a",
+            "Visual_Item_horizontal": "\u6a2a",
+            "Visual_Item_left": "\u5de6\u30d1\u30cd\u30eb",
+            "Visual_Item_lte": "\u4ee5\u4e0b",
+            "Visual_Item_nameAsc": "\u540d\u524d A\u2192Z",
+            "Visual_Item_nameDesc": "\u540d\u524d Z\u2192A",
+            "Visual_Item_orange": "\u30aa\u30ec\u30f3\u30b8",
+            "Visual_Item_pctCol": "\u5217\u306b\u5bfe\u3059\u308b %",
+            "Visual_Item_pctRow": "\u884c\u306b\u5bfe\u3059\u308b %",
+            "Visual_Item_pctTotal": "\u7dcf\u8a08\u306b\u5bfe\u3059\u308b %",
+            "Visual_Item_purples": "\u30d1\u30fc\u30d7\u30eb\u7cfb",
+            "Visual_Item_tiles": "\u30bf\u30a4\u30eb",
+            "Visual_Item_top": "\u4e0a\u90e8\u30d0\u30fc",
+            "Visual_Item_trafficDown": "\u7dd1 - \u9ec4 - \u8d64",
+            "Visual_Item_trafficUp": "\u8d64 - \u9ec4 - \u7dd1",
+            "Visual_Item_valueAsc": "\u5408\u8a08\u306e\u5c0f\u3055\u3044\u9806",
+            "Visual_Item_valueDesc": "\u5408\u8a08\u306e\u5927\u304d\u3044\u9806",
+            "Visual_Item_vertical": "\u7e26 (90\u00b0)",
+            "Visual_Item_viridis": "Viridis\uff08\u8272\u899a\u5bfe\u5fdc\uff09",
+            "Visual_Item_zero": "\u30bc\u30ed (0)",
+            "Visual_Landing": "\u30c0\u30a4\u30ca\u30df\u30c3\u30af \u30de\u30c8\u30ea\u30c3\u30af\u30b9\u3092\u4f5c\u308b\u306b\u306f\u3001\u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3 (2 \u3064\u4ee5\u4e0a) \u3068\u30e1\u30b8\u30e3\u30fc\u3092\u8ffd\u52a0\u3057\u307e\u3059\u3002\u4efb\u610f: [\u8a73\u7d30 (\u884c)] \u306b ID \u3092\u5165\u308c\u308b\u3068\u3001\u5e73\u5747\u3068\u4e00\u610f\u306e\u4ef6\u6570\u304c\u6b63\u78ba\u306b\u306a\u308a\u307e\u3059\u3002Microsoft AppSource \u306e Pro \u30d7\u30e9\u30f3: \u6700\u5927 10 \u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3\u3068 5 \u30e1\u30b8\u30e3\u30fc\u3001\u4e00\u610f\u306e\u4ef6\u6570\u3001\u5272\u5408\u3001\u5408\u8a08\u3001\u884c\u30b0\u30eb\u30fc\u30d7\u3002",
+            "Visual_Layout": "\u30ec\u30a4\u30a2\u30a6\u30c8",
+            "Visual_Limited": "\u8868\u793a\u4e2d: {list}\u3002",
+            "Visual_Limited_Dims": "{total} \u500b\u4e2d\u6700\u521d\u306e {n} \u500b\u306e\u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3",
+            "Visual_Limited_Measures": "{total} \u500b\u4e2d\u6700\u521d\u306e {n} \u500b\u306e\u30e1\u30b8\u30e3\u30fc",
+            "Visual_MaxColor": "\u6700\u5927\u5024\u306e\u8272",
+            "Visual_MaxCols": "\u6700\u5927\u5217\u6570",
+            "Visual_MaxRows": "\u6700\u5927\u884c\u6570",
+            "Visual_Measures": "\u30e1\u30b8\u30e3\u30fc",
+            "Visual_MidColor": "\u4e2d\u9593\u5024\u306e\u8272",
+            "Visual_MinColor": "\u6700\u5c0f\u5024\u306e\u8272",
+            "Visual_Msg_AddDimension": "\u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3\u3092 1 \u3064\u4ee5\u4e0a\u8ffd\u52a0\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+            "Visual_Msg_AddMeasure": "\u30e1\u30b8\u30e3\u30fc\u3092 1 \u3064\u4ee5\u4e0a\u8ffd\u52a0\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+            "Visual_Msg_SelectXY": "X \u3068 Y \u3092\u9078\u3093\u3067\u958b\u59cb\u3057\u307e\u3059\u3002",
+            "Visual_Msg_TwoDimensions": "\u30de\u30c8\u30ea\u30c3\u30af\u30b9\u3092\u4f5c\u308b\u306b\u306f 2 \u3064\u4ee5\u4e0a\u306e\u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3\u304c\u5fc5\u8981\u3067\u3059\u3002",
+            "Visual_Notice_AvgOfAvg": "\u3053\u308c\u306f\u5e73\u5747\u306e\u5e73\u5747\u3067\u3059\u3002Power BI \u306f\u30d0\u30a4\u30f3\u30c9\u3055\u308c\u305f\u3059\u3079\u3066\u306e\u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3\u306e\u7c92\u5ea6\u3067\u5e73\u5747\u3057\u3001\u3053\u3053\u3067\u305d\u306e\u5e73\u5747\u3092\u7d44\u307f\u5408\u308f\u305b\u3066\u3044\u308b\u305f\u3081\u3001\u5404\u7d44\u307f\u5408\u308f\u305b\u306f 1 \u884c\u3067\u3082 1 \u4e07\u884c\u3067\u3082\u540c\u3058\u91cd\u307f\u306b\u306a\u308a\u307e\u3059\u3002[\u8a73\u7d30 (\u884c)] \u306b ID (\u6ce8\u6587\u3001\u30c1\u30b1\u30c3\u30c8\u3001\u9867\u5ba2\u306a\u3069) \u3092\u8ffd\u52a0\u3059\u308b\u3068\u3001\u30d3\u30b8\u30e5\u30a2\u30eb\u304c\u6b63\u78ba\u306a\u5e73\u5747\u3092\u8a08\u7b97\u3057\u307e\u3059\u3002",
+            "Visual_Notice_Hidden": "{dim}: {total} \u4ef6\u4e2d {n} \u4ef6\u3092\u8868\u3068\u5408\u8a08\u304b\u3089\u9664\u5916\u3057\u307e\u3057\u305f\u3002",
+            "Visual_Notice_NonAdditive": "\u3053\u306e\u30e1\u30b8\u30e3\u30fc\u306f\u30d3\u30b8\u30e5\u30a2\u30eb\u5185\u3067\u96c6\u7d04\u3055\u308c\u3066\u3044\u307e\u3059\u3002Power BI \u306f\u30d0\u30a4\u30f3\u30c9\u3055\u308c\u305f\u3059\u3079\u3066\u306e\u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3\u306e\u7c92\u5ea6\u3067\u96c6\u8a08\u3057\u3001\u6b8b\u308a\u3092\u3053\u3053\u3067\u7d44\u307f\u5408\u308f\u305b\u307e\u3059\u3002\u52a0\u7b97\u7684\u3067\u306a\u3044\u5834\u5408 (\u6bd4\u7387\u3001\u5272\u5408) \u306f\u671f\u5f85\u3069\u304a\u308a\u306e\u6570\u5024\u306b\u306a\u3089\u306a\u3044\u3053\u3068\u304c\u3042\u308a\u307e\u3059\u3002\u4e00\u610f\u306e\u4ef6\u6570\u306f\u3001\u305d\u306e\u5217\u3092 [\u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3] \u304b [\u8a73\u7d30 (\u884c)] \u306b\u5165\u308c\u308b\u3068\u6b63\u78ba\u306b\u6570\u3048\u307e\u3059\u3002\u305d\u308c\u4ee5\u5916\u306f\u6bd4\u8f03\u3059\u308b\u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3\u3060\u3051\u3092\u30d0\u30a4\u30f3\u30c9\u3059\u308b\u304b\u3001\u52a0\u7b97\u7684\u306a\u30e1\u30b8\u30e3\u30fc\u3092\u4f7f\u3063\u3066\u304f\u3060\u3055\u3044\u3002",
+            "Visual_Notice_Others": "{dim}: {total} \u4ef6\u4e2d {n} \u4ef6\u3092 [\u305d\u306e\u4ed6] \u306b\u307e\u3068\u3081\u307e\u3057\u305f\u3002",
+            "Visual_Notice_Partial": "\u4e00\u90e8\u306e\u30c7\u30fc\u30bf\u306e\u307f\u8868\u793a: \u884c\u306e\u4e0a\u9650\u306b\u9054\u3057\u307e\u3057\u305f\u3002\u6b63\u78ba\u306a\u5024\u306b\u306f\u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3\u3092\u6e1b\u3089\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+            "Visual_Others": "\u6b8b\u308a\u3092 [\u305d\u306e\u4ed6] \u306b\u307e\u3068\u3081\u308b",
+            "Visual_OthersLabel": "\u305d\u306e\u4ed6",
+            "Visual_RowHeight": "\u884c\u306e\u9ad8\u3055 (px)",
+            "Visual_RowsOrder": "\u884c\u306e\u9806\u5e8f",
+            "Visual_Rule1": "\u30eb\u30fc\u30eb 1",
+            "Visual_Rule2": "\u30eb\u30fc\u30eb 2",
+            "Visual_Rule3": "\u30eb\u30fc\u30eb 3",
+            "Visual_RuleColor": "\u8272",
+            "Visual_RuleOp": "\u6761\u4ef6",
+            "Visual_RuleValue": "\u5024",
+            "Visual_Rules": "\u8272\u306e\u30eb\u30fc\u30eb",
+            "Visual_Rules_Desc": "\u30eb\u30fc\u30eb\u306f\u6761\u4ef6\u3092\u6e80\u305f\u3059\u30bb\u30eb\u3092\u3001\u30b0\u30e9\u30c7\u30fc\u30b7\u30e7\u30f3\u3088\u308a\u512a\u5148\u3057\u3066\u6307\u5b9a\u306e\u8272\u3067\u5857\u308a\u307e\u3059\u3002\u6700\u521d\u306b\u4e00\u81f4\u3057\u305f\u30eb\u30fc\u30eb\u304c\u512a\u5148\u3055\u308c\u307e\u3059\u3002\u5272\u5408\u306f\u5c0f\u6570\u3067\u5165\u529b\u3057\u307e\u3059 (25% \u306f 0.25)\u3002",
+            "Visual_Scheme": "\u914d\u8272",
+            "Visual_ShowTotals": "\u5408\u8a08\u3092\u8868\u793a (Pro)",
+            "Visual_SortHint": "\u30af\u30ea\u30c3\u30af\u3059\u308b\u3068\u3053\u306e\u5217\u3067\u884c\u3092\u4e26\u3079\u66ff\u3048\u307e\u3059",
+            "Visual_Style": "\u30b9\u30bf\u30a4\u30eb \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8",
+            "Visual_Sub_Labels": "\u8ef8\u30e9\u30d9\u30eb",
+            "Visual_Sub_Values": "\u30bb\u30eb\u306e\u5024",
+            "Visual_Template": "\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8",
+            "Visual_Text": "\u30c6\u30ad\u30b9\u30c8",
+            "Visual_Total": "\u5408\u8a08",
+            "Visual_ValueColor": "\u5024\u306e\u8272",
+            "Visual_ValueFont": "\u5024\u306e\u30d5\u30a9\u30f3\u30c8",
+            "Visual_ValueSize": "\u5024\u306e\u30b5\u30a4\u30ba",
+            "Visual_Values": "\u5024",
+            "Visual_Values_Desc": "\u7d76\u5bfe\u5024\u304b\u5272\u5408\u304b\u306f\u30d3\u30b8\u30e5\u30a2\u30eb\u5185\u306e [\u5024] \u306e\u6a2a\u306b\u3042\u308b [\u8868\u793a\u5f62\u5f0f] \u3067\u9078\u3073\u3001\u5404\u30e1\u30b8\u30e3\u30fc\u304c\u305d\u306e\u9078\u629e\u3092\u8a18\u61b6\u3057\u307e\u3059\u3002",
+            "Landing_Tagline": "\u4efb\u610f\u306e 2 \u3064\u306e\u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3\u3092\u639b\u3051\u5408\u308f\u305b\u3001\u5024\u304c\u96c6\u4e2d\u3059\u308b\u7b87\u6240\u3092\u78ba\u8a8d\u3057\u307e\u3059\u3002",
+            "Landing_TaglineShort": "\u5024\u304c\u96c6\u4e2d\u3059\u308b\u7b87\u6240\u3092\u78ba\u8a8d\u3057\u307e\u3059\u3002",
+            "Landing_Start": "3 \u30b9\u30c6\u30c3\u30d7\u3067\u958b\u59cb",
+            "Landing_Step1": "2 \u3064\u4ee5\u4e0a\u306e\u5217: \u5730\u57df\u3001\u88fd\u54c1\u3001\u6708",
+            "Landing_Step1Short": "2 \u3064\u4ee5\u4e0a\u306e\u5217",
+            "Landing_Step2": "\u8272\u5206\u3051\u3059\u308b\u5024 (\u58f2\u4e0a\u306a\u3069)",
+            "Landing_Step2Short": "\u8272\u5206\u3051\u3059\u308b\u5024",
+            "Landing_Step3": "\u30b5\u30a4\u30c9 \u30d1\u30cd\u30eb\u3067\u884c\u3068\u5217\u306e\u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3\u3092\u9078\u629e\u3057\u307e\u3059",
+            "Landing_Step3Short": "\u30b5\u30a4\u30c9 \u30d1\u30cd\u30eb\u3067\u884c\u3068\u5217\u3092\u9078\u629e",
+            "Landing_Help": "\u30d8\u30eb\u30d7",
+            "Landing_Guide": "\u30ac\u30a4\u30c9",
+            "Landing_GuideSub": "\u30b5\u30dd\u30fc\u30c8 \u30da\u30fc\u30b8",
+            "Landing_Video": "\u30d3\u30c7\u30aa",
+            "Landing_Product": "\u88fd\u54c1\u30da\u30fc\u30b8",
+            "Landing_Pro": "\u6700\u5927 10 \u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3\u3068 5 \u30e1\u30b8\u30e3\u30fc\u3001\u500b\u5225\u306e\u30ab\u30a6\u30f3\u30c8\u3001\u5408\u8a08\u3001\u884c\u30b0\u30eb\u30fc\u30d7\u3002AppSource \u3067 30 \u65e5\u9593\u306e\u7121\u6599\u8a66\u7528\u7248\u3002",
+            "Landing_ProShort": "10 \u30c7\u30a3\u30e1\u30f3\u30b7\u30e7\u30f3\u30015 \u30e1\u30b8\u30e3\u30fc\u3001\u500b\u5225\u306e\u30ab\u30a6\u30f3\u30c8\u3001\u5408\u8a08\u300230 \u65e5\u9593\u306e\u8a66\u7528\u7248\u3002",
+            "Landing_Small": "{dims} (2 \u3064\u4ee5\u4e0a) \u3068 {meas} \u3092\u8ffd\u52a0\u3057\u307e\u3059\u3002"
+        },
+        "ko-KR": {
+            "Visual_Axes": "\ud589\uacfc \uc5f4",
+            "Visual_Axes_Desc": "[\uc790\ub3d9]\uc740 \ub370\uc774\ud130 \uc21c\uc11c\ub97c \uc720\uc9c0\ud558\uace0 \uc694\uc77c\uacfc \uc6d4\uc740 \ub2ec\ub825 \uc21c\uc11c\ub85c \uc815\ub82c\ud569\ub2c8\ub2e4. \ucd5c\ub300 \uc218\ub97c \ub118\uc73c\uba74 \ud569\uacc4\uac00 \uac00\uc7a5 \uc791\uc740 \ubc94\uc8fc\ub97c [\uae30\ud0c0]\ub85c \ubb36\uc5b4 \ud569\uacc4\uac00 \ub9de\uac8c \uc720\uc9c0\ub429\ub2c8\ub2e4.",
+            "Visual_AxisBg": "\ucd95 \ub808\uc774\ube14 \ubc30\uacbd",
+            "Visual_AxisColor": "\ucd95 \ub808\uc774\ube14 \uc0c9",
+            "Visual_AxisFont": "\ucd95 \ub808\uc774\ube14 \uae00\uaf34",
+            "Visual_AxisSize": "\ucd95 \ub808\uc774\ube14 \ud06c\uae30",
+            "Visual_Blank": "(\ube44\uc5b4 \uc788\uc74c)",
+            "Visual_CellGap": "\uc140 \uac04\uaca9(px)",
+            "Visual_CellRadius": "\ubaa8\uc11c\ub9ac \ubc18\uacbd(px)",
+            "Visual_ClusterCols": "\uc720\uc0ac\ub3c4\ub85c \uc5f4 \uc815\ub82c(Pro)",
+            "Visual_ClusterRows": "\uc720\uc0ac\ub3c4\ub85c \ud589 \uc815\ub82c(Pro)",
+            "Visual_CollapseAll": "\ubaa8\ub450 \uc811\uae30",
+            "Visual_ColsOrder": "\uc5f4 \uc21c\uc11c",
+            "Visual_ColumnWidth": "\uc5f4 \ub108\ube44(px)",
+            "Visual_ControlsBg": "\ucee8\ud2b8\ub864 \ub9c9\ub300 \ubc30\uacbd",
+            "Visual_ControlsColor": "\ucee8\ud2b8\ub864 \ub808\uc774\ube14 \uc0c9",
+            "Visual_ControlsFont": "\ucee8\ud2b8\ub864 \ub808\uc774\ube14 \uae00\uaf34",
+            "Visual_ControlsPosition": "\ucee8\ud2b8\ub864",
+            "Visual_ControlsSize": "\ucee8\ud2b8\ub864 \ub808\uc774\ube14 \ud06c\uae30",
+            "Visual_Ctl_Bar": "\ucee8\ud2b8\ub864 \ub9c9\ub300",
+            "Visual_Ctl_Group": "\ud589 \uadf8\ub8f9\ud654",
+            "Visual_Ctl_Hide": "\ucee8\ud2b8\ub864 \uc228\uae30\uae30",
+            "Visual_Ctl_None": "(\uc5c6\uc74c)",
+            "Visual_Ctl_Select": "-- \uc120\ud0dd --",
+            "Visual_Ctl_Show": "\ucee8\ud2b8\ub864 \ud45c\uc2dc",
+            "Visual_Ctl_ShowAs": "\ud45c\uc2dc \ud615\uc2dd",
+            "Visual_Ctl_Title": "\ubcf4\uae30",
+            "Visual_Ctl_Totals": "\ud569\uacc4",
+            "Visual_Ctl_Value": "\uac12",
+            "Visual_Ctl_X": "X\ucd95",
+            "Visual_Ctl_Y": "Y\ucd95",
+            "Visual_Dimensions": "\ucc28\uc6d0",
+            "Visual_DisplayAs": "\ud45c\uc2dc \ud615\uc2dd",
+            "Visual_DistinctFields": "\uc138\ubd80 \uc815\ubcf4(\ud589)",
+            "Visual_DistinctPrefix": "\uace0\uc720",
+            "Visual_EmptyCells": "\ube48 \uc140",
+            "Visual_ExpandAll": "\ubaa8\ub450 \ud3bc\uce58\uae30",
+            "Visual_HeaderOrientation": "\uc5f4 \uba38\ub9ac\uae00 \ubc29\ud5a5",
+            "Visual_Heatmap": "\ud788\ud2b8\ub9f5 \uc0c9",
+            "Visual_Item_absolute": "\uc808\ub300\uac12",
+            "Visual_Item_auto": "\uc790\ub3d9",
+            "Visual_Item_blank": "\ube48\uce78",
+            "Visual_Item_blues": "\ud30c\ub791 \uacc4\uc5f4",
+            "Visual_Item_cividis": "Cividis(\uc0c9\uac01 \uc774\uc0c1 \ub300\uc751)",
+            "Visual_Item_classic": "\ud074\ub798\uc2dd",
+            "Visual_Item_clean": "\uae54\ub054\ud558\uac8c",
+            "Visual_Item_compact": "\uac04\uacb0\ud558\uac8c",
+            "Visual_Item_contrast": "\ub300\ube44",
+            "Visual_Item_custom": "\uc0ac\uc6a9\uc790 \uc9c0\uc815(\uc544\ub798 \uc0c9)",
+            "Visual_Item_dash": "\ub300\uc2dc(-)",
+            "Visual_Item_diagonal": "\ub300\uac01\uc120(45\u00b0)",
+            "Visual_Item_diverging": "\ud30c\ub791 - \ud770\uc0c9 - \ube68\uac15",
+            "Visual_Item_github": "\ud65c\ub3d9(GitHub \uc2a4\ud0c0\uc77c)",
+            "Visual_Item_gray": "\ud68c\uc0c9 \ucc44\uc6b0\uae30",
+            "Visual_Item_greens": "\ucd08\ub85d \uacc4\uc5f4",
+            "Visual_Item_greys": "\ud68c\uc0c9 \uacc4\uc5f4",
+            "Visual_Item_gte": "\uc774\uc0c1",
+            "Visual_Item_hidden": "\uc77d\uae30 \ubcf4\uae30\uc5d0\uc11c \uc228\uae40",
+            "Visual_Item_horizontal": "\uac00\ub85c",
+            "Visual_Item_left": "\uc67c\ucabd \ud328\ub110",
+            "Visual_Item_lte": "\uc774\ud558",
+            "Visual_Item_nameAsc": "\uc774\ub984 A\u2192Z",
+            "Visual_Item_nameDesc": "\uc774\ub984 Z\u2192A",
+            "Visual_Item_orange": "\uc8fc\ud669",
+            "Visual_Item_pctCol": "\uc5f4 \ub300\ube44 %",
+            "Visual_Item_pctRow": "\ud589 \ub300\ube44 %",
+            "Visual_Item_pctTotal": "\ucd1d\ud569\uacc4 \ub300\ube44 %",
+            "Visual_Item_purples": "\ubcf4\ub77c \uacc4\uc5f4",
+            "Visual_Item_tiles": "\ud0c0\uc77c",
+            "Visual_Item_top": "\uc0c1\ub2e8 \ub9c9\ub300",
+            "Visual_Item_trafficDown": "\ucd08\ub85d - \ub178\ub791 - \ube68\uac15",
+            "Visual_Item_trafficUp": "\ube68\uac15 - \ub178\ub791 - \ucd08\ub85d",
+            "Visual_Item_valueAsc": "\ud569\uacc4 \ub0ae\uc740 \uc21c",
+            "Visual_Item_valueDesc": "\ud569\uacc4 \ub192\uc740 \uc21c",
+            "Visual_Item_vertical": "\uc138\ub85c(90\u00b0)",
+            "Visual_Item_viridis": "Viridis(\uc0c9\uac01 \uc774\uc0c1 \ub300\uc751)",
+            "Visual_Item_zero": "0",
+            "Visual_Landing": "\ub3d9\uc801 \ud589\ub82c\uc744 \ub9cc\ub4e4\ub824\uba74 \ucc28\uc6d0(2\uac1c \uc774\uc0c1)\uacfc \uce21\uc815\uac12\uc744 \ucd94\uac00\ud558\uc138\uc694. \uc120\ud0dd \uc0ac\ud56d: [\uc138\ubd80 \uc815\ubcf4(\ud589)]\uc5d0 ID\ub97c \ub123\uc73c\uba74 \ud3c9\uade0\uacfc \uace0\uc720 \uac1c\uc218\uac00 \uc815\ud655\ud574\uc9d1\ub2c8\ub2e4. Microsoft AppSource Pro \ud50c\ub79c: \ucd5c\ub300 \ucc28\uc6d0 10\uac1c\uc640 \uce21\uc815\uac12 5\uac1c, \uace0\uc720 \uac1c\uc218, \ubc31\ubd84\uc728, \ud569\uacc4, \ud589 \uadf8\ub8f9.",
+            "Visual_Layout": "\ub808\uc774\uc544\uc6c3",
+            "Visual_Limited": "\ud45c\uc2dc: {list}.",
+            "Visual_Limited_Dims": "\ucc28\uc6d0 {total}\uac1c \uc911 \ucc98\uc74c {n}\uac1c",
+            "Visual_Limited_Measures": "\uce21\uc815\uac12 {total}\uac1c \uc911 \ucc98\uc74c {n}\uac1c",
+            "Visual_MaxColor": "\ucd5c\ub313\uac12 \uc0c9",
+            "Visual_MaxCols": "\ucd5c\ub300 \uc5f4 \uc218",
+            "Visual_MaxRows": "\ucd5c\ub300 \ud589 \uc218",
+            "Visual_Measures": "\uce21\uc815\uac12",
+            "Visual_MidColor": "\uc911\uac04\uac12 \uc0c9",
+            "Visual_MinColor": "\ucd5c\uc19f\uac12 \uc0c9",
+            "Visual_Msg_AddDimension": "\ucc28\uc6d0\uc744 \ud558\ub098 \uc774\uc0c1 \ucd94\uac00\ud558\uc138\uc694.",
+            "Visual_Msg_AddMeasure": "\uce21\uc815\uac12\uc744 \ud558\ub098 \uc774\uc0c1 \ucd94\uac00\ud558\uc138\uc694.",
+            "Visual_Msg_SelectXY": "\uc2dc\uc791\ud558\ub824\uba74 X\uc640 Y\ub97c \uc120\ud0dd\ud558\uc138\uc694.",
+            "Visual_Msg_TwoDimensions": "\ud589\ub82c\uc744 \ub9cc\ub4e4\ub824\uba74 \ucc28\uc6d0\uc774 2\uac1c \uc774\uc0c1 \ud544\uc694\ud569\ub2c8\ub2e4.",
+            "Visual_Notice_AvgOfAvg": "\ud3c9\uade0\uc758 \ud3c9\uade0\uc785\ub2c8\ub2e4. Power BI\uac00 \uc5f0\uacb0\ub41c \ubaa8\ub4e0 \ucc28\uc6d0\uc758 \ub2e8\uc704\ub85c \ud3c9\uade0\uc744 \ub0c8\uace0 \uc5ec\uae30\uc11c \uadf8 \ud3c9\uade0\uc744 \uacb0\ud569\ud558\ubbc0\ub85c, \uac01 \uc870\ud569\uc740 \ud589\uc774 \ud558\ub098\ub4e0 \ub9cc \uac1c\ub4e0 \uac19\uc740 \ube44\uc911\uc785\ub2c8\ub2e4. [\uc138\ubd80 \uc815\ubcf4(\ud589)]\uc5d0 ID(\uc8fc\ubb38, \ud2f0\ucf13, \uace0\uac1d)\ub97c \ucd94\uac00\ud558\uba74 \uc2dc\uac01\uc801 \uac1c\uccb4\uac00 \uc815\ud655\ud55c \ud3c9\uade0\uc744 \uacc4\uc0b0\ud569\ub2c8\ub2e4.",
+            "Visual_Notice_Hidden": "{dim}: {total}\uac1c \uc911 {n}\uac1c \uac12\uc774 \ud589\ub82c\uacfc \ud569\uacc4\uc5d0\uc11c \ube60\uc84c\uc2b5\ub2c8\ub2e4.",
+            "Visual_Notice_NonAdditive": "\uc774 \uce21\uc815\uac12\uc740 \uc2dc\uac01\uc801 \uac1c\uccb4\uc5d0\uc11c \ucd95\uc18c\ub429\ub2c8\ub2e4. Power BI\uac00 \uc5f0\uacb0\ub41c \ubaa8\ub4e0 \ucc28\uc6d0\uc758 \ub2e8\uc704\ub85c \uc9d1\uacc4\ud558\uace0 \ub098\uba38\uc9c0\ub294 \uc5ec\uae30\uc11c \uacb0\ud569\ud569\ub2c8\ub2e4. \uac00\uc0b0\uc801\uc774\uc9c0 \uc54a\uc73c\uba74(\ube44\uc728, \ubc31\ubd84\uc728) \uc608\uc0c1\uacfc \ub2e4\ub978 \uc22b\uc790\uac00 \ub098\uc62c \uc218 \uc788\uc2b5\ub2c8\ub2e4. \uace0\uc720 \uac1c\uc218\ub294 \ud574\ub2f9 \uc5f4\uc744 [\ucc28\uc6d0] \ub610\ub294 [\uc138\ubd80 \uc815\ubcf4(\ud589)]\uc5d0 \ub123\uc73c\uba74 \uc815\ud655\ud788 \uc149\ub2c8\ub2e4. \uadf8\ub807\uc9c0 \uc54a\uc73c\uba74 \ube44\uad50\ud558\ub294 \ucc28\uc6d0\ub9cc \uc5f0\uacb0\ud558\uac70\ub098 \uac00\uc0b0\uc801 \uce21\uc815\uac12\uc744 \uc0ac\uc6a9\ud558\uc138\uc694.",
+            "Visual_Notice_Others": "{dim}: {total}\uac1c \uc911 {n}\uac1c \uac12\uc744 [\uae30\ud0c0]\ub85c \ubb36\uc5c8\uc2b5\ub2c8\ub2e4.",
+            "Visual_Notice_Partial": "\uc77c\ubd80 \ub370\uc774\ud130\ub9cc \ud45c\uc2dc: \ud589 \ud55c\ub3c4\uc5d0 \ub3c4\ub2ec\ud588\uc2b5\ub2c8\ub2e4. \uc815\ud655\ud55c \uac12\uc744 \uc704\ud574 \ucc28\uc6d0 \uc218\ub97c \uc904\uc774\uc138\uc694.",
+            "Visual_Others": "\ub098\uba38\uc9c0\ub97c [\uae30\ud0c0]\ub85c \ubb36\uae30",
+            "Visual_OthersLabel": "\uae30\ud0c0",
+            "Visual_RowHeight": "\ud589 \ub192\uc774(px)",
+            "Visual_RowsOrder": "\ud589 \uc21c\uc11c",
+            "Visual_Rule1": "\uaddc\uce59 1",
+            "Visual_Rule2": "\uaddc\uce59 2",
+            "Visual_Rule3": "\uaddc\uce59 3",
+            "Visual_RuleColor": "\uc0c9",
+            "Visual_RuleOp": "\uc870\uac74",
+            "Visual_RuleValue": "\uac12",
+            "Visual_Rules": "\uc0c9 \uaddc\uce59",
+            "Visual_Rules_Desc": "\uaddc\uce59\uc740 \uc870\uac74\uc744 \ub9cc\uc871\ud558\ub294 \uc140\uc744 \uadf8\ub77c\ub370\uc774\uc158\ubcf4\ub2e4 \uc6b0\uc120\ud574 \uc9c0\uc815\ud55c \uc0c9\uc73c\ub85c \uce60\ud569\ub2c8\ub2e4. \ucc98\uc74c \uc77c\uce58\ud55c \uaddc\uce59\uc774 \uc801\uc6a9\ub429\ub2c8\ub2e4. \ubc31\ubd84\uc728\uc740 \uc18c\uc218\ub85c \uc785\ub825\ud569\ub2c8\ub2e4(25%\ub294 0.25).",
+            "Visual_Scheme": "\uc0c9 \uad6c\uc131\ud45c",
+            "Visual_ShowTotals": "\ud569\uacc4 \ud45c\uc2dc(Pro)",
+            "Visual_SortHint": "\ud074\ub9ad\ud558\uba74 \uc774 \uc5f4\ub85c \ud589\uc744 \uc815\ub82c\ud569\ub2c8\ub2e4",
+            "Visual_Style": "\uc2a4\ud0c0\uc77c \ud15c\ud50c\ub9bf",
+            "Visual_Sub_Labels": "\ucd95 \ub808\uc774\ube14",
+            "Visual_Sub_Values": "\uc140 \uac12",
+            "Visual_Template": "\ud15c\ud50c\ub9bf",
+            "Visual_Text": "\ud14d\uc2a4\ud2b8",
+            "Visual_Total": "\ud569\uacc4",
+            "Visual_ValueColor": "\uac12 \uc0c9",
+            "Visual_ValueFont": "\uac12 \uae00\uaf34",
+            "Visual_ValueSize": "\uac12 \ud06c\uae30",
+            "Visual_Values": "\uac12",
+            "Visual_Values_Desc": "\uc808\ub300\uac12 \ub610\ub294 \ubc31\ubd84\uc728\uc740 \uc2dc\uac01\uc801 \uac1c\uccb4\uc758 [\uac12] \uc606 [\ud45c\uc2dc \ud615\uc2dd] \ubaa9\ub85d\uc5d0\uc11c \uace0\ub974\uba70, \uac01 \uce21\uc815\uac12\uc774 \uc120\ud0dd\uc744 \uae30\uc5b5\ud569\ub2c8\ub2e4.",
+            "Landing_Tagline": "\uc784\uc758\uc758 \ub450 \ucc28\uc6d0\uc744 \uad50\ucc28\ud558\uc5ec \uac12\uc774 \uc9d1\uc911\ub418\ub294 \uacf3\uc744 \ud655\uc778\ud558\uc138\uc694.",
+            "Landing_TaglineShort": "\uac12\uc774 \uc9d1\uc911\ub418\ub294 \uacf3\uc744 \ud655\uc778\ud558\uc138\uc694.",
+            "Landing_Start": "3\ub2e8\uacc4\ub85c \uc2dc\uc791",
+            "Landing_Step1": "\ub450 \uac1c \uc774\uc0c1\uc758 \uc5f4: \uc9c0\uc5ed, \uc81c\ud488, \uc6d4",
+            "Landing_Step1Short": "\ub450 \uac1c \uc774\uc0c1\uc758 \uc5f4",
+            "Landing_Step2": "\uc0c9\uc73c\ub85c \ud45c\uc2dc\ud560 \uac12(\uc608: \ub9e4\ucd9c)",
+            "Landing_Step2Short": "\uc0c9\uc73c\ub85c \ud45c\uc2dc\ud560 \uac12",
+            "Landing_Step3": "\uce21\uba74 \ud328\ub110\uc5d0\uc11c \ud589\uacfc \uc5f4 \ucc28\uc6d0\uc744 \uc120\ud0dd\ud558\uc138\uc694",
+            "Landing_Step3Short": "\uce21\uba74 \ud328\ub110\uc5d0\uc11c \ud589\uacfc \uc5f4 \uc120\ud0dd",
+            "Landing_Help": "\ub3c4\uc6c0\ub9d0",
+            "Landing_Guide": "\uac00\uc774\ub4dc",
+            "Landing_GuideSub": "\uc9c0\uc6d0 \ud398\uc774\uc9c0",
+            "Landing_Video": "\ub3d9\uc601\uc0c1",
+            "Landing_Product": "\uc81c\ud488 \ud398\uc774\uc9c0",
+            "Landing_Pro": "\ucd5c\ub300 10\uac1c \ucc28\uc6d0\uacfc 5\uac1c \uce21\uc815\uac12, \uace0\uc720 \uac1c\uc218, \ud569\uacc4 \ubc0f \ud589 \uadf8\ub8f9. AppSource\uc5d0\uc11c 30\uc77c \ubb34\ub8cc \ud3c9\uac00\ud310.",
+            "Landing_ProShort": "10\uac1c \ucc28\uc6d0, 5\uac1c \uce21\uc815\uac12, \uace0\uc720 \uac1c\uc218, \ud569\uacc4. 30\uc77c \ud3c9\uac00\ud310.",
+            "Landing_Small": "{dims}(2\uac1c \uc774\uc0c1)\uc640 {meas}\uc744(\ub97c) \ucd94\uac00\ud558\uc138\uc694."
+        },
+        "nl-NL": {
+            "Visual_Axes": "Rijen en kolommen",
+            "Visual_Axes_Desc": "Automatisch houdt de gegevensvolgorde aan en zet weekdagen en maanden in kalendervolgorde. Boven het maximum worden de categorie\u00ebn met de kleinste totalen gegroepeerd als Overige, zodat de totalen kloppen.",
+            "Visual_AxisBg": "Achtergrond aslabels",
+            "Visual_AxisColor": "Kleur aslabels",
+            "Visual_AxisFont": "Lettertype aslabels",
+            "Visual_AxisSize": "Grootte aslabels",
+            "Visual_Blank": "(Leeg)",
+            "Visual_CellGap": "Ruimte tussen cellen (px)",
+            "Visual_CellRadius": "Hoekradius (px)",
+            "Visual_ClusterCols": "Kolommen op gelijkenis ordenen (Pro)",
+            "Visual_ClusterRows": "Rijen op gelijkenis ordenen (Pro)",
+            "Visual_CollapseAll": "Alles samenvouwen",
+            "Visual_ColsOrder": "Kolomvolgorde",
+            "Visual_ColumnWidth": "Kolombreedte (px)",
+            "Visual_ControlsBg": "Achtergrond bedieningsbalk",
+            "Visual_ControlsColor": "Kleur bedieningslabels",
+            "Visual_ControlsFont": "Lettertype bedieningslabels",
+            "Visual_ControlsPosition": "Bediening",
+            "Visual_ControlsSize": "Grootte bedieningslabels",
+            "Visual_Ctl_Bar": "Bedieningsbalk",
+            "Visual_Ctl_Group": "Rijen groeperen",
+            "Visual_Ctl_Hide": "Bediening verbergen",
+            "Visual_Ctl_None": "(geen)",
+            "Visual_Ctl_Select": "-- kiezen --",
+            "Visual_Ctl_Show": "Bediening weergeven",
+            "Visual_Ctl_ShowAs": "Weergeven als",
+            "Visual_Ctl_Title": "Weergave",
+            "Visual_Ctl_Totals": "Totalen",
+            "Visual_Ctl_Value": "Waarde",
+            "Visual_Ctl_X": "X-as",
+            "Visual_Ctl_Y": "Y-as",
+            "Visual_Dimensions": "Dimensies",
+            "Visual_DisplayAs": "Weergeven als",
+            "Visual_DistinctFields": "Detail (rijen)",
+            "Visual_DistinctPrefix": "Unieke",
+            "Visual_EmptyCells": "Lege cellen",
+            "Visual_ExpandAll": "Alles uitvouwen",
+            "Visual_HeaderOrientation": "Richting kolomkop",
+            "Visual_Heatmap": "Heatmapkleuren",
+            "Visual_Item_absolute": "Absoluut",
+            "Visual_Item_auto": "Automatisch",
+            "Visual_Item_blank": "Leeg",
+            "Visual_Item_blues": "Blauwtinten",
+            "Visual_Item_cividis": "Cividis (kleurenblind)",
+            "Visual_Item_classic": "Klassiek",
+            "Visual_Item_clean": "Strak",
+            "Visual_Item_compact": "Compact",
+            "Visual_Item_contrast": "Contrast",
+            "Visual_Item_custom": "Aangepast (kleuren hieronder)",
+            "Visual_Item_dash": "Streepje (-)",
+            "Visual_Item_diagonal": "Diagonaal (45\u00b0)",
+            "Visual_Item_diverging": "Blauw - wit - rood",
+            "Visual_Item_github": "Activiteit (GitHub-stijl)",
+            "Visual_Item_gray": "Grijze vulling",
+            "Visual_Item_greens": "Groentinten",
+            "Visual_Item_greys": "Grijstinten",
+            "Visual_Item_gte": "Groter dan of gelijk aan",
+            "Visual_Item_hidden": "Verborgen in leesweergave",
+            "Visual_Item_horizontal": "Horizontaal",
+            "Visual_Item_left": "Linkerpaneel",
+            "Visual_Item_lte": "Kleiner dan of gelijk aan",
+            "Visual_Item_nameAsc": "Naam A tot Z",
+            "Visual_Item_nameDesc": "Naam Z tot A",
+            "Visual_Item_orange": "Oranje",
+            "Visual_Item_pctCol": "% van kolom",
+            "Visual_Item_pctRow": "% van rij",
+            "Visual_Item_pctTotal": "% van eindtotaal",
+            "Visual_Item_purples": "Paarstinten",
+            "Visual_Item_tiles": "Tegels",
+            "Visual_Item_top": "Bovenbalk",
+            "Visual_Item_trafficDown": "Groen - geel - rood",
+            "Visual_Item_trafficUp": "Rood - geel - groen",
+            "Visual_Item_valueAsc": "Totaal, laagste eerst",
+            "Visual_Item_valueDesc": "Totaal, hoogste eerst",
+            "Visual_Item_vertical": "Verticaal (90\u00b0)",
+            "Visual_Item_viridis": "Viridis (kleurenblind)",
+            "Visual_Item_zero": "Nul (0)",
+            "Visual_Landing": "Voeg Dimensies (minstens 2) en een Meting toe om de dynamische matrix te maken. Optioneel: een ID in Detail (rijen) maakt gemiddelden en unieke aantallen exact. Pro-abonnement op Microsoft AppSource: tot 10 dimensies en 5 metingen, unieke aantallen, percentages, totalen en rijgroepen.",
+            "Visual_Layout": "Indeling",
+            "Visual_Limited": "Getoond: {list}.",
+            "Visual_Limited_Dims": "de eerste {n} van {total} dimensies",
+            "Visual_Limited_Measures": "de eerste {n} van {total} metingen",
+            "Visual_MaxColor": "Kleur maximumwaarde",
+            "Visual_MaxCols": "Maximaal aantal kolommen",
+            "Visual_MaxRows": "Maximaal aantal rijen",
+            "Visual_Measures": "Metingen",
+            "Visual_MidColor": "Kleur middelwaarde",
+            "Visual_MinColor": "Kleur minimumwaarde",
+            "Visual_Msg_AddDimension": "Voeg minstens \u00e9\u00e9n dimensie toe.",
+            "Visual_Msg_AddMeasure": "Voeg minstens \u00e9\u00e9n meting toe.",
+            "Visual_Msg_SelectXY": "Kies X en Y om te beginnen.",
+            "Visual_Msg_TwoDimensions": "Er zijn minstens 2 dimensies nodig voor de matrix.",
+            "Visual_Notice_AvgOfAvg": "Dit is een gemiddelde van gemiddelden: Power BI heeft het veld gemiddeld op het niveau van alle gekoppelde dimensies en die gemiddelden worden hier gecombineerd, dus elke combinatie telt even zwaar, met \u00e9\u00e9n rij of tienduizend. Voeg een ID toe aan Detail (rijen) \u2014 de order, het ticket of de klant \u2014 en de visual berekent het exacte gemiddelde.",
+            "Visual_Notice_Hidden": "{dim}: {n} van {total} waarden weggelaten, ook uit de totalen.",
+            "Visual_Notice_NonAdditive": "Deze meting wordt in de visual samengevoegd: Power BI heeft haar geaggregeerd op het niveau van alle gekoppelde dimensies en de rest wordt hier gecombineerd. Is ze niet additief \u2014 een verhouding, een percentage \u2014 dan is het getal mogelijk niet wat u verwacht. Voor een uniek aantal zet u de kolom in Dimensies of Detail (rijen) en wordt exact geteld; anders koppelt u alleen de dimensies die u vergelijkt of gebruikt u een additieve meting.",
+            "Visual_Notice_Others": "{dim}: {n} van {total} waarden gegroepeerd als Overige.",
+            "Visual_Notice_Partial": "Gedeeltelijke gegevens: de rijlimiet is bereikt. Verminder het aantal dimensies voor exacte waarden.",
+            "Visual_Others": "De rest groeperen als Overige",
+            "Visual_OthersLabel": "Overige",
+            "Visual_RowHeight": "Rijhoogte (px)",
+            "Visual_RowsOrder": "Rijvolgorde",
+            "Visual_Rule1": "Regel 1",
+            "Visual_Rule2": "Regel 2",
+            "Visual_Rule3": "Regel 3",
+            "Visual_RuleColor": "Kleur",
+            "Visual_RuleOp": "Voorwaarde",
+            "Visual_RuleValue": "Waarde",
+            "Visual_Rules": "Kleurregels",
+            "Visual_Rules_Desc": "Een regel kleurt de cellen die eraan voldoen, boven het verloop. De eerste regel die klopt, wint. Percentages schrijft u als breuk: 0,25 voor 25%.",
+            "Visual_Scheme": "Kleurenschema",
+            "Visual_ShowTotals": "Totalen weergeven (Pro)",
+            "Visual_SortHint": "Klik om de rijen op deze kolom te sorteren",
+            "Visual_Style": "Stijlsjabloon",
+            "Visual_Sub_Labels": "Aslabels",
+            "Visual_Sub_Values": "Celwaarden",
+            "Visual_Template": "Sjabloon",
+            "Visual_Text": "Tekst",
+            "Visual_Total": "Totaal",
+            "Visual_ValueColor": "Waardekleur",
+            "Visual_ValueFont": "Lettertype waarden",
+            "Visual_ValueSize": "Grootte waarden",
+            "Visual_Values": "Waarden",
+            "Visual_Values_Desc": "Absoluut of percentage kiest u in de visual zelf, met de lijst Weergeven als naast Waarde, en elke meting onthoudt haar keuze.",
+            "Landing_Tagline": "Kruis twee dimensies en zie waar de waarde zich concentreert.",
+            "Landing_TaglineShort": "Zie waar de waarde zich concentreert.",
+            "Landing_Start": "Begin in 3 stappen",
+            "Landing_Step1": "twee of meer kolommen: regio, product, maand",
+            "Landing_Step1Short": "twee of meer kolommen",
+            "Landing_Step2": "de waarde die wordt gekleurd, zoals omzet",
+            "Landing_Step2Short": "de waarde die wordt gekleurd",
+            "Landing_Step3": "Kies de rij- en kolomdimensies in het zijpaneel",
+            "Landing_Step3Short": "Kies rijen en kolommen in het zijpaneel",
+            "Landing_Help": "Help",
+            "Landing_Guide": "Handleiding",
+            "Landing_GuideSub": "ondersteuningspagina",
+            "Landing_Video": "Video",
+            "Landing_Product": "Productpagina",
+            "Landing_Pro": "Tot 10 dimensies en 5 metingen, unieke aantallen, totalen en rijgroepen. 30 dagen gratis proberen via AppSource.",
+            "Landing_ProShort": "10 dimensies, 5 metingen, unieke aantallen, totalen. 30 dagen proberen.",
+            "Landing_Small": "Voeg {dims} (2 of meer) en {meas} toe."
+        },
+        "pl-PL": {
+            "Visual_Axes": "Wiersze i kolumny",
+            "Visual_Axes_Desc": "Automatycznie zachowuje kolejno\u015b\u0107 danych, a dni tygodnia i miesi\u0105ce ustawia kalendarzowo. Powy\u017cej maksimum kategorie o najmniejszych sumach s\u0105 grupowane jako Inne, aby sumy si\u0119 zgadza\u0142y.",
+            "Visual_AxisBg": "T\u0142o etykiet osi",
+            "Visual_AxisColor": "Kolor etykiet osi",
+            "Visual_AxisFont": "Czcionka etykiet osi",
+            "Visual_AxisSize": "Rozmiar etykiet osi",
+            "Visual_Blank": "(Puste)",
+            "Visual_CellGap": "Odst\u0119p mi\u0119dzy kom\u00f3rkami (px)",
+            "Visual_CellRadius": "Promie\u0144 naro\u017cnik\u00f3w (px)",
+            "Visual_ClusterCols": "Porz\u0105dkuj kolumny wg podobie\u0144stwa (Pro)",
+            "Visual_ClusterRows": "Porz\u0105dkuj wiersze wg podobie\u0144stwa (Pro)",
+            "Visual_CollapseAll": "Zwi\u0144 wszystko",
+            "Visual_ColsOrder": "Kolejno\u015b\u0107 kolumn",
+            "Visual_ColumnWidth": "Szeroko\u015b\u0107 kolumny (px)",
+            "Visual_ControlsBg": "T\u0142o paska sterowania",
+            "Visual_ControlsColor": "Kolor etykiet sterowania",
+            "Visual_ControlsFont": "Czcionka etykiet sterowania",
+            "Visual_ControlsPosition": "Sterowanie",
+            "Visual_ControlsSize": "Rozmiar etykiet sterowania",
+            "Visual_Ctl_Bar": "Pasek sterowania",
+            "Visual_Ctl_Group": "Grupuj wiersze",
+            "Visual_Ctl_Hide": "Ukryj sterowanie",
+            "Visual_Ctl_None": "(brak)",
+            "Visual_Ctl_Select": "-- wybierz --",
+            "Visual_Ctl_Show": "Poka\u017c sterowanie",
+            "Visual_Ctl_ShowAs": "Poka\u017c jako",
+            "Visual_Ctl_Title": "Widok",
+            "Visual_Ctl_Totals": "Sumy",
+            "Visual_Ctl_Value": "Warto\u015b\u0107",
+            "Visual_Ctl_X": "O\u015b X",
+            "Visual_Ctl_Y": "O\u015b Y",
+            "Visual_Dimensions": "Wymiary",
+            "Visual_DisplayAs": "Wy\u015bwietl jako",
+            "Visual_DistinctFields": "Szczeg\u00f3\u0142y (wiersze)",
+            "Visual_DistinctPrefix": "Unikatowe",
+            "Visual_EmptyCells": "Puste kom\u00f3rki",
+            "Visual_ExpandAll": "Rozwi\u0144 wszystko",
+            "Visual_HeaderOrientation": "Orientacja nag\u0142\u00f3wka kolumny",
+            "Visual_Heatmap": "Kolory mapy cieplnej",
+            "Visual_Item_absolute": "Bezwzgl\u0119dnie",
+            "Visual_Item_auto": "Automatycznie",
+            "Visual_Item_blank": "Puste",
+            "Visual_Item_blues": "Niebieskie",
+            "Visual_Item_cividis": "Cividis (daltonizm)",
+            "Visual_Item_classic": "Klasyczny",
+            "Visual_Item_clean": "Czysty",
+            "Visual_Item_compact": "Kompaktowy",
+            "Visual_Item_contrast": "Kontrast",
+            "Visual_Item_custom": "W\u0142asny (kolory poni\u017cej)",
+            "Visual_Item_dash": "Kreska (-)",
+            "Visual_Item_diagonal": "Uko\u015bnie (45\u00b0)",
+            "Visual_Item_diverging": "Niebieski - bia\u0142y - czerwony",
+            "Visual_Item_github": "Aktywno\u015b\u0107 (styl GitHub)",
+            "Visual_Item_gray": "Szare wype\u0142nienie",
+            "Visual_Item_greens": "Zielone",
+            "Visual_Item_greys": "Szaro\u015bci",
+            "Visual_Item_gte": "Wi\u0119ksze lub r\u00f3wne",
+            "Visual_Item_hidden": "Ukryte w widoku do odczytu",
+            "Visual_Item_horizontal": "Poziomo",
+            "Visual_Item_left": "Panel po lewej",
+            "Visual_Item_lte": "Mniejsze lub r\u00f3wne",
+            "Visual_Item_nameAsc": "Nazwa od A do Z",
+            "Visual_Item_nameDesc": "Nazwa od Z do A",
+            "Visual_Item_orange": "Pomara\u0144czowy",
+            "Visual_Item_pctCol": "% kolumny",
+            "Visual_Item_pctRow": "% wiersza",
+            "Visual_Item_pctTotal": "% sumy ca\u0142kowitej",
+            "Visual_Item_purples": "Fioletowe",
+            "Visual_Item_tiles": "Kafelki",
+            "Visual_Item_top": "Pasek u g\u00f3ry",
+            "Visual_Item_trafficDown": "Zielony - \u017c\u00f3\u0142ty - czerwony",
+            "Visual_Item_trafficUp": "Czerwony - \u017c\u00f3\u0142ty - zielony",
+            "Visual_Item_valueAsc": "Suma, od najni\u017cszej",
+            "Visual_Item_valueDesc": "Suma, od najwy\u017cszej",
+            "Visual_Item_vertical": "Pionowo (90\u00b0)",
+            "Visual_Item_viridis": "Viridis (daltonizm)",
+            "Visual_Item_zero": "Zero (0)",
+            "Visual_Landing": "Dodaj Wymiary (co najmniej 2) i Miar\u0119, aby utworzy\u0107 dynamiczn\u0105 macierz. Opcjonalnie: ID w Szczeg\u00f3\u0142y (wiersze) sprawia, \u017ce \u015brednie i liczby unikatowych s\u0105 dok\u0142adne. Plan Pro w Microsoft AppSource: do 10 wymiar\u00f3w i 5 miar, liczby unikatowych, procenty, sumy i grupy wierszy.",
+            "Visual_Layout": "Uk\u0142ad",
+            "Visual_Limited": "Wy\u015bwietlane: {list}.",
+            "Visual_Limited_Dims": "pierwsze {n} z {total} wymiar\u00f3w",
+            "Visual_Limited_Measures": "pierwsze {n} z {total} miar",
+            "Visual_MaxColor": "Kolor warto\u015bci maksymalnej",
+            "Visual_MaxCols": "Maksymalna liczba kolumn",
+            "Visual_MaxRows": "Maksymalna liczba wierszy",
+            "Visual_Measures": "Miary",
+            "Visual_MidColor": "Kolor warto\u015bci \u015brodkowej",
+            "Visual_MinColor": "Kolor warto\u015bci minimalnej",
+            "Visual_Msg_AddDimension": "Dodaj co najmniej jeden wymiar.",
+            "Visual_Msg_AddMeasure": "Dodaj co najmniej jedn\u0105 miar\u0119.",
+            "Visual_Msg_SelectXY": "Wybierz X i Y, aby zacz\u0105\u0107.",
+            "Visual_Msg_TwoDimensions": "Do utworzenia macierzy potrzebne s\u0105 co najmniej 2 wymiary.",
+            "Visual_Notice_AvgOfAvg": "To jest \u015brednia ze \u015brednich: Power BI u\u015bredni\u0142 pole na poziomie wszystkich powi\u0105zanych wymiar\u00f3w, a tutaj te \u015brednie s\u0105 \u0142\u0105czone, wi\u0119c ka\u017cda kombinacja liczy si\u0119 tak samo, czy ma jeden wiersz, czy dziesi\u0119\u0107 tysi\u0119cy. Dodaj ID w Szczeg\u00f3\u0142y (wiersze) \u2014 zam\u00f3wienie, zg\u0142oszenie lub klienta \u2014 a wizualizacja obliczy dok\u0142adn\u0105 \u015bredni\u0105.",
+            "Visual_Notice_Hidden": "{dim}: {n} z {total} warto\u015bci pomini\u0119to, tak\u017ce w sumach.",
+            "Visual_Notice_NonAdditive": "Ta miara jest zwijana w wizualizacji: Power BI zagregowa\u0142 j\u0105 na poziomie wszystkich powi\u0105zanych wymiar\u00f3w, a reszt\u0119 \u0142\u0105czy si\u0119 tutaj. Je\u015bli nie jest addytywna \u2014 stosunek, procent \u2014 wynik mo\u017ce by\u0107 inny ni\u017c oczekiwany. Dla liczby unikatowych umie\u015b\u0107 kolumn\u0119 w Wymiary lub Szczeg\u00f3\u0142y (wiersze), a zostanie policzona dok\u0142adnie; w przeciwnym razie powi\u0105\u017c tylko por\u00f3wnywane wymiary lub u\u017cyj miary addytywnej.",
+            "Visual_Notice_Others": "{dim}: {n} z {total} warto\u015bci zgrupowano jako Inne.",
+            "Visual_Notice_Partial": "Dane cz\u0119\u015bciowe: osi\u0105gni\u0119to limit wierszy. Zmniejsz liczb\u0119 wymiar\u00f3w, aby uzyska\u0107 dok\u0142adne warto\u015bci.",
+            "Visual_Others": "Grupuj reszt\u0119 jako Inne",
+            "Visual_OthersLabel": "Inne",
+            "Visual_RowHeight": "Wysoko\u015b\u0107 wiersza (px)",
+            "Visual_RowsOrder": "Kolejno\u015b\u0107 wierszy",
+            "Visual_Rule1": "Regu\u0142a 1",
+            "Visual_Rule2": "Regu\u0142a 2",
+            "Visual_Rule3": "Regu\u0142a 3",
+            "Visual_RuleColor": "Kolor",
+            "Visual_RuleOp": "Warunek",
+            "Visual_RuleValue": "Warto\u015b\u0107",
+            "Visual_Rules": "Regu\u0142y kolor\u00f3w",
+            "Visual_Rules_Desc": "Regu\u0142a koloruje spe\u0142niaj\u0105ce j\u0105 kom\u00f3rki, ponad gradientem. Wygrywa pierwsza spe\u0142niona regu\u0142a. Procenty wpisuje si\u0119 jako u\u0142amek: 0,25 dla 25%.",
+            "Visual_Scheme": "Schemat kolor\u00f3w",
+            "Visual_ShowTotals": "Poka\u017c sumy (Pro)",
+            "Visual_SortHint": "Kliknij, aby posortowa\u0107 wiersze wed\u0142ug tej kolumny",
+            "Visual_Style": "Szablon stylu",
+            "Visual_Sub_Labels": "Etykiety osi",
+            "Visual_Sub_Values": "Warto\u015bci kom\u00f3rek",
+            "Visual_Template": "Szablon",
+            "Visual_Text": "Tekst",
+            "Visual_Total": "Suma",
+            "Visual_ValueColor": "Kolor warto\u015bci",
+            "Visual_ValueFont": "Czcionka warto\u015bci",
+            "Visual_ValueSize": "Rozmiar warto\u015bci",
+            "Visual_Values": "Warto\u015bci",
+            "Visual_Values_Desc": "Warto\u015b\u0107 bezwzgl\u0119dn\u0105 lub procent wybiera si\u0119 w samej wizualizacji, na li\u015bcie Poka\u017c jako obok Warto\u015b\u0107, a ka\u017cda miara pami\u0119ta sw\u00f3j wyb\u00f3r.",
+            "Landing_Tagline": "Zestaw dowolne dwa wymiary i zobacz, gdzie koncentruje si\u0119 warto\u015b\u0107.",
+            "Landing_TaglineShort": "Zobacz, gdzie koncentruje si\u0119 warto\u015b\u0107.",
+            "Landing_Start": "Zacznij w 3 krokach",
+            "Landing_Step1": "dwie lub wi\u0119cej kolumn: region, produkt, miesi\u0105c",
+            "Landing_Step1Short": "dwie lub wi\u0119cej kolumn",
+            "Landing_Step2": "warto\u015b\u0107 do pokolorowania, np. sprzeda\u017c",
+            "Landing_Step2Short": "warto\u015b\u0107 do pokolorowania",
+            "Landing_Step3": "Wybierz wymiary wierszy i kolumn w panelu bocznym",
+            "Landing_Step3Short": "Wybierz wiersze i kolumny w panelu bocznym",
+            "Landing_Help": "Pomoc",
+            "Landing_Guide": "Przewodnik",
+            "Landing_GuideSub": "strona pomocy",
+            "Landing_Video": "Wideo",
+            "Landing_Product": "Strona produktu",
+            "Landing_Pro": "Do 10 wymiar\u00f3w i 5 miar, liczby unikatowe, sumy i grupy wierszy. 30-dniowy bezp\u0142atny okres pr\u00f3bny w AppSource.",
+            "Landing_ProShort": "10 wymiar\u00f3w, 5 miar, liczby unikatowe, sumy. 30 dni pr\u00f3bnie.",
+            "Landing_Small": "Dodaj {dims} (2 lub wi\u0119cej) i {meas}."
+        },
+        "pt-BR": {
+            "Visual_Axes": "Linhas e colunas",
+            "Visual_Axes_Desc": "Autom\u00e1tico mant\u00e9m a ordem dos dados e coloca dias da semana e meses na ordem do calend\u00e1rio. Acima do m\u00e1ximo, as categorias com menor total s\u00e3o agrupadas em Outros para que os totais continuem corretos.",
+            "Visual_AxisBg": "Fundo dos r\u00f3tulos do eixo",
+            "Visual_AxisColor": "Cor dos r\u00f3tulos do eixo",
+            "Visual_AxisFont": "Fonte dos r\u00f3tulos do eixo",
+            "Visual_AxisSize": "Tamanho dos r\u00f3tulos do eixo",
+            "Visual_Blank": "(Em branco)",
+            "Visual_CellGap": "Espa\u00e7o entre c\u00e9lulas (px)",
+            "Visual_CellRadius": "Raio dos cantos (px)",
+            "Visual_ClusterCols": "Ordenar colunas por semelhan\u00e7a (Pro)",
+            "Visual_ClusterRows": "Ordenar linhas por semelhan\u00e7a (Pro)",
+            "Visual_CollapseAll": "Recolher tudo",
+            "Visual_ColsOrder": "Ordem das colunas",
+            "Visual_ColumnWidth": "Largura da coluna (px)",
+            "Visual_ControlsBg": "Fundo da barra de controles",
+            "Visual_ControlsColor": "Cor dos r\u00f3tulos de controle",
+            "Visual_ControlsFont": "Fonte dos r\u00f3tulos de controle",
+            "Visual_ControlsPosition": "Controles",
+            "Visual_ControlsSize": "Tamanho dos r\u00f3tulos de controle",
+            "Visual_Ctl_Bar": "Barra de controles",
+            "Visual_Ctl_Group": "Agrupar linhas",
+            "Visual_Ctl_Hide": "Ocultar controles",
+            "Visual_Ctl_None": "(nenhum)",
+            "Visual_Ctl_Select": "-- escolher --",
+            "Visual_Ctl_Show": "Mostrar controles",
+            "Visual_Ctl_ShowAs": "Mostrar como",
+            "Visual_Ctl_Title": "Exibi\u00e7\u00e3o",
+            "Visual_Ctl_Totals": "Totais",
+            "Visual_Ctl_Value": "Valor",
+            "Visual_Ctl_X": "Eixo X",
+            "Visual_Ctl_Y": "Eixo Y",
+            "Visual_Dimensions": "Dimens\u00f5es",
+            "Visual_DisplayAs": "Exibir como",
+            "Visual_DistinctFields": "Detalhe (linhas)",
+            "Visual_DistinctPrefix": "Distintos",
+            "Visual_EmptyCells": "C\u00e9lulas vazias",
+            "Visual_ExpandAll": "Expandir tudo",
+            "Visual_HeaderOrientation": "Orienta\u00e7\u00e3o do cabe\u00e7alho de coluna",
+            "Visual_Heatmap": "Cores do mapa de calor",
+            "Visual_Item_absolute": "Absoluto",
+            "Visual_Item_auto": "Autom\u00e1tico",
+            "Visual_Item_blank": "Em branco",
+            "Visual_Item_blues": "Azuis",
+            "Visual_Item_cividis": "Cividis (daltonismo)",
+            "Visual_Item_classic": "Cl\u00e1ssico",
+            "Visual_Item_clean": "Limpo",
+            "Visual_Item_compact": "Compacto",
+            "Visual_Item_contrast": "Contraste",
+            "Visual_Item_custom": "Personalizado (cores abaixo)",
+            "Visual_Item_dash": "Tra\u00e7o (-)",
+            "Visual_Item_diagonal": "Diagonal (45\u00b0)",
+            "Visual_Item_diverging": "Azul - branco - vermelho",
+            "Visual_Item_github": "Atividade (estilo GitHub)",
+            "Visual_Item_gray": "Preenchimento cinza",
+            "Visual_Item_greens": "Verdes",
+            "Visual_Item_greys": "Cinzas",
+            "Visual_Item_gte": "Maior ou igual a",
+            "Visual_Item_hidden": "Ocultos no modo de leitura",
+            "Visual_Item_horizontal": "Horizontal",
+            "Visual_Item_left": "Painel esquerdo",
+            "Visual_Item_lte": "Menor ou igual a",
+            "Visual_Item_nameAsc": "Nome de A a Z",
+            "Visual_Item_nameDesc": "Nome de Z a A",
+            "Visual_Item_orange": "Laranja",
+            "Visual_Item_pctCol": "% da coluna",
+            "Visual_Item_pctRow": "% da linha",
+            "Visual_Item_pctTotal": "% do total geral",
+            "Visual_Item_purples": "Roxos",
+            "Visual_Item_tiles": "Blocos",
+            "Visual_Item_top": "Barra superior",
+            "Visual_Item_trafficDown": "Verde - amarelo - vermelho",
+            "Visual_Item_trafficUp": "Vermelho - amarelo - verde",
+            "Visual_Item_valueAsc": "Total, do menor para o maior",
+            "Visual_Item_valueDesc": "Total, do maior para o menor",
+            "Visual_Item_vertical": "Vertical (90\u00b0)",
+            "Visual_Item_viridis": "Viridis (daltonismo)",
+            "Visual_Item_zero": "Zero (0)",
+            "Visual_Landing": "Adicione Dimens\u00f5es (pelo menos 2) e uma Medida para criar a matriz din\u00e2mica. Opcional: um ID em Detalhe (linhas) deixa exatas as m\u00e9dias e contagens distintas. Plano Pro no Microsoft AppSource: at\u00e9 10 dimens\u00f5es e 5 medidas, contagens distintas, porcentagens, totais e grupos de linhas.",
+            "Visual_Layout": "Layout",
+            "Visual_Limited": "Mostrando {list}.",
+            "Visual_Limited_Dims": "as primeiras {n} de {total} dimens\u00f5es",
+            "Visual_Limited_Measures": "as primeiras {n} de {total} medidas",
+            "Visual_MaxColor": "Cor do valor m\u00e1ximo",
+            "Visual_MaxCols": "M\u00e1ximo de colunas",
+            "Visual_MaxRows": "M\u00e1ximo de linhas",
+            "Visual_Measures": "Medidas",
+            "Visual_MidColor": "Cor do valor m\u00e9dio",
+            "Visual_MinColor": "Cor do valor m\u00ednimo",
+            "Visual_Msg_AddDimension": "Adicione pelo menos uma dimens\u00e3o.",
+            "Visual_Msg_AddMeasure": "Adicione pelo menos uma medida.",
+            "Visual_Msg_SelectXY": "Escolha X e Y para come\u00e7ar.",
+            "Visual_Msg_TwoDimensions": "S\u00e3o necess\u00e1rias pelo menos 2 dimens\u00f5es para gerar a matriz.",
+            "Visual_Notice_AvgOfAvg": "Esta \u00e9 uma m\u00e9dia de m\u00e9dias: o Power BI calculou a m\u00e9dia do campo no gr\u00e3o de todas as dimens\u00f5es vinculadas e essas m\u00e9dias s\u00e3o combinadas aqui, ent\u00e3o cada combina\u00e7\u00e3o conta igual, com uma linha ou dez mil. Adicione um ID em Detalhe (linhas) \u2014 o pedido, o ticket ou o cliente \u2014 e o visual calcula a m\u00e9dia exata.",
+            "Visual_Notice_Hidden": "{dim}: {n} de {total} valores fora da matriz e dos totais.",
+            "Visual_Notice_NonAdditive": "Esta medida \u00e9 recolhida no visual: o Power BI a agregou no gr\u00e3o de todas as dimens\u00f5es vinculadas e o restante \u00e9 combinado aqui. Se n\u00e3o for aditiva \u2014 uma raz\u00e3o, uma porcentagem \u2014 o n\u00famero pode n\u00e3o ser o esperado. Para uma contagem distinta, coloque a coluna em Dimens\u00f5es ou em Detalhe (linhas) e ela \u00e9 contada exatamente; sen\u00e3o, vincule s\u00f3 as dimens\u00f5es comparadas ou use uma medida aditiva.",
+            "Visual_Notice_Others": "{dim}: {n} de {total} valores agrupados em Outros.",
+            "Visual_Notice_Partial": "Conjunto parcial: o limite de linhas foi atingido. Reduza o n\u00famero de dimens\u00f5es para valores exatos.",
+            "Visual_Others": "Agrupar o restante em Outros",
+            "Visual_OthersLabel": "Outros",
+            "Visual_RowHeight": "Altura da linha (px)",
+            "Visual_RowsOrder": "Ordem das linhas",
+            "Visual_Rule1": "Regra 1",
+            "Visual_Rule2": "Regra 2",
+            "Visual_Rule3": "Regra 3",
+            "Visual_RuleColor": "Cor",
+            "Visual_RuleOp": "Condi\u00e7\u00e3o",
+            "Visual_RuleValue": "Valor",
+            "Visual_Rules": "Regras de cor",
+            "Visual_Rules_Desc": "Uma regra pinta com sua cor as c\u00e9lulas que a cumprem, por cima do gradiente. Vence a primeira que se cumpre. Porcentagens se escrevem como fra\u00e7\u00e3o: 0,25 para 25%.",
+            "Visual_Scheme": "Esquema de cores",
+            "Visual_ShowTotals": "Mostrar totais (Pro)",
+            "Visual_SortHint": "Clique para ordenar as linhas por esta coluna",
+            "Visual_Style": "Modelo de estilo",
+            "Visual_Sub_Labels": "R\u00f3tulos do eixo",
+            "Visual_Sub_Values": "Valores das c\u00e9lulas",
+            "Visual_Template": "Modelo",
+            "Visual_Text": "Texto",
+            "Visual_Total": "Total",
+            "Visual_ValueColor": "Cor dos valores",
+            "Visual_ValueFont": "Fonte dos valores",
+            "Visual_ValueSize": "Tamanho dos valores",
+            "Visual_Values": "Valores",
+            "Visual_Values_Desc": "Absoluto ou porcentagem \u00e9 escolhido no pr\u00f3prio visual, na lista Mostrar como ao lado de Valor, e cada medida lembra o seu.",
+            "Landing_Tagline": "Cruze duas dimens\u00f5es quaisquer e veja onde o valor se concentra.",
+            "Landing_TaglineShort": "Veja onde o valor se concentra.",
+            "Landing_Start": "Comece em 3 passos",
+            "Landing_Step1": "duas ou mais colunas: regi\u00e3o, produto, m\u00eas",
+            "Landing_Step1Short": "duas ou mais colunas",
+            "Landing_Step2": "o valor a colorir, como as vendas",
+            "Landing_Step2Short": "o valor a colorir",
+            "Landing_Step3": "Escolha as dimens\u00f5es de linhas e colunas no painel lateral",
+            "Landing_Step3Short": "Escolha linhas e colunas no painel lateral",
+            "Landing_Help": "Ajuda",
+            "Landing_Guide": "Guia",
+            "Landing_GuideSub": "p\u00e1gina de suporte",
+            "Landing_Video": "V\u00eddeo",
+            "Landing_Product": "P\u00e1gina do produto",
+            "Landing_Pro": "At\u00e9 10 dimens\u00f5es e 5 medidas, contagens distintas, totais e grupos de linhas. Avalia\u00e7\u00e3o gratuita de 30 dias no AppSource.",
+            "Landing_ProShort": "10 dimens\u00f5es, 5 medidas, contagens distintas, totais. Avalia\u00e7\u00e3o de 30 dias.",
+            "Landing_Small": "Adicione {dims} (2 ou mais) e {meas}."
+        },
+        "pt-PT": {
+            "Visual_Axes": "Linhas e colunas",
+            "Visual_Axes_Desc": "Autom\u00e1tico mant\u00e9m a ordem dos dados e coloca dias da semana e meses na ordem do calend\u00e1rio. Acima do m\u00e1ximo, as categorias com menor total s\u00e3o agrupadas em Outros para que os totais continuem corretos.",
+            "Visual_AxisBg": "Fundo dos etiquetas do eixo",
+            "Visual_AxisColor": "Cor dos etiquetas do eixo",
+            "Visual_AxisFont": "Fonte dos etiquetas do eixo",
+            "Visual_AxisSize": "Tamanho dos etiquetas do eixo",
+            "Visual_Blank": "(Em branco)",
+            "Visual_CellGap": "Espa\u00e7o entre c\u00e9lulas (px)",
+            "Visual_CellRadius": "Raio dos cantos (px)",
+            "Visual_ClusterCols": "Ordenar colunas por semelhan\u00e7a (Pro)",
+            "Visual_ClusterRows": "Ordenar linhas por semelhan\u00e7a (Pro)",
+            "Visual_CollapseAll": "Recolher tudo",
+            "Visual_ColsOrder": "Ordem das colunas",
+            "Visual_ColumnWidth": "Largura da coluna (px)",
+            "Visual_ControlsBg": "Fundo da barra de controlos",
+            "Visual_ControlsColor": "Cor dos etiquetas de controle",
+            "Visual_ControlsFont": "Fonte dos etiquetas de controle",
+            "Visual_ControlsPosition": "Controlos",
+            "Visual_ControlsSize": "Tamanho dos etiquetas de controle",
+            "Visual_Ctl_Bar": "Barra de controlos",
+            "Visual_Ctl_Group": "Agrupar linhas",
+            "Visual_Ctl_Hide": "Ocultar controlos",
+            "Visual_Ctl_None": "(nenhum)",
+            "Visual_Ctl_Select": "-- escolher --",
+            "Visual_Ctl_Show": "Mostrar controlos",
+            "Visual_Ctl_ShowAs": "Mostrar como",
+            "Visual_Ctl_Title": "Exibi\u00e7\u00e3o",
+            "Visual_Ctl_Totals": "Totais",
+            "Visual_Ctl_Value": "Valor",
+            "Visual_Ctl_X": "Eixo X",
+            "Visual_Ctl_Y": "Eixo Y",
+            "Visual_Dimensions": "Dimens\u00f5es",
+            "Visual_DisplayAs": "Exibir como",
+            "Visual_DistinctFields": "Detalhe (linhas)",
+            "Visual_DistinctPrefix": "Distintos",
+            "Visual_EmptyCells": "C\u00e9lulas vazias",
+            "Visual_ExpandAll": "Expandir tudo",
+            "Visual_HeaderOrientation": "Orienta\u00e7\u00e3o do cabe\u00e7alho de coluna",
+            "Visual_Heatmap": "Cores do mapa de calor",
+            "Visual_Item_absolute": "Absoluto",
+            "Visual_Item_auto": "Autom\u00e1tico",
+            "Visual_Item_blank": "Em branco",
+            "Visual_Item_blues": "Azuis",
+            "Visual_Item_cividis": "Cividis (daltonismo)",
+            "Visual_Item_classic": "Cl\u00e1ssico",
+            "Visual_Item_clean": "Limpo",
+            "Visual_Item_compact": "Compacto",
+            "Visual_Item_contrast": "Contraste",
+            "Visual_Item_custom": "Personalizado (cores abaixo)",
+            "Visual_Item_dash": "Tra\u00e7o (-)",
+            "Visual_Item_diagonal": "Diagonal (45\u00b0)",
+            "Visual_Item_diverging": "Azul - branco - vermelho",
+            "Visual_Item_github": "Atividade (estilo GitHub)",
+            "Visual_Item_gray": "Preenchimento cinza",
+            "Visual_Item_greens": "Verdes",
+            "Visual_Item_greys": "Cinzas",
+            "Visual_Item_gte": "Maior ou igual a",
+            "Visual_Item_hidden": "Ocultos no modo de leitura",
+            "Visual_Item_horizontal": "Horizontal",
+            "Visual_Item_left": "Painel esquerdo",
+            "Visual_Item_lte": "Menor ou igual a",
+            "Visual_Item_nameAsc": "Nome de A a Z",
+            "Visual_Item_nameDesc": "Nome de Z a A",
+            "Visual_Item_orange": "Laranja",
+            "Visual_Item_pctCol": "% da coluna",
+            "Visual_Item_pctRow": "% da linha",
+            "Visual_Item_pctTotal": "% do total geral",
+            "Visual_Item_purples": "Roxos",
+            "Visual_Item_tiles": "Blocos",
+            "Visual_Item_top": "Barra superior",
+            "Visual_Item_trafficDown": "Verde - amarelo - vermelho",
+            "Visual_Item_trafficUp": "Vermelho - amarelo - verde",
+            "Visual_Item_valueAsc": "Total, do menor para o maior",
+            "Visual_Item_valueDesc": "Total, do maior para o menor",
+            "Visual_Item_vertical": "Vertical (90\u00b0)",
+            "Visual_Item_viridis": "Viridis (daltonismo)",
+            "Visual_Item_zero": "Zero (0)",
+            "Visual_Landing": "Adicione Dimens\u00f5es (pelo menos 2) e uma Medida para criar a matriz din\u00e2mica. Opcional: um ID em Detalhe (linhas) deixa exatas as m\u00e9dias e contagens distintas. Plano Pro no Microsoft AppSource: at\u00e9 10 dimens\u00f5es e 5 medidas, contagens distintas, porcentagens, totais e grupos de linhas.",
+            "Visual_Layout": "Layout",
+            "Visual_Limited": "Mostrando {list}.",
+            "Visual_Limited_Dims": "as primeiras {n} de {total} dimens\u00f5es",
+            "Visual_Limited_Measures": "as primeiras {n} de {total} medidas",
+            "Visual_MaxColor": "Cor do valor m\u00e1ximo",
+            "Visual_MaxCols": "M\u00e1ximo de colunas",
+            "Visual_MaxRows": "M\u00e1ximo de linhas",
+            "Visual_Measures": "Medidas",
+            "Visual_MidColor": "Cor do valor m\u00e9dio",
+            "Visual_MinColor": "Cor do valor m\u00ednimo",
+            "Visual_Msg_AddDimension": "Adicione pelo menos uma dimens\u00e3o.",
+            "Visual_Msg_AddMeasure": "Adicione pelo menos uma medida.",
+            "Visual_Msg_SelectXY": "Escolha X e Y para come\u00e7ar.",
+            "Visual_Msg_TwoDimensions": "S\u00e3o necess\u00e1rias pelo menos 2 dimens\u00f5es para gerar a matriz.",
+            "Visual_Notice_AvgOfAvg": "Esta \u00e9 uma m\u00e9dia de m\u00e9dias: o Power BI calculou a m\u00e9dia do campo no gr\u00e3o de todas as dimens\u00f5es vinculadas e essas m\u00e9dias s\u00e3o combinadas aqui, ent\u00e3o cada combina\u00e7\u00e3o conta igual, com uma linha ou dez mil. Adicione um ID em Detalhe (linhas) \u2014 o pedido, o ticket ou o cliente \u2014 e o visual calcula a m\u00e9dia exata.",
+            "Visual_Notice_Hidden": "{dim}: {n} de {total} valores fora da matriz e dos totais.",
+            "Visual_Notice_NonAdditive": "Esta medida \u00e9 recolhida no visual: o Power BI a agregou no gr\u00e3o de todas as dimens\u00f5es vinculadas e o restante \u00e9 combinado aqui. Se n\u00e3o for aditiva \u2014 uma raz\u00e3o, uma porcentagem \u2014 o n\u00famero pode n\u00e3o ser o esperado. Para uma contagem distinta, coloque a coluna em Dimens\u00f5es ou em Detalhe (linhas) e ela \u00e9 contada exatamente; sen\u00e3o, vincule s\u00f3 as dimens\u00f5es comparadas ou use uma medida aditiva.",
+            "Visual_Notice_Others": "{dim}: {n} de {total} valores agrupados em Outros.",
+            "Visual_Notice_Partial": "Conjunto parcial: o limite de linhas foi atingido. Reduza o n\u00famero de dimens\u00f5es para valores exatos.",
+            "Visual_Others": "Agrupar o restante em Outros",
+            "Visual_OthersLabel": "Outros",
+            "Visual_RowHeight": "Altura da linha (px)",
+            "Visual_RowsOrder": "Ordem das linhas",
+            "Visual_Rule1": "Regra 1",
+            "Visual_Rule2": "Regra 2",
+            "Visual_Rule3": "Regra 3",
+            "Visual_RuleColor": "Cor",
+            "Visual_RuleOp": "Condi\u00e7\u00e3o",
+            "Visual_RuleValue": "Valor",
+            "Visual_Rules": "Regras de cor",
+            "Visual_Rules_Desc": "Uma regra pinta com sua cor as c\u00e9lulas que a cumprem, por cima do gradiente. Vence a primeira que se cumpre. Porcentagens se escrevem como fra\u00e7\u00e3o: 0,25 para 25%.",
+            "Visual_Scheme": "Esquema de cores",
+            "Visual_ShowTotals": "Mostrar totais (Pro)",
+            "Visual_SortHint": "Clique para ordenar as linhas por esta coluna",
+            "Visual_Style": "Modelo de estilo",
+            "Visual_Sub_Labels": "Etiquetas do eixo",
+            "Visual_Sub_Values": "Valores das c\u00e9lulas",
+            "Visual_Template": "Modelo",
+            "Visual_Text": "Texto",
+            "Visual_Total": "Total",
+            "Visual_ValueColor": "Cor dos valores",
+            "Visual_ValueFont": "Fonte dos valores",
+            "Visual_ValueSize": "Tamanho dos valores",
+            "Visual_Values": "Valores",
+            "Visual_Values_Desc": "Absoluto ou porcentagem \u00e9 escolhido no pr\u00f3prio visual, na lista Mostrar como ao lado de Valor, e cada medida lembra o seu.",
+            "Landing_Tagline": "Cruze duas dimens\u00f5es quaisquer e veja onde o valor se concentra.",
+            "Landing_TaglineShort": "Veja onde o valor se concentra.",
+            "Landing_Start": "Comece em 3 passos",
+            "Landing_Step1": "duas ou mais colunas: regi\u00e3o, produto, m\u00eas",
+            "Landing_Step1Short": "duas ou mais colunas",
+            "Landing_Step2": "o valor a colorir, como as vendas",
+            "Landing_Step2Short": "o valor a colorir",
+            "Landing_Step3": "Escolha as dimens\u00f5es de linhas e colunas no painel lateral",
+            "Landing_Step3Short": "Escolha linhas e colunas no painel lateral",
+            "Landing_Help": "Ajuda",
+            "Landing_Guide": "Guia",
+            "Landing_GuideSub": "p\u00e1gina de suporte",
+            "Landing_Video": "V\u00eddeo",
+            "Landing_Product": "P\u00e1gina do produto",
+            "Landing_Pro": "At\u00e9 10 dimens\u00f5es e 5 medidas, contagens distintas, totais e grupos de linhas. Avalia\u00e7\u00e3o gratuita de 30 dias no AppSource.",
+            "Landing_ProShort": "10 dimens\u00f5es, 5 medidas, contagens distintas, totais. Avalia\u00e7\u00e3o de 30 dias.",
+            "Landing_Small": "Adicione {dims} (2 ou mais) e {meas}."
+        },
+        "zh-CN": {
+            "Visual_Axes": "\u884c\u548c\u5217",
+            "Visual_Axes_Desc": "\u201c\u81ea\u52a8\u201d\u4fdd\u6301\u6570\u636e\u987a\u5e8f\uff0c\u5e76\u5c06\u661f\u671f\u548c\u6708\u4efd\u6309\u65e5\u5386\u6392\u5e8f\u3002\u8d85\u8fc7\u6700\u5927\u6570\u65f6\uff0c\u603b\u8ba1\u6700\u5c0f\u7684\u7c7b\u522b\u5f52\u4e3a\u201c\u5176\u4ed6\u201d\uff0c\u4ee5\u4fdd\u8bc1\u603b\u8ba1\u6b63\u786e\u3002",
+            "Visual_AxisBg": "\u8f74\u6807\u7b7e\u80cc\u666f",
+            "Visual_AxisColor": "\u8f74\u6807\u7b7e\u989c\u8272",
+            "Visual_AxisFont": "\u8f74\u6807\u7b7e\u5b57\u4f53",
+            "Visual_AxisSize": "\u8f74\u6807\u7b7e\u5b57\u53f7",
+            "Visual_Blank": "(\u7a7a\u767d)",
+            "Visual_CellGap": "\u5355\u5143\u683c\u95f4\u8ddd (px)",
+            "Visual_CellRadius": "\u5706\u89d2\u534a\u5f84 (px)",
+            "Visual_ClusterCols": "\u6309\u76f8\u4f3c\u5ea6\u6392\u5217\u5217 (Pro)",
+            "Visual_ClusterRows": "\u6309\u76f8\u4f3c\u5ea6\u6392\u5217\u884c (Pro)",
+            "Visual_CollapseAll": "\u5168\u90e8\u6298\u53e0",
+            "Visual_ColsOrder": "\u5217\u987a\u5e8f",
+            "Visual_ColumnWidth": "\u5217\u5bbd (px)",
+            "Visual_ControlsBg": "\u63a7\u4ef6\u680f\u80cc\u666f",
+            "Visual_ControlsColor": "\u63a7\u4ef6\u6807\u7b7e\u989c\u8272",
+            "Visual_ControlsFont": "\u63a7\u4ef6\u6807\u7b7e\u5b57\u4f53",
+            "Visual_ControlsPosition": "\u63a7\u4ef6",
+            "Visual_ControlsSize": "\u63a7\u4ef6\u6807\u7b7e\u5b57\u53f7",
+            "Visual_Ctl_Bar": "\u63a7\u4ef6\u680f",
+            "Visual_Ctl_Group": "\u884c\u5206\u7ec4",
+            "Visual_Ctl_Hide": "\u9690\u85cf\u63a7\u4ef6",
+            "Visual_Ctl_None": "(\u65e0)",
+            "Visual_Ctl_Select": "-- \u9009\u62e9 --",
+            "Visual_Ctl_Show": "\u663e\u793a\u63a7\u4ef6",
+            "Visual_Ctl_ShowAs": "\u663e\u793a\u4e3a",
+            "Visual_Ctl_Title": "\u89c6\u56fe",
+            "Visual_Ctl_Totals": "\u603b\u8ba1",
+            "Visual_Ctl_Value": "\u503c",
+            "Visual_Ctl_X": "X \u8f74",
+            "Visual_Ctl_Y": "Y \u8f74",
+            "Visual_Dimensions": "\u7ef4\u5ea6",
+            "Visual_DisplayAs": "\u663e\u793a\u4e3a",
+            "Visual_DistinctFields": "\u660e\u7ec6 (\u884c)",
+            "Visual_DistinctPrefix": "\u975e\u91cd\u590d",
+            "Visual_EmptyCells": "\u7a7a\u5355\u5143\u683c",
+            "Visual_ExpandAll": "\u5168\u90e8\u5c55\u5f00",
+            "Visual_HeaderOrientation": "\u5217\u6807\u9898\u65b9\u5411",
+            "Visual_Heatmap": "\u70ed\u529b\u56fe\u989c\u8272",
+            "Visual_Item_absolute": "\u7edd\u5bf9\u503c",
+            "Visual_Item_auto": "\u81ea\u52a8",
+            "Visual_Item_blank": "\u7a7a\u767d",
+            "Visual_Item_blues": "\u84dd\u8272\u7cfb",
+            "Visual_Item_cividis": "Cividis\uff08\u8272\u76f2\u53cb\u597d\uff09",
+            "Visual_Item_classic": "\u7ecf\u5178",
+            "Visual_Item_clean": "\u7b80\u6d01",
+            "Visual_Item_compact": "\u7d27\u51d1",
+            "Visual_Item_contrast": "\u5bf9\u6bd4",
+            "Visual_Item_custom": "\u81ea\u5b9a\u4e49\uff08\u4e0b\u65b9\u989c\u8272\uff09",
+            "Visual_Item_dash": "\u77ed\u5212\u7ebf (-)",
+            "Visual_Item_diagonal": "\u5bf9\u89d2 (45\u00b0)",
+            "Visual_Item_diverging": "\u84dd - \u767d - \u7ea2",
+            "Visual_Item_github": "\u6d3b\u52a8\uff08GitHub \u98ce\u683c\uff09",
+            "Visual_Item_gray": "\u7070\u8272\u586b\u5145",
+            "Visual_Item_greens": "\u7eff\u8272\u7cfb",
+            "Visual_Item_greys": "\u7070\u8272\u7cfb",
+            "Visual_Item_gte": "\u5927\u4e8e\u6216\u7b49\u4e8e",
+            "Visual_Item_hidden": "\u9605\u8bfb\u89c6\u56fe\u4e2d\u9690\u85cf",
+            "Visual_Item_horizontal": "\u6c34\u5e73",
+            "Visual_Item_left": "\u5de6\u4fa7\u9762\u677f",
+            "Visual_Item_lte": "\u5c0f\u4e8e\u6216\u7b49\u4e8e",
+            "Visual_Item_nameAsc": "\u540d\u79f0 A \u5230 Z",
+            "Visual_Item_nameDesc": "\u540d\u79f0 Z \u5230 A",
+            "Visual_Item_orange": "\u6a59\u8272",
+            "Visual_Item_pctCol": "\u5217\u767e\u5206\u6bd4",
+            "Visual_Item_pctRow": "\u884c\u767e\u5206\u6bd4",
+            "Visual_Item_pctTotal": "\u603b\u8ba1\u767e\u5206\u6bd4",
+            "Visual_Item_purples": "\u7d2b\u8272\u7cfb",
+            "Visual_Item_tiles": "\u78c1\u8d34",
+            "Visual_Item_top": "\u9876\u90e8\u680f",
+            "Visual_Item_trafficDown": "\u7eff - \u9ec4 - \u7ea2",
+            "Visual_Item_trafficUp": "\u7ea2 - \u9ec4 - \u7eff",
+            "Visual_Item_valueAsc": "\u603b\u8ba1\u4ece\u4f4e\u5230\u9ad8",
+            "Visual_Item_valueDesc": "\u603b\u8ba1\u4ece\u9ad8\u5230\u4f4e",
+            "Visual_Item_vertical": "\u5782\u76f4 (90\u00b0)",
+            "Visual_Item_viridis": "Viridis\uff08\u8272\u76f2\u53cb\u597d\uff09",
+            "Visual_Item_zero": "\u96f6 (0)",
+            "Visual_Landing": "\u6dfb\u52a0\u7ef4\u5ea6\uff08\u81f3\u5c11 2 \u4e2a\uff09\u548c\u4e00\u4e2a\u5ea6\u91cf\u503c\u5373\u53ef\u751f\u6210\u52a8\u6001\u77e9\u9635\u3002\u53ef\u9009\uff1a\u5728\u201c\u660e\u7ec6 (\u884c)\u201d\u4e2d\u653e\u5165 ID\uff0c\u53ef\u4f7f\u5e73\u5747\u503c\u548c\u975e\u91cd\u590d\u8ba1\u6570\u7cbe\u786e\u3002Microsoft AppSource \u4e0a\u7684 Pro \u8ba1\u5212\uff1a\u6700\u591a 10 \u4e2a\u7ef4\u5ea6\u548c 5 \u4e2a\u5ea6\u91cf\u503c\u3001\u975e\u91cd\u590d\u8ba1\u6570\u3001\u767e\u5206\u6bd4\u3001\u603b\u8ba1\u548c\u884c\u5206\u7ec4\u3002",
+            "Visual_Layout": "\u5e03\u5c40",
+            "Visual_Limited": "\u663e\u793a\uff1a{list}\u3002",
+            "Visual_Limited_Dims": "{total} \u4e2a\u7ef4\u5ea6\u4e2d\u7684\u524d {n} \u4e2a",
+            "Visual_Limited_Measures": "{total} \u4e2a\u5ea6\u91cf\u503c\u4e2d\u7684\u524d {n} \u4e2a",
+            "Visual_MaxColor": "\u6700\u5927\u503c\u989c\u8272",
+            "Visual_MaxCols": "\u6700\u5927\u5217\u6570",
+            "Visual_MaxRows": "\u6700\u5927\u884c\u6570",
+            "Visual_Measures": "\u5ea6\u91cf\u503c",
+            "Visual_MidColor": "\u4e2d\u95f4\u503c\u989c\u8272",
+            "Visual_MinColor": "\u6700\u5c0f\u503c\u989c\u8272",
+            "Visual_Msg_AddDimension": "\u8bf7\u81f3\u5c11\u6dfb\u52a0\u4e00\u4e2a\u7ef4\u5ea6\u3002",
+            "Visual_Msg_AddMeasure": "\u8bf7\u81f3\u5c11\u6dfb\u52a0\u4e00\u4e2a\u5ea6\u91cf\u503c\u3002",
+            "Visual_Msg_SelectXY": "\u9009\u62e9 X \u548c Y \u5f00\u59cb\u3002",
+            "Visual_Msg_TwoDimensions": "\u81f3\u5c11\u9700\u8981 2 \u4e2a\u7ef4\u5ea6\u624d\u80fd\u751f\u6210\u77e9\u9635\u3002",
+            "Visual_Notice_AvgOfAvg": "\u8fd9\u662f\u5e73\u5747\u503c\u7684\u5e73\u5747\u503c\uff1aPower BI \u5728\u6240\u6709\u5df2\u7ed1\u5b9a\u7ef4\u5ea6\u7684\u7c92\u5ea6\u4e0a\u6c42\u5e73\u5747\uff0c\u6b64\u5904\u518d\u5408\u5e76\u8fd9\u4e9b\u5e73\u5747\u503c\uff0c\u56e0\u6b64\u6bcf\u4e2a\u7ec4\u5408\u65e0\u8bba\u4e00\u884c\u8fd8\u662f\u4e00\u4e07\u884c\u6743\u91cd\u90fd\u76f8\u540c\u3002\u5728\u201c\u660e\u7ec6 (\u884c)\u201d\u4e2d\u6dfb\u52a0 ID\uff08\u8ba2\u5355\u3001\u5de5\u5355\u6216\u5ba2\u6237\uff09\uff0c\u89c6\u89c9\u5bf9\u8c61\u5c31\u4f1a\u8ba1\u7b97\u7cbe\u786e\u7684\u5e73\u5747\u503c\u3002",
+            "Visual_Notice_Hidden": "{dim}\uff1a{total} \u4e2a\u503c\u4e2d\u7684 {n} \u4e2a\u672a\u663e\u793a\uff0c\u4e5f\u4e0d\u8ba1\u5165\u603b\u8ba1\u3002",
+            "Visual_Notice_NonAdditive": "\u6b64\u5ea6\u91cf\u503c\u5728\u89c6\u89c9\u5bf9\u8c61\u4e2d\u88ab\u6c47\u603b\uff1aPower BI \u5728\u6240\u6709\u5df2\u7ed1\u5b9a\u7ef4\u5ea6\u7684\u7c92\u5ea6\u4e0a\u805a\u5408\uff0c\u5176\u4f59\u90e8\u5206\u5728\u6b64\u5408\u5e76\u3002\u5982\u679c\u4e0d\u53ef\u52a0\uff08\u6bd4\u7387\u3001\u767e\u5206\u6bd4\uff09\uff0c\u7ed3\u679c\u53ef\u80fd\u4e0d\u662f\u4f60\u9884\u671f\u7684\u3002\u82e5\u8981\u975e\u91cd\u590d\u8ba1\u6570\uff0c\u628a\u8be5\u5217\u653e\u5165\u201c\u7ef4\u5ea6\u201d\u6216\u201c\u660e\u7ec6 (\u884c)\u201d\uff0c\u5373\u53ef\u7cbe\u786e\u8ba1\u6570\uff1b\u5426\u5219\u8bf7\u53ea\u7ed1\u5b9a\u8981\u6bd4\u8f83\u7684\u7ef4\u5ea6\u6216\u4f7f\u7528\u53ef\u52a0\u5ea6\u91cf\u503c\u3002",
+            "Visual_Notice_Others": "{dim}\uff1a{total} \u4e2a\u503c\u4e2d\u7684 {n} \u4e2a\u5f52\u4e3a\u201c\u5176\u4ed6\u201d\u3002",
+            "Visual_Notice_Partial": "\u4ec5\u663e\u793a\u90e8\u5206\u6570\u636e\uff1a\u5df2\u8fbe\u5230\u884c\u6570\u4e0a\u9650\u3002\u51cf\u5c11\u7ef4\u5ea6\u6570\u91cf\u53ef\u5f97\u5230\u7cbe\u786e\u503c\u3002",
+            "Visual_Others": "\u5176\u4f59\u5f52\u4e3a\u201c\u5176\u4ed6\u201d",
+            "Visual_OthersLabel": "\u5176\u4ed6",
+            "Visual_RowHeight": "\u884c\u9ad8 (px)",
+            "Visual_RowsOrder": "\u884c\u987a\u5e8f",
+            "Visual_Rule1": "\u89c4\u5219 1",
+            "Visual_Rule2": "\u89c4\u5219 2",
+            "Visual_Rule3": "\u89c4\u5219 3",
+            "Visual_RuleColor": "\u989c\u8272",
+            "Visual_RuleOp": "\u6761\u4ef6",
+            "Visual_RuleValue": "\u503c",
+            "Visual_Rules": "\u989c\u8272\u89c4\u5219",
+            "Visual_Rules_Desc": "\u89c4\u5219\u4f1a\u7528\u5176\u989c\u8272\u8986\u76d6\u6ee1\u8db3\u6761\u4ef6\u7684\u5355\u5143\u683c\uff08\u4f18\u5148\u4e8e\u6e10\u53d8\uff09\u3002\u7b2c\u4e00\u6761\u6ee1\u8db3\u7684\u89c4\u5219\u751f\u6548\u3002\u767e\u5206\u6bd4\u6309\u5c0f\u6570\u8f93\u5165\uff1a25% \u5199\u4f5c 0.25\u3002",
+            "Visual_Scheme": "\u914d\u8272\u65b9\u6848",
+            "Visual_ShowTotals": "\u663e\u793a\u603b\u8ba1 (Pro)",
+            "Visual_SortHint": "\u5355\u51fb\u6309\u6b64\u5217\u5bf9\u884c\u6392\u5e8f",
+            "Visual_Style": "\u6837\u5f0f\u6a21\u677f",
+            "Visual_Sub_Labels": "\u8f74\u6807\u7b7e",
+            "Visual_Sub_Values": "\u5355\u5143\u683c\u503c",
+            "Visual_Template": "\u6a21\u677f",
+            "Visual_Text": "\u6587\u672c",
+            "Visual_Total": "\u603b\u8ba1",
+            "Visual_ValueColor": "\u503c\u989c\u8272",
+            "Visual_ValueFont": "\u503c\u5b57\u4f53",
+            "Visual_ValueSize": "\u503c\u5b57\u53f7",
+            "Visual_Values": "\u503c",
+            "Visual_Values_Desc": "\u7edd\u5bf9\u503c\u8fd8\u662f\u767e\u5206\u6bd4\u5728\u89c6\u89c9\u5bf9\u8c61\u4e2d\u201c\u503c\u201d\u65c1\u8fb9\u7684\u201c\u663e\u793a\u4e3a\u201d\u5217\u8868\u91cc\u9009\u62e9\uff0c\u6bcf\u4e2a\u5ea6\u91cf\u503c\u90fd\u4f1a\u8bb0\u4f4f\u81ea\u5df1\u7684\u9009\u62e9\u3002",
+            "Landing_Tagline": "\u4ea4\u53c9\u4efb\u610f\u4e24\u4e2a\u7ef4\u5ea6\uff0c\u67e5\u770b\u6570\u503c\u96c6\u4e2d\u5728\u54ea\u91cc\u3002",
+            "Landing_TaglineShort": "\u67e5\u770b\u6570\u503c\u96c6\u4e2d\u5728\u54ea\u91cc\u3002",
+            "Landing_Start": "3 \u6b65\u5f00\u59cb",
+            "Landing_Step1": "\u4e24\u5217\u6216\u66f4\u591a\uff1a\u533a\u57df\u3001\u4ea7\u54c1\u3001\u6708\u4efd",
+            "Landing_Step1Short": "\u4e24\u5217\u6216\u66f4\u591a",
+            "Landing_Step2": "\u7528\u4e8e\u7740\u8272\u7684\u503c\uff0c\u4f8b\u5982\u9500\u552e\u989d",
+            "Landing_Step2Short": "\u7528\u4e8e\u7740\u8272\u7684\u503c",
+            "Landing_Step3": "\u5728\u4fa7\u9762\u677f\u4e2d\u9009\u62e9\u884c\u548c\u5217\u7684\u7ef4\u5ea6",
+            "Landing_Step3Short": "\u5728\u4fa7\u9762\u677f\u4e2d\u9009\u62e9\u884c\u548c\u5217",
+            "Landing_Help": "\u5e2e\u52a9",
+            "Landing_Guide": "\u6307\u5357",
+            "Landing_GuideSub": "\u652f\u6301\u9875\u9762",
+            "Landing_Video": "\u89c6\u9891",
+            "Landing_Product": "\u4ea7\u54c1\u9875\u9762",
+            "Landing_Pro": "\u6700\u591a 10 \u4e2a\u7ef4\u5ea6\u548c 5 \u4e2a\u5ea6\u91cf\u503c\u3001\u975e\u91cd\u590d\u8ba1\u6570\u3001\u603b\u8ba1\u548c\u884c\u5206\u7ec4\u3002\u5728 AppSource \u4e0a\u514d\u8d39\u8bd5\u7528 30 \u5929\u3002",
+            "Landing_ProShort": "10 \u4e2a\u7ef4\u5ea6\u30015 \u4e2a\u5ea6\u91cf\u503c\u3001\u975e\u91cd\u590d\u8ba1\u6570\u3001\u603b\u8ba1\u3002\u8bd5\u7528 30 \u5929\u3002",
+            "Landing_Small": "\u6dfb\u52a0 {dims}\uff082 \u4e2a\u6216\u66f4\u591a\uff09\u548c {meas}\u3002"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Dimensions",
+                "displayNameKey": "Visual_Dimensions",
+                "name": "dimensions",
+                "kind": "Grouping",
+                "description": "Fields available in the X and Y dropdowns. Up to 10 (Free: 3)."
+            },
+            {
+                "displayName": "Measures",
+                "displayNameKey": "Visual_Measures",
+                "name": "measures",
+                "kind": "Measure",
+                "description": "Measures or numeric columns, aggregated as set in the field well. Up to 5 (Free: 2)."
+            },
+            {
+                "displayName": "Detail (rows)",
+                "displayNameKey": "Visual_DistinctFields",
+                "name": "distinctFields",
+                "kind": "Grouping",
+                "description": "Optional. An ID that identifies each row: the order, ticket or customer. With it, averages and distinct counts are exact for any X/Y pair."
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "dimensions": {
+                            "min": 0,
+                            "max": 10
+                        },
+                        "measures": {
+                            "min": 0,
+                            "max": 5
+                        },
+                        "distinctFields": {
+                            "min": 0,
+                            "max": 3
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "dimensions"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "distinctFields"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "measures"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "general": {
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": true
+                        }
+                    }
+                }
+            },
+            "values": {
+                "displayName": "Values",
+                "displayNameKey": "Visual_Values",
+                "properties": {
+                    "displayMode": {
+                        "displayName": "Show value as (Pro)",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "absolute",
+                                    "displayName": "Absolute"
+                                },
+                                {
+                                    "value": "pctRow",
+                                    "displayName": "% of row"
+                                },
+                                {
+                                    "value": "pctCol",
+                                    "displayName": "% of column"
+                                },
+                                {
+                                    "value": "pctTotal",
+                                    "displayName": "% of grand total"
+                                }
+                            ]
+                        }
+                    },
+                    "showTotals": {
+                        "displayName": "Show totals (Pro)",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "heatmap": {
+                "displayName": "Heatmap colors",
+                "displayNameKey": "Visual_Heatmap",
+                "properties": {
+                    "minColor": {
+                        "displayName": "Minimum value color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "midColor": {
+                        "displayName": "Middle value color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "maxColor": {
+                        "displayName": "Maximum value color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scheme": {
+                        "displayName": "Color scheme",
+                        "displayNameKey": "Visual_Scheme",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "custom",
+                                    "displayName": "custom"
+                                },
+                                {
+                                    "value": "orange",
+                                    "displayName": "orange"
+                                },
+                                {
+                                    "value": "blues",
+                                    "displayName": "blues"
+                                },
+                                {
+                                    "value": "greens",
+                                    "displayName": "greens"
+                                },
+                                {
+                                    "value": "purples",
+                                    "displayName": "purples"
+                                },
+                                {
+                                    "value": "greys",
+                                    "displayName": "greys"
+                                },
+                                {
+                                    "value": "trafficUp",
+                                    "displayName": "trafficUp"
+                                },
+                                {
+                                    "value": "trafficDown",
+                                    "displayName": "trafficDown"
+                                },
+                                {
+                                    "value": "diverging",
+                                    "displayName": "diverging"
+                                },
+                                {
+                                    "value": "viridis",
+                                    "displayName": "viridis"
+                                },
+                                {
+                                    "value": "cividis",
+                                    "displayName": "cividis"
+                                },
+                                {
+                                    "value": "github",
+                                    "displayName": "github"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "emptyCells": {
+                "displayName": "Empty cells",
+                "displayNameKey": "Visual_EmptyCells",
+                "properties": {
+                    "mode": {
+                        "displayName": "Display as",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "blank",
+                                    "displayName": "Blank"
+                                },
+                                {
+                                    "value": "dash",
+                                    "displayName": "Dash (-)"
+                                },
+                                {
+                                    "value": "zero",
+                                    "displayName": "Zero (0)"
+                                },
+                                {
+                                    "value": "gray",
+                                    "displayName": "Gray fill"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "text": {
+                "displayName": "Text",
+                "displayNameKey": "Visual_Text",
+                "properties": {
+                    "labelFontFamily": {
+                        "displayName": "Axis label font",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "labelFontSize": {
+                        "displayName": "Axis label size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "labelColor": {
+                        "displayName": "Axis label color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "valueFontFamily": {
+                        "displayName": "Value font",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "valueFontSize": {
+                        "displayName": "Value size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "valueColor": {
+                        "displayName": "Value color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "controlsBackground": {
+                        "displayName": "Controls bar background",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "controlsFontFamily": {
+                        "displayName": "Controls label font",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "controlsFontSize": {
+                        "displayName": "Controls label size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "controlsFontColor": {
+                        "displayName": "Controls label color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "labelBackground": {
+                        "displayName": "Axis label background",
+                        "displayNameKey": "Visual_AxisBg",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "displayName": "Layout",
+                "displayNameKey": "Visual_Layout",
+                "properties": {
+                    "rowHeight": {
+                        "displayName": "Row height (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "columnWidth": {
+                        "displayName": "Column width (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "columnHeaderOrientation": {
+                        "displayName": "Column header orientation",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "horizontal",
+                                    "displayName": "Horizontal"
+                                },
+                                {
+                                    "value": "vertical",
+                                    "displayName": "Vertical (90\u00b0)"
+                                },
+                                {
+                                    "value": "diagonal",
+                                    "displayName": "Diagonal (45\u00b0)"
+                                }
+                            ]
+                        }
+                    },
+                    "cellGap": {
+                        "displayName": "Space between cells (px)",
+                        "displayNameKey": "Visual_CellGap",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cellRadius": {
+                        "displayName": "Cell corner radius (px)",
+                        "displayNameKey": "Visual_CellRadius",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "controlsPosition": {
+                        "displayName": "Controls",
+                        "displayNameKey": "Visual_ControlsPosition",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "left"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "top"
+                                },
+                                {
+                                    "value": "hidden",
+                                    "displayName": "hidden"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "selectionState": {
+                "properties": {
+                    "xDimension": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "yDimension": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "valueKey": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "perValue": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sortKey": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sortDir": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "groupDimension": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "collapsedGroups": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "panel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "totals": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "style": {
+                "displayName": "Style template",
+                "displayNameKey": "Visual_Style",
+                "properties": {
+                    "template": {
+                        "displayName": "Template",
+                        "displayNameKey": "Visual_Template",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "classic",
+                                    "displayName": "classic"
+                                },
+                                {
+                                    "value": "clean",
+                                    "displayName": "clean"
+                                },
+                                {
+                                    "value": "tiles",
+                                    "displayName": "tiles"
+                                },
+                                {
+                                    "value": "contrast",
+                                    "displayName": "contrast"
+                                },
+                                {
+                                    "value": "compact",
+                                    "displayName": "compact"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "rules": {
+                "displayName": "Color rules",
+                "displayNameKey": "Visual_Rules",
+                "properties": {
+                    "rule1On": {
+                        "displayName": "Rule 1",
+                        "displayNameKey": "Visual_Rule1",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rule1Op": {
+                        "displayName": "Condition",
+                        "displayNameKey": "Visual_RuleOp",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "gte",
+                                    "displayName": "gte"
+                                },
+                                {
+                                    "value": "lte",
+                                    "displayName": "lte"
+                                }
+                            ]
+                        }
+                    },
+                    "rule1Value": {
+                        "displayName": "Value",
+                        "displayNameKey": "Visual_RuleValue",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rule1Color": {
+                        "displayName": "Color",
+                        "displayNameKey": "Visual_RuleColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "rule2On": {
+                        "displayName": "Rule 2",
+                        "displayNameKey": "Visual_Rule2",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rule2Op": {
+                        "displayName": "Condition",
+                        "displayNameKey": "Visual_RuleOp",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "gte",
+                                    "displayName": "gte"
+                                },
+                                {
+                                    "value": "lte",
+                                    "displayName": "lte"
+                                }
+                            ]
+                        }
+                    },
+                    "rule2Value": {
+                        "displayName": "Value",
+                        "displayNameKey": "Visual_RuleValue",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rule2Color": {
+                        "displayName": "Color",
+                        "displayNameKey": "Visual_RuleColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "rule3On": {
+                        "displayName": "Rule 3",
+                        "displayNameKey": "Visual_Rule3",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rule3Op": {
+                        "displayName": "Condition",
+                        "displayNameKey": "Visual_RuleOp",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "gte",
+                                    "displayName": "gte"
+                                },
+                                {
+                                    "value": "lte",
+                                    "displayName": "lte"
+                                }
+                            ]
+                        }
+                    },
+                    "rule3Value": {
+                        "displayName": "Value",
+                        "displayNameKey": "Visual_RuleValue",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rule3Color": {
+                        "displayName": "Color",
+                        "displayNameKey": "Visual_RuleColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "axes": {
+                "displayName": "Rows and columns",
+                "displayNameKey": "Visual_Axes",
+                "properties": {
+                    "rowsOrder": {
+                        "displayName": "Row order",
+                        "displayNameKey": "Visual_RowsOrder",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "auto"
+                                },
+                                {
+                                    "value": "nameAsc",
+                                    "displayName": "nameAsc"
+                                },
+                                {
+                                    "value": "nameDesc",
+                                    "displayName": "nameDesc"
+                                },
+                                {
+                                    "value": "valueDesc",
+                                    "displayName": "valueDesc"
+                                },
+                                {
+                                    "value": "valueAsc",
+                                    "displayName": "valueAsc"
+                                }
+                            ]
+                        }
+                    },
+                    "colsOrder": {
+                        "displayName": "Column order",
+                        "displayNameKey": "Visual_ColsOrder",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "auto"
+                                },
+                                {
+                                    "value": "nameAsc",
+                                    "displayName": "nameAsc"
+                                },
+                                {
+                                    "value": "nameDesc",
+                                    "displayName": "nameDesc"
+                                },
+                                {
+                                    "value": "valueDesc",
+                                    "displayName": "valueDesc"
+                                },
+                                {
+                                    "value": "valueAsc",
+                                    "displayName": "valueAsc"
+                                }
+                            ]
+                        }
+                    },
+                    "maxRows": {
+                        "displayName": "Maximum rows",
+                        "displayNameKey": "Visual_MaxRows",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "maxCols": {
+                        "displayName": "Maximum columns",
+                        "displayNameKey": "Visual_MaxCols",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "others": {
+                        "displayName": "Group the rest as Others",
+                        "displayNameKey": "Visual_Others",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "clusterRows": {
+                        "displayName": "Order rows by similarity (Pro)",
+                        "displayNameKey": "Visual_ClusterRows",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "clusterCols": {
+                        "displayName": "Order columns by similarity (Pro)",
+                        "displayNameKey": "Visual_ClusterCols",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "supportsHighlight": true,
+        "supportsSynchronizingFilterState": true,
+        "supportsLandingPage": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "dimensions"
+            ],
+            "supportEnhancedTooltips": true
+        },
+        "privileges": [],
+        "supportsOnObjectFormatting": true,
+        "enablePointerEventsFormatMode": true
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
