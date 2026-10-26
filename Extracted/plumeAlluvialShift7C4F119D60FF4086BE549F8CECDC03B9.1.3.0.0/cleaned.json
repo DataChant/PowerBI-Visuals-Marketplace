@@ -1,0 +1,1822 @@
+{
+    "visual": {
+        "name": "plumeAlluvialShift",
+        "displayName": "Sankey Plume",
+        "guid": "plumeAlluvialShift7C4F119D60FF4086BE549F8CECDC03B9",
+        "visualClassName": "Visual",
+        "version": "1.3.0.0",
+        "description": "Sankey and alluvial chart with the Plume Studio look: Source and Destination flows over several levels with cycles, or how customers, products or people move between categories from one period to the next (segments, churn), with entries, exits, retention rates, path tracing on hover and one-click styles.",
+        "supportUrl": "https://plumevisuals.com/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Plume Studio",
+        "email": "contact@plumevisuals.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "premium_desc": "Premium feature: usable for free with a \u00ab Premium preview \u00bb watermark, unlocked by a Plume Studio license key.",
+            "card_license": "Plume Studio License",
+            "license_buy": "Get a license",
+            "license_key": "License key",
+            "license_key_desc": "Paste the key received after purchase on plumevisuals.com (starts with PLUM1.). Checked offline.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Show license holder (edit mode)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Custom colors",
+            "group_style_text": "Text",
+            "group_style_background": "Background and corners",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Complete look shared by all Plume visuals: colors, three palettes, fonts, frame, table header, marks and effects. Customize colors below.",
+            "style_preset_none": "None",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Black & White",
+            "style_preset_press": "Newspaper \u2605",
+            "style_preset_vintage": "Vintage (antique plate) \u2605",
+            "style_preset_earth": "Earth \u2605",
+            "style_preset_nordic": "Nordic \u2605",
+            "style_preset_executive": "Executive \u2605",
+            "style_preset_accessible": "Accessible (high legibility) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climate \u2605",
+            "style_preset_blueprint": "Blueprint \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (dark) \u2605",
+            "style_preset_neon": "Neon \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographic \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologram \u2605",
+            "style_themeJson": "Theme JSON \u2605",
+            "style_themeJson_desc": "Paste a JSON theme: see the 'JSON themes' tutorial on plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Follow report theme",
+            "style_followTheme_desc": "Text, background, accent and data colors come from the Power BI report theme.",
+            "style_reverse": "Reverse gradients",
+            "style_customColors": "Customize colors",
+            "style_customColors_desc": "Start from the style and pick your own colors. A color left empty keeps the style's color.",
+            "style_colorBackground": "Background",
+            "style_colorText": "Text",
+            "style_colorMuted": "Secondary text",
+            "style_colorGrid": "Lines and grid",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "Unfavorable",
+            "style_series1": "Series 1",
+            "style_series2": "Series 2",
+            "style_series3": "Series 3",
+            "style_series4": "Series 4",
+            "style_series5": "Series 5",
+            "style_series6": "Series 6",
+            "style_series7": "Series 7",
+            "style_series8": "Series 8",
+            "style_palette": "Gradient palette",
+            "style_palette_desc": "Gradient from the catalog (Viridis, Magma\u2026). The start, middle and end colors below replace it.",
+            "style_palette_auto": "Style or theme palette",
+            "style_palette_crest": "Plume (sequential)",
+            "style_palette_crestDiverging": "Plume (diverging)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (colorblind-safe) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Red\u2013Yellow\u2013Blue \u2605",
+            "style_palette_brBG": "Brown\u2013Teal (drought) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Blues \u2605",
+            "style_palette_reds": "Reds \u2605",
+            "style_palette_grays": "Grays \u2605",
+            "style_palette_press": "Press (ink and paper) \u2605",
+            "style_palette_nordic": "Nordic \u2605",
+            "style_palette_earth": "Earth (ochre to umber) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (colorblind-safe) \u2605",
+            "style_scaleLow": "Gradient: start",
+            "style_scaleMid": "Gradient: middle (diverging)",
+            "style_scaleHigh": "Gradient: end",
+            "style_fontFamily": "Font",
+            "style_fontFamily_desc": "Used by every text of the visual (title, axes, labels, cells).",
+            "style_textColor": "Text color (empty = style)",
+            "style_mutedColor": "Secondary text (empty = style)",
+            "style_bgShow": "Background",
+            "style_bgColor": "Background color",
+            "style_bgColor2": "Gradient end (optional)",
+            "style_radius": "Corner radius",
+            "style_animate": "Animations",
+            "style_animate_desc": "Smooth transitions when data changes. Automatically disabled when the system asks to reduce motion.",
+            "card_dataColors": "Data colors",
+            "dataColors_mode": "Coloring",
+            "dataColors_mode_auto": "Palette (one color per category)",
+            "dataColors_mode_single": "Single color",
+            "dataColors_single": "Color",
+            "dataColors_fill": "Color",
+            "card_layout": "Layout",
+            "layout_orientation": "Orientation",
+            "layout_orientation_desc": "Vertical: columns become rows, handy for long category names and tall report pages.",
+            "layout_orientation_horizontal": "Horizontal (left to right)",
+            "layout_orientation_vertical": "Vertical (top to bottom) \u2605",
+            "layout_structure": "Source \u2192 Destination",
+            "layout_structure_desc": "Chain: a name found in both Source and Destination is a single node, so flows go on over several levels. Two columns: every source on the left, every destination on the right.",
+            "layout_structure_chain": "Chain (one node per name, several levels)",
+            "layout_structure_twoColumns": "Two columns (origin \u2192 destination)",
+            "layout_align": "Node placement",
+            "layout_align_justify": "Final destinations in the last column",
+            "layout_align_left": "As early as possible (left)",
+            "layout_cycles": "Flows going backward (cycles)",
+            "layout_cycles_loop": "Loops under the chart",
+            "layout_cycles_hide": "Hide",
+            "card_nodes": "Categories (nodes)",
+            "nodes_width": "Node width",
+            "nodes_padding": "Space between nodes",
+            "nodes_order": "Category order",
+            "nodes_order_desc": "The same order is kept in every column, so a category never jumps from one place to another. Custom: type the list below, or drag a node up or down in edit mode.",
+            "nodes_order_auto": "Automatic (largest on top, fewer crossings)",
+            "nodes_order_size": "Largest on top",
+            "nodes_order_alpha": "Alphabetical",
+            "nodes_order_data": "Data order (Sort by column)",
+            "nodes_order_custom": "Custom (list or drag the nodes)",
+            "nodes_customOrder": "Custom order (separated by ;)",
+            "nodes_customOrder_desc": "Categories in this order, the others after them (largest first). Filled in automatically when you drag a node.",
+            "nodes_customOrder_ph": "Gold; Silver; Bronze",
+            "nodes_maxCategories": "Categories shown at most (the rest in \u00ab Others \u00bb)",
+            "card_flows": "Flows",
+            "flows_colorBy": "Flow color",
+            "flows_colorBy_desc": "By the Flow color field: drop a measure (margin rate, satisfaction\u2026) in \u00ab Flow color \u00bb; flows follow the gradient palette of the style.",
+            "flows_colorBy_source": "Origin category",
+            "flows_colorBy_target": "Destination category",
+            "flows_colorBy_gradient": "Gradient origin \u2192 destination \u2605",
+            "flows_colorBy_measure": "By the \u00ab Flow color \u00bb field",
+            "flows_colorBy_neutral": "Neutral (gray)",
+            "flows_opacity": "Opacity (%)",
+            "flows_render": "Flow drawing",
+            "flows_render_desc": "Threads: with whole numbers (seats, students, customers\u2026), each unit is drawn as a thin line (64 \u2192 64 lines). With decimals or more than 3,000 lines, solid ribbons are kept.",
+            "flows_render_ribbons": "Solid ribbons",
+            "flows_render_threads": "Threads: one line per unit \u2605",
+            "flows_threadWidth": "Thread width (px, 0 = auto)",
+            "flows_curvature": "Curvature (%)",
+            "flows_changesOnly": "Emphasize category changes \u2605",
+            "flows_changesOnly_desc": "Flows that stay in the same category are dimmed: only migrations stand out.",
+            "flows_focus": "Highlight the category \u2605",
+            "flows_focus_desc": "Only the flows going through this category keep their color, from the first column to the last (separate several names with ;). Stays on the page, in PDF exports too.",
+            "flows_focus_ph": "Category name",
+            "flows_focusLinks": "Highlight flows \u2605",
+            "flows_focusLinks_desc": "Name a flow as \u00ab origin > destination \u00bb (several separated by ;). A chain \u00ab A > B > C \u00bb follows one exact journey. The other flows step back.",
+            "flows_focusLinks_ph": "Silver > Gold; Bronze > Silver",
+            "flows_focusColors": "Highlight color",
+            "flows_focusColors_flow": "Flow color",
+            "flows_focusColors_distinct": "One color per highlighted name",
+            "flows_dimOpacity": "Dimmed flows: opacity (% of opacity)",
+            "flows_dimOpacity_desc": "Flows set back by a highlight or by \u00ab Emphasize category changes \u00bb.",
+            "flows_minShare": "Hide flows below (% of total)",
+            "card_linkLabels": "Flow labels",
+            "linkLabels_show": "Show",
+            "linkLabels_content": "Content",
+            "linkLabels_content_value": "Value",
+            "linkLabels_content_pctSource": "% of the origin node (conversion)",
+            "linkLabels_content_pctTotal": "% of total",
+            "linkLabels_content_valuePct": "Value and % of the origin node",
+            "linkLabels_fontSize": "Text size",
+            "linkLabels_color": "Color (empty = text)",
+            "linkLabels_minThickness": "Only on flows thicker than (px, 0 = auto)",
+            "linkLabels_minThickness_desc": "Auto: a label is shown when the flow is at least as thick as the text.",
+            "card_migration": "Entries, exits and retention",
+            "migration_showMissing": "Show entries and exits",
+            "migration_showMissing_desc": "Mode with a Period field: individuals that appear (new) or disappear (lost) from one period to the next.",
+            "migration_newLabel": "Entries label",
+            "migration_newLabel_ph": "New",
+            "migration_lostLabel": "Exits label",
+            "migration_lostLabel_ph": "Lost",
+            "migration_retention": "Retention rate between columns \u2605",
+            "migration_retentionKind": "Retention =",
+            "migration_retentionKind_same": "Same category in the next column",
+            "migration_retentionKind_present": "Still present in the next column",
+            "card_labels": "Category labels",
+            "group_labels_main": "Labels",
+            "group_labels_number": "Numbers",
+            "labels_show": "Show",
+            "labels_content": "Content",
+            "labels_content_name": "Name",
+            "labels_content_nameValue": "Name and value",
+            "labels_content_namePct": "Name and % of the column",
+            "labels_content_all": "Name, value and %",
+            "labels_pctOf": "Percentage of",
+            "labels_pctOf_desc": "First column: each category as a share of the starting total (a funnel: what is left at each step).",
+            "labels_pctOf_column": "The column total",
+            "labels_pctOf_first": "The first column total",
+            "labels_fontSize": "Text size",
+            "labels_color": "Color (empty = text)",
+            "labels_halo": "Text halo",
+            "labels_units": "Display units",
+            "labels_units_auto": "Auto",
+            "labels_units_none": "None",
+            "labels_units_k": "Thousands",
+            "labels_units_m": "Millions",
+            "labels_units_b": "Billions",
+            "labels_decimals": "Decimals (-1 = auto)",
+            "labels_prefix": "Prefix",
+            "labels_suffix": "Suffix (e.g. \u20ac)",
+            "card_headers": "Column headers",
+            "headers_show": "Show",
+            "headers_names": "Column names (separated by ;)",
+            "headers_names_desc": "Leave empty for the field names (stages) or the period values.",
+            "headers_names_ph": "Automatic",
+            "headers_fontSize": "Text size",
+            "headers_color": "Color (empty = text)",
+            "headers_showTotal": "Total under the name",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Highlight on hover",
+            "interaction_dim": "Dimmed items opacity (%)",
+            "interaction_trace": "Trace paths on hover",
+            "interaction_trace_desc": "Hovering a category highlights, in every column, where its members come from and where they go.",
+            "interaction_drag": "Drag nodes to reorder them (edit mode)",
+            "interaction_drag_desc": "In edit mode, drag a category up or down: the new order is saved with the report (Category order = Custom).",
+            "card_title": "Title",
+            "title_show": "Show",
+            "title_text": "Title",
+            "title_text_desc": "Leave empty for an automatic title built from the fields.",
+            "title_text_ph": "Automatic",
+            "title_subtitle": "Subtitle",
+            "title_fontSize": "Size",
+            "title_bold": "Bold",
+            "title_color": "Color (empty = text)",
+            "title_align": "Alignment",
+            "title_align_left": "Left",
+            "title_align_center": "Center",
+            "title_align_right": "Right",
+            "card_source": "Source note",
+            "source_show": "Show",
+            "source_text": "Text",
+            "source_text_ph": "Source: \u2026",
+            "source_fontSize": "Size",
+            "source_align": "Alignment",
+            "source_align_left": "Left",
+            "source_align_center": "Center",
+            "source_align_right": "Right",
+            "card_container": "Frame",
+            "container_border": "Border",
+            "container_borderWidth": "Border width",
+            "container_borderColor": "Border color (empty = grid)",
+            "container_shadow": "Shadow",
+            "container_padding": "Inner padding",
+            "card_texts": "Language and texts",
+            "texts_language": "Interface language",
+            "texts_language_auto": "Same as Power BI",
+            "texts_language_fr": "French",
+            "texts_language_en": "English",
+            "texts_numberLocale": "Number format locale (e.g. en-GB)",
+            "texts_numberLocale_ph": "auto",
+            "role_stages": "Categories (one column per field)",
+            "role_period": "Period (migrations over time)",
+            "role_entity": "Individual (customer, product\u2026)",
+            "role_source": "Source",
+            "role_destination": "Destination",
+            "roleDesc_source": "With Destination: one flow per row, from Source to Destination (classic Sankey).",
+            "roleDesc_destination": "With Source: one flow per row, from Source to Destination (classic Sankey).",
+            "role_value": "Value or weight (optional)",
+            "role_linkColor": "Flow color (measure)",
+            "roleDesc_linkColor": "Measure that colors each flow on the gradient palette (Format \u203a Flows \u203a Flow color).",
+            "role_tooltips": "Tooltips",
+            "role_format": "Dynamic format",
+            "roleDesc_format": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX"
+        },
+        "fr-FR": {
+            "premium_desc": "Fonction premium : utilisable avec un filigrane \u00ab Aper\u00e7u premium \u00bb, d\u00e9bloqu\u00e9e par une cl\u00e9 de licence Plume Studio.",
+            "card_license": "Licence Plume Studio",
+            "license_buy": "Obtenir une licence",
+            "license_key": "Cl\u00e9 de licence",
+            "license_key_desc": "Collez la cl\u00e9 re\u00e7ue apr\u00e8s l'achat sur plumevisuals.com (commence par PLUM1.). V\u00e9rifi\u00e9e hors ligne.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Afficher le titulaire (mode \u00e9dition)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Couleurs personnalis\u00e9es",
+            "group_style_text": "Texte",
+            "group_style_background": "Arri\u00e8re-plan et angles",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Habillage complet commun \u00e0 tous les visuels Plume : couleurs, trois palettes, polices, cadre, en-t\u00eate des tableaux, marques et effets. Personnalisez les couleurs plus bas.",
+            "style_preset_none": "Aucun",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Noir et blanc",
+            "style_preset_press": "Journal \u2605",
+            "style_preset_vintage": "Vintage (planche ancienne) \u2605",
+            "style_preset_earth": "Terre \u2605",
+            "style_preset_nordic": "Nordique \u2605",
+            "style_preset_executive": "Direction \u2605",
+            "style_preset_accessible": "Accessible (lisibilit\u00e9) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climat \u2605",
+            "style_preset_blueprint": "Plan d'architecte \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (sombre) \u2605",
+            "style_preset_neon": "N\u00e9on \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographie \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologramme \u2605",
+            "style_themeJson": "Th\u00e8me JSON \u2605",
+            "style_themeJson_desc": "Collez un th\u00e8me JSON : voir le tutoriel \u00ab Th\u00e8mes JSON \u00bb sur plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Suivre le th\u00e8me du rapport",
+            "style_followTheme_desc": "Texte, fond, accent et couleurs des donn\u00e9es viennent du th\u00e8me du rapport Power BI.",
+            "style_reverse": "Inverser les d\u00e9grad\u00e9s",
+            "style_customColors": "Personnaliser les couleurs",
+            "style_customColors_desc": "Partez du style et choisissez vos propres couleurs. Une couleur laiss\u00e9e vide garde celle du style.",
+            "style_colorBackground": "Fond",
+            "style_colorText": "Texte",
+            "style_colorMuted": "Texte secondaire",
+            "style_colorGrid": "Traits et grille",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "D\u00e9favorable",
+            "style_series1": "S\u00e9rie 1",
+            "style_series2": "S\u00e9rie 2",
+            "style_series3": "S\u00e9rie 3",
+            "style_series4": "S\u00e9rie 4",
+            "style_series5": "S\u00e9rie 5",
+            "style_series6": "S\u00e9rie 6",
+            "style_series7": "S\u00e9rie 7",
+            "style_series8": "S\u00e9rie 8",
+            "style_palette": "Palette du d\u00e9grad\u00e9",
+            "style_palette_desc": "D\u00e9grad\u00e9 tir\u00e9 du catalogue (Viridis, Magma\u2026). Les couleurs de d\u00e9but, milieu et fin ci-dessous le remplacent.",
+            "style_palette_auto": "Palette du style ou du th\u00e8me",
+            "style_palette_crest": "Plume (s\u00e9quentielle)",
+            "style_palette_crestDiverging": "Plume (divergente)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (daltonisme) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Rouge\u2013Jaune\u2013Bleu \u2605",
+            "style_palette_brBG": "Brun\u2013Bleu-vert (s\u00e9cheresse) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Bleus \u2605",
+            "style_palette_reds": "Rouges \u2605",
+            "style_palette_grays": "Gris \u2605",
+            "style_palette_press": "Presse (encre et papier) \u2605",
+            "style_palette_nordic": "Nordique \u2605",
+            "style_palette_earth": "Terre (ocre \u00e0 terre d'ombre) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (daltonisme) \u2605",
+            "style_scaleLow": "D\u00e9grad\u00e9 : d\u00e9but",
+            "style_scaleMid": "D\u00e9grad\u00e9 : milieu (\u00e9carts)",
+            "style_scaleHigh": "D\u00e9grad\u00e9 : fin",
+            "style_fontFamily": "Police",
+            "style_fontFamily_desc": "Utilis\u00e9e par tous les textes du visuel (titre, axes, \u00e9tiquettes, cellules).",
+            "style_textColor": "Couleur du texte (vide = style)",
+            "style_mutedColor": "Texte secondaire (vide = style)",
+            "style_bgShow": "Arri\u00e8re-plan",
+            "style_bgColor": "Couleur de fond",
+            "style_bgColor2": "Fin du d\u00e9grad\u00e9 (optionnel)",
+            "style_radius": "Arrondi des angles",
+            "style_animate": "Animations",
+            "style_animate_desc": "Transitions fluides quand les donn\u00e9es changent. D\u00e9sactiv\u00e9es automatiquement si le syst\u00e8me demande de r\u00e9duire les animations.",
+            "card_dataColors": "Couleurs des donn\u00e9es",
+            "dataColors_mode": "Coloration",
+            "dataColors_mode_auto": "Palette (une couleur par cat\u00e9gorie)",
+            "dataColors_mode_single": "Couleur unique",
+            "dataColors_single": "Couleur",
+            "dataColors_fill": "Couleur",
+            "card_layout": "Disposition",
+            "layout_orientation": "Orientation",
+            "layout_orientation_desc": "Verticale : les colonnes deviennent des lignes, pratique pour les noms longs et les pages en hauteur.",
+            "layout_orientation_horizontal": "Horizontale (de gauche \u00e0 droite)",
+            "layout_orientation_vertical": "Verticale (de haut en bas) \u2605",
+            "layout_structure": "Source \u2192 Destination",
+            "layout_structure_desc": "Encha\u00eener : un nom pr\u00e9sent dans Source et dans Destination est un seul n\u0153ud, les flux continuent sur plusieurs niveaux. Deux colonnes : toutes les sources \u00e0 gauche, toutes les destinations \u00e0 droite.",
+            "layout_structure_chain": "Encha\u00eener (un n\u0153ud par nom, plusieurs niveaux)",
+            "layout_structure_twoColumns": "Deux colonnes (d\u00e9part \u2192 arriv\u00e9e)",
+            "layout_align": "Place des n\u0153uds",
+            "layout_align_justify": "Destinations finales dans la derni\u00e8re colonne",
+            "layout_align_left": "Au plus t\u00f4t (\u00e0 gauche)",
+            "layout_cycles": "Flux qui reviennent en arri\u00e8re (cycles)",
+            "layout_cycles_loop": "Boucles sous le graphique",
+            "layout_cycles_hide": "Masquer",
+            "card_nodes": "Cat\u00e9gories (n\u0153uds)",
+            "nodes_width": "Largeur des n\u0153uds",
+            "nodes_padding": "Espace entre les n\u0153uds",
+            "nodes_order": "Ordre des cat\u00e9gories",
+            "nodes_order_desc": "Le m\u00eame ordre est gard\u00e9 dans toutes les colonnes : une cat\u00e9gorie ne change jamais de place. Personnalis\u00e9 : saisissez la liste ci-dessous, ou glissez un n\u0153ud vers le haut ou le bas en mode \u00e9dition.",
+            "nodes_order_auto": "Automatique (les plus grandes en haut, moins de croisements)",
+            "nodes_order_size": "Les plus grandes en haut",
+            "nodes_order_alpha": "Alphab\u00e9tique",
+            "nodes_order_data": "Ordre des donn\u00e9es (Trier par colonne)",
+            "nodes_order_custom": "Personnalis\u00e9 (liste ou glisser les n\u0153uds)",
+            "nodes_customOrder": "Ordre personnalis\u00e9 (s\u00e9par\u00e9 par ;)",
+            "nodes_customOrder_desc": "Les cat\u00e9gories dans cet ordre, les autres ensuite (les plus grandes d'abord). Rempli automatiquement quand vous glissez un n\u0153ud.",
+            "nodes_customOrder_ph": "Or; Argent; Bronze",
+            "nodes_maxCategories": "Cat\u00e9gories affich\u00e9es au plus (le reste dans \u00ab Autres \u00bb)",
+            "card_flows": "Flux",
+            "flows_colorBy": "Couleur des flux",
+            "flows_colorBy_desc": "Selon le champ \u00ab Couleur des flux \u00bb : glissez une mesure (taux de marge, satisfaction\u2026) dans \u00ab Couleur des flux \u00bb ; les flux suivent la palette du d\u00e9grad\u00e9 du style.",
+            "flows_colorBy_source": "Cat\u00e9gorie de d\u00e9part",
+            "flows_colorBy_target": "Cat\u00e9gorie d'arriv\u00e9e",
+            "flows_colorBy_gradient": "D\u00e9grad\u00e9 d\u00e9part \u2192 arriv\u00e9e \u2605",
+            "flows_colorBy_measure": "Selon le champ \u00ab Couleur des flux \u00bb",
+            "flows_colorBy_neutral": "Neutre (gris)",
+            "flows_opacity": "Opacit\u00e9 (%)",
+            "flows_render": "Dessin des flux",
+            "flows_render_desc": "Fils : avec des nombres entiers (si\u00e8ges, \u00e9l\u00e8ves, clients\u2026), chaque unit\u00e9 est un trait fin (64 \u2192 64 traits). Avec des d\u00e9cimales ou plus de 3 000 traits, les rubans pleins restent affich\u00e9s.",
+            "flows_render_ribbons": "Rubans pleins",
+            "flows_render_threads": "Fils : un trait par unit\u00e9 \u2605",
+            "flows_threadWidth": "\u00c9paisseur des fils (px, 0 = auto)",
+            "flows_curvature": "Courbure (%)",
+            "flows_changesOnly": "Faire ressortir les changements de cat\u00e9gorie \u2605",
+            "flows_changesOnly_desc": "Les flux qui restent dans la m\u00eame cat\u00e9gorie sont estomp\u00e9s : seules les migrations ressortent.",
+            "flows_focus": "Mettre en avant la cat\u00e9gorie \u2605",
+            "flows_focus_desc": "Seuls les flux qui passent par cette cat\u00e9gorie gardent leur couleur, de la premi\u00e8re colonne \u00e0 la derni\u00e8re (plusieurs noms s\u00e9par\u00e9s par ;). Reste affich\u00e9 sur la page, aussi dans les exports PDF.",
+            "flows_focus_ph": "Nom de la cat\u00e9gorie",
+            "flows_focusLinks": "Mettre en avant des flux \u2605",
+            "flows_focusLinks_desc": "Nommez un flux \u00ab d\u00e9part > arriv\u00e9e \u00bb (plusieurs s\u00e9par\u00e9s par ;). Une cha\u00eene \u00ab A > B > C \u00bb suit un parcours pr\u00e9cis. Les autres flux passent en retrait.",
+            "flows_focusLinks_ph": "Argent > Or; Bronze > Argent",
+            "flows_focusColors": "Couleur des mises en avant",
+            "flows_focusColors_flow": "Couleur du flux",
+            "flows_focusColors_distinct": "Une couleur par nom mis en avant",
+            "flows_dimOpacity": "Flux en retrait : opacit\u00e9 (% de l'opacit\u00e9)",
+            "flows_dimOpacity_desc": "Flux mis en retrait par une mise en avant ou par \u00ab Faire ressortir les changements \u00bb.",
+            "flows_minShare": "Masquer les flux sous (% du total)",
+            "card_linkLabels": "\u00c9tiquettes des flux",
+            "linkLabels_show": "Afficher",
+            "linkLabels_content": "Contenu",
+            "linkLabels_content_value": "Valeur",
+            "linkLabels_content_pctSource": "% du n\u0153ud de d\u00e9part (taux de passage)",
+            "linkLabels_content_pctTotal": "% du total",
+            "linkLabels_content_valuePct": "Valeur et % du n\u0153ud de d\u00e9part",
+            "linkLabels_fontSize": "Taille du texte",
+            "linkLabels_color": "Couleur (vide = texte)",
+            "linkLabels_minThickness": "Seulement sur les flux plus \u00e9pais que (px, 0 = auto)",
+            "linkLabels_minThickness_desc": "Auto : une \u00e9tiquette s'affiche quand le flux est au moins aussi \u00e9pais que le texte.",
+            "card_migration": "Entr\u00e9es, sorties et maintien",
+            "migration_showMissing": "Afficher les entr\u00e9es et les sorties",
+            "migration_showMissing_desc": "Mode avec un champ P\u00e9riode : individus qui apparaissent (nouveaux) ou disparaissent (perdus) d'une p\u00e9riode \u00e0 l'autre.",
+            "migration_newLabel": "Libell\u00e9 des entr\u00e9es",
+            "migration_newLabel_ph": "Nouveaux",
+            "migration_lostLabel": "Libell\u00e9 des sorties",
+            "migration_lostLabel_ph": "Perdus",
+            "migration_retention": "Taux de maintien entre les colonnes \u2605",
+            "migration_retentionKind": "Maintien =",
+            "migration_retentionKind_same": "M\u00eame cat\u00e9gorie \u00e0 la colonne suivante",
+            "migration_retentionKind_present": "Encore pr\u00e9sent \u00e0 la colonne suivante",
+            "card_labels": "\u00c9tiquettes des cat\u00e9gories",
+            "group_labels_main": "\u00c9tiquettes",
+            "group_labels_number": "Nombres",
+            "labels_show": "Afficher",
+            "labels_content": "Contenu",
+            "labels_content_name": "Nom",
+            "labels_content_nameValue": "Nom et valeur",
+            "labels_content_namePct": "Nom et % de la colonne",
+            "labels_content_all": "Nom, valeur et %",
+            "labels_pctOf": "Pourcentage calcul\u00e9 sur",
+            "labels_pctOf_desc": "Premi\u00e8re colonne : chaque cat\u00e9gorie en part du total de d\u00e9part (un entonnoir : ce qu'il reste \u00e0 chaque \u00e9tape).",
+            "labels_pctOf_column": "Le total de la colonne",
+            "labels_pctOf_first": "Le total de la premi\u00e8re colonne",
+            "labels_fontSize": "Taille du texte",
+            "labels_color": "Couleur (vide = texte)",
+            "labels_halo": "Halo autour du texte",
+            "labels_units": "Unit\u00e9s d'affichage",
+            "labels_units_auto": "Auto",
+            "labels_units_none": "Aucune",
+            "labels_units_k": "Milliers",
+            "labels_units_m": "Millions",
+            "labels_units_b": "Milliards",
+            "labels_decimals": "D\u00e9cimales (-1 = auto)",
+            "labels_prefix": "Pr\u00e9fixe",
+            "labels_suffix": "Suffixe (ex. \u20ac)",
+            "card_headers": "En-t\u00eates des colonnes",
+            "headers_show": "Afficher",
+            "headers_names": "Noms des colonnes (s\u00e9par\u00e9s par ;)",
+            "headers_names_desc": "Laisser vide pour les noms des champs (\u00e9tapes) ou les valeurs de la p\u00e9riode.",
+            "headers_names_ph": "Automatique",
+            "headers_fontSize": "Taille du texte",
+            "headers_color": "Couleur (vide = texte)",
+            "headers_showTotal": "Total sous le nom",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Mettre en avant au survol",
+            "interaction_dim": "Opacit\u00e9 des \u00e9l\u00e9ments estomp\u00e9s (%)",
+            "interaction_trace": "Suivre les parcours au survol",
+            "interaction_trace_desc": "Au survol d'une cat\u00e9gorie, on voit dans toutes les colonnes d'o\u00f9 viennent ses membres et o\u00f9 ils vont.",
+            "interaction_drag": "Glisser les n\u0153uds pour les r\u00e9ordonner (mode \u00e9dition)",
+            "interaction_drag_desc": "En mode \u00e9dition, glissez une cat\u00e9gorie vers le haut ou le bas : le nouvel ordre est enregistr\u00e9 avec le rapport (Ordre des cat\u00e9gories = Personnalis\u00e9).",
+            "card_title": "Titre",
+            "title_show": "Afficher",
+            "title_text": "Titre",
+            "title_text_desc": "Laisser vide pour un titre automatique construit \u00e0 partir des champs.",
+            "title_text_ph": "Automatique",
+            "title_subtitle": "Sous-titre",
+            "title_fontSize": "Taille",
+            "title_bold": "Gras",
+            "title_color": "Couleur (vide = texte)",
+            "title_align": "Alignement",
+            "title_align_left": "Gauche",
+            "title_align_center": "Centr\u00e9",
+            "title_align_right": "Droite",
+            "card_source": "Note de source",
+            "source_show": "Afficher",
+            "source_text": "Texte",
+            "source_text_ph": "Source : \u2026",
+            "source_fontSize": "Taille",
+            "source_align": "Alignement",
+            "source_align_left": "Gauche",
+            "source_align_center": "Centr\u00e9",
+            "source_align_right": "Droite",
+            "card_container": "Cadre",
+            "container_border": "Bordure",
+            "container_borderWidth": "\u00c9paisseur de la bordure",
+            "container_borderColor": "Couleur de la bordure (vide = grille)",
+            "container_shadow": "Ombre",
+            "container_padding": "Marge int\u00e9rieure",
+            "card_texts": "Langue et textes",
+            "texts_language": "Langue de l'interface",
+            "texts_language_auto": "Comme Power BI",
+            "texts_language_fr": "Fran\u00e7ais",
+            "texts_language_en": "Anglais",
+            "texts_numberLocale": "Format des nombres (ex. fr-FR)",
+            "texts_numberLocale_ph": "auto",
+            "role_stages": "Cat\u00e9gories (une colonne par champ)",
+            "role_period": "P\u00e9riode (migrations dans le temps)",
+            "role_entity": "Individu (client, produit\u2026)",
+            "role_source": "Source",
+            "role_destination": "Destination",
+            "roleDesc_source": "Avec Destination : un flux par ligne, de la Source vers la Destination (Sankey classique).",
+            "roleDesc_destination": "Avec Source : un flux par ligne, de la Source vers la Destination (Sankey classique).",
+            "role_value": "Valeur ou poids (facultatif)",
+            "role_linkColor": "Couleur des flux (mesure)",
+            "roleDesc_linkColor": "Mesure qui colore chaque flux selon la palette du d\u00e9grad\u00e9 (Format \u203a Flux \u203a Couleur des flux).",
+            "role_tooltips": "Infobulles",
+            "role_format": "Format dynamique",
+            "roleDesc_format": "Mesures nomm\u00e9es carte.r\u00e9glage (ex. title.fontSize) : pilotez n'importe quel r\u00e9glage du volet Format en DAX"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "stages",
+                "kind": "Grouping",
+                "displayName": "Categories (one column per field)",
+                "displayNameKey": "role_stages"
+            },
+            {
+                "name": "period",
+                "kind": "Grouping",
+                "displayName": "Period (migrations over time)",
+                "displayNameKey": "role_period"
+            },
+            {
+                "name": "entity",
+                "kind": "Grouping",
+                "displayName": "Individual (customer, product\u2026)",
+                "displayNameKey": "role_entity"
+            },
+            {
+                "name": "source",
+                "kind": "Grouping",
+                "displayName": "Source",
+                "displayNameKey": "role_source",
+                "description": "With Destination: one flow per row, from Source to Destination (classic Sankey).",
+                "descriptionKey": "roleDesc_source"
+            },
+            {
+                "name": "destination",
+                "kind": "Grouping",
+                "displayName": "Destination",
+                "displayNameKey": "role_destination",
+                "description": "With Source: one flow per row, from Source to Destination (classic Sankey).",
+                "descriptionKey": "roleDesc_destination"
+            },
+            {
+                "name": "value",
+                "kind": "Measure",
+                "displayName": "Value or weight (optional)",
+                "displayNameKey": "role_value"
+            },
+            {
+                "name": "linkColor",
+                "kind": "Measure",
+                "displayName": "Flow color (measure)",
+                "displayNameKey": "role_linkColor",
+                "description": "Measure that colors each flow on the gradient palette (Format \u203a Flows \u203a Flow color).",
+                "descriptionKey": "roleDesc_linkColor"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "role_tooltips"
+            },
+            {
+                "name": "format",
+                "kind": "Measure",
+                "displayName": "Dynamic format",
+                "displayNameKey": "role_format",
+                "description": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX",
+                "descriptionKey": "roleDesc_format"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "stages": {
+                            "max": 8
+                        },
+                        "period": {
+                            "max": 1
+                        },
+                        "entity": {
+                            "max": 1
+                        },
+                        "source": {
+                            "max": 1
+                        },
+                        "destination": {
+                            "max": 1
+                        },
+                        "value": {
+                            "max": 1
+                        },
+                        "linkColor": {
+                            "max": 1
+                        },
+                        "tooltips": {
+                            "max": 5
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "period"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "stages"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "entity"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "source"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "destination"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "value"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "linkColor"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "format"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "suppressDefaultTitle": true,
+        "privileges": [],
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            }
+        },
+        "objects": {
+            "license": {
+                "properties": {
+                    "buy": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "key": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showOwner": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "style": {
+                "properties": {
+                    "preset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal"
+                                },
+                                {
+                                    "value": "blackWhite",
+                                    "displayName": "Black & White"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Newspaper \u2605"
+                                },
+                                {
+                                    "value": "vintage",
+                                    "displayName": "Vintage (antique plate) \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "executive",
+                                    "displayName": "Executive \u2605"
+                                },
+                                {
+                                    "value": "accessible",
+                                    "displayName": "Accessible (high legibility) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "bauhaus",
+                                    "displayName": "Bauhaus (pop) \u2605"
+                                },
+                                {
+                                    "value": "climate",
+                                    "displayName": "Climate \u2605"
+                                },
+                                {
+                                    "value": "blueprint",
+                                    "displayName": "Blueprint \u2605"
+                                },
+                                {
+                                    "value": "unknownPleasures",
+                                    "displayName": "Unknown Pleasures \u2605"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Graphite (dark) \u2605"
+                                },
+                                {
+                                    "value": "neon",
+                                    "displayName": "Neon \u2605"
+                                },
+                                {
+                                    "value": "terminal",
+                                    "displayName": "Terminal (Matrix) \u2605"
+                                },
+                                {
+                                    "value": "infographic",
+                                    "displayName": "Infographic \u2605"
+                                },
+                                {
+                                    "value": "cockpit",
+                                    "displayName": "Cockpit (HUD) \u2605"
+                                },
+                                {
+                                    "value": "hologram",
+                                    "displayName": "Hologram \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "themeJson": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "followTheme": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "reverse": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "customColors": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorText": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorMuted": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorGrid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorAccent": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorPositive": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorNegative": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series1": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series3": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series4": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series5": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series6": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series7": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series8": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "palette": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Style or theme palette"
+                                },
+                                {
+                                    "value": "crest",
+                                    "displayName": "Plume (sequential)"
+                                },
+                                {
+                                    "value": "crestDiverging",
+                                    "displayName": "Plume (diverging)"
+                                },
+                                {
+                                    "value": "viridis",
+                                    "displayName": "Viridis \u2605"
+                                },
+                                {
+                                    "value": "magma",
+                                    "displayName": "Magma \u2605"
+                                },
+                                {
+                                    "value": "inferno",
+                                    "displayName": "Inferno \u2605"
+                                },
+                                {
+                                    "value": "cividis",
+                                    "displayName": "Cividis (colorblind-safe) \u2605"
+                                },
+                                {
+                                    "value": "warmingStripes",
+                                    "displayName": "Warming stripes \u2605"
+                                },
+                                {
+                                    "value": "rdYlBu",
+                                    "displayName": "Red\u2013Yellow\u2013Blue \u2605"
+                                },
+                                {
+                                    "value": "brBG",
+                                    "displayName": "Brown\u2013Teal (drought) \u2605"
+                                },
+                                {
+                                    "value": "spectral",
+                                    "displayName": "Spectral \u2605"
+                                },
+                                {
+                                    "value": "blues",
+                                    "displayName": "Blues \u2605"
+                                },
+                                {
+                                    "value": "reds",
+                                    "displayName": "Reds \u2605"
+                                },
+                                {
+                                    "value": "grays",
+                                    "displayName": "Grays \u2605"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Press (ink and paper) \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth (ochre to umber) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "okabeIto",
+                                    "displayName": "Okabe-Ito (colorblind-safe) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "scaleLow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleMid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleHigh": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "mutedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "animate": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "dataColors": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Palette (one color per category)"
+                                },
+                                {
+                                    "value": "single",
+                                    "displayName": "Single color"
+                                }
+                            ]
+                        }
+                    },
+                    "single": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fill": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "properties": {
+                    "orientation": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "horizontal",
+                                    "displayName": "Horizontal (left to right)"
+                                },
+                                {
+                                    "value": "vertical",
+                                    "displayName": "Vertical (top to bottom) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "structure": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "chain",
+                                    "displayName": "Chain (one node per name, several levels)"
+                                },
+                                {
+                                    "value": "twoColumns",
+                                    "displayName": "Two columns (origin \u2192 destination)"
+                                }
+                            ]
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "justify",
+                                    "displayName": "Final destinations in the last column"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "As early as possible (left)"
+                                }
+                            ]
+                        }
+                    },
+                    "cycles": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "loop",
+                                    "displayName": "Loops under the chart"
+                                },
+                                {
+                                    "value": "hide",
+                                    "displayName": "Hide"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "nodes": {
+                "properties": {
+                    "width": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "padding": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "order": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (largest on top, fewer crossings)"
+                                },
+                                {
+                                    "value": "size",
+                                    "displayName": "Largest on top"
+                                },
+                                {
+                                    "value": "alpha",
+                                    "displayName": "Alphabetical"
+                                },
+                                {
+                                    "value": "data",
+                                    "displayName": "Data order (Sort by column)"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom (list or drag the nodes)"
+                                }
+                            ]
+                        }
+                    },
+                    "customOrder": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "maxCategories": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "flows": {
+                "properties": {
+                    "colorBy": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "source",
+                                    "displayName": "Origin category"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Destination category"
+                                },
+                                {
+                                    "value": "gradient",
+                                    "displayName": "Gradient origin \u2192 destination \u2605"
+                                },
+                                {
+                                    "value": "measure",
+                                    "displayName": "By the \u00ab Flow color \u00bb field"
+                                },
+                                {
+                                    "value": "neutral",
+                                    "displayName": "Neutral (gray)"
+                                }
+                            ]
+                        }
+                    },
+                    "opacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "render": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "ribbons",
+                                    "displayName": "Solid ribbons"
+                                },
+                                {
+                                    "value": "threads",
+                                    "displayName": "Threads: one line per unit \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "threadWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "curvature": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "changesOnly": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "focus": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "focusLinks": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "focusColors": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "flow",
+                                    "displayName": "Flow color"
+                                },
+                                {
+                                    "value": "distinct",
+                                    "displayName": "One color per highlighted name"
+                                }
+                            ]
+                        }
+                    },
+                    "dimOpacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "minShare": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "linkLabels": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "content": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "value",
+                                    "displayName": "Value"
+                                },
+                                {
+                                    "value": "pctSource",
+                                    "displayName": "% of the origin node (conversion)"
+                                },
+                                {
+                                    "value": "pctTotal",
+                                    "displayName": "% of total"
+                                },
+                                {
+                                    "value": "valuePct",
+                                    "displayName": "Value and % of the origin node"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "minThickness": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "migration": {
+                "properties": {
+                    "showMissing": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "newLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "lostLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "retention": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "retentionKind": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "same",
+                                    "displayName": "Same category in the next column"
+                                },
+                                {
+                                    "value": "present",
+                                    "displayName": "Still present in the next column"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "labels": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "content": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "name",
+                                    "displayName": "Name"
+                                },
+                                {
+                                    "value": "nameValue",
+                                    "displayName": "Name and value"
+                                },
+                                {
+                                    "value": "namePct",
+                                    "displayName": "Name and % of the column"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "Name, value and %"
+                                }
+                            ]
+                        }
+                    },
+                    "pctOf": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "column",
+                                    "displayName": "The column total"
+                                },
+                                {
+                                    "value": "first",
+                                    "displayName": "The first column total"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "halo": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "units": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "k",
+                                    "displayName": "Thousands"
+                                },
+                                {
+                                    "value": "m",
+                                    "displayName": "Millions"
+                                },
+                                {
+                                    "value": "b",
+                                    "displayName": "Billions"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "prefix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "suffix": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "headers": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "names": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showTotal": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "interaction": {
+                "properties": {
+                    "hover": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dim": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "trace": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "drag": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "title": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "source": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "container": {
+                "properties": {
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "padding": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "texts": {
+                "properties": {
+                    "language": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Same as Power BI"
+                                },
+                                {
+                                    "value": "fr",
+                                    "displayName": "French"
+                                },
+                                {
+                                    "value": "en",
+                                    "displayName": "English"
+                                }
+                            ]
+                        }
+                    },
+                    "numberLocale": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

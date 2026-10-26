@@ -1,0 +1,221 @@
+{
+    "visual": {
+        "name": "MultiBookRiskSurface",
+        "displayName": "Multi-Book Risk Surface",
+        "guid": "MultiBookRiskSurfaceByOfficeSolution",
+        "visualClassName": "Visual",
+        "version": "1.0.1.0",
+        "description": "Investment Banking Multi-Book Risk Surface displaying VaR, Expected Shortfall, and Greek sensitivities across trading desks, risk factors, and tenors with interactive polar Greek radar, scenario delta analysis, and drill-down drawer.",
+        "supportUrl": "https://newwebsite.innovationalofficesolution.com/power-bi-custom-charts",
+        "gitHubUrl": "https://github.com/InnovationalOfficeSolution/MultiBookRiskSurfaceCC"
+    },
+    "author": {
+        "name": "Rajesh",
+        "email": "rajesh.singh@innovationalofficesolution.com"
+    },
+    "apiVersion": "5.10.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Book / Trading Desk",
+                "name": "book",
+                "kind": "GroupingOrMeasure",
+                "description": "Trading desk or risk book (e.g., Macro Rates, FX Options, Equity Vol). Drag multiple to enable dynamic dimension switching."
+            },
+            {
+                "displayName": "Underlier / Risk Factor",
+                "name": "riskFactor",
+                "kind": "GroupingOrMeasure",
+                "description": "Asset, curve, or risk factor (e.g., US 10Y Yield, EUR/USD, S&P 500). Drag multiple to enable parameter switching."
+            },
+            {
+                "displayName": "Tenor / Bucket",
+                "name": "tenor",
+                "kind": "GroupingOrMeasure",
+                "description": "Maturity bucket or curve tenor point (1M, 3M, 6M, 1Y, 2Y, 5Y, 10Y, 30Y). Drag multiple to enable parameter switching."
+            },
+            {
+                "displayName": "VaR / Expected Shortfall",
+                "name": "varMeasure",
+                "kind": "GroupingOrMeasure",
+                "description": "Primary risk measure: VaR 95%, VaR 99%, or Expected Shortfall ($M). Drag multiple to enable parameter switching."
+            },
+            {
+                "displayName": "Greeks (Delta / Gamma / Vega...)",
+                "name": "greekMeasures",
+                "kind": "GroupingOrMeasure",
+                "description": "Risk Greek sensitivity measures (Delta, Gamma, Vega, Theta, Rho, DV01, CS01) plotted on linked radar and surface."
+            },
+            {
+                "displayName": "Scenario",
+                "name": "scenario",
+                "kind": "GroupingOrMeasure",
+                "description": "Base or stress scenario identifier (Base, +100bp Rates Shock, Covid 2020, Tech Selloff). Drag multiple to enable parameter switching."
+            },
+            {
+                "displayName": "As-Of Date / Timeline",
+                "name": "date",
+                "kind": "GroupingOrMeasure",
+                "description": "Historical risk date for timeline scrubber and play axis animation."
+            },
+            {
+                "displayName": "Position / Contributor",
+                "name": "contributor",
+                "kind": "GroupingOrMeasure",
+                "description": "Underlying position, trader, or ticket identifier for contextual drill drawer."
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "book"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "riskFactor"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tenor"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "varMeasure"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "greekMeasures"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "scenario"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "date"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "contributor"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "surfaceSettings": {
+                "properties": {
+                    "perspective": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "colorPalette": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showContourLines": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "contourDensity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "cellPadding": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "accentColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "greekRadarSettings": {
+                "properties": {
+                    "showRadar": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "radarRings": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "fillOpacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "strokeWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "showSpokeLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "featureCard": {
+                "properties": {
+                    "enableScenarioDelta": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enablePlayAxis": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableDetailDrawer": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
