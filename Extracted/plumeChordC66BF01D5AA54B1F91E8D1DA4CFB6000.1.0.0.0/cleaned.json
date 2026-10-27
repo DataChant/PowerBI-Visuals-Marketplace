@@ -1,0 +1,1979 @@
+{
+    "visual": {
+        "name": "plumeChord",
+        "displayName": "Chord Plume",
+        "guid": "plumeChordC66BF01D5AA54B1F91E8D1DA4CFB6000",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Chord diagram with the Plume Studio look: From / To / Value or a matrix of measures, directed ribbons (two-way widths or one arrow per direction) or undirected, overlap-free curved, radial or horizontal labels, ticks, sorting, small flows in Others, self-loops, hover and cross-filter; premium: play axis with animated transitions between periods, bipartite layout (two half circles), in/out, net balance and change ring, net balance and fewer-crossings sorting, stronger-direction colors, small ribbons hidden, percent ticks, grouped (hierarchical) arcs, highlighted groups and gradient ribbons.",
+        "supportUrl": "https://plumevisuals.com/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Plume Studio",
+        "email": "contact@plumevisuals.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "premium_desc": "Premium feature: usable for free with a \u00ab Premium preview \u00bb watermark, unlocked by a Plume Studio license key.",
+            "card_license": "Plume Studio License",
+            "license_buy": "Get a license",
+            "license_key": "License key",
+            "license_key_desc": "Paste the key received after purchase on plumevisuals.com (starts with PLUM1.). Checked offline.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Show license holder (edit mode)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Custom colors",
+            "group_style_text": "Text",
+            "group_style_background": "Background and corners",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Complete look shared by all Plume visuals: colors, three palettes, fonts, frame, table header, marks and effects. Customize colors below.",
+            "style_preset_none": "None",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Black & White",
+            "style_preset_press": "Newspaper \u2605",
+            "style_preset_vintage": "Vintage (antique plate) \u2605",
+            "style_preset_earth": "Earth \u2605",
+            "style_preset_nordic": "Nordic \u2605",
+            "style_preset_executive": "Executive \u2605",
+            "style_preset_accessible": "Accessible (high legibility) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climate \u2605",
+            "style_preset_blueprint": "Blueprint \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (dark) \u2605",
+            "style_preset_neon": "Neon \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographic \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologram \u2605",
+            "style_themeJson": "Theme JSON \u2605",
+            "style_themeJson_desc": "Paste a JSON theme: see the 'JSON themes' tutorial on plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Follow report theme",
+            "style_followTheme_desc": "Text, background, accent and data colors come from the Power BI report theme.",
+            "style_reverse": "Reverse gradients",
+            "style_customColors": "Customize colors",
+            "style_customColors_desc": "Start from the style and pick your own colors. A color left empty keeps the style's color.",
+            "style_colorBackground": "Background",
+            "style_colorText": "Text",
+            "style_colorMuted": "Secondary text",
+            "style_colorGrid": "Lines and grid",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "Unfavorable",
+            "style_series1": "Series 1",
+            "style_series2": "Series 2",
+            "style_series3": "Series 3",
+            "style_series4": "Series 4",
+            "style_series5": "Series 5",
+            "style_series6": "Series 6",
+            "style_series7": "Series 7",
+            "style_series8": "Series 8",
+            "style_palette": "Gradient palette",
+            "style_palette_desc": "Gradient from the catalog (Viridis, Magma\u2026). The start, middle and end colors below replace it.",
+            "style_palette_auto": "Style or theme palette",
+            "style_palette_crest": "Plume (sequential)",
+            "style_palette_crestDiverging": "Plume (diverging)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (colorblind-safe) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Red\u2013Yellow\u2013Blue \u2605",
+            "style_palette_brBG": "Brown\u2013Teal (drought) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Blues \u2605",
+            "style_palette_reds": "Reds \u2605",
+            "style_palette_grays": "Grays \u2605",
+            "style_palette_press": "Press (ink and paper) \u2605",
+            "style_palette_nordic": "Nordic \u2605",
+            "style_palette_earth": "Earth (ochre to umber) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (colorblind-safe) \u2605",
+            "style_scaleLow": "Gradient: start",
+            "style_scaleMid": "Gradient: middle (diverging)",
+            "style_scaleHigh": "Gradient: end",
+            "style_fontFamily": "Font",
+            "style_fontFamily_desc": "Used by every text of the visual (title, axes, labels, cells).",
+            "style_textColor": "Text color (empty = style)",
+            "style_mutedColor": "Secondary text (empty = style)",
+            "style_bgShow": "Background",
+            "style_bgColor": "Background color",
+            "style_bgColor2": "Gradient end (optional)",
+            "style_radius": "Corner radius",
+            "style_animate": "Animations",
+            "style_animate_desc": "Smooth transitions when data changes. Automatically disabled when the system asks to reduce motion.",
+            "card_dataColors": "Data colors",
+            "dataColors_mode": "Coloring",
+            "dataColors_mode_auto": "Palette (one color per name)",
+            "dataColors_mode_single": "Single color",
+            "dataColors_single": "Color",
+            "dataColors_fill": "Color",
+            "card_layout": "Layout",
+            "layout_shape": "Shape",
+            "layout_shape_desc": "Two half circles: origins on the left, destinations on the right (exporters and importers, channels and products). A name found on both sides gets two arcs.",
+            "layout_shape_circle": "Circle (one arc per name)",
+            "layout_shape_bipartite": "Two half circles (From on the left, To on the right) \u2605",
+            "layout_direction": "Flow direction",
+            "layout_direction_desc": "Automatic: both ways in one ribbon when every name sends something, otherwise one ribbon per direction with an arrow (a name that only receives would have no arc).",
+            "layout_direction_auto": "Automatic",
+            "layout_direction_both": "Both ways in one ribbon (each end = what it sends)",
+            "layout_direction_arrows": "One ribbon per direction, with an arrow",
+            "layout_direction_undirected": "Undirected (both ways added up)",
+            "layout_order": "Arc order",
+            "layout_order_desc": "Order of the arcs, clockwise from the start angle. Net balance: names that receive more than they send come first.",
+            "layout_order_size": "Largest first",
+            "layout_order_auto": "Fewer crossings (partners side by side) \u2605",
+            "layout_order_alpha": "Alphabetical",
+            "layout_order_data": "Data order (Sort by column)",
+            "layout_order_custom": "Custom (list)",
+            "layout_order_net": "Net balance (gainers first) \u2605",
+            "layout_customOrder": "Custom order (separated by ;)",
+            "layout_customOrder_desc": "Names in this order, the others after them (largest first).",
+            "layout_customOrder_ph": "North; South; East",
+            "layout_startAngle": "Start angle (degrees, 0 = top)",
+            "layout_clockwise": "Clockwise",
+            "layout_padAngle": "Space between arcs (degrees)",
+            "layout_arcWidth": "Arc thickness (px)",
+            "layout_size": "Circle size (%)",
+            "layout_maxGroups": "Names shown at most (the rest in \u00ab Others \u00bb)",
+            "layout_maxGroups_desc": "The names with the most traffic (sent + received) keep their arc; the others are merged into \u00ab Others \u00bb.",
+            "layout_selfLoops": "Flows to itself (A \u2192 A)",
+            "layout_selfLoops_desc": "Moves inside the same name (internal transfers, moves within a region).",
+            "layout_selfLoops_show": "Show (loop on the arc)",
+            "layout_selfLoops_hide": "Hide",
+            "card_flows": "Ribbons",
+            "flows_colorBy": "Ribbon color",
+            "flows_colorBy_desc": "The stronger direction (with one ribbon per direction): both ribbons of a pair take the color of the name that sends the most.",
+            "flows_colorBy_source": "Origin",
+            "flows_colorBy_target": "Destination",
+            "flows_colorBy_dominant": "The stronger direction \u2605",
+            "flows_colorBy_gradient": "Gradient origin \u2192 destination \u2605",
+            "flows_colorBy_neutral": "Neutral (gray)",
+            "flows_opacity": "Opacity (%)",
+            "flows_outline": "Ribbon outline",
+            "flows_arrowSize": "Arrow length (px)",
+            "flows_arrowSize_desc": "Used with \u00ab One ribbon per direction \u00bb.",
+            "flows_minShare": "Hide ribbons below (% of total) \u2605",
+            "flows_minShare_desc": "Ribbons smaller than this share of the total are not drawn (the arcs keep their size).",
+            "flows_focus": "Highlight \u2605",
+            "flows_focus_desc": "Only the arcs and ribbons of these names keep their color (several names separated by ;). Stays on the page, in PDF exports too.",
+            "flows_focus_ph": "Name; Name",
+            "flows_dimOpacity": "Dimmed ribbons: opacity (% of opacity)",
+            "flows_dimOpacity_desc": "Ribbons set back by a highlight.",
+            "card_ring": "Indicator ring",
+            "ring_kind": "Ring around the arcs",
+            "ring_kind_desc": "Net balance: a bar outside each arc, \u25b2 when the name receives more than it sends, \u25bc otherwise. Change: needs a Play axis field.",
+            "ring_kind_none": "None",
+            "ring_kind_inout": "Sent and received (share of each way) \u2605",
+            "ring_kind_net": "Net balance (received \u2212 sent) \u2605",
+            "ring_kind_change": "Change since the reference period \u2605",
+            "ring_reference": "Reference period",
+            "ring_reference_previous": "The previous period",
+            "ring_reference_first": "The first period",
+            "ring_width": "Thickness (px)",
+            "ring_values": "Write the values (\u25b2 \u25bc)",
+            "card_groups": "Groups (hierarchy) \u2605",
+            "groups_show": "Outer group arcs",
+            "groups_show_desc": "With a From group / To group field (\u2605): the names of a group stay together, under an outer arc with the group name.",
+            "groups_gap": "Space between groups (degrees)",
+            "groups_shades": "Group color, shades for its names",
+            "groups_fontSize": "Text size",
+            "card_labels": "Labels",
+            "group_labels_main": "Labels",
+            "group_labels_number": "Numbers",
+            "labels_show": "Show",
+            "labels_placement": "Placement",
+            "labels_placement_desc": "Labels never overlap: a label that does not fit is shortened (\u2026) or left out, the largest arcs first.",
+            "labels_placement_auto": "Automatic (along the arc, otherwise radial)",
+            "labels_placement_curved": "Along the arcs",
+            "labels_placement_radial": "Radial",
+            "labels_placement_horizontal": "Horizontal, with a leader line",
+            "labels_content": "Content",
+            "labels_content_name": "Name",
+            "labels_content_nameValue": "Name and value",
+            "labels_content_namePct": "Name and % of total",
+            "labels_content_all": "Name, value and %",
+            "labels_fontSize": "Text size",
+            "labels_color": "Color (empty = text)",
+            "labels_maxWidth": "Maximum label room (% of the visual)",
+            "labels_halo": "Text halo",
+            "labels_units": "Display units",
+            "labels_units_auto": "Auto",
+            "labels_units_none": "None",
+            "labels_units_k": "Thousands",
+            "labels_units_m": "Millions",
+            "labels_units_b": "Billions",
+            "labels_decimals": "Decimals (-1 = auto)",
+            "labels_prefix": "Prefix",
+            "labels_suffix": "Suffix (e.g. \u20ac)",
+            "card_ticks": "Ticks",
+            "ticks_show": "Show",
+            "ticks_unit": "Scale in",
+            "ticks_unit_value": "Values",
+            "ticks_unit_percent": "% of total \u2605",
+            "ticks_step": "Step (0 = automatic)",
+            "ticks_fontSize": "Text size",
+            "ticks_color": "Color (empty = secondary)",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Highlight on hover",
+            "interaction_dim": "Dimmed items opacity (%)",
+            "interaction_hoverFlows": "Hovering an arc: ribbons shown",
+            "interaction_hoverFlows_both": "Sent and received",
+            "interaction_hoverFlows_out": "Sent only",
+            "interaction_hoverFlows_in": "Received only",
+            "card_play": "Playback \u2605",
+            "play_start": "Frame shown on opening",
+            "play_start_last": "The last one (most recent)",
+            "play_start_first": "The first one",
+            "play_speed": "Duration of a frame (ms)",
+            "play_speed_desc": "At speed \u00d71; the speed button of the play bar multiplies it (\u00d70.5 to \u00d74) for the session.",
+            "play_loop": "Loop",
+            "play_autoPlay": "Play automatically on opening",
+            "play_autoPlay_desc": "Once, from the first frame. Not when animations are reduced (Style \u203a Animations or the system) nor on a dashboard tile.",
+            "play_transition": "Animated transitions",
+            "play_transition_desc": "Values, positions and colors move smoothly from one frame to the next.",
+            "play_controls": "Play bar",
+            "play_position": "Bar position",
+            "play_position_bottom": "Bottom",
+            "play_position_top": "Top",
+            "play_ticks": "Tick marks",
+            "play_ticks_auto": "Automatic",
+            "play_ticks_all": "Every frame",
+            "play_ticks_none": "None",
+            "play_tickLabels": "Tick labels",
+            "play_stepButtons": "Start and end buttons",
+            "play_speedButton": "Speed button",
+            "play_showLabel": "Current value in large type",
+            "play_labelSize": "Large value size",
+            "play_labelPosition": "Large value position",
+            "play_labelPosition_bottomRight": "Bottom right",
+            "play_labelPosition_topRight": "Top right",
+            "play_labelPosition_topLeft": "Top left",
+            "play_labelPosition_bottomLeft": "Bottom left",
+            "play_labelPosition_center": "Center",
+            "card_title": "Title",
+            "title_show": "Show",
+            "title_text": "Title",
+            "title_text_desc": "Leave empty for an automatic title built from the fields.",
+            "title_text_ph": "Automatic",
+            "title_subtitle": "Subtitle",
+            "title_fontSize": "Size",
+            "title_bold": "Bold",
+            "title_color": "Color (empty = text)",
+            "title_align": "Alignment",
+            "title_align_left": "Left",
+            "title_align_center": "Center",
+            "title_align_right": "Right",
+            "card_source": "Source note",
+            "source_show": "Show",
+            "source_text": "Text",
+            "source_text_ph": "Source: \u2026",
+            "source_fontSize": "Size",
+            "source_align": "Alignment",
+            "source_align_left": "Left",
+            "source_align_center": "Center",
+            "source_align_right": "Right",
+            "card_container": "Frame",
+            "container_border": "Border",
+            "container_borderWidth": "Border width",
+            "container_borderColor": "Border color (empty = grid)",
+            "container_shadow": "Shadow",
+            "container_padding": "Inner padding",
+            "card_texts": "Language and texts",
+            "texts_language": "Interface language",
+            "texts_language_auto": "Same as Power BI",
+            "texts_language_fr": "French",
+            "texts_language_en": "English",
+            "texts_numberLocale": "Number format locale (e.g. en-GB)",
+            "texts_numberLocale_ph": "auto",
+            "role_play": "Play axis \u2605",
+            "roleDesc_play": "Premium: year, month\u2026: one diagram per value, played with animated transitions.",
+            "role_source": "From",
+            "roleDesc_source": "Origin of each flow (country, department, product\u2026). With To: one flow per row.",
+            "role_target": "To",
+            "roleDesc_target": "Destination of each flow. Without To, drop several measures in Value: each measure is a destination (matrix).",
+            "role_value": "Value (or one measure per destination)",
+            "roleDesc_value": "Size of the flows. Without To, each measure is a destination named after the measure (matrix of measures).",
+            "role_sourceGroup": "From group \u2605",
+            "roleDesc_sourceGroup": "Premium: group of each From item (continent, division\u2026): grouped arcs with an outer ring.",
+            "role_targetGroup": "To group \u2605",
+            "roleDesc_targetGroup": "Premium: group of each To item (often the same field as From group, from the destination table).",
+            "role_tooltips": "Tooltips",
+            "role_format": "Dynamic format",
+            "roleDesc_format": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX"
+        },
+        "fr-FR": {
+            "premium_desc": "Fonction premium : utilisable avec un filigrane \u00ab Aper\u00e7u premium \u00bb, d\u00e9bloqu\u00e9e par une cl\u00e9 de licence Plume Studio.",
+            "card_license": "Licence Plume Studio",
+            "license_buy": "Obtenir une licence",
+            "license_key": "Cl\u00e9 de licence",
+            "license_key_desc": "Collez la cl\u00e9 re\u00e7ue apr\u00e8s l'achat sur plumevisuals.com (commence par PLUM1.). V\u00e9rifi\u00e9e hors ligne.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Afficher le titulaire (mode \u00e9dition)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Couleurs personnalis\u00e9es",
+            "group_style_text": "Texte",
+            "group_style_background": "Arri\u00e8re-plan et angles",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Habillage complet commun \u00e0 tous les visuels Plume : couleurs, trois palettes, polices, cadre, en-t\u00eate des tableaux, marques et effets. Personnalisez les couleurs plus bas.",
+            "style_preset_none": "Aucun",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Noir et blanc",
+            "style_preset_press": "Journal \u2605",
+            "style_preset_vintage": "Vintage (planche ancienne) \u2605",
+            "style_preset_earth": "Terre \u2605",
+            "style_preset_nordic": "Nordique \u2605",
+            "style_preset_executive": "Direction \u2605",
+            "style_preset_accessible": "Accessible (lisibilit\u00e9) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climat \u2605",
+            "style_preset_blueprint": "Plan d'architecte \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (sombre) \u2605",
+            "style_preset_neon": "N\u00e9on \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographie \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologramme \u2605",
+            "style_themeJson": "Th\u00e8me JSON \u2605",
+            "style_themeJson_desc": "Collez un th\u00e8me JSON : voir le tutoriel \u00ab Th\u00e8mes JSON \u00bb sur plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Suivre le th\u00e8me du rapport",
+            "style_followTheme_desc": "Texte, fond, accent et couleurs des donn\u00e9es viennent du th\u00e8me du rapport Power BI.",
+            "style_reverse": "Inverser les d\u00e9grad\u00e9s",
+            "style_customColors": "Personnaliser les couleurs",
+            "style_customColors_desc": "Partez du style et choisissez vos propres couleurs. Une couleur laiss\u00e9e vide garde celle du style.",
+            "style_colorBackground": "Fond",
+            "style_colorText": "Texte",
+            "style_colorMuted": "Texte secondaire",
+            "style_colorGrid": "Traits et grille",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "D\u00e9favorable",
+            "style_series1": "S\u00e9rie 1",
+            "style_series2": "S\u00e9rie 2",
+            "style_series3": "S\u00e9rie 3",
+            "style_series4": "S\u00e9rie 4",
+            "style_series5": "S\u00e9rie 5",
+            "style_series6": "S\u00e9rie 6",
+            "style_series7": "S\u00e9rie 7",
+            "style_series8": "S\u00e9rie 8",
+            "style_palette": "Palette du d\u00e9grad\u00e9",
+            "style_palette_desc": "D\u00e9grad\u00e9 tir\u00e9 du catalogue (Viridis, Magma\u2026). Les couleurs de d\u00e9but, milieu et fin ci-dessous le remplacent.",
+            "style_palette_auto": "Palette du style ou du th\u00e8me",
+            "style_palette_crest": "Plume (s\u00e9quentielle)",
+            "style_palette_crestDiverging": "Plume (divergente)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (daltonisme) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Rouge\u2013Jaune\u2013Bleu \u2605",
+            "style_palette_brBG": "Brun\u2013Bleu-vert (s\u00e9cheresse) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Bleus \u2605",
+            "style_palette_reds": "Rouges \u2605",
+            "style_palette_grays": "Gris \u2605",
+            "style_palette_press": "Presse (encre et papier) \u2605",
+            "style_palette_nordic": "Nordique \u2605",
+            "style_palette_earth": "Terre (ocre \u00e0 terre d'ombre) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (daltonisme) \u2605",
+            "style_scaleLow": "D\u00e9grad\u00e9 : d\u00e9but",
+            "style_scaleMid": "D\u00e9grad\u00e9 : milieu (\u00e9carts)",
+            "style_scaleHigh": "D\u00e9grad\u00e9 : fin",
+            "style_fontFamily": "Police",
+            "style_fontFamily_desc": "Utilis\u00e9e par tous les textes du visuel (titre, axes, \u00e9tiquettes, cellules).",
+            "style_textColor": "Couleur du texte (vide = style)",
+            "style_mutedColor": "Texte secondaire (vide = style)",
+            "style_bgShow": "Arri\u00e8re-plan",
+            "style_bgColor": "Couleur de fond",
+            "style_bgColor2": "Fin du d\u00e9grad\u00e9 (optionnel)",
+            "style_radius": "Arrondi des angles",
+            "style_animate": "Animations",
+            "style_animate_desc": "Transitions fluides quand les donn\u00e9es changent. D\u00e9sactiv\u00e9es automatiquement si le syst\u00e8me demande de r\u00e9duire les animations.",
+            "card_dataColors": "Couleurs des donn\u00e9es",
+            "dataColors_mode": "Coloration",
+            "dataColors_mode_auto": "Palette (une couleur par nom)",
+            "dataColors_mode_single": "Couleur unique",
+            "dataColors_single": "Couleur",
+            "dataColors_fill": "Couleur",
+            "card_layout": "Disposition",
+            "layout_shape": "Forme",
+            "layout_shape_desc": "Deux demi-cercles : les origines \u00e0 gauche, les destinations \u00e0 droite (exportateurs et importateurs, canaux et produits). Un nom pr\u00e9sent des deux c\u00f4t\u00e9s a deux arcs.",
+            "layout_shape_circle": "Cercle (un arc par nom)",
+            "layout_shape_bipartite": "Deux demi-cercles (De \u00e0 gauche, Vers \u00e0 droite) \u2605",
+            "layout_direction": "Sens des flux",
+            "layout_direction_desc": "Automatique : deux sens dans un ruban quand chaque nom envoie quelque chose, sinon un ruban par sens avec une fl\u00e8che (un nom qui ne fait que recevoir n'aurait pas d'arc).",
+            "layout_direction_auto": "Automatique",
+            "layout_direction_both": "Deux sens dans un ruban (chaque extr\u00e9mit\u00e9 = ce qu'elle envoie)",
+            "layout_direction_arrows": "Un ruban par sens, avec une fl\u00e8che",
+            "layout_direction_undirected": "Non dirig\u00e9 (les deux sens additionn\u00e9s)",
+            "layout_order": "Ordre des arcs",
+            "layout_order_desc": "Ordre des arcs, dans le sens des aiguilles d'une montre depuis l'angle de d\u00e9part. Solde net : les noms qui re\u00e7oivent plus qu'ils n'envoient d'abord.",
+            "layout_order_size": "Les plus grands d'abord",
+            "layout_order_auto": "Moins de croisements (voisins rapproch\u00e9s) \u2605",
+            "layout_order_alpha": "Alphab\u00e9tique",
+            "layout_order_data": "Ordre des donn\u00e9es (Trier par colonne)",
+            "layout_order_custom": "Personnalis\u00e9 (liste)",
+            "layout_order_net": "Solde net (gagnants d'abord) \u2605",
+            "layout_customOrder": "Ordre personnalis\u00e9 (s\u00e9par\u00e9 par ;)",
+            "layout_customOrder_desc": "Les noms dans cet ordre, les autres ensuite (les plus grands d'abord).",
+            "layout_customOrder_ph": "Nord; Sud; Est",
+            "layout_startAngle": "Angle de d\u00e9part (degr\u00e9s, 0 = en haut)",
+            "layout_clockwise": "Sens des aiguilles d'une montre",
+            "layout_padAngle": "Espace entre les arcs (degr\u00e9s)",
+            "layout_arcWidth": "\u00c9paisseur des arcs (px)",
+            "layout_size": "Taille du cercle (%)",
+            "layout_maxGroups": "Noms affich\u00e9s au plus (le reste dans \u00ab Autres \u00bb)",
+            "layout_maxGroups_desc": "Les noms qui \u00e9changent le plus (envoy\u00e9 + re\u00e7u) gardent leur arc ; les autres sont r\u00e9unis dans \u00ab Autres \u00bb.",
+            "layout_selfLoops": "Flux vers soi-m\u00eame (A \u2192 A)",
+            "layout_selfLoops_desc": "Mouvements \u00e0 l'int\u00e9rieur d'un m\u00eame nom (virements internes, d\u00e9m\u00e9nagements dans la r\u00e9gion).",
+            "layout_selfLoops_show": "Afficher (boucle sur l'arc)",
+            "layout_selfLoops_hide": "Masquer",
+            "card_flows": "Rubans",
+            "flows_colorBy": "Couleur des rubans",
+            "flows_colorBy_desc": "Le sens le plus fort (avec un ruban par sens) : les deux rubans d'une paire prennent la couleur du nom qui envoie le plus.",
+            "flows_colorBy_source": "Origine",
+            "flows_colorBy_target": "Destination",
+            "flows_colorBy_dominant": "Le sens le plus fort \u2605",
+            "flows_colorBy_gradient": "D\u00e9grad\u00e9 origine \u2192 destination \u2605",
+            "flows_colorBy_neutral": "Neutre (gris)",
+            "flows_opacity": "Opacit\u00e9 (%)",
+            "flows_outline": "Contour des rubans",
+            "flows_arrowSize": "Longueur des fl\u00e8ches (px)",
+            "flows_arrowSize_desc": "Avec \u00ab Un ruban par sens \u00bb.",
+            "flows_minShare": "Masquer les rubans sous (% du total) \u2605",
+            "flows_minShare_desc": "Les rubans plus petits que cette part du total ne sont pas dessin\u00e9s (les arcs gardent leur taille).",
+            "flows_focus": "Mettre en avant \u2605",
+            "flows_focus_desc": "Seuls les arcs et les rubans de ces noms gardent leur couleur (plusieurs noms s\u00e9par\u00e9s par ;). Reste affich\u00e9 sur la page, aussi dans les exports PDF.",
+            "flows_focus_ph": "Nom; Nom",
+            "flows_dimOpacity": "Rubans en retrait : opacit\u00e9 (% de l'opacit\u00e9)",
+            "flows_dimOpacity_desc": "Rubans mis en retrait par une mise en avant.",
+            "card_ring": "Anneau d'indicateurs",
+            "ring_kind": "Anneau autour des arcs",
+            "ring_kind_desc": "Solde net : une barre \u00e0 l'ext\u00e9rieur de chaque arc, \u25b2 quand le nom re\u00e7oit plus qu'il n'envoie, \u25bc sinon. \u00c9volution : demande un champ Axe de lecture.",
+            "ring_kind_none": "Aucun",
+            "ring_kind_inout": "Envoy\u00e9 et re\u00e7u (part de chaque sens) \u2605",
+            "ring_kind_net": "Solde net (re\u00e7u \u2212 envoy\u00e9) \u2605",
+            "ring_kind_change": "\u00c9volution depuis la p\u00e9riode de r\u00e9f\u00e9rence \u2605",
+            "ring_reference": "P\u00e9riode de r\u00e9f\u00e9rence",
+            "ring_reference_previous": "La p\u00e9riode pr\u00e9c\u00e9dente",
+            "ring_reference_first": "La premi\u00e8re p\u00e9riode",
+            "ring_width": "\u00c9paisseur (px)",
+            "ring_values": "\u00c9crire les valeurs (\u25b2 \u25bc)",
+            "card_groups": "Groupes (hi\u00e9rarchie) \u2605",
+            "groups_show": "Arc ext\u00e9rieur des groupes",
+            "groups_show_desc": "Avec un champ Groupe de De / Groupe de Vers (\u2605) : les noms d'un groupe restent ensemble, sous un arc ext\u00e9rieur portant le nom du groupe.",
+            "groups_gap": "Espace entre les groupes (degr\u00e9s)",
+            "groups_shades": "Couleur du groupe, nuances pour ses noms",
+            "groups_fontSize": "Taille du texte",
+            "card_labels": "\u00c9tiquettes",
+            "group_labels_main": "\u00c9tiquettes",
+            "group_labels_number": "Nombres",
+            "labels_show": "Afficher",
+            "labels_placement": "Placement",
+            "labels_placement_desc": "Les \u00e9tiquettes ne se chevauchent jamais : une \u00e9tiquette qui ne tient pas est raccourcie (\u2026) ou omise, les plus grands arcs d'abord.",
+            "labels_placement_auto": "Automatique (le long de l'arc, sinon rayonnantes)",
+            "labels_placement_curved": "Le long des arcs",
+            "labels_placement_radial": "Rayonnantes",
+            "labels_placement_horizontal": "Horizontales, avec un trait de rappel",
+            "labels_content": "Contenu",
+            "labels_content_name": "Nom",
+            "labels_content_nameValue": "Nom et valeur",
+            "labels_content_namePct": "Nom et % du total",
+            "labels_content_all": "Nom, valeur et %",
+            "labels_fontSize": "Taille du texte",
+            "labels_color": "Couleur (vide = texte)",
+            "labels_maxWidth": "Place maximale des \u00e9tiquettes (% du visuel)",
+            "labels_halo": "Halo autour du texte",
+            "labels_units": "Unit\u00e9s d'affichage",
+            "labels_units_auto": "Auto",
+            "labels_units_none": "Aucune",
+            "labels_units_k": "Milliers",
+            "labels_units_m": "Millions",
+            "labels_units_b": "Milliards",
+            "labels_decimals": "D\u00e9cimales (-1 = auto)",
+            "labels_prefix": "Pr\u00e9fixe",
+            "labels_suffix": "Suffixe (ex. \u20ac)",
+            "card_ticks": "Graduations",
+            "ticks_show": "Afficher",
+            "ticks_unit": "Graduer en",
+            "ticks_unit_value": "Valeurs",
+            "ticks_unit_percent": "% du total \u2605",
+            "ticks_step": "Pas (0 = automatique)",
+            "ticks_fontSize": "Taille du texte",
+            "ticks_color": "Couleur (vide = secondaire)",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Mettre en avant au survol",
+            "interaction_dim": "Opacit\u00e9 des \u00e9l\u00e9ments estomp\u00e9s (%)",
+            "interaction_hoverFlows": "Survol d'un arc : rubans montr\u00e9s",
+            "interaction_hoverFlows_both": "Envoy\u00e9s et re\u00e7us",
+            "interaction_hoverFlows_out": "Envoy\u00e9s seulement",
+            "interaction_hoverFlows_in": "Re\u00e7us seulement",
+            "card_play": "Lecture \u2605",
+            "play_start": "Image affich\u00e9e \u00e0 l'ouverture",
+            "play_start_last": "La derni\u00e8re (la plus r\u00e9cente)",
+            "play_start_first": "La premi\u00e8re",
+            "play_speed": "Dur\u00e9e d'une image (ms)",
+            "play_speed_desc": "\u00c0 la vitesse \u00d71 ; le bouton de vitesse de la barre la multiplie (\u00d70,5 \u00e0 \u00d74) le temps de la session.",
+            "play_loop": "Lecture en boucle",
+            "play_autoPlay": "Lecture automatique \u00e0 l'ouverture",
+            "play_autoPlay_desc": "Une fois, depuis la premi\u00e8re image. Jamais quand les animations sont r\u00e9duites (Style \u203a Animations ou syst\u00e8me) ni sur une vignette de tableau de bord.",
+            "play_transition": "Transitions anim\u00e9es",
+            "play_transition_desc": "Valeurs, positions et couleurs glissent d'une image \u00e0 la suivante.",
+            "play_controls": "Barre de lecture",
+            "play_position": "Position de la barre",
+            "play_position_bottom": "En bas",
+            "play_position_top": "En haut",
+            "play_ticks": "Graduations",
+            "play_ticks_auto": "Automatiques",
+            "play_ticks_all": "Toutes les images",
+            "play_ticks_none": "Aucune",
+            "play_tickLabels": "\u00c9tiquettes des graduations",
+            "play_stepButtons": "Boutons d\u00e9but et fin",
+            "play_speedButton": "Bouton de vitesse",
+            "play_showLabel": "Valeur en cours en grand",
+            "play_labelSize": "Taille de la valeur en grand",
+            "play_labelPosition": "Position de la valeur en grand",
+            "play_labelPosition_bottomRight": "En bas \u00e0 droite",
+            "play_labelPosition_topRight": "En haut \u00e0 droite",
+            "play_labelPosition_topLeft": "En haut \u00e0 gauche",
+            "play_labelPosition_bottomLeft": "En bas \u00e0 gauche",
+            "play_labelPosition_center": "Au centre",
+            "card_title": "Titre",
+            "title_show": "Afficher",
+            "title_text": "Titre",
+            "title_text_desc": "Laisser vide pour un titre automatique construit \u00e0 partir des champs.",
+            "title_text_ph": "Automatique",
+            "title_subtitle": "Sous-titre",
+            "title_fontSize": "Taille",
+            "title_bold": "Gras",
+            "title_color": "Couleur (vide = texte)",
+            "title_align": "Alignement",
+            "title_align_left": "Gauche",
+            "title_align_center": "Centr\u00e9",
+            "title_align_right": "Droite",
+            "card_source": "Note de source",
+            "source_show": "Afficher",
+            "source_text": "Texte",
+            "source_text_ph": "Source : \u2026",
+            "source_fontSize": "Taille",
+            "source_align": "Alignement",
+            "source_align_left": "Gauche",
+            "source_align_center": "Centr\u00e9",
+            "source_align_right": "Droite",
+            "card_container": "Cadre",
+            "container_border": "Bordure",
+            "container_borderWidth": "\u00c9paisseur de la bordure",
+            "container_borderColor": "Couleur de la bordure (vide = grille)",
+            "container_shadow": "Ombre",
+            "container_padding": "Marge int\u00e9rieure",
+            "card_texts": "Langue et textes",
+            "texts_language": "Langue de l'interface",
+            "texts_language_auto": "Comme Power BI",
+            "texts_language_fr": "Fran\u00e7ais",
+            "texts_language_en": "Anglais",
+            "texts_numberLocale": "Format des nombres (ex. fr-FR)",
+            "texts_numberLocale_ph": "auto",
+            "role_play": "Axe de lecture \u2605",
+            "roleDesc_play": "Premium : ann\u00e9e, mois\u2026 : un diagramme par valeur, jou\u00e9 avec des transitions anim\u00e9es.",
+            "role_source": "De",
+            "roleDesc_source": "Origine de chaque flux (pays, service, produit\u2026). Avec Vers : un flux par ligne.",
+            "role_target": "Vers",
+            "roleDesc_target": "Destination de chaque flux. Sans Vers, glissez plusieurs mesures dans Valeur : chaque mesure est une destination (matrice).",
+            "role_value": "Valeur (ou une mesure par destination)",
+            "roleDesc_value": "Taille des flux. Sans Vers, chaque mesure est une destination qui porte le nom de la mesure (matrice de mesures).",
+            "role_sourceGroup": "Groupe de De \u2605",
+            "roleDesc_sourceGroup": "Premium : groupe de chaque \u00e9l\u00e9ment De (continent, division\u2026) : arcs regroup\u00e9s sous un anneau ext\u00e9rieur.",
+            "role_targetGroup": "Groupe de Vers \u2605",
+            "roleDesc_targetGroup": "Premium : groupe de chaque \u00e9l\u00e9ment Vers (souvent le m\u00eame champ que Groupe de De, pris dans la table des destinations).",
+            "role_tooltips": "Infobulles",
+            "role_format": "Format dynamique",
+            "roleDesc_format": "Mesures nomm\u00e9es carte.r\u00e9glage (ex. title.fontSize) : pilotez n'importe quel r\u00e9glage du volet Format en DAX"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "source",
+                "kind": "Grouping",
+                "displayName": "From",
+                "displayNameKey": "role_source",
+                "description": "Origin of each flow (country, department, product\u2026). With To: one flow per row.",
+                "descriptionKey": "roleDesc_source"
+            },
+            {
+                "name": "target",
+                "kind": "Grouping",
+                "displayName": "To",
+                "displayNameKey": "role_target",
+                "description": "Destination of each flow. Without To, drop several measures in Value: each measure is a destination (matrix).",
+                "descriptionKey": "roleDesc_target"
+            },
+            {
+                "name": "value",
+                "kind": "Measure",
+                "displayName": "Value (or one measure per destination)",
+                "displayNameKey": "role_value",
+                "description": "Size of the flows. Without To, each measure is a destination named after the measure (matrix of measures).",
+                "descriptionKey": "roleDesc_value"
+            },
+            {
+                "name": "play",
+                "kind": "Grouping",
+                "displayName": "Play axis \u2605",
+                "displayNameKey": "role_play",
+                "description": "Premium: year, month\u2026: one diagram per value, played with animated transitions.",
+                "descriptionKey": "roleDesc_play"
+            },
+            {
+                "name": "sourceGroup",
+                "kind": "Grouping",
+                "displayName": "From group \u2605",
+                "displayNameKey": "role_sourceGroup",
+                "description": "Premium: group of each From item (continent, division\u2026): grouped arcs with an outer ring.",
+                "descriptionKey": "roleDesc_sourceGroup"
+            },
+            {
+                "name": "targetGroup",
+                "kind": "Grouping",
+                "displayName": "To group \u2605",
+                "displayNameKey": "role_targetGroup",
+                "description": "Premium: group of each To item (often the same field as From group, from the destination table).",
+                "descriptionKey": "roleDesc_targetGroup"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "role_tooltips"
+            },
+            {
+                "name": "format",
+                "kind": "Measure",
+                "displayName": "Dynamic format",
+                "displayNameKey": "role_format",
+                "description": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX",
+                "descriptionKey": "roleDesc_format"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "source": {
+                            "max": 1
+                        },
+                        "target": {
+                            "max": 1
+                        },
+                        "value": {
+                            "max": 30
+                        },
+                        "play": {
+                            "max": 1
+                        },
+                        "sourceGroup": {
+                            "max": 1
+                        },
+                        "targetGroup": {
+                            "max": 1
+                        },
+                        "tooltips": {
+                            "max": 5
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "source"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "target"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "play"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "sourceGroup"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "targetGroup"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "value"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "format"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "suppressDefaultTitle": true,
+        "privileges": [],
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            }
+        },
+        "objects": {
+            "license": {
+                "properties": {
+                    "buy": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "key": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showOwner": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "style": {
+                "properties": {
+                    "preset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal"
+                                },
+                                {
+                                    "value": "blackWhite",
+                                    "displayName": "Black & White"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Newspaper \u2605"
+                                },
+                                {
+                                    "value": "vintage",
+                                    "displayName": "Vintage (antique plate) \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "executive",
+                                    "displayName": "Executive \u2605"
+                                },
+                                {
+                                    "value": "accessible",
+                                    "displayName": "Accessible (high legibility) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "bauhaus",
+                                    "displayName": "Bauhaus (pop) \u2605"
+                                },
+                                {
+                                    "value": "climate",
+                                    "displayName": "Climate \u2605"
+                                },
+                                {
+                                    "value": "blueprint",
+                                    "displayName": "Blueprint \u2605"
+                                },
+                                {
+                                    "value": "unknownPleasures",
+                                    "displayName": "Unknown Pleasures \u2605"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Graphite (dark) \u2605"
+                                },
+                                {
+                                    "value": "neon",
+                                    "displayName": "Neon \u2605"
+                                },
+                                {
+                                    "value": "terminal",
+                                    "displayName": "Terminal (Matrix) \u2605"
+                                },
+                                {
+                                    "value": "infographic",
+                                    "displayName": "Infographic \u2605"
+                                },
+                                {
+                                    "value": "cockpit",
+                                    "displayName": "Cockpit (HUD) \u2605"
+                                },
+                                {
+                                    "value": "hologram",
+                                    "displayName": "Hologram \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "themeJson": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "followTheme": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "reverse": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "customColors": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorText": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorMuted": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorGrid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorAccent": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorPositive": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorNegative": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series1": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series3": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series4": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series5": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series6": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series7": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series8": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "palette": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Style or theme palette"
+                                },
+                                {
+                                    "value": "crest",
+                                    "displayName": "Plume (sequential)"
+                                },
+                                {
+                                    "value": "crestDiverging",
+                                    "displayName": "Plume (diverging)"
+                                },
+                                {
+                                    "value": "viridis",
+                                    "displayName": "Viridis \u2605"
+                                },
+                                {
+                                    "value": "magma",
+                                    "displayName": "Magma \u2605"
+                                },
+                                {
+                                    "value": "inferno",
+                                    "displayName": "Inferno \u2605"
+                                },
+                                {
+                                    "value": "cividis",
+                                    "displayName": "Cividis (colorblind-safe) \u2605"
+                                },
+                                {
+                                    "value": "warmingStripes",
+                                    "displayName": "Warming stripes \u2605"
+                                },
+                                {
+                                    "value": "rdYlBu",
+                                    "displayName": "Red\u2013Yellow\u2013Blue \u2605"
+                                },
+                                {
+                                    "value": "brBG",
+                                    "displayName": "Brown\u2013Teal (drought) \u2605"
+                                },
+                                {
+                                    "value": "spectral",
+                                    "displayName": "Spectral \u2605"
+                                },
+                                {
+                                    "value": "blues",
+                                    "displayName": "Blues \u2605"
+                                },
+                                {
+                                    "value": "reds",
+                                    "displayName": "Reds \u2605"
+                                },
+                                {
+                                    "value": "grays",
+                                    "displayName": "Grays \u2605"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Press (ink and paper) \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth (ochre to umber) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "okabeIto",
+                                    "displayName": "Okabe-Ito (colorblind-safe) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "scaleLow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleMid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleHigh": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "mutedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "animate": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "dataColors": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Palette (one color per name)"
+                                },
+                                {
+                                    "value": "single",
+                                    "displayName": "Single color"
+                                }
+                            ]
+                        }
+                    },
+                    "single": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fill": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "properties": {
+                    "shape": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle (one arc per name)"
+                                },
+                                {
+                                    "value": "bipartite",
+                                    "displayName": "Two half circles (From on the left, To on the right) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "direction": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic"
+                                },
+                                {
+                                    "value": "both",
+                                    "displayName": "Both ways in one ribbon (each end = what it sends)"
+                                },
+                                {
+                                    "value": "arrows",
+                                    "displayName": "One ribbon per direction, with an arrow"
+                                },
+                                {
+                                    "value": "undirected",
+                                    "displayName": "Undirected (both ways added up)"
+                                }
+                            ]
+                        }
+                    },
+                    "order": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "size",
+                                    "displayName": "Largest first"
+                                },
+                                {
+                                    "value": "auto",
+                                    "displayName": "Fewer crossings (partners side by side) \u2605"
+                                },
+                                {
+                                    "value": "alpha",
+                                    "displayName": "Alphabetical"
+                                },
+                                {
+                                    "value": "data",
+                                    "displayName": "Data order (Sort by column)"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom (list)"
+                                },
+                                {
+                                    "value": "net",
+                                    "displayName": "Net balance (gainers first) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "customOrder": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "startAngle": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "clockwise": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "padAngle": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "arcWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "size": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "maxGroups": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "selfLoops": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "show",
+                                    "displayName": "Show (loop on the arc)"
+                                },
+                                {
+                                    "value": "hide",
+                                    "displayName": "Hide"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "flows": {
+                "properties": {
+                    "colorBy": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "source",
+                                    "displayName": "Origin"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Destination"
+                                },
+                                {
+                                    "value": "dominant",
+                                    "displayName": "The stronger direction \u2605"
+                                },
+                                {
+                                    "value": "gradient",
+                                    "displayName": "Gradient origin \u2192 destination \u2605"
+                                },
+                                {
+                                    "value": "neutral",
+                                    "displayName": "Neutral (gray)"
+                                }
+                            ]
+                        }
+                    },
+                    "opacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "outline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "arrowSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "minShare": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "focus": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "dimOpacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "ring": {
+                "properties": {
+                    "kind": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "inout",
+                                    "displayName": "Sent and received (share of each way) \u2605"
+                                },
+                                {
+                                    "value": "net",
+                                    "displayName": "Net balance (received \u2212 sent) \u2605"
+                                },
+                                {
+                                    "value": "change",
+                                    "displayName": "Change since the reference period \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "reference": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "previous",
+                                    "displayName": "The previous period"
+                                },
+                                {
+                                    "value": "first",
+                                    "displayName": "The first period"
+                                }
+                            ]
+                        }
+                    },
+                    "width": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "values": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "groups": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gap": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "shades": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    }
+                }
+            },
+            "labels": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "placement": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (along the arc, otherwise radial)"
+                                },
+                                {
+                                    "value": "curved",
+                                    "displayName": "Along the arcs"
+                                },
+                                {
+                                    "value": "radial",
+                                    "displayName": "Radial"
+                                },
+                                {
+                                    "value": "horizontal",
+                                    "displayName": "Horizontal, with a leader line"
+                                }
+                            ]
+                        }
+                    },
+                    "content": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "name",
+                                    "displayName": "Name"
+                                },
+                                {
+                                    "value": "nameValue",
+                                    "displayName": "Name and value"
+                                },
+                                {
+                                    "value": "namePct",
+                                    "displayName": "Name and % of total"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "Name, value and %"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "maxWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "halo": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "units": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "k",
+                                    "displayName": "Thousands"
+                                },
+                                {
+                                    "value": "m",
+                                    "displayName": "Millions"
+                                },
+                                {
+                                    "value": "b",
+                                    "displayName": "Billions"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "prefix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "suffix": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "ticks": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "unit": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "value",
+                                    "displayName": "Values"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "% of total \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "step": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "interaction": {
+                "properties": {
+                    "hover": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dim": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "hoverFlows": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "both",
+                                    "displayName": "Sent and received"
+                                },
+                                {
+                                    "value": "out",
+                                    "displayName": "Sent only"
+                                },
+                                {
+                                    "value": "in",
+                                    "displayName": "Received only"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "play": {
+                "properties": {
+                    "start": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "last",
+                                    "displayName": "The last one (most recent)"
+                                },
+                                {
+                                    "value": "first",
+                                    "displayName": "The first one"
+                                }
+                            ]
+                        }
+                    },
+                    "speed": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "loop": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "autoPlay": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "transition": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "controls": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                }
+                            ]
+                        }
+                    },
+                    "ticks": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "Every frame"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "tickLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "stepButtons": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "speedButton": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showLabel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "labelPosition": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bottomRight",
+                                    "displayName": "Bottom right"
+                                },
+                                {
+                                    "value": "topRight",
+                                    "displayName": "Top right"
+                                },
+                                {
+                                    "value": "topLeft",
+                                    "displayName": "Top left"
+                                },
+                                {
+                                    "value": "bottomLeft",
+                                    "displayName": "Bottom left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "title": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "source": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "container": {
+                "properties": {
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "padding": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "texts": {
+                "properties": {
+                    "language": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Same as Power BI"
+                                },
+                                {
+                                    "value": "fr",
+                                    "displayName": "French"
+                                },
+                                {
+                                    "value": "en",
+                                    "displayName": "English"
+                                }
+                            ]
+                        }
+                    },
+                    "numberLocale": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

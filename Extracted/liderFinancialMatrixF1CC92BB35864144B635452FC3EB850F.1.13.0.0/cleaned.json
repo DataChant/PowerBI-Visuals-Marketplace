@@ -1,0 +1,1732 @@
+{
+    "visual": {
+        "name": "liderFinancialMatrix",
+        "displayName": "LIDER IT Custom Matrix",
+        "guid": "liderFinancialMatrixF1CC92BB35864144B635452FC3EB850F",
+        "visualClassName": "Visual",
+        "version": "1.13.0.0",
+        "description": "Matriz para informes financieros: formato completo por fila (incluido el encabezado de fila), subtotales, expandir y contraer filas y columnas y obtenci\u00f3n de detalles.",
+        "supportUrl": "https://liderit.es",
+        "gitHubUrl": "https://github.com/liderit-bi/lider-it-custom-matrix"
+    },
+    "author": {
+        "name": "LIDER IT",
+        "email": "soporte.bi@liderit.es"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Filas",
+                "name": "rows",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Columnas",
+                "name": "columns",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Valores",
+                "name": "values",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Estilo de fila",
+                "name": "rowStyle",
+                "kind": "Measure",
+                "description": "Medida de texto opcional con el estilo de cada fila, p. ej. \"subtotal;line-top\""
+            },
+            {
+                "displayName": "Formato de celda",
+                "name": "cellStyle",
+                "kind": "Measure",
+                "description": "Medida de texto opcional evaluada en cada celda, p. ej. \"bg=#F8D7DA;bold\" o \"icon=down;icon-color=#C4314B\""
+            },
+            {
+                "displayName": "Campos de condici\u00f3n",
+                "name": "conditionFields",
+                "kind": "Measure",
+                "description": "Campos del modelo (p. ej. Indentacion o Categoria) que usan las tarjetas \"Formato de filas\" para decidir a qu\u00e9 filas aplicar el formato. No se muestran como columnas."
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "rowStyle": {
+                            "max": 1
+                        },
+                        "cellStyle": {
+                            "max": 1
+                        },
+                        "conditionFields": {
+                            "max": 5
+                        }
+                    }
+                ],
+                "matrix": {
+                    "rows": {
+                        "for": {
+                            "in": "rows"
+                        },
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 500
+                            }
+                        }
+                    },
+                    "columns": {
+                        "for": {
+                            "in": "columns"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 200
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "values"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "rowStyle"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "cellStyle"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "conditionFields"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "drilldown": {
+            "roles": [
+                "rows"
+            ]
+        },
+        "expandCollapse": {
+            "roles": [
+                "rows"
+            ],
+            "addDataViewFlags": {
+                "defaultValue": true
+            }
+        },
+        "subtotals": {
+            "matrix": {
+                "rowSubtotals": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "rowSubtotals"
+                    },
+                    "defaultValue": true
+                },
+                "columnSubtotals": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "columnSubtotals"
+                    },
+                    "defaultValue": true
+                },
+                "rowSubtotalsType": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "rowSubtotalsType"
+                    },
+                    "defaultValue": "Top"
+                }
+            }
+        },
+        "objects": {
+            "general": {
+                "properties": {
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "fontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "gridColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bandedRows": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bandColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "cellFilterColumns": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "columnHeaders": {
+                "properties": {
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "widthMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "content",
+                                    "displayName": "Ajustar al contenido"
+                                },
+                                {
+                                    "value": "fill",
+                                    "displayName": "Ajustar al ancho del visual"
+                                },
+                                {
+                                    "value": "fixed",
+                                    "displayName": "Ancho fijo"
+                                }
+                            ]
+                        }
+                    },
+                    "fixedWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "rowHeaders": {
+                "properties": {
+                    "showTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "title": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "width": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "indent": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "boldGroups": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "autoWidth": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "subTotals": {
+                "properties": {
+                    "rowSubtotals": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "columnSubtotals": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rowSubtotalsType": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "En la fila del grupo"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Fila al final del grupo"
+                                }
+                            ]
+                        }
+                    },
+                    "showGrandTotal": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "grandTotalBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "grandTotalFontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "rowStyles": {
+                "properties": {
+                    "headerBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "headerFontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "subtotalBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "subtotalFontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "totalBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "totalFontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "lineColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "rowFormat1": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "text",
+                                    "displayName": "Texto de la fila"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "Campo de condici\u00f3n"
+                                }
+                            ]
+                        }
+                    },
+                    "rows": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "field": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "operator": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "eq",
+                                    "displayName": "="
+                                },
+                                {
+                                    "value": "ne",
+                                    "displayName": "\u2260"
+                                },
+                                {
+                                    "value": "gt",
+                                    "displayName": ">"
+                                },
+                                {
+                                    "value": "ge",
+                                    "displayName": "\u2265"
+                                },
+                                {
+                                    "value": "lt",
+                                    "displayName": "<"
+                                },
+                                {
+                                    "value": "le",
+                                    "displayName": "\u2264"
+                                },
+                                {
+                                    "value": "contains",
+                                    "displayName": "contiene"
+                                }
+                            ]
+                        }
+                    },
+                    "value": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "useBackground": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "useFontColor": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lineTop": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "indent": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "rowFormat2": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "text",
+                                    "displayName": "Texto de la fila"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "Campo de condici\u00f3n"
+                                }
+                            ]
+                        }
+                    },
+                    "rows": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "field": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "operator": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "eq",
+                                    "displayName": "="
+                                },
+                                {
+                                    "value": "ne",
+                                    "displayName": "\u2260"
+                                },
+                                {
+                                    "value": "gt",
+                                    "displayName": ">"
+                                },
+                                {
+                                    "value": "ge",
+                                    "displayName": "\u2265"
+                                },
+                                {
+                                    "value": "lt",
+                                    "displayName": "<"
+                                },
+                                {
+                                    "value": "le",
+                                    "displayName": "\u2264"
+                                },
+                                {
+                                    "value": "contains",
+                                    "displayName": "contiene"
+                                }
+                            ]
+                        }
+                    },
+                    "value": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "useBackground": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "useFontColor": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lineTop": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "indent": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "rowFormat3": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "text",
+                                    "displayName": "Texto de la fila"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "Campo de condici\u00f3n"
+                                }
+                            ]
+                        }
+                    },
+                    "rows": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "field": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "operator": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "eq",
+                                    "displayName": "="
+                                },
+                                {
+                                    "value": "ne",
+                                    "displayName": "\u2260"
+                                },
+                                {
+                                    "value": "gt",
+                                    "displayName": ">"
+                                },
+                                {
+                                    "value": "ge",
+                                    "displayName": "\u2265"
+                                },
+                                {
+                                    "value": "lt",
+                                    "displayName": "<"
+                                },
+                                {
+                                    "value": "le",
+                                    "displayName": "\u2264"
+                                },
+                                {
+                                    "value": "contains",
+                                    "displayName": "contiene"
+                                }
+                            ]
+                        }
+                    },
+                    "value": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "useBackground": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "useFontColor": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lineTop": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "indent": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "rowFormat4": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "text",
+                                    "displayName": "Texto de la fila"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "Campo de condici\u00f3n"
+                                }
+                            ]
+                        }
+                    },
+                    "rows": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "field": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "operator": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "eq",
+                                    "displayName": "="
+                                },
+                                {
+                                    "value": "ne",
+                                    "displayName": "\u2260"
+                                },
+                                {
+                                    "value": "gt",
+                                    "displayName": ">"
+                                },
+                                {
+                                    "value": "ge",
+                                    "displayName": "\u2265"
+                                },
+                                {
+                                    "value": "lt",
+                                    "displayName": "<"
+                                },
+                                {
+                                    "value": "le",
+                                    "displayName": "\u2264"
+                                },
+                                {
+                                    "value": "contains",
+                                    "displayName": "contiene"
+                                }
+                            ]
+                        }
+                    },
+                    "value": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "useBackground": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "useFontColor": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lineTop": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "indent": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "rowFormat5": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "text",
+                                    "displayName": "Texto de la fila"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "Campo de condici\u00f3n"
+                                }
+                            ]
+                        }
+                    },
+                    "rows": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "field": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "operator": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "eq",
+                                    "displayName": "="
+                                },
+                                {
+                                    "value": "ne",
+                                    "displayName": "\u2260"
+                                },
+                                {
+                                    "value": "gt",
+                                    "displayName": ">"
+                                },
+                                {
+                                    "value": "ge",
+                                    "displayName": "\u2265"
+                                },
+                                {
+                                    "value": "lt",
+                                    "displayName": "<"
+                                },
+                                {
+                                    "value": "le",
+                                    "displayName": "\u2264"
+                                },
+                                {
+                                    "value": "contains",
+                                    "displayName": "contiene"
+                                }
+                            ]
+                        }
+                    },
+                    "value": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "useBackground": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "useFontColor": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lineTop": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "indent": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "rowFormat6": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "text",
+                                    "displayName": "Texto de la fila"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "Campo de condici\u00f3n"
+                                }
+                            ]
+                        }
+                    },
+                    "rows": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "field": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "operator": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "eq",
+                                    "displayName": "="
+                                },
+                                {
+                                    "value": "ne",
+                                    "displayName": "\u2260"
+                                },
+                                {
+                                    "value": "gt",
+                                    "displayName": ">"
+                                },
+                                {
+                                    "value": "ge",
+                                    "displayName": "\u2265"
+                                },
+                                {
+                                    "value": "lt",
+                                    "displayName": "<"
+                                },
+                                {
+                                    "value": "le",
+                                    "displayName": "\u2264"
+                                },
+                                {
+                                    "value": "contains",
+                                    "displayName": "contiene"
+                                }
+                            ]
+                        }
+                    },
+                    "value": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "useBackground": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "useFontColor": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lineTop": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "indent": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "valuesFormat": {
+                "properties": {
+                    "negativeRed": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "negativeParentheses": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "blankAsDash": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "negativeColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "positiveOn": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "positiveColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "clampOn": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "clampLimit": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showIcons": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "iconStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "circle",
+                                    "displayName": "C\u00edrculo \u2713 \u2715"
+                                },
+                                {
+                                    "value": "arrow",
+                                    "displayName": "Flecha \u25b2 \u25bc"
+                                },
+                                {
+                                    "value": "dot",
+                                    "displayName": "Punto \u25cf"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "cfRule1": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "target": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "kind": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "scale",
+                                    "displayName": "Escala de color"
+                                },
+                                {
+                                    "value": "thresholds",
+                                    "displayName": "Umbrales (sem\u00e1foro)"
+                                },
+                                {
+                                    "value": "bars",
+                                    "displayName": "Barras de datos"
+                                }
+                            ]
+                        }
+                    },
+                    "applyTo": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "background",
+                                    "displayName": "Fondo de la celda"
+                                },
+                                {
+                                    "value": "font",
+                                    "displayName": "Color del texto"
+                                },
+                                {
+                                    "value": "icon",
+                                    "displayName": "Icono"
+                                }
+                            ]
+                        }
+                    },
+                    "includeTotals": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "minColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "useMid": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "midValue": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "midColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "maxColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "percent": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lowLimit": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "highLimit": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "lowColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorMiddle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "middleColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "highColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "barPositive": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "barNegative": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "cfRule2": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "target": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "kind": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "scale",
+                                    "displayName": "Escala de color"
+                                },
+                                {
+                                    "value": "thresholds",
+                                    "displayName": "Umbrales (sem\u00e1foro)"
+                                },
+                                {
+                                    "value": "bars",
+                                    "displayName": "Barras de datos"
+                                }
+                            ]
+                        }
+                    },
+                    "applyTo": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "background",
+                                    "displayName": "Fondo de la celda"
+                                },
+                                {
+                                    "value": "font",
+                                    "displayName": "Color del texto"
+                                },
+                                {
+                                    "value": "icon",
+                                    "displayName": "Icono"
+                                }
+                            ]
+                        }
+                    },
+                    "includeTotals": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "minColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "useMid": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "midValue": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "midColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "maxColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "percent": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lowLimit": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "highLimit": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "lowColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorMiddle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "middleColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "highColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "barPositive": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "barNegative": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "cfRule3": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "target": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "kind": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "scale",
+                                    "displayName": "Escala de color"
+                                },
+                                {
+                                    "value": "thresholds",
+                                    "displayName": "Umbrales (sem\u00e1foro)"
+                                },
+                                {
+                                    "value": "bars",
+                                    "displayName": "Barras de datos"
+                                }
+                            ]
+                        }
+                    },
+                    "applyTo": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "background",
+                                    "displayName": "Fondo de la celda"
+                                },
+                                {
+                                    "value": "font",
+                                    "displayName": "Color del texto"
+                                },
+                                {
+                                    "value": "icon",
+                                    "displayName": "Icono"
+                                }
+                            ]
+                        }
+                    },
+                    "includeTotals": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "minColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "useMid": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "midValue": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "midColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "maxColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "percent": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lowLimit": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "highLimit": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "lowColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorMiddle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "middleColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "highColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "barPositive": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "barNegative": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "cellStyle": {
+                "properties": {
+                    "target": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "columnState": {
+                "properties": {
+                    "collapsed": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "widths": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        },
+        "sorting": {
+            "default": {}
+        },
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

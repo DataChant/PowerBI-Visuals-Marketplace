@@ -1,0 +1,4147 @@
+{
+    "visual": {
+        "name": "plumeScatterChart",
+        "displayName": "Scatter Plume",
+        "guid": "plumeScatterChart7F2D4A91C6E34B0D8A5E13F9B2C6D7A1",
+        "visualClassName": "Visual",
+        "version": "1.3.1.0",
+        "description": "Scatter and bubble chart with the Plume Studio look: series shapes, bubble sizes, gradient colors, quadrants, trend line with R\u00b2, reference lines on both axes, rectangle selection, smart labels, one-click styles.",
+        "supportUrl": "https://plumevisuals.com/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Plume Studio",
+        "email": "contact@plumevisuals.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "premium_desc": "Premium feature: usable for free with a \u00ab Premium preview \u00bb watermark, unlocked by a Plume Studio license key.",
+            "card_license": "Plume Studio License",
+            "license_buy": "Get a license",
+            "license_key": "License key",
+            "license_key_desc": "Paste the key received after purchase on plumevisuals.com (starts with PLUM1.). Checked offline.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Show license holder (edit mode)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Custom colors",
+            "group_style_text": "Text",
+            "group_style_background": "Background and corners",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Complete look shared by all Plume visuals: colors, three palettes, fonts, frame, table header, marks and effects. Customize colors below.",
+            "style_preset_none": "None",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Black & White",
+            "style_preset_press": "Newspaper \u2605",
+            "style_preset_vintage": "Vintage (antique plate) \u2605",
+            "style_preset_earth": "Earth \u2605",
+            "style_preset_nordic": "Nordic \u2605",
+            "style_preset_executive": "Executive \u2605",
+            "style_preset_accessible": "Accessible (high legibility) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climate \u2605",
+            "style_preset_blueprint": "Blueprint \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (dark) \u2605",
+            "style_preset_neon": "Neon \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographic \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologram \u2605",
+            "style_themeJson": "Theme JSON \u2605",
+            "style_themeJson_desc": "Paste a JSON theme: see the 'JSON themes' tutorial on plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Follow report theme",
+            "style_followTheme_desc": "Text, background, accent and data colors come from the Power BI report theme.",
+            "style_reverse": "Reverse gradients",
+            "style_customColors": "Customize colors",
+            "style_customColors_desc": "Start from the style and pick your own colors. A color left empty keeps the style's color.",
+            "style_colorBackground": "Background",
+            "style_colorText": "Text",
+            "style_colorMuted": "Secondary text",
+            "style_colorGrid": "Lines and grid",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "Unfavorable",
+            "style_series1": "Series 1",
+            "style_series2": "Series 2",
+            "style_series3": "Series 3",
+            "style_series4": "Series 4",
+            "style_series5": "Series 5",
+            "style_series6": "Series 6",
+            "style_series7": "Series 7",
+            "style_series8": "Series 8",
+            "style_palette": "Gradient palette",
+            "style_palette_desc": "Gradient from the catalog (Viridis, Magma\u2026). The start, middle and end colors below replace it.",
+            "style_palette_auto": "Style or theme palette",
+            "style_palette_crest": "Plume (sequential)",
+            "style_palette_crestDiverging": "Plume (diverging)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (colorblind-safe) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Red\u2013Yellow\u2013Blue \u2605",
+            "style_palette_brBG": "Brown\u2013Teal (drought) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Blues \u2605",
+            "style_palette_reds": "Reds \u2605",
+            "style_palette_grays": "Grays \u2605",
+            "style_palette_press": "Press (ink and paper) \u2605",
+            "style_palette_nordic": "Nordic \u2605",
+            "style_palette_earth": "Earth (ochre to umber) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (colorblind-safe) \u2605",
+            "style_scaleLow": "Gradient: start",
+            "style_scaleMid": "Gradient: middle (diverging)",
+            "style_scaleHigh": "Gradient: end",
+            "style_fontFamily": "Font",
+            "style_fontFamily_desc": "Used by every text of the visual (title, axes, labels, cells).",
+            "style_textColor": "Text color (empty = style)",
+            "style_mutedColor": "Secondary text (empty = style)",
+            "style_bgShow": "Background",
+            "style_bgColor": "Background color",
+            "style_bgColor2": "Gradient end (optional)",
+            "style_radius": "Corner radius",
+            "style_animate": "Animations",
+            "style_animate_desc": "Smooth transitions when data changes. Automatically disabled when the system asks to reduce motion.",
+            "card_dataColors": "Data colors",
+            "dataColors_mode": "Coloring",
+            "dataColors_mode_auto": "Palette (one color per series)",
+            "dataColors_mode_single": "Single color",
+            "dataColors_mode_gradient": "Gradient by a value \u2605",
+            "dataColors_single": "Color",
+            "dataColors_fill": "Color",
+            "dataColors_gradientBy": "Gradient value",
+            "dataColors_gradientBy_y": "Y axis",
+            "dataColors_gradientBy_x": "X axis",
+            "dataColors_gradientBy_size": "Size",
+            "dataColors_gradientBy_field": "\u201cColor\u201d field",
+            "card_points": "Points",
+            "group_points_shapeGroup": "Shape",
+            "group_points_imageGroup": "Images \u2605",
+            "group_points_connectGroup": "Connect points \u2605",
+            "points_shape": "Shape",
+            "points_shape_desc": "One shape per series helps when colors are hard to tell apart.",
+            "points_shape_circle": "Circle",
+            "points_shape_square": "Square",
+            "points_shape_diamond": "Diamond",
+            "points_shape_triangle": "Triangle",
+            "points_shape_series": "One shape per series",
+            "points_size": "Size (without a Size field)",
+            "points_minSize": "Smallest bubble",
+            "points_maxSize": "Largest bubble",
+            "points_sizeScale": "Size scaling",
+            "points_sizeScale_desc": "Automatic: magnitude when all sizes have the same sign, data range otherwise (like Power BI).",
+            "points_sizeScale_auto": "Automatic",
+            "points_sizeScale_magnitude": "Magnitude (0 = smallest)",
+            "points_sizeScale_range": "Data range (min \u2192 max)",
+            "points_opacity": "Opacity (%)",
+            "points_outline": "Outline",
+            "points_outlineColor": "Outline color (empty = background)",
+            "points_autoFit": "Keep bubbles inside the plot",
+            "points_autoFit_desc": "Widens the axes so that bubbles near the edges are not cut (when minimum and maximum are automatic).",
+            "points_jitter": "Jitter overlapping points (px)",
+            "points_jitter_desc": "Moves each point by a small fixed offset so that identical points can be seen and clicked. 0 = exact positions.",
+            "points_imageMinSize": "Minimum size of a point with an image (px)",
+            "points_imageMinSize_desc": "Points that carry an image (\u201cImage\u201d field) are drawn at least this large so the image stays legible.",
+            "points_imageBorder": "Border in the series color",
+            "points_imageBorderWidth": "Border width",
+            "points_connect": "Connect the points of each series \u2605",
+            "points_connect_desc": "A line joins the points of a series in the order of the Details field (a year, a month\u2026): a trajectory.",
+            "points_connectWidth": "Width",
+            "points_connectStyle": "Line style",
+            "points_connectStyle_solid": "Solid",
+            "points_connectStyle_dashed": "Dashed",
+            "points_connectStyle_dotted": "Dotted",
+            "points_connectArrows": "Arrow on the last point",
+            "card_labels": "Data labels",
+            "group_labels_main": "Labels",
+            "group_labels_number": "Numbers",
+            "labels_show": "Show",
+            "labels_content": "Content",
+            "labels_content_category": "Detail (point name)",
+            "labels_content_categoryY": "Name and Y value",
+            "labels_content_xy": "X and Y values",
+            "labels_content_y": "Y value",
+            "labels_which": "Labeled points",
+            "labels_which_desc": "Points with a text in the \u201cLabel (text)\u201d field are always labeled with that text.",
+            "labels_which_top": "Largest (N)",
+            "labels_which_all": "All (no overlap)",
+            "labels_which_selected": "Selected",
+            "labels_n": "N",
+            "labels_fontSize": "Text size",
+            "labels_color": "Color (empty = automatic)",
+            "labels_color_desc": "Automatic: readable color depending on the background (inside bars: white or dark).",
+            "labels_bold": "Bold",
+            "labels_halo": "Text halo",
+            "labels_declutter": "Hide overlapping labels",
+            "labels_units": "Display units",
+            "labels_units_auto": "Auto",
+            "labels_units_none": "None",
+            "labels_units_k": "Thousands",
+            "labels_units_m": "Millions",
+            "labels_units_b": "Billions",
+            "labels_decimals": "Decimals (-1 = auto)",
+            "labels_prefix": "Prefix",
+            "labels_suffix": "Suffix (e.g. \u20ac)",
+            "card_quadrants": "Quadrants \u2605",
+            "group_quadrants_split": "Splits",
+            "group_quadrants_colors": "Quadrant colors",
+            "group_quadrants_names": "Quadrant names",
+            "quadrants_show": "Show \u2605",
+            "quadrants_xMode": "Vertical split",
+            "quadrants_xMode_average": "Average of X",
+            "quadrants_xMode_median": "Median of X",
+            "quadrants_xMode_constant": "Fixed value",
+            "quadrants_xMode_measure": "\u201cReference X\u201d field",
+            "quadrants_xValue": "X value",
+            "quadrants_yMode": "Horizontal split",
+            "quadrants_yMode_average": "Average of Y",
+            "quadrants_yMode_median": "Median of Y",
+            "quadrants_yMode_constant": "Fixed value",
+            "quadrants_yMode_measure": "\u201cReference Y\u201d field",
+            "quadrants_yValue": "Y value",
+            "quadrants_lineColor": "Split color (empty = secondary)",
+            "quadrants_lineStyle": "Line style",
+            "quadrants_lineStyle_solid": "Solid",
+            "quadrants_lineStyle_dashed": "Dashed",
+            "quadrants_lineStyle_dotted": "Dotted",
+            "quadrants_tint": "Tint the top-right quadrant",
+            "quadrants_tintAll": "Tint all four quadrants",
+            "quadrants_colorTR": "Top right (empty = accent)",
+            "quadrants_colorTL": "Top left (empty = automatic)",
+            "quadrants_colorBL": "Bottom left (empty = unfavorable)",
+            "quadrants_colorBR": "Bottom right (empty = automatic)",
+            "quadrants_tintOpacity": "Tint opacity (%)",
+            "quadrants_colorPoints": "Color points by quadrant",
+            "quadrants_topLeft": "Top left",
+            "quadrants_topRight": "Top right",
+            "quadrants_bottomLeft": "Bottom left",
+            "quadrants_bottomRight": "Bottom right",
+            "quadrants_namesSize": "Text size",
+            "quadrants_counts": "Point count",
+            "quadrants_counts_none": "None",
+            "quadrants_counts_count": "Count",
+            "quadrants_counts_percent": "Percentage",
+            "quadrants_counts_both": "Count and percentage",
+            "card_xAxis": "X axis",
+            "group_xAxis_main": "Labels",
+            "group_xAxis_range": "Range",
+            "group_xAxis_titleGroup": "Axis title",
+            "group_xAxis_gridGroup": "Gridlines",
+            "xAxis_show": "Show",
+            "xAxis_position": "Position",
+            "xAxis_position_bottom": "Bottom",
+            "xAxis_position_top": "Top",
+            "xAxis_fontSize": "Text size",
+            "xAxis_color": "Color (empty = secondary)",
+            "xAxis_units": "Display units",
+            "xAxis_units_auto": "Auto",
+            "xAxis_units_none": "None",
+            "xAxis_units_k": "Thousands",
+            "xAxis_units_m": "Millions",
+            "xAxis_units_b": "Billions",
+            "xAxis_decimals": "Decimals (-1 = auto)",
+            "xAxis_prefix": "Prefix",
+            "xAxis_suffix": "Suffix (e.g. \u20ac)",
+            "xAxis_line": "Axis line",
+            "xAxis_scale": "Scale",
+            "xAxis_scale_linear": "Linear",
+            "xAxis_scale_log": "Logarithmic",
+            "xAxis_min": "Minimum",
+            "xAxis_min_ph": "auto",
+            "xAxis_max": "Maximum",
+            "xAxis_max_ph": "auto",
+            "xAxis_zero": "Always include zero",
+            "xAxis_ticks": "Number of ticks (approx.)",
+            "xAxis_invert": "Invert axis",
+            "xAxis_showTitle": "Axis title",
+            "xAxis_titleText": "Title text",
+            "xAxis_titleText_ph": "Field name",
+            "xAxis_grid": "Gridlines",
+            "xAxis_gridStyle": "Line style",
+            "xAxis_gridStyle_solid": "Solid",
+            "xAxis_gridStyle_dashed": "Dashed",
+            "xAxis_gridStyle_dotted": "Dotted",
+            "xAxis_gridColor": "Color (empty = style grid)",
+            "xAxis_zeroLine": "Zero line",
+            "card_yAxis": "Y axis",
+            "group_yAxis_main": "Labels",
+            "group_yAxis_range": "Range",
+            "group_yAxis_titleGroup": "Axis title",
+            "group_yAxis_gridGroup": "Gridlines",
+            "yAxis_show": "Show",
+            "yAxis_position": "Position",
+            "yAxis_position_left": "Left",
+            "yAxis_position_right": "Right",
+            "yAxis_fontSize": "Text size",
+            "yAxis_color": "Color (empty = secondary)",
+            "yAxis_units": "Display units",
+            "yAxis_units_auto": "Auto",
+            "yAxis_units_none": "None",
+            "yAxis_units_k": "Thousands",
+            "yAxis_units_m": "Millions",
+            "yAxis_units_b": "Billions",
+            "yAxis_decimals": "Decimals (-1 = auto)",
+            "yAxis_prefix": "Prefix",
+            "yAxis_suffix": "Suffix (e.g. \u20ac)",
+            "yAxis_line": "Axis line",
+            "yAxis_scale": "Scale",
+            "yAxis_scale_linear": "Linear",
+            "yAxis_scale_log": "Logarithmic",
+            "yAxis_min": "Minimum",
+            "yAxis_min_ph": "auto",
+            "yAxis_max": "Maximum",
+            "yAxis_max_ph": "auto",
+            "yAxis_zero": "Always include zero",
+            "yAxis_ticks": "Number of ticks (approx.)",
+            "yAxis_invert": "Invert axis",
+            "yAxis_showTitle": "Axis title",
+            "yAxis_titleText": "Title text",
+            "yAxis_titleText_ph": "Field name",
+            "yAxis_grid": "Gridlines",
+            "yAxis_gridStyle": "Line style",
+            "yAxis_gridStyle_solid": "Solid",
+            "yAxis_gridStyle_dashed": "Dashed",
+            "yAxis_gridStyle_dotted": "Dotted",
+            "yAxis_gridColor": "Color (empty = style grid)",
+            "yAxis_zeroLine": "Zero line",
+            "card_legend": "Legend",
+            "legend_show": "Show",
+            "legend_show_desc": "Shown when the chart has several series.",
+            "legend_position": "Position",
+            "legend_position_top": "Top",
+            "legend_position_bottom": "Bottom",
+            "legend_position_right": "Right",
+            "legend_position_left": "Left",
+            "legend_align": "Alignment",
+            "legend_align_left": "Start",
+            "legend_align_center": "Center",
+            "legend_align_right": "End",
+            "legend_showTitle": "Legend title",
+            "legend_titleText": "Title text",
+            "legend_titleText_ph": "Field name",
+            "legend_fontSize": "Text size",
+            "legend_color": "Color (empty = secondary)",
+            "legend_interactive": "Click = select the series",
+            "card_play": "Play axis",
+            "play_start": "Frame shown on opening",
+            "play_start_last": "The last one (most recent)",
+            "play_start_first": "The first one",
+            "play_speed": "Duration of a frame (ms)",
+            "play_loop": "Loop",
+            "play_autoPlay": "Play automatically on opening",
+            "play_autoPlay_desc": "Not when the system asks to reduce motion.",
+            "play_controls": "Play bar",
+            "play_showLabel": "Current value in the background",
+            "play_labelSize": "Background value size",
+            "play_trails": "Trails",
+            "play_trails_desc": "The path of a point from the first frame to the current one.",
+            "play_trails_selected": "Selected points",
+            "play_trails_none": "None",
+            "play_trails_all": "All points \u2605",
+            "play_trailMode": "Trail style",
+            "play_trailMode_desc": "Density: a heat map of every position of the point over all frames, drawn under the points (one per series when several points are selected).",
+            "play_trailMode_lines": "Lines",
+            "play_trailMode_density": "Density \u2605",
+            "play_trailMode_both": "Lines and density \u2605",
+            "card_zoom": "Zoom",
+            "zoom_x": "X axis zoom slider",
+            "zoom_y": "Y axis zoom slider",
+            "zoom_rect": "Shift + drag: zoom into a rectangle",
+            "zoom_rect_desc": "Double-click the chart, or the \u27f2 button, to zoom out.",
+            "card_smallMultiples": "Small multiples \u2605",
+            "smallMultiples_columns": "Columns (0 = automatic)",
+            "smallMultiples_minHeight": "Minimum chart height (px)",
+            "smallMultiples_gap": "Spacing (px)",
+            "smallMultiples_titleSize": "Title size",
+            "smallMultiples_border": "Frame around each chart",
+            "card_highlight": "Highlight \u2605",
+            "highlight_names": "Highlighted points \u2605",
+            "highlight_names_desc": "Names of the Details field (case and accents ignored). The \u201cHighlight\u201d field does the same with a measure.",
+            "highlight_names_ph": "One name per line (or separated by ;)",
+            "highlight_color": "Color (empty = point color)",
+            "highlight_othersGray": "Other points in gray",
+            "highlight_othersOpacity": "Other points opacity (%)",
+            "highlight_labels": "Label highlighted points",
+            "card_density": "Density \u2605",
+            "density_show": "Show \u2605",
+            "density_show_desc": "Shows where the points concentrate: cells colored by the number of points, or a smooth heat map.",
+            "density_shape": "Shape",
+            "density_shape_hex": "Hexagons",
+            "density_shape_square": "Squares",
+            "density_shape_circle": "Circles (size by count)",
+            "density_shape_continuous": "Continuous (smooth gradient)",
+            "density_shape_contour": "Contour lines",
+            "density_mode": "Points",
+            "density_mode_under": "Density under the points",
+            "density_mode_replace": "Density instead of the points",
+            "density_radius": "Cell size (px)",
+            "density_bandwidth": "Smoothing (px, 0 = automatic)",
+            "density_bandwidth_desc": "Radius of the smoothing kernel. Automatic: computed from the spread and the number of points.",
+            "density_levels": "Number of contour lines",
+            "density_colorMode": "Colors",
+            "density_colorMode_gradient": "Style gradient",
+            "density_colorMode_single": "One color",
+            "density_color": "Color (empty = accent)",
+            "density_opacity": "Opacity (%)",
+            "card_marginals": "Marginal distributions \u2605",
+            "marginals_show": "Show \u2605",
+            "marginals_show_desc": "Distribution of X above the chart and of Y on its right.",
+            "marginals_kind": "Type",
+            "marginals_kind_histogram": "Histogram",
+            "marginals_kind_box": "Box plot",
+            "marginals_bins": "Number of bins",
+            "marginals_bySeries": "One per series",
+            "marginals_size": "Height (px)",
+            "card_reference": "Reference lines \u2605",
+            "group_reference_line1": "Line 1",
+            "group_reference_line2": "Line 2",
+            "group_reference_line3": "Line 3",
+            "group_reference_bandGroup": "Reference band",
+            "reference_show1": "Show",
+            "reference_axis1": "Axis",
+            "reference_axis1_y": "Y axis (horizontal)",
+            "reference_axis1_x": "X axis (vertical)",
+            "reference_kind1": "Value",
+            "reference_kind1_constant": "Constant",
+            "reference_kind1_average": "Average",
+            "reference_kind1_median": "Median",
+            "reference_kind1_min": "Minimum",
+            "reference_kind1_max": "Maximum",
+            "reference_kind1_percentile": "Percentile",
+            "reference_kind1_measure": "\u201cReference X\u201d or \u201cReference Y\u201d field",
+            "reference_value1": "Constant value",
+            "reference_pct1": "Percentile",
+            "reference_label1": "Label",
+            "reference_label1_ph": "Automatic",
+            "reference_showValue1": "Show the value",
+            "reference_color1": "Color (empty = accent)",
+            "reference_style1": "Line style",
+            "reference_style1_solid": "Solid",
+            "reference_style1_dashed": "Dashed",
+            "reference_style1_dotted": "Dotted",
+            "reference_width1": "Width",
+            "reference_labelPos1": "Label position",
+            "reference_labelPos1_end": "End",
+            "reference_labelPos1_start": "Start",
+            "reference_labelPos1_none": "None",
+            "reference_show2": "Show",
+            "reference_axis2": "Axis",
+            "reference_axis2_y": "Y axis (horizontal)",
+            "reference_axis2_x": "X axis (vertical)",
+            "reference_kind2": "Value",
+            "reference_kind2_constant": "Constant",
+            "reference_kind2_average": "Average",
+            "reference_kind2_median": "Median",
+            "reference_kind2_min": "Minimum",
+            "reference_kind2_max": "Maximum",
+            "reference_kind2_percentile": "Percentile",
+            "reference_kind2_measure": "\u201cReference X\u201d or \u201cReference Y\u201d field",
+            "reference_value2": "Constant value",
+            "reference_pct2": "Percentile",
+            "reference_label2": "Label",
+            "reference_label2_ph": "Automatic",
+            "reference_showValue2": "Show the value",
+            "reference_color2": "Color (empty = accent)",
+            "reference_style2": "Line style",
+            "reference_style2_solid": "Solid",
+            "reference_style2_dashed": "Dashed",
+            "reference_style2_dotted": "Dotted",
+            "reference_width2": "Width",
+            "reference_labelPos2": "Label position",
+            "reference_labelPos2_end": "End",
+            "reference_labelPos2_start": "Start",
+            "reference_labelPos2_none": "None",
+            "reference_show3": "Show",
+            "reference_axis3": "Axis",
+            "reference_axis3_y": "Y axis (horizontal)",
+            "reference_axis3_x": "X axis (vertical)",
+            "reference_kind3": "Value",
+            "reference_kind3_constant": "Constant",
+            "reference_kind3_average": "Average",
+            "reference_kind3_median": "Median",
+            "reference_kind3_min": "Minimum",
+            "reference_kind3_max": "Maximum",
+            "reference_kind3_percentile": "Percentile",
+            "reference_kind3_measure": "\u201cReference X\u201d or \u201cReference Y\u201d field",
+            "reference_value3": "Constant value",
+            "reference_pct3": "Percentile",
+            "reference_label3": "Label",
+            "reference_label3_ph": "Automatic",
+            "reference_showValue3": "Show the value",
+            "reference_color3": "Color (empty = accent)",
+            "reference_style3": "Line style",
+            "reference_style3_solid": "Solid",
+            "reference_style3_dashed": "Dashed",
+            "reference_style3_dotted": "Dotted",
+            "reference_width3": "Width",
+            "reference_labelPos3": "Label position",
+            "reference_labelPos3_end": "End",
+            "reference_labelPos3_start": "Start",
+            "reference_labelPos3_none": "None",
+            "reference_band": "Show",
+            "reference_bandAxis": "Axis",
+            "reference_bandAxis_y": "Y axis",
+            "reference_bandAxis_x": "X axis",
+            "reference_bandFrom": "From",
+            "reference_bandTo": "To",
+            "reference_bandLabel": "Label",
+            "reference_bandColor": "Color (empty = accent)",
+            "reference_bandOpacity": "Opacity (%)",
+            "card_trend": "Trend \u2605",
+            "trend_show": "Show",
+            "trend_show_desc": "Regression line or curve (least squares).",
+            "trend_model": "Model",
+            "trend_model_linear": "Linear",
+            "trend_model_poly2": "Polynomial (degree 2)",
+            "trend_model_poly3": "Polynomial (degree 3)",
+            "trend_model_exp": "Exponential",
+            "trend_model_log": "Logarithmic",
+            "trend_model_power": "Power",
+            "trend_perSeries": "One trend per series",
+            "trend_showR2": "Show R\u00b2",
+            "trend_showEquation": "Show the equation",
+            "trend_band": "95% band",
+            "trend_band_none": "None",
+            "trend_band_mean": "Confidence (the curve)",
+            "trend_band_prediction": "Prediction (the points)",
+            "trend_bandOpacity": "Band opacity (%)",
+            "trend_color": "Color (empty = text or series)",
+            "trend_style": "Line style",
+            "trend_style_solid": "Solid",
+            "trend_style_dashed": "Dashed",
+            "trend_style_dotted": "Dotted",
+            "trend_width": "Width",
+            "card_symmetry": "Symmetry and ratio \u2605",
+            "group_symmetry_shade": "Symmetry shading",
+            "group_symmetry_ratioGroup": "Ratio line",
+            "symmetry_show": "Show",
+            "symmetry_show_desc": "Shades the areas where Y is above and below X, around the y = x diagonal.",
+            "symmetry_colorAbove": "Color where Y > X (empty = favorable)",
+            "symmetry_colorBelow": "Color where Y < X (empty = unfavorable)",
+            "symmetry_opacity": "Opacity (%)",
+            "symmetry_labelAbove": "Text where Y > X",
+            "symmetry_labelAbove_ph": "Y > X",
+            "symmetry_labelBelow": "Text where Y < X",
+            "symmetry_labelBelow_ph": "Y < X",
+            "symmetry_diagonal": "y = x diagonal",
+            "symmetry_ratio": "Show",
+            "symmetry_ratio_desc": "A line from the origin whose slope is the overall ratio Y \u00f7 X (like Power BI), or a fixed slope.",
+            "symmetry_ratioMode": "Slope",
+            "symmetry_ratioMode_total": "Total Y \u00f7 total X",
+            "symmetry_ratioMode_constant": "Fixed value",
+            "symmetry_ratioValue": "Fixed slope",
+            "symmetry_ratioColor": "Color (empty = accent)",
+            "symmetry_ratioStyle": "Line style",
+            "symmetry_ratioStyle_solid": "Solid",
+            "symmetry_ratioStyle_dashed": "Dashed",
+            "symmetry_ratioStyle_dotted": "Dotted",
+            "symmetry_ratioLabel": "Show the slope",
+            "card_ellipses": "Confidence ellipses \u2605",
+            "ellipses_show": "Show",
+            "ellipses_show_desc": "The area that holds most of the points of each series (normal distribution).",
+            "ellipses_level": "Level",
+            "ellipses_level_68": "68%",
+            "ellipses_level_90": "90%",
+            "ellipses_level_95": "95%",
+            "ellipses_level_99": "99%",
+            "ellipses_bySeries": "One per series (or per group)",
+            "ellipses_fillOpacity": "Fill opacity (%)",
+            "ellipses_style": "Line style",
+            "ellipses_style_solid": "Solid",
+            "ellipses_style_dashed": "Dashed",
+            "ellipses_style_dotted": "Dotted",
+            "card_clusters": "Automatic clusters \u2605",
+            "clusters_show": "Show",
+            "clusters_show_desc": "Groups points that are close to each other (k-means) and colors each group.",
+            "clusters_k": "Number of clusters (0 = automatic)",
+            "clusters_normalize": "Put X and Y on the same scale",
+            "clusters_normalize_desc": "Recommended when X and Y have different units (orders and euros).",
+            "clusters_centers": "Mark the centers",
+            "clusters_prefix": "Cluster name",
+            "clusters_prefix_ph": "Cluster",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Highlight on hover",
+            "interaction_dim": "Dimmed items opacity (%)",
+            "interaction_brush": "Select by drawing a rectangle",
+            "interaction_brush_desc": "Drag on the chart to select every point inside the rectangle (Ctrl to add).",
+            "interaction_brushShape": "Selection shape",
+            "interaction_brushShape_rectangle": "Rectangle",
+            "interaction_brushShape_lasso": "Lasso (freehand)",
+            "interaction_selDensity": "Density around the selection",
+            "interaction_selDensity_desc": "When points are selected, a heat map of their series (or of the selected points) is drawn under the cloud. With a play axis, see Play axis \u203a Trail style.",
+            "interaction_selDensity_none": "None",
+            "interaction_selDensity_series": "Points of the same series \u2605",
+            "interaction_selDensity_selected": "Selected points \u2605",
+            "card_title": "Title",
+            "title_show": "Show",
+            "title_text": "Title",
+            "title_text_desc": "Leave empty for an automatic title built from the fields.",
+            "title_text_ph": "Automatic",
+            "title_subtitle": "Subtitle",
+            "title_fontSize": "Size",
+            "title_bold": "Bold",
+            "title_color": "Color (empty = text)",
+            "title_align": "Alignment",
+            "title_align_left": "Left",
+            "title_align_center": "Center",
+            "title_align_right": "Right",
+            "card_source": "Source note",
+            "source_show": "Show",
+            "source_text": "Text",
+            "source_text_ph": "Source: \u2026",
+            "source_fontSize": "Size",
+            "source_align": "Alignment",
+            "source_align_left": "Left",
+            "source_align_center": "Center",
+            "source_align_right": "Right",
+            "card_container": "Frame",
+            "container_border": "Border",
+            "container_borderWidth": "Border width",
+            "container_borderColor": "Border color (empty = grid)",
+            "container_shadow": "Shadow",
+            "container_padding": "Inner padding",
+            "card_texts": "Language and texts",
+            "texts_language": "Interface language",
+            "texts_language_auto": "Same as Power BI",
+            "texts_language_fr": "French",
+            "texts_language_en": "English",
+            "texts_numberLocale": "Number format locale (e.g. en-GB)",
+            "texts_numberLocale_ph": "auto",
+            "role_tooltips": "Tooltips",
+            "role_reference": "Reference value",
+            "role_details": "Details (one point each)",
+            "role_legend": "Legend (series)",
+            "role_x": "X axis",
+            "role_y": "Y axis",
+            "role_size": "Size",
+            "role_play": "Play axis",
+            "roleDesc_play": "A date, a year or an ordered category: the points move from one value to the next (play button)",
+            "role_multiples": "Small multiples \u2605",
+            "roleDesc_multiples": "One small scatter chart per value, sharing the same axes",
+            "role_labelText": "Label (text)",
+            "roleDesc_labelText": "Text written next to each point; blank = no label for that point",
+            "role_image": "Image \u2605",
+            "roleDesc_image": "An embedded image per point (data:image/\u2026;base64 or raw base64); web addresses are never loaded",
+            "role_colorBy": "Color",
+            "roleDesc_colorBy": "A color (#RRGGBB, red\u2026) per point, or a number for a gradient \u2605",
+            "role_highlight": "Highlight \u2605",
+            "roleDesc_highlight": "Not blank and not 0: the point stands out, the others turn gray",
+            "role_refX": "Reference X",
+            "roleDesc_refX": "Target or benchmark on the X axis: reference lines and quadrant splits \u2605",
+            "role_refY": "Reference Y",
+            "roleDesc_refY": "Target or benchmark on the Y axis: reference lines and quadrant splits \u2605",
+            "role_format": "Dynamic format",
+            "roleDesc_format": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX"
+        },
+        "fr-FR": {
+            "premium_desc": "Fonction premium : utilisable avec un filigrane \u00ab Aper\u00e7u premium \u00bb, d\u00e9bloqu\u00e9e par une cl\u00e9 de licence Plume Studio.",
+            "card_license": "Licence Plume Studio",
+            "license_buy": "Obtenir une licence",
+            "license_key": "Cl\u00e9 de licence",
+            "license_key_desc": "Collez la cl\u00e9 re\u00e7ue apr\u00e8s l'achat sur plumevisuals.com (commence par PLUM1.). V\u00e9rifi\u00e9e hors ligne.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Afficher le titulaire (mode \u00e9dition)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Couleurs personnalis\u00e9es",
+            "group_style_text": "Texte",
+            "group_style_background": "Arri\u00e8re-plan et angles",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Habillage complet commun \u00e0 tous les visuels Plume : couleurs, trois palettes, polices, cadre, en-t\u00eate des tableaux, marques et effets. Personnalisez les couleurs plus bas.",
+            "style_preset_none": "Aucun",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Noir et blanc",
+            "style_preset_press": "Journal \u2605",
+            "style_preset_vintage": "Vintage (planche ancienne) \u2605",
+            "style_preset_earth": "Terre \u2605",
+            "style_preset_nordic": "Nordique \u2605",
+            "style_preset_executive": "Direction \u2605",
+            "style_preset_accessible": "Accessible (lisibilit\u00e9) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climat \u2605",
+            "style_preset_blueprint": "Plan d'architecte \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (sombre) \u2605",
+            "style_preset_neon": "N\u00e9on \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographie \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologramme \u2605",
+            "style_themeJson": "Th\u00e8me JSON \u2605",
+            "style_themeJson_desc": "Collez un th\u00e8me JSON : voir le tutoriel \u00ab Th\u00e8mes JSON \u00bb sur plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Suivre le th\u00e8me du rapport",
+            "style_followTheme_desc": "Texte, fond, accent et couleurs des donn\u00e9es viennent du th\u00e8me du rapport Power BI.",
+            "style_reverse": "Inverser les d\u00e9grad\u00e9s",
+            "style_customColors": "Personnaliser les couleurs",
+            "style_customColors_desc": "Partez du style et choisissez vos propres couleurs. Une couleur laiss\u00e9e vide garde celle du style.",
+            "style_colorBackground": "Fond",
+            "style_colorText": "Texte",
+            "style_colorMuted": "Texte secondaire",
+            "style_colorGrid": "Traits et grille",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "D\u00e9favorable",
+            "style_series1": "S\u00e9rie 1",
+            "style_series2": "S\u00e9rie 2",
+            "style_series3": "S\u00e9rie 3",
+            "style_series4": "S\u00e9rie 4",
+            "style_series5": "S\u00e9rie 5",
+            "style_series6": "S\u00e9rie 6",
+            "style_series7": "S\u00e9rie 7",
+            "style_series8": "S\u00e9rie 8",
+            "style_palette": "Palette du d\u00e9grad\u00e9",
+            "style_palette_desc": "D\u00e9grad\u00e9 tir\u00e9 du catalogue (Viridis, Magma\u2026). Les couleurs de d\u00e9but, milieu et fin ci-dessous le remplacent.",
+            "style_palette_auto": "Palette du style ou du th\u00e8me",
+            "style_palette_crest": "Plume (s\u00e9quentielle)",
+            "style_palette_crestDiverging": "Plume (divergente)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (daltonisme) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Rouge\u2013Jaune\u2013Bleu \u2605",
+            "style_palette_brBG": "Brun\u2013Bleu-vert (s\u00e9cheresse) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Bleus \u2605",
+            "style_palette_reds": "Rouges \u2605",
+            "style_palette_grays": "Gris \u2605",
+            "style_palette_press": "Presse (encre et papier) \u2605",
+            "style_palette_nordic": "Nordique \u2605",
+            "style_palette_earth": "Terre (ocre \u00e0 terre d'ombre) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (daltonisme) \u2605",
+            "style_scaleLow": "D\u00e9grad\u00e9 : d\u00e9but",
+            "style_scaleMid": "D\u00e9grad\u00e9 : milieu (\u00e9carts)",
+            "style_scaleHigh": "D\u00e9grad\u00e9 : fin",
+            "style_fontFamily": "Police",
+            "style_fontFamily_desc": "Utilis\u00e9e par tous les textes du visuel (titre, axes, \u00e9tiquettes, cellules).",
+            "style_textColor": "Couleur du texte (vide = style)",
+            "style_mutedColor": "Texte secondaire (vide = style)",
+            "style_bgShow": "Arri\u00e8re-plan",
+            "style_bgColor": "Couleur de fond",
+            "style_bgColor2": "Fin du d\u00e9grad\u00e9 (optionnel)",
+            "style_radius": "Arrondi des angles",
+            "style_animate": "Animations",
+            "style_animate_desc": "Transitions fluides quand les donn\u00e9es changent. D\u00e9sactiv\u00e9es automatiquement si le syst\u00e8me demande de r\u00e9duire les animations.",
+            "card_dataColors": "Couleurs des donn\u00e9es",
+            "dataColors_mode": "Coloration",
+            "dataColors_mode_auto": "Palette (une couleur par s\u00e9rie)",
+            "dataColors_mode_single": "Couleur unique",
+            "dataColors_mode_gradient": "D\u00e9grad\u00e9 selon une valeur \u2605",
+            "dataColors_single": "Couleur",
+            "dataColors_fill": "Couleur",
+            "dataColors_gradientBy": "Valeur du d\u00e9grad\u00e9",
+            "dataColors_gradientBy_y": "Axe Y",
+            "dataColors_gradientBy_x": "Axe X",
+            "dataColors_gradientBy_size": "Taille",
+            "dataColors_gradientBy_field": "Champ \u00ab Couleur \u00bb",
+            "card_points": "Points",
+            "group_points_shapeGroup": "Forme",
+            "group_points_imageGroup": "Images \u2605",
+            "group_points_connectGroup": "Relier les points \u2605",
+            "points_shape": "Forme",
+            "points_shape_desc": "Une forme par s\u00e9rie aide quand les couleurs sont difficiles \u00e0 distinguer.",
+            "points_shape_circle": "Cercle",
+            "points_shape_square": "Carr\u00e9",
+            "points_shape_diamond": "Losange",
+            "points_shape_triangle": "Triangle",
+            "points_shape_series": "Une forme par s\u00e9rie",
+            "points_size": "Taille (sans champ Taille)",
+            "points_minSize": "Bulle la plus petite",
+            "points_maxSize": "Bulle la plus grande",
+            "points_sizeScale": "\u00c9chelle des tailles",
+            "points_sizeScale_desc": "Automatique : valeur absolue quand toutes les tailles ont le m\u00eame signe, plage des donn\u00e9es sinon (comme Power BI).",
+            "points_sizeScale_auto": "Automatique",
+            "points_sizeScale_magnitude": "Valeur absolue (0 = plus petite)",
+            "points_sizeScale_range": "Plage des donn\u00e9es (min \u2192 max)",
+            "points_opacity": "Opacit\u00e9 (%)",
+            "points_outline": "Contour",
+            "points_outlineColor": "Couleur du contour (vide = fond)",
+            "points_autoFit": "Bulles enti\u00e8res dans le cadre",
+            "points_autoFit_desc": "\u00c9largit les axes pour que les bulles proches des bords ne soient pas coup\u00e9es (minimum et maximum automatiques).",
+            "points_jitter": "Dispersion des points superpos\u00e9s (px)",
+            "points_jitter_desc": "D\u00e9cale chaque point d'un petit \u00e9cart fixe pour voir et cliquer les points identiques. 0 = positions exactes.",
+            "points_imageMinSize": "Taille minimale d'un point avec image (px)",
+            "points_imageMinSize_desc": "Les points qui portent une image (champ \u00ab Image \u00bb) sont dessin\u00e9s au moins \u00e0 cette taille pour que l'image reste lisible.",
+            "points_imageBorder": "Bordure de la couleur de la s\u00e9rie",
+            "points_imageBorderWidth": "\u00c9paisseur de la bordure",
+            "points_connect": "Relier les points de chaque s\u00e9rie \u2605",
+            "points_connect_desc": "Une ligne relie les points d'une s\u00e9rie dans l'ordre du champ D\u00e9tails (une ann\u00e9e, un mois\u2026) : une trajectoire.",
+            "points_connectWidth": "\u00c9paisseur",
+            "points_connectStyle": "Style du trait",
+            "points_connectStyle_solid": "Continu",
+            "points_connectStyle_dashed": "Tirets",
+            "points_connectStyle_dotted": "Pointill\u00e9s",
+            "points_connectArrows": "Fl\u00e8che sur le dernier point",
+            "card_labels": "\u00c9tiquettes de donn\u00e9es",
+            "group_labels_main": "\u00c9tiquettes",
+            "group_labels_number": "Nombres",
+            "labels_show": "Afficher",
+            "labels_content": "Contenu",
+            "labels_content_category": "D\u00e9tail (nom du point)",
+            "labels_content_categoryY": "Nom et valeur Y",
+            "labels_content_xy": "Valeurs X et Y",
+            "labels_content_y": "Valeur Y",
+            "labels_which": "Points \u00e9tiquet\u00e9s",
+            "labels_which_desc": "Les points qui ont un texte dans le champ \u00ab \u00c9tiquette (texte) \u00bb sont toujours \u00e9tiquet\u00e9s avec ce texte.",
+            "labels_which_top": "Les plus grands (N)",
+            "labels_which_all": "Tous (sans chevauchement)",
+            "labels_which_selected": "S\u00e9lectionn\u00e9s",
+            "labels_n": "N",
+            "labels_fontSize": "Taille du texte",
+            "labels_color": "Couleur (vide = automatique)",
+            "labels_color_desc": "Automatique : couleur lisible selon le fond (dans les barres : blanc ou fonc\u00e9).",
+            "labels_bold": "Gras",
+            "labels_halo": "Halo autour du texte",
+            "labels_declutter": "Masquer les \u00e9tiquettes qui se chevauchent",
+            "labels_units": "Unit\u00e9s d'affichage",
+            "labels_units_auto": "Auto",
+            "labels_units_none": "Aucune",
+            "labels_units_k": "Milliers",
+            "labels_units_m": "Millions",
+            "labels_units_b": "Milliards",
+            "labels_decimals": "D\u00e9cimales (-1 = auto)",
+            "labels_prefix": "Pr\u00e9fixe",
+            "labels_suffix": "Suffixe (ex. \u20ac)",
+            "card_quadrants": "Quadrants \u2605",
+            "group_quadrants_split": "S\u00e9parations",
+            "group_quadrants_colors": "Couleurs des quadrants",
+            "group_quadrants_names": "Noms des quadrants",
+            "quadrants_show": "Afficher \u2605",
+            "quadrants_xMode": "S\u00e9paration verticale",
+            "quadrants_xMode_average": "Moyenne de X",
+            "quadrants_xMode_median": "M\u00e9diane de X",
+            "quadrants_xMode_constant": "Valeur fixe",
+            "quadrants_xMode_measure": "Champ \u00ab R\u00e9f\u00e9rence X \u00bb",
+            "quadrants_xValue": "Valeur X",
+            "quadrants_yMode": "S\u00e9paration horizontale",
+            "quadrants_yMode_average": "Moyenne de Y",
+            "quadrants_yMode_median": "M\u00e9diane de Y",
+            "quadrants_yMode_constant": "Valeur fixe",
+            "quadrants_yMode_measure": "Champ \u00ab R\u00e9f\u00e9rence Y \u00bb",
+            "quadrants_yValue": "Valeur Y",
+            "quadrants_lineColor": "Couleur des s\u00e9parations (vide = secondaire)",
+            "quadrants_lineStyle": "Style du trait",
+            "quadrants_lineStyle_solid": "Continu",
+            "quadrants_lineStyle_dashed": "Tirets",
+            "quadrants_lineStyle_dotted": "Pointill\u00e9s",
+            "quadrants_tint": "Teinter le quadrant en haut \u00e0 droite",
+            "quadrants_tintAll": "Teinter les quatre quadrants",
+            "quadrants_colorTR": "En haut \u00e0 droite (vide = accent)",
+            "quadrants_colorTL": "En haut \u00e0 gauche (vide = automatique)",
+            "quadrants_colorBL": "En bas \u00e0 gauche (vide = d\u00e9favorable)",
+            "quadrants_colorBR": "En bas \u00e0 droite (vide = automatique)",
+            "quadrants_tintOpacity": "Opacit\u00e9 de la teinte (%)",
+            "quadrants_colorPoints": "Colorer les points selon leur quadrant",
+            "quadrants_topLeft": "En haut \u00e0 gauche",
+            "quadrants_topRight": "En haut \u00e0 droite",
+            "quadrants_bottomLeft": "En bas \u00e0 gauche",
+            "quadrants_bottomRight": "En bas \u00e0 droite",
+            "quadrants_namesSize": "Taille du texte",
+            "quadrants_counts": "Nombre de points",
+            "quadrants_counts_none": "Aucun",
+            "quadrants_counts_count": "Nombre",
+            "quadrants_counts_percent": "Pourcentage",
+            "quadrants_counts_both": "Nombre et pourcentage",
+            "card_xAxis": "Axe X",
+            "group_xAxis_main": "\u00c9tiquettes",
+            "group_xAxis_range": "\u00c9chelle",
+            "group_xAxis_titleGroup": "Titre de l'axe",
+            "group_xAxis_gridGroup": "Quadrillage",
+            "xAxis_show": "Afficher",
+            "xAxis_position": "Position",
+            "xAxis_position_bottom": "En bas",
+            "xAxis_position_top": "En haut",
+            "xAxis_fontSize": "Taille du texte",
+            "xAxis_color": "Couleur (vide = secondaire)",
+            "xAxis_units": "Unit\u00e9s d'affichage",
+            "xAxis_units_auto": "Auto",
+            "xAxis_units_none": "Aucune",
+            "xAxis_units_k": "Milliers",
+            "xAxis_units_m": "Millions",
+            "xAxis_units_b": "Milliards",
+            "xAxis_decimals": "D\u00e9cimales (-1 = auto)",
+            "xAxis_prefix": "Pr\u00e9fixe",
+            "xAxis_suffix": "Suffixe (ex. \u20ac)",
+            "xAxis_line": "Trait de l'axe",
+            "xAxis_scale": "\u00c9chelle",
+            "xAxis_scale_linear": "Lin\u00e9aire",
+            "xAxis_scale_log": "Logarithmique",
+            "xAxis_min": "Minimum",
+            "xAxis_min_ph": "auto",
+            "xAxis_max": "Maximum",
+            "xAxis_max_ph": "auto",
+            "xAxis_zero": "Toujours inclure z\u00e9ro",
+            "xAxis_ticks": "Nombre de graduations (environ)",
+            "xAxis_invert": "Inverser l'axe",
+            "xAxis_showTitle": "Titre de l'axe",
+            "xAxis_titleText": "Texte du titre",
+            "xAxis_titleText_ph": "Nom du champ",
+            "xAxis_grid": "Quadrillage",
+            "xAxis_gridStyle": "Style du trait",
+            "xAxis_gridStyle_solid": "Continu",
+            "xAxis_gridStyle_dashed": "Tirets",
+            "xAxis_gridStyle_dotted": "Pointill\u00e9s",
+            "xAxis_gridColor": "Couleur (vide = grille du style)",
+            "xAxis_zeroLine": "Ligne du z\u00e9ro",
+            "card_yAxis": "Axe Y",
+            "group_yAxis_main": "\u00c9tiquettes",
+            "group_yAxis_range": "\u00c9chelle",
+            "group_yAxis_titleGroup": "Titre de l'axe",
+            "group_yAxis_gridGroup": "Quadrillage",
+            "yAxis_show": "Afficher",
+            "yAxis_position": "Position",
+            "yAxis_position_left": "\u00c0 gauche",
+            "yAxis_position_right": "\u00c0 droite",
+            "yAxis_fontSize": "Taille du texte",
+            "yAxis_color": "Couleur (vide = secondaire)",
+            "yAxis_units": "Unit\u00e9s d'affichage",
+            "yAxis_units_auto": "Auto",
+            "yAxis_units_none": "Aucune",
+            "yAxis_units_k": "Milliers",
+            "yAxis_units_m": "Millions",
+            "yAxis_units_b": "Milliards",
+            "yAxis_decimals": "D\u00e9cimales (-1 = auto)",
+            "yAxis_prefix": "Pr\u00e9fixe",
+            "yAxis_suffix": "Suffixe (ex. \u20ac)",
+            "yAxis_line": "Trait de l'axe",
+            "yAxis_scale": "\u00c9chelle",
+            "yAxis_scale_linear": "Lin\u00e9aire",
+            "yAxis_scale_log": "Logarithmique",
+            "yAxis_min": "Minimum",
+            "yAxis_min_ph": "auto",
+            "yAxis_max": "Maximum",
+            "yAxis_max_ph": "auto",
+            "yAxis_zero": "Toujours inclure z\u00e9ro",
+            "yAxis_ticks": "Nombre de graduations (environ)",
+            "yAxis_invert": "Inverser l'axe",
+            "yAxis_showTitle": "Titre de l'axe",
+            "yAxis_titleText": "Texte du titre",
+            "yAxis_titleText_ph": "Nom du champ",
+            "yAxis_grid": "Quadrillage",
+            "yAxis_gridStyle": "Style du trait",
+            "yAxis_gridStyle_solid": "Continu",
+            "yAxis_gridStyle_dashed": "Tirets",
+            "yAxis_gridStyle_dotted": "Pointill\u00e9s",
+            "yAxis_gridColor": "Couleur (vide = grille du style)",
+            "yAxis_zeroLine": "Ligne du z\u00e9ro",
+            "card_legend": "L\u00e9gende",
+            "legend_show": "Afficher",
+            "legend_show_desc": "Affich\u00e9e quand le graphique a plusieurs s\u00e9ries.",
+            "legend_position": "Position",
+            "legend_position_top": "En haut",
+            "legend_position_bottom": "En bas",
+            "legend_position_right": "\u00c0 droite",
+            "legend_position_left": "\u00c0 gauche",
+            "legend_align": "Alignement",
+            "legend_align_left": "D\u00e9but",
+            "legend_align_center": "Centr\u00e9",
+            "legend_align_right": "Fin",
+            "legend_showTitle": "Titre de la l\u00e9gende",
+            "legend_titleText": "Texte du titre",
+            "legend_titleText_ph": "Nom du champ",
+            "legend_fontSize": "Taille du texte",
+            "legend_color": "Couleur (vide = secondaire)",
+            "legend_interactive": "Clic = s\u00e9lectionner la s\u00e9rie",
+            "card_play": "Axe de lecture",
+            "play_start": "Image affich\u00e9e \u00e0 l'ouverture",
+            "play_start_last": "La derni\u00e8re (la plus r\u00e9cente)",
+            "play_start_first": "La premi\u00e8re",
+            "play_speed": "Dur\u00e9e d'une image (ms)",
+            "play_loop": "Lecture en boucle",
+            "play_autoPlay": "Lecture automatique \u00e0 l'ouverture",
+            "play_autoPlay_desc": "Sauf si le syst\u00e8me demande de r\u00e9duire les animations.",
+            "play_controls": "Barre de lecture",
+            "play_showLabel": "Valeur en cours en fond",
+            "play_labelSize": "Taille de la valeur en fond",
+            "play_trails": "Tra\u00een\u00e9es",
+            "play_trails_desc": "Le chemin d'un point depuis la premi\u00e8re image jusqu'\u00e0 l'image en cours.",
+            "play_trails_selected": "Points s\u00e9lectionn\u00e9s",
+            "play_trails_none": "Aucune",
+            "play_trails_all": "Tous les points \u2605",
+            "play_trailMode": "Forme des tra\u00een\u00e9es",
+            "play_trailMode_desc": "Densit\u00e9 : une carte de chaleur de toutes les positions du point sur toutes les images, sous les points (une par s\u00e9rie quand plusieurs points sont s\u00e9lectionn\u00e9s).",
+            "play_trailMode_lines": "Lignes",
+            "play_trailMode_density": "Densit\u00e9 \u2605",
+            "play_trailMode_both": "Lignes et densit\u00e9 \u2605",
+            "card_zoom": "Zoom",
+            "zoom_x": "Curseur de zoom de l'axe X",
+            "zoom_y": "Curseur de zoom de l'axe Y",
+            "zoom_rect": "Maj + glisser : zoomer sur un rectangle",
+            "zoom_rect_desc": "Double-clic sur le graphique, ou bouton \u27f2, pour revenir \u00e0 la vue enti\u00e8re.",
+            "card_smallMultiples": "Petits multiples \u2605",
+            "smallMultiples_columns": "Colonnes (0 = automatique)",
+            "smallMultiples_minHeight": "Hauteur minimale d'un graphique (px)",
+            "smallMultiples_gap": "Espacement (px)",
+            "smallMultiples_titleSize": "Taille des titres",
+            "smallMultiples_border": "Cadre autour de chaque graphique",
+            "card_highlight": "Mise en avant \u2605",
+            "highlight_names": "Points mis en avant \u2605",
+            "highlight_names_desc": "Noms du champ D\u00e9tails (majuscules et accents ignor\u00e9s). Le champ \u00ab Mise en avant \u00bb fait de m\u00eame avec une mesure.",
+            "highlight_names_ph": "Un nom par ligne (ou s\u00e9par\u00e9s par ;)",
+            "highlight_color": "Couleur (vide = couleur du point)",
+            "highlight_othersGray": "Autres points en gris",
+            "highlight_othersOpacity": "Opacit\u00e9 des autres points (%)",
+            "highlight_labels": "\u00c9tiqueter les points mis en avant",
+            "card_density": "Densit\u00e9 \u2605",
+            "density_show": "Afficher \u2605",
+            "density_show_desc": "Montre o\u00f9 les points se concentrent : des cases color\u00e9es selon le nombre de points, ou une carte de chaleur lisse.",
+            "density_shape": "Forme",
+            "density_shape_hex": "Hexagones",
+            "density_shape_square": "Carr\u00e9s",
+            "density_shape_circle": "Cercles (taille selon le nombre)",
+            "density_shape_continuous": "Continu (d\u00e9grad\u00e9 lisse)",
+            "density_shape_contour": "Lignes de niveau",
+            "density_mode": "Points",
+            "density_mode_under": "Densit\u00e9 sous les points",
+            "density_mode_replace": "Densit\u00e9 \u00e0 la place des points",
+            "density_radius": "Taille des cases (px)",
+            "density_bandwidth": "Lissage (px, 0 = automatique)",
+            "density_bandwidth_desc": "Rayon du lissage. Automatique : calcul\u00e9 selon la dispersion et le nombre de points.",
+            "density_levels": "Nombre de lignes de niveau",
+            "density_colorMode": "Couleurs",
+            "density_colorMode_gradient": "D\u00e9grad\u00e9 du style",
+            "density_colorMode_single": "Une couleur",
+            "density_color": "Couleur (vide = accent)",
+            "density_opacity": "Opacit\u00e9 (%)",
+            "card_marginals": "Distributions en marge \u2605",
+            "marginals_show": "Afficher \u2605",
+            "marginals_show_desc": "R\u00e9partition de X au-dessus du graphique et de Y \u00e0 sa droite.",
+            "marginals_kind": "Type",
+            "marginals_kind_histogram": "Histogramme",
+            "marginals_kind_box": "Bo\u00eete \u00e0 moustaches",
+            "marginals_bins": "Nombre de classes",
+            "marginals_bySeries": "Une par s\u00e9rie",
+            "marginals_size": "Hauteur (px)",
+            "card_reference": "Lignes de r\u00e9f\u00e9rence \u2605",
+            "group_reference_line1": "Ligne 1",
+            "group_reference_line2": "Ligne 2",
+            "group_reference_line3": "Ligne 3",
+            "group_reference_bandGroup": "Bande de r\u00e9f\u00e9rence",
+            "reference_show1": "Afficher",
+            "reference_axis1": "Axe",
+            "reference_axis1_y": "Axe Y (horizontale)",
+            "reference_axis1_x": "Axe X (verticale)",
+            "reference_kind1": "Valeur",
+            "reference_kind1_constant": "Constante",
+            "reference_kind1_average": "Moyenne",
+            "reference_kind1_median": "M\u00e9diane",
+            "reference_kind1_min": "Minimum",
+            "reference_kind1_max": "Maximum",
+            "reference_kind1_percentile": "Centile",
+            "reference_kind1_measure": "Champ \u00ab R\u00e9f\u00e9rence X \u00bb ou \u00ab R\u00e9f\u00e9rence Y \u00bb",
+            "reference_value1": "Valeur constante",
+            "reference_pct1": "Centile",
+            "reference_label1": "Libell\u00e9",
+            "reference_label1_ph": "Automatique",
+            "reference_showValue1": "Afficher la valeur",
+            "reference_color1": "Couleur (vide = accent)",
+            "reference_style1": "Style du trait",
+            "reference_style1_solid": "Continu",
+            "reference_style1_dashed": "Tirets",
+            "reference_style1_dotted": "Pointill\u00e9s",
+            "reference_width1": "\u00c9paisseur",
+            "reference_labelPos1": "Position du libell\u00e9",
+            "reference_labelPos1_end": "Fin",
+            "reference_labelPos1_start": "D\u00e9but",
+            "reference_labelPos1_none": "Aucun",
+            "reference_show2": "Afficher",
+            "reference_axis2": "Axe",
+            "reference_axis2_y": "Axe Y (horizontale)",
+            "reference_axis2_x": "Axe X (verticale)",
+            "reference_kind2": "Valeur",
+            "reference_kind2_constant": "Constante",
+            "reference_kind2_average": "Moyenne",
+            "reference_kind2_median": "M\u00e9diane",
+            "reference_kind2_min": "Minimum",
+            "reference_kind2_max": "Maximum",
+            "reference_kind2_percentile": "Centile",
+            "reference_kind2_measure": "Champ \u00ab R\u00e9f\u00e9rence X \u00bb ou \u00ab R\u00e9f\u00e9rence Y \u00bb",
+            "reference_value2": "Valeur constante",
+            "reference_pct2": "Centile",
+            "reference_label2": "Libell\u00e9",
+            "reference_label2_ph": "Automatique",
+            "reference_showValue2": "Afficher la valeur",
+            "reference_color2": "Couleur (vide = accent)",
+            "reference_style2": "Style du trait",
+            "reference_style2_solid": "Continu",
+            "reference_style2_dashed": "Tirets",
+            "reference_style2_dotted": "Pointill\u00e9s",
+            "reference_width2": "\u00c9paisseur",
+            "reference_labelPos2": "Position du libell\u00e9",
+            "reference_labelPos2_end": "Fin",
+            "reference_labelPos2_start": "D\u00e9but",
+            "reference_labelPos2_none": "Aucun",
+            "reference_show3": "Afficher",
+            "reference_axis3": "Axe",
+            "reference_axis3_y": "Axe Y (horizontale)",
+            "reference_axis3_x": "Axe X (verticale)",
+            "reference_kind3": "Valeur",
+            "reference_kind3_constant": "Constante",
+            "reference_kind3_average": "Moyenne",
+            "reference_kind3_median": "M\u00e9diane",
+            "reference_kind3_min": "Minimum",
+            "reference_kind3_max": "Maximum",
+            "reference_kind3_percentile": "Centile",
+            "reference_kind3_measure": "Champ \u00ab R\u00e9f\u00e9rence X \u00bb ou \u00ab R\u00e9f\u00e9rence Y \u00bb",
+            "reference_value3": "Valeur constante",
+            "reference_pct3": "Centile",
+            "reference_label3": "Libell\u00e9",
+            "reference_label3_ph": "Automatique",
+            "reference_showValue3": "Afficher la valeur",
+            "reference_color3": "Couleur (vide = accent)",
+            "reference_style3": "Style du trait",
+            "reference_style3_solid": "Continu",
+            "reference_style3_dashed": "Tirets",
+            "reference_style3_dotted": "Pointill\u00e9s",
+            "reference_width3": "\u00c9paisseur",
+            "reference_labelPos3": "Position du libell\u00e9",
+            "reference_labelPos3_end": "Fin",
+            "reference_labelPos3_start": "D\u00e9but",
+            "reference_labelPos3_none": "Aucun",
+            "reference_band": "Afficher",
+            "reference_bandAxis": "Axe",
+            "reference_bandAxis_y": "Axe Y",
+            "reference_bandAxis_x": "Axe X",
+            "reference_bandFrom": "De",
+            "reference_bandTo": "\u00c0",
+            "reference_bandLabel": "Libell\u00e9",
+            "reference_bandColor": "Couleur (vide = accent)",
+            "reference_bandOpacity": "Opacit\u00e9 (%)",
+            "card_trend": "Tendance \u2605",
+            "trend_show": "Afficher",
+            "trend_show_desc": "Droite ou courbe de r\u00e9gression (moindres carr\u00e9s).",
+            "trend_model": "Mod\u00e8le",
+            "trend_model_linear": "Lin\u00e9aire",
+            "trend_model_poly2": "Polynomial (degr\u00e9 2)",
+            "trend_model_poly3": "Polynomial (degr\u00e9 3)",
+            "trend_model_exp": "Exponentiel",
+            "trend_model_log": "Logarithmique",
+            "trend_model_power": "Puissance",
+            "trend_perSeries": "Une tendance par s\u00e9rie",
+            "trend_showR2": "Afficher le R\u00b2",
+            "trend_showEquation": "Afficher l'\u00e9quation",
+            "trend_band": "Bande \u00e0 95 %",
+            "trend_band_none": "Aucune",
+            "trend_band_mean": "Confiance (la courbe)",
+            "trend_band_prediction": "Pr\u00e9vision (les points)",
+            "trend_bandOpacity": "Opacit\u00e9 de la bande (%)",
+            "trend_color": "Couleur (vide = texte ou s\u00e9rie)",
+            "trend_style": "Style du trait",
+            "trend_style_solid": "Continu",
+            "trend_style_dashed": "Tirets",
+            "trend_style_dotted": "Pointill\u00e9s",
+            "trend_width": "\u00c9paisseur",
+            "card_symmetry": "Sym\u00e9trie et ratio \u2605",
+            "group_symmetry_shade": "Ombrage de sym\u00e9trie",
+            "group_symmetry_ratioGroup": "Ligne de ratio",
+            "symmetry_show": "Afficher",
+            "symmetry_show_desc": "Teinte les zones o\u00f9 Y est au-dessus et en dessous de X, de part et d'autre de la diagonale y = x.",
+            "symmetry_colorAbove": "Couleur o\u00f9 Y > X (vide = favorable)",
+            "symmetry_colorBelow": "Couleur o\u00f9 Y < X (vide = d\u00e9favorable)",
+            "symmetry_opacity": "Opacit\u00e9 (%)",
+            "symmetry_labelAbove": "Texte o\u00f9 Y > X",
+            "symmetry_labelAbove_ph": "Y > X",
+            "symmetry_labelBelow": "Texte o\u00f9 Y < X",
+            "symmetry_labelBelow_ph": "Y < X",
+            "symmetry_diagonal": "Diagonale y = x",
+            "symmetry_ratio": "Afficher",
+            "symmetry_ratio_desc": "Une ligne partant de l'origine, de pente le ratio global Y \u00f7 X (comme Power BI), ou une pente fixe.",
+            "symmetry_ratioMode": "Pente",
+            "symmetry_ratioMode_total": "Total Y \u00f7 total X",
+            "symmetry_ratioMode_constant": "Valeur fixe",
+            "symmetry_ratioValue": "Pente fixe",
+            "symmetry_ratioColor": "Couleur (vide = accent)",
+            "symmetry_ratioStyle": "Style du trait",
+            "symmetry_ratioStyle_solid": "Continu",
+            "symmetry_ratioStyle_dashed": "Tirets",
+            "symmetry_ratioStyle_dotted": "Pointill\u00e9s",
+            "symmetry_ratioLabel": "Afficher la pente",
+            "card_ellipses": "Ellipses de confiance \u2605",
+            "ellipses_show": "Afficher",
+            "ellipses_show_desc": "La zone qui contient la plupart des points de chaque s\u00e9rie (loi normale).",
+            "ellipses_level": "Niveau",
+            "ellipses_level_68": "68 %",
+            "ellipses_level_90": "90 %",
+            "ellipses_level_95": "95 %",
+            "ellipses_level_99": "99 %",
+            "ellipses_bySeries": "Une par s\u00e9rie (ou par groupe)",
+            "ellipses_fillOpacity": "Opacit\u00e9 du remplissage (%)",
+            "ellipses_style": "Style du trait",
+            "ellipses_style_solid": "Continu",
+            "ellipses_style_dashed": "Tirets",
+            "ellipses_style_dotted": "Pointill\u00e9s",
+            "card_clusters": "Groupes automatiques \u2605",
+            "clusters_show": "Afficher",
+            "clusters_show_desc": "Regroupe les points proches les uns des autres (k-moyennes) et colore chaque groupe.",
+            "clusters_k": "Nombre de groupes (0 = automatique)",
+            "clusters_normalize": "Mettre X et Y \u00e0 la m\u00eame \u00e9chelle",
+            "clusters_normalize_desc": "Conseill\u00e9 quand X et Y n'ont pas la m\u00eame unit\u00e9 (commandes et euros).",
+            "clusters_centers": "Marquer les centres",
+            "clusters_prefix": "Nom des groupes",
+            "clusters_prefix_ph": "Groupe",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Mettre en avant au survol",
+            "interaction_dim": "Opacit\u00e9 des \u00e9l\u00e9ments estomp\u00e9s (%)",
+            "interaction_brush": "S\u00e9lection en tra\u00e7ant un rectangle",
+            "interaction_brush_desc": "Faites glisser sur le graphique pour s\u00e9lectionner les points du rectangle (Ctrl pour ajouter).",
+            "interaction_brushShape": "Forme de la s\u00e9lection",
+            "interaction_brushShape_rectangle": "Rectangle",
+            "interaction_brushShape_lasso": "Lasso (main lev\u00e9e)",
+            "interaction_selDensity": "Densit\u00e9 autour de la s\u00e9lection",
+            "interaction_selDensity_desc": "Quand des points sont s\u00e9lectionn\u00e9s, une carte de chaleur de leur s\u00e9rie (ou des points s\u00e9lectionn\u00e9s) est dessin\u00e9e sous le nuage. Avec un axe de lecture, voir Axe de lecture \u203a Forme des tra\u00een\u00e9es.",
+            "interaction_selDensity_none": "Aucune",
+            "interaction_selDensity_series": "Points de la m\u00eame s\u00e9rie \u2605",
+            "interaction_selDensity_selected": "Points s\u00e9lectionn\u00e9s \u2605",
+            "card_title": "Titre",
+            "title_show": "Afficher",
+            "title_text": "Titre",
+            "title_text_desc": "Laisser vide pour un titre automatique construit \u00e0 partir des champs.",
+            "title_text_ph": "Automatique",
+            "title_subtitle": "Sous-titre",
+            "title_fontSize": "Taille",
+            "title_bold": "Gras",
+            "title_color": "Couleur (vide = texte)",
+            "title_align": "Alignement",
+            "title_align_left": "Gauche",
+            "title_align_center": "Centr\u00e9",
+            "title_align_right": "Droite",
+            "card_source": "Note de source",
+            "source_show": "Afficher",
+            "source_text": "Texte",
+            "source_text_ph": "Source : \u2026",
+            "source_fontSize": "Taille",
+            "source_align": "Alignement",
+            "source_align_left": "Gauche",
+            "source_align_center": "Centr\u00e9",
+            "source_align_right": "Droite",
+            "card_container": "Cadre",
+            "container_border": "Bordure",
+            "container_borderWidth": "\u00c9paisseur de la bordure",
+            "container_borderColor": "Couleur de la bordure (vide = grille)",
+            "container_shadow": "Ombre",
+            "container_padding": "Marge int\u00e9rieure",
+            "card_texts": "Langue et textes",
+            "texts_language": "Langue de l'interface",
+            "texts_language_auto": "Comme Power BI",
+            "texts_language_fr": "Fran\u00e7ais",
+            "texts_language_en": "Anglais",
+            "texts_numberLocale": "Format des nombres (ex. fr-FR)",
+            "texts_numberLocale_ph": "auto",
+            "role_tooltips": "Infobulles",
+            "role_reference": "Valeur de r\u00e9f\u00e9rence",
+            "role_details": "D\u00e9tails (un point par valeur)",
+            "role_legend": "L\u00e9gende (s\u00e9ries)",
+            "role_x": "Axe X",
+            "role_y": "Axe Y",
+            "role_size": "Taille",
+            "role_play": "Axe de lecture",
+            "roleDesc_play": "Une date, une ann\u00e9e ou une cat\u00e9gorie ordonn\u00e9e : les points se d\u00e9placent d'une valeur \u00e0 la suivante (bouton lecture)",
+            "role_multiples": "Petits multiples \u2605",
+            "roleDesc_multiples": "Un petit nuage par valeur, avec les m\u00eames axes",
+            "role_labelText": "\u00c9tiquette (texte)",
+            "roleDesc_labelText": "Texte \u00e9crit \u00e0 c\u00f4t\u00e9 de chaque point ; vide = pas d'\u00e9tiquette pour ce point",
+            "role_image": "Image \u2605",
+            "roleDesc_image": "Une image int\u00e9gr\u00e9e par point (data:image/\u2026;base64 ou base64 brut) ; une adresse web n'est jamais charg\u00e9e",
+            "role_colorBy": "Couleur",
+            "roleDesc_colorBy": "Une couleur (#RRGGBB, red\u2026) par point, ou un nombre pour un d\u00e9grad\u00e9 \u2605",
+            "role_highlight": "Mise en avant \u2605",
+            "roleDesc_highlight": "Ni vide ni 0 : le point ressort, les autres passent en gris",
+            "role_refX": "R\u00e9f\u00e9rence X",
+            "roleDesc_refX": "Objectif ou rep\u00e8re sur l'axe X : lignes de r\u00e9f\u00e9rence et s\u00e9parations des quadrants \u2605",
+            "role_refY": "R\u00e9f\u00e9rence Y",
+            "roleDesc_refY": "Objectif ou rep\u00e8re sur l'axe Y : lignes de r\u00e9f\u00e9rence et s\u00e9parations des quadrants \u2605",
+            "role_format": "Format dynamique",
+            "roleDesc_format": "Mesures nomm\u00e9es carte.r\u00e9glage (ex. title.fontSize) : pilotez n'importe quel r\u00e9glage du volet Format en DAX"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "details",
+                "kind": "Grouping",
+                "displayName": "Details (one point each)",
+                "displayNameKey": "role_details"
+            },
+            {
+                "name": "legend",
+                "kind": "Grouping",
+                "displayName": "Legend (series)",
+                "displayNameKey": "role_legend"
+            },
+            {
+                "name": "x",
+                "kind": "Measure",
+                "displayName": "X axis",
+                "displayNameKey": "role_x"
+            },
+            {
+                "name": "y",
+                "kind": "Measure",
+                "displayName": "Y axis",
+                "displayNameKey": "role_y"
+            },
+            {
+                "name": "size",
+                "kind": "Measure",
+                "displayName": "Size",
+                "displayNameKey": "role_size"
+            },
+            {
+                "name": "play",
+                "kind": "Grouping",
+                "displayName": "Play axis",
+                "displayNameKey": "role_play",
+                "description": "A date, a year or an ordered category: the points move from one value to the next (play button)",
+                "descriptionKey": "roleDesc_play"
+            },
+            {
+                "name": "multiples",
+                "kind": "Grouping",
+                "displayName": "Small multiples \u2605",
+                "displayNameKey": "role_multiples",
+                "description": "One small scatter chart per value, sharing the same axes",
+                "descriptionKey": "roleDesc_multiples"
+            },
+            {
+                "name": "labelText",
+                "kind": "Measure",
+                "displayName": "Label (text)",
+                "displayNameKey": "role_labelText",
+                "description": "Text written next to each point; blank = no label for that point",
+                "descriptionKey": "roleDesc_labelText"
+            },
+            {
+                "name": "image",
+                "kind": "Measure",
+                "displayName": "Image \u2605",
+                "displayNameKey": "role_image",
+                "description": "An embedded image per point (data:image/\u2026;base64 or raw base64); web addresses are never loaded",
+                "descriptionKey": "roleDesc_image"
+            },
+            {
+                "name": "colorBy",
+                "kind": "Measure",
+                "displayName": "Color",
+                "displayNameKey": "role_colorBy",
+                "description": "A color (#RRGGBB, red\u2026) per point, or a number for a gradient \u2605",
+                "descriptionKey": "roleDesc_colorBy"
+            },
+            {
+                "name": "highlight",
+                "kind": "Measure",
+                "displayName": "Highlight \u2605",
+                "displayNameKey": "role_highlight",
+                "description": "Not blank and not 0: the point stands out, the others turn gray",
+                "descriptionKey": "roleDesc_highlight"
+            },
+            {
+                "name": "refX",
+                "kind": "Measure",
+                "displayName": "Reference X",
+                "displayNameKey": "role_refX",
+                "description": "Target or benchmark on the X axis: reference lines and quadrant splits \u2605",
+                "descriptionKey": "roleDesc_refX"
+            },
+            {
+                "name": "refY",
+                "kind": "Measure",
+                "displayName": "Reference Y",
+                "displayNameKey": "role_refY",
+                "description": "Target or benchmark on the Y axis: reference lines and quadrant splits \u2605",
+                "descriptionKey": "roleDesc_refY"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "role_tooltips"
+            },
+            {
+                "name": "format",
+                "kind": "Measure",
+                "displayName": "Dynamic format",
+                "displayNameKey": "role_format",
+                "description": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX",
+                "descriptionKey": "roleDesc_format"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "details": {
+                            "max": 1
+                        },
+                        "legend": {
+                            "max": 1
+                        },
+                        "x": {
+                            "max": 1
+                        },
+                        "y": {
+                            "max": 1
+                        },
+                        "size": {
+                            "max": 1
+                        },
+                        "play": {
+                            "max": 1
+                        },
+                        "multiples": {
+                            "max": 1
+                        },
+                        "labelText": {
+                            "max": 1
+                        },
+                        "image": {
+                            "max": 1
+                        },
+                        "colorBy": {
+                            "max": 1
+                        },
+                        "highlight": {
+                            "max": 1
+                        },
+                        "refX": {
+                            "max": 1
+                        },
+                        "refY": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "details"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "play"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "multiples"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 10000
+                            }
+                        }
+                    },
+                    "values": {
+                        "group": {
+                            "by": "legend",
+                            "select": [
+                                {
+                                    "bind": {
+                                        "to": "x"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "y"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "size"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "labelText"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "image"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "colorBy"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "highlight"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "refX"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "refY"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "tooltips"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "format"
+                                    }
+                                }
+                            ],
+                            "dataReductionAlgorithm": {
+                                "top": {
+                                    "count": 60
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "supportsHighlight": false,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "suppressDefaultTitle": true,
+        "privileges": [],
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "objects": {
+            "license": {
+                "properties": {
+                    "buy": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "key": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showOwner": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "style": {
+                "properties": {
+                    "preset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal"
+                                },
+                                {
+                                    "value": "blackWhite",
+                                    "displayName": "Black & White"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Newspaper \u2605"
+                                },
+                                {
+                                    "value": "vintage",
+                                    "displayName": "Vintage (antique plate) \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "executive",
+                                    "displayName": "Executive \u2605"
+                                },
+                                {
+                                    "value": "accessible",
+                                    "displayName": "Accessible (high legibility) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "bauhaus",
+                                    "displayName": "Bauhaus (pop) \u2605"
+                                },
+                                {
+                                    "value": "climate",
+                                    "displayName": "Climate \u2605"
+                                },
+                                {
+                                    "value": "blueprint",
+                                    "displayName": "Blueprint \u2605"
+                                },
+                                {
+                                    "value": "unknownPleasures",
+                                    "displayName": "Unknown Pleasures \u2605"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Graphite (dark) \u2605"
+                                },
+                                {
+                                    "value": "neon",
+                                    "displayName": "Neon \u2605"
+                                },
+                                {
+                                    "value": "terminal",
+                                    "displayName": "Terminal (Matrix) \u2605"
+                                },
+                                {
+                                    "value": "infographic",
+                                    "displayName": "Infographic \u2605"
+                                },
+                                {
+                                    "value": "cockpit",
+                                    "displayName": "Cockpit (HUD) \u2605"
+                                },
+                                {
+                                    "value": "hologram",
+                                    "displayName": "Hologram \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "themeJson": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "followTheme": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "reverse": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "customColors": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorText": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorMuted": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorGrid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorAccent": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorPositive": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorNegative": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series1": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series3": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series4": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series5": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series6": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series7": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series8": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "palette": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Style or theme palette"
+                                },
+                                {
+                                    "value": "crest",
+                                    "displayName": "Plume (sequential)"
+                                },
+                                {
+                                    "value": "crestDiverging",
+                                    "displayName": "Plume (diverging)"
+                                },
+                                {
+                                    "value": "viridis",
+                                    "displayName": "Viridis \u2605"
+                                },
+                                {
+                                    "value": "magma",
+                                    "displayName": "Magma \u2605"
+                                },
+                                {
+                                    "value": "inferno",
+                                    "displayName": "Inferno \u2605"
+                                },
+                                {
+                                    "value": "cividis",
+                                    "displayName": "Cividis (colorblind-safe) \u2605"
+                                },
+                                {
+                                    "value": "warmingStripes",
+                                    "displayName": "Warming stripes \u2605"
+                                },
+                                {
+                                    "value": "rdYlBu",
+                                    "displayName": "Red\u2013Yellow\u2013Blue \u2605"
+                                },
+                                {
+                                    "value": "brBG",
+                                    "displayName": "Brown\u2013Teal (drought) \u2605"
+                                },
+                                {
+                                    "value": "spectral",
+                                    "displayName": "Spectral \u2605"
+                                },
+                                {
+                                    "value": "blues",
+                                    "displayName": "Blues \u2605"
+                                },
+                                {
+                                    "value": "reds",
+                                    "displayName": "Reds \u2605"
+                                },
+                                {
+                                    "value": "grays",
+                                    "displayName": "Grays \u2605"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Press (ink and paper) \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth (ochre to umber) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "okabeIto",
+                                    "displayName": "Okabe-Ito (colorblind-safe) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "scaleLow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleMid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleHigh": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "mutedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "animate": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "dataColors": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Palette (one color per series)"
+                                },
+                                {
+                                    "value": "single",
+                                    "displayName": "Single color"
+                                },
+                                {
+                                    "value": "gradient",
+                                    "displayName": "Gradient by a value \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "single": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fill": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "gradientBy": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "y",
+                                    "displayName": "Y axis"
+                                },
+                                {
+                                    "value": "x",
+                                    "displayName": "X axis"
+                                },
+                                {
+                                    "value": "size",
+                                    "displayName": "Size"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "\u201cColor\u201d field"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "points": {
+                "properties": {
+                    "shape": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Square"
+                                },
+                                {
+                                    "value": "diamond",
+                                    "displayName": "Diamond"
+                                },
+                                {
+                                    "value": "triangle",
+                                    "displayName": "Triangle"
+                                },
+                                {
+                                    "value": "series",
+                                    "displayName": "One shape per series"
+                                }
+                            ]
+                        }
+                    },
+                    "size": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "minSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "maxSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "sizeScale": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic"
+                                },
+                                {
+                                    "value": "magnitude",
+                                    "displayName": "Magnitude (0 = smallest)"
+                                },
+                                {
+                                    "value": "range",
+                                    "displayName": "Data range (min \u2192 max)"
+                                }
+                            ]
+                        }
+                    },
+                    "opacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "outline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "outlineColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "autoFit": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "jitter": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "imageMinSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "imageBorder": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "imageBorderWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "connect": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "connectWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "connectStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "connectArrows": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "labels": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "content": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "category",
+                                    "displayName": "Detail (point name)"
+                                },
+                                {
+                                    "value": "categoryY",
+                                    "displayName": "Name and Y value"
+                                },
+                                {
+                                    "value": "xy",
+                                    "displayName": "X and Y values"
+                                },
+                                {
+                                    "value": "y",
+                                    "displayName": "Y value"
+                                }
+                            ]
+                        }
+                    },
+                    "which": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Largest (N)"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "All (no overlap)"
+                                },
+                                {
+                                    "value": "selected",
+                                    "displayName": "Selected"
+                                }
+                            ]
+                        }
+                    },
+                    "n": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "halo": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "declutter": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "units": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "k",
+                                    "displayName": "Thousands"
+                                },
+                                {
+                                    "value": "m",
+                                    "displayName": "Millions"
+                                },
+                                {
+                                    "value": "b",
+                                    "displayName": "Billions"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "prefix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "suffix": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "quadrants": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "xMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "average",
+                                    "displayName": "Average of X"
+                                },
+                                {
+                                    "value": "median",
+                                    "displayName": "Median of X"
+                                },
+                                {
+                                    "value": "constant",
+                                    "displayName": "Fixed value"
+                                },
+                                {
+                                    "value": "measure",
+                                    "displayName": "\u201cReference X\u201d field"
+                                }
+                            ]
+                        }
+                    },
+                    "xValue": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "yMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "average",
+                                    "displayName": "Average of Y"
+                                },
+                                {
+                                    "value": "median",
+                                    "displayName": "Median of Y"
+                                },
+                                {
+                                    "value": "constant",
+                                    "displayName": "Fixed value"
+                                },
+                                {
+                                    "value": "measure",
+                                    "displayName": "\u201cReference Y\u201d field"
+                                }
+                            ]
+                        }
+                    },
+                    "yValue": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "lineColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "lineStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "tint": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "tintAll": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorTR": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorTL": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorBL": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorBR": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "tintOpacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "colorPoints": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "topLeft": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "topRight": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "bottomLeft": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "bottomRight": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "namesSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "counts": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "count",
+                                    "displayName": "Count"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "Percentage"
+                                },
+                                {
+                                    "value": "both",
+                                    "displayName": "Count and percentage"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "xAxis": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "units": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "k",
+                                    "displayName": "Thousands"
+                                },
+                                {
+                                    "value": "m",
+                                    "displayName": "Millions"
+                                },
+                                {
+                                    "value": "b",
+                                    "displayName": "Billions"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "prefix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "suffix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "line": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scale": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "linear",
+                                    "displayName": "Linear"
+                                },
+                                {
+                                    "value": "log",
+                                    "displayName": "Logarithmic"
+                                }
+                            ]
+                        }
+                    },
+                    "min": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "max": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "zero": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ticks": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "invert": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "grid": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gridStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "gridColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zeroLine": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "yAxis": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "units": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "k",
+                                    "displayName": "Thousands"
+                                },
+                                {
+                                    "value": "m",
+                                    "displayName": "Millions"
+                                },
+                                {
+                                    "value": "b",
+                                    "displayName": "Billions"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "prefix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "suffix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "line": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scale": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "linear",
+                                    "displayName": "Linear"
+                                },
+                                {
+                                    "value": "log",
+                                    "displayName": "Logarithmic"
+                                }
+                            ]
+                        }
+                    },
+                    "min": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "max": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "zero": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ticks": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "invert": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "grid": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gridStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "gridColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zeroLine": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                }
+                            ]
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Start"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "End"
+                                }
+                            ]
+                        }
+                    },
+                    "showTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "interactive": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "play": {
+                "properties": {
+                    "start": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "last",
+                                    "displayName": "The last one (most recent)"
+                                },
+                                {
+                                    "value": "first",
+                                    "displayName": "The first one"
+                                }
+                            ]
+                        }
+                    },
+                    "speed": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "loop": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "autoPlay": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "controls": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showLabel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "trails": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "selected",
+                                    "displayName": "Selected points"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "All points \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "trailMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "lines",
+                                    "displayName": "Lines"
+                                },
+                                {
+                                    "value": "density",
+                                    "displayName": "Density \u2605"
+                                },
+                                {
+                                    "value": "both",
+                                    "displayName": "Lines and density \u2605"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "zoom": {
+                "properties": {
+                    "x": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "y": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rect": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "smallMultiples": {
+                "properties": {
+                    "columns": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "minHeight": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "gap": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "titleSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "highlight": {
+                "properties": {
+                    "names": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "othersGray": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "othersOpacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "labels": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "density": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "shape": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "hex",
+                                    "displayName": "Hexagons"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Squares"
+                                },
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circles (size by count)"
+                                },
+                                {
+                                    "value": "continuous",
+                                    "displayName": "Continuous (smooth gradient)"
+                                },
+                                {
+                                    "value": "contour",
+                                    "displayName": "Contour lines"
+                                }
+                            ]
+                        }
+                    },
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "under",
+                                    "displayName": "Density under the points"
+                                },
+                                {
+                                    "value": "replace",
+                                    "displayName": "Density instead of the points"
+                                }
+                            ]
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "bandwidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "levels": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "colorMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "gradient",
+                                    "displayName": "Style gradient"
+                                },
+                                {
+                                    "value": "single",
+                                    "displayName": "One color"
+                                }
+                            ]
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "opacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "marginals": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "kind": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "histogram",
+                                    "displayName": "Histogram"
+                                },
+                                {
+                                    "value": "box",
+                                    "displayName": "Box plot"
+                                }
+                            ]
+                        }
+                    },
+                    "bins": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "bySeries": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "size": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "reference": {
+                "properties": {
+                    "show1": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "axis1": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "y",
+                                    "displayName": "Y axis (horizontal)"
+                                },
+                                {
+                                    "value": "x",
+                                    "displayName": "X axis (vertical)"
+                                }
+                            ]
+                        }
+                    },
+                    "kind1": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "constant",
+                                    "displayName": "Constant"
+                                },
+                                {
+                                    "value": "average",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "median",
+                                    "displayName": "Median"
+                                },
+                                {
+                                    "value": "min",
+                                    "displayName": "Minimum"
+                                },
+                                {
+                                    "value": "max",
+                                    "displayName": "Maximum"
+                                },
+                                {
+                                    "value": "percentile",
+                                    "displayName": "Percentile"
+                                },
+                                {
+                                    "value": "measure",
+                                    "displayName": "\u201cReference X\u201d or \u201cReference Y\u201d field"
+                                }
+                            ]
+                        }
+                    },
+                    "value1": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "pct1": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "label1": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showValue1": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color1": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "style1": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "width1": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "labelPos1": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "end",
+                                    "displayName": "End"
+                                },
+                                {
+                                    "value": "start",
+                                    "displayName": "Start"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "show2": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "axis2": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "y",
+                                    "displayName": "Y axis (horizontal)"
+                                },
+                                {
+                                    "value": "x",
+                                    "displayName": "X axis (vertical)"
+                                }
+                            ]
+                        }
+                    },
+                    "kind2": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "constant",
+                                    "displayName": "Constant"
+                                },
+                                {
+                                    "value": "average",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "median",
+                                    "displayName": "Median"
+                                },
+                                {
+                                    "value": "min",
+                                    "displayName": "Minimum"
+                                },
+                                {
+                                    "value": "max",
+                                    "displayName": "Maximum"
+                                },
+                                {
+                                    "value": "percentile",
+                                    "displayName": "Percentile"
+                                },
+                                {
+                                    "value": "measure",
+                                    "displayName": "\u201cReference X\u201d or \u201cReference Y\u201d field"
+                                }
+                            ]
+                        }
+                    },
+                    "value2": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "pct2": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "label2": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showValue2": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "style2": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "width2": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "labelPos2": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "end",
+                                    "displayName": "End"
+                                },
+                                {
+                                    "value": "start",
+                                    "displayName": "Start"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "show3": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "axis3": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "y",
+                                    "displayName": "Y axis (horizontal)"
+                                },
+                                {
+                                    "value": "x",
+                                    "displayName": "X axis (vertical)"
+                                }
+                            ]
+                        }
+                    },
+                    "kind3": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "constant",
+                                    "displayName": "Constant"
+                                },
+                                {
+                                    "value": "average",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "median",
+                                    "displayName": "Median"
+                                },
+                                {
+                                    "value": "min",
+                                    "displayName": "Minimum"
+                                },
+                                {
+                                    "value": "max",
+                                    "displayName": "Maximum"
+                                },
+                                {
+                                    "value": "percentile",
+                                    "displayName": "Percentile"
+                                },
+                                {
+                                    "value": "measure",
+                                    "displayName": "\u201cReference X\u201d or \u201cReference Y\u201d field"
+                                }
+                            ]
+                        }
+                    },
+                    "value3": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "pct3": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "label3": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showValue3": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color3": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "style3": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "width3": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "labelPos3": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "end",
+                                    "displayName": "End"
+                                },
+                                {
+                                    "value": "start",
+                                    "displayName": "Start"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "band": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bandAxis": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "y",
+                                    "displayName": "Y axis"
+                                },
+                                {
+                                    "value": "x",
+                                    "displayName": "X axis"
+                                }
+                            ]
+                        }
+                    },
+                    "bandFrom": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bandTo": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bandLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "bandColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bandOpacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "trend": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "model": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "linear",
+                                    "displayName": "Linear"
+                                },
+                                {
+                                    "value": "poly2",
+                                    "displayName": "Polynomial (degree 2)"
+                                },
+                                {
+                                    "value": "poly3",
+                                    "displayName": "Polynomial (degree 3)"
+                                },
+                                {
+                                    "value": "exp",
+                                    "displayName": "Exponential"
+                                },
+                                {
+                                    "value": "log",
+                                    "displayName": "Logarithmic"
+                                },
+                                {
+                                    "value": "power",
+                                    "displayName": "Power"
+                                }
+                            ]
+                        }
+                    },
+                    "perSeries": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showR2": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showEquation": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "band": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "mean",
+                                    "displayName": "Confidence (the curve)"
+                                },
+                                {
+                                    "value": "prediction",
+                                    "displayName": "Prediction (the points)"
+                                }
+                            ]
+                        }
+                    },
+                    "bandOpacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "style": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "width": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "symmetry": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorAbove": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorBelow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "opacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "labelAbove": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "labelBelow": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "diagonal": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ratio": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ratioMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "total",
+                                    "displayName": "Total Y \u00f7 total X"
+                                },
+                                {
+                                    "value": "constant",
+                                    "displayName": "Fixed value"
+                                }
+                            ]
+                        }
+                    },
+                    "ratioValue": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "ratioColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ratioStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "ratioLabel": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "ellipses": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "level": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "68",
+                                    "displayName": "68%"
+                                },
+                                {
+                                    "value": "90",
+                                    "displayName": "90%"
+                                },
+                                {
+                                    "value": "95",
+                                    "displayName": "95%"
+                                },
+                                {
+                                    "value": "99",
+                                    "displayName": "99%"
+                                }
+                            ]
+                        }
+                    },
+                    "bySeries": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fillOpacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "style": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "clusters": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "k": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "normalize": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "centers": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "prefix": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "interaction": {
+                "properties": {
+                    "hover": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dim": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "brush": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "brushShape": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "rectangle",
+                                    "displayName": "Rectangle"
+                                },
+                                {
+                                    "value": "lasso",
+                                    "displayName": "Lasso (freehand)"
+                                }
+                            ]
+                        }
+                    },
+                    "selDensity": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "series",
+                                    "displayName": "Points of the same series \u2605"
+                                },
+                                {
+                                    "value": "selected",
+                                    "displayName": "Selected points \u2605"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "title": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "source": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "container": {
+                "properties": {
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "padding": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "texts": {
+                "properties": {
+                    "language": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Same as Power BI"
+                                },
+                                {
+                                    "value": "fr",
+                                    "displayName": "French"
+                                },
+                                {
+                                    "value": "en",
+                                    "displayName": "English"
+                                }
+                            ]
+                        }
+                    },
+                    "numberLocale": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

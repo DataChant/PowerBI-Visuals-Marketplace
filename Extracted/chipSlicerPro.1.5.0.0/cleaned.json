@@ -1,0 +1,1514 @@
+{
+    "visual": {
+        "name": "chipSlicerPro",
+        "displayName": "Chip Slicer",
+        "guid": "chipSlicerPro",
+        "visualClassName": "Visual",
+        "version": "1.5.0.0",
+        "description": "A modern chip/pill style slicer with page-level filtering, multi-select, and professional customization.",
+        "supportUrl": "https://tinocallarisa-web.github.io/ChipSlicer/support.html",
+        "gitHubUrl": "https://github.com/tinocallarisa-web/ChipSlicer"
+    },
+    "author": {
+        "name": "TCViz",
+        "email": "support@tcviz.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "de-DE": {
+            "All": "Alle",
+            "chipSettings": "Chip-Stil",
+            "multiSelect": "Mehrfachauswahl",
+            "layout": "Layout",
+            "chipHeight": "Chip-H\u00f6he",
+            "chipRadius": "Eckenradius",
+            "fontSize": "Schriftgr\u00f6\u00dfe",
+            "chipGap": "Abstand zwischen Chips",
+            "chipPaddingH": "Horizontaler Innenabstand",
+            "defaultBg": "Hintergrund inaktiv",
+            "defaultBorder": "Rahmen inaktiv",
+            "defaultText": "Text inaktiv",
+            "activeBg": "Hintergrund aktiv",
+            "activeBorder": "Rahmen aktiv",
+            "activeText": "Text aktiv",
+            "showSelectAll": "Schaltfl\u00e4che \u201eAlle\u201c anzeigen",
+            "selectAllLabel": "Text der Schaltfl\u00e4che \u201eAlle\u201c",
+            "LandingText": "F\u00fcgen Sie Kategorie ein Feld hinzu, um mit dem Filtern zu beginnen.",
+            "Blank": "(Leer)",
+            "Role_Category": "Kategorie",
+            "Role_Category_Desc": "Das Feld, dessen Werte zu Chips werden",
+            "Role_Value": "Wert (optional)",
+            "Role_Value_Desc": "Eine Anzahl oder Summe auf jedem Chip; Elemente ohne Wert werden ausgeblendet",
+            "Enum_horizontal": "Horizontal",
+            "Enum_vertical": "Vertikal",
+            "Enum_grid": "Raster",
+            "showClear": "Schaltfl\u00e4che zum L\u00f6schen anzeigen",
+            "defaultSelection": "Standardauswahl",
+            "sort": "Sortierung",
+            "Enum_data": "Datenreihenfolge",
+            "Enum_asc": "A bis Z",
+            "Enum_desc": "Z bis A",
+            "Enum_valueDesc": "Wert, gr\u00f6\u00dfter zuerst",
+            "columns": "Spalten (0 = automatisch)",
+            "wrap": "In n\u00e4chste Zeile umbrechen",
+            "chipFill": "Chips auf volle Breite strecken",
+            "align": "Ausrichtung",
+            "Enum_left": "Links",
+            "Enum_center": "Mitte",
+            "Enum_right": "Rechts",
+            "fontFamily": "Schriftart",
+            "showCheck": "H\u00e4kchen bei Auswahl",
+            "shadow": "Schatten",
+            "header": "Kopfzeile",
+            "header_show": "Kopfzeile anzeigen",
+            "header_text": "Text",
+            "header_fontSize": "Schriftgr\u00f6\u00dfe",
+            "header_fontFamily": "Schriftart",
+            "header_bold": "Fett",
+            "header_color": "Farbe",
+            "badge": "Werte",
+            "badge_show": "Wert auf Chips anzeigen",
+            "badge_color": "Farbe",
+            "style": "Stilvorlage",
+            "style_template": "Vorlage",
+            "Enum_classic": "Klassisch",
+            "Enum_outline": "Kontur",
+            "Enum_soft": "Sanft",
+            "Enum_square": "Eckig",
+            "Enum_segmented": "Segmentiert",
+            "Enum_dark": "Dunkel",
+            "style_guide": "Einrichtungstipps anzeigen",
+            "grpSelection": "Auswahl",
+            "grpLayout": "Layout",
+            "grpChip": "Chips",
+            "grpColors": "Farben",
+            "Landing_Tagline": "Filtern Sie die Seite mit einem Klick. Kostenlos, ohne Lizenz.",
+            "Landing_Guide": "Anleitung",
+            "Landing_Steps": "Erste Schritte",
+            "Landing_Step1": "das Filterfeld: ein Chip pro Wert",
+            "Landing_Step2": "eine Anzahl oder Summe auf jedem Chip",
+            "Landing_Step3": "im Formatbereich: Aussehen mit einem Klick w\u00e4hlen",
+            "Landing_Help": "Hilfe",
+            "Landing_GuideSub": "Supportseite",
+            "Landing_Product": "Produktseite",
+            "Landing_Video": "Video",
+            "UI_Clear": "Auswahl l\u00f6schen",
+            "Guide_Title": "Einrichtungstipps",
+            "Guide_TryStyle": "Stil ausprobieren:",
+            "Guide_ValueTip": "Tipp: F\u00fcgen Sie Wert eine Measure hinzu, um Anzahlen auf den Chips anzuzeigen.",
+            "Guide_Close": "Tipps ausblenden (Format \u2192 Stilvorlage)",
+            "Guide_Hierarchy": "Mehrere Ebenen n\u00f6tig (Land \u2192 Stadt)? Probieren Sie Chip Slicer Hierarchy."
+        },
+        "en-US": {
+            "All": "All",
+            "chipSettings": "Chip Style",
+            "multiSelect": "Multi-select",
+            "layout": "Layout",
+            "chipHeight": "Chip height",
+            "chipRadius": "Border radius",
+            "fontSize": "Font size",
+            "chipGap": "Gap between chips",
+            "chipPaddingH": "Horizontal padding",
+            "defaultBg": "Inactive background",
+            "defaultBorder": "Inactive border",
+            "defaultText": "Inactive text",
+            "activeBg": "Active background",
+            "activeBorder": "Active border",
+            "activeText": "Active text",
+            "showSelectAll": "Show 'All' button",
+            "selectAllLabel": "'All' button text",
+            "LandingText": "Add a field to Category to start filtering.",
+            "Blank": "(Blank)",
+            "Role_Category": "Category",
+            "Role_Category_Desc": "The field whose values become chips",
+            "Role_Value": "Value (optional)",
+            "Role_Value_Desc": "A count or total shown on each chip; items without a value are hidden",
+            "Enum_horizontal": "Horizontal",
+            "Enum_vertical": "Vertical",
+            "Enum_grid": "Grid",
+            "showClear": "Show clear button",
+            "defaultSelection": "Default selection",
+            "sort": "Sort",
+            "Enum_data": "Data order",
+            "Enum_asc": "A to Z",
+            "Enum_desc": "Z to A",
+            "Enum_valueDesc": "Value, largest first",
+            "columns": "Columns (0 = automatic)",
+            "wrap": "Wrap to next line",
+            "chipFill": "Stretch chips to fill",
+            "align": "Alignment",
+            "Enum_left": "Left",
+            "Enum_center": "Center",
+            "Enum_right": "Right",
+            "fontFamily": "Font",
+            "showCheck": "Check mark on selected",
+            "shadow": "Shadow",
+            "header": "Header",
+            "header_show": "Show header",
+            "header_text": "Text",
+            "header_fontSize": "Font size",
+            "header_fontFamily": "Font",
+            "header_bold": "Bold",
+            "header_color": "Color",
+            "badge": "Values",
+            "badge_show": "Show value on chips",
+            "badge_color": "Color",
+            "style": "Style template",
+            "style_template": "Template",
+            "Enum_classic": "Classic",
+            "Enum_outline": "Outline",
+            "Enum_soft": "Soft",
+            "Enum_square": "Square",
+            "Enum_segmented": "Segmented",
+            "Enum_dark": "Dark",
+            "style_guide": "Show setup tips",
+            "grpSelection": "Selection",
+            "grpLayout": "Layout",
+            "grpChip": "Chips",
+            "grpColors": "Colors",
+            "Landing_Tagline": "Filter the page with one click. Free, no licence.",
+            "Landing_Guide": "Guide",
+            "Landing_Steps": "Get started",
+            "Landing_Step1": "the field to filter by: one chip per value",
+            "Landing_Step2": "a count or total shown on each chip",
+            "Landing_Step3": "in the Format pane: pick a look in one click",
+            "Landing_Help": "Help",
+            "Landing_GuideSub": "support page",
+            "Landing_Product": "Product page",
+            "Landing_Video": "Video",
+            "UI_Clear": "Clear selection",
+            "Guide_Title": "Setup tips",
+            "Guide_TryStyle": "Try a style:",
+            "Guide_ValueTip": "Tip: add a measure to Value to show counts on the chips.",
+            "Guide_Close": "Hide tips (Format \u2192 Style template)",
+            "Guide_Hierarchy": "Need several levels (country \u2192 city)? Try Chip Slicer Hierarchy."
+        },
+        "es-ES": {
+            "All": "Todo",
+            "chipSettings": "Estilo de Pastilla",
+            "multiSelect": "Selecci\u00f3n m\u00faltiple",
+            "layout": "Orientaci\u00f3n",
+            "chipHeight": "Altura de pastilla",
+            "chipRadius": "Radio del borde",
+            "fontSize": "Tama\u00f1o de fuente",
+            "chipGap": "Espacio entre pastillas",
+            "chipPaddingH": "Margen horizontal",
+            "defaultBg": "Fondo inactivo",
+            "defaultBorder": "Borde inactivo",
+            "defaultText": "Texto inactivo",
+            "activeBg": "Fondo activo",
+            "activeBorder": "Borde activo",
+            "activeText": "Texto activo",
+            "showSelectAll": "Mostrar bot\u00f3n 'Todo'",
+            "selectAllLabel": "Texto del bot\u00f3n 'Todo'",
+            "LandingText": "A\u00f1ade un campo a Categor\u00eda para empezar a filtrar.",
+            "Blank": "(En blanco)",
+            "Role_Category": "Categor\u00eda",
+            "Role_Category_Desc": "El campo cuyos valores se convierten en pastillas",
+            "Role_Value": "Valor (opcional)",
+            "Role_Value_Desc": "Un recuento o total que se muestra en cada pastilla; los elementos sin valor se ocultan",
+            "Enum_horizontal": "Horizontal",
+            "Enum_vertical": "Vertical",
+            "Enum_grid": "Cuadr\u00edcula",
+            "showClear": "Mostrar bot\u00f3n de borrar",
+            "defaultSelection": "Selecci\u00f3n por defecto",
+            "sort": "Orden",
+            "Enum_data": "Orden de los datos",
+            "Enum_asc": "De la A a la Z",
+            "Enum_desc": "De la Z a la A",
+            "Enum_valueDesc": "Valor, de mayor a menor",
+            "columns": "Columnas (0 = autom\u00e1tico)",
+            "wrap": "Pasar a la siguiente l\u00ednea",
+            "chipFill": "Estirar pastillas para llenar",
+            "align": "Alineaci\u00f3n",
+            "Enum_left": "Izquierda",
+            "Enum_center": "Centro",
+            "Enum_right": "Derecha",
+            "fontFamily": "Fuente",
+            "showCheck": "Marca en los seleccionados",
+            "shadow": "Sombra",
+            "header": "Encabezado",
+            "header_show": "Mostrar encabezado",
+            "header_text": "Texto",
+            "header_fontSize": "Tama\u00f1o de fuente",
+            "header_fontFamily": "Fuente",
+            "header_bold": "Negrita",
+            "header_color": "Color",
+            "badge": "Valores",
+            "badge_show": "Mostrar valor en las pastillas",
+            "badge_color": "Color",
+            "style": "Plantilla de estilo",
+            "style_template": "Plantilla",
+            "Enum_classic": "Cl\u00e1sico",
+            "Enum_outline": "Contorno",
+            "Enum_soft": "Suave",
+            "Enum_square": "Cuadrado",
+            "Enum_segmented": "Segmentado",
+            "Enum_dark": "Oscuro",
+            "style_guide": "Mostrar consejos de configuraci\u00f3n",
+            "grpSelection": "Selecci\u00f3n",
+            "grpLayout": "Dise\u00f1o",
+            "grpChip": "Pastillas",
+            "grpColors": "Colores",
+            "Landing_Tagline": "Filtra la p\u00e1gina con un clic. Gratis, sin licencia.",
+            "Landing_Guide": "Gu\u00eda",
+            "Landing_Steps": "Para empezar",
+            "Landing_Step1": "el campo por el que filtrar: una pastilla por valor",
+            "Landing_Step2": "un recuento o total en cada pastilla",
+            "Landing_Step3": "en el panel Formato: elige un aspecto con un clic",
+            "Landing_Help": "Ayuda",
+            "Landing_GuideSub": "p\u00e1gina de soporte",
+            "Landing_Product": "P\u00e1gina del producto",
+            "Landing_Video": "V\u00eddeo",
+            "UI_Clear": "Borrar selecci\u00f3n",
+            "Guide_Title": "Consejos de configuraci\u00f3n",
+            "Guide_TryStyle": "Prueba un estilo:",
+            "Guide_ValueTip": "Consejo: a\u00f1ade una medida a Valor para ver recuentos en las pastillas.",
+            "Guide_Close": "Ocultar consejos (Formato \u2192 Plantilla de estilo)",
+            "Guide_Hierarchy": "\u00bfNecesitas varios niveles (pa\u00eds \u2192 ciudad)? Prueba Chip Slicer Hierarchy."
+        },
+        "fr-FR": {
+            "All": "Tout",
+            "chipSettings": "Style des puces",
+            "multiSelect": "S\u00e9lection multiple",
+            "layout": "Disposition",
+            "chipHeight": "Hauteur des puces",
+            "chipRadius": "Rayon de bordure",
+            "fontSize": "Taille de police",
+            "chipGap": "Espace entre les puces",
+            "chipPaddingH": "Marge horizontale",
+            "defaultBg": "Arri\u00e8re-plan inactif",
+            "defaultBorder": "Bordure inactive",
+            "defaultText": "Texte inactif",
+            "activeBg": "Arri\u00e8re-plan actif",
+            "activeBorder": "Bordure active",
+            "activeText": "Texte actif",
+            "showSelectAll": "Afficher le bouton \u00ab Tout \u00bb",
+            "selectAllLabel": "Texte du bouton \u00ab Tout \u00bb",
+            "LandingText": "Ajoutez un champ \u00e0 Cat\u00e9gorie pour commencer \u00e0 filtrer.",
+            "Blank": "(Vide)",
+            "Role_Category": "Cat\u00e9gorie",
+            "Role_Category_Desc": "Le champ dont les valeurs deviennent des puces",
+            "Role_Value": "Valeur (facultatif)",
+            "Role_Value_Desc": "Un nombre ou un total affich\u00e9 sur chaque puce ; les \u00e9l\u00e9ments sans valeur sont masqu\u00e9s",
+            "Enum_horizontal": "Horizontal",
+            "Enum_vertical": "Vertical",
+            "Enum_grid": "Grille",
+            "showClear": "Afficher le bouton Effacer",
+            "defaultSelection": "S\u00e9lection par d\u00e9faut",
+            "sort": "Tri",
+            "Enum_data": "Ordre des donn\u00e9es",
+            "Enum_asc": "A \u00e0 Z",
+            "Enum_desc": "Z \u00e0 A",
+            "Enum_valueDesc": "Valeur, la plus grande d'abord",
+            "columns": "Colonnes (0 = automatique)",
+            "wrap": "Retour \u00e0 la ligne",
+            "chipFill": "\u00c9tirer les puces pour remplir",
+            "align": "Alignement",
+            "Enum_left": "Gauche",
+            "Enum_center": "Centre",
+            "Enum_right": "Droite",
+            "fontFamily": "Police",
+            "showCheck": "Coche sur les \u00e9l\u00e9ments s\u00e9lectionn\u00e9s",
+            "shadow": "Ombre",
+            "header": "En-t\u00eate",
+            "header_show": "Afficher l'en-t\u00eate",
+            "header_text": "Texte",
+            "header_fontSize": "Taille de police",
+            "header_fontFamily": "Police",
+            "header_bold": "Gras",
+            "header_color": "Couleur",
+            "badge": "Valeurs",
+            "badge_show": "Afficher la valeur sur les puces",
+            "badge_color": "Couleur",
+            "style": "Mod\u00e8le de style",
+            "style_template": "Mod\u00e8le",
+            "Enum_classic": "Classique",
+            "Enum_outline": "Contour",
+            "Enum_soft": "Doux",
+            "Enum_square": "Carr\u00e9",
+            "Enum_segmented": "Segment\u00e9",
+            "Enum_dark": "Sombre",
+            "style_guide": "Afficher les conseils de configuration",
+            "grpSelection": "S\u00e9lection",
+            "grpLayout": "Disposition",
+            "grpChip": "Puces",
+            "grpColors": "Couleurs",
+            "Landing_Tagline": "Filtrez la page en un clic. Gratuit, sans licence.",
+            "Landing_Guide": "Guide",
+            "Landing_Steps": "Pour commencer",
+            "Landing_Step1": "le champ \u00e0 filtrer : une puce par valeur",
+            "Landing_Step2": "un nombre ou un total sur chaque puce",
+            "Landing_Step3": "dans le volet Format : choisissez un style en un clic",
+            "Landing_Help": "Aide",
+            "Landing_GuideSub": "page d'assistance",
+            "Landing_Product": "Page du produit",
+            "Landing_Video": "Vid\u00e9o",
+            "UI_Clear": "Effacer la s\u00e9lection",
+            "Guide_Title": "Conseils de configuration",
+            "Guide_TryStyle": "Essayez un style :",
+            "Guide_ValueTip": "Astuce : ajoutez une mesure \u00e0 Valeur pour afficher les nombres sur les puces.",
+            "Guide_Close": "Masquer les conseils (Format \u2192 Mod\u00e8le de style)",
+            "Guide_Hierarchy": "Besoin de plusieurs niveaux (pays \u2192 ville) ? Essayez Chip Slicer Hierarchy."
+        },
+        "it-IT": {
+            "All": "Tutti",
+            "chipSettings": "Stile dei chip",
+            "multiSelect": "Selezione multipla",
+            "layout": "Layout",
+            "chipHeight": "Altezza del chip",
+            "chipRadius": "Raggio del bordo",
+            "fontSize": "Dimensione carattere",
+            "chipGap": "Spazio tra i chip",
+            "chipPaddingH": "Spaziatura orizzontale",
+            "defaultBg": "Sfondo inattivo",
+            "defaultBorder": "Bordo inattivo",
+            "defaultText": "Testo inattivo",
+            "activeBg": "Sfondo attivo",
+            "activeBorder": "Bordo attivo",
+            "activeText": "Testo attivo",
+            "showSelectAll": "Mostra pulsante 'Tutti'",
+            "selectAllLabel": "Testo del pulsante 'Tutti'",
+            "LandingText": "Aggiungi un campo a Categoria per iniziare a filtrare.",
+            "Blank": "(Vuoto)",
+            "Role_Category": "Categoria",
+            "Role_Category_Desc": "Il campo i cui valori diventano chip",
+            "Role_Value": "Valore (facoltativo)",
+            "Role_Value_Desc": "Un conteggio o un totale mostrato su ogni chip; gli elementi senza valore vengono nascosti",
+            "Enum_horizontal": "Orizzontale",
+            "Enum_vertical": "Verticale",
+            "Enum_grid": "Griglia",
+            "showClear": "Mostra pulsante Cancella",
+            "defaultSelection": "Selezione predefinita",
+            "sort": "Ordinamento",
+            "Enum_data": "Ordine dei dati",
+            "Enum_asc": "Dalla A alla Z",
+            "Enum_desc": "Dalla Z alla A",
+            "Enum_valueDesc": "Valore, dal pi\u00f9 grande",
+            "columns": "Colonne (0 = automatico)",
+            "wrap": "A capo",
+            "chipFill": "Estendi i chip per riempire",
+            "align": "Allineamento",
+            "Enum_left": "Sinistra",
+            "Enum_center": "Centro",
+            "Enum_right": "Destra",
+            "fontFamily": "Carattere",
+            "showCheck": "Segno di spunta sui selezionati",
+            "shadow": "Ombra",
+            "header": "Intestazione",
+            "header_show": "Mostra intestazione",
+            "header_text": "Testo",
+            "header_fontSize": "Dimensione carattere",
+            "header_fontFamily": "Carattere",
+            "header_bold": "Grassetto",
+            "header_color": "Colore",
+            "badge": "Valori",
+            "badge_show": "Mostra valore sui chip",
+            "badge_color": "Colore",
+            "style": "Modello di stile",
+            "style_template": "Modello",
+            "Enum_classic": "Classico",
+            "Enum_outline": "Contorno",
+            "Enum_soft": "Morbido",
+            "Enum_square": "Quadrato",
+            "Enum_segmented": "Segmentato",
+            "Enum_dark": "Scuro",
+            "style_guide": "Mostra suggerimenti di configurazione",
+            "grpSelection": "Selezione",
+            "grpLayout": "Layout",
+            "grpChip": "Chip",
+            "grpColors": "Colori",
+            "Landing_Tagline": "Filtra la pagina con un clic. Gratuito, senza licenza.",
+            "Landing_Guide": "Guida",
+            "Landing_Steps": "Per iniziare",
+            "Landing_Step1": "il campo da filtrare: un chip per valore",
+            "Landing_Step2": "un conteggio o un totale su ogni chip",
+            "Landing_Step3": "nel riquadro Formato: scegli un aspetto con un clic",
+            "Landing_Help": "Guida",
+            "Landing_GuideSub": "pagina di supporto",
+            "Landing_Product": "Pagina del prodotto",
+            "Landing_Video": "Video",
+            "UI_Clear": "Cancella selezione",
+            "Guide_Title": "Suggerimenti di configurazione",
+            "Guide_TryStyle": "Prova uno stile:",
+            "Guide_ValueTip": "Suggerimento: aggiungi una misura a Valore per mostrare i conteggi sui chip.",
+            "Guide_Close": "Nascondi suggerimenti (Formato \u2192 Modello di stile)",
+            "Guide_Hierarchy": "Ti servono pi\u00f9 livelli (paese \u2192 citt\u00e0)? Prova Chip Slicer Hierarchy."
+        },
+        "ja-JP": {
+            "All": "\u3059\u3079\u3066",
+            "chipSettings": "\u30c1\u30c3\u30d7\u306e\u30b9\u30bf\u30a4\u30eb",
+            "multiSelect": "\u8907\u6570\u9078\u629e",
+            "layout": "\u30ec\u30a4\u30a2\u30a6\u30c8",
+            "chipHeight": "\u30c1\u30c3\u30d7\u306e\u9ad8\u3055",
+            "chipRadius": "\u89d2\u306e\u534a\u5f84",
+            "fontSize": "\u30d5\u30a9\u30f3\u30c8 \u30b5\u30a4\u30ba",
+            "chipGap": "\u30c1\u30c3\u30d7\u306e\u9593\u9694",
+            "chipPaddingH": "\u5de6\u53f3\u306e\u4f59\u767d",
+            "defaultBg": "\u672a\u9078\u629e\u306e\u80cc\u666f",
+            "defaultBorder": "\u672a\u9078\u629e\u306e\u67a0\u7dda",
+            "defaultText": "\u672a\u9078\u629e\u306e\u30c6\u30ad\u30b9\u30c8",
+            "activeBg": "\u9078\u629e\u6642\u306e\u80cc\u666f",
+            "activeBorder": "\u9078\u629e\u6642\u306e\u67a0\u7dda",
+            "activeText": "\u9078\u629e\u6642\u306e\u30c6\u30ad\u30b9\u30c8",
+            "showSelectAll": "\u300c\u3059\u3079\u3066\u300d\u30dc\u30bf\u30f3\u3092\u8868\u793a",
+            "selectAllLabel": "\u300c\u3059\u3079\u3066\u300d\u30dc\u30bf\u30f3\u306e\u30c6\u30ad\u30b9\u30c8",
+            "LandingText": "\u30ab\u30c6\u30b4\u30ea\u306b\u30d5\u30a3\u30fc\u30eb\u30c9\u3092\u8ffd\u52a0\u3059\u308b\u3068\u30d5\u30a3\u30eb\u30bf\u30fc\u3092\u958b\u59cb\u3067\u304d\u307e\u3059\u3002",
+            "Blank": "(\u7a7a\u767d)",
+            "Role_Category": "\u30ab\u30c6\u30b4\u30ea",
+            "Role_Category_Desc": "\u5024\u304c\u30c1\u30c3\u30d7\u306b\u306a\u308b\u30d5\u30a3\u30fc\u30eb\u30c9",
+            "Role_Value": "\u5024 (\u7701\u7565\u53ef)",
+            "Role_Value_Desc": "\u5404\u30c1\u30c3\u30d7\u306b\u8868\u793a\u3059\u308b\u4ef6\u6570\u307e\u305f\u306f\u5408\u8a08\u3002\u5024\u306e\u306a\u3044\u9805\u76ee\u306f\u975e\u8868\u793a\u306b\u306a\u308a\u307e\u3059",
+            "Enum_horizontal": "\u6a2a",
+            "Enum_vertical": "\u7e26",
+            "Enum_grid": "\u30b0\u30ea\u30c3\u30c9",
+            "showClear": "\u30af\u30ea\u30a2 \u30dc\u30bf\u30f3\u3092\u8868\u793a",
+            "defaultSelection": "\u65e2\u5b9a\u306e\u9078\u629e",
+            "sort": "\u4e26\u3079\u66ff\u3048",
+            "Enum_data": "\u30c7\u30fc\u30bf\u306e\u9806\u5e8f",
+            "Enum_asc": "\u6607\u9806 (A\u2192Z)",
+            "Enum_desc": "\u964d\u9806 (Z\u2192A)",
+            "Enum_valueDesc": "\u5024\u306e\u5927\u304d\u3044\u9806",
+            "columns": "\u5217\u6570 (0 = \u81ea\u52d5)",
+            "wrap": "\u6b21\u306e\u884c\u306b\u6298\u308a\u8fd4\u3059",
+            "chipFill": "\u30c1\u30c3\u30d7\u3092\u5e45\u3044\u3063\u3071\u3044\u306b\u5e83\u3052\u308b",
+            "align": "\u914d\u7f6e",
+            "Enum_left": "\u5de6",
+            "Enum_center": "\u4e2d\u592e",
+            "Enum_right": "\u53f3",
+            "fontFamily": "\u30d5\u30a9\u30f3\u30c8",
+            "showCheck": "\u9078\u629e\u9805\u76ee\u306b\u30c1\u30a7\u30c3\u30af\u30de\u30fc\u30af",
+            "shadow": "\u5f71",
+            "header": "\u30d8\u30c3\u30c0\u30fc",
+            "header_show": "\u30d8\u30c3\u30c0\u30fc\u3092\u8868\u793a",
+            "header_text": "\u30c6\u30ad\u30b9\u30c8",
+            "header_fontSize": "\u30d5\u30a9\u30f3\u30c8 \u30b5\u30a4\u30ba",
+            "header_fontFamily": "\u30d5\u30a9\u30f3\u30c8",
+            "header_bold": "\u592a\u5b57",
+            "header_color": "\u8272",
+            "badge": "\u5024",
+            "badge_show": "\u30c1\u30c3\u30d7\u306b\u5024\u3092\u8868\u793a",
+            "badge_color": "\u8272",
+            "style": "\u30b9\u30bf\u30a4\u30eb \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8",
+            "style_template": "\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8",
+            "Enum_classic": "\u30af\u30e9\u30b7\u30c3\u30af",
+            "Enum_outline": "\u30a2\u30a6\u30c8\u30e9\u30a4\u30f3",
+            "Enum_soft": "\u30bd\u30d5\u30c8",
+            "Enum_square": "\u30b9\u30af\u30a8\u30a2",
+            "Enum_segmented": "\u30bb\u30b0\u30e1\u30f3\u30c8",
+            "Enum_dark": "\u30c0\u30fc\u30af",
+            "style_guide": "\u8a2d\u5b9a\u306e\u30d2\u30f3\u30c8\u3092\u8868\u793a",
+            "grpSelection": "\u9078\u629e",
+            "grpLayout": "\u30ec\u30a4\u30a2\u30a6\u30c8",
+            "grpChip": "\u30c1\u30c3\u30d7",
+            "grpColors": "\u8272",
+            "Landing_Tagline": "\u30ef\u30f3\u30af\u30ea\u30c3\u30af\u3067\u30da\u30fc\u30b8\u3092\u30d5\u30a3\u30eb\u30bf\u30fc\u3002\u7121\u6599\u3001\u30e9\u30a4\u30bb\u30f3\u30b9\u4e0d\u8981\u3002",
+            "Landing_Guide": "\u30ac\u30a4\u30c9",
+            "Landing_Steps": "\u306f\u3058\u3081\u306b",
+            "Landing_Step1": "\u30d5\u30a3\u30eb\u30bf\u30fc\u3059\u308b\u30d5\u30a3\u30fc\u30eb\u30c9: \u5024\u3054\u3068\u306b 1 \u3064\u306e\u30c1\u30c3\u30d7",
+            "Landing_Step2": "\u5404\u30c1\u30c3\u30d7\u306e\u4ef6\u6570\u307e\u305f\u306f\u5408\u8a08",
+            "Landing_Step3": "\u66f8\u5f0f\u30a6\u30a3\u30f3\u30c9\u30a6\u3067: \u30ef\u30f3\u30af\u30ea\u30c3\u30af\u3067\u5916\u89b3\u3092\u9078\u629e",
+            "Landing_Help": "\u30d8\u30eb\u30d7",
+            "Landing_GuideSub": "\u30b5\u30dd\u30fc\u30c8 \u30da\u30fc\u30b8",
+            "Landing_Product": "\u88fd\u54c1\u30da\u30fc\u30b8",
+            "Landing_Video": "\u52d5\u753b",
+            "UI_Clear": "\u9078\u629e\u3092\u30af\u30ea\u30a2",
+            "Guide_Title": "\u8a2d\u5b9a\u306e\u30d2\u30f3\u30c8",
+            "Guide_TryStyle": "\u30b9\u30bf\u30a4\u30eb\u3092\u8a66\u3059:",
+            "Guide_ValueTip": "\u30d2\u30f3\u30c8: \u5024\u306b\u30e1\u30b8\u30e3\u30fc\u3092\u8ffd\u52a0\u3059\u308b\u3068\u3001\u30c1\u30c3\u30d7\u306b\u4ef6\u6570\u304c\u8868\u793a\u3055\u308c\u307e\u3059\u3002",
+            "Guide_Close": "\u30d2\u30f3\u30c8\u3092\u975e\u8868\u793a (\u66f8\u5f0f \u2192 \u30b9\u30bf\u30a4\u30eb \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8)",
+            "Guide_Hierarchy": "\u8907\u6570\u306e\u968e\u5c64 (\u56fd \u2192 \u90fd\u5e02) \u304c\u5fc5\u8981\u3067\u3059\u304b? Chip Slicer Hierarchy \u3092\u304a\u8a66\u3057\u304f\u3060\u3055\u3044\u3002"
+        },
+        "ko-KR": {
+            "All": "\ubaa8\ub450",
+            "chipSettings": "\uce69 \uc2a4\ud0c0\uc77c",
+            "multiSelect": "\ub2e4\uc911 \uc120\ud0dd",
+            "layout": "\ub808\uc774\uc544\uc6c3",
+            "chipHeight": "\uce69 \ub192\uc774",
+            "chipRadius": "\ubaa8\uc11c\ub9ac \ubc18\uacbd",
+            "fontSize": "\uae00\uaf34 \ud06c\uae30",
+            "chipGap": "\uce69 \uac04\uaca9",
+            "chipPaddingH": "\uac00\ub85c \uc548\ucabd \uc5ec\ubc31",
+            "defaultBg": "\ubbf8\uc120\ud0dd \ubc30\uacbd",
+            "defaultBorder": "\ubbf8\uc120\ud0dd \ud14c\ub450\ub9ac",
+            "defaultText": "\ubbf8\uc120\ud0dd \ud14d\uc2a4\ud2b8",
+            "activeBg": "\uc120\ud0dd \uc2dc \ubc30\uacbd",
+            "activeBorder": "\uc120\ud0dd \uc2dc \ud14c\ub450\ub9ac",
+            "activeText": "\uc120\ud0dd \uc2dc \ud14d\uc2a4\ud2b8",
+            "showSelectAll": "'\ubaa8\ub450' \ub2e8\ucd94 \ud45c\uc2dc",
+            "selectAllLabel": "'\ubaa8\ub450' \ub2e8\ucd94 \ud14d\uc2a4\ud2b8",
+            "LandingText": "\ubc94\uc8fc\uc5d0 \ud544\ub4dc\ub97c \ucd94\uac00\ud558\uba74 \ud544\ud130\ub9c1\uc744 \uc2dc\uc791\ud569\ub2c8\ub2e4.",
+            "Blank": "(\ube44\uc5b4 \uc788\uc74c)",
+            "Role_Category": "\ubc94\uc8fc",
+            "Role_Category_Desc": "\uac12\uc774 \uce69\uc774 \ub418\ub294 \ud544\ub4dc",
+            "Role_Value": "\uac12(\uc120\ud0dd \uc0ac\ud56d)",
+            "Role_Value_Desc": "\uac01 \uce69\uc5d0 \ud45c\uc2dc\ub418\ub294 \uac1c\uc218 \ub610\ub294 \ud569\uacc4. \uac12\uc774 \uc5c6\ub294 \ud56d\ubaa9\uc740 \uc228\uaca8\uc9d1\ub2c8\ub2e4",
+            "Enum_horizontal": "\uac00\ub85c",
+            "Enum_vertical": "\uc138\ub85c",
+            "Enum_grid": "\uadf8\ub9ac\ub4dc",
+            "showClear": "\uc9c0\uc6b0\uae30 \ub2e8\ucd94 \ud45c\uc2dc",
+            "defaultSelection": "\uae30\ubcf8 \uc120\ud0dd",
+            "sort": "\uc815\ub82c",
+            "Enum_data": "\ub370\uc774\ud130 \uc21c\uc11c",
+            "Enum_asc": "\uc624\ub984\ucc28\uc21c(A\u2192Z)",
+            "Enum_desc": "\ub0b4\ub9bc\ucc28\uc21c(Z\u2192A)",
+            "Enum_valueDesc": "\uac12, \ud070 \uc21c\uc11c",
+            "columns": "\uc5f4 \uc218(0 = \uc790\ub3d9)",
+            "wrap": "\ub2e4\uc74c \uc904\ub85c \uc904 \ubc14\uafc8",
+            "chipFill": "\uce69\uc744 \ub298\ub824 \ucc44\uc6b0\uae30",
+            "align": "\ub9de\ucda4",
+            "Enum_left": "\uc67c\ucabd",
+            "Enum_center": "\uac00\uc6b4\ub370",
+            "Enum_right": "\uc624\ub978\ucabd",
+            "fontFamily": "\uae00\uaf34",
+            "showCheck": "\uc120\ud0dd \ud56d\ubaa9\uc5d0 \ud655\uc778 \ud45c\uc2dc",
+            "shadow": "\uadf8\ub9bc\uc790",
+            "header": "\uba38\ub9ac\uae00",
+            "header_show": "\uba38\ub9ac\uae00 \ud45c\uc2dc",
+            "header_text": "\ud14d\uc2a4\ud2b8",
+            "header_fontSize": "\uae00\uaf34 \ud06c\uae30",
+            "header_fontFamily": "\uae00\uaf34",
+            "header_bold": "\uad75\uac8c",
+            "header_color": "\uc0c9",
+            "badge": "\uac12",
+            "badge_show": "\uce69\uc5d0 \uac12 \ud45c\uc2dc",
+            "badge_color": "\uc0c9",
+            "style": "\uc2a4\ud0c0\uc77c \ud15c\ud50c\ub9bf",
+            "style_template": "\ud15c\ud50c\ub9bf",
+            "Enum_classic": "\ud074\ub798\uc2dd",
+            "Enum_outline": "\uc724\uacfd\uc120",
+            "Enum_soft": "\ubd80\ub4dc\ub7fd\uac8c",
+            "Enum_square": "\uc0ac\uac01\ud615",
+            "Enum_segmented": "\uc138\uadf8\uba3c\ud2b8",
+            "Enum_dark": "\uc5b4\ub461\uac8c",
+            "style_guide": "\uc124\uc815 \ud301 \ud45c\uc2dc",
+            "grpSelection": "\uc120\ud0dd",
+            "grpLayout": "\ub808\uc774\uc544\uc6c3",
+            "grpChip": "\uce69",
+            "grpColors": "\uc0c9",
+            "Landing_Tagline": "\ud074\ub9ad \ud55c \ubc88\uc73c\ub85c \ud398\uc774\uc9c0\ub97c \ud544\ud130\ub9c1\ud569\ub2c8\ub2e4. \ubb34\ub8cc, \ub77c\uc774\uc120\uc2a4 \ubd88\ud544\uc694.",
+            "Landing_Guide": "\uac00\uc774\ub4dc",
+            "Landing_Steps": "\uc2dc\uc791\ud558\uae30",
+            "Landing_Step1": "\ud544\ud130\ub9c1\ud560 \ud544\ub4dc: \uac12\ub9c8\ub2e4 \uce69 \ud558\ub098",
+            "Landing_Step2": "\uac01 \uce69\uc758 \uac1c\uc218 \ub610\ub294 \ud569\uacc4",
+            "Landing_Step3": "\uc11c\uc2dd \ucc3d\uc5d0\uc11c: \ud074\ub9ad \ud55c \ubc88\uc73c\ub85c \ubaa8\uc591 \uc120\ud0dd",
+            "Landing_Help": "\ub3c4\uc6c0\ub9d0",
+            "Landing_GuideSub": "\uc9c0\uc6d0 \ud398\uc774\uc9c0",
+            "Landing_Product": "\uc81c\ud488 \ud398\uc774\uc9c0",
+            "Landing_Video": "\ub3d9\uc601\uc0c1",
+            "UI_Clear": "\uc120\ud0dd \uc9c0\uc6b0\uae30",
+            "Guide_Title": "\uc124\uc815 \ud301",
+            "Guide_TryStyle": "\uc2a4\ud0c0\uc77c \uc0ac\uc6a9\ud574 \ubcf4\uae30:",
+            "Guide_ValueTip": "\ud301: \uac12\uc5d0 \uce21\uc815\uac12\uc744 \ucd94\uac00\ud558\uba74 \uce69\uc5d0 \uac1c\uc218\uac00 \ud45c\uc2dc\ub429\ub2c8\ub2e4.",
+            "Guide_Close": "\ud301 \uc228\uae30\uae30(\uc11c\uc2dd \u2192 \uc2a4\ud0c0\uc77c \ud15c\ud50c\ub9bf)",
+            "Guide_Hierarchy": "\uc5ec\ub7ec \uc218\uc900(\uad6d\uac00 \u2192 \ub3c4\uc2dc)\uc774 \ud544\uc694\ud558\uc138\uc694? Chip Slicer Hierarchy\ub97c \uc0ac\uc6a9\ud574 \ubcf4\uc138\uc694."
+        },
+        "nl-NL": {
+            "All": "Alles",
+            "chipSettings": "Chipstijl",
+            "multiSelect": "Meervoudige selectie",
+            "layout": "Indeling",
+            "chipHeight": "Chiphoogte",
+            "chipRadius": "Hoekradius",
+            "fontSize": "Tekengrootte",
+            "chipGap": "Ruimte tussen chips",
+            "chipPaddingH": "Horizontale opvulling",
+            "defaultBg": "Achtergrond inactief",
+            "defaultBorder": "Rand inactief",
+            "defaultText": "Tekst inactief",
+            "activeBg": "Achtergrond actief",
+            "activeBorder": "Rand actief",
+            "activeText": "Tekst actief",
+            "showSelectAll": "Knop 'Alles' weergeven",
+            "selectAllLabel": "Tekst van knop 'Alles'",
+            "LandingText": "Voeg een veld toe aan Categorie om te beginnen met filteren.",
+            "Blank": "(Leeg)",
+            "Role_Category": "Categorie",
+            "Role_Category_Desc": "Het veld waarvan de waarden chips worden",
+            "Role_Value": "Waarde (optioneel)",
+            "Role_Value_Desc": "Een aantal of totaal op elke chip; items zonder waarde worden verborgen",
+            "Enum_horizontal": "Horizontaal",
+            "Enum_vertical": "Verticaal",
+            "Enum_grid": "Raster",
+            "showClear": "Knop Wissen weergeven",
+            "defaultSelection": "Standaardselectie",
+            "sort": "Sorteren",
+            "Enum_data": "Gegevensvolgorde",
+            "Enum_asc": "A tot Z",
+            "Enum_desc": "Z tot A",
+            "Enum_valueDesc": "Waarde, grootste eerst",
+            "columns": "Kolommen (0 = automatisch)",
+            "wrap": "Doorlopen naar volgende regel",
+            "chipFill": "Chips uitrekken tot volle breedte",
+            "align": "Uitlijning",
+            "Enum_left": "Links",
+            "Enum_center": "Midden",
+            "Enum_right": "Rechts",
+            "fontFamily": "Lettertype",
+            "showCheck": "Vinkje bij geselecteerde",
+            "shadow": "Schaduw",
+            "header": "Koptekst",
+            "header_show": "Koptekst weergeven",
+            "header_text": "Tekst",
+            "header_fontSize": "Tekengrootte",
+            "header_fontFamily": "Lettertype",
+            "header_bold": "Vet",
+            "header_color": "Kleur",
+            "badge": "Waarden",
+            "badge_show": "Waarde op chips weergeven",
+            "badge_color": "Kleur",
+            "style": "Stijlsjabloon",
+            "style_template": "Sjabloon",
+            "Enum_classic": "Klassiek",
+            "Enum_outline": "Omtrek",
+            "Enum_soft": "Zacht",
+            "Enum_square": "Vierkant",
+            "Enum_segmented": "Gesegmenteerd",
+            "Enum_dark": "Donker",
+            "style_guide": "Installatietips weergeven",
+            "grpSelection": "Selectie",
+            "grpLayout": "Indeling",
+            "grpChip": "Chips",
+            "grpColors": "Kleuren",
+            "Landing_Tagline": "Filter de pagina met \u00e9\u00e9n klik. Gratis, zonder licentie.",
+            "Landing_Guide": "Handleiding",
+            "Landing_Steps": "Aan de slag",
+            "Landing_Step1": "het filterveld: \u00e9\u00e9n chip per waarde",
+            "Landing_Step2": "een aantal of totaal op elke chip",
+            "Landing_Step3": "in het deelvenster Opmaak: kies een stijl met \u00e9\u00e9n klik",
+            "Landing_Help": "Help",
+            "Landing_GuideSub": "ondersteuningspagina",
+            "Landing_Product": "Productpagina",
+            "Landing_Video": "Video",
+            "UI_Clear": "Selectie wissen",
+            "Guide_Title": "Installatietips",
+            "Guide_TryStyle": "Probeer een stijl:",
+            "Guide_ValueTip": "Tip: voeg een meting toe aan Waarde om aantallen op de chips te tonen.",
+            "Guide_Close": "Tips verbergen (Opmaak \u2192 Stijlsjabloon)",
+            "Guide_Hierarchy": "Meerdere niveaus nodig (land \u2192 stad)? Probeer Chip Slicer Hierarchy."
+        },
+        "pl-PL": {
+            "All": "Wszystkie",
+            "chipSettings": "Styl chip\u00f3w",
+            "multiSelect": "Wielokrotny wyb\u00f3r",
+            "layout": "Uk\u0142ad",
+            "chipHeight": "Wysoko\u015b\u0107 chipa",
+            "chipRadius": "Promie\u0144 naro\u017cnika",
+            "fontSize": "Rozmiar czcionki",
+            "chipGap": "Odst\u0119p mi\u0119dzy chipami",
+            "chipPaddingH": "Margines poziomy",
+            "defaultBg": "T\u0142o nieaktywne",
+            "defaultBorder": "Obramowanie nieaktywne",
+            "defaultText": "Tekst nieaktywny",
+            "activeBg": "T\u0142o aktywne",
+            "activeBorder": "Obramowanie aktywne",
+            "activeText": "Tekst aktywny",
+            "showSelectAll": "Poka\u017c przycisk 'Wszystkie'",
+            "selectAllLabel": "Tekst przycisku 'Wszystkie'",
+            "LandingText": "Dodaj pole do Kategorii, aby zacz\u0105\u0107 filtrowa\u0107.",
+            "Blank": "(Puste)",
+            "Role_Category": "Kategoria",
+            "Role_Category_Desc": "Pole, kt\u00f3rego warto\u015bci staj\u0105 si\u0119 chipami",
+            "Role_Value": "Warto\u015b\u0107 (opcjonalnie)",
+            "Role_Value_Desc": "Liczba lub suma na ka\u017cdym chipie; elementy bez warto\u015bci s\u0105 ukryte",
+            "Enum_horizontal": "Poziomo",
+            "Enum_vertical": "Pionowo",
+            "Enum_grid": "Siatka",
+            "showClear": "Poka\u017c przycisk czyszczenia",
+            "defaultSelection": "Domy\u015blne zaznaczenie",
+            "sort": "Sortowanie",
+            "Enum_data": "Kolejno\u015b\u0107 danych",
+            "Enum_asc": "Od A do Z",
+            "Enum_desc": "Od Z do A",
+            "Enum_valueDesc": "Warto\u015b\u0107, od najwi\u0119kszej",
+            "columns": "Kolumny (0 = automatycznie)",
+            "wrap": "Zawijaj do nast\u0119pnego wiersza",
+            "chipFill": "Rozci\u0105gnij chipy na ca\u0142\u0105 szeroko\u015b\u0107",
+            "align": "Wyr\u00f3wnanie",
+            "Enum_left": "Do lewej",
+            "Enum_center": "\u015arodek",
+            "Enum_right": "Do prawej",
+            "fontFamily": "Czcionka",
+            "showCheck": "Znacznik przy zaznaczonych",
+            "shadow": "Cie\u0144",
+            "header": "Nag\u0142\u00f3wek",
+            "header_show": "Poka\u017c nag\u0142\u00f3wek",
+            "header_text": "Tekst",
+            "header_fontSize": "Rozmiar czcionki",
+            "header_fontFamily": "Czcionka",
+            "header_bold": "Pogrubienie",
+            "header_color": "Kolor",
+            "badge": "Warto\u015bci",
+            "badge_show": "Poka\u017c warto\u015b\u0107 na chipach",
+            "badge_color": "Kolor",
+            "style": "Szablon stylu",
+            "style_template": "Szablon",
+            "Enum_classic": "Klasyczny",
+            "Enum_outline": "Kontur",
+            "Enum_soft": "Delikatny",
+            "Enum_square": "Kwadratowy",
+            "Enum_segmented": "Segmentowy",
+            "Enum_dark": "Ciemny",
+            "style_guide": "Poka\u017c wskaz\u00f3wki konfiguracji",
+            "grpSelection": "Zaznaczenie",
+            "grpLayout": "Uk\u0142ad",
+            "grpChip": "Chipy",
+            "grpColors": "Kolory",
+            "Landing_Tagline": "Filtruj stron\u0119 jednym klikni\u0119ciem. Bezp\u0142atnie, bez licencji.",
+            "Landing_Guide": "Przewodnik",
+            "Landing_Steps": "Pierwsze kroki",
+            "Landing_Step1": "pole do filtrowania: jeden chip na warto\u015b\u0107",
+            "Landing_Step2": "liczba lub suma na ka\u017cdym chipie",
+            "Landing_Step3": "w okienku Format: wybierz wygl\u0105d jednym klikni\u0119ciem",
+            "Landing_Help": "Pomoc",
+            "Landing_GuideSub": "strona pomocy",
+            "Landing_Product": "Strona produktu",
+            "Landing_Video": "Wideo",
+            "UI_Clear": "Wyczy\u015b\u0107 zaznaczenie",
+            "Guide_Title": "Wskaz\u00f3wki konfiguracji",
+            "Guide_TryStyle": "Wypr\u00f3buj styl:",
+            "Guide_ValueTip": "Wskaz\u00f3wka: dodaj miar\u0119 do pola Warto\u015b\u0107, aby pokaza\u0107 liczby na chipach.",
+            "Guide_Close": "Ukryj wskaz\u00f3wki (Format \u2192 Szablon stylu)",
+            "Guide_Hierarchy": "Potrzebujesz kilku poziom\u00f3w (kraj \u2192 miasto)? Wypr\u00f3buj Chip Slicer Hierarchy."
+        },
+        "pt-BR": {
+            "All": "Todos",
+            "chipSettings": "Estilo do chip",
+            "multiSelect": "Sele\u00e7\u00e3o m\u00faltipla",
+            "layout": "Layout",
+            "chipHeight": "Altura do chip",
+            "chipRadius": "Raio da borda",
+            "fontSize": "Tamanho da fonte",
+            "chipGap": "Espa\u00e7o entre chips",
+            "chipPaddingH": "Margem horizontal",
+            "defaultBg": "Fundo inativo",
+            "defaultBorder": "Borda inativa",
+            "defaultText": "Texto inativo",
+            "activeBg": "Fundo ativo",
+            "activeBorder": "Borda ativa",
+            "activeText": "Texto ativo",
+            "showSelectAll": "Mostrar bot\u00e3o 'Todos'",
+            "selectAllLabel": "Texto do bot\u00e3o 'Todos'",
+            "LandingText": "Adicione um campo a Categoria para come\u00e7ar a filtrar.",
+            "Blank": "(Em branco)",
+            "Role_Category": "Categoria",
+            "Role_Category_Desc": "O campo cujos valores viram chips",
+            "Role_Value": "Valor (opcional)",
+            "Role_Value_Desc": "Uma contagem ou total mostrado em cada chip; itens sem valor ficam ocultos",
+            "Enum_horizontal": "Horizontal",
+            "Enum_vertical": "Vertical",
+            "Enum_grid": "Grade",
+            "showClear": "Mostrar bot\u00e3o de limpar",
+            "defaultSelection": "Sele\u00e7\u00e3o padr\u00e3o",
+            "sort": "Ordenar",
+            "Enum_data": "Ordem dos dados",
+            "Enum_asc": "A a Z",
+            "Enum_desc": "Z a A",
+            "Enum_valueDesc": "Valor, maior primeiro",
+            "columns": "Colunas (0 = autom\u00e1tico)",
+            "wrap": "Quebrar para a pr\u00f3xima linha",
+            "chipFill": "Esticar chips para preencher",
+            "align": "Alinhamento",
+            "Enum_left": "Esquerda",
+            "Enum_center": "Centro",
+            "Enum_right": "Direita",
+            "fontFamily": "Fonte",
+            "showCheck": "Marca de sele\u00e7\u00e3o nos selecionados",
+            "shadow": "Sombra",
+            "header": "Cabe\u00e7alho",
+            "header_show": "Mostrar cabe\u00e7alho",
+            "header_text": "Texto",
+            "header_fontSize": "Tamanho da fonte",
+            "header_fontFamily": "Fonte",
+            "header_bold": "Negrito",
+            "header_color": "Cor",
+            "badge": "Valores",
+            "badge_show": "Mostrar valor nos chips",
+            "badge_color": "Cor",
+            "style": "Modelo de estilo",
+            "style_template": "Modelo",
+            "Enum_classic": "Cl\u00e1ssico",
+            "Enum_outline": "Contorno",
+            "Enum_soft": "Suave",
+            "Enum_square": "Quadrado",
+            "Enum_segmented": "Segmentado",
+            "Enum_dark": "Escuro",
+            "style_guide": "Mostrar dicas de configura\u00e7\u00e3o",
+            "grpSelection": "Sele\u00e7\u00e3o",
+            "grpLayout": "Layout",
+            "grpChip": "Chips",
+            "grpColors": "Cores",
+            "Landing_Tagline": "Filtre a p\u00e1gina com um clique. Gratuito, sem licen\u00e7a.",
+            "Landing_Guide": "Guia",
+            "Landing_Steps": "Comece",
+            "Landing_Step1": "o campo para filtrar: um chip por valor",
+            "Landing_Step2": "uma contagem ou total em cada chip",
+            "Landing_Step3": "no painel Formatar: escolha um visual com um clique",
+            "Landing_Help": "Ajuda",
+            "Landing_GuideSub": "p\u00e1gina de suporte",
+            "Landing_Product": "P\u00e1gina do produto",
+            "Landing_Video": "V\u00eddeo",
+            "UI_Clear": "Limpar sele\u00e7\u00e3o",
+            "Guide_Title": "Dicas de configura\u00e7\u00e3o",
+            "Guide_TryStyle": "Experimente um estilo:",
+            "Guide_ValueTip": "Dica: adicione uma medida a Valor para mostrar contagens nos chips.",
+            "Guide_Close": "Ocultar dicas (Formatar \u2192 Modelo de estilo)",
+            "Guide_Hierarchy": "Precisa de v\u00e1rios n\u00edveis (pa\u00eds \u2192 cidade)? Experimente o Chip Slicer Hierarchy."
+        },
+        "pt-PT": {
+            "All": "Todos",
+            "chipSettings": "Estilo do chip",
+            "multiSelect": "Sele\u00e7\u00e3o m\u00faltipla",
+            "layout": "Layout",
+            "chipHeight": "Altura do chip",
+            "chipRadius": "Raio da borda",
+            "fontSize": "Tamanho da fonte",
+            "chipGap": "Espa\u00e7o entre chips",
+            "chipPaddingH": "Margem horizontal",
+            "defaultBg": "Fundo inativo",
+            "defaultBorder": "Borda inativa",
+            "defaultText": "Texto inativo",
+            "activeBg": "Fundo ativo",
+            "activeBorder": "Borda ativa",
+            "activeText": "Texto ativo",
+            "showSelectAll": "Mostrar bot\u00e3o 'Todos'",
+            "selectAllLabel": "Texto do bot\u00e3o 'Todos'",
+            "LandingText": "Adicione um campo a Categoria para come\u00e7ar a filtrar.",
+            "Blank": "(Em branco)",
+            "Role_Category": "Categoria",
+            "Role_Category_Desc": "O campo cujos valores viram chips",
+            "Role_Value": "Valor (opcional)",
+            "Role_Value_Desc": "Uma contagem ou total mostrado em cada chip; itens sem valor ficam ocultos",
+            "Enum_horizontal": "Horizontal",
+            "Enum_vertical": "Vertical",
+            "Enum_grid": "Grade",
+            "showClear": "Mostrar bot\u00e3o de limpar",
+            "defaultSelection": "Sele\u00e7\u00e3o padr\u00e3o",
+            "sort": "Ordenar",
+            "Enum_data": "Ordem dos dados",
+            "Enum_asc": "A a Z",
+            "Enum_desc": "Z a A",
+            "Enum_valueDesc": "Valor, maior primeiro",
+            "columns": "Colunas (0 = autom\u00e1tico)",
+            "wrap": "Quebrar para a pr\u00f3xima linha",
+            "chipFill": "Esticar chips para preencher",
+            "align": "Alinhamento",
+            "Enum_left": "Esquerda",
+            "Enum_center": "Centro",
+            "Enum_right": "Direita",
+            "fontFamily": "Fonte",
+            "showCheck": "Marca de sele\u00e7\u00e3o nos selecionados",
+            "shadow": "Sombra",
+            "header": "Cabe\u00e7alho",
+            "header_show": "Mostrar cabe\u00e7alho",
+            "header_text": "Texto",
+            "header_fontSize": "Tamanho da fonte",
+            "header_fontFamily": "Fonte",
+            "header_bold": "Negrito",
+            "header_color": "Cor",
+            "badge": "Valores",
+            "badge_show": "Mostrar valor nos chips",
+            "badge_color": "Cor",
+            "style": "Modelo de estilo",
+            "style_template": "Modelo",
+            "Enum_classic": "Cl\u00e1ssico",
+            "Enum_outline": "Contorno",
+            "Enum_soft": "Suave",
+            "Enum_square": "Quadrado",
+            "Enum_segmented": "Segmentado",
+            "Enum_dark": "Escuro",
+            "style_guide": "Mostrar dicas de configura\u00e7\u00e3o",
+            "grpSelection": "Sele\u00e7\u00e3o",
+            "grpLayout": "Layout",
+            "grpChip": "Chips",
+            "grpColors": "Cores",
+            "Landing_Tagline": "Filtre a p\u00e1gina com um clique. Gratuito, sem licen\u00e7a.",
+            "Landing_Guide": "Guia",
+            "Landing_Steps": "Comece",
+            "Landing_Step1": "o campo para filtrar: um chip por valor",
+            "Landing_Step2": "uma contagem ou total em cada chip",
+            "Landing_Step3": "no painel Formatar: escolha um visual com um clique",
+            "Landing_Help": "Ajuda",
+            "Landing_GuideSub": "p\u00e1gina de suporte",
+            "Landing_Product": "P\u00e1gina do produto",
+            "Landing_Video": "V\u00eddeo",
+            "UI_Clear": "Limpar sele\u00e7\u00e3o",
+            "Guide_Title": "Dicas de configura\u00e7\u00e3o",
+            "Guide_TryStyle": "Experimente um estilo:",
+            "Guide_ValueTip": "Dica: adicione uma medida a Valor para mostrar contagens nos chips.",
+            "Guide_Close": "Ocultar dicas (Formatar \u2192 Modelo de estilo)",
+            "Guide_Hierarchy": "Precisa de v\u00e1rios n\u00edveis (pa\u00eds \u2192 cidade)? Experimente o Chip Slicer Hierarchy."
+        },
+        "zh-CN": {
+            "All": "\u5168\u90e8",
+            "chipSettings": "\u6807\u7b7e\u6837\u5f0f",
+            "multiSelect": "\u591a\u9009",
+            "layout": "\u5e03\u5c40",
+            "chipHeight": "\u6807\u7b7e\u9ad8\u5ea6",
+            "chipRadius": "\u5706\u89d2\u534a\u5f84",
+            "fontSize": "\u5b57\u53f7",
+            "chipGap": "\u6807\u7b7e\u95f4\u8ddd",
+            "chipPaddingH": "\u6c34\u5e73\u5185\u8fb9\u8ddd",
+            "defaultBg": "\u672a\u9009\u4e2d\u80cc\u666f",
+            "defaultBorder": "\u672a\u9009\u4e2d\u8fb9\u6846",
+            "defaultText": "\u672a\u9009\u4e2d\u6587\u672c",
+            "activeBg": "\u9009\u4e2d\u80cc\u666f",
+            "activeBorder": "\u9009\u4e2d\u8fb9\u6846",
+            "activeText": "\u9009\u4e2d\u6587\u672c",
+            "showSelectAll": "\u663e\u793a\u201c\u5168\u90e8\u201d\u6309\u94ae",
+            "selectAllLabel": "\u201c\u5168\u90e8\u201d\u6309\u94ae\u6587\u672c",
+            "LandingText": "\u5411\u201c\u7c7b\u522b\u201d\u6dfb\u52a0\u5b57\u6bb5\u5373\u53ef\u5f00\u59cb\u7b5b\u9009\u3002",
+            "Blank": "(\u7a7a\u767d)",
+            "Role_Category": "\u7c7b\u522b",
+            "Role_Category_Desc": "\u5176\u503c\u6210\u4e3a\u6807\u7b7e\u7684\u5b57\u6bb5",
+            "Role_Value": "\u503c\uff08\u53ef\u9009\uff09",
+            "Role_Value_Desc": "\u6bcf\u4e2a\u6807\u7b7e\u4e0a\u663e\u793a\u7684\u8ba1\u6570\u6216\u5408\u8ba1\uff1b\u6ca1\u6709\u503c\u7684\u9879\u4f1a\u88ab\u9690\u85cf",
+            "Enum_horizontal": "\u6c34\u5e73",
+            "Enum_vertical": "\u5782\u76f4",
+            "Enum_grid": "\u7f51\u683c",
+            "showClear": "\u663e\u793a\u6e05\u9664\u6309\u94ae",
+            "defaultSelection": "\u9ed8\u8ba4\u9009\u62e9",
+            "sort": "\u6392\u5e8f",
+            "Enum_data": "\u6570\u636e\u987a\u5e8f",
+            "Enum_asc": "A \u5230 Z",
+            "Enum_desc": "Z \u5230 A",
+            "Enum_valueDesc": "\u503c\uff0c\u4ece\u5927\u5230\u5c0f",
+            "columns": "\u5217\u6570\uff080 = \u81ea\u52a8\uff09",
+            "wrap": "\u6362\u884c",
+            "chipFill": "\u62c9\u4f38\u6807\u7b7e\u4ee5\u586b\u6ee1",
+            "align": "\u5bf9\u9f50",
+            "Enum_left": "\u5de6",
+            "Enum_center": "\u5c45\u4e2d",
+            "Enum_right": "\u53f3",
+            "fontFamily": "\u5b57\u4f53",
+            "showCheck": "\u9009\u4e2d\u9879\u663e\u793a\u52fe\u53f7",
+            "shadow": "\u9634\u5f71",
+            "header": "\u6807\u9898",
+            "header_show": "\u663e\u793a\u6807\u9898",
+            "header_text": "\u6587\u672c",
+            "header_fontSize": "\u5b57\u53f7",
+            "header_fontFamily": "\u5b57\u4f53",
+            "header_bold": "\u52a0\u7c97",
+            "header_color": "\u989c\u8272",
+            "badge": "\u503c",
+            "badge_show": "\u5728\u6807\u7b7e\u4e0a\u663e\u793a\u503c",
+            "badge_color": "\u989c\u8272",
+            "style": "\u6837\u5f0f\u6a21\u677f",
+            "style_template": "\u6a21\u677f",
+            "Enum_classic": "\u7ecf\u5178",
+            "Enum_outline": "\u8f6e\u5ed3",
+            "Enum_soft": "\u67d4\u548c",
+            "Enum_square": "\u65b9\u5f62",
+            "Enum_segmented": "\u5206\u6bb5",
+            "Enum_dark": "\u6df1\u8272",
+            "style_guide": "\u663e\u793a\u8bbe\u7f6e\u63d0\u793a",
+            "grpSelection": "\u9009\u62e9",
+            "grpLayout": "\u5e03\u5c40",
+            "grpChip": "\u6807\u7b7e",
+            "grpColors": "\u989c\u8272",
+            "Landing_Tagline": "\u4e00\u952e\u7b5b\u9009\u9875\u9762\u3002\u514d\u8d39\uff0c\u65e0\u9700\u8bb8\u53ef\u8bc1\u3002",
+            "Landing_Guide": "\u6307\u5357",
+            "Landing_Steps": "\u5f00\u59cb\u4f7f\u7528",
+            "Landing_Step1": "\u8981\u7b5b\u9009\u7684\u5b57\u6bb5\uff1a\u6bcf\u4e2a\u503c\u4e00\u4e2a\u6807\u7b7e",
+            "Landing_Step2": "\u6bcf\u4e2a\u6807\u7b7e\u4e0a\u7684\u8ba1\u6570\u6216\u5408\u8ba1",
+            "Landing_Step3": "\u5728\u201c\u683c\u5f0f\u201d\u7a97\u683c\u4e2d\uff1a\u4e00\u952e\u9009\u62e9\u5916\u89c2",
+            "Landing_Help": "\u5e2e\u52a9",
+            "Landing_GuideSub": "\u652f\u6301\u9875\u9762",
+            "Landing_Product": "\u4ea7\u54c1\u9875\u9762",
+            "Landing_Video": "\u89c6\u9891",
+            "UI_Clear": "\u6e05\u9664\u9009\u62e9",
+            "Guide_Title": "\u8bbe\u7f6e\u63d0\u793a",
+            "Guide_TryStyle": "\u8bd5\u8bd5\u6837\u5f0f\uff1a",
+            "Guide_ValueTip": "\u63d0\u793a\uff1a\u5411\u201c\u503c\u201d\u6dfb\u52a0\u5ea6\u91cf\u503c\u5373\u53ef\u5728\u6807\u7b7e\u4e0a\u663e\u793a\u8ba1\u6570\u3002",
+            "Guide_Close": "\u9690\u85cf\u63d0\u793a\uff08\u683c\u5f0f \u2192 \u6837\u5f0f\u6a21\u677f\uff09",
+            "Guide_Hierarchy": "\u9700\u8981\u591a\u4e2a\u5c42\u7ea7\uff08\u56fd\u5bb6 \u2192 \u57ce\u5e02\uff09\uff1f\u8bd5\u8bd5 Chip Slicer Hierarchy\u3002"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Category",
+                "displayNameKey": "Role_Category",
+                "name": "category",
+                "kind": "Grouping",
+                "description": "The field whose values become chips",
+                "descriptionKey": "Role_Category_Desc"
+            },
+            {
+                "displayName": "Value (optional)",
+                "displayNameKey": "Role_Value",
+                "name": "measure",
+                "kind": "Measure",
+                "description": "A count or total shown on each chip; items without a value are hidden",
+                "descriptionKey": "Role_Value_Desc"
+            }
+        ],
+        "objects": {
+            "general": {
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": true
+                        }
+                    },
+                    "formatString": {
+                        "type": {
+                            "formatting": {
+                                "formatString": true
+                            }
+                        }
+                    }
+                }
+            },
+            "chipSettings": {
+                "displayName": "Chip Style",
+                "displayNameKey": "chipSettings",
+                "properties": {
+                    "multiSelect": {
+                        "displayName": "Multi-select",
+                        "displayNameKey": "multiSelect",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layout": {
+                        "displayName": "Layout",
+                        "displayNameKey": "layout",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "horizontal",
+                                    "displayName": "Horizontal",
+                                    "displayNameKey": "Enum_horizontal"
+                                },
+                                {
+                                    "value": "vertical",
+                                    "displayName": "Vertical",
+                                    "displayNameKey": "Enum_vertical"
+                                },
+                                {
+                                    "value": "grid",
+                                    "displayName": "Grid",
+                                    "displayNameKey": "Enum_grid"
+                                }
+                            ]
+                        }
+                    },
+                    "chipHeight": {
+                        "displayName": "Chip height (px)",
+                        "displayNameKey": "chipHeight",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "chipRadius": {
+                        "displayName": "Border radius (px)",
+                        "displayNameKey": "chipRadius",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font size",
+                        "displayNameKey": "fontSize",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "chipGap": {
+                        "displayName": "Gap (px)",
+                        "displayNameKey": "chipGap",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "chipPaddingH": {
+                        "displayName": "Horizontal padding (px)",
+                        "displayNameKey": "chipPaddingH",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "defaultBg": {
+                        "displayName": "Inactive background",
+                        "displayNameKey": "defaultBg",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "defaultBorder": {
+                        "displayName": "Inactive border",
+                        "displayNameKey": "defaultBorder",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "defaultText": {
+                        "displayName": "Inactive text",
+                        "displayNameKey": "defaultText",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "activeBg": {
+                        "displayName": "Active background",
+                        "displayNameKey": "activeBg",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "activeBorder": {
+                        "displayName": "Active border",
+                        "displayNameKey": "activeBorder",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "activeText": {
+                        "displayName": "Active text",
+                        "displayNameKey": "activeText",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showSelectAll": {
+                        "displayName": "Show 'All' button",
+                        "displayNameKey": "showSelectAll",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "selectAllLabel": {
+                        "displayName": "'All' button text",
+                        "displayNameKey": "selectAllLabel",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showClear": {
+                        "displayName": "Show clear button",
+                        "displayNameKey": "showClear",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "defaultSelection": {
+                        "displayName": "Default selection",
+                        "displayNameKey": "defaultSelection",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sort": {
+                        "displayName": "Sort",
+                        "displayNameKey": "sort",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "data",
+                                    "displayName": "Data order",
+                                    "displayNameKey": "Enum_data"
+                                },
+                                {
+                                    "value": "asc",
+                                    "displayName": "A to Z",
+                                    "displayNameKey": "Enum_asc"
+                                },
+                                {
+                                    "value": "desc",
+                                    "displayName": "Z to A",
+                                    "displayNameKey": "Enum_desc"
+                                },
+                                {
+                                    "value": "valueDesc",
+                                    "displayName": "Value, largest first",
+                                    "displayNameKey": "Enum_valueDesc"
+                                }
+                            ]
+                        }
+                    },
+                    "columns": {
+                        "displayName": "Columns (0 = automatic)",
+                        "displayNameKey": "columns",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "wrap": {
+                        "displayName": "Wrap to next line",
+                        "displayNameKey": "wrap",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "chipFill": {
+                        "displayName": "Stretch chips to fill",
+                        "displayNameKey": "chipFill",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "align": {
+                        "displayName": "Alignment",
+                        "displayNameKey": "align",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left",
+                                    "displayNameKey": "Enum_left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center",
+                                    "displayNameKey": "Enum_center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right",
+                                    "displayNameKey": "Enum_right"
+                                }
+                            ]
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font",
+                        "displayNameKey": "fontFamily",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "showCheck": {
+                        "displayName": "Check mark on selected",
+                        "displayNameKey": "showCheck",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "shadow": {
+                        "displayName": "Shadow",
+                        "displayNameKey": "shadow",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "header": {
+                "displayName": "Header",
+                "displayNameKey": "header",
+                "properties": {
+                    "show": {
+                        "displayName": "Show header",
+                        "displayNameKey": "header_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "displayName": "Text",
+                        "displayNameKey": "header_text",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font size",
+                        "displayNameKey": "header_fontSize",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font",
+                        "displayNameKey": "header_fontFamily",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "displayNameKey": "header_bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "displayNameKey": "header_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "badge": {
+                "displayName": "Values",
+                "displayNameKey": "badge",
+                "properties": {
+                    "show": {
+                        "displayName": "Show value on chips",
+                        "displayNameKey": "badge_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "displayNameKey": "badge_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "style": {
+                "displayName": "Style template",
+                "displayNameKey": "style",
+                "properties": {
+                    "template": {
+                        "displayName": "Template",
+                        "displayNameKey": "style_template",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "classic",
+                                    "displayName": "Classic",
+                                    "displayNameKey": "Enum_classic"
+                                },
+                                {
+                                    "value": "outline",
+                                    "displayName": "Outline",
+                                    "displayNameKey": "Enum_outline"
+                                },
+                                {
+                                    "value": "soft",
+                                    "displayName": "Soft",
+                                    "displayNameKey": "Enum_soft"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Square",
+                                    "displayNameKey": "Enum_square"
+                                },
+                                {
+                                    "value": "segmented",
+                                    "displayName": "Segmented",
+                                    "displayNameKey": "Enum_segmented"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Dark",
+                                    "displayNameKey": "Enum_dark"
+                                }
+                            ]
+                        }
+                    },
+                    "guide": {
+                        "displayName": "Show setup tips",
+                        "displayNameKey": "style_guide",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "privileges": [],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "category": {
+                            "max": 1
+                        },
+                        "measure": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "for": {
+                            "in": "category"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 1000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "measure"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "supportsHighlight": true,
+        "supportsSynchronizingFilterState": true,
+        "supportsLandingPage": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "supportsOnObjectFormatting": true,
+        "enablePointerEventsFormatMode": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            }
+        },
+        "supportsEmptyDataView": true
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

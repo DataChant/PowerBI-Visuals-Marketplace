@@ -1,0 +1,747 @@
+{
+    "visual": {
+        "name": "accoPLANNINGV2",
+        "displayName": "accoPLANNINGV2",
+        "guid": "accoPLANNINGV2_4DAA52ABFBF441E2A7898A79384CAFD9_preview",
+        "visualClassName": "Visual",
+        "version": "2.1.0.1",
+        "description": "A planning grid for Power BI that writes your edits back to a database.",
+        "supportUrl": "https://support.accobat.com",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Accobat A/S",
+        "email": "info@accobat.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "privileges": [
+            {
+                "name": "WebAccess",
+                "essential": true,
+                "parameters": [
+                    "*"
+                ]
+            },
+            {
+                "name": "LocalStorage",
+                "essential": false
+            },
+            {
+                "name": "ExportContent",
+                "essential": true
+            },
+            {
+                "name": "AADAuthentication",
+                "parameters": {
+                    "COM": "https://api.accoplanning.com"
+                }
+            }
+        ],
+        "dataRoles": [
+            {
+                "displayName": "Rows",
+                "name": "row",
+                "kind": "Grouping",
+                "description": "Fields forming the row hierarchy, outermost first."
+            },
+            {
+                "displayName": "Columns",
+                "name": "column",
+                "kind": "Grouping",
+                "description": "Fields forming the column hierarchy, outermost first."
+            },
+            {
+                "displayName": "Measures",
+                "name": "measure",
+                "kind": "Measure",
+                "description": "All value fields go here: editable and read-only measures, key columns, locks, comments and splash weights. Set each measure's type and value type in the grid's Manage measures dialog. These choices are saved with the report."
+            },
+            {
+                "displayName": "Filters",
+                "name": "filter",
+                "kind": "Grouping",
+                "description": "Fields shown as filter chips above the grid instead of in a hierarchy. Each cell adds up all members of these fields until you narrow a chip, which recalculates the numbers and does not hide rows. Cells can be edited once a filter is narrowed to a single member, because each cell then has one source row to save to."
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "matrix": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "row"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "filter"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 500
+                            }
+                        }
+                    },
+                    "columns": {
+                        "for": {
+                            "in": "column"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "measure"
+                                }
+                            }
+                        ]
+                    },
+                    "dataVolume": 6
+                }
+            }
+        ],
+        "dataReductionCustomization": {
+            "matrix": {
+                "rowCount": {
+                    "propertyIdentifier": {
+                        "objectName": "dataLoading",
+                        "propertyName": "rowsPerSegment"
+                    },
+                    "defaultValue": 500
+                }
+            }
+        },
+        "objects": {
+            "general": {
+                "properties": {
+                    "formatString": {
+                        "type": {
+                            "formatting": {
+                                "formatString": true
+                            }
+                        }
+                    }
+                }
+            },
+            "dataLoading": {
+                "displayName": "Data loading",
+                "properties": {
+                    "rowsPerSegment": {
+                        "displayName": "Rows per segment",
+                        "description": "How many row groups Power BI sends in each batch while loading. A lower number shows data sooner, and a higher number finishes in fewer requests. This sets the batch size, not a limit on the total data.",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "allowEditingWhilePartial": {
+                        "displayName": "Allow editing while loading",
+                        "description": "Off by default. While data is still loading, group and total cells add up only the rows loaded so far, so their values are wrong. Turn this on only if editing against those values is acceptable. An edit made during loading is saved like any other.",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "hierarchies": {
+                "displayName": "Hierarchies",
+                "properties": {
+                    "mergeLoneOwnNodes": {
+                        "displayName": "Merge lone own nodes",
+                        "description": "On by default, and applies to both Rows and Columns. A ragged hierarchy gives a parent an extra own node holding the parent's own value. When a parent has no children besides its own node, the two are shown as one, under the parent's name.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "excludeOwnNodes": {
+                        "displayName": "Exclude own nodes",
+                        "description": "Off by default, and applies to both Rows and Columns. Leaves out every own node and its value, so parent totals count only the children you can see. Left-out values cannot be edited. A parent merged by 'Merge lone own nodes' stays, with its value. With merging off, a parent with no children besides its own node is left out too.",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "connection": {
+                "displayName": "Connection",
+                "description": "Where edits are written back to. You can also change these settings in the grid's Settings dialog, under Connection. Both places edit the same settings.",
+                "properties": {
+                    "serverName": {
+                        "displayName": "Server",
+                        "description": "The database server that edits are saved to. This is separate from the report's own data connection, which still decides what you see.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "databaseName": {
+                        "displayName": "Database",
+                        "description": "The database on that server.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "schemaName": {
+                        "displayName": "Schema",
+                        "description": "The schema holding the target table.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "tableName": {
+                        "displayName": "Table",
+                        "description": "The table each edited row is written to.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "apiBaseUrl": {
+                        "displayName": "API base URL",
+                        "description": "Leave empty to use the hosted writeback service. Fill it in only for a self-hosted service. It must be a full https:// address because credentials are sent to it. Plain http is accepted only for a local development server.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "authMethod": {
+                        "displayName": "Authentication",
+                        "description": "How the writeback service signs in to the database. SQL authentication is the default. Both methods store a credential in this report, encrypted with the writeback service's public key.",
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "encryptedCredentials": {
+                        "displayName": "Credentials (encrypted)",
+                        "description": "Filled in for you when you save a credential below. It holds only the encrypted value, which cannot be read back. Do not type into this field.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "authUsername": {
+                        "displayName": "Database user",
+                        "description": "For SQL authentication. When you save the credential, this is encrypted into Credentials and then cleared, so it stays blank once a credential is stored.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "authPassword": {
+                        "displayName": "Database password",
+                        "description": "For SQL authentication. When you save the credential, this is encrypted into Credentials and then cleared. The format pane cannot hide what you type, so the password is visible on screen until it is encrypted.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "authTenantId": {
+                        "displayName": "Tenant id",
+                        "description": "For a service principal. When you save the credential, this is encrypted into Credentials and then cleared.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "authClientId": {
+                        "displayName": "Client id",
+                        "description": "For a service principal. When you save the credential, this is encrypted into Credentials and then cleared.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "authClientSecret": {
+                        "displayName": "Client secret",
+                        "description": "For a service principal. When you save the credential, this is encrypted into Credentials and then cleared. The format pane cannot hide what you type, so the secret is visible on screen until it is encrypted.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "timestampColumn": {
+                        "displayName": "Timestamp column",
+                        "description": "The column that records when each row was saved, in UTC, as set by the writeback service. Leave empty to record no time. If the table has no column with this name, saving fails.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "usernameColumn": {
+                        "displayName": "User column",
+                        "description": "The column that records who saved each row, taken from Current user below. Leave empty to record no user. If the table has no column with this name, saving fails.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "currentUser": {
+                        "displayName": "Current user",
+                        "description": "The person saving, as the report gives it. Use fx to bind it to a measure such as USERPRINCIPALNAME(). The value comes from the report and is not a verified sign-in.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "licenseKey": {
+                        "displayName": "Licence key",
+                        "description": "The licence key Accobat issued for this report, for a licence not bought through AppSource. Leave it empty when every user has an AppSource licence.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "encryptCredential": {
+                        "displayName": "Encrypt and save credential",
+                        "description": "Encrypts the credential fields above and stores only the encrypted result. Switches itself off when done.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "credentialStatus": {
+                        "displayName": "Credential status",
+                        "description": "Shows what happened the last time a credential was saved.",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "assistant": {
+                "displayName": "Assistant",
+                "properties": {
+                    "showButton": {
+                        "displayName": "Show assistant button",
+                        "description": "On by default. The round button in the grid's bottom-right corner is the only way to open the assistant, so turning it off hides the assistant too. Set for the report: everyone who opens it sees the same. The same setting is on the Layout tab of the grid's Settings.",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "gridConfig": {
+                "displayName": "Grid configuration (internal)",
+                "properties": {
+                    "payload": {
+                        "displayName": "Payload",
+                        "description": "Internal. The grid's report settings as one JSON object, with each document under its own key. The grid reads and writes it, and it is not shown in the format pane.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "visualId": {
+                        "displayName": "Visual id",
+                        "description": "Internal. A random id for this visual, minted once by an author. Each user's stored state for this visual is kept under it, so two visuals never share it. Not shown in the format pane.",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "measureSettings": {
+                "displayName": "Measure settings (internal)",
+                "description": "Internal. Each measure's settings from the grid's Manage measures dialog, stored on that measure's column. Only settings the author changed are stored, and an empty one uses the model's own value. Not shown in the format pane.",
+                "properties": {
+                    "label": {
+                        "displayName": "Measure label",
+                        "description": "The column heading, if the author renamed the measure. Empty uses the model's name, so a rename in Power BI still comes through.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "valueType": {
+                        "displayName": "Value type",
+                        "description": "How the measure's cells are shown and edited: number, string, date, boolean, dropdown, sparkline, cellComment or rowComment. Empty follows the type the model states.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "role": {
+                        "displayName": "Measure role",
+                        "description": "What the measure is used for: lock, splashDriver, calculationSource, snapshot, transactionKey, lineItemId, metadata or user. Chosen in Manage measures. Empty means an ordinary value column.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "lockAppliesToMeasureId": {
+                        "displayName": "Lock applies to",
+                        "description": "Which measure a lock measure locks. Empty locks every measure in the cell. Used only when the role is 'lock'.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showColumn": {
+                        "displayName": "Show as column",
+                        "description": "Shows a lock measure as a column. Empty keeps it off the grid, the lock role's default. Set with the eye in Manage measures. Used only when the role is 'lock'.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "aggregation": {
+                        "displayName": "Aggregation",
+                        "description": "How leaf values roll up into a group or total cell, for a numeric measure. Empty follows the model's own suggestion.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "weightMeasureId": {
+                        "displayName": "Weight measure",
+                        "description": "The measure supplying the weights for a weighted-average aggregation. Used only when the aggregation is 'wavg'.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "parentAggregation": {
+                        "displayName": "Parent aggregation",
+                        "description": "How a non-numeric measure's leaves roll up into a group cell: default, blank, min, max, first or last. 'blank' also makes the group cell read-only.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "numberFormat": {
+                        "displayName": "Number format",
+                        "description": "The format string the measure's cells are rendered with. Empty follows the format the model states.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "dataPrecision": {
+                        "displayName": "Data precision",
+                        "description": "How many decimals a numeric value keeps, 0 to 6, when the grid calculates it or someone enters it. Empty keeps 4. Separate from the number format, which only sets how many decimals are shown.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "defaultCellWidth": {
+                        "displayName": "Default cell width",
+                        "description": "How wide the column opens, in characters. 0 uses the width that suits the value type. A column resized by hand keeps its own width.",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "booleanStyle": {
+                        "displayName": "Boolean style",
+                        "description": "Which control a boolean measure's cells draw: checkmark or toggle.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "dateTimeMode": {
+                        "displayName": "Date/time mode",
+                        "description": "Whether a date measure's editor picks a date alone or a date and time.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "maxChars": {
+                        "displayName": "Maximum characters",
+                        "description": "The longest value a cell will accept, when no validation rule states one. 0 means no limit.",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "displaySourceMeasureId": {
+                        "displayName": "Display source",
+                        "description": "Another measure whose value is shown wherever this one is empty, such as a model figure for a row nobody has planned yet. Edits still write to this measure.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "editable": {
+                        "displayName": "Editable",
+                        "description": "Whether a leaf cell of this measure can be edited. Empty inherits the grid's own default.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "commentsOnLocked": {
+                        "displayName": "Comments on locked cells",
+                        "description": "Whether a locked cell of this measure can still have its comment thread opened. Empty inherits the grid-level setting.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "lockSourceMeasureId": {
+                        "displayName": "Locked by",
+                        "description": "The measure whose value decides, per cell, whether this measure is locked. Ignored on a lock measure.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "respectGlobalLocks": {
+                        "displayName": "Respect the grid's locks",
+                        "description": "Whether the grid's shared locks apply to this measure. Empty inherits the grid's default, which is that they do.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "dropdownOptions": {
+                        "displayName": "Dropdown options",
+                        "description": "A dropdown measure's list of key/description options, as a JSON array. Empty for a measure with no list configured.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "dropdownSelectionMode": {
+                        "displayName": "Dropdown selection",
+                        "description": "Whether a dropdown cell is restricted to its options ('strict') or also accepts typed text ('free').",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "validation": {
+                        "displayName": "Validation rules",
+                        "description": "The rules every committed edit of this measure is checked against, as a JSON object. Empty for a measure with no rules.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "boundMeasureId": {
+                        "displayName": "Commented measure",
+                        "description": "The measure whose cells a cellComment column annotates. Not used for a rowComment, which has one thread per row.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "commentTextMode": {
+                        "displayName": "Comment text mode",
+                        "description": "Whether this comment column's editor writes plain text or allow-listed markup. Empty inherits the grid-level setting.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "commentHistoryMeasureId": {
+                        "displayName": "Comment history measure",
+                        "description": "The read-only measure holding this column's past entries, joined by the delimiter below.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "commentDelimiter": {
+                        "displayName": "Comment delimiter",
+                        "description": "What separates one entry from the next in the history measure. Empty uses the grid's own default.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "commentMetadataMeasures": {
+                        "displayName": "Comment metadata measures",
+                        "description": "The measures supplying aligned per-entry metadata, in order, as a JSON array. The order is meaningful: position N lines up with entry N.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "lineItemMeasures": {
+                        "displayName": "Line item series",
+                        "description": "The measures holding the rows behind each of this measure's cells, as a JSON array of { measureId, field }. Each is a delimiter-joined series read in step: position N of every series is line item N. A series with no field becomes a read-only extra column.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "lineItemDelimiter": {
+                        "displayName": "Line item delimiter",
+                        "description": "What splits each line item series into rows. Defaults to | and must match what the producing queries joined with.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rowCommentAnchor": {
+                        "displayName": "Row comment anchor",
+                        "description": "Which of the row's visible column leaves a row note is written at: first or last. It does not change where the note is stored or read from.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rowCommentAggKey": {
+                        "displayName": "Row comment aggregation key",
+                        "description": "The key a row note is aggregated by when it is written back. The grid passes it to the host and does not use it itself.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rowCommentAggOp": {
+                        "displayName": "Row comment aggregation",
+                        "description": "How the aggregation key above is combined across the row: min or max.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sparklineSourceMeasureId": {
+                        "displayName": "Sparkline source",
+                        "description": "The measure supplying a sparkline's data points.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sparklineStyle": {
+                        "displayName": "Sparkline style",
+                        "description": "Line, area or bar.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sparklineDirection": {
+                        "displayName": "Sparkline direction",
+                        "description": "Whether a sparkline charts its cell's row across the sibling columns, or its column across the sibling rows.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sparklineTheme": {
+                        "displayName": "Sparkline theme",
+                        "description": "The named series palette a sparkline draws in. 'custom' takes its colour from the setting below instead.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sparklineCustomColor": {
+                        "displayName": "Sparkline custom colour",
+                        "description": "The colour a 'custom'-themed sparkline draws in, as a CSS colour string.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sparklineColorCondition": {
+                        "displayName": "Sparkline colour condition",
+                        "description": "Recolours individual points by value: pos-neg, threshold or last-point.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sparklineThreshold": {
+                        "displayName": "Sparkline threshold",
+                        "description": "The value the 'threshold' colour condition compares against. Empty for a sparkline that states none.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sparklineSummary": {
+                        "displayName": "Sparkline summary",
+                        "description": "The number drawn to the right of a sparkline: last, min, max or avg.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sparklineLevel": {
+                        "displayName": "Sparkline level",
+                        "description": "Whether a sparkline charts every leaf of the visible axis, or this cell's own immediate children.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sparklineVisibility": {
+                        "displayName": "Sparkline visibility",
+                        "description": "Which cells of the column draw a chart, measured along the charted axis: all, top, leaf or parents.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sparklineHideEmptyColumns": {
+                        "displayName": "Hide empty sparkline columns",
+                        "description": "Whether positions with no data are dropped rather than drawn as a gap. Empty inherits the grid's default.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sparklineTooltip": {
+                        "displayName": "Sparkline tooltip",
+                        "description": "Whether hovering a sparkline shows its values. Empty inherits the grid's default.",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "writeback": {
+                "displayName": "Writeback",
+                "description": "Where each field is written in your table. Set this only where the report and the table differ.",
+                "properties": {
+                    "writebackColumn": {
+                        "displayName": "Column name",
+                        "description": "The column this field is written to. If left empty, a measure is written to a column with its own name, and a dimension is not written at all. Name a column for a dimension only if your table has one for it.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "writebackMode": {
+                        "displayName": "Write mode",
+                        "description": "Absolute writes the value as entered. Delta writes the change since the last saved value, so use it only on a table that adds a new row for each save. On a table that updates rows, Delta is refused.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "absolute",
+                                    "displayName": "Absolute"
+                                },
+                                {
+                                    "value": "delta",
+                                    "displayName": "Delta"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "loadingScreen": {
+                "displayName": "Loading screen",
+                "properties": {
+                    "show": {
+                        "displayName": "Show loading screen",
+                        "description": "On by default. When off, the visual still shows a blank page while it starts, so the grid never appears half-drawn. Only the animation and the text are hidden.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "welcomeText": {
+                        "displayName": "Welcome text",
+                        "description": "The heading on the loading screen. Leave it empty to show no heading.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtitleText": {
+                        "displayName": "Subtitle text",
+                        "description": "The line under the heading. Leave it empty to show no subtitle.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "spinnerStyle": {
+                        "displayName": "Spinner style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "orbit",
+                                    "displayName": "Orbit"
+                                },
+                                {
+                                    "value": "grid",
+                                    "displayName": "Pulse grid"
+                                },
+                                {
+                                    "value": "bars",
+                                    "displayName": "Chart bars"
+                                },
+                                {
+                                    "value": "dots",
+                                    "displayName": "Bouncing dots"
+                                },
+                                {
+                                    "value": "ripple",
+                                    "displayName": "Ripple"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "suppressDefaultTitle": true,
+        "sorting": {
+            "default": {}
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
