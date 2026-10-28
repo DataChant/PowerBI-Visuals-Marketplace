@@ -1,0 +1,1947 @@
+{
+    "visual": {
+        "name": "mapTale",
+        "displayName": "MapTale",
+        "guid": "mapTale11B5B672EA591B56D99FDCD9FCD37515",
+        "visualClassName": "Visual",
+        "version": "2.14.0.5",
+        "description": "MapTale by DataTale: a project map for Power BI, all in one visual. Boundary layers with labels, click-to-filter and shade-by-data, greyscale-to-imagery zoom, clustering, status-coloured category icons, project popups with photo carousels, in-map header with slicers and search, legend, stats and 3D buildings. No map accounts, API keys, per-user licences or usage fees.",
+        "supportUrl": "https://datatale.com.au/maptale/",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "DataTale",
+        "email": "warren.dean@datatale.com.au"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "privileges": [
+            {
+                "name": "WebAccess",
+                "essential": true,
+                "parameters": [
+                    "https://*"
+                ]
+            }
+        ],
+        "dataRoles": [
+            {
+                "name": "id",
+                "displayName": "ID",
+                "description": "A column that uniquely identifies each row. Drives selection and cross-filtering.",
+                "kind": "Grouping"
+            },
+            {
+                "name": "latitude",
+                "displayName": "Latitude",
+                "kind": "Grouping",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ],
+                "preferredTypes": [
+                    {
+                        "geography": {
+                            "latitude": true
+                        }
+                    }
+                ],
+                "description": "Decimal latitude of each marker."
+            },
+            {
+                "name": "longitude",
+                "displayName": "Longitude",
+                "kind": "Grouping",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    }
+                ],
+                "preferredTypes": [
+                    {
+                        "geography": {
+                            "longitude": true
+                        }
+                    }
+                ],
+                "description": "Decimal longitude of each marker."
+            },
+            {
+                "name": "category",
+                "displayName": "Category",
+                "description": "Its values become the marker icons, the filter buttons, the legend rows, the chart bars and the Category dropdown.",
+                "kind": "Grouping"
+            },
+            {
+                "name": "status",
+                "displayName": "Status",
+                "description": "Each value gets a colour (Format > Status colours) on the markers, popup, legend and stats card, and feeds the Status dropdown.",
+                "kind": "Grouping"
+            },
+            {
+                "name": "boundary1",
+                "displayName": "Boundary 1 (e.g. Suburb)",
+                "description": "Column whose values match the names in boundary layer 1. Clicking a shape, or picking it in the header, filters on this column.",
+                "kind": "Grouping"
+            },
+            {
+                "name": "boundary2",
+                "displayName": "Boundary 2 (e.g. Ward)",
+                "description": "Column whose values match the names in boundary layer 2.",
+                "kind": "Grouping"
+            },
+            {
+                "name": "boundary3",
+                "displayName": "Boundary 3 (e.g. Region)",
+                "description": "Column whose values match the names in boundary layer 3.",
+                "kind": "Grouping"
+            },
+            {
+                "name": "title",
+                "displayName": "Title",
+                "description": "Popup heading; also what the header search box searches.",
+                "kind": "Grouping"
+            },
+            {
+                "name": "description",
+                "displayName": "Popup: description",
+                "description": "Text shown in the popup under the status.",
+                "kind": "Grouping"
+            },
+            {
+                "name": "completionDate",
+                "displayName": "Popup: date",
+                "description": "A date row in the popup, for example a completion or inspection date. The row label is this field's name.",
+                "kind": "Grouping"
+            },
+            {
+                "name": "photoUrl",
+                "displayName": "Popup: photo URL",
+                "description": "One https image URL, or several separated by | for a carousel.",
+                "kind": "Grouping"
+            },
+            {
+                "name": "photoOrientation",
+                "displayName": "Popup: photo orientation",
+                "description": "landscape or portrait (pipe-separated per photo when using a carousel).",
+                "kind": "Grouping"
+            },
+            {
+                "name": "currentYearFunds",
+                "displayName": "Popup: value 1",
+                "description": "A row in the popup. The row label is this field's name; shown as money only when the field is money (a currency format, or a name such as cost or funds).",
+                "kind": "Grouping",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "name": "futureYearFunds",
+                "displayName": "Popup: value 2",
+                "description": "A second row in the popup. The row label is this field's name; shown as money only when the field is money.",
+                "kind": "Grouping",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "name": "budget",
+                "displayName": "Amount (totalled)",
+                "description": "A number totalled per category (info-panel chart) and per area (stats card), shown in the popup, and able to colour areas (Format > Areas). Money only when the field is money.",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "name": "budgetBand",
+                "displayName": "Filter (e.g. budget band)",
+                "description": "A column for the header's Filter dropdown, for example a budget band or a council. Money bands sort by amount.",
+                "kind": "Grouping"
+            },
+            {
+                "name": "updatedOn",
+                "displayName": "Updated on",
+                "description": "Date or text for the legend footer, for example the data refresh date.",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "tooltips",
+                "displayName": "Tooltips",
+                "kind": "Grouping",
+                "description": "Any fields for the hover tooltip."
+            },
+            {
+                "name": "gridValue",
+                "displayName": "Grid: value",
+                "description": "Grid map style: the number each square is coloured by (for example an intensity), summarised per square as set in Format > Grid.",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "name": "gridCount",
+                "displayName": "Grid: count",
+                "description": "Grid map style: how many things a row stands for (for example felt reports per cell). Used for the square's count, the tooltip and 'Hide squares with fewer than'. Blank = 1 per row.",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "name": "gridSize",
+                "displayName": "Grid: cell size (km)",
+                "description": "Grid map style, when each row already is a square: its size in km. Rows of several sizes switch by zoom, like the Geoscience Australia felt-report map.",
+                "kind": "Grouping",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "name": "heatWeight",
+                "displayName": "Heat: weight",
+                "description": "Heat map style: how much each row adds to the heat (for example people injured). Blank = every row counts once.",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "id": {
+                            "max": 1
+                        },
+                        "latitude": {
+                            "max": 1
+                        },
+                        "longitude": {
+                            "max": 1
+                        },
+                        "budget": {
+                            "max": 1
+                        },
+                        "description": {
+                            "max": 1
+                        },
+                        "photoUrl": {
+                            "max": 1
+                        },
+                        "photoOrientation": {
+                            "max": 1
+                        },
+                        "updatedOn": {
+                            "max": 1
+                        },
+                        "budgetBand": {
+                            "max": 1
+                        },
+                        "category": {
+                            "max": 1
+                        },
+                        "status": {
+                            "max": 1
+                        },
+                        "boundary1": {
+                            "max": 1
+                        },
+                        "boundary2": {
+                            "max": 1
+                        },
+                        "boundary3": {
+                            "max": 1
+                        },
+                        "title": {
+                            "max": 1
+                        },
+                        "completionDate": {
+                            "max": 1
+                        },
+                        "currentYearFunds": {
+                            "max": 1
+                        },
+                        "futureYearFunds": {
+                            "max": 1
+                        },
+                        "gridValue": {
+                            "max": 1
+                        },
+                        "gridCount": {
+                            "max": 1
+                        },
+                        "gridSize": {
+                            "max": 1
+                        },
+                        "heatWeight": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "id"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "latitude"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "longitude"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "boundary1"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "boundary2"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "boundary3"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "category"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "title"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "description"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "status"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "completionDate"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "photoUrl"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "currentYearFunds"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "futureYearFunds"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "photoOrientation"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "budgetBand"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "gridSize"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "budget"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "updatedOn"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "gridValue"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "gridCount"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "heatWeight"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ],
+            "supportEnhancedTooltips": true
+        },
+        "sorting": {
+            "default": {}
+        },
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsMultiVisualSelection": true,
+        "objects": {
+            "mapSetup": {
+                "properties": {
+                    "lightStyleUrl": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "satelliteCrossfade": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fadeStartZoom": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fadeEndZoom": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "enable3d": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "pitchZoom": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "satelliteUrl": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showMapLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelsFromZoom": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "camera": {
+                "properties": {
+                    "defaultLat": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "defaultLon": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "defaultZoom": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "autoZoomToData": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "constrainToBoundaries": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fitZoomOut": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "panMargin": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoomToFiltered": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "refitOnLayerSwitch": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "cluster": {
+                "properties": {
+                    "enabled": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "maxZoom": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fillColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "circleRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    }
+                }
+            },
+            "markers": {
+                "properties": {
+                    "markerSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "unselectedDim": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "imageScale": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "badgeStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "badge",
+                                    "displayName": "Filled badge"
+                                },
+                                {
+                                    "value": "ring",
+                                    "displayName": "Colour ring"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "No badge"
+                                }
+                            ]
+                        }
+                    },
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "icons": {
+                "properties": {
+                    "iconLogo": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "boundaries": {
+                "properties": {
+                    "defaultView": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "layer1",
+                                    "displayName": "Layer 1"
+                                },
+                                {
+                                    "value": "layer2",
+                                    "displayName": "Layer 2"
+                                },
+                                {
+                                    "value": "layer3",
+                                    "displayName": "Layer 3"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "showLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lineColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "lineWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "lineOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fillColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fillOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "labelFontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "labelColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "labelHaloColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "layer1Name": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer2Name": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer1Url": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer2Url": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer1LabelProp": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer2LabelProp": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer1Data": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer2Data": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer3Name": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer3Url": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer3LabelProp": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer3Data": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "shadeProperty": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "shadeTitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "layer1LabelZoom": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "layer2LabelZoom": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "layer3LabelZoom": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showUploadPanel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "shadeBy": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "Single colour (no shading)"
+                                },
+                                {
+                                    "value": "count",
+                                    "displayName": "Count of rows"
+                                },
+                                {
+                                    "value": "budget",
+                                    "displayName": "Total budget"
+                                },
+                                {
+                                    "value": "currentYearFunds",
+                                    "displayName": "Current year funds"
+                                },
+                                {
+                                    "value": "futureYearFunds",
+                                    "displayName": "Future year funds"
+                                },
+                                {
+                                    "value": "property",
+                                    "displayName": "A property of the shapes"
+                                }
+                            ]
+                        }
+                    },
+                    "shadeClasses": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "shadeMethod": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "quantile",
+                                    "displayName": "Quantiles (equal count)"
+                                },
+                                {
+                                    "value": "equal",
+                                    "displayName": "Equal intervals"
+                                }
+                            ]
+                        }
+                    },
+                    "shadeLowColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadeHighColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadeOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layer3Overlay": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "overlayOn": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "onlyWithData": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layer1Role": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "switch",
+                                    "displayName": "Switch with the pills"
+                                },
+                                {
+                                    "value": "overlay",
+                                    "displayName": "Overlay on top"
+                                }
+                            ]
+                        }
+                    },
+                    "layer2Role": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "switch",
+                                    "displayName": "Switch with the pills"
+                                },
+                                {
+                                    "value": "overlay",
+                                    "displayName": "Overlay on top"
+                                }
+                            ]
+                        }
+                    },
+                    "layer3Role": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "switch",
+                                    "displayName": "Switch with the pills"
+                                },
+                                {
+                                    "value": "overlay",
+                                    "displayName": "Overlay on top"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "controls": {
+                "properties": {
+                    "showPills": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showHome": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showCategoryButtons": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "general": {
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": {}
+                        }
+                    }
+                }
+            },
+            "assetFilter": {
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": {}
+                        }
+                    }
+                }
+            },
+            "info": {
+                "properties": {
+                    "infoTitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "infoText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showBudgetChart": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "chartTitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "startOpen": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "panelWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "details": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "startOpen": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "width": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "replacePopup": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "heading": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "introText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "boundaryFields": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "compare": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colourA": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colourB": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "headlineField": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "pyramidTitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "pyramidBands": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showIntro": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showHeadline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPyramid": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTable": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "autoCollapse": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "nameProperty": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "popup": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showCyFunds": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showFutureFunds": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTotalBudget": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "placeholderPhoto": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "legendWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "legendTitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "startCollapsed": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "phaseFilter": {
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": {}
+                        }
+                    }
+                }
+            },
+            "budgetFilter": {
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": {}
+                        }
+                    }
+                }
+            },
+            "header": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "title": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "backgroundColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showBudgetSlicer": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showSearch": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dropdownSearch": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "statusMulti": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "categoryMulti": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "budgetMulti": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "logoUrl": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "logoSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "logoRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "logoChip": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showBoundarySlicer": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showStatusSlicer": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showCategorySlicer": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "text": {
+                "properties": {
+                    "fontFamily": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "itemNoun": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "currencySymbol": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "license": {
+                "properties": {
+                    "licenseKey": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "categoryIcons": {
+                "properties": {
+                    "icon": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "tools",
+                                    "displayName": "Tools (default)"
+                                },
+                                {
+                                    "value": "road",
+                                    "displayName": "Road"
+                                },
+                                {
+                                    "value": "footpath",
+                                    "displayName": "Footpath"
+                                },
+                                {
+                                    "value": "bridge",
+                                    "displayName": "Bridge"
+                                },
+                                {
+                                    "value": "drainage",
+                                    "displayName": "Drainage"
+                                },
+                                {
+                                    "value": "water",
+                                    "displayName": "Water"
+                                },
+                                {
+                                    "value": "fountain",
+                                    "displayName": "Fountain"
+                                },
+                                {
+                                    "value": "playground",
+                                    "displayName": "Playground"
+                                },
+                                {
+                                    "value": "park",
+                                    "displayName": "Park"
+                                },
+                                {
+                                    "value": "tree",
+                                    "displayName": "Tree"
+                                },
+                                {
+                                    "value": "garden",
+                                    "displayName": "Garden"
+                                },
+                                {
+                                    "value": "flower",
+                                    "displayName": "Flower"
+                                },
+                                {
+                                    "value": "sports",
+                                    "displayName": "Sports"
+                                },
+                                {
+                                    "value": "pool",
+                                    "displayName": "Pool"
+                                },
+                                {
+                                    "value": "gym",
+                                    "displayName": "Gym"
+                                },
+                                {
+                                    "value": "library",
+                                    "displayName": "Library"
+                                },
+                                {
+                                    "value": "community",
+                                    "displayName": "Community"
+                                },
+                                {
+                                    "value": "hall",
+                                    "displayName": "Community hall"
+                                },
+                                {
+                                    "value": "building",
+                                    "displayName": "Building"
+                                },
+                                {
+                                    "value": "house",
+                                    "displayName": "Housing"
+                                },
+                                {
+                                    "value": "school",
+                                    "displayName": "School"
+                                },
+                                {
+                                    "value": "health",
+                                    "displayName": "Health"
+                                },
+                                {
+                                    "value": "art",
+                                    "displayName": "Arts"
+                                },
+                                {
+                                    "value": "music",
+                                    "displayName": "Music"
+                                },
+                                {
+                                    "value": "camera",
+                                    "displayName": "Camera"
+                                },
+                                {
+                                    "value": "carpark",
+                                    "displayName": "Car park"
+                                },
+                                {
+                                    "value": "car",
+                                    "displayName": "Car"
+                                },
+                                {
+                                    "value": "bus",
+                                    "displayName": "Bus"
+                                },
+                                {
+                                    "value": "train",
+                                    "displayName": "Train"
+                                },
+                                {
+                                    "value": "truck",
+                                    "displayName": "Truck"
+                                },
+                                {
+                                    "value": "bike",
+                                    "displayName": "Bike"
+                                },
+                                {
+                                    "value": "wheelchair",
+                                    "displayName": "Accessibility"
+                                },
+                                {
+                                    "value": "lighting",
+                                    "displayName": "Lighting"
+                                },
+                                {
+                                    "value": "lamp",
+                                    "displayName": "Street lamp"
+                                },
+                                {
+                                    "value": "solar",
+                                    "displayName": "Solar"
+                                },
+                                {
+                                    "value": "waste",
+                                    "displayName": "Waste"
+                                },
+                                {
+                                    "value": "recycle",
+                                    "displayName": "Recycling"
+                                },
+                                {
+                                    "value": "toilet",
+                                    "displayName": "Toilets"
+                                },
+                                {
+                                    "value": "bench",
+                                    "displayName": "Seating"
+                                },
+                                {
+                                    "value": "fence",
+                                    "displayName": "Fence"
+                                },
+                                {
+                                    "value": "sign",
+                                    "displayName": "Signage"
+                                },
+                                {
+                                    "value": "cone",
+                                    "displayName": "Works"
+                                },
+                                {
+                                    "value": "hammer",
+                                    "displayName": "Construction"
+                                },
+                                {
+                                    "value": "shovel",
+                                    "displayName": "Earthworks"
+                                },
+                                {
+                                    "value": "boat",
+                                    "displayName": "Boating"
+                                },
+                                {
+                                    "value": "beach",
+                                    "displayName": "Beach"
+                                },
+                                {
+                                    "value": "dog",
+                                    "displayName": "Dog park"
+                                },
+                                {
+                                    "value": "mountain",
+                                    "displayName": "Reserve"
+                                },
+                                {
+                                    "value": "flag",
+                                    "displayName": "Flag"
+                                },
+                                {
+                                    "value": "heart",
+                                    "displayName": "Wellbeing"
+                                },
+                                {
+                                    "value": "star",
+                                    "displayName": "Star"
+                                },
+                                {
+                                    "value": "shield",
+                                    "displayName": "Safety"
+                                },
+                                {
+                                    "value": "wifi",
+                                    "displayName": "Wi-Fi"
+                                },
+                                {
+                                    "value": "url",
+                                    "displayName": "Custom image URL"
+                                }
+                            ]
+                        }
+                    },
+                    "iconUrl": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "statusColours": {
+                "properties": {
+                    "fill": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "mapStyle": {
+                "properties": {
+                    "style": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (recommended)"
+                                },
+                                {
+                                    "value": "markers",
+                                    "displayName": "Project markers"
+                                },
+                                {
+                                    "value": "markersAreas",
+                                    "displayName": "Markers on areas"
+                                },
+                                {
+                                    "value": "areas",
+                                    "displayName": "Shaded areas"
+                                },
+                                {
+                                    "value": "compare",
+                                    "displayName": "Compare two areas"
+                                },
+                                {
+                                    "value": "grid",
+                                    "displayName": "Grid map"
+                                },
+                                {
+                                    "value": "heat",
+                                    "displayName": "Heat map"
+                                }
+                            ]
+                        }
+                    },
+                    "showAll": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "interaction": {
+                "properties": {
+                    "markerClick": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "popup",
+                                    "displayName": "Show a popup"
+                                },
+                                {
+                                    "value": "details",
+                                    "displayName": "Show in the side panel"
+                                },
+                                {
+                                    "value": "nothing",
+                                    "displayName": "Nothing (select only)"
+                                }
+                            ]
+                        }
+                    },
+                    "areaClick": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "filter",
+                                    "displayName": "Filter the report and zoom"
+                                },
+                                {
+                                    "value": "details",
+                                    "displayName": "Show in the side panel"
+                                },
+                                {
+                                    "value": "compare",
+                                    "displayName": "Compare two areas"
+                                },
+                                {
+                                    "value": "nothing",
+                                    "displayName": "Nothing"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "grid": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bin",
+                                    "displayName": "Group the points into squares"
+                                },
+                                {
+                                    "value": "cells",
+                                    "displayName": "Each row is a square"
+                                }
+                            ]
+                        }
+                    },
+                    "size": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (by zoom)"
+                                },
+                                {
+                                    "value": "1",
+                                    "displayName": "1 km"
+                                },
+                                {
+                                    "value": "5",
+                                    "displayName": "5 km"
+                                },
+                                {
+                                    "value": "10",
+                                    "displayName": "10 km"
+                                },
+                                {
+                                    "value": "20",
+                                    "displayName": "20 km"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom"
+                                }
+                            ]
+                        }
+                    },
+                    "customKm": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "agg": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "count",
+                                    "displayName": "Count of rows"
+                                },
+                                {
+                                    "value": "sum",
+                                    "displayName": "Sum"
+                                },
+                                {
+                                    "value": "mean",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "max",
+                                    "displayName": "Maximum"
+                                },
+                                {
+                                    "value": "min",
+                                    "displayName": "Minimum"
+                                }
+                            ]
+                        }
+                    },
+                    "colourMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "classes",
+                                    "displayName": "Classes (low to high colour)"
+                                },
+                                {
+                                    "value": "mmi",
+                                    "displayName": "Earthquake intensity (MMI)"
+                                }
+                            ]
+                        }
+                    },
+                    "classes": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "method": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "quantile",
+                                    "displayName": "Quantiles (equal count)"
+                                },
+                                {
+                                    "value": "equal",
+                                    "displayName": "Equal intervals"
+                                }
+                            ]
+                        }
+                    },
+                    "lowColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "highColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "opacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "outlineSame": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "outlineColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "outlineWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "minCount": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "legendTitle": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "heat": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "intensity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "colours": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "fire",
+                                    "displayName": "Fire"
+                                },
+                                {
+                                    "value": "classic",
+                                    "displayName": "Classic (blue to red)"
+                                },
+                                {
+                                    "value": "ocean",
+                                    "displayName": "Ocean"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom (low to high colour)"
+                                }
+                            ]
+                        }
+                    },
+                    "lowColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "highColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "opacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fadeOutZoom": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "legendTitle": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        },
+        "suppressDefaultTitle": true
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
