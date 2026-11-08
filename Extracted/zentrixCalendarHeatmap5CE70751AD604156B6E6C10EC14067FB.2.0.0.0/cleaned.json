@@ -1,0 +1,2136 @@
+{
+    "visual": {
+        "name": "zentrixCalendarHeatmap",
+        "displayName": "Zentrix Calendar Heatmap",
+        "guid": "zentrixCalendarHeatmap5CE70751AD604156B6E6C10EC14067FB",
+        "visualClassName": "Visual",
+        "version": "2.0.0.0",
+        "description": "A clean, performant, full-year GitHub-style calendar heatmap with strong tooltips, cross-filtering, anomaly markers, and accessibility.",
+        "supportUrl": "https://zentrixstudio.in/support",
+        "gitHubUrl": "https://github.com/Zentrix-Studio/Calendar-Heatmap"
+    },
+    "author": {
+        "name": "Zentrix Studio",
+        "email": "support@zentrixstudio.in"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Date *",
+                "description": "Required. A date or date/time column \u2014 one row per day. Each day becomes a cell in the calendar grid.",
+                "name": "date",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Value *",
+                "description": "Required. A numeric measure or column shown for each day; its magnitude sets the cell's color intensity. Multiple values on the same day are combined using the Aggregate setting (Sum, Average, Min, Max or Count).",
+                "name": "value",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Split by",
+                "description": "Optional. A category column (e.g. Region, Product, Team). When bound, the visual renders one small-multiple calendar per category value, all sharing the same date axis and \u2014 by default \u2014 the same color scale for easy comparison.",
+                "name": "category",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Target",
+                "description": "Optional. A numeric goal or benchmark for each day. The tooltip shows the day's value against this target (over / under, and the % variance). Combined per day using the same Aggregate setting as Value.",
+                "name": "target",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Tooltips",
+                "description": "Optional. One or more extra measures or fields to show in each cell's hover tooltip, alongside the date and value.",
+                "name": "tooltips",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Holiday",
+                "description": "Optional. A holiday name for the day, e.g. a text column set to First, or a text measure. Holiday days are marked on the grid, the same way as weekends, and named in the tooltip. Leave it blank on normal days.",
+                "name": "holiday",
+                "kind": "Measure",
+                "preferredTypes": [
+                    {
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Event",
+                "description": "Optional. What happened on the day (a launch, a campaign, an outage), from your data. The day gets an event marker and the event is listed in the tooltip. Several events on one day can be separated with ; or | (for example CONCATENATEX(Events, Events[Name], \"; \")).",
+                "name": "event",
+                "kind": "Measure",
+                "preferredTypes": [
+                    {
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Event type",
+                "description": "Optional. A category for the day's event (e.g. Release, Campaign, Incident). Each type gets its own marker colour and a key under the grid.",
+                "name": "eventType",
+                "kind": "Measure",
+                "preferredTypes": [
+                    {
+                        "text": true
+                    }
+                ]
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "date": {
+                            "max": 1
+                        },
+                        "value": {
+                            "max": 1
+                        },
+                        "target": {
+                            "max": 1
+                        },
+                        "category": {
+                            "max": 1
+                        },
+                        "holiday": {
+                            "max": 1
+                        },
+                        "event": {
+                            "max": 1
+                        },
+                        "eventType": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "date"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "category"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "value"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "target"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "holiday"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "event"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "eventType"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "layout": {
+                "properties": {
+                    "orientation": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "horizontal",
+                                    "displayName": "Horizontal"
+                                },
+                                {
+                                    "value": "vertical",
+                                    "displayName": "Vertical"
+                                }
+                            ]
+                        }
+                    },
+                    "rtlMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (report language)"
+                                },
+                                {
+                                    "value": "on",
+                                    "displayName": "On"
+                                },
+                                {
+                                    "value": "off",
+                                    "displayName": "Off"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "dataDisplay": {
+                "properties": {
+                    "layout": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "continuous",
+                                    "displayName": "Continuous"
+                                },
+                                {
+                                    "value": "month",
+                                    "displayName": "Month blocks"
+                                },
+                                {
+                                    "value": "hours",
+                                    "displayName": "Hour \u00d7 weekday"
+                                }
+                            ]
+                        }
+                    },
+                    "firstDayOfWeek": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "0",
+                                    "displayName": "Sunday"
+                                },
+                                {
+                                    "value": "1",
+                                    "displayName": "Monday"
+                                }
+                            ]
+                        }
+                    },
+                    "aggregation": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sum",
+                                    "displayName": "Sum"
+                                },
+                                {
+                                    "value": "avg",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "min",
+                                    "displayName": "Min"
+                                },
+                                {
+                                    "value": "max",
+                                    "displayName": "Max"
+                                },
+                                {
+                                    "value": "count",
+                                    "displayName": "Count"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "timeIntel": {
+                "properties": {
+                    "fiscalStart": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "1",
+                                    "displayName": "January"
+                                },
+                                {
+                                    "value": "2",
+                                    "displayName": "February"
+                                },
+                                {
+                                    "value": "3",
+                                    "displayName": "March"
+                                },
+                                {
+                                    "value": "4",
+                                    "displayName": "April"
+                                },
+                                {
+                                    "value": "5",
+                                    "displayName": "May"
+                                },
+                                {
+                                    "value": "6",
+                                    "displayName": "June"
+                                },
+                                {
+                                    "value": "7",
+                                    "displayName": "July"
+                                },
+                                {
+                                    "value": "8",
+                                    "displayName": "August"
+                                },
+                                {
+                                    "value": "9",
+                                    "displayName": "September"
+                                },
+                                {
+                                    "value": "10",
+                                    "displayName": "October"
+                                },
+                                {
+                                    "value": "11",
+                                    "displayName": "November"
+                                },
+                                {
+                                    "value": "12",
+                                    "displayName": "December"
+                                }
+                            ]
+                        }
+                    },
+                    "fiscalDisplay": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "smallMultiples": {
+                "properties": {
+                    "columns": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "sharedScale": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gap": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "cells": {
+                "properties": {
+                    "sizeMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "fill",
+                                    "displayName": "Occupy full space"
+                                },
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "manual",
+                                    "displayName": "Manual"
+                                }
+                            ]
+                        }
+                    },
+                    "cellSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cellGapX": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cellGapY": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cornerRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "opacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "patternMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "off",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (per colour)"
+                                },
+                                {
+                                    "value": "single",
+                                    "displayName": "Single pattern"
+                                }
+                            ]
+                        }
+                    },
+                    "patternType": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "dots",
+                                    "displayName": "Dots"
+                                },
+                                {
+                                    "value": "rings",
+                                    "displayName": "Circles"
+                                },
+                                {
+                                    "value": "diagonal",
+                                    "displayName": "Diagonal"
+                                },
+                                {
+                                    "value": "crosshatch",
+                                    "displayName": "Hatch"
+                                },
+                                {
+                                    "value": "grid",
+                                    "displayName": "Grid"
+                                },
+                                {
+                                    "value": "horizontal",
+                                    "displayName": "Horizontal"
+                                },
+                                {
+                                    "value": "vertical",
+                                    "displayName": "Vertical"
+                                },
+                                {
+                                    "value": "checker",
+                                    "displayName": "Checker"
+                                },
+                                {
+                                    "value": "diamonds",
+                                    "displayName": "Diamonds"
+                                },
+                                {
+                                    "value": "zigzag",
+                                    "displayName": "Zigzag"
+                                },
+                                {
+                                    "value": "waves",
+                                    "displayName": "Waves"
+                                },
+                                {
+                                    "value": "antidiagonal",
+                                    "displayName": "Anti-diagonal"
+                                },
+                                {
+                                    "value": "triangles",
+                                    "displayName": "Triangles"
+                                },
+                                {
+                                    "value": "bricks",
+                                    "displayName": "Bricks"
+                                },
+                                {
+                                    "value": "scales",
+                                    "displayName": "Scales"
+                                },
+                                {
+                                    "value": "plus",
+                                    "displayName": "Plus"
+                                },
+                                {
+                                    "value": "stars",
+                                    "displayName": "Stars"
+                                },
+                                {
+                                    "value": "hexagons",
+                                    "displayName": "Hexagons"
+                                },
+                                {
+                                    "value": "dashes",
+                                    "displayName": "Dashes"
+                                },
+                                {
+                                    "value": "weave",
+                                    "displayName": "Weave"
+                                }
+                            ]
+                        }
+                    },
+                    "patternColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "labels": {
+                "properties": {
+                    "showMonthLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showWeekdayLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showHeader": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showWeekNumbers": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "displayUnits": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "thousands",
+                                    "displayName": "Thousands (K)"
+                                },
+                                {
+                                    "value": "millions",
+                                    "displayName": "Millions (M)"
+                                },
+                                {
+                                    "value": "billions",
+                                    "displayName": "Billions (B)"
+                                },
+                                {
+                                    "value": "lakhs",
+                                    "displayName": "Lakhs (L)"
+                                },
+                                {
+                                    "value": "crores",
+                                    "displayName": "Crores (Cr)"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showCellValues": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "cellValueSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cellContent": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "value",
+                                    "displayName": "Value"
+                                },
+                                {
+                                    "value": "day",
+                                    "displayName": "Day number"
+                                },
+                                {
+                                    "value": "dayValue",
+                                    "displayName": "Day number + value"
+                                }
+                            ]
+                        }
+                    },
+                    "dayNumberSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "colors": {
+                "properties": {
+                    "paletteMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "mono",
+                                    "displayName": "Mono"
+                                },
+                                {
+                                    "value": "ramp",
+                                    "displayName": "Ramp"
+                                },
+                                {
+                                    "value": "duotone",
+                                    "displayName": "Duotone"
+                                },
+                                {
+                                    "value": "split",
+                                    "displayName": "Split"
+                                },
+                                {
+                                    "value": "theme",
+                                    "displayName": "Report theme"
+                                }
+                            ]
+                        }
+                    },
+                    "ramp": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "violet",
+                                    "displayName": "Violet"
+                                },
+                                {
+                                    "value": "ocean",
+                                    "displayName": "Ocean"
+                                },
+                                {
+                                    "value": "forest",
+                                    "displayName": "Forest"
+                                },
+                                {
+                                    "value": "magma",
+                                    "displayName": "Magma"
+                                },
+                                {
+                                    "value": "viridis",
+                                    "displayName": "Viridis"
+                                },
+                                {
+                                    "value": "colorblind",
+                                    "displayName": "Colorblind-safe"
+                                }
+                            ]
+                        }
+                    },
+                    "startColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "endColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "splitLow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "splitMid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "splitHigh": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "noDataColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "quantile",
+                                    "displayName": "Quantile"
+                                },
+                                {
+                                    "value": "linear",
+                                    "displayName": "Linear"
+                                },
+                                {
+                                    "value": "log",
+                                    "displayName": "Log"
+                                }
+                            ]
+                        }
+                    },
+                    "bucketCount": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "0",
+                                    "displayName": "Continuous"
+                                },
+                                {
+                                    "value": "3",
+                                    "displayName": "3"
+                                },
+                                {
+                                    "value": "5",
+                                    "displayName": "5"
+                                },
+                                {
+                                    "value": "7",
+                                    "displayName": "7"
+                                }
+                            ]
+                        }
+                    },
+                    "reversePalette": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "cvdOnly": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                }
+                            ]
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "start",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "end",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "swatchSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "gradientLength": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lessLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "moreLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showNoData": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "noDataSide": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                }
+                            ]
+                        }
+                    },
+                    "title": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "insights": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "polarity": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "good",
+                                    "displayName": "Good (more is better)"
+                                },
+                                {
+                                    "value": "bad",
+                                    "displayName": "Bad (less is better)"
+                                },
+                                {
+                                    "value": "neutral",
+                                    "displayName": "Neutral"
+                                }
+                            ]
+                        }
+                    },
+                    "count": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "accessibility": {
+                "properties": {
+                    "focusRing": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "patternOnThreshold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "patternThresholdValue": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "patternStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "diagonal",
+                                    "displayName": "Diagonal lines"
+                                },
+                                {
+                                    "value": "dots",
+                                    "displayName": "Dots"
+                                },
+                                {
+                                    "value": "crosshatch",
+                                    "displayName": "Crosshatch"
+                                },
+                                {
+                                    "value": "grid",
+                                    "displayName": "Grid"
+                                },
+                                {
+                                    "value": "stars",
+                                    "displayName": "Stars"
+                                }
+                            ]
+                        }
+                    },
+                    "srSummary": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "header": {
+                "properties": {
+                    "titleText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "ruleShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ruleColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ruleWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "badges": {
+                "properties": {
+                    "peakOn": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "peakEmoji": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "thresholdOn": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "thresholdValue": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "thresholdEmoji": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rulesEditor": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rulesList": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rule1On": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rule1Name": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rule1Operator": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": ">=",
+                                    "displayName": "\u2265"
+                                },
+                                {
+                                    "value": ">",
+                                    "displayName": ">"
+                                },
+                                {
+                                    "value": "<=",
+                                    "displayName": "\u2264"
+                                },
+                                {
+                                    "value": "<",
+                                    "displayName": "<"
+                                },
+                                {
+                                    "value": "==",
+                                    "displayName": "="
+                                },
+                                {
+                                    "value": "between",
+                                    "displayName": "between"
+                                }
+                            ]
+                        }
+                    },
+                    "rule1Value": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rule1Value2": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rule1CompareTo": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "value",
+                                    "displayName": "Value"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Value \u2212 Target"
+                                }
+                            ]
+                        }
+                    },
+                    "rule1Badge": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rule1Color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "rule1Pattern": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rule1PatternStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "diagonal",
+                                    "displayName": "Diagonal lines"
+                                },
+                                {
+                                    "value": "dots",
+                                    "displayName": "Dots"
+                                },
+                                {
+                                    "value": "crosshatch",
+                                    "displayName": "Crosshatch"
+                                },
+                                {
+                                    "value": "grid",
+                                    "displayName": "Grid"
+                                },
+                                {
+                                    "value": "stars",
+                                    "displayName": "Stars"
+                                }
+                            ]
+                        }
+                    },
+                    "rule2On": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rule2Name": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rule2Operator": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": ">=",
+                                    "displayName": "\u2265"
+                                },
+                                {
+                                    "value": ">",
+                                    "displayName": ">"
+                                },
+                                {
+                                    "value": "<=",
+                                    "displayName": "\u2264"
+                                },
+                                {
+                                    "value": "<",
+                                    "displayName": "<"
+                                },
+                                {
+                                    "value": "==",
+                                    "displayName": "="
+                                },
+                                {
+                                    "value": "between",
+                                    "displayName": "between"
+                                }
+                            ]
+                        }
+                    },
+                    "rule2Value": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rule2Value2": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rule2CompareTo": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "value",
+                                    "displayName": "Value"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Value \u2212 Target"
+                                }
+                            ]
+                        }
+                    },
+                    "rule2Badge": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rule2Color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "rule2Pattern": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rule2PatternStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "diagonal",
+                                    "displayName": "Diagonal lines"
+                                },
+                                {
+                                    "value": "dots",
+                                    "displayName": "Dots"
+                                },
+                                {
+                                    "value": "crosshatch",
+                                    "displayName": "Crosshatch"
+                                },
+                                {
+                                    "value": "grid",
+                                    "displayName": "Grid"
+                                },
+                                {
+                                    "value": "stars",
+                                    "displayName": "Stars"
+                                }
+                            ]
+                        }
+                    },
+                    "rule3On": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rule3Name": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rule3Operator": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": ">=",
+                                    "displayName": "\u2265"
+                                },
+                                {
+                                    "value": ">",
+                                    "displayName": ">"
+                                },
+                                {
+                                    "value": "<=",
+                                    "displayName": "\u2264"
+                                },
+                                {
+                                    "value": "<",
+                                    "displayName": "<"
+                                },
+                                {
+                                    "value": "==",
+                                    "displayName": "="
+                                },
+                                {
+                                    "value": "between",
+                                    "displayName": "between"
+                                }
+                            ]
+                        }
+                    },
+                    "rule3Value": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rule3Value2": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rule3CompareTo": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "value",
+                                    "displayName": "Value"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Value \u2212 Target"
+                                }
+                            ]
+                        }
+                    },
+                    "rule3Badge": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rule3Color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "rule3Pattern": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rule3PatternStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "diagonal",
+                                    "displayName": "Diagonal lines"
+                                },
+                                {
+                                    "value": "dots",
+                                    "displayName": "Dots"
+                                },
+                                {
+                                    "value": "crosshatch",
+                                    "displayName": "Crosshatch"
+                                },
+                                {
+                                    "value": "grid",
+                                    "displayName": "Grid"
+                                },
+                                {
+                                    "value": "stars",
+                                    "displayName": "Stars"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "annotations": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "markerStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "number",
+                                    "displayName": "Number"
+                                },
+                                {
+                                    "value": "dot",
+                                    "displayName": "Dot"
+                                },
+                                {
+                                    "value": "icon",
+                                    "displayName": "Icon"
+                                }
+                            ]
+                        }
+                    },
+                    "markerIcon": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "markerColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "defaultMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "marker",
+                                    "displayName": "Marker only"
+                                },
+                                {
+                                    "value": "text",
+                                    "displayName": "Text"
+                                },
+                                {
+                                    "value": "arrow",
+                                    "displayName": "Text + arrow"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "Marker + text + arrow"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "notesStore": {
+                "properties": {
+                    "data": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "colorStore": {
+                "properties": {
+                    "data": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "summaryTable": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "tl",
+                                    "displayName": "Top-left"
+                                },
+                                {
+                                    "value": "tr",
+                                    "displayName": "Top-right"
+                                },
+                                {
+                                    "value": "bl",
+                                    "displayName": "Bottom-left"
+                                },
+                                {
+                                    "value": "br",
+                                    "displayName": "Bottom-right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "nonWorking": {
+                "properties": {
+                    "shadeWeekends": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "weekend": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "satSun",
+                                    "displayName": "Saturday + Sunday"
+                                },
+                                {
+                                    "value": "friSat",
+                                    "displayName": "Friday + Saturday"
+                                },
+                                {
+                                    "value": "sun",
+                                    "displayName": "Sunday only"
+                                }
+                            ]
+                        }
+                    },
+                    "showHolidays": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "style": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "tint",
+                                    "displayName": "Tint"
+                                },
+                                {
+                                    "value": "hatch",
+                                    "displayName": "Hatch"
+                                },
+                                {
+                                    "value": "outline",
+                                    "displayName": "Outline"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "events": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "marker": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "corner",
+                                    "displayName": "Corner flag"
+                                },
+                                {
+                                    "value": "dot",
+                                    "displayName": "Dot"
+                                },
+                                {
+                                    "value": "ring",
+                                    "displayName": "Ring"
+                                }
+                            ]
+                        }
+                    },
+                    "showKey": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "viewSwitch": {
+                "properties": {
+                    "insight": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "defaultView": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "visual",
+                                    "displayName": "Calendar"
+                                },
+                                {
+                                    "value": "table",
+                                    "displayName": "Summary table"
+                                },
+                                {
+                                    "value": "insight",
+                                    "displayName": "Insight page"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "tooltip": {
+                "properties": {
+                    "type": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "card",
+                                    "displayName": "Zentrix card"
+                                },
+                                {
+                                    "value": "report",
+                                    "displayName": "Native"
+                                },
+                                {
+                                    "value": "off",
+                                    "displayName": "Off"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "canvas": {
+                "properties": {
+                    "surfaceMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "theme",
+                                    "displayName": "Follow report theme"
+                                },
+                                {
+                                    "value": "light",
+                                    "displayName": "Zentrix light"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Zentrix dark"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom"
+                                }
+                            ]
+                        }
+                    },
+                    "bgFill": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fgFill": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "filter": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "off",
+                                    "displayName": "All"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "Top N"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom N"
+                                }
+                            ]
+                        }
+                    },
+                    "count": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "by": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "value",
+                                    "displayName": "Value"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Target"
+                                },
+                                {
+                                    "value": "variance",
+                                    "displayName": "Value \u2212 Target"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "interactions": {
+                "properties": {
+                    "dimUnselected": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dimStrength": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "tableState": {
+                "properties": {
+                    "data": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "dayDetail": {
+                "properties": {
+                    "enabled": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "showTopContributor": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "toolbar": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (avoid content)"
+                                },
+                                {
+                                    "value": "bl",
+                                    "displayName": "Bottom left"
+                                },
+                                {
+                                    "value": "tl",
+                                    "displayName": "Top left"
+                                },
+                                {
+                                    "value": "tr",
+                                    "displayName": "Top right"
+                                },
+                                {
+                                    "value": "br",
+                                    "displayName": "Bottom right"
+                                }
+                            ]
+                        }
+                    },
+                    "closeOnClickAway": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "actions": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "autoHide": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "exportData": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "headline": {
+                "properties": {
+                    "fontFamily": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "statChips": {
+                "properties": {
+                    "fontFamily": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "monthRail": {
+                "properties": {
+                    "fontFamily": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "weekdayRail": {
+                "properties": {
+                    "fontFamily": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "yearTags": {
+                "properties": {
+                    "fontFamily": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "legendText": {
+                "properties": {
+                    "fontFamily": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "facetTitle": {
+                "properties": {
+                    "fontFamily": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "branding": {
+                "properties": {
+                    "showBranding": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "privileges": [
+            {
+                "name": "ExportContent",
+                "essential": false
+            }
+        ],
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsMultiVisualSelection": true
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

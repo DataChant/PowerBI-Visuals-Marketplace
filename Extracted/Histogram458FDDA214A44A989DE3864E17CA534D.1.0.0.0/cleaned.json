@@ -1,0 +1,1113 @@
+{
+    "visual": {
+        "name": "Histogram",
+        "displayName": "Histogram by Mirtillo",
+        "guid": "Histogram458FDDA214A44A989DE3864E17CA534D",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "A histogram that shows how values are spread. Bins recalculate whenever slicers and filters change, and you can bin a column or a measure per item.",
+        "supportUrl": "https://mirtillo.io/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Mirtillo",
+        "email": "tegan@peraanalytics.io"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "Role_Value": "Value",
+            "Role_Value_Description": "The number to show the spread of. Use a column, or a measure with Count each.",
+            "Role_Item": "Count each",
+            "Role_Item_Description": "Optional. Each item, such as Customer ID, adds one value to the chart.",
+            "Role_Weight": "Frequency",
+            "Role_Weight_Description": "Optional. How many times each value occurs, for example Count of Order ID.",
+            "Role_Series": "Legend",
+            "Role_Series_Description": "Optional. Splits the chart into coloured series.",
+            "Range_LeftClosed": "{0} to under {1}",
+            "Range_RightClosed": "over {0} to {1}",
+            "Range_Closed": "{0} to {1}",
+            "Range_Under": "Under {0}",
+            "Range_AtOrUnder": "{0} and under",
+            "Range_AtOrOver": "{0} and over",
+            "Range_Over": "Over {0}",
+            "Label_Range": "{0} to {1}",
+            "Blank": "(Blank)",
+            "Tooltip_Count": "Count",
+            "Tooltip_Percent": "Percent of total",
+            "Tooltip_CumulativePercent": "Cumulative percent",
+            "Tooltip_Excluded": "Blank or invalid values excluded",
+            "Tooltip_OutsideRange": "Outside range",
+            "Stat_Count": "Count",
+            "Stat_Excluded": "Blank or invalid",
+            "Stat_OutsideRange": "Outside range",
+            "Stat_Mean": "Mean",
+            "Stat_Median": "Median",
+            "Stat_StandardDeviation": "Standard deviation",
+            "Stat_Minimum": "Minimum",
+            "Stat_Maximum": "Maximum",
+            "Stat_FirstQuartile": "First quartile",
+            "Stat_ThirdQuartile": "Third quartile",
+            "Stat_Skewness": "Skewness",
+            "NotEnoughData": "Not enough data",
+            "Line_Mean": "Mean {0}",
+            "Line_Median": "Median {0}",
+            "Line_MeanSeries": "{0} mean {1}",
+            "Line_MedianSeries": "{0} median {1}",
+            "Line_Percentile": "P{0} {1}",
+            "Line_PercentileSeries": "{0} P{1} {2}",
+            "Accessible_Bin": "Bin {0}, count {1}, {2} percent",
+            "Accessible_SeriesBin": "{0}, bin {1}, count {2}, {3} percent",
+            "Accessible_Bins": "Bins of {0}",
+            "Message_NoValue": "Add a numeric field to Value.",
+            "Message_MeasureWithoutItem": "Add a field to Count each to use a measure in Value.",
+            "Message_NoData": "No data for the current filters.",
+            "Message_AllBlank": "All values are blank.",
+            "Message_AllFrequenciesZero": "All frequencies are zero.",
+            "Message_Summarized": "Choose {0} for Value, or add a field to {1}.",
+            "Message_NotSummarized": "Choose a summary such as {0} for Value, so each item in {1} gets one value.",
+            "Option_DontSummarize": "Don't summarize",
+            "Option_Average": "Average",
+            "Option_CountEach": "Count each",
+            "Message_TooLarge": "These values are too large to show.",
+            "Message_DensityTooLarge": "Density can't be shown for values this close together. Choose another option in Show as.",
+            "Warning_FirstRows": "Showing the first {0} rows.",
+            "Warning_FirstRowsHint": "Filter the data to see all values.",
+            "Warning_CustomEdgesInvalid": "Custom edges need at least 2 numbers. Showing automatic bins.",
+            "Warning_RangeInvalid": "Range ignored: the lower end must be below the upper end.",
+            "Warning_WidthRoundedUp": "Bin width rounded up to {0}, because every value is a whole number.",
+            "Warning_WidthAdjusted": "Bin width changed to {0} to fit the range.",
+            "Warning_WidthAdjustedHint": "Use a range that is a multiple of the bin width to keep your width.",
+            "Warning_TooNarrow": "Bins can't be this narrow for these values. Showing {0} bins.",
+            "Warning_TooManyBins": "Too many bins for this size. Showing {0} bins.",
+            "Warning_Overlaid": "Overlaid series are hard to read above 5; try Side by side.",
+            "Warning_TooManyBinsHint": "Make the visual wider, or set Range minimum and Range maximum to see part of the data in more detail.",
+            "Warning_SelectionLimit": "This bin has {0} items. Bins with more than {1} items can't filter other visuals.",
+            "Warning_SelectionLimitTogether": "These bins have {0} items together. Selections of more than {1} items can't filter other visuals.",
+            "Warning_SelectionLimitHint": "Filter the report to fewer items, or use a slicer on the Value field.",
+            "Warning_Several": "{0} warnings. Select the icon to read them.",
+            "Warning_DistinctValues": "Each distinct value is counted once.",
+            "Warning_DistinctValuesHint": "To count every row and show highlights, add a count (for example Count of Order ID) to Frequency, or an ID to Count each.",
+            "Enum_Solid": "Solid",
+            "Enum_Dashed": "Dashed",
+            "Enum_Dotted": "Dotted",
+            "Enum_Automatic": "Automatic",
+            "Enum_NumberOfBins": "Number of bins",
+            "Enum_BinWidth": "Bin width",
+            "Enum_CustomEdges": "Custom edges (Pro)",
+            "Enum_LeftClosed": "Left closed [a, b)",
+            "Enum_RightClosed": "Right closed (a, b]",
+            "Enum_Edges": "Edges",
+            "Enum_Ranges": "Ranges",
+            "Enum_Midpoints": "Midpoints",
+            "Enum_Count": "Count",
+            "Enum_Percent": "Percent",
+            "Enum_Both": "Both",
+            "Enum_OutsideEnd": "Outside end",
+            "Enum_InsideEnd": "Inside end",
+            "Enum_Top": "Top",
+            "Enum_Bottom": "Bottom",
+            "Enum_Density": "Density (Pro)",
+            "Enum_CumulativeCount": "Cumulative count (Pro)",
+            "Enum_CumulativePercent": "Cumulative percent (Pro)",
+            "DataLabel_Both": "{0} ({1})",
+            "ShowAs_Count": "Count",
+            "ShowAs_Percent": "Percent of total",
+            "ShowAs_Density": "Density",
+            "ShowAs_CumulativeCount": "Cumulative count",
+            "ShowAs_CumulativePercent": "Cumulative percent",
+            "Card_Bins": "Bins",
+            "Card_YAxis": "Y axis",
+            "Card_XAxis": "X axis",
+            "Card_Columns": "Columns",
+            "Card_DataLabels": "Data labels",
+            "Card_StatisticsLines": "Statistics lines",
+            "Card_Bands": "Bands (Pro)",
+            "Card_Percentiles": "Percentiles (Pro)",
+            "Card_ValueLines": "Value lines (Pro)",
+            "Card_DistributionCurve": "Curve (Pro)",
+            "Setting_CurveType": "Type",
+            "Enum_Normal": "Normal",
+            "Enum_Kernel": "Kernel density",
+            "Setting_Smoothing": "Smoothing",
+            "Setting_Smoothing_Description": "How smooth the kernel density curve is: 1 is Silverman's rule, lower follows the data more closely, higher is smoother. 0.25 to 4.",
+            "Setting_CurveSeries_Description": "Draw a curve for each series, for all the data, or both.",
+            "Note_CurveCumulative": "Not available for cumulative views",
+            "Note_CurveCustomEdges": "Switch Y axis to Density to show a curve with custom edges.",
+            "Card_SummaryBox": "Summary (Pro)",
+            "Group_Statistics": "Statistics",
+            "Setting_SummaryPosition_Description": "Beside the plot at one of its corners, or over the plot in the top corner that covers fewer bars.",
+            "Setting_SummarySeries_Description": "Show the statistics of each series, of all the data, or both.",
+            "Setting_ShownAboveZero": "Shown when above 0.",
+            "SummaryPosition_TopLeft": "Top left",
+            "SummaryPosition_TopRight": "Top right",
+            "SummaryPosition_BottomLeft": "Bottom left",
+            "SummaryPosition_BottomRight": "Bottom right",
+            "SummaryPosition_InsidePlot": "Inside plot",
+            "Summary_AllData": "All data",
+            "Summary_ValueLineNotDrawn": "Line off chart",
+            "Accessible_Summary": "Statistics summary",
+            "Accessible_SummaryPrevious": "Previous statistics columns",
+            "Accessible_SummaryNext": "Next statistics columns",
+            "Watermark_ProFeature": "Pro feature",
+            "Licence_FeaturesInUse": "Pro features in use: {0}. A license removes the watermark.",
+            "ProFeature_customEdges": "Custom edges",
+            "ProFeature_underflowBin": "Underflow bin",
+            "ProFeature_overflowBin": "Overflow bin",
+            "ProFeature_density": "Density",
+            "ProFeature_cumulativeCount": "Cumulative count",
+            "ProFeature_cumulativePercent": "Cumulative percent",
+            "ProFeature_logScale": "Logarithmic scale",
+            "ProFeature_legend": "Legend",
+            "ProFeature_standardDeviationBands": "Standard deviation bands",
+            "ProFeature_percentileLines": "Percentile lines",
+            "ProFeature_valueLines": "Value lines",
+            "ProFeature_distributionCurve": "Distribution curve",
+            "ProFeature_statisticsBox": "Statistics summary",
+            "Group_Scale": "Scale",
+            "Group_Values": "Values",
+            "Group_Title": "Title",
+            "Group_Gridlines": "Gridlines",
+            "Group_Columns": "Columns",
+            "Group_Color": "Color",
+            "Card_Legend": "Legend (Pro)",
+            "Setting_LegendPosition": "Position",
+            "Group_Text": "Text",
+            "Setting_LegendTitleText": "Title text",
+            "Accessible_Legend": "Legend {0}",
+            "Accessible_LegendPrevious": "Previous legend items",
+            "Accessible_LegendNext": "Next legend items",
+            "LegendPosition_Top": "Top left",
+            "LegendPosition_TopCenter": "Top center",
+            "LegendPosition_TopRight": "Top right",
+            "LegendPosition_Left": "Top left stacked",
+            "LegendPosition_Right": "Top right stacked",
+            "LegendPosition_LeftCenter": "Center left",
+            "LegendPosition_RightCenter": "Center right",
+            "LegendPosition_Bottom": "Bottom left",
+            "LegendPosition_BottomCenter": "Bottom center",
+            "LegendPosition_BottomRight": "Bottom right",
+            "Setting_LineSeries": "With a Legend (Pro)",
+            "Setting_LineSeries_Description": "Draw the line for each series, for all the data, or both.",
+            "LineSeries_PerSeries": "Each series",
+            "LineSeries_All": "All data",
+            "LineSeries_Both": "Both",
+            "Setting_SeriesChoice": "With a Legend",
+            "Setting_BandSeries_Description": "Draw the bands for each series, for all the data, or both.",
+            "Setting_Bands": "Standard deviations",
+            "Setting_Bands_Description": "How many standard deviations the bands reach on each side of the mean.",
+            "Bands_One": "\u00b11",
+            "Bands_Two": "\u00b11 and \u00b12",
+            "Bands_Three": "\u00b11, \u00b12 and \u00b13",
+            "Setting_Percentiles": "Percentiles",
+            "Setting_Percentiles_Description": "Percentiles from 0 to 100, separated by commas, for example 5, 95. 0 is the smallest value and 100 the largest.",
+            "Setting_PercentileSeries_Description": "Draw the lines for each series, for all the data, or both.",
+            "Setting_Values": "Values",
+            "Setting_Values_Description": "Values on the x axis, separated by commas, for example 100, 250. A value outside the bins is not drawn.",
+            "Setting_SeriesLayout": "Series layout (Pro)",
+            "Setting_SeriesLayout_Description": "How Legend series share each bin: drawn over each other, stacked, or side by side.",
+            "Layout_Overlaid": "Overlaid",
+            "Layout_Stacked": "Stacked",
+            "Layout_SideBySide": "Side by side",
+            "Container_Series": "Series",
+            "ContainerItem_All": "All",
+            "Setting_SeriesPro": "{0} (Pro)",
+            "Group_Border": "Border",
+            "Group_Options": "Options",
+            "Group_Mean": "Mean",
+            "Group_Median": "Median",
+            "Group_Shade": "Shade",
+            "Group_Line": "Line",
+            "Group_DataLabel": "Data label",
+            "Setting_Method": "Method",
+            "Setting_NumberOfBins": "Number of bins",
+            "Setting_BinWidth": "Bin width",
+            "Setting_BinWidth_Description": "Leave blank for an automatic width.",
+            "Setting_StartAt": "Start at",
+            "Setting_StartAt_Description": "Where the first bin starts. Leave blank to start at the largest multiple of the bin width at or below the smallest value.",
+            "Setting_RangeMin": "Range minimum",
+            "Setting_RangeMax": "Range maximum",
+            "Setting_Range_Description": "Leave blank for Auto.",
+            "Setting_Closure": "Interval closure",
+            "Setting_Closure_Description": "Which bin a value exactly on an edge goes in: left closed puts it in the bin above the edge, right closed in the bin below. The first and last bins include their outer edges, unless an underflow or overflow bin is on at that end.",
+            "Setting_CustomEdges": "Custom edges (Pro)",
+            "Setting_CustomEdges_Description": "Where each bin starts and ends, for example 0, 100, 300, 500. Separate the numbers with commas, or with semicolons if your decimal mark is a comma.",
+            "Setting_UnderflowBin": "Underflow bin (Pro)",
+            "Setting_UnderflowBin_Description": "Puts the values below the first edge in a bin of their own, instead of leaving them out.",
+            "Setting_OverflowBin": "Overflow bin (Pro)",
+            "Setting_OverflowBin_Description": "Puts the values above the last edge in a bin of their own, instead of leaving them out.",
+            "Setting_ShowAs": "Show as",
+            "Setting_LogScale": "Logarithmic scale (Pro)",
+            "Setting_LogScale_Description": "Each power of 10 gets the same height. Empty bins have no bar, and the axis starts at the power of 10 below the shortest bar.",
+            "Setting_Start": "Start",
+            "Setting_End": "End",
+            "Setting_Show": "Show",
+            "Setting_Font": "Font",
+            "Setting_FontFamily": "Font family",
+            "Setting_FontSize": "Font size",
+            "Setting_Bold": "Bold",
+            "Setting_Italic": "Italic",
+            "Setting_Underline": "Underline",
+            "Setting_Color": "Color",
+            "Setting_DisplayUnits": "Display units",
+            "Setting_DecimalPlaces": "Decimal places",
+            "Setting_TitleText": "Title text",
+            "Setting_LabelStyle": "Label style",
+            "Setting_Transparency": "Transparency",
+            "Setting_Gap": "Gap between bins",
+            "Setting_Gap_Description": "The space between neighbouring bars, in pixels.",
+            "Setting_Width": "Width",
+            "Setting_Style": "Style",
+            "Setting_Content": "Content",
+            "Setting_Position": "Position",
+            "Setting_Overflow": "Overflow text",
+            "Setting_Label": "Label",
+            "Setting_LabelPosition": "Label position",
+            "Placeholder_Auto": "Auto",
+            "Landing_Title": "Histogram by Mirtillo",
+            "Landing_Value": "Drag a number column to Value to see how its values are spread.",
+            "Landing_CountEach": "To show a measure, add an ID such as Customer ID to Count each.",
+            "Landing_Frequency": "To count every row, add a count such as Count of Order ID to Frequency.",
+            "Landing_Pro": "More features are coming in Pro."
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Value",
+                "displayNameKey": "Role_Value",
+                "description": "The number to show the spread of. Use a column, or a measure with Count each.",
+                "descriptionKey": "Role_Value_Description",
+                "name": "value",
+                "kind": "GroupingOrMeasure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Count each",
+                "displayNameKey": "Role_Item",
+                "description": "Optional. Each item, such as Customer ID, adds one value to the chart.",
+                "descriptionKey": "Role_Item_Description",
+                "name": "item",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Frequency",
+                "displayNameKey": "Role_Weight",
+                "description": "Optional. How many times each value occurs, for example Count of Order ID.",
+                "descriptionKey": "Role_Weight_Description",
+                "name": "weight",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            }
+        ],
+        "objects": {
+            "binning": {
+                "properties": {
+                    "method": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "automatic",
+                                    "displayName": "Automatic",
+                                    "displayNameKey": "Enum_Automatic"
+                                },
+                                {
+                                    "value": "count",
+                                    "displayName": "Number of bins",
+                                    "displayNameKey": "Enum_NumberOfBins"
+                                },
+                                {
+                                    "value": "width",
+                                    "displayName": "Bin width",
+                                    "displayNameKey": "Enum_BinWidth"
+                                }
+                            ]
+                        }
+                    },
+                    "binCount": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "binWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "startAt": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rangeMin": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rangeMax": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "closure": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left closed [a, b)",
+                                    "displayNameKey": "Enum_LeftClosed"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right closed (a, b]",
+                                    "displayNameKey": "Enum_RightClosed"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "categoryAxis": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "labelDisplayUnits": {
+                        "type": {
+                            "formatting": {
+                                "labelDisplayUnits": true
+                            }
+                        }
+                    },
+                    "labelPrecision": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "showAxisTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "titleColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "titleFontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "titleFontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "titleBold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleItalic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleUnderline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "edges",
+                                    "displayName": "Edges",
+                                    "displayNameKey": "Enum_Edges"
+                                },
+                                {
+                                    "value": "ranges",
+                                    "displayName": "Ranges",
+                                    "displayNameKey": "Enum_Ranges"
+                                },
+                                {
+                                    "value": "midpoints",
+                                    "displayName": "Midpoints",
+                                    "displayNameKey": "Enum_Midpoints"
+                                }
+                            ]
+                        }
+                    },
+                    "gridlineShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gridlineColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "gridlineThickness": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "gridlineStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid",
+                                    "displayNameKey": "Enum_Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed",
+                                    "displayNameKey": "Enum_Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted",
+                                    "displayNameKey": "Enum_Dotted"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "valueAxis": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showAs": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "count",
+                                    "displayName": "Count",
+                                    "displayNameKey": "ShowAs_Count"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "Percent of total",
+                                    "displayNameKey": "ShowAs_Percent"
+                                }
+                            ]
+                        }
+                    },
+                    "start": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "end": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "labelDisplayUnits": {
+                        "type": {
+                            "formatting": {
+                                "labelDisplayUnits": true
+                            }
+                        }
+                    },
+                    "labelPrecision": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "showAxisTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "titleColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "titleFontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "titleFontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "titleBold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleItalic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleUnderline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gridlineShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gridlineColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "gridlineThickness": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "gridlineStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid",
+                                    "displayNameKey": "Enum_Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed",
+                                    "displayNameKey": "Enum_Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted",
+                                    "displayNameKey": "Enum_Dotted"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "dataPoint": {
+                "properties": {
+                    "defaultColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "transparency": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "gap": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "borderShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "labels": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelDisplayUnits": {
+                        "type": {
+                            "formatting": {
+                                "labelDisplayUnits": true
+                            }
+                        }
+                    },
+                    "labelPrecision": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "labelContent": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "count",
+                                    "displayName": "Count",
+                                    "displayNameKey": "Enum_Count"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "Percent",
+                                    "displayNameKey": "Enum_Percent"
+                                },
+                                {
+                                    "value": "both",
+                                    "displayName": "Both",
+                                    "displayNameKey": "Enum_Both"
+                                }
+                            ]
+                        }
+                    },
+                    "labelPosition": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "OutsideEnd",
+                                    "displayName": "Outside end",
+                                    "displayNameKey": "Enum_OutsideEnd"
+                                },
+                                {
+                                    "value": "InsideEnd",
+                                    "displayName": "Inside end",
+                                    "displayNameKey": "Enum_InsideEnd"
+                                }
+                            ]
+                        }
+                    },
+                    "labelOverflow": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "referenceLines": {
+                "properties": {
+                    "meanShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "meanColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "meanStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid",
+                                    "displayNameKey": "Enum_Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed",
+                                    "displayNameKey": "Enum_Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted",
+                                    "displayNameKey": "Enum_Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "meanTransparency": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "meanWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "meanLabelShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "meanLabelPosition": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top",
+                                    "displayNameKey": "Enum_Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom",
+                                    "displayNameKey": "Enum_Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "medianShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "medianColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "medianStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid",
+                                    "displayNameKey": "Enum_Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed",
+                                    "displayNameKey": "Enum_Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted",
+                                    "displayNameKey": "Enum_Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "medianTransparency": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "medianWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "medianLabelShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "medianLabelPosition": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top",
+                                    "displayNameKey": "Enum_Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom",
+                                    "displayNameKey": "Enum_Bottom"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "value": {
+                            "max": 1
+                        },
+                        "item": {
+                            "min": 1,
+                            "max": 1
+                        },
+                        "weight": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "item"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "value"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "weight"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "conditions": [
+                    {
+                        "value": {
+                            "max": 1
+                        },
+                        "item": {
+                            "max": 0
+                        },
+                        "weight": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "value"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "weight"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "supportsHighlight": true,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": false
+            },
+            "supportEnhancedTooltips": true
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

@@ -1,0 +1,2348 @@
+{
+    "visual": {
+        "name": "worldDistrictShapeMap",
+        "displayName": "World District Shape Map",
+        "guid": "worldDistrictShapeMap7D702F8ACA1D8422B7FCA006130E5099",
+        "visualClassName": "Visual",
+        "version": "1.0.0.1",
+        "description": "Shape map that turns a list of cities into countries, districts / regions and municipalities, placing every city inside its own country (by municipality name, postal code or coordinates). Search, drawn zones and selection filter the page. Works offline.",
+        "supportUrl": "https://github.com/sergiopbi/World-District-Shape-Map/issues",
+        "gitHubUrl": "https://github.com/sergiopbi/World-District-Shape-Map"
+    },
+    "author": {
+        "name": "Sergio Borges",
+        "email": "sergio@qahs.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "de-DE": {
+            "Area_AutoMid": "Automatischer Mittelpunkt",
+            "Area_AutoRange": "Automatisches Min./Max.",
+            "Area_BorderColor": "Rahmenfarbe",
+            "Area_BorderWidth": "Rahmenbreite",
+            "Area_Classes": "Anzahl der Klassen",
+            "Area_Colors": "Anzahl der Farben",
+            "Area_FxFill": "Farbe nach Regel (fx)",
+            "Area_FxFill_Desc": "Verwenden Sie die fx-Schaltfl\u00e4che f\u00fcr regel- oder feldbasierte Farben. Ersetzt den Farbverlauf.",
+            "Area_LineIntensity": "Linienintensit\u00e4t (%)",
+            "Area_LineIntensity_Desc": "Deckkraft aller Grenzlinien: Fl\u00e4chenrahmen sowie Bezirks-, Gemeinde- und L\u00e4ndergrenzen.",
+            "Area_MaxColor": "Maximalfarbe",
+            "Area_Mid2Color": "Mittelfarbe 2",
+            "Area_MidColor": "Mittelfarbe",
+            "Area_MidValue": "Mittelpunkt",
+            "Area_MinColor": "Minimalfarbe",
+            "Area_NegativeColor": "Farbe f\u00fcr negative Werte",
+            "Area_NegativeMode": "Negative Werte",
+            "Area_NegativeMode_Desc": "Eigene Farbe: negative Werte (Retouren, Gutschriften) erhalten eine Farbe, die Skala reicht von 0 bis zum Maximum. Divergierend: Abstufungen dieser Farbe bis zum negativsten Wert. Teil der Skala: negative Werte bilden den Anfang der Skala.",
+            "Area_NoDataColor": "Farbe ohne Daten",
+            "Area_Opacity": "Fl\u00e4chendeckkraft (%)",
+            "Area_PHigh": "Obere Kappung (Perzentil)",
+            "Area_PLow": "Untere Kappung (Perzentil)",
+            "Area_RangeMax": "Maximum",
+            "Area_RangeMin": "Minimum",
+            "Area_ScaleType": "Farbskala",
+            "Area_ScaleType_Desc": "Bei sehr ungleichen Werten (z. B. ein Land mit 80 % der Summe) Logarithmisch, Nach Rang oder Klassen verwenden.",
+            "Base_PlaceDensity": "Namensdichte",
+            "Base_PlaceFontSize": "Namensgr\u00f6\u00dfe",
+            "Base_PlacesPerArea": "St\u00e4dte pro Fl\u00e4che (Ansichten L\u00e4nder / Bezirke)",
+            "Base_PlacesPerArea_Desc": "Namen der bev\u00f6lkerungsreichsten Orte in jedem Land (L\u00e4nderansicht) oder Bezirk (Bezirksansicht). 0 blendet sie aus; die Gemeindeansicht verwendet die Namensdichte.",
+            "Base_RoadIntensity": "Stra\u00dfenintensit\u00e4t (%)",
+            "Base_ShowCountryNames": "L\u00e4ndernamen",
+            "Base_ShowPlaces": "Ortsnamen",
+            "Base_ShowRoads": "Hauptstra\u00dfen",
+            "Base_Style": "Stil",
+            "Bubble_BorderColor": "Umriss",
+            "Bubble_BorderWidth": "Umrissbreite",
+            "Bubble_Color": "Feste Farbe",
+            "Bubble_ColorMode": "Blasenfarbe",
+            "Bubble_MaxRadius": "Maximaler Radius (px)",
+            "Bubble_MinRadius": "Minimaler Radius (px)",
+            "Bubble_Opacity": "Deckkraft (%)",
+            "Card_Area": "Fl\u00e4chen und Farben",
+            "Card_Basemap": "Basiskarte",
+            "Card_Bubble": "Blasen",
+            "Card_CategoryColors": "Legendenfarben",
+            "Card_Donut": "Ringe (mit Legende)",
+            "Card_Labels": "Datenbeschriftungen",
+            "Card_Legend": "Legende",
+            "Card_Map": "Karte",
+            "Card_Selection": "Auswahl",
+            "Common_FontColor": "Textfarbe",
+            "Common_FontSize": "Textgr\u00f6\u00dfe",
+            "Common_Show": "Anzeigen",
+            "Donut_AreaDonut": "Ring in der Fl\u00e4chenmitte",
+            "Donut_AreaDonutSize": "Radius des Fl\u00e4chenrings (px)",
+            "Donut_Hole": "Gr\u00f6\u00dfe des Mittellochs (%)",
+            "Donut_Hole_Desc": "0 % = volles Kreisdiagramm; 90 % = d\u00fcnner Ring.",
+            "Donut_Max": "Maximale Anzahl Ringe (gr\u00f6\u00dfte zuerst)",
+            "Donut_Max_Desc": "Nur die Orte mit den h\u00f6chsten Werten erhalten einen Ring; die \u00fcbrigen behalten eine einfache Blase (oder nur die Fl\u00e4chenfarbe). 0 = alle.",
+            "Donut_Show": "Ringe anzeigen",
+            "Donut_SliceBorderColor": "Segmenttrenner",
+            "Donut_SliceBorderWidth": "Trennerbreite",
+            "Labels_AutoHide": "Bei \u00dcberlappung ausblenden",
+            "Labels_Content": "Inhalt",
+            "Labels_Decimals": "Dezimalstellen",
+            "Labels_Halo": "Wei\u00dfer Textschein",
+            "Labels_Units": "Anzeigeeinheiten",
+            "Legend_Position": "Position",
+            "Legend_ShowTitle": "Titel",
+            "Map_CityMode": "Gemeindeansicht",
+            "Map_CityMode_Desc": "Fl\u00e4che: Jede Stadt wird ihrer Gemeinde zugeordnet, die Werte werden summiert und die ganze Gemeinde eingef\u00e4rbt. Blase: eine Blase pro Stadt.",
+            "Map_CityStart": "\u00d6ffnen mit",
+            "Map_CityStart_Desc": "Zuerst angezeigte Ansicht. Die Schaltfl\u00e4chen auf der Karte wechseln zwischen L\u00e4ndern, Bezirken und (bei einem ausgew\u00e4hlten Land oder ausgew\u00e4hlten Bezirken) Gemeinden.",
+            "Map_ContextBorder": "Rahmen der Nachbarn",
+            "Map_ContextColor": "Farbe der Nachbarn",
+            "Map_CountryMode": "L\u00e4nderansicht",
+            "Map_DefaultCountry": "Standardland (St\u00e4dte / Postleitzahlen)",
+            "Map_DefaultCountry_Desc": "ISO2-Code (z. B. DE), der f\u00fcr alle St\u00e4dte verwendet wird, wenn die Spalte Land nicht genutzt wird (Daten eines einzigen Landes). Leer = automatisch.",
+            "Map_DistrictMode": "Bezirksansicht",
+            "Map_EnableZoom": "Zoomen und Verschieben mit der Maus",
+            "Map_ShowContext": "Nachbarn anzeigen (Kontext)",
+            "Map_ShowReset": "Schaltfl\u00e4che Zoom zur\u00fccksetzen",
+            "Opt_Basemap_Dark": "Dunkel",
+            "Opt_Basemap_Grey": "Grau",
+            "Opt_Basemap_Light": "Hell (Stra\u00dfenstil)",
+            "Opt_Basemap_None": "Keine (nur Formen)",
+            "Opt_BubbleColor_Fixed": "Feste Farbe",
+            "Opt_BubbleColor_Gradient": "Farbverlauf (Wert)",
+            "Opt_CityStart_Country": "L\u00e4nder",
+            "Opt_CityStart_District": "Bezirke / Regionen",
+            "Opt_Colors_2": "2 Farben",
+            "Opt_Colors_3": "3 Farben",
+            "Opt_Colors_4": "4 Farben",
+            "Opt_Content_Both": "Name und Wert",
+            "Opt_Content_Name": "Name",
+            "Opt_Content_Value": "Wert",
+            "Opt_Density_High": "Hoch",
+            "Opt_Density_Low": "Niedrig",
+            "Opt_Density_Medium": "Mittel",
+            "Opt_Interaction_Filter": "Seite filtern",
+            "Opt_Interaction_Highlight": "Hervorheben (Power BI-Standard)",
+            "Opt_Mode_Area": "Fl\u00e4che",
+            "Opt_Mode_Both": "Fl\u00e4che + Blase",
+            "Opt_Mode_Bubble": "Blase",
+            "Opt_Neg_Diverging": "Divergierend (negativ \u2190 0 \u2192 Skala)",
+            "Opt_Neg_Own": "Eigene Farbe",
+            "Opt_Neg_Scale": "Teil der Skala",
+            "Opt_Position_Bottom": "Unten",
+            "Opt_Position_Top": "Oben",
+            "Opt_Scale_Clip": "Linear mit Perzentil-Kappung",
+            "Opt_Scale_Linear": "Linear (Wert)",
+            "Opt_Scale_Log": "Logarithmisch",
+            "Opt_Scale_Quantile": "Klassen mit gleicher Anzahl (Quantile)",
+            "Opt_Scale_Rank": "Nach Rang (stetiges Perzentil)",
+            "Opt_Scope_All": "Alle",
+            "Opt_Scope_Country": "Land",
+            "Opt_Scope_District": "Bezirk / Region",
+            "Opt_Scope_Municipality": "Gemeinde",
+            "Opt_Units_Auto": "Automatisch",
+            "Opt_Units_Billions": "Milliarden (Mrd.)",
+            "Opt_Units_Millions": "Millionen (Mio.)",
+            "Opt_Units_None": "Keine",
+            "Opt_Units_Thousands": "Tausend (Tsd.)",
+            "Role_Color": "Wert (Farbe)",
+            "Role_Color_Desc": "Measure, das die Farbskala von Fl\u00e4chen und Blasen bestimmt.",
+            "Role_CountryGroup": "Land",
+            "Role_CountryGroup_Desc": "L\u00e4nderspalte derselben Tabelle (z. B. Dim[Land], Name oder ISO2/ISO3). Jede Stadt wird innerhalb ihres Landes gelesen, sodass gleichnamige St\u00e4dte in verschiedenen L\u00e4ndern getrennt bleiben.",
+            "Role_LatLon_Desc": "Explizites Measure (z. B. AVERAGE/SELECTEDVALUE). Wird f\u00fcr die Ebene unter der Stadt (Kunde, Filiale, Postleitzahl) und als Ersatz verwendet, wenn eine Stadt nicht gefunden wird.",
+            "Role_Latitude": "Breitengrad (unterste Ebene)",
+            "Role_Legend": "Detail (Legende)",
+            "Role_Legend_Desc": "Optional. Teilt jede Blase/Fl\u00e4che in einen Ring mit einem Segment pro Kategorie.",
+            "Role_Location": "Stadt",
+            "Role_Location_Desc": "Stadt jeder Zeile (optional eine zweite Ebene darunter: Postleitzahl oder Kunde/Filiale mit Breiten-/L\u00e4ngengrad). Die Karte fasst die St\u00e4dte zu L\u00e4ndern, Bezirken und Gemeinden zusammen.",
+            "Role_Longitude": "L\u00e4ngengrad (unterste Ebene)",
+            "Role_PostalCode": "Postleitzahl (optional)",
+            "Role_PostalCode_Desc": "Measure, das die Postleitzahl zur\u00fcckgibt; damit werden die St\u00e4dte und die Ebene unter der Stadt platziert. Alternativ die Postleitzahlspalte als zweite Ebene von Stadt einf\u00fcgen.",
+            "Role_Size": "Gr\u00f6\u00dfe",
+            "Role_Size_Desc": "Measure, das die Blasengr\u00f6\u00dfe bestimmt. Wenn leer, wird Wert (Farbe) verwendet.",
+            "Role_Tooltips": "QuickInfos",
+            "Rt_Agglomerates": "Zusammengefasste Gemeinden",
+            "Rt_AndMore": "\u2026 und {0} weitere",
+            "Rt_AriaSummary": "Karte von {0}: {1} Orte",
+            "Rt_Blank": "(Leer)",
+            "Rt_ClearAll": "Auswahl, Filter und Zonen l\u00f6schen",
+            "Rt_ClearZones": "Gezeichnete Zonen l\u00f6schen",
+            "Rt_ClickForList": "Klicken, um die Liste zu sehen",
+            "Rt_Close": "Schlie\u00dfen",
+            "Rt_Country": "Land",
+            "Rt_Detail": "Detail",
+            "Rt_District": "Bezirk / Provinz",
+            "Rt_Donuts_Tip": "Ringe ein-/ausblenden (Detail)",
+            "Rt_DrawZone": "Auswahlzone zeichnen",
+            "Rt_DrawZone_Tip": "Eine Auswahlzone zeichnen (zum Zeichnen ziehen; jede Zone erweitert die Auswahl; Esc bricht ab)",
+            "Rt_Error": "Fehler: {0}",
+            "Rt_Filter": "Filter",
+            "Rt_Labels_Tip": "Datenbeschriftungen ein-/ausblenden",
+            "Rt_Landing1": "F\u00fcgen Sie die Stadtspalte in \u201eStadt\u201c, die L\u00e4nderspalte in \u201eLand\u201c und ein Measure in \u201eWert (Farbe)\u201c ein.",
+            "Rt_Landing2": "Optional: \u201eGr\u00f6\u00dfe\u201c, \u201eDetail (Legende)\u201c, \u201ePostleitzahl\u201c, Breiten-/L\u00e4ngengrad und QuickInfos.",
+            "Rt_LegendClip": "(gekappt {0}, Werte au\u00dferhalb werden ges\u00e4ttigt)",
+            "Rt_LegendLog": "(logarithmisch)",
+            "Rt_LegendRank": "(nach Rang \u00b7 Median {0})",
+            "Rt_Level": "Ebene: {0}",
+            "Rt_Localities": "Orte in den Daten",
+            "Rt_LocatedByPostal": "Per Postleitzahl platziert",
+            "Rt_Location": "Ort",
+            "Rt_Municipality": "Gemeinde",
+            "Rt_NeedCountryCol": "\u26a0 F\u00fcgen Sie die L\u00e4nderspalte in \u201eLand\u201c ein: ohne sie werden gleichnamige St\u00e4dte verschiedener L\u00e4nder zusammen summiert und gefiltert.",
+            "Rt_Negative": "< 0 (negativ)",
+            "Rt_NoData": "Keine Daten",
+            "Rt_NotFound1": "1 Ort nicht gefunden",
+            "Rt_NotFoundClick": "Klicken, um ihn in den anderen Visuals auszuw\u00e4hlen (Strg+Klick f\u00fcgt hinzu)",
+            "Rt_NotFoundN": "{0} Orte nicht gefunden",
+            "Rt_NotFoundSelectAll": "Alle ausw\u00e4hlen",
+            "Rt_NotFoundTip": "Tipp: Klicken Sie auf einen Ort, um ihn in den anderen Visuals zu sehen; verwenden Sie die Spalte Land und ein Postleitzahl-Measure oder legen Sie das Standardland unter Karte fest.",
+            "Rt_ResetZoom": "Zoom zur\u00fccksetzen",
+            "Rt_Search_Contains": "Enth\u00e4lt",
+            "Rt_Search_EndsWith": "Endet mit",
+            "Rt_Search_Equals": "Ist gleich",
+            "Rt_Search_NotContains": "Enth\u00e4lt nicht",
+            "Rt_Search_Op": "Suchoperator",
+            "Rt_Search_Placeholder": "Suchen\u2026 (Eingabe)",
+            "Rt_Search_PressEnter": "Eingabetaste zum Filtern dr\u00fccken",
+            "Rt_Search_Scope": "Suchen in",
+            "Rt_Search_StartsWith": "Beginnt mit",
+            "Rt_Selection": "Auswahl",
+            "Rt_ShareOfTotal": "{0} % der Summe",
+            "Rt_ShowAll": "Alle anzeigen",
+            "Rt_ShowAllLevel": "Alle auf dieser Ebene anzeigen",
+            "Rt_ViewCountries": "L\u00e4nder",
+            "Rt_ViewDistrictsW": "Bezirke / Regionen",
+            "Rt_ViewMunicipalities": "Gemeinden",
+            "Rt_ViewMunicipalities_Tip": "Gemeinden anzeigen (der ausgew\u00e4hlten Bezirke, falls vorhanden)",
+            "Rt_WarnCountryTitle": "L\u00e4nderspalte fehlt",
+            "Rt_WarnUnmatchedTitle": "Orte nicht gefunden",
+            "Rt_Zone1": "1 Zone",
+            "Rt_ZoneN": "{0} Zonen",
+            "Rt_ZoomIn": "Vergr\u00f6\u00dfern",
+            "Rt_ZoomOut": "Verkleinern",
+            "Sel_BorderColor": "Umriss der Auswahl",
+            "Sel_BorderWidth": "Umrissbreite (px)",
+            "Sel_DimOpacity": "Deckkraft nicht ausgew\u00e4hlt (%)",
+            "Sel_Interaction": "Bei Auswahl",
+            "Sel_Interaction_Desc": "Filtern: Die Auswahl (Klick, Umschalt/Strg+Klick, gezeichnete Zonen) filtert die anderen Visuals der Seite wie ein Datenschnitt. Hervorheben: Standardverhalten von Power BI.",
+            "Sel_SearchScope": "Suchen in",
+            "Sel_SearchScope_Desc": "Feld, in dem das Suchfeld standardm\u00e4\u00dfig sucht: alles, Land, Bezirk / Region oder Gemeinde. Kann auf der Karte ge\u00e4ndert werden.",
+            "Sel_ShowSearch": "Suchfeld",
+            "Sel_ShowSearch_Desc": "Suchfeld auf der Karte: w\u00e4hlen Sie, wo gesucht wird (alle, Land, Bezirk, Gemeinde) und wie (enth\u00e4lt, enth\u00e4lt nicht, beginnt mit, endet mit, ist). Mit der Eingabetaste werden die gefundenen Orte gefiltert."
+        },
+        "en-US": {
+            "Area_AutoMid": "Automatic midpoint",
+            "Area_AutoRange": "Automatic min/max",
+            "Area_BorderColor": "Border color",
+            "Area_BorderWidth": "Border width",
+            "Area_Classes": "Number of classes",
+            "Area_Colors": "Number of colors",
+            "Area_FxFill": "Color by rule (fx)",
+            "Area_FxFill_Desc": "Use the fx button for rule- or field-based colors. Overrides the gradient.",
+            "Area_LineIntensity": "Line intensity (%)",
+            "Area_LineIntensity_Desc": "Opacity of every border line: area borders and district, municipality and country borders.",
+            "Area_MaxColor": "Maximum color",
+            "Area_Mid2Color": "Middle color 2",
+            "Area_MidColor": "Middle color",
+            "Area_MidValue": "Midpoint",
+            "Area_MinColor": "Minimum color",
+            "Area_NegativeColor": "Negative color",
+            "Area_NegativeMode": "Negative values",
+            "Area_NegativeMode_Desc": "Own color: negatives (returns, credits) get one color and the scale covers 0 to max. Diverging: shades of that color down to the most negative value. Part of the scale: negatives are the low end of the scale.",
+            "Area_NoDataColor": "No-data color",
+            "Area_Opacity": "Area opacity (%)",
+            "Area_PHigh": "Upper clip (percentile)",
+            "Area_PLow": "Lower clip (percentile)",
+            "Area_RangeMax": "Maximum",
+            "Area_RangeMin": "Minimum",
+            "Area_ScaleType": "Color scale",
+            "Area_ScaleType_Desc": "For very uneven values (e.g. one country with 80% of the total) use Logarithmic, By rank or Classes.",
+            "Base_PlaceDensity": "Name density",
+            "Base_PlaceFontSize": "Name size",
+            "Base_PlacesPerArea": "Cities per area (countries / districts views)",
+            "Base_PlacesPerArea_Desc": "Most populated place names shown in each country (country view) or district (district view). 0 hides them; the municipality view uses the name density.",
+            "Base_RoadIntensity": "Road intensity (%)",
+            "Base_ShowCountryNames": "Country names",
+            "Base_ShowPlaces": "Place names",
+            "Base_ShowRoads": "Main roads",
+            "Base_Style": "Style",
+            "Bubble_BorderColor": "Outline",
+            "Bubble_BorderWidth": "Outline width",
+            "Bubble_Color": "Fixed color",
+            "Bubble_ColorMode": "Bubble color",
+            "Bubble_MaxRadius": "Maximum radius (px)",
+            "Bubble_MinRadius": "Minimum radius (px)",
+            "Bubble_Opacity": "Opacity (%)",
+            "Card_Area": "Areas and colors",
+            "Card_Basemap": "Basemap",
+            "Card_Bubble": "Bubbles",
+            "Card_CategoryColors": "Legend colors",
+            "Card_Donut": "Donuts (with legend)",
+            "Card_Labels": "Data labels",
+            "Card_Legend": "Legend",
+            "Card_Map": "Map",
+            "Card_Selection": "Selection",
+            "Common_FontColor": "Text color",
+            "Common_FontSize": "Text size",
+            "Common_Show": "Show",
+            "Donut_AreaDonut": "Donut at area center",
+            "Donut_AreaDonutSize": "Area donut radius (px)",
+            "Donut_Hole": "Center hole size (%)",
+            "Donut_Hole_Desc": "0% = full pie; 90% = thin ring.",
+            "Donut_Max": "Maximum donuts (largest first)",
+            "Donut_Max_Desc": "Only the largest locations get a donut; the others keep a plain bubble (or just the area color). 0 = all.",
+            "Donut_Show": "Show donuts",
+            "Donut_SliceBorderColor": "Slice separator",
+            "Donut_SliceBorderWidth": "Separator width",
+            "Labels_AutoHide": "Hide when overlapping",
+            "Labels_Content": "Content",
+            "Labels_Decimals": "Decimal places",
+            "Labels_Halo": "White text halo",
+            "Labels_Units": "Display units",
+            "Legend_Position": "Position",
+            "Legend_ShowTitle": "Title",
+            "Map_CityMode": "Municipalities view",
+            "Map_CityMode_Desc": "Area: each city is placed in its municipality, values are summed and the whole municipality is colored. Bubble: one bubble per city.",
+            "Map_CityStart": "Opens on",
+            "Map_CityStart_Desc": "View shown first. The buttons on the map switch between countries, districts and (for one selected country or selected districts) municipalities.",
+            "Map_ContextBorder": "Neighbour border",
+            "Map_ContextColor": "Neighbour color",
+            "Map_CountryMode": "Countries view",
+            "Map_DefaultCountry": "Default country (cities / postal codes)",
+            "Map_DefaultCountry_Desc": "ISO2 code (e.g. PT) used for every city when the Country column is not used (single-country data). Empty = automatic.",
+            "Map_DistrictMode": "Districts view",
+            "Map_EnableZoom": "Mouse zoom and pan",
+            "Map_ShowContext": "Show neighbours (context)",
+            "Map_ShowReset": "Reset zoom button",
+            "Opt_Basemap_Dark": "Dark",
+            "Opt_Basemap_Grey": "Grey",
+            "Opt_Basemap_Light": "Light (road style)",
+            "Opt_Basemap_None": "None (shapes only)",
+            "Opt_BubbleColor_Fixed": "Fixed color",
+            "Opt_BubbleColor_Gradient": "Gradient (value)",
+            "Opt_CityStart_Country": "Countries",
+            "Opt_CityStart_District": "Districts / regions",
+            "Opt_Colors_2": "2 colors",
+            "Opt_Colors_3": "3 colors",
+            "Opt_Colors_4": "4 colors",
+            "Opt_Content_Both": "Name and value",
+            "Opt_Content_Name": "Name",
+            "Opt_Content_Value": "Value",
+            "Opt_Density_High": "High",
+            "Opt_Density_Low": "Low",
+            "Opt_Density_Medium": "Medium",
+            "Opt_Interaction_Filter": "Filter the page",
+            "Opt_Interaction_Highlight": "Highlight (Power BI default)",
+            "Opt_Mode_Area": "Area",
+            "Opt_Mode_Both": "Area + bubble",
+            "Opt_Mode_Bubble": "Bubble",
+            "Opt_Neg_Diverging": "Diverging (negative \u2190 0 \u2192 scale)",
+            "Opt_Neg_Own": "Own color",
+            "Opt_Neg_Scale": "Part of the scale",
+            "Opt_Position_Bottom": "Bottom",
+            "Opt_Position_Top": "Top",
+            "Opt_Scale_Clip": "Linear with percentile clipping",
+            "Opt_Scale_Linear": "Linear (value)",
+            "Opt_Scale_Log": "Logarithmic",
+            "Opt_Scale_Quantile": "Classes with equal counts (quantiles)",
+            "Opt_Scale_Rank": "By rank (continuous percentile)",
+            "Opt_Scope_All": "All",
+            "Opt_Scope_Country": "Country",
+            "Opt_Scope_District": "District / region",
+            "Opt_Scope_Municipality": "Municipality",
+            "Opt_Units_Auto": "Auto",
+            "Opt_Units_Billions": "Billions (B)",
+            "Opt_Units_Millions": "Millions (M)",
+            "Opt_Units_None": "None",
+            "Opt_Units_Thousands": "Thousands (K)",
+            "Role_Color": "Value (color)",
+            "Role_Color_Desc": "Measure that drives the color scale of areas and bubbles.",
+            "Role_CountryGroup": "Country",
+            "Role_CountryGroup_Desc": "Country column of the same table (e.g. Dim[Country], name or ISO2/ISO3). Each city is read inside its own country, so cities with the same name in different countries stay separate.",
+            "Role_LatLon_Desc": "Explicit measure (e.g. AVERAGE/SELECTEDVALUE). Used for the level below the city (customer, store, postal code) and as a fallback when a city is not found.",
+            "Role_Latitude": "Latitude (lowest level)",
+            "Role_Legend": "Detail (legend)",
+            "Role_Legend_Desc": "Optional. Splits each bubble/area into a donut with one slice per category.",
+            "Role_Location": "City",
+            "Role_Location_Desc": "City of each row (optionally a second level below it: postal code, or customer/store with Latitude/Longitude). The map aggregates the cities into countries, districts and municipalities.",
+            "Role_Longitude": "Longitude (lowest level)",
+            "Role_PostalCode": "Postal code (optional)",
+            "Role_PostalCode_Desc": "Measure returning the postal code, used to place cities whose name is not found and the level below the city. Alternatively put the postal code column as the last Location level.",
+            "Role_Size": "Size",
+            "Role_Size_Desc": "Measure that drives bubble size. When empty, Value (color) is used.",
+            "Role_Tooltips": "Tooltips",
+            "Rt_Agglomerates": "Municipalities in this area",
+            "Rt_AndMore": "\u2026 and {0} more",
+            "Rt_AriaSummary": "Map of {0}: {1} locations",
+            "Rt_Blank": "(Blank)",
+            "Rt_ClearAll": "Clear selection, filter and zones",
+            "Rt_ClearZones": "Clear drawn zones",
+            "Rt_ClickForList": "Click to see the list",
+            "Rt_Close": "Close",
+            "Rt_Country": "Country",
+            "Rt_Detail": "Detail",
+            "Rt_District": "District / province",
+            "Rt_Donuts_Tip": "Show / hide donuts (Detail)",
+            "Rt_DrawZone": "Draw selection zone",
+            "Rt_DrawZone_Tip": "Draw a selection zone (drag to draw; each zone adds to the selection; Esc cancels)",
+            "Rt_Error": "Error: {0}",
+            "Rt_Filter": "Filter",
+            "Rt_Labels_Tip": "Show / hide data labels",
+            "Rt_Landing1": "Add the City column to \u201cCity\u201d, the Country column to \u201cCountry\u201d and a measure to \u201cValue (color)\u201d.",
+            "Rt_Landing2": "Optional: \u201cSize\u201d, \u201cDetail (legend)\u201d, \u201cPostal code\u201d, Latitude/Longitude and Tooltips.",
+            "Rt_LegendClip": "(clipped {0}, values outside saturate)",
+            "Rt_LegendLog": "(logarithmic)",
+            "Rt_LegendRank": "(by rank \u00b7 median {0})",
+            "Rt_Level": "Level: {0}",
+            "Rt_Localities": "Locations in the data",
+            "Rt_LocatedByPostal": "Located by postal code",
+            "Rt_Location": "Location",
+            "Rt_Municipality": "Municipality",
+            "Rt_NeedCountryCol": "\u26a0 Put the country column in \u201cCountry\u201d: without it, cities with the same name in different countries are summed and filtered together.",
+            "Rt_Negative": "< 0 (negative)",
+            "Rt_NoData": "No data",
+            "Rt_NotFound1": "1 location not found",
+            "Rt_NotFoundClick": "Click to select it in the other visuals (Ctrl+click adds)",
+            "Rt_NotFoundN": "{0} locations not found",
+            "Rt_NotFoundSelectAll": "Select all",
+            "Rt_NotFoundTip": "Tip: click a location to see it in the other visuals; add the Country column and a Postal code measure, or set the Default country in Map.",
+            "Rt_ResetZoom": "Reset zoom",
+            "Rt_Search_Contains": "Contains",
+            "Rt_Search_EndsWith": "Ends with",
+            "Rt_Search_Equals": "Is",
+            "Rt_Search_NotContains": "Does not contain",
+            "Rt_Search_Op": "Search operator",
+            "Rt_Search_Placeholder": "Search\u2026 (Enter)",
+            "Rt_Search_PressEnter": "Press Enter to filter",
+            "Rt_Search_Scope": "Search in",
+            "Rt_Search_StartsWith": "Starts with",
+            "Rt_Selection": "Selection",
+            "Rt_ShareOfTotal": "{0}% of total",
+            "Rt_ShowAll": "Show all",
+            "Rt_ShowAllLevel": "Show all at this level",
+            "Rt_ViewCountries": "Countries",
+            "Rt_ViewDistrictsW": "Districts / regions",
+            "Rt_ViewMunicipalities": "Municipalities",
+            "Rt_ViewMunicipalities_Tip": "Show municipalities (of the selected districts, if any)",
+            "Rt_WarnCountryTitle": "Country column missing",
+            "Rt_WarnUnmatchedTitle": "Locations not found",
+            "Rt_Zone1": "1 zone",
+            "Rt_ZoneN": "{0} zones",
+            "Rt_ZoomIn": "Zoom in",
+            "Rt_ZoomOut": "Zoom out",
+            "Sel_BorderColor": "Selected outline",
+            "Sel_BorderWidth": "Outline width (px)",
+            "Sel_DimOpacity": "Unselected opacity (%)",
+            "Sel_Interaction": "On selection",
+            "Sel_Interaction_Desc": "Filter: the selection (click, Shift/Ctrl+click, drawn zones) filters the other visuals on the page, like a slicer. Highlight: standard Power BI behavior.",
+            "Sel_SearchScope": "Search in",
+            "Sel_SearchScope_Desc": "Default field the search box looks in: everything, the country, the district / region or the municipality. It can be changed on the map.",
+            "Sel_ShowSearch": "Search box",
+            "Sel_ShowSearch_Desc": "Search field on the map: choose where to search (all, country, district, municipality) and how (contains, does not contain, starts with, ends with, is). Press Enter to filter the matching locations."
+        },
+        "es-ES": {
+            "Area_AutoMid": "Punto medio autom\u00e1tico",
+            "Area_AutoRange": "M\u00edn./m\u00e1x. autom\u00e1tico",
+            "Area_BorderColor": "Color del borde",
+            "Area_BorderWidth": "Ancho del borde",
+            "Area_Classes": "N\u00famero de clases",
+            "Area_Colors": "N\u00famero de colores",
+            "Area_FxFill": "Color por regla (fx)",
+            "Area_FxFill_Desc": "Use el bot\u00f3n fx para colores por regla o por campo. Sustituye al degradado.",
+            "Area_LineIntensity": "Intensidad de las l\u00edneas (%)",
+            "Area_LineIntensity_Desc": "Opacidad de todas las l\u00edneas de frontera: borde de las \u00e1reas y fronteras de distritos, municipios y pa\u00edses.",
+            "Area_MaxColor": "Color m\u00e1ximo",
+            "Area_Mid2Color": "Color intermedio 2",
+            "Area_MidColor": "Color intermedio",
+            "Area_MidValue": "Punto medio",
+            "Area_MinColor": "Color m\u00ednimo",
+            "Area_NegativeColor": "Color de los negativos",
+            "Area_NegativeMode": "Valores negativos",
+            "Area_NegativeMode_Desc": "Color propio: los negativos (devoluciones, abonos) tienen un color y la escala va de 0 al m\u00e1ximo. Divergente: tonos de ese color hasta el valor m\u00e1s negativo. Parte de la escala: los negativos son el inicio de la escala.",
+            "Area_NoDataColor": "Color sin datos",
+            "Area_Opacity": "Opacidad de las \u00e1reas (%)",
+            "Area_PHigh": "Recorte superior (percentil)",
+            "Area_PLow": "Recorte inferior (percentil)",
+            "Area_RangeMax": "M\u00e1ximo",
+            "Area_RangeMin": "M\u00ednimo",
+            "Area_ScaleType": "Escala de color",
+            "Area_ScaleType_Desc": "Para valores muy desiguales (p. ej. un pa\u00eds con el 80% del total) use Logar\u00edtmica, Por rango o Clases.",
+            "Base_PlaceDensity": "Densidad de nombres",
+            "Base_PlaceFontSize": "Tama\u00f1o de los nombres",
+            "Base_PlacesPerArea": "Ciudades por \u00e1rea (vistas pa\u00edses / distritos)",
+            "Base_PlacesPerArea_Desc": "Nombres de las localidades m\u00e1s pobladas en cada pa\u00eds (vista pa\u00edses) o distrito (vista distritos). 0 los oculta; la vista municipios usa la densidad de nombres.",
+            "Base_RoadIntensity": "Intensidad de las carreteras (%)",
+            "Base_ShowCountryNames": "Nombres de pa\u00edses",
+            "Base_ShowPlaces": "Nombres de lugares",
+            "Base_ShowRoads": "Carreteras principales",
+            "Base_Style": "Estilo",
+            "Bubble_BorderColor": "Contorno",
+            "Bubble_BorderWidth": "Ancho del contorno",
+            "Bubble_Color": "Color fijo",
+            "Bubble_ColorMode": "Color de las burbujas",
+            "Bubble_MaxRadius": "Radio m\u00e1ximo (px)",
+            "Bubble_MinRadius": "Radio m\u00ednimo (px)",
+            "Bubble_Opacity": "Opacidad (%)",
+            "Card_Area": "\u00c1reas y colores",
+            "Card_Basemap": "Mapa base",
+            "Card_Bubble": "Burbujas",
+            "Card_CategoryColors": "Colores de la leyenda",
+            "Card_Donut": "Anillos (con leyenda)",
+            "Card_Labels": "Etiquetas de datos",
+            "Card_Legend": "Leyenda",
+            "Card_Map": "Mapa",
+            "Card_Selection": "Selecci\u00f3n",
+            "Common_FontColor": "Color del texto",
+            "Common_FontSize": "Tama\u00f1o del texto",
+            "Common_Show": "Mostrar",
+            "Donut_AreaDonut": "Anillo en el centro del \u00e1rea",
+            "Donut_AreaDonutSize": "Radio del anillo del \u00e1rea (px)",
+            "Donut_Hole": "Tama\u00f1o del hueco central (%)",
+            "Donut_Hole_Desc": "0% = gr\u00e1fico circular completo; 90% = anillo fino.",
+            "Donut_Max": "M\u00e1ximo de anillos (los mayores primero)",
+            "Donut_Max_Desc": "Solo las ubicaciones con mayor valor tienen anillo; las dem\u00e1s mantienen una burbuja simple (o solo el color del \u00e1rea). 0 = todas.",
+            "Donut_Show": "Mostrar anillos",
+            "Donut_SliceBorderColor": "Separador de sectores",
+            "Donut_SliceBorderWidth": "Ancho del separador",
+            "Labels_AutoHide": "Ocultar si se superponen",
+            "Labels_Content": "Contenido",
+            "Labels_Decimals": "Decimales",
+            "Labels_Halo": "Halo blanco en el texto",
+            "Labels_Units": "Unidades de visualizaci\u00f3n",
+            "Legend_Position": "Posici\u00f3n",
+            "Legend_ShowTitle": "T\u00edtulo",
+            "Map_CityMode": "Vista municipios",
+            "Map_CityMode_Desc": "\u00c1rea: cada ciudad se ubica en su municipio, los valores se suman y se colorea todo el municipio. Burbuja: una burbuja por ciudad.",
+            "Map_CityStart": "Abrir en",
+            "Map_CityStart_Desc": "Vista mostrada primero. Los botones del mapa alternan entre pa\u00edses, distritos y (con un pa\u00eds o distritos seleccionados) municipios.",
+            "Map_ContextBorder": "Borde de los vecinos",
+            "Map_ContextColor": "Color de los vecinos",
+            "Map_CountryMode": "Vista pa\u00edses",
+            "Map_DefaultCountry": "Pa\u00eds predeterminado (ciudades / c\u00f3digos postales)",
+            "Map_DefaultCountry_Desc": "C\u00f3digo ISO2 (p. ej. ES) usado para todas las ciudades cuando no se usa la columna Pa\u00eds (datos de un solo pa\u00eds). Vac\u00edo = autom\u00e1tico.",
+            "Map_DistrictMode": "Vista distritos",
+            "Map_EnableZoom": "Zoom y desplazamiento con el rat\u00f3n",
+            "Map_ShowContext": "Mostrar vecinos (contexto)",
+            "Map_ShowReset": "Bot\u00f3n de restablecer zoom",
+            "Opt_Basemap_Dark": "Oscuro",
+            "Opt_Basemap_Grey": "Gris",
+            "Opt_Basemap_Light": "Claro (estilo carreteras)",
+            "Opt_Basemap_None": "Ninguno (solo formas)",
+            "Opt_BubbleColor_Fixed": "Color fijo",
+            "Opt_BubbleColor_Gradient": "Degradado (valor)",
+            "Opt_CityStart_Country": "Pa\u00edses",
+            "Opt_CityStart_District": "Distritos / regiones",
+            "Opt_Colors_2": "2 colores",
+            "Opt_Colors_3": "3 colores",
+            "Opt_Colors_4": "4 colores",
+            "Opt_Content_Both": "Nombre y valor",
+            "Opt_Content_Name": "Nombre",
+            "Opt_Content_Value": "Valor",
+            "Opt_Density_High": "Alta",
+            "Opt_Density_Low": "Baja",
+            "Opt_Density_Medium": "Media",
+            "Opt_Interaction_Filter": "Filtrar la p\u00e1gina",
+            "Opt_Interaction_Highlight": "Resaltar (est\u00e1ndar de Power BI)",
+            "Opt_Mode_Area": "\u00c1rea",
+            "Opt_Mode_Both": "\u00c1rea + burbuja",
+            "Opt_Mode_Bubble": "Burbuja",
+            "Opt_Neg_Diverging": "Divergente (negativo \u2190 0 \u2192 escala)",
+            "Opt_Neg_Own": "Color propio",
+            "Opt_Neg_Scale": "Parte de la escala",
+            "Opt_Position_Bottom": "Abajo",
+            "Opt_Position_Top": "Arriba",
+            "Opt_Scale_Clip": "Lineal con recorte por percentil",
+            "Opt_Scale_Linear": "Lineal (valor)",
+            "Opt_Scale_Log": "Logar\u00edtmica",
+            "Opt_Scale_Quantile": "Clases con igual n\u00famero (cuantiles)",
+            "Opt_Scale_Rank": "Por rango (percentil continuo)",
+            "Opt_Scope_All": "Todo",
+            "Opt_Scope_Country": "Pa\u00eds",
+            "Opt_Scope_District": "Provincia / regi\u00f3n",
+            "Opt_Scope_Municipality": "Municipio",
+            "Opt_Units_Auto": "Autom\u00e1tico",
+            "Opt_Units_Billions": "Miles de millones (B)",
+            "Opt_Units_Millions": "Millones (M)",
+            "Opt_Units_None": "Ninguna",
+            "Opt_Units_Thousands": "Miles (K)",
+            "Role_Color": "Valor (color)",
+            "Role_Color_Desc": "Medida que define la escala de color de \u00e1reas y burbujas.",
+            "Role_CountryGroup": "Pa\u00eds",
+            "Role_CountryGroup_Desc": "Columna del pa\u00eds de la misma tabla (p. ej. Dim[Pa\u00eds], nombre o ISO2/ISO3). Cada ciudad se lee dentro de su pa\u00eds y las ciudades con el mismo nombre en pa\u00edses distintos quedan separadas.",
+            "Role_LatLon_Desc": "Medida expl\u00edcita (p. ej. AVERAGE/SELECTEDVALUE). Se usa para el nivel bajo la ciudad (cliente, tienda, c\u00f3digo postal) y como alternativa cuando no se encuentra una ciudad.",
+            "Role_Latitude": "Latitud (nivel m\u00e1s bajo)",
+            "Role_Legend": "Detalle (leyenda)",
+            "Role_Legend_Desc": "Opcional. Divide cada burbuja/\u00e1rea en un anillo con un sector por categor\u00eda.",
+            "Role_Location": "Ciudad",
+            "Role_Location_Desc": "Ciudad de cada fila (opcionalmente un segundo nivel inferior: c\u00f3digo postal, o cliente/tienda con Latitud/Longitud). El mapa agrega las ciudades en pa\u00edses, distritos y municipios.",
+            "Role_Longitude": "Longitud (nivel m\u00e1s bajo)",
+            "Role_PostalCode": "C\u00f3digo postal (opcional)",
+            "Role_PostalCode_Desc": "Medida que devuelve el c\u00f3digo postal, usada para ubicar las ciudades y el nivel bajo la ciudad. Tambi\u00e9n puede poner la columna del c\u00f3digo postal como segundo nivel de Ciudad.",
+            "Role_Size": "Tama\u00f1o",
+            "Role_Size_Desc": "Medida que define el tama\u00f1o de las burbujas. Si est\u00e1 vac\u00eda se usa Valor (color).",
+            "Role_Tooltips": "Informaci\u00f3n sobre herramientas",
+            "Rt_Agglomerates": "Municipios agrupados",
+            "Rt_AndMore": "\u2026 y {0} m\u00e1s",
+            "Rt_AriaSummary": "Mapa de {0}: {1} ubicaciones",
+            "Rt_Blank": "(En blanco)",
+            "Rt_ClearAll": "Borrar selecci\u00f3n, filtro y zonas",
+            "Rt_ClearZones": "Borrar zonas dibujadas",
+            "Rt_ClickForList": "Haga clic para ver la lista",
+            "Rt_Close": "Cerrar",
+            "Rt_Country": "Pa\u00eds",
+            "Rt_Detail": "Detalle",
+            "Rt_District": "Distrito / provincia",
+            "Rt_Donuts_Tip": "Mostrar / ocultar anillos (Detalle)",
+            "Rt_DrawZone": "Dibujar zona de selecci\u00f3n",
+            "Rt_DrawZone_Tip": "Dibujar una zona de selecci\u00f3n (arrastre para dibujar; cada zona se suma a la selecci\u00f3n; Esc cancela)",
+            "Rt_Error": "Error: {0}",
+            "Rt_Filter": "Filtro",
+            "Rt_Labels_Tip": "Mostrar / ocultar etiquetas de datos",
+            "Rt_Landing1": "Ponga la columna de la ciudad en \u00abCiudad\u00bb, la del pa\u00eds en \u00abPa\u00eds\u00bb y una medida en \u00abValor (color)\u00bb.",
+            "Rt_Landing2": "Opcional: \u00abTama\u00f1o\u00bb, \u00abDetalle (leyenda)\u00bb, \u00abC\u00f3digo postal\u00bb, Latitud/Longitud e informaci\u00f3n sobre herramientas.",
+            "Rt_LegendClip": "(recortado {0}, los valores fuera se saturan)",
+            "Rt_LegendLog": "(logar\u00edtmica)",
+            "Rt_LegendRank": "(por rango \u00b7 mediana {0})",
+            "Rt_Level": "Nivel: {0}",
+            "Rt_Localities": "Ubicaciones en los datos",
+            "Rt_LocatedByPostal": "Ubicado por c\u00f3digo postal",
+            "Rt_Location": "Ubicaci\u00f3n",
+            "Rt_Municipality": "Municipio",
+            "Rt_NeedCountryCol": "\u26a0 Ponga la columna del pa\u00eds en \u00abPa\u00eds\u00bb: sin ella, las ciudades con el mismo nombre en pa\u00edses distintos se suman y filtran juntas.",
+            "Rt_Negative": "< 0 (negativo)",
+            "Rt_NoData": "Sin datos",
+            "Rt_NotFound1": "1 ubicaci\u00f3n no encontrada",
+            "Rt_NotFoundClick": "Haga clic para seleccionarlo en los dem\u00e1s objetos visuales (Ctrl+clic a\u00f1ade)",
+            "Rt_NotFoundN": "{0} ubicaciones no encontradas",
+            "Rt_NotFoundSelectAll": "Seleccionar todos",
+            "Rt_NotFoundTip": "Consejo: haga clic en una ubicaci\u00f3n para verla en los dem\u00e1s objetos visuales; use la columna Pa\u00eds y una medida de C\u00f3digo postal, o defina el Pa\u00eds predeterminado en Mapa.",
+            "Rt_ResetZoom": "Restablecer zoom",
+            "Rt_Search_Contains": "Contiene",
+            "Rt_Search_EndsWith": "Termina en",
+            "Rt_Search_Equals": "Es igual a",
+            "Rt_Search_NotContains": "No contiene",
+            "Rt_Search_Op": "Operador de b\u00fasqueda",
+            "Rt_Search_Placeholder": "Buscar\u2026 (Intro)",
+            "Rt_Search_PressEnter": "Pulse Intro para filtrar",
+            "Rt_Search_Scope": "Buscar en",
+            "Rt_Search_StartsWith": "Empieza por",
+            "Rt_Selection": "Selecci\u00f3n",
+            "Rt_ShareOfTotal": "{0}% del total",
+            "Rt_ShowAll": "Mostrar todo",
+            "Rt_ShowAllLevel": "Mostrar todo en este nivel",
+            "Rt_ViewCountries": "Pa\u00edses",
+            "Rt_ViewDistrictsW": "Distritos / regiones",
+            "Rt_ViewMunicipalities": "Municipios",
+            "Rt_ViewMunicipalities_Tip": "Mostrar los municipios (de los distritos seleccionados, si los hay)",
+            "Rt_WarnCountryTitle": "Falta la columna del pa\u00eds",
+            "Rt_WarnUnmatchedTitle": "Ubicaciones no encontradas",
+            "Rt_Zone1": "1 zona",
+            "Rt_ZoneN": "{0} zonas",
+            "Rt_ZoomIn": "Acercar",
+            "Rt_ZoomOut": "Alejar",
+            "Sel_BorderColor": "Contorno de la selecci\u00f3n",
+            "Sel_BorderWidth": "Ancho del contorno (px)",
+            "Sel_DimOpacity": "Opacidad no seleccionado (%)",
+            "Sel_Interaction": "Al seleccionar",
+            "Sel_Interaction_Desc": "Filtrar: la selecci\u00f3n (clic, May\u00fas/Ctrl+clic, zonas dibujadas) filtra los dem\u00e1s objetos visuales de la p\u00e1gina, como una segmentaci\u00f3n. Resaltar: comportamiento est\u00e1ndar de Power BI.",
+            "Sel_SearchScope": "Buscar en",
+            "Sel_SearchScope_Desc": "Campo en el que busca el cuadro de b\u00fasqueda por defecto: todo, el pa\u00eds, la provincia / regi\u00f3n o el municipio. Se puede cambiar en el mapa.",
+            "Sel_ShowSearch": "Cuadro de b\u00fasqueda",
+            "Sel_ShowSearch_Desc": "Cuadro de b\u00fasqueda en el mapa: elija d\u00f3nde buscar (todo, pa\u00eds, provincia, municipio) y c\u00f3mo (contiene, no contiene, empieza por, termina en, es). Pulse Intro para filtrar las ubicaciones encontradas."
+        },
+        "fr-FR": {
+            "Area_AutoMid": "Point m\u00e9dian automatique",
+            "Area_AutoRange": "Min./max. automatique",
+            "Area_BorderColor": "Couleur de bordure",
+            "Area_BorderWidth": "\u00c9paisseur de bordure",
+            "Area_Classes": "Nombre de classes",
+            "Area_Colors": "Nombre de couleurs",
+            "Area_FxFill": "Couleur par r\u00e8gle (fx)",
+            "Area_FxFill_Desc": "Utilisez le bouton fx pour des couleurs par r\u00e8gle ou par champ. Remplace le d\u00e9grad\u00e9.",
+            "Area_LineIntensity": "Intensit\u00e9 des lignes (%)",
+            "Area_LineIntensity_Desc": "Opacit\u00e9 de toutes les lignes de fronti\u00e8re : bordure des zones et fronti\u00e8res des districts, communes et pays.",
+            "Area_MaxColor": "Couleur maximale",
+            "Area_Mid2Color": "Couleur interm\u00e9diaire 2",
+            "Area_MidColor": "Couleur interm\u00e9diaire",
+            "Area_MidValue": "Point m\u00e9dian",
+            "Area_MinColor": "Couleur minimale",
+            "Area_NegativeColor": "Couleur des n\u00e9gatifs",
+            "Area_NegativeMode": "Valeurs n\u00e9gatives",
+            "Area_NegativeMode_Desc": "Couleur propre : les n\u00e9gatifs (retours, avoirs) ont une couleur et l'\u00e9chelle va de 0 au maximum. Divergente : nuances de cette couleur jusqu'\u00e0 la valeur la plus n\u00e9gative. Partie de l'\u00e9chelle : les n\u00e9gatifs forment le d\u00e9but de l'\u00e9chelle.",
+            "Area_NoDataColor": "Couleur sans donn\u00e9es",
+            "Area_Opacity": "Opacit\u00e9 des zones (%)",
+            "Area_PHigh": "\u00c9cr\u00eatage sup\u00e9rieur (centile)",
+            "Area_PLow": "\u00c9cr\u00eatage inf\u00e9rieur (centile)",
+            "Area_RangeMax": "Maximum",
+            "Area_RangeMin": "Minimum",
+            "Area_ScaleType": "\u00c9chelle de couleur",
+            "Area_ScaleType_Desc": "Pour des valeurs tr\u00e8s in\u00e9gales (p. ex. un pays avec 80 % du total), utilisez Logarithmique, Par rang ou Classes.",
+            "Base_PlaceDensity": "Densit\u00e9 des noms",
+            "Base_PlaceFontSize": "Taille des noms",
+            "Base_PlacesPerArea": "Villes par zone (vues pays / districts)",
+            "Base_PlacesPerArea_Desc": "Noms des localit\u00e9s les plus peupl\u00e9es dans chaque pays (vue pays) ou district (vue districts). 0 les masque ; la vue communes utilise la densit\u00e9 des noms.",
+            "Base_RoadIntensity": "Intensit\u00e9 des routes (%)",
+            "Base_ShowCountryNames": "Noms des pays",
+            "Base_ShowPlaces": "Noms des lieux",
+            "Base_ShowRoads": "Routes principales",
+            "Base_Style": "Style",
+            "Bubble_BorderColor": "Contour",
+            "Bubble_BorderWidth": "\u00c9paisseur du contour",
+            "Bubble_Color": "Couleur fixe",
+            "Bubble_ColorMode": "Couleur des bulles",
+            "Bubble_MaxRadius": "Rayon maximal (px)",
+            "Bubble_MinRadius": "Rayon minimal (px)",
+            "Bubble_Opacity": "Opacit\u00e9 (%)",
+            "Card_Area": "Zones et couleurs",
+            "Card_Basemap": "Fond de carte",
+            "Card_Bubble": "Bulles",
+            "Card_CategoryColors": "Couleurs de la l\u00e9gende",
+            "Card_Donut": "Anneaux (avec l\u00e9gende)",
+            "Card_Labels": "\u00c9tiquettes de donn\u00e9es",
+            "Card_Legend": "L\u00e9gende",
+            "Card_Map": "Carte",
+            "Card_Selection": "S\u00e9lection",
+            "Common_FontColor": "Couleur du texte",
+            "Common_FontSize": "Taille du texte",
+            "Common_Show": "Afficher",
+            "Donut_AreaDonut": "Anneau au centre de la zone",
+            "Donut_AreaDonutSize": "Rayon de l'anneau de zone (px)",
+            "Donut_Hole": "Taille du trou central (%)",
+            "Donut_Hole_Desc": "0 % = secteurs pleins ; 90 % = anneau fin.",
+            "Donut_Max": "Nombre maximal d'anneaux (les plus grands d'abord)",
+            "Donut_Max_Desc": "Seuls les lieux aux valeurs les plus \u00e9lev\u00e9es ont un anneau ; les autres gardent une bulle simple (ou seulement la couleur de la zone). 0 = tous.",
+            "Donut_Show": "Afficher les anneaux",
+            "Donut_SliceBorderColor": "S\u00e9parateur de secteurs",
+            "Donut_SliceBorderWidth": "\u00c9paisseur du s\u00e9parateur",
+            "Labels_AutoHide": "Masquer en cas de chevauchement",
+            "Labels_Content": "Contenu",
+            "Labels_Decimals": "D\u00e9cimales",
+            "Labels_Halo": "Halo blanc du texte",
+            "Labels_Units": "Unit\u00e9s d'affichage",
+            "Legend_Position": "Position",
+            "Legend_ShowTitle": "Titre",
+            "Map_CityMode": "Vue communes",
+            "Map_CityMode_Desc": "Zone : chaque ville est plac\u00e9e dans sa commune, les valeurs sont additionn\u00e9es et toute la commune est color\u00e9e. Bulle : une bulle par ville.",
+            "Map_CityStart": "Ouvrir sur",
+            "Map_CityStart_Desc": "Vue affich\u00e9e en premier. Les boutons de la carte basculent entre pays, districts et (avec un pays ou des districts s\u00e9lectionn\u00e9s) communes.",
+            "Map_ContextBorder": "Bordure des voisins",
+            "Map_ContextColor": "Couleur des voisins",
+            "Map_CountryMode": "Vue pays",
+            "Map_DefaultCountry": "Pays par d\u00e9faut (villes / codes postaux)",
+            "Map_DefaultCountry_Desc": "Code ISO2 (p. ex. FR) utilis\u00e9 pour toutes les villes lorsque la colonne Pays n'est pas utilis\u00e9e (donn\u00e9es d'un seul pays). Vide = automatique.",
+            "Map_DistrictMode": "Vue districts",
+            "Map_EnableZoom": "Zoom et d\u00e9placement \u00e0 la souris",
+            "Map_ShowContext": "Afficher les voisins (contexte)",
+            "Map_ShowReset": "Bouton de r\u00e9initialisation du zoom",
+            "Opt_Basemap_Dark": "Sombre",
+            "Opt_Basemap_Grey": "Gris",
+            "Opt_Basemap_Light": "Clair (style routier)",
+            "Opt_Basemap_None": "Aucun (formes seules)",
+            "Opt_BubbleColor_Fixed": "Couleur fixe",
+            "Opt_BubbleColor_Gradient": "D\u00e9grad\u00e9 (valeur)",
+            "Opt_CityStart_Country": "Pays",
+            "Opt_CityStart_District": "Districts / r\u00e9gions",
+            "Opt_Colors_2": "2 couleurs",
+            "Opt_Colors_3": "3 couleurs",
+            "Opt_Colors_4": "4 couleurs",
+            "Opt_Content_Both": "Nom et valeur",
+            "Opt_Content_Name": "Nom",
+            "Opt_Content_Value": "Valeur",
+            "Opt_Density_High": "\u00c9lev\u00e9e",
+            "Opt_Density_Low": "Faible",
+            "Opt_Density_Medium": "Moyenne",
+            "Opt_Interaction_Filter": "Filtrer la page",
+            "Opt_Interaction_Highlight": "Mettre en surbrillance (standard Power BI)",
+            "Opt_Mode_Area": "Zone",
+            "Opt_Mode_Both": "Zone + bulle",
+            "Opt_Mode_Bubble": "Bulle",
+            "Opt_Neg_Diverging": "Divergente (n\u00e9gatif \u2190 0 \u2192 \u00e9chelle)",
+            "Opt_Neg_Own": "Couleur propre",
+            "Opt_Neg_Scale": "Partie de l'\u00e9chelle",
+            "Opt_Position_Bottom": "En bas",
+            "Opt_Position_Top": "En haut",
+            "Opt_Scale_Clip": "Lin\u00e9aire avec \u00e9cr\u00eatage par centile",
+            "Opt_Scale_Linear": "Lin\u00e9aire (valeur)",
+            "Opt_Scale_Log": "Logarithmique",
+            "Opt_Scale_Quantile": "Classes d'effectifs \u00e9gaux (quantiles)",
+            "Opt_Scale_Rank": "Par rang (centile continu)",
+            "Opt_Scope_All": "Tout",
+            "Opt_Scope_Country": "Pays",
+            "Opt_Scope_District": "D\u00e9partement / r\u00e9gion",
+            "Opt_Scope_Municipality": "Commune",
+            "Opt_Units_Auto": "Automatique",
+            "Opt_Units_Billions": "Milliards (Md)",
+            "Opt_Units_Millions": "Millions (M)",
+            "Opt_Units_None": "Aucune",
+            "Opt_Units_Thousands": "Milliers (k)",
+            "Role_Color": "Valeur (couleur)",
+            "Role_Color_Desc": "Mesure qui d\u00e9finit l'\u00e9chelle de couleur des zones et des bulles.",
+            "Role_CountryGroup": "Pays",
+            "Role_CountryGroup_Desc": "Colonne pays de la m\u00eame table (p. ex. Dim[Pays], nom ou ISO2/ISO3). Chaque ville est lue dans son propre pays ; les villes homonymes de pays diff\u00e9rents restent s\u00e9par\u00e9es.",
+            "Role_LatLon_Desc": "Mesure explicite (p. ex. AVERAGE/SELECTEDVALUE). Utilis\u00e9e pour le niveau sous la ville (client, magasin, code postal) et en secours lorsqu'une ville n'est pas trouv\u00e9e.",
+            "Role_Latitude": "Latitude (niveau le plus bas)",
+            "Role_Legend": "D\u00e9tail (l\u00e9gende)",
+            "Role_Legend_Desc": "Facultatif. Divise chaque bulle/zone en un anneau avec un secteur par cat\u00e9gorie.",
+            "Role_Location": "Ville",
+            "Role_Location_Desc": "Ville de chaque ligne (\u00e9ventuellement un second niveau en dessous : code postal, ou client/magasin avec Latitude/Longitude). La carte regroupe les villes en pays, districts et communes.",
+            "Role_Longitude": "Longitude (niveau le plus bas)",
+            "Role_PostalCode": "Code postal (facultatif)",
+            "Role_PostalCode_Desc": "Mesure renvoyant le code postal, utilis\u00e9e pour placer les villes et le niveau sous la ville. Vous pouvez aussi mettre la colonne code postal comme second niveau de Ville.",
+            "Role_Size": "Taille",
+            "Role_Size_Desc": "Mesure qui d\u00e9finit la taille des bulles. Si vide, Valeur (couleur) est utilis\u00e9e.",
+            "Role_Tooltips": "Info-bulles",
+            "Rt_Agglomerates": "Communes regroup\u00e9es",
+            "Rt_AndMore": "\u2026 et {0} de plus",
+            "Rt_AriaSummary": "Carte de {0} : {1} lieux",
+            "Rt_Blank": "(Vide)",
+            "Rt_ClearAll": "Effacer la s\u00e9lection, le filtre et les zones",
+            "Rt_ClearZones": "Effacer les zones dessin\u00e9es",
+            "Rt_ClickForList": "Cliquez pour voir la liste",
+            "Rt_Close": "Fermer",
+            "Rt_Country": "Pays",
+            "Rt_Detail": "D\u00e9tail",
+            "Rt_District": "District / province",
+            "Rt_Donuts_Tip": "Afficher / masquer les anneaux (D\u00e9tail)",
+            "Rt_DrawZone": "Dessiner une zone de s\u00e9lection",
+            "Rt_DrawZone_Tip": "Dessiner une zone de s\u00e9lection (faites glisser pour dessiner ; chaque zone s'ajoute \u00e0 la s\u00e9lection ; \u00c9chap annule)",
+            "Rt_Error": "Erreur : {0}",
+            "Rt_Filter": "Filtre",
+            "Rt_Labels_Tip": "Afficher / masquer les \u00e9tiquettes de donn\u00e9es",
+            "Rt_Landing1": "Placez la colonne ville dans \u00ab Ville \u00bb, la colonne pays dans \u00ab Pays \u00bb et une mesure dans \u00ab Valeur (couleur) \u00bb.",
+            "Rt_Landing2": "Facultatif : \u00ab Taille \u00bb, \u00ab D\u00e9tail (l\u00e9gende) \u00bb, \u00ab Code postal \u00bb, Latitude/Longitude et info-bulles.",
+            "Rt_LegendClip": "(\u00e9cr\u00eat\u00e9 {0}, les valeurs hors plage saturent)",
+            "Rt_LegendLog": "(logarithmique)",
+            "Rt_LegendRank": "(par rang \u00b7 m\u00e9diane {0})",
+            "Rt_Level": "Niveau : {0}",
+            "Rt_Localities": "Lieux dans les donn\u00e9es",
+            "Rt_LocatedByPostal": "Plac\u00e9 par code postal",
+            "Rt_Location": "Lieu",
+            "Rt_Municipality": "Commune",
+            "Rt_NeedCountryCol": "\u26a0 Placez la colonne pays dans \u00ab Pays \u00bb : sans elle, les villes homonymes de pays diff\u00e9rents sont additionn\u00e9es et filtr\u00e9es ensemble.",
+            "Rt_Negative": "< 0 (n\u00e9gatif)",
+            "Rt_NoData": "Aucune donn\u00e9e",
+            "Rt_NotFound1": "1 lieu introuvable",
+            "Rt_NotFoundClick": "Cliquez pour le s\u00e9lectionner dans les autres visuels (Ctrl+clic ajoute)",
+            "Rt_NotFoundN": "{0} lieux introuvables",
+            "Rt_NotFoundSelectAll": "Tout s\u00e9lectionner",
+            "Rt_NotFoundTip": "Astuce : cliquez sur un lieu pour le voir dans les autres visuels ; utilisez la colonne Pays et une mesure Code postal, ou d\u00e9finissez le Pays par d\u00e9faut dans Carte.",
+            "Rt_ResetZoom": "R\u00e9initialiser le zoom",
+            "Rt_Search_Contains": "Contient",
+            "Rt_Search_EndsWith": "Se termine par",
+            "Rt_Search_Equals": "Est \u00e9gal \u00e0",
+            "Rt_Search_NotContains": "Ne contient pas",
+            "Rt_Search_Op": "Op\u00e9rateur de recherche",
+            "Rt_Search_Placeholder": "Rechercher\u2026 (Entr\u00e9e)",
+            "Rt_Search_PressEnter": "Appuyez sur Entr\u00e9e pour filtrer",
+            "Rt_Search_Scope": "Rechercher dans",
+            "Rt_Search_StartsWith": "Commence par",
+            "Rt_Selection": "S\u00e9lection",
+            "Rt_ShareOfTotal": "{0} % du total",
+            "Rt_ShowAll": "Tout afficher",
+            "Rt_ShowAllLevel": "Tout afficher \u00e0 ce niveau",
+            "Rt_ViewCountries": "Pays",
+            "Rt_ViewDistrictsW": "Districts / r\u00e9gions",
+            "Rt_ViewMunicipalities": "Communes",
+            "Rt_ViewMunicipalities_Tip": "Afficher les communes (des districts s\u00e9lectionn\u00e9s, le cas \u00e9ch\u00e9ant)",
+            "Rt_WarnCountryTitle": "Colonne pays manquante",
+            "Rt_WarnUnmatchedTitle": "Lieux introuvables",
+            "Rt_Zone1": "1 zone",
+            "Rt_ZoneN": "{0} zones",
+            "Rt_ZoomIn": "Zoom avant",
+            "Rt_ZoomOut": "Zoom arri\u00e8re",
+            "Sel_BorderColor": "Contour de la s\u00e9lection",
+            "Sel_BorderWidth": "\u00c9paisseur du contour (px)",
+            "Sel_DimOpacity": "Opacit\u00e9 non s\u00e9lectionn\u00e9 (%)",
+            "Sel_Interaction": "\u00c0 la s\u00e9lection",
+            "Sel_Interaction_Desc": "Filtrer : la s\u00e9lection (clic, Maj/Ctrl+clic, zones dessin\u00e9es) filtre les autres visuels de la page, comme un segment. Mettre en surbrillance : comportement standard de Power BI.",
+            "Sel_SearchScope": "Rechercher dans",
+            "Sel_SearchScope_Desc": "Champ dans lequel la recherche porte par d\u00e9faut : tout, le pays, le d\u00e9partement / la r\u00e9gion ou la commune. Modifiable sur la carte.",
+            "Sel_ShowSearch": "Zone de recherche",
+            "Sel_ShowSearch_Desc": "Zone de recherche sur la carte : choisissez o\u00f9 chercher (tout, pays, d\u00e9partement, commune) et comment (contient, ne contient pas, commence par, se termine par, est). Appuyez sur Entr\u00e9e pour filtrer les lieux trouv\u00e9s."
+        },
+        "it-IT": {
+            "Area_AutoMid": "Punto medio automatico",
+            "Area_AutoRange": "Min./max. automatico",
+            "Area_BorderColor": "Colore del bordo",
+            "Area_BorderWidth": "Spessore del bordo",
+            "Area_Classes": "Numero di classi",
+            "Area_Colors": "Numero di colori",
+            "Area_FxFill": "Colore per regola (fx)",
+            "Area_FxFill_Desc": "Usa il pulsante fx per colori basati su regole o campi. Sostituisce la sfumatura.",
+            "Area_LineIntensity": "Intensit\u00e0 delle linee (%)",
+            "Area_LineIntensity_Desc": "Opacit\u00e0 di tutte le linee di confine: bordo delle aree e confini di distretti, comuni e paesi.",
+            "Area_MaxColor": "Colore massimo",
+            "Area_Mid2Color": "Colore intermedio 2",
+            "Area_MidColor": "Colore intermedio",
+            "Area_MidValue": "Punto medio",
+            "Area_MinColor": "Colore minimo",
+            "Area_NegativeColor": "Colore dei negativi",
+            "Area_NegativeMode": "Valori negativi",
+            "Area_NegativeMode_Desc": "Colore proprio: i negativi (resi, note di credito) hanno un colore e la scala va da 0 al massimo. Divergente: tonalit\u00e0 di quel colore fino al valore pi\u00f9 negativo. Parte della scala: i negativi sono l'inizio della scala.",
+            "Area_NoDataColor": "Colore senza dati",
+            "Area_Opacity": "Opacit\u00e0 delle aree (%)",
+            "Area_PHigh": "Taglio superiore (percentile)",
+            "Area_PLow": "Taglio inferiore (percentile)",
+            "Area_RangeMax": "Massimo",
+            "Area_RangeMin": "Minimo",
+            "Area_ScaleType": "Scala di colore",
+            "Area_ScaleType_Desc": "Per valori molto disuguali (es. un paese con l'80% del totale) usa Logaritmica, Per rango o Classi.",
+            "Base_PlaceDensity": "Densit\u00e0 dei nomi",
+            "Base_PlaceFontSize": "Dimensione dei nomi",
+            "Base_PlacesPerArea": "Citt\u00e0 per area (viste paesi / distretti)",
+            "Base_PlacesPerArea_Desc": "Nomi delle localit\u00e0 pi\u00f9 popolose in ogni paese (vista paesi) o distretto (vista distretti). 0 li nasconde; la vista comuni usa la densit\u00e0 dei nomi.",
+            "Base_RoadIntensity": "Intensit\u00e0 delle strade (%)",
+            "Base_ShowCountryNames": "Nomi dei paesi",
+            "Base_ShowPlaces": "Nomi dei luoghi",
+            "Base_ShowRoads": "Strade principali",
+            "Base_Style": "Stile",
+            "Bubble_BorderColor": "Contorno",
+            "Bubble_BorderWidth": "Spessore del contorno",
+            "Bubble_Color": "Colore fisso",
+            "Bubble_ColorMode": "Colore delle bolle",
+            "Bubble_MaxRadius": "Raggio massimo (px)",
+            "Bubble_MinRadius": "Raggio minimo (px)",
+            "Bubble_Opacity": "Opacit\u00e0 (%)",
+            "Card_Area": "Aree e colori",
+            "Card_Basemap": "Mappa di base",
+            "Card_Bubble": "Bolle",
+            "Card_CategoryColors": "Colori della legenda",
+            "Card_Donut": "Anelli (con legenda)",
+            "Card_Labels": "Etichette dati",
+            "Card_Legend": "Legenda",
+            "Card_Map": "Mappa",
+            "Card_Selection": "Selezione",
+            "Common_FontColor": "Colore del testo",
+            "Common_FontSize": "Dimensione del testo",
+            "Common_Show": "Mostra",
+            "Donut_AreaDonut": "Anello al centro dell'area",
+            "Donut_AreaDonutSize": "Raggio dell'anello dell'area (px)",
+            "Donut_Hole": "Dimensione del foro centrale (%)",
+            "Donut_Hole_Desc": "0% = torta piena; 90% = anello sottile.",
+            "Donut_Max": "Numero massimo di anelli (prima i maggiori)",
+            "Donut_Max_Desc": "Solo le localit\u00e0 con valore maggiore hanno un anello; le altre mantengono una bolla semplice (o solo il colore dell'area). 0 = tutte.",
+            "Donut_Show": "Mostra anelli",
+            "Donut_SliceBorderColor": "Separatore delle fette",
+            "Donut_SliceBorderWidth": "Spessore del separatore",
+            "Labels_AutoHide": "Nascondi se sovrapposte",
+            "Labels_Content": "Contenuto",
+            "Labels_Decimals": "Decimali",
+            "Labels_Halo": "Alone bianco del testo",
+            "Labels_Units": "Unit\u00e0 di visualizzazione",
+            "Legend_Position": "Posizione",
+            "Legend_ShowTitle": "Titolo",
+            "Map_CityMode": "Vista comuni",
+            "Map_CityMode_Desc": "Area: ogni citt\u00e0 viene collocata nel suo comune, i valori vengono sommati e tutto il comune viene colorato. Bolla: una bolla per citt\u00e0.",
+            "Map_CityStart": "Apri su",
+            "Map_CityStart_Desc": "Vista mostrata per prima. I pulsanti sulla mappa passano tra paesi, distretti e (con un paese o distretti selezionati) comuni.",
+            "Map_ContextBorder": "Bordo dei vicini",
+            "Map_ContextColor": "Colore dei vicini",
+            "Map_CountryMode": "Vista paesi",
+            "Map_DefaultCountry": "Paese predefinito (citt\u00e0 / codici postali)",
+            "Map_DefaultCountry_Desc": "Codice ISO2 (es. IT) usato per tutte le citt\u00e0 quando la colonna Paese non \u00e8 usata (dati di un solo paese). Vuoto = automatico.",
+            "Map_DistrictMode": "Vista distretti",
+            "Map_EnableZoom": "Zoom e spostamento con il mouse",
+            "Map_ShowContext": "Mostra vicini (contesto)",
+            "Map_ShowReset": "Pulsante reimposta zoom",
+            "Opt_Basemap_Dark": "Scuro",
+            "Opt_Basemap_Grey": "Grigio",
+            "Opt_Basemap_Light": "Chiaro (stile stradale)",
+            "Opt_Basemap_None": "Nessuno (solo forme)",
+            "Opt_BubbleColor_Fixed": "Colore fisso",
+            "Opt_BubbleColor_Gradient": "Sfumatura (valore)",
+            "Opt_CityStart_Country": "Paesi",
+            "Opt_CityStart_District": "Distretti / regioni",
+            "Opt_Colors_2": "2 colori",
+            "Opt_Colors_3": "3 colori",
+            "Opt_Colors_4": "4 colori",
+            "Opt_Content_Both": "Nome e valore",
+            "Opt_Content_Name": "Nome",
+            "Opt_Content_Value": "Valore",
+            "Opt_Density_High": "Alta",
+            "Opt_Density_Low": "Bassa",
+            "Opt_Density_Medium": "Media",
+            "Opt_Interaction_Filter": "Filtra la pagina",
+            "Opt_Interaction_Highlight": "Evidenzia (standard di Power BI)",
+            "Opt_Mode_Area": "Area",
+            "Opt_Mode_Both": "Area + bolla",
+            "Opt_Mode_Bubble": "Bolla",
+            "Opt_Neg_Diverging": "Divergente (negativo \u2190 0 \u2192 scala)",
+            "Opt_Neg_Own": "Colore proprio",
+            "Opt_Neg_Scale": "Parte della scala",
+            "Opt_Position_Bottom": "In basso",
+            "Opt_Position_Top": "In alto",
+            "Opt_Scale_Clip": "Lineare con taglio per percentile",
+            "Opt_Scale_Linear": "Lineare (valore)",
+            "Opt_Scale_Log": "Logaritmica",
+            "Opt_Scale_Quantile": "Classi con uguale numero (quantili)",
+            "Opt_Scale_Rank": "Per rango (percentile continuo)",
+            "Opt_Scope_All": "Tutto",
+            "Opt_Scope_Country": "Paese",
+            "Opt_Scope_District": "Provincia / regione",
+            "Opt_Scope_Municipality": "Comune",
+            "Opt_Units_Auto": "Automatico",
+            "Opt_Units_Billions": "Miliardi (Mrd)",
+            "Opt_Units_Millions": "Milioni (Mln)",
+            "Opt_Units_None": "Nessuna",
+            "Opt_Units_Thousands": "Migliaia (K)",
+            "Role_Color": "Valore (colore)",
+            "Role_Color_Desc": "Misura che determina la scala di colore di aree e bolle.",
+            "Role_CountryGroup": "Paese",
+            "Role_CountryGroup_Desc": "Colonna del paese della stessa tabella (es. Dim[Paese], nome o ISO2/ISO3). Ogni citt\u00e0 viene letta all'interno del suo paese e le citt\u00e0 con lo stesso nome in paesi diversi restano separate.",
+            "Role_LatLon_Desc": "Misura esplicita (es. AVERAGE/SELECTEDVALUE). Usata per il livello sotto la citt\u00e0 (cliente, negozio, codice postale) e come alternativa quando una citt\u00e0 non viene trovata.",
+            "Role_Latitude": "Latitudine (livello pi\u00f9 basso)",
+            "Role_Legend": "Dettaglio (legenda)",
+            "Role_Legend_Desc": "Facoltativo. Divide ogni bolla/area in un anello con una fetta per categoria.",
+            "Role_Location": "Citt\u00e0",
+            "Role_Location_Desc": "Citt\u00e0 di ogni riga (facoltativamente un secondo livello sotto: codice postale, o cliente/negozio con Latitudine/Longitudine). La mappa aggrega le citt\u00e0 in paesi, distretti e comuni.",
+            "Role_Longitude": "Longitudine (livello pi\u00f9 basso)",
+            "Role_PostalCode": "Codice postale (facoltativo)",
+            "Role_PostalCode_Desc": "Misura che restituisce il codice postale, usata per collocare le citt\u00e0 e il livello sotto la citt\u00e0. In alternativa inserisci la colonna del codice postale come secondo livello di Citt\u00e0.",
+            "Role_Size": "Dimensione",
+            "Role_Size_Desc": "Misura che determina la dimensione delle bolle. Se vuota si usa Valore (colore).",
+            "Role_Tooltips": "Descrizioni comandi",
+            "Rt_Agglomerates": "Comuni raggruppati",
+            "Rt_AndMore": "\u2026 e altri {0}",
+            "Rt_AriaSummary": "Mappa di {0}: {1} localit\u00e0",
+            "Rt_Blank": "(Vuoto)",
+            "Rt_ClearAll": "Cancella selezione, filtro e zone",
+            "Rt_ClearZones": "Cancella le zone disegnate",
+            "Rt_ClickForList": "Fai clic per vedere l'elenco",
+            "Rt_Close": "Chiudi",
+            "Rt_Country": "Paese",
+            "Rt_Detail": "Dettaglio",
+            "Rt_District": "Distretto / provincia",
+            "Rt_Donuts_Tip": "Mostra / nascondi anelli (Dettaglio)",
+            "Rt_DrawZone": "Disegna zona di selezione",
+            "Rt_DrawZone_Tip": "Disegna una zona di selezione (trascina per disegnare; ogni zona si aggiunge alla selezione; Esc annulla)",
+            "Rt_Error": "Errore: {0}",
+            "Rt_Filter": "Filtro",
+            "Rt_Labels_Tip": "Mostra / nascondi etichette dati",
+            "Rt_Landing1": "Inserisci la colonna della citt\u00e0 in \u00abCitt\u00e0\u00bb, quella del paese in \u00abPaese\u00bb e una misura in \u00abValore (colore)\u00bb.",
+            "Rt_Landing2": "Facoltativo: \u00abDimensione\u00bb, \u00abDettaglio (legenda)\u00bb, \u00abCodice postale\u00bb, Latitudine/Longitudine e descrizioni comandi.",
+            "Rt_LegendClip": "(tagliato {0}, i valori esterni saturano)",
+            "Rt_LegendLog": "(logaritmica)",
+            "Rt_LegendRank": "(per rango \u00b7 mediana {0})",
+            "Rt_Level": "Livello: {0}",
+            "Rt_Localities": "Localit\u00e0 nei dati",
+            "Rt_LocatedByPostal": "Collocato tramite codice postale",
+            "Rt_Location": "Localit\u00e0",
+            "Rt_Municipality": "Comune",
+            "Rt_NeedCountryCol": "\u26a0 Inserisci la colonna del paese in \u00abPaese\u00bb: senza di essa, le citt\u00e0 con lo stesso nome in paesi diversi vengono sommate e filtrate insieme.",
+            "Rt_Negative": "< 0 (negativo)",
+            "Rt_NoData": "Nessun dato",
+            "Rt_NotFound1": "1 localit\u00e0 non trovata",
+            "Rt_NotFoundClick": "Fai clic per selezionarlo negli altri oggetti visivi (Ctrl+clic aggiunge)",
+            "Rt_NotFoundN": "{0} localit\u00e0 non trovate",
+            "Rt_NotFoundSelectAll": "Seleziona tutto",
+            "Rt_NotFoundTip": "Suggerimento: fai clic su un luogo per vederlo negli altri oggetti visivi; usa la colonna Paese e una misura CAP, oppure imposta il Paese predefinito in Mappa.",
+            "Rt_ResetZoom": "Reimposta zoom",
+            "Rt_Search_Contains": "Contiene",
+            "Rt_Search_EndsWith": "Termina con",
+            "Rt_Search_Equals": "\u00c8 uguale a",
+            "Rt_Search_NotContains": "Non contiene",
+            "Rt_Search_Op": "Operatore di ricerca",
+            "Rt_Search_Placeholder": "Cerca\u2026 (Invio)",
+            "Rt_Search_PressEnter": "Premi Invio per filtrare",
+            "Rt_Search_Scope": "Cerca in",
+            "Rt_Search_StartsWith": "Inizia con",
+            "Rt_Selection": "Selezione",
+            "Rt_ShareOfTotal": "{0}% del totale",
+            "Rt_ShowAll": "Mostra tutto",
+            "Rt_ShowAllLevel": "Mostra tutto a questo livello",
+            "Rt_ViewCountries": "Paesi",
+            "Rt_ViewDistrictsW": "Distretti / regioni",
+            "Rt_ViewMunicipalities": "Comuni",
+            "Rt_ViewMunicipalities_Tip": "Mostra i comuni (dei distretti selezionati, se presenti)",
+            "Rt_WarnCountryTitle": "Manca la colonna del paese",
+            "Rt_WarnUnmatchedTitle": "Localit\u00e0 non trovate",
+            "Rt_Zone1": "1 zona",
+            "Rt_ZoneN": "{0} zone",
+            "Rt_ZoomIn": "Ingrandisci",
+            "Rt_ZoomOut": "Riduci",
+            "Sel_BorderColor": "Contorno della selezione",
+            "Sel_BorderWidth": "Spessore del contorno (px)",
+            "Sel_DimOpacity": "Opacit\u00e0 non selezionato (%)",
+            "Sel_Interaction": "Alla selezione",
+            "Sel_Interaction_Desc": "Filtra: la selezione (clic, Maiusc/Ctrl+clic, zone disegnate) filtra gli altri oggetti visivi della pagina, come un filtro dei dati. Evidenzia: comportamento standard di Power BI.",
+            "Sel_SearchScope": "Cerca in",
+            "Sel_SearchScope_Desc": "Campo in cui la ricerca cerca per impostazione predefinita: tutto, il paese, la provincia / regione o il comune. Modificabile sulla mappa.",
+            "Sel_ShowSearch": "Casella di ricerca",
+            "Sel_ShowSearch_Desc": "Casella di ricerca sulla mappa: scegli dove cercare (tutto, paese, provincia, comune) e come (contiene, non contiene, inizia con, finisce con, \u00e8). Premi Invio per filtrare i luoghi trovati."
+        },
+        "pt-BR": {
+            "Area_AutoMid": "Ponto m\u00e9dio autom\u00e1tico",
+            "Area_AutoRange": "M\u00edn./m\u00e1x. autom\u00e1ticos",
+            "Area_BorderColor": "Cor das fronteiras",
+            "Area_BorderWidth": "Espessura das fronteiras",
+            "Area_Classes": "N\u00famero de classes",
+            "Area_Colors": "N\u00famero de cores",
+            "Area_FxFill": "Cor por regra (fx)",
+            "Area_FxFill_Desc": "Use o bot\u00e3o fx para cores por regras ou por campo. Sobrep\u00f5e-se ao gradiente.",
+            "Area_LineIntensity": "Intensidade das linhas (%)",
+            "Area_LineIntensity_Desc": "Opacidade de todas as linhas de fronteira: contorno das \u00e1reas e fronteiras de distritos, munic\u00edpios e pa\u00edses.",
+            "Area_MaxColor": "Cor m\u00e1ximo",
+            "Area_Mid2Color": "Cor interm\u00e9dia 2",
+            "Area_MidColor": "Cor interm\u00e9dia",
+            "Area_MidValue": "Ponto m\u00e9dio",
+            "Area_MinColor": "Cor m\u00ednimo",
+            "Area_NegativeColor": "Cor dos negativos",
+            "Area_NegativeMode": "Valores negativos",
+            "Area_NegativeMode_Desc": "Cor pr\u00f3pria: os negativos (devolu\u00e7\u00f5es, notas de cr\u00e9dito) t\u00eam uma cor e a escala vai de 0 ao m\u00e1ximo. Divergente: tons dessa cor at\u00e9 ao valor mais negativo. Parte da escala: os negativos s\u00e3o o in\u00edcio da escala.",
+            "Area_NoDataColor": "Cor sem dados",
+            "Area_Opacity": "Opacidade das \u00e1reas (%)",
+            "Area_PHigh": "Corte superior (percentil)",
+            "Area_PLow": "Corte inferior (percentil)",
+            "Area_RangeMax": "M\u00e1ximo",
+            "Area_RangeMin": "M\u00ednimo",
+            "Area_ScaleType": "Escala de cor",
+            "Area_ScaleType_Desc": "Para valores muito desiguais (ex.: um pa\u00eds com 80% do total) use Logar\u00edtmica, Por posi\u00e7\u00e3o ou Classes.",
+            "Base_PlaceDensity": "Densidade dos nomes",
+            "Base_PlaceFontSize": "Tamanho dos nomes",
+            "Base_PlacesPerArea": "Cidades por \u00e1rea (vistas pa\u00eds / distrito)",
+            "Base_PlacesPerArea_Desc": "Nomes das localidades mais populosas mostrados em cada pa\u00eds (vista pa\u00eds) ou distrito (vista distrito). 0 esconde-os; a vista concelho usa a densidade dos nomes.",
+            "Base_RoadIntensity": "Intensidade das estradas (%)",
+            "Base_ShowCountryNames": "Nomes de pa\u00edses",
+            "Base_ShowPlaces": "Nomes de localidades",
+            "Base_ShowRoads": "Estradas principais",
+            "Base_Style": "Estilo",
+            "Bubble_BorderColor": "Contorno",
+            "Bubble_BorderWidth": "Espessura do contorno",
+            "Bubble_Color": "Cor fixa",
+            "Bubble_ColorMode": "Cor das bolhas",
+            "Bubble_MaxRadius": "Raio m\u00e1ximo (px)",
+            "Bubble_MinRadius": "Raio m\u00ednimo (px)",
+            "Bubble_Opacity": "Opacidade (%)",
+            "Card_Area": "\u00c1reas e cores",
+            "Card_Basemap": "Mapa base",
+            "Card_Bubble": "Bolhas",
+            "Card_CategoryColors": "Cores da legenda",
+            "Card_Donut": "Donuts (com legenda)",
+            "Card_Labels": "R\u00f3tulos de dados",
+            "Card_Legend": "Legenda",
+            "Card_Map": "Mapa",
+            "Card_Selection": "Sele\u00e7\u00e3o",
+            "Common_FontColor": "Cor do texto",
+            "Common_FontSize": "Tamanho do texto",
+            "Common_Show": "Mostrar",
+            "Donut_AreaDonut": "Donut no centro das \u00e1reas",
+            "Donut_AreaDonutSize": "Raio do donut nas \u00e1reas (px)",
+            "Donut_Hole": "Tamanho do buraco central (%)",
+            "Donut_Hole_Desc": "0% = gr\u00e1fico circular cheio; 90% = anel fino.",
+            "Donut_Max": "M\u00e1ximo de donuts (maiores primeiro)",
+            "Donut_Max_Desc": "S\u00f3 os locais com maior valor t\u00eam donut; os restantes ficam com uma bolha simples (ou s\u00f3 a cor da \u00e1rea). 0 = todos.",
+            "Donut_Show": "Mostrar donuts",
+            "Donut_SliceBorderColor": "Separador entre fatias",
+            "Donut_SliceBorderWidth": "Espessura do separador",
+            "Labels_AutoHide": "Esconder quando sobrep\u00f5e",
+            "Labels_Content": "Conte\u00fado",
+            "Labels_Decimals": "Casas decimais",
+            "Labels_Halo": "Contorno branco no texto",
+            "Labels_Units": "Unidades",
+            "Legend_Position": "Posi\u00e7\u00e3o",
+            "Legend_ShowTitle": "T\u00edtulo",
+            "Map_CityMode": "Vista munic\u00edpios",
+            "Map_CityMode_Desc": "\u00c1rea: cada cidade \u00e9 colocada no seu concelho/munic\u00edpio, os valores s\u00e3o somados e o concelho inteiro \u00e9 pintado. Bolha: uma bolha por cidade.",
+            "Map_CityStart": "Abre em",
+            "Map_CityStart_Desc": "Vista mostrada primeiro. Os bot\u00f5es no mapa alternam entre pa\u00edses, distritos e (com um pa\u00eds ou distritos selecionados) munic\u00edpios.",
+            "Map_ContextBorder": "Fronteira dos vizinhos",
+            "Map_ContextColor": "Cor dos vizinhos",
+            "Map_CountryMode": "Vista pa\u00edses",
+            "Map_DefaultCountry": "Pa\u00eds padr\u00e3o (cidades / c\u00f3digos postais)",
+            "Map_DefaultCountry_Desc": "C\u00f3digo ISO2 (ex.: PT) usado para todas as cidades quando a coluna Pa\u00eds n\u00e3o \u00e9 usada (dados de um s\u00f3 pa\u00eds). Vazio = autom\u00e1tico.",
+            "Map_DistrictMode": "Vista distritos",
+            "Map_EnableZoom": "Zoom e pan com o rato",
+            "Map_ShowContext": "Mostrar vizinhos (contexto)",
+            "Map_ShowReset": "Bot\u00e3o repor zoom",
+            "Opt_Basemap_Dark": "Escuro",
+            "Opt_Basemap_Grey": "Cinzento",
+            "Opt_Basemap_Light": "Claro (estilo estradas)",
+            "Opt_Basemap_None": "Nenhum (s\u00f3 formas)",
+            "Opt_BubbleColor_Fixed": "Cor fixa",
+            "Opt_BubbleColor_Gradient": "Gradiente (valor)",
+            "Opt_CityStart_Country": "Pa\u00edses",
+            "Opt_CityStart_District": "Distritos / regi\u00f5es",
+            "Opt_Colors_2": "2 cores",
+            "Opt_Colors_3": "3 cores",
+            "Opt_Colors_4": "4 cores",
+            "Opt_Content_Both": "Nome e valor",
+            "Opt_Content_Name": "Nome",
+            "Opt_Content_Value": "Valor",
+            "Opt_Density_High": "Alta",
+            "Opt_Density_Low": "Baixa",
+            "Opt_Density_Medium": "M\u00e9dia",
+            "Opt_Interaction_Filter": "Filtrar a p\u00e1gina",
+            "Opt_Interaction_Highlight": "Real\u00e7ar (padr\u00e3o Power BI)",
+            "Opt_Mode_Area": "\u00c1rea",
+            "Opt_Mode_Both": "\u00c1rea + bolha",
+            "Opt_Mode_Bubble": "Bolha",
+            "Opt_Neg_Diverging": "Divergente (negativo \u2190 0 \u2192 escala)",
+            "Opt_Neg_Own": "Cor pr\u00f3pria",
+            "Opt_Neg_Scale": "Parte da escala",
+            "Opt_Position_Bottom": "Fundo",
+            "Opt_Position_Top": "Topo",
+            "Opt_Scale_Clip": "Linear com corte por percentil",
+            "Opt_Scale_Linear": "Linear (valor)",
+            "Opt_Scale_Log": "Logar\u00edtmica",
+            "Opt_Scale_Quantile": "Classes com igual n\u00ba de locais (quantis)",
+            "Opt_Scale_Rank": "Por posi\u00e7\u00e3o (percentil cont\u00ednuo)",
+            "Opt_Scope_All": "Todos",
+            "Opt_Scope_Country": "Pa\u00eds",
+            "Opt_Scope_District": "Estado / regi\u00e3o",
+            "Opt_Scope_Municipality": "Munic\u00edpio",
+            "Opt_Units_Auto": "Autom\u00e1tico",
+            "Opt_Units_Billions": "Mil milh\u00f5es (B)",
+            "Opt_Units_Millions": "Milh\u00f5es (M)",
+            "Opt_Units_None": "Nenhuma",
+            "Opt_Units_Thousands": "Milhares (K)",
+            "Role_Color": "Valor (cor)",
+            "Role_Color_Desc": "Medida que define a escala de cor das \u00e1reas e bolhas.",
+            "Role_CountryGroup": "Pa\u00eds",
+            "Role_CountryGroup_Desc": "Coluna do pa\u00eds da mesma tabela (ex.: Dim[Pa\u00eds], nome ou ISO2/ISO3). Cada cidade \u00e9 lida dentro do seu pa\u00eds e cidades com o mesmo nome em pa\u00edses diferentes ficam separadas.",
+            "Role_LatLon_Desc": "Medida expl\u00edcita (ex.: AVERAGE/SELECTEDVALUE). Usada no n\u00edvel abaixo da cidade (cliente, loja, c\u00f3digo postal) e como recurso quando uma cidade n\u00e3o \u00e9 encontrada.",
+            "Role_Latitude": "Latitude (n\u00edvel mais baixo)",
+            "Role_Legend": "Detalhe (legenda)",
+            "Role_Legend_Desc": "Opcional. Divide cada bolha/\u00e1rea num donut com uma fatia por categoria.",
+            "Role_Location": "Cidade",
+            "Role_Location_Desc": "Cidade de cada linha (opcionalmente um segundo n\u00edvel abaixo: c\u00f3digo postal, ou cliente/loja com Latitude/Longitude). O mapa agrega as cidades em pa\u00edses, distritos e munic\u00edpios.",
+            "Role_Longitude": "Longitude (n\u00edvel mais baixo)",
+            "Role_PostalCode": "C\u00f3digo postal (opcional)",
+            "Role_PostalCode_Desc": "Medida com o c\u00f3digo postal, usada para posicionar cidades cujo nome n\u00e3o \u00e9 encontrado e o n\u00edvel abaixo da cidade. Em alternativa, coloque a coluna do c\u00f3digo postal como \u00faltimo n\u00edvel da Localiza\u00e7\u00e3o.",
+            "Role_Size": "Tamanho",
+            "Role_Size_Desc": "Medida que define o tamanho das bolhas. Se vazio, usa o Valor (cor).",
+            "Role_Tooltips": "Tooltips",
+            "Rt_Agglomerates": "Munic\u00edpios agrupados",
+            "Rt_AndMore": "\u2026 e mais {0}",
+            "Rt_AriaSummary": "Mapa de {0}: {1} locais",
+            "Rt_Blank": "(Em branco)",
+            "Rt_ClearAll": "Limpar sele\u00e7\u00e3o, filtro e zonas",
+            "Rt_ClearZones": "Apagar zonas desenhadas",
+            "Rt_ClickForList": "Clique para ver a lista",
+            "Rt_Close": "Fechar",
+            "Rt_Country": "Pa\u00eds",
+            "Rt_Detail": "Detalhe",
+            "Rt_District": "Distrito / prov\u00edncia",
+            "Rt_Donuts_Tip": "Mostrar / ocultar donuts (Detalhe)",
+            "Rt_DrawZone": "Desenhar zona de sele\u00e7\u00e3o",
+            "Rt_DrawZone_Tip": "Desenhar zona de sele\u00e7\u00e3o (arraste para desenhar; cada zona soma \u00e0 sele\u00e7\u00e3o; Esc cancela)",
+            "Rt_Error": "Erro: {0}",
+            "Rt_Filter": "Filtro",
+            "Rt_Labels_Tip": "Mostrar / ocultar r\u00f3tulos de dados",
+            "Rt_Landing1": "Coloque a coluna da cidade em \u00abCidade\u00bb, a do pa\u00eds em \u00abPa\u00eds\u00bb e uma medida em \u00abValor (cor)\u00bb.",
+            "Rt_Landing2": "Opcional: \u00abTamanho\u00bb, \u00abDetalhe (legenda)\u00bb, \u00abC\u00f3digo postal\u00bb, Latitude/Longitude e Tooltips.",
+            "Rt_LegendClip": "(corte {0}, valores fora saturam)",
+            "Rt_LegendLog": "(logar\u00edtmica)",
+            "Rt_LegendRank": "(por posi\u00e7\u00e3o \u00b7 mediana {0})",
+            "Rt_Level": "N\u00edvel: {0}",
+            "Rt_Localities": "Localidades nos dados",
+            "Rt_LocatedByPostal": "Localizado por c\u00f3digo postal",
+            "Rt_Location": "Localiza\u00e7\u00e3o",
+            "Rt_Municipality": "Munic\u00edpio",
+            "Rt_NeedCountryCol": "\u26a0 Coloque a coluna do pa\u00eds em \u00abPa\u00eds\u00bb: sem ela, cidades com o mesmo nome em pa\u00edses diferentes s\u00e3o somadas e filtradas em conjunto.",
+            "Rt_Negative": "< 0 (negativo)",
+            "Rt_NoData": "Sem dados (sem vendas)",
+            "Rt_NotFound1": "1 local n\u00e3o encontrado",
+            "Rt_NotFoundClick": "Clique para selecion\u00e1-lo nos outros visuais (Ctrl+clique adiciona)",
+            "Rt_NotFoundN": "{0} locais n\u00e3o encontrados",
+            "Rt_NotFoundSelectAll": "Selecionar todos",
+            "Rt_NotFoundTip": "Dica: clique em uma localiza\u00e7\u00e3o para v\u00ea-la nos outros visuais; use a coluna Pa\u00eds e uma medida de CEP, ou defina o Pa\u00eds padr\u00e3o em Mapa.",
+            "Rt_ResetZoom": "Repor zoom",
+            "Rt_Search_Contains": "Cont\u00e9m",
+            "Rt_Search_EndsWith": "Termina com",
+            "Rt_Search_Equals": "\u00c9 igual a",
+            "Rt_Search_NotContains": "N\u00e3o cont\u00e9m",
+            "Rt_Search_Op": "Operador de pesquisa",
+            "Rt_Search_Placeholder": "Pesquisar\u2026 (Enter)",
+            "Rt_Search_PressEnter": "Pressione Enter para filtrar",
+            "Rt_Search_Scope": "Pesquisar em",
+            "Rt_Search_StartsWith": "Come\u00e7a com",
+            "Rt_Selection": "Sele\u00e7\u00e3o",
+            "Rt_ShareOfTotal": "{0}% do total",
+            "Rt_ShowAll": "Mostrar tudo",
+            "Rt_ShowAllLevel": "Mostrar todos deste n\u00edvel",
+            "Rt_ViewCountries": "Pa\u00edses",
+            "Rt_ViewDistrictsW": "Distritos / regi\u00f5es",
+            "Rt_ViewMunicipalities": "Munic\u00edpios",
+            "Rt_ViewMunicipalities_Tip": "Mostrar os munic\u00edpios (dos distritos selecionados, se houver)",
+            "Rt_WarnCountryTitle": "Falta a coluna do pa\u00eds",
+            "Rt_WarnUnmatchedTitle": "Locais n\u00e3o encontrados",
+            "Rt_Zone1": "1 zona",
+            "Rt_ZoneN": "{0} zonas",
+            "Rt_ZoomIn": "Aproximar",
+            "Rt_ZoomOut": "Afastar",
+            "Sel_BorderColor": "Contorno do selecionado",
+            "Sel_BorderWidth": "Espessura do contorno (px)",
+            "Sel_DimOpacity": "Opacidade dos n\u00e3o selecionados (%)",
+            "Sel_Interaction": "Ao selecionar",
+            "Sel_Interaction_Desc": "Filtrar: a sele\u00e7\u00e3o (clique, Shift/Ctrl+clique, zonas desenhadas) filtra os outros visuais da p\u00e1gina, como um segmentador. Real\u00e7ar: comportamento padr\u00e3o do Power BI.",
+            "Sel_SearchScope": "Pesquisar em",
+            "Sel_SearchScope_Desc": "Campo onde a pesquisa procura por padr\u00e3o: tudo, o pa\u00eds, o estado / regi\u00e3o ou o munic\u00edpio. Pode ser alterado no mapa.",
+            "Sel_ShowSearch": "Caixa de pesquisa",
+            "Sel_ShowSearch_Desc": "Campo de pesquisa no mapa: escolha onde pesquisar (todos, pa\u00eds, estado, munic\u00edpio) e como (cont\u00e9m, n\u00e3o cont\u00e9m, come\u00e7a com, termina com, \u00e9). Pressione Enter para filtrar as localiza\u00e7\u00f5es encontradas."
+        },
+        "pt-PT": {
+            "Area_AutoMid": "Ponto m\u00e9dio autom\u00e1tico",
+            "Area_AutoRange": "M\u00edn./m\u00e1x. autom\u00e1ticos",
+            "Area_BorderColor": "Cor das fronteiras",
+            "Area_BorderWidth": "Espessura das fronteiras",
+            "Area_Classes": "N\u00famero de classes",
+            "Area_Colors": "N\u00famero de cores",
+            "Area_FxFill": "Cor por regra (fx)",
+            "Area_FxFill_Desc": "Use o bot\u00e3o fx para cores por regras ou por campo. Sobrep\u00f5e-se ao gradiente.",
+            "Area_LineIntensity": "Intensidade das linhas (%)",
+            "Area_LineIntensity_Desc": "Opacidade de todas as linhas de fronteira: contorno das \u00e1reas e fronteiras de distritos, concelhos e pa\u00edses.",
+            "Area_MaxColor": "Cor m\u00e1ximo",
+            "Area_Mid2Color": "Cor interm\u00e9dia 2",
+            "Area_MidColor": "Cor interm\u00e9dia",
+            "Area_MidValue": "Ponto m\u00e9dio",
+            "Area_MinColor": "Cor m\u00ednimo",
+            "Area_NegativeColor": "Cor dos negativos",
+            "Area_NegativeMode": "Valores negativos",
+            "Area_NegativeMode_Desc": "Cor pr\u00f3pria: os negativos (devolu\u00e7\u00f5es, notas de cr\u00e9dito) t\u00eam uma cor e a escala vai de 0 ao m\u00e1ximo. Divergente: tons dessa cor at\u00e9 ao valor mais negativo. Parte da escala: os negativos s\u00e3o o in\u00edcio da escala.",
+            "Area_NoDataColor": "Cor sem dados",
+            "Area_Opacity": "Opacidade das \u00e1reas (%)",
+            "Area_PHigh": "Corte superior (percentil)",
+            "Area_PLow": "Corte inferior (percentil)",
+            "Area_RangeMax": "M\u00e1ximo",
+            "Area_RangeMin": "M\u00ednimo",
+            "Area_ScaleType": "Escala de cor",
+            "Area_ScaleType_Desc": "Para valores muito desiguais (ex.: um pa\u00eds com 80% do total) use Logar\u00edtmica, Por posi\u00e7\u00e3o ou Classes.",
+            "Base_PlaceDensity": "Densidade dos nomes",
+            "Base_PlaceFontSize": "Tamanho dos nomes",
+            "Base_PlacesPerArea": "Cidades por \u00e1rea (vistas pa\u00eds / distrito)",
+            "Base_PlacesPerArea_Desc": "Nomes das localidades mais populosas mostrados em cada pa\u00eds (vista pa\u00eds) ou distrito (vista distrito). 0 esconde-os; a vista concelho usa a densidade dos nomes.",
+            "Base_RoadIntensity": "Intensidade das estradas (%)",
+            "Base_ShowCountryNames": "Nomes de pa\u00edses",
+            "Base_ShowPlaces": "Nomes de localidades",
+            "Base_ShowRoads": "Estradas principais",
+            "Base_Style": "Estilo",
+            "Bubble_BorderColor": "Contorno",
+            "Bubble_BorderWidth": "Espessura do contorno",
+            "Bubble_Color": "Cor fixa",
+            "Bubble_ColorMode": "Cor das bolhas",
+            "Bubble_MaxRadius": "Raio m\u00e1ximo (px)",
+            "Bubble_MinRadius": "Raio m\u00ednimo (px)",
+            "Bubble_Opacity": "Opacidade (%)",
+            "Card_Area": "\u00c1reas e cores",
+            "Card_Basemap": "Mapa base",
+            "Card_Bubble": "Bolhas",
+            "Card_CategoryColors": "Cores da legenda",
+            "Card_Donut": "Donuts (com legenda)",
+            "Card_Labels": "R\u00f3tulos de dados",
+            "Card_Legend": "Legenda",
+            "Card_Map": "Mapa",
+            "Card_Selection": "Sele\u00e7\u00e3o",
+            "Common_FontColor": "Cor do texto",
+            "Common_FontSize": "Tamanho do texto",
+            "Common_Show": "Mostrar",
+            "Donut_AreaDonut": "Donut no centro das \u00e1reas",
+            "Donut_AreaDonutSize": "Raio do donut nas \u00e1reas (px)",
+            "Donut_Hole": "Tamanho do buraco central (%)",
+            "Donut_Hole_Desc": "0% = gr\u00e1fico circular cheio; 90% = anel fino.",
+            "Donut_Max": "M\u00e1ximo de donuts (maiores primeiro)",
+            "Donut_Max_Desc": "S\u00f3 os locais com maior valor t\u00eam donut; os restantes ficam com uma bolha simples (ou s\u00f3 a cor da \u00e1rea). 0 = todos.",
+            "Donut_Show": "Mostrar donuts",
+            "Donut_SliceBorderColor": "Separador entre fatias",
+            "Donut_SliceBorderWidth": "Espessura do separador",
+            "Labels_AutoHide": "Esconder quando sobrep\u00f5e",
+            "Labels_Content": "Conte\u00fado",
+            "Labels_Decimals": "Casas decimais",
+            "Labels_Halo": "Contorno branco no texto",
+            "Labels_Units": "Unidades",
+            "Legend_Position": "Posi\u00e7\u00e3o",
+            "Legend_ShowTitle": "T\u00edtulo",
+            "Map_CityMode": "Vista concelhos",
+            "Map_CityMode_Desc": "\u00c1rea: cada cidade \u00e9 colocada no seu concelho/munic\u00edpio, os valores s\u00e3o somados e o concelho inteiro \u00e9 pintado. Bolha: uma bolha por cidade.",
+            "Map_CityStart": "Abre em",
+            "Map_CityStart_Desc": "Vista mostrada primeiro. Os bot\u00f5es no mapa alternam entre pa\u00edses, distritos e (com um pa\u00eds ou distritos selecionados) concelhos.",
+            "Map_ContextBorder": "Fronteira dos vizinhos",
+            "Map_ContextColor": "Cor dos vizinhos",
+            "Map_CountryMode": "Vista pa\u00edses",
+            "Map_DefaultCountry": "Pa\u00eds por defeito (cidades / c\u00f3digos postais)",
+            "Map_DefaultCountry_Desc": "C\u00f3digo ISO2 (ex.: PT) usado para todas as cidades quando a coluna Pa\u00eds n\u00e3o \u00e9 usada (dados de um s\u00f3 pa\u00eds). Vazio = autom\u00e1tico.",
+            "Map_DistrictMode": "Vista distritos",
+            "Map_EnableZoom": "Zoom e pan com o rato",
+            "Map_ShowContext": "Mostrar vizinhos (contexto)",
+            "Map_ShowReset": "Bot\u00e3o repor zoom",
+            "Opt_Basemap_Dark": "Escuro",
+            "Opt_Basemap_Grey": "Cinzento",
+            "Opt_Basemap_Light": "Claro (estilo estradas)",
+            "Opt_Basemap_None": "Nenhum (s\u00f3 formas)",
+            "Opt_BubbleColor_Fixed": "Cor fixa",
+            "Opt_BubbleColor_Gradient": "Gradiente (valor)",
+            "Opt_CityStart_Country": "Pa\u00edses",
+            "Opt_CityStart_District": "Distritos / regi\u00f5es",
+            "Opt_Colors_2": "2 cores",
+            "Opt_Colors_3": "3 cores",
+            "Opt_Colors_4": "4 cores",
+            "Opt_Content_Both": "Nome e valor",
+            "Opt_Content_Name": "Nome",
+            "Opt_Content_Value": "Valor",
+            "Opt_Density_High": "Alta",
+            "Opt_Density_Low": "Baixa",
+            "Opt_Density_Medium": "M\u00e9dia",
+            "Opt_Interaction_Filter": "Filtrar a p\u00e1gina",
+            "Opt_Interaction_Highlight": "Real\u00e7ar (padr\u00e3o Power BI)",
+            "Opt_Mode_Area": "\u00c1rea",
+            "Opt_Mode_Both": "\u00c1rea + bolha",
+            "Opt_Mode_Bubble": "Bolha",
+            "Opt_Neg_Diverging": "Divergente (negativo \u2190 0 \u2192 escala)",
+            "Opt_Neg_Own": "Cor pr\u00f3pria",
+            "Opt_Neg_Scale": "Parte da escala",
+            "Opt_Position_Bottom": "Fundo",
+            "Opt_Position_Top": "Topo",
+            "Opt_Scale_Clip": "Linear com corte por percentil",
+            "Opt_Scale_Linear": "Linear (valor)",
+            "Opt_Scale_Log": "Logar\u00edtmica",
+            "Opt_Scale_Quantile": "Classes com igual n\u00ba de locais (quantis)",
+            "Opt_Scale_Rank": "Por posi\u00e7\u00e3o (percentil cont\u00ednuo)",
+            "Opt_Scope_All": "Todos",
+            "Opt_Scope_Country": "Pa\u00eds",
+            "Opt_Scope_District": "Distrito / regi\u00e3o",
+            "Opt_Scope_Municipality": "Concelho",
+            "Opt_Units_Auto": "Autom\u00e1tico",
+            "Opt_Units_Billions": "Mil milh\u00f5es (B)",
+            "Opt_Units_Millions": "Milh\u00f5es (M)",
+            "Opt_Units_None": "Nenhuma",
+            "Opt_Units_Thousands": "Milhares (K)",
+            "Role_Color": "Valor (cor)",
+            "Role_Color_Desc": "Medida que define a escala de cor das \u00e1reas e bolhas.",
+            "Role_CountryGroup": "Pa\u00eds",
+            "Role_CountryGroup_Desc": "Coluna do pa\u00eds da mesma tabela (ex.: Dim[Pa\u00eds], nome ou ISO2/ISO3). Cada cidade \u00e9 lida dentro do seu pa\u00eds e cidades com o mesmo nome em pa\u00edses diferentes ficam separadas.",
+            "Role_LatLon_Desc": "Medida expl\u00edcita (ex.: AVERAGE/SELECTEDVALUE). Usada no n\u00edvel abaixo da cidade (cliente, loja, c\u00f3digo postal) e como recurso quando uma cidade n\u00e3o \u00e9 encontrada.",
+            "Role_Latitude": "Latitude (n\u00edvel mais baixo)",
+            "Role_Legend": "Detalhe (legenda)",
+            "Role_Legend_Desc": "Opcional. Divide cada bolha/\u00e1rea num donut com uma fatia por categoria.",
+            "Role_Location": "Cidade",
+            "Role_Location_Desc": "Cidade de cada linha (opcionalmente um segundo n\u00edvel abaixo: c\u00f3digo postal, ou cliente/loja com Latitude/Longitude). O mapa agrega as cidades em pa\u00edses, distritos e concelhos.",
+            "Role_Longitude": "Longitude (n\u00edvel mais baixo)",
+            "Role_PostalCode": "C\u00f3digo postal (opcional)",
+            "Role_PostalCode_Desc": "Medida com o c\u00f3digo postal, usada para posicionar cidades cujo nome n\u00e3o \u00e9 encontrado e o n\u00edvel abaixo da cidade. Em alternativa, coloque a coluna do c\u00f3digo postal como \u00faltimo n\u00edvel da Localiza\u00e7\u00e3o.",
+            "Role_Size": "Tamanho",
+            "Role_Size_Desc": "Medida que define o tamanho das bolhas. Se vazio, usa o Valor (cor).",
+            "Role_Tooltips": "Tooltips",
+            "Rt_Agglomerates": "Concelhos/munic\u00edpios agrupados",
+            "Rt_AndMore": "\u2026 e mais {0}",
+            "Rt_AriaSummary": "Mapa de {0}: {1} locais",
+            "Rt_Blank": "(Em branco)",
+            "Rt_ClearAll": "Limpar sele\u00e7\u00e3o, filtro e zonas",
+            "Rt_ClearZones": "Apagar zonas desenhadas",
+            "Rt_ClickForList": "Clique para ver a lista",
+            "Rt_Close": "Fechar",
+            "Rt_Country": "Pa\u00eds",
+            "Rt_Detail": "Detalhe",
+            "Rt_District": "Distrito / prov\u00edncia",
+            "Rt_Donuts_Tip": "Mostrar / ocultar donuts (Detalhe)",
+            "Rt_DrawZone": "Desenhar zona de sele\u00e7\u00e3o",
+            "Rt_DrawZone_Tip": "Desenhar zona de sele\u00e7\u00e3o (arraste para desenhar; cada zona soma \u00e0 sele\u00e7\u00e3o; Esc cancela)",
+            "Rt_Error": "Erro: {0}",
+            "Rt_Filter": "Filtro",
+            "Rt_Labels_Tip": "Mostrar / ocultar r\u00f3tulos de dados",
+            "Rt_Landing1": "Coloque a coluna da cidade em \u00abCidade\u00bb, a do pa\u00eds em \u00abPa\u00eds\u00bb e uma medida em \u00abValor (cor)\u00bb.",
+            "Rt_Landing2": "Opcional: \u00abTamanho\u00bb, \u00abDetalhe (legenda)\u00bb, \u00abC\u00f3digo postal\u00bb, Latitude/Longitude e Tooltips.",
+            "Rt_LegendClip": "(corte {0}, valores fora saturam)",
+            "Rt_LegendLog": "(logar\u00edtmica)",
+            "Rt_LegendRank": "(por posi\u00e7\u00e3o \u00b7 mediana {0})",
+            "Rt_Level": "N\u00edvel: {0}",
+            "Rt_Localities": "Localidades nos dados",
+            "Rt_LocatedByPostal": "Localizado por c\u00f3digo postal",
+            "Rt_Location": "Localiza\u00e7\u00e3o",
+            "Rt_Municipality": "Concelho / munic\u00edpio",
+            "Rt_NeedCountryCol": "\u26a0 Coloque a coluna do pa\u00eds em \u00abPa\u00eds\u00bb: sem ela, cidades com o mesmo nome em pa\u00edses diferentes s\u00e3o somadas e filtradas em conjunto.",
+            "Rt_Negative": "< 0 (negativo)",
+            "Rt_NoData": "Sem dados (sem vendas)",
+            "Rt_NotFound1": "1 local n\u00e3o encontrado",
+            "Rt_NotFoundClick": "Clique para o selecionar nos outros visuais (Ctrl+clique adiciona)",
+            "Rt_NotFoundN": "{0} locais n\u00e3o encontrados",
+            "Rt_NotFoundSelectAll": "Selecionar todos",
+            "Rt_NotFoundTip": "Dica: clique numa localiza\u00e7\u00e3o para a ver nos outros visuais; use a coluna Pa\u00eds e uma medida de C\u00f3digo postal, ou defina o Pa\u00eds por omiss\u00e3o em Mapa.",
+            "Rt_ResetZoom": "Repor zoom",
+            "Rt_Search_Contains": "Cont\u00e9m",
+            "Rt_Search_EndsWith": "Termina com",
+            "Rt_Search_Equals": "\u00c9 igual a",
+            "Rt_Search_NotContains": "N\u00e3o cont\u00e9m",
+            "Rt_Search_Op": "Operador de pesquisa",
+            "Rt_Search_Placeholder": "Pesquisar\u2026 (Enter)",
+            "Rt_Search_PressEnter": "Prima Enter para filtrar",
+            "Rt_Search_Scope": "Pesquisar em",
+            "Rt_Search_StartsWith": "Come\u00e7a com",
+            "Rt_Selection": "Sele\u00e7\u00e3o",
+            "Rt_ShareOfTotal": "{0}% do total",
+            "Rt_ShowAll": "Mostrar tudo",
+            "Rt_ShowAllLevel": "Mostrar todos deste n\u00edvel",
+            "Rt_ViewCountries": "Pa\u00edses",
+            "Rt_ViewDistrictsW": "Distritos / regi\u00f5es",
+            "Rt_ViewMunicipalities": "Concelhos / munic\u00edpios",
+            "Rt_ViewMunicipalities_Tip": "Mostrar os concelhos (dos distritos selecionados, se houver)",
+            "Rt_WarnCountryTitle": "Falta a coluna do pa\u00eds",
+            "Rt_WarnUnmatchedTitle": "Locais n\u00e3o encontrados",
+            "Rt_Zone1": "1 zona",
+            "Rt_ZoneN": "{0} zonas",
+            "Rt_ZoomIn": "Aproximar",
+            "Rt_ZoomOut": "Afastar",
+            "Sel_BorderColor": "Contorno do selecionado",
+            "Sel_BorderWidth": "Espessura do contorno (px)",
+            "Sel_DimOpacity": "Opacidade dos n\u00e3o selecionados (%)",
+            "Sel_Interaction": "Ao selecionar",
+            "Sel_Interaction_Desc": "Filtrar: a sele\u00e7\u00e3o (clique, Shift/Ctrl+clique, zonas desenhadas) filtra os outros visuais da p\u00e1gina, como um segmentador. Real\u00e7ar: comportamento padr\u00e3o do Power BI.",
+            "Sel_SearchScope": "Pesquisar em",
+            "Sel_SearchScope_Desc": "Campo onde a pesquisa procura por omiss\u00e3o: tudo, o pa\u00eds, o distrito / regi\u00e3o ou o concelho. Pode ser alterado no mapa.",
+            "Sel_ShowSearch": "Caixa de pesquisa",
+            "Sel_ShowSearch_Desc": "Campo de pesquisa no mapa: escolha onde pesquisar (todos, pa\u00eds, distrito, concelho) e como (cont\u00e9m, n\u00e3o cont\u00e9m, come\u00e7a por, termina em, \u00e9). Prima Enter para filtrar as localiza\u00e7\u00f5es encontradas."
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "City",
+                "name": "location",
+                "kind": "Grouping",
+                "description": "City of each row (optionally a second level below it: postal code, or customer/store with Latitude/Longitude). The map aggregates the cities into countries, districts and municipalities.",
+                "displayNameKey": "Role_Location",
+                "descriptionKey": "Role_Location_Desc"
+            },
+            {
+                "displayName": "Country",
+                "name": "countryGroup",
+                "kind": "Grouping",
+                "description": "Country column of the same table (e.g. Dim[Country], name or ISO2/ISO3). Each city is read inside its own country, so cities with the same name in different countries stay separate.",
+                "displayNameKey": "Role_CountryGroup",
+                "descriptionKey": "Role_CountryGroup_Desc"
+            },
+            {
+                "displayName": "Detail (legend)",
+                "name": "legend",
+                "kind": "Grouping",
+                "description": "Optional. Splits each bubble/area into a donut with one slice per category.",
+                "displayNameKey": "Role_Legend",
+                "descriptionKey": "Role_Legend_Desc"
+            },
+            {
+                "displayName": "Value (color)",
+                "name": "color",
+                "kind": "Measure",
+                "description": "Measure that drives the color scale of areas and bubbles.",
+                "displayNameKey": "Role_Color",
+                "descriptionKey": "Role_Color_Desc"
+            },
+            {
+                "displayName": "Size",
+                "name": "size",
+                "kind": "Measure",
+                "description": "Measure that drives bubble size. When empty, Value (color) is used.",
+                "displayNameKey": "Role_Size",
+                "descriptionKey": "Role_Size_Desc"
+            },
+            {
+                "displayName": "Postal code (optional)",
+                "name": "postalCode",
+                "kind": "Measure",
+                "description": "Measure returning the postal code, used to place cities whose name is not found and the level below the city. Alternatively put the postal code column as the last Location level.",
+                "displayNameKey": "Role_PostalCode",
+                "descriptionKey": "Role_PostalCode_Desc"
+            },
+            {
+                "displayName": "Latitude (lowest level)",
+                "name": "latitude",
+                "kind": "Measure",
+                "description": "Explicit measure (e.g. AVERAGE/SELECTEDVALUE). Used for the level below the city (customer, store, postal code) and as a fallback when a city is not found.",
+                "displayNameKey": "Role_Latitude",
+                "descriptionKey": "Role_LatLon_Desc"
+            },
+            {
+                "displayName": "Longitude (lowest level)",
+                "name": "longitude",
+                "kind": "Measure",
+                "description": "Explicit measure (e.g. AVERAGE/SELECTEDVALUE). Used for the level below the city (customer, store, postal code) and as a fallback when a city is not found.",
+                "displayNameKey": "Role_Longitude",
+                "descriptionKey": "Role_LatLon_Desc"
+            },
+            {
+                "displayName": "Tooltips",
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayNameKey": "Role_Tooltips"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "location": {
+                            "max": 2
+                        },
+                        "legend": {
+                            "max": 1
+                        },
+                        "color": {
+                            "max": 1
+                        },
+                        "size": {
+                            "max": 1
+                        },
+                        "latitude": {
+                            "max": 1
+                        },
+                        "longitude": {
+                            "max": 1
+                        },
+                        "postalCode": {
+                            "max": 1
+                        },
+                        "countryGroup": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "countryGroup"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "location"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "group": {
+                            "by": "legend",
+                            "select": [
+                                {
+                                    "for": {
+                                        "in": "color"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "size"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "postalCode"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "latitude"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "longitude"
+                                    }
+                                },
+                                {
+                                    "for": {
+                                        "in": "tooltips"
+                                    }
+                                }
+                            ],
+                            "dataReductionAlgorithm": {
+                                "top": {
+                                    "count": 60
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "drilldown": {
+            "roles": [
+                "location"
+            ]
+        },
+        "objects": {
+            "general": {
+                "properties": {
+                    "formatString": {
+                        "type": {
+                            "formatting": {
+                                "formatString": true
+                            }
+                        }
+                    },
+                    "filter": {
+                        "type": {
+                            "filter": true
+                        }
+                    }
+                }
+            },
+            "mapCard": {
+                "properties": {
+                    "countryMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "area"
+                                },
+                                {
+                                    "value": "bubble"
+                                },
+                                {
+                                    "value": "both"
+                                }
+                            ]
+                        }
+                    },
+                    "showContext": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "contextColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "contextBorderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "enableZoom": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showReset": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "defaultCountry": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "cityMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "area"
+                                },
+                                {
+                                    "value": "bubble"
+                                },
+                                {
+                                    "value": "both"
+                                }
+                            ]
+                        }
+                    },
+                    "districtMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "area"
+                                },
+                                {
+                                    "value": "bubble"
+                                },
+                                {
+                                    "value": "both"
+                                }
+                            ]
+                        }
+                    },
+                    "cityStart": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "country"
+                                },
+                                {
+                                    "value": "district"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "areaCard": {
+                "properties": {
+                    "gradientType": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "two"
+                                },
+                                {
+                                    "value": "three"
+                                },
+                                {
+                                    "value": "four"
+                                }
+                            ]
+                        }
+                    },
+                    "minColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "midColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "maxColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "autoRange": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rangeMin": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rangeMax": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "autoMid": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "midValue": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fxFill": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "noDataColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "areaOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "mid2Color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleType": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "linear"
+                                },
+                                {
+                                    "value": "log"
+                                },
+                                {
+                                    "value": "rank"
+                                },
+                                {
+                                    "value": "quantile"
+                                },
+                                {
+                                    "value": "clip"
+                                }
+                            ]
+                        }
+                    },
+                    "classes": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "pLow": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "pHigh": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "lineIntensity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "negativeMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "own"
+                                },
+                                {
+                                    "value": "diverging"
+                                },
+                                {
+                                    "value": "scale"
+                                }
+                            ]
+                        }
+                    },
+                    "negativeColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "bubbleCard": {
+                "properties": {
+                    "bubbleColorMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "gradient"
+                                },
+                                {
+                                    "value": "fixed"
+                                }
+                            ]
+                        }
+                    },
+                    "bubbleColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "minRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "maxRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bubbleOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bubbleBorderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bubbleBorderWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "categoryColors": {
+                "properties": {
+                    "fill": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "legendCard": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top"
+                                },
+                                {
+                                    "value": "bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "showTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "labelsCard": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "content": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "name"
+                                },
+                                {
+                                    "value": "value"
+                                },
+                                {
+                                    "value": "both"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "halo": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "autoHide": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "displayUnits": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto"
+                                },
+                                {
+                                    "value": "none"
+                                },
+                                {
+                                    "value": "thousands"
+                                },
+                                {
+                                    "value": "millions"
+                                },
+                                {
+                                    "value": "billions"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "donutCard": {
+                "properties": {
+                    "donutHole": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "sliceBorderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "sliceBorderWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "areaDonut": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "areaDonutSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showDonuts": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maxDonuts": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "basemapCard": {
+                "properties": {
+                    "style": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none"
+                                },
+                                {
+                                    "value": "light"
+                                },
+                                {
+                                    "value": "grey"
+                                },
+                                {
+                                    "value": "dark"
+                                }
+                            ]
+                        }
+                    },
+                    "showRoads": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPlaces": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "placeDensity": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "low"
+                                },
+                                {
+                                    "value": "medium"
+                                },
+                                {
+                                    "value": "high"
+                                }
+                            ]
+                        }
+                    },
+                    "placeFontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showCountryNames": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "roadIntensity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "placesPerArea": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "selectionCard": {
+                "properties": {
+                    "selBorderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "selBorderWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "dimOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "interaction": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "filter"
+                                },
+                                {
+                                    "value": "highlight"
+                                }
+                            ]
+                        }
+                    },
+                    "showSearch": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "searchScope": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "all"
+                                },
+                                {
+                                    "value": "country"
+                                },
+                                {
+                                    "value": "district"
+                                },
+                                {
+                                    "value": "municipality"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "drillState": {
+                "properties": {
+                    "focus": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sel": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        },
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ],
+            "supportEnhancedTooltips": true
+        },
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsMultiVisualSelection": true,
+        "privileges": [],
+        "supportsSynchronizingFilterState": true
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

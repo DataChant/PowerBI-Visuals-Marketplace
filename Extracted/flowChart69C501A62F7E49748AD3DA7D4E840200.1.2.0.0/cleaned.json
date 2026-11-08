@@ -1,0 +1,3203 @@
+{
+    "visual": {
+        "name": "flowChart",
+        "displayName": "Flow Chart",
+        "guid": "flowChart69C501A62F7E49748AD3DA7D4E840200",
+        "visualClassName": "Visual",
+        "version": "1.2.0.0",
+        "description": "Data-driven process flow chart with native Power BI selection, cross-filtering and KPI-aware nodes.",
+        "supportUrl": "https://tinocallarisa-web.github.io/FlowChart/support.html",
+        "gitHubUrl": "https://github.com/tinocallarisa-web/FlowChart"
+    },
+    "author": {
+        "name": "TCViz",
+        "email": "support@tcviz.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "de-DE": {
+            "Enum_layoutSettings_direction_Horizontal": "Von links nach rechts",
+            "Enum_layoutSettings_direction_Vertical": "Von oben nach unten",
+            "Enum_legendSettings_position_BottomLeft": "Unten links",
+            "Enum_legendSettings_position_BottomRight": "Unten rechts",
+            "Enum_legendSettings_position_TopRight": "Oben rechts",
+            "Enum_linkSettings_labelContent_Both": "Wert und %",
+            "Enum_linkSettings_labelContent_Percent": "% vom Gesamtwert",
+            "Enum_linkSettings_labelContent_Value": "Wert",
+            "Enum_nodeSettings_badgeFontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_badgeFontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_badgeFontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_badgeFontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_badgeFontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_imageShape_Circle": "Kreis",
+            "Enum_nodeSettings_imageShape_Rounded": "Abgerundet",
+            "Enum_nodeSettings_imageShape_Square": "Quadratisch",
+            "Enum_rules_basis_Share": "% vom Gesamtwert",
+            "Enum_rules_basis_Value": "Knotenwert",
+            "Enum_rules_basis_Variance": "% gg\u00fc. Ziel",
+            "Enum_rules_rule1Op_Gt": "Gr\u00f6\u00dfer als",
+            "Enum_rules_rule1Op_Lt": "Kleiner als",
+            "Enum_rules_rule2Op_Gt": "Gr\u00f6\u00dfer als",
+            "Enum_rules_rule2Op_Lt": "Kleiner als",
+            "Enum_rules_rule3Op_Gt": "Gr\u00f6\u00dfer als",
+            "Enum_rules_rule3Op_Lt": "Kleiner als",
+            "Enum_style_template_Clean": "Klar",
+            "Enum_style_template_Compact": "Kompakt",
+            "Enum_style_template_Contrast": "Kontrast",
+            "Enum_style_template_Default": "Standard",
+            "Enum_style_template_Minimal": "Minimal",
+            "Enum_style_template_Outline": "Kontur",
+            "Enum_swimlaneSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_swimlaneSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_swimlaneSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_swimlaneSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_swimlaneSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_valueFormatSettings_format_Compact": "Kompakt (1,2K / 3,4M)",
+            "Enum_valueFormatSettings_format_Model": "Modellformat",
+            "Enum_valueFormatSettings_format_Percent": "Prozent (12,3 %)",
+            "Enum_valueFormatSettings_format_Plain": "Einfach (1234)",
+            "Enum_valueFormatSettings_format_Thousands": "Tausender (1.234)",
+            "Obj_dataPoint": "Datenfarben",
+            "Obj_layoutSettings": "Layout",
+            "Obj_legendSettings": "Legende",
+            "Obj_linkSettings": "Verbindungen",
+            "Obj_nodeSettings": "Knoten",
+            "Obj_rules": "Farbregeln (Pro)",
+            "Obj_style": "Stilvorlage",
+            "Obj_swimlaneSettings": "Swimlanes",
+            "Obj_valueFormatSettings": "Wertformat",
+            "Prop_dataPoint_colorByLevel": "Knoten nach Ebene einf\u00e4rben",
+            "Prop_dataPoint_defaultColor": "Standardknotenfarbe",
+            "Prop_dataPoint_levelColor1": "Farbe Ebene 1",
+            "Prop_dataPoint_levelColor2": "Farbe Ebene 2",
+            "Prop_dataPoint_levelColor3": "Farbe Ebene 3",
+            "Prop_dataPoint_levelColor4": "Farbe Ebene 4",
+            "Prop_dataPoint_levelColor5": "Farbe Ebene 5",
+            "Prop_dataPoint_levelColor6": "Farbe Ebene 6",
+            "Prop_layoutSettings_backgroundColor": "Hintergrundfarbe",
+            "Prop_layoutSettings_direction": "Richtung",
+            "Prop_layoutSettings_fillBackground": "Hintergrund",
+            "Prop_layoutSettings_fitOnLoad": "Gro\u00dfe Diagramme an das Visual anpassen",
+            "Prop_layoutSettings_gridColor": "Rasterfarbe",
+            "Prop_layoutSettings_headerColor": "Kopfzeilenfarbe",
+            "Prop_layoutSettings_headerSize": "Kopfzeilengr\u00f6\u00dfe",
+            "Prop_layoutSettings_layerGap": "Abstand zwischen Ebenen",
+            "Prop_layoutSettings_nodeGap": "Abstand zwischen Knoten",
+            "Prop_layoutSettings_showGrid": "Hintergrundraster",
+            "Prop_layoutSettings_showLevelHeaders": "Ebenen\u00fcberschriften",
+            "Prop_layoutSettings_showMinimap": "Minikarte",
+            "Prop_layoutSettings_showToolbar": "Symbolleiste",
+            "Prop_layoutSettings_showZoomButtons": "Zoomschaltfl\u00e4chen",
+            "Prop_layoutSettings_toolbarSize": "Gr\u00f6\u00dfe der Symbolleiste",
+            "Prop_legendSettings_fontSize": "Textgr\u00f6\u00dfe",
+            "Prop_legendSettings_position": "Position",
+            "Prop_legendSettings_show": "Legende anzeigen",
+            "Prop_legendSettings_textColor": "Textfarbe",
+            "Prop_legendSettings_useFieldNames": "Feldnamen verwenden",
+            "Prop_linkSettings_color": "Verbindungsfarbe",
+            "Prop_linkSettings_curvature": "Kr\u00fcmmung",
+            "Prop_linkSettings_dominantEmphasis": "St\u00e4rke des Hauptpfads x",
+            "Prop_linkSettings_highlightDominant": "Hauptpfad hervorheben",
+            "Prop_linkSettings_highlightTopVariant": "H\u00e4ufigste End-to-End-Variante hervorheben",
+            "Prop_linkSettings_labelColor": "Beschriftungsfarbe",
+            "Prop_linkSettings_labelContent": "Beschriftung zeigt",
+            "Prop_linkSettings_labelSize": "Beschriftungsgr\u00f6\u00dfe",
+            "Prop_linkSettings_showLabels": "Verbindungsbeschriftungen",
+            "Prop_linkSettings_topVariantColor": "Farbe der Top-Variante",
+            "Prop_linkSettings_width": "Basisbreite der Verbindungen",
+            "Prop_nodeSettings_badgeBackgroundColor": "Badge-Hintergrund",
+            "Prop_nodeSettings_badgeBackgroundOpacity": "Deckkraft Badge-Hintergrund %",
+            "Prop_nodeSettings_badgeFontFamily": "Badge-Schriftart",
+            "Prop_nodeSettings_badgeFontSize": "Badge-Schriftgr\u00f6\u00dfe",
+            "Prop_nodeSettings_badgeTextColor": "Badge-Textfarbe",
+            "Prop_nodeSettings_borderColor": "Rahmenfarbe",
+            "Prop_nodeSettings_borderWidth": "Rahmenbreite",
+            "Prop_nodeSettings_colorBorderByLevel": "Rahmenfarbe nach Ebene",
+            "Prop_nodeSettings_cornerRadius": "Eckenradius",
+            "Prop_nodeSettings_fontFamily": "Schriftfamilie",
+            "Prop_nodeSettings_fontSize": "Beschriftungsgr\u00f6\u00dfe",
+            "Prop_nodeSettings_height": "Knotenh\u00f6he",
+            "Prop_nodeSettings_imageBackground": "Bildhintergrund",
+            "Prop_nodeSettings_imageBackgroundColor": "Bildhintergrundfarbe",
+            "Prop_nodeSettings_imageShape": "Bildform",
+            "Prop_nodeSettings_imageSize": "Bildgr\u00f6\u00dfe",
+            "Prop_nodeSettings_kpiDownColor": "KPI-Farbe negativ",
+            "Prop_nodeSettings_kpiUpColor": "KPI-Farbe positiv",
+            "Prop_nodeSettings_shadowBlur": "Schattenunsch\u00e4rfe",
+            "Prop_nodeSettings_shadowColor": "Schattenfarbe",
+            "Prop_nodeSettings_shadowOffsetX": "Schattenversatz X",
+            "Prop_nodeSettings_shadowOffsetY": "Schattenversatz Y",
+            "Prop_nodeSettings_shadowOpacity": "Schattendeckkraft %",
+            "Prop_nodeSettings_showBadge": "Wert-Badge im Knoten anzeigen",
+            "Prop_nodeSettings_showShadow": "Knotenschatten anzeigen",
+            "Prop_nodeSettings_showStepNumber": "Schrittnummer",
+            "Prop_nodeSettings_textColor": "Textfarbe",
+            "Prop_nodeSettings_width": "Knotenbreite",
+            "Prop_rules_basis": "Vergleichen",
+            "Prop_rules_rule1Color": "Farbe",
+            "Prop_rules_rule1On": "Regel 1",
+            "Prop_rules_rule1Op": "Bedingung",
+            "Prop_rules_rule1Value": "Wert",
+            "Prop_rules_rule2Color": "Farbe",
+            "Prop_rules_rule2On": "Regel 2",
+            "Prop_rules_rule2Op": "Bedingung",
+            "Prop_rules_rule2Value": "Wert",
+            "Prop_rules_rule3Color": "Farbe",
+            "Prop_rules_rule3On": "Regel 3",
+            "Prop_rules_rule3Op": "Bedingung",
+            "Prop_rules_rule3Value": "Wert",
+            "Prop_style_guide": "Einrichtungstipps anzeigen",
+            "Prop_style_template": "Vorlage",
+            "Prop_swimlaneSettings_bandColor1": "Farbe Band 1",
+            "Prop_swimlaneSettings_bandColor2": "Farbe Band 2",
+            "Prop_swimlaneSettings_bandColor3": "Farbe Band 3",
+            "Prop_swimlaneSettings_bandColor4": "Farbe Band 4",
+            "Prop_swimlaneSettings_bandOpacity": "Banddeckkraft %",
+            "Prop_swimlaneSettings_fontFamily": "Beschriftungsschriftart",
+            "Prop_swimlaneSettings_labelSize": "Beschriftungsgr\u00f6\u00dfe",
+            "Prop_swimlaneSettings_show": "Swimlane-B\u00e4nder anzeigen",
+            "Prop_swimlaneSettings_textColor": "Beschriftungsfarbe",
+            "Prop_valueFormatSettings_decimals": "Dezimalstellen",
+            "Prop_valueFormatSettings_format": "Zahlenformat",
+            "Prop_valueFormatSettings_prefix": "Pr\u00e4fix",
+            "Prop_valueFormatSettings_suffix": "Suffix",
+            "Role_levelImages": "Bilder je Ebene (Pro)",
+            "Role_levelImages_Desc": "Ein Base64-Bild pro Ebene, bereits im Modell vorhanden.",
+            "Role_levels": "Ebenen (ein Feld pro Ebene, der Reihe nach)",
+            "Role_levels_Desc": "Ein Feld pro Prozessschritt, der Reihe nach. Mindestens zwei Ebenen.",
+            "Role_swimlane": "Swimlane (Pro)",
+            "Role_swimlane_Desc": "B\u00e4nder nach Abteilung, Region oder Phase.",
+            "Role_target": "Ziel \u2014 KPI-Badge (Pro)",
+            "Role_target_Desc": "Jeder Knoten zeigt Ist gegen\u00fcber Ziel.",
+            "Role_tooltips": "QuickInfo-Felder (Pro)",
+            "Role_tooltips_Desc": "Zus\u00e4tzliche Werte in der QuickInfo.",
+            "Role_value": "Wert",
+            "Role_value_Desc": "Bestimmt die St\u00e4rke der Verbindungen. Ohne sie z\u00e4hlt jede Zeile 1."
+        },
+        "en-US": {
+            "Enum_layoutSettings_direction_Horizontal": "Left to right",
+            "Enum_layoutSettings_direction_Vertical": "Top to bottom",
+            "Enum_legendSettings_position_BottomLeft": "Bottom left",
+            "Enum_legendSettings_position_BottomRight": "Bottom right",
+            "Enum_legendSettings_position_TopRight": "Top right",
+            "Enum_linkSettings_labelContent_Both": "Value and %",
+            "Enum_linkSettings_labelContent_Percent": "% of total",
+            "Enum_linkSettings_labelContent_Value": "Value",
+            "Enum_nodeSettings_badgeFontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_badgeFontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_badgeFontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_badgeFontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_badgeFontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_imageShape_Circle": "Circle",
+            "Enum_nodeSettings_imageShape_Rounded": "Rounded",
+            "Enum_nodeSettings_imageShape_Square": "Square",
+            "Enum_rules_basis_Share": "% of total",
+            "Enum_rules_basis_Value": "Node value",
+            "Enum_rules_basis_Variance": "% vs target",
+            "Enum_rules_rule1Op_Gt": "Greater than",
+            "Enum_rules_rule1Op_Lt": "Less than",
+            "Enum_rules_rule2Op_Gt": "Greater than",
+            "Enum_rules_rule2Op_Lt": "Less than",
+            "Enum_rules_rule3Op_Gt": "Greater than",
+            "Enum_rules_rule3Op_Lt": "Less than",
+            "Enum_style_template_Clean": "Clean",
+            "Enum_style_template_Compact": "Compact",
+            "Enum_style_template_Contrast": "Contrast",
+            "Enum_style_template_Default": "Default",
+            "Enum_style_template_Minimal": "Minimal",
+            "Enum_style_template_Outline": "Outline",
+            "Enum_swimlaneSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_swimlaneSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_swimlaneSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_swimlaneSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_swimlaneSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_valueFormatSettings_format_Compact": "Compact (1.2K / 3.4M)",
+            "Enum_valueFormatSettings_format_Model": "Model format",
+            "Enum_valueFormatSettings_format_Percent": "Percent (12.3%)",
+            "Enum_valueFormatSettings_format_Plain": "Plain (1234)",
+            "Enum_valueFormatSettings_format_Thousands": "Thousands (1,234)",
+            "Obj_dataPoint": "Data colors",
+            "Obj_layoutSettings": "Layout",
+            "Obj_legendSettings": "Legend",
+            "Obj_linkSettings": "Links",
+            "Obj_nodeSettings": "Nodes",
+            "Obj_rules": "Color rules (Pro)",
+            "Obj_style": "Style template",
+            "Obj_swimlaneSettings": "Swimlanes",
+            "Obj_valueFormatSettings": "Value format",
+            "Prop_dataPoint_colorByLevel": "Color nodes by level",
+            "Prop_dataPoint_defaultColor": "Default node color",
+            "Prop_dataPoint_levelColor1": "Level 1 color",
+            "Prop_dataPoint_levelColor2": "Level 2 color",
+            "Prop_dataPoint_levelColor3": "Level 3 color",
+            "Prop_dataPoint_levelColor4": "Level 4 color",
+            "Prop_dataPoint_levelColor5": "Level 5 color",
+            "Prop_dataPoint_levelColor6": "Level 6 color",
+            "Prop_layoutSettings_backgroundColor": "Background color",
+            "Prop_layoutSettings_direction": "Direction",
+            "Prop_layoutSettings_fillBackground": "Background",
+            "Prop_layoutSettings_fitOnLoad": "Fit large diagrams to the visual",
+            "Prop_layoutSettings_gridColor": "Grid color",
+            "Prop_layoutSettings_headerColor": "Header color",
+            "Prop_layoutSettings_headerSize": "Header size",
+            "Prop_layoutSettings_layerGap": "Spacing between levels",
+            "Prop_layoutSettings_nodeGap": "Spacing between nodes",
+            "Prop_layoutSettings_showGrid": "Background grid",
+            "Prop_layoutSettings_showLevelHeaders": "Level headers",
+            "Prop_layoutSettings_showMinimap": "Minimap",
+            "Prop_layoutSettings_showToolbar": "Toolbar",
+            "Prop_layoutSettings_showZoomButtons": "Zoom buttons",
+            "Prop_layoutSettings_toolbarSize": "Toolbar size",
+            "Prop_legendSettings_fontSize": "Text size",
+            "Prop_legendSettings_position": "Position",
+            "Prop_legendSettings_show": "Show legend",
+            "Prop_legendSettings_textColor": "Text color",
+            "Prop_legendSettings_useFieldNames": "Use field names",
+            "Prop_linkSettings_color": "Link color",
+            "Prop_linkSettings_curvature": "Curvature",
+            "Prop_linkSettings_dominantEmphasis": "Dominant path thickness x",
+            "Prop_linkSettings_highlightDominant": "Highlight dominant path",
+            "Prop_linkSettings_highlightTopVariant": "Highlight top end-to-end variant",
+            "Prop_linkSettings_labelColor": "Label color",
+            "Prop_linkSettings_labelContent": "Label shows",
+            "Prop_linkSettings_labelSize": "Label size",
+            "Prop_linkSettings_showLabels": "Link labels",
+            "Prop_linkSettings_topVariantColor": "Top variant color",
+            "Prop_linkSettings_width": "Base link width",
+            "Prop_nodeSettings_badgeBackgroundColor": "Badge background",
+            "Prop_nodeSettings_badgeBackgroundOpacity": "Badge background opacity %",
+            "Prop_nodeSettings_badgeFontFamily": "Badge font",
+            "Prop_nodeSettings_badgeFontSize": "Badge font size",
+            "Prop_nodeSettings_badgeTextColor": "Badge text color",
+            "Prop_nodeSettings_borderColor": "Border color",
+            "Prop_nodeSettings_borderWidth": "Border width",
+            "Prop_nodeSettings_colorBorderByLevel": "Color border by level",
+            "Prop_nodeSettings_cornerRadius": "Corner radius",
+            "Prop_nodeSettings_fontFamily": "Font family",
+            "Prop_nodeSettings_fontSize": "Label size",
+            "Prop_nodeSettings_height": "Node height",
+            "Prop_nodeSettings_imageBackground": "Image background",
+            "Prop_nodeSettings_imageBackgroundColor": "Image background color",
+            "Prop_nodeSettings_imageShape": "Image shape",
+            "Prop_nodeSettings_imageSize": "Image size",
+            "Prop_nodeSettings_kpiDownColor": "KPI down color",
+            "Prop_nodeSettings_kpiUpColor": "KPI up color",
+            "Prop_nodeSettings_shadowBlur": "Shadow blur",
+            "Prop_nodeSettings_shadowColor": "Shadow color",
+            "Prop_nodeSettings_shadowOffsetX": "Shadow offset X",
+            "Prop_nodeSettings_shadowOffsetY": "Shadow offset Y",
+            "Prop_nodeSettings_shadowOpacity": "Shadow opacity %",
+            "Prop_nodeSettings_showBadge": "Show value badge in chip",
+            "Prop_nodeSettings_showShadow": "Show node shadow",
+            "Prop_nodeSettings_showStepNumber": "Step number",
+            "Prop_nodeSettings_textColor": "Text color",
+            "Prop_nodeSettings_width": "Node width",
+            "Prop_rules_basis": "Compare",
+            "Prop_rules_rule1Color": "Color",
+            "Prop_rules_rule1On": "Rule 1",
+            "Prop_rules_rule1Op": "Condition",
+            "Prop_rules_rule1Value": "Value",
+            "Prop_rules_rule2Color": "Color",
+            "Prop_rules_rule2On": "Rule 2",
+            "Prop_rules_rule2Op": "Condition",
+            "Prop_rules_rule2Value": "Value",
+            "Prop_rules_rule3Color": "Color",
+            "Prop_rules_rule3On": "Rule 3",
+            "Prop_rules_rule3Op": "Condition",
+            "Prop_rules_rule3Value": "Value",
+            "Prop_style_guide": "Show setup tips",
+            "Prop_style_template": "Template",
+            "Prop_swimlaneSettings_bandColor1": "Band 1 color",
+            "Prop_swimlaneSettings_bandColor2": "Band 2 color",
+            "Prop_swimlaneSettings_bandColor3": "Band 3 color",
+            "Prop_swimlaneSettings_bandColor4": "Band 4 color",
+            "Prop_swimlaneSettings_bandOpacity": "Band opacity %",
+            "Prop_swimlaneSettings_fontFamily": "Label font",
+            "Prop_swimlaneSettings_labelSize": "Label size",
+            "Prop_swimlaneSettings_show": "Show swimlane bands",
+            "Prop_swimlaneSettings_textColor": "Label color",
+            "Prop_valueFormatSettings_decimals": "Decimal places",
+            "Prop_valueFormatSettings_format": "Number format",
+            "Prop_valueFormatSettings_prefix": "Prefix",
+            "Prop_valueFormatSettings_suffix": "Suffix",
+            "Role_levelImages": "Level images (Pro)",
+            "Role_levelImages_Desc": "A Base64 image per level, already in your model.",
+            "Role_levels": "Levels (drag one field per level, in order)",
+            "Role_levels_Desc": "One field per step of the process, in order. Two levels at least.",
+            "Role_swimlane": "Swimlane (Pro)",
+            "Role_swimlane_Desc": "Bands by department, region or phase.",
+            "Role_target": "Target \u2014 KPI badge (Pro)",
+            "Role_target_Desc": "Each node shows actual against target.",
+            "Role_tooltips": "Tooltip fields (Pro)",
+            "Role_tooltips_Desc": "Extra values in the tooltip.",
+            "Role_value": "Value",
+            "Role_value_Desc": "Sizes the links. Without it, each row counts 1."
+        },
+        "es-ES": {
+            "Enum_layoutSettings_direction_Horizontal": "De izquierda a derecha",
+            "Enum_layoutSettings_direction_Vertical": "De arriba abajo",
+            "Enum_legendSettings_position_BottomLeft": "Abajo a la izquierda",
+            "Enum_legendSettings_position_BottomRight": "Abajo a la derecha",
+            "Enum_legendSettings_position_TopRight": "Arriba a la derecha",
+            "Enum_linkSettings_labelContent_Both": "Valor y %",
+            "Enum_linkSettings_labelContent_Percent": "% del total",
+            "Enum_linkSettings_labelContent_Value": "Valor",
+            "Enum_nodeSettings_badgeFontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_badgeFontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_badgeFontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_badgeFontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_badgeFontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_imageShape_Circle": "C\u00edrculo",
+            "Enum_nodeSettings_imageShape_Rounded": "Redondeada",
+            "Enum_nodeSettings_imageShape_Square": "Cuadrada",
+            "Enum_rules_basis_Share": "% del total",
+            "Enum_rules_basis_Value": "Valor del nodo",
+            "Enum_rules_basis_Variance": "% frente al objetivo",
+            "Enum_rules_rule1Op_Gt": "Mayor que",
+            "Enum_rules_rule1Op_Lt": "Menor que",
+            "Enum_rules_rule2Op_Gt": "Mayor que",
+            "Enum_rules_rule2Op_Lt": "Menor que",
+            "Enum_rules_rule3Op_Gt": "Mayor que",
+            "Enum_rules_rule3Op_Lt": "Menor que",
+            "Enum_style_template_Clean": "Limpia",
+            "Enum_style_template_Compact": "Compacta",
+            "Enum_style_template_Contrast": "Contraste",
+            "Enum_style_template_Default": "Predeterminada",
+            "Enum_style_template_Minimal": "M\u00ednima",
+            "Enum_style_template_Outline": "Contorno",
+            "Enum_swimlaneSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_swimlaneSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_swimlaneSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_swimlaneSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_swimlaneSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_valueFormatSettings_format_Compact": "Compacto (1,2 K / 3,4 M)",
+            "Enum_valueFormatSettings_format_Model": "Formato del modelo",
+            "Enum_valueFormatSettings_format_Percent": "Porcentaje (12,3 %)",
+            "Enum_valueFormatSettings_format_Plain": "Simple (1234)",
+            "Enum_valueFormatSettings_format_Thousands": "Miles (1.234)",
+            "Obj_dataPoint": "Colores de datos",
+            "Obj_layoutSettings": "Dise\u00f1o",
+            "Obj_legendSettings": "Leyenda",
+            "Obj_linkSettings": "Conexiones",
+            "Obj_nodeSettings": "Nodos",
+            "Obj_rules": "Reglas de color (Pro)",
+            "Obj_style": "Plantilla de estilo",
+            "Obj_swimlaneSettings": "Calles",
+            "Obj_valueFormatSettings": "Formato del valor",
+            "Prop_dataPoint_colorByLevel": "Color de los nodos por nivel",
+            "Prop_dataPoint_defaultColor": "Color de nodo predeterminado",
+            "Prop_dataPoint_levelColor1": "Color del nivel 1",
+            "Prop_dataPoint_levelColor2": "Color del nivel 2",
+            "Prop_dataPoint_levelColor3": "Color del nivel 3",
+            "Prop_dataPoint_levelColor4": "Color del nivel 4",
+            "Prop_dataPoint_levelColor5": "Color del nivel 5",
+            "Prop_dataPoint_levelColor6": "Color del nivel 6",
+            "Prop_layoutSettings_backgroundColor": "Color de fondo",
+            "Prop_layoutSettings_direction": "Direcci\u00f3n",
+            "Prop_layoutSettings_fillBackground": "Fondo",
+            "Prop_layoutSettings_fitOnLoad": "Ajustar los diagramas grandes al visual",
+            "Prop_layoutSettings_gridColor": "Color de la cuadr\u00edcula",
+            "Prop_layoutSettings_headerColor": "Color de la cabecera",
+            "Prop_layoutSettings_headerSize": "Tama\u00f1o de la cabecera",
+            "Prop_layoutSettings_layerGap": "Espacio entre niveles",
+            "Prop_layoutSettings_nodeGap": "Espacio entre nodos",
+            "Prop_layoutSettings_showGrid": "Cuadr\u00edcula de fondo",
+            "Prop_layoutSettings_showLevelHeaders": "Cabeceras de nivel",
+            "Prop_layoutSettings_showMinimap": "Minimapa",
+            "Prop_layoutSettings_showToolbar": "Barra de herramientas",
+            "Prop_layoutSettings_showZoomButtons": "Botones de zoom",
+            "Prop_layoutSettings_toolbarSize": "Tama\u00f1o de la barra",
+            "Prop_legendSettings_fontSize": "Tama\u00f1o del texto",
+            "Prop_legendSettings_position": "Posici\u00f3n",
+            "Prop_legendSettings_show": "Mostrar leyenda",
+            "Prop_legendSettings_textColor": "Color del texto",
+            "Prop_legendSettings_useFieldNames": "Usar nombres de campo",
+            "Prop_linkSettings_color": "Color de las conexiones",
+            "Prop_linkSettings_curvature": "Curvatura",
+            "Prop_linkSettings_dominantEmphasis": "Grosor del camino dominante x",
+            "Prop_linkSettings_highlightDominant": "Resaltar el camino dominante",
+            "Prop_linkSettings_highlightTopVariant": "Resaltar la variante principal de extremo a extremo",
+            "Prop_linkSettings_labelColor": "Color de la etiqueta",
+            "Prop_linkSettings_labelContent": "La etiqueta muestra",
+            "Prop_linkSettings_labelSize": "Tama\u00f1o de la etiqueta",
+            "Prop_linkSettings_showLabels": "Etiquetas de las conexiones",
+            "Prop_linkSettings_topVariantColor": "Color de la variante principal",
+            "Prop_linkSettings_width": "Grosor base de las conexiones",
+            "Prop_nodeSettings_badgeBackgroundColor": "Fondo de la insignia",
+            "Prop_nodeSettings_badgeBackgroundOpacity": "Opacidad del fondo de la insignia %",
+            "Prop_nodeSettings_badgeFontFamily": "Fuente de la insignia",
+            "Prop_nodeSettings_badgeFontSize": "Tama\u00f1o de fuente de la insignia",
+            "Prop_nodeSettings_badgeTextColor": "Color del texto de la insignia",
+            "Prop_nodeSettings_borderColor": "Color del borde",
+            "Prop_nodeSettings_borderWidth": "Grosor del borde",
+            "Prop_nodeSettings_colorBorderByLevel": "Color del borde por nivel",
+            "Prop_nodeSettings_cornerRadius": "Radio de las esquinas",
+            "Prop_nodeSettings_fontFamily": "Familia de fuentes",
+            "Prop_nodeSettings_fontSize": "Tama\u00f1o de la etiqueta",
+            "Prop_nodeSettings_height": "Alto del nodo",
+            "Prop_nodeSettings_imageBackground": "Fondo de la imagen",
+            "Prop_nodeSettings_imageBackgroundColor": "Color de fondo de la imagen",
+            "Prop_nodeSettings_imageShape": "Forma de la imagen",
+            "Prop_nodeSettings_imageSize": "Tama\u00f1o de la imagen",
+            "Prop_nodeSettings_kpiDownColor": "Color de KPI a la baja",
+            "Prop_nodeSettings_kpiUpColor": "Color de KPI al alza",
+            "Prop_nodeSettings_shadowBlur": "Desenfoque de la sombra",
+            "Prop_nodeSettings_shadowColor": "Color de la sombra",
+            "Prop_nodeSettings_shadowOffsetX": "Desplazamiento X de la sombra",
+            "Prop_nodeSettings_shadowOffsetY": "Desplazamiento Y de la sombra",
+            "Prop_nodeSettings_shadowOpacity": "Opacidad de la sombra %",
+            "Prop_nodeSettings_showBadge": "Mostrar insignia de valor en el nodo",
+            "Prop_nodeSettings_showShadow": "Mostrar sombra de los nodos",
+            "Prop_nodeSettings_showStepNumber": "N\u00famero de paso",
+            "Prop_nodeSettings_textColor": "Color del texto",
+            "Prop_nodeSettings_width": "Ancho del nodo",
+            "Prop_rules_basis": "Comparar",
+            "Prop_rules_rule1Color": "Color",
+            "Prop_rules_rule1On": "Regla 1",
+            "Prop_rules_rule1Op": "Condici\u00f3n",
+            "Prop_rules_rule1Value": "Valor",
+            "Prop_rules_rule2Color": "Color",
+            "Prop_rules_rule2On": "Regla 2",
+            "Prop_rules_rule2Op": "Condici\u00f3n",
+            "Prop_rules_rule2Value": "Valor",
+            "Prop_rules_rule3Color": "Color",
+            "Prop_rules_rule3On": "Regla 3",
+            "Prop_rules_rule3Op": "Condici\u00f3n",
+            "Prop_rules_rule3Value": "Valor",
+            "Prop_style_guide": "Mostrar consejos de configuraci\u00f3n",
+            "Prop_style_template": "Plantilla",
+            "Prop_swimlaneSettings_bandColor1": "Color de la banda 1",
+            "Prop_swimlaneSettings_bandColor2": "Color de la banda 2",
+            "Prop_swimlaneSettings_bandColor3": "Color de la banda 3",
+            "Prop_swimlaneSettings_bandColor4": "Color de la banda 4",
+            "Prop_swimlaneSettings_bandOpacity": "Opacidad de las bandas %",
+            "Prop_swimlaneSettings_fontFamily": "Fuente de la etiqueta",
+            "Prop_swimlaneSettings_labelSize": "Tama\u00f1o de la etiqueta",
+            "Prop_swimlaneSettings_show": "Mostrar bandas de calles",
+            "Prop_swimlaneSettings_textColor": "Color de la etiqueta",
+            "Prop_valueFormatSettings_decimals": "Decimales",
+            "Prop_valueFormatSettings_format": "Formato de n\u00famero",
+            "Prop_valueFormatSettings_prefix": "Prefijo",
+            "Prop_valueFormatSettings_suffix": "Sufijo",
+            "Role_levelImages": "Im\u00e1genes por nivel (Pro)",
+            "Role_levelImages_Desc": "Una imagen Base64 por nivel, ya incluida en el modelo.",
+            "Role_levels": "Niveles (arrastra un campo por nivel, en orden)",
+            "Role_levels_Desc": "Un campo por paso del proceso, en orden. Al menos dos niveles.",
+            "Role_swimlane": "Calle (Pro)",
+            "Role_swimlane_Desc": "Bandas por departamento, regi\u00f3n o fase.",
+            "Role_target": "Objetivo \u2014 insignia de KPI (Pro)",
+            "Role_target_Desc": "Cada nodo muestra el real frente al objetivo.",
+            "Role_tooltips": "Campos de informaci\u00f3n sobre herramientas (Pro)",
+            "Role_tooltips_Desc": "Valores adicionales en la informaci\u00f3n sobre herramientas.",
+            "Role_value": "Valor",
+            "Role_value_Desc": "Da tama\u00f1o a las conexiones. Sin ella, cada fila cuenta 1."
+        },
+        "fr-FR": {
+            "Enum_layoutSettings_direction_Horizontal": "De gauche \u00e0 droite",
+            "Enum_layoutSettings_direction_Vertical": "De haut en bas",
+            "Enum_legendSettings_position_BottomLeft": "En bas \u00e0 gauche",
+            "Enum_legendSettings_position_BottomRight": "En bas \u00e0 droite",
+            "Enum_legendSettings_position_TopRight": "En haut \u00e0 droite",
+            "Enum_linkSettings_labelContent_Both": "Valeur et %",
+            "Enum_linkSettings_labelContent_Percent": "% du total",
+            "Enum_linkSettings_labelContent_Value": "Valeur",
+            "Enum_nodeSettings_badgeFontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_badgeFontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_badgeFontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_badgeFontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_badgeFontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_imageShape_Circle": "Cercle",
+            "Enum_nodeSettings_imageShape_Rounded": "Arrondie",
+            "Enum_nodeSettings_imageShape_Square": "Carr\u00e9e",
+            "Enum_rules_basis_Share": "% du total",
+            "Enum_rules_basis_Value": "Valeur du n\u0153ud",
+            "Enum_rules_basis_Variance": "% par rapport \u00e0 l\u2019objectif",
+            "Enum_rules_rule1Op_Gt": "Sup\u00e9rieur \u00e0",
+            "Enum_rules_rule1Op_Lt": "Inf\u00e9rieur \u00e0",
+            "Enum_rules_rule2Op_Gt": "Sup\u00e9rieur \u00e0",
+            "Enum_rules_rule2Op_Lt": "Inf\u00e9rieur \u00e0",
+            "Enum_rules_rule3Op_Gt": "Sup\u00e9rieur \u00e0",
+            "Enum_rules_rule3Op_Lt": "Inf\u00e9rieur \u00e0",
+            "Enum_style_template_Clean": "\u00c9pur\u00e9",
+            "Enum_style_template_Compact": "Compact",
+            "Enum_style_template_Contrast": "Contraste",
+            "Enum_style_template_Default": "Par d\u00e9faut",
+            "Enum_style_template_Minimal": "Minimal",
+            "Enum_style_template_Outline": "Contour",
+            "Enum_swimlaneSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_swimlaneSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_swimlaneSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_swimlaneSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_swimlaneSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_valueFormatSettings_format_Compact": "Compact (1,2 K / 3,4 M)",
+            "Enum_valueFormatSettings_format_Model": "Format du mod\u00e8le",
+            "Enum_valueFormatSettings_format_Percent": "Pourcentage (12,3 %)",
+            "Enum_valueFormatSettings_format_Plain": "Brut (1234)",
+            "Enum_valueFormatSettings_format_Thousands": "Milliers (1 234)",
+            "Obj_dataPoint": "Couleurs des donn\u00e9es",
+            "Obj_layoutSettings": "Disposition",
+            "Obj_legendSettings": "L\u00e9gende",
+            "Obj_linkSettings": "Liens",
+            "Obj_nodeSettings": "N\u0153uds",
+            "Obj_rules": "R\u00e8gles de couleur (Pro)",
+            "Obj_style": "Mod\u00e8le de style",
+            "Obj_swimlaneSettings": "Couloirs",
+            "Obj_valueFormatSettings": "Format de la valeur",
+            "Prop_dataPoint_colorByLevel": "Couleur des n\u0153uds par niveau",
+            "Prop_dataPoint_defaultColor": "Couleur des n\u0153uds par d\u00e9faut",
+            "Prop_dataPoint_levelColor1": "Couleur du niveau 1",
+            "Prop_dataPoint_levelColor2": "Couleur du niveau 2",
+            "Prop_dataPoint_levelColor3": "Couleur du niveau 3",
+            "Prop_dataPoint_levelColor4": "Couleur du niveau 4",
+            "Prop_dataPoint_levelColor5": "Couleur du niveau 5",
+            "Prop_dataPoint_levelColor6": "Couleur du niveau 6",
+            "Prop_layoutSettings_backgroundColor": "Couleur d\u2019arri\u00e8re-plan",
+            "Prop_layoutSettings_direction": "Direction",
+            "Prop_layoutSettings_fillBackground": "Arri\u00e8re-plan",
+            "Prop_layoutSettings_fitOnLoad": "Ajuster les grands diagrammes au visuel",
+            "Prop_layoutSettings_gridColor": "Couleur de la grille",
+            "Prop_layoutSettings_headerColor": "Couleur de l\u2019en-t\u00eate",
+            "Prop_layoutSettings_headerSize": "Taille de l\u2019en-t\u00eate",
+            "Prop_layoutSettings_layerGap": "Espacement entre niveaux",
+            "Prop_layoutSettings_nodeGap": "Espacement entre n\u0153uds",
+            "Prop_layoutSettings_showGrid": "Grille d\u2019arri\u00e8re-plan",
+            "Prop_layoutSettings_showLevelHeaders": "En-t\u00eates de niveau",
+            "Prop_layoutSettings_showMinimap": "Mini-carte",
+            "Prop_layoutSettings_showToolbar": "Barre d\u2019outils",
+            "Prop_layoutSettings_showZoomButtons": "Boutons de zoom",
+            "Prop_layoutSettings_toolbarSize": "Taille de la barre",
+            "Prop_legendSettings_fontSize": "Taille du texte",
+            "Prop_legendSettings_position": "Position",
+            "Prop_legendSettings_show": "Afficher la l\u00e9gende",
+            "Prop_legendSettings_textColor": "Couleur du texte",
+            "Prop_legendSettings_useFieldNames": "Utiliser les noms de champ",
+            "Prop_linkSettings_color": "Couleur des liens",
+            "Prop_linkSettings_curvature": "Courbure",
+            "Prop_linkSettings_dominantEmphasis": "\u00c9paisseur du chemin dominant x",
+            "Prop_linkSettings_highlightDominant": "Mettre en \u00e9vidence le chemin dominant",
+            "Prop_linkSettings_highlightTopVariant": "Mettre en \u00e9vidence la variante principale de bout en bout",
+            "Prop_linkSettings_labelColor": "Couleur des \u00e9tiquettes",
+            "Prop_linkSettings_labelContent": "L\u2019\u00e9tiquette affiche",
+            "Prop_linkSettings_labelSize": "Taille des \u00e9tiquettes",
+            "Prop_linkSettings_showLabels": "\u00c9tiquettes des liens",
+            "Prop_linkSettings_topVariantColor": "Couleur de la variante principale",
+            "Prop_linkSettings_width": "\u00c9paisseur de base des liens",
+            "Prop_nodeSettings_badgeBackgroundColor": "Arri\u00e8re-plan du badge",
+            "Prop_nodeSettings_badgeBackgroundOpacity": "Opacit\u00e9 de l\u2019arri\u00e8re-plan du badge %",
+            "Prop_nodeSettings_badgeFontFamily": "Police du badge",
+            "Prop_nodeSettings_badgeFontSize": "Taille de police du badge",
+            "Prop_nodeSettings_badgeTextColor": "Couleur du texte du badge",
+            "Prop_nodeSettings_borderColor": "Couleur de bordure",
+            "Prop_nodeSettings_borderWidth": "\u00c9paisseur de bordure",
+            "Prop_nodeSettings_colorBorderByLevel": "Couleur de bordure par niveau",
+            "Prop_nodeSettings_cornerRadius": "Rayon des coins",
+            "Prop_nodeSettings_fontFamily": "Famille de police",
+            "Prop_nodeSettings_fontSize": "Taille des \u00e9tiquettes",
+            "Prop_nodeSettings_height": "Hauteur des n\u0153uds",
+            "Prop_nodeSettings_imageBackground": "Arri\u00e8re-plan de l\u2019image",
+            "Prop_nodeSettings_imageBackgroundColor": "Couleur d\u2019arri\u00e8re-plan de l\u2019image",
+            "Prop_nodeSettings_imageShape": "Forme de l\u2019image",
+            "Prop_nodeSettings_imageSize": "Taille de l\u2019image",
+            "Prop_nodeSettings_kpiDownColor": "Couleur KPI en baisse",
+            "Prop_nodeSettings_kpiUpColor": "Couleur KPI en hausse",
+            "Prop_nodeSettings_shadowBlur": "Flou de l\u2019ombre",
+            "Prop_nodeSettings_shadowColor": "Couleur de l\u2019ombre",
+            "Prop_nodeSettings_shadowOffsetX": "D\u00e9calage X de l\u2019ombre",
+            "Prop_nodeSettings_shadowOffsetY": "D\u00e9calage Y de l\u2019ombre",
+            "Prop_nodeSettings_shadowOpacity": "Opacit\u00e9 de l\u2019ombre %",
+            "Prop_nodeSettings_showBadge": "Afficher le badge de valeur sur le n\u0153ud",
+            "Prop_nodeSettings_showShadow": "Afficher l\u2019ombre des n\u0153uds",
+            "Prop_nodeSettings_showStepNumber": "Num\u00e9ro d\u2019\u00e9tape",
+            "Prop_nodeSettings_textColor": "Couleur du texte",
+            "Prop_nodeSettings_width": "Largeur des n\u0153uds",
+            "Prop_rules_basis": "Comparer",
+            "Prop_rules_rule1Color": "Couleur",
+            "Prop_rules_rule1On": "R\u00e8gle 1",
+            "Prop_rules_rule1Op": "Condition",
+            "Prop_rules_rule1Value": "Valeur",
+            "Prop_rules_rule2Color": "Couleur",
+            "Prop_rules_rule2On": "R\u00e8gle 2",
+            "Prop_rules_rule2Op": "Condition",
+            "Prop_rules_rule2Value": "Valeur",
+            "Prop_rules_rule3Color": "Couleur",
+            "Prop_rules_rule3On": "R\u00e8gle 3",
+            "Prop_rules_rule3Op": "Condition",
+            "Prop_rules_rule3Value": "Valeur",
+            "Prop_style_guide": "Afficher les conseils de configuration",
+            "Prop_style_template": "Mod\u00e8le",
+            "Prop_swimlaneSettings_bandColor1": "Couleur de la bande 1",
+            "Prop_swimlaneSettings_bandColor2": "Couleur de la bande 2",
+            "Prop_swimlaneSettings_bandColor3": "Couleur de la bande 3",
+            "Prop_swimlaneSettings_bandColor4": "Couleur de la bande 4",
+            "Prop_swimlaneSettings_bandOpacity": "Opacit\u00e9 des bandes %",
+            "Prop_swimlaneSettings_fontFamily": "Police des \u00e9tiquettes",
+            "Prop_swimlaneSettings_labelSize": "Taille des \u00e9tiquettes",
+            "Prop_swimlaneSettings_show": "Afficher les bandes de couloirs",
+            "Prop_swimlaneSettings_textColor": "Couleur des \u00e9tiquettes",
+            "Prop_valueFormatSettings_decimals": "D\u00e9cimales",
+            "Prop_valueFormatSettings_format": "Format des nombres",
+            "Prop_valueFormatSettings_prefix": "Pr\u00e9fixe",
+            "Prop_valueFormatSettings_suffix": "Suffixe",
+            "Role_levelImages": "Images par niveau (Pro)",
+            "Role_levelImages_Desc": "Une image Base64 par niveau, d\u00e9j\u00e0 pr\u00e9sente dans le mod\u00e8le.",
+            "Role_levels": "Niveaux (faites glisser un champ par niveau, dans l\u2019ordre)",
+            "Role_levels_Desc": "Un champ par \u00e9tape du processus, dans l\u2019ordre. Au moins deux niveaux.",
+            "Role_swimlane": "Couloir (Pro)",
+            "Role_swimlane_Desc": "Bandes par service, r\u00e9gion ou phase.",
+            "Role_target": "Objectif \u2014 badge KPI (Pro)",
+            "Role_target_Desc": "Chaque n\u0153ud affiche le r\u00e9el par rapport \u00e0 l\u2019objectif.",
+            "Role_tooltips": "Champs d\u2019info-bulle (Pro)",
+            "Role_tooltips_Desc": "Valeurs suppl\u00e9mentaires dans l\u2019info-bulle.",
+            "Role_value": "Valeur",
+            "Role_value_Desc": "Dimensionne les liens. Sans elle, chaque ligne compte pour 1."
+        },
+        "it-IT": {
+            "Enum_layoutSettings_direction_Horizontal": "Da sinistra a destra",
+            "Enum_layoutSettings_direction_Vertical": "Dall\u2019alto in basso",
+            "Enum_legendSettings_position_BottomLeft": "In basso a sinistra",
+            "Enum_legendSettings_position_BottomRight": "In basso a destra",
+            "Enum_legendSettings_position_TopRight": "In alto a destra",
+            "Enum_linkSettings_labelContent_Both": "Valore e %",
+            "Enum_linkSettings_labelContent_Percent": "% del totale",
+            "Enum_linkSettings_labelContent_Value": "Valore",
+            "Enum_nodeSettings_badgeFontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_badgeFontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_badgeFontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_badgeFontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_badgeFontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_imageShape_Circle": "Cerchio",
+            "Enum_nodeSettings_imageShape_Rounded": "Arrotondata",
+            "Enum_nodeSettings_imageShape_Square": "Quadrata",
+            "Enum_rules_basis_Share": "% del totale",
+            "Enum_rules_basis_Value": "Valore nodo",
+            "Enum_rules_basis_Variance": "% rispetto all\u2019obiettivo",
+            "Enum_rules_rule1Op_Gt": "Maggiore di",
+            "Enum_rules_rule1Op_Lt": "Minore di",
+            "Enum_rules_rule2Op_Gt": "Maggiore di",
+            "Enum_rules_rule2Op_Lt": "Minore di",
+            "Enum_rules_rule3Op_Gt": "Maggiore di",
+            "Enum_rules_rule3Op_Lt": "Minore di",
+            "Enum_style_template_Clean": "Pulito",
+            "Enum_style_template_Compact": "Compatto",
+            "Enum_style_template_Contrast": "Contrasto",
+            "Enum_style_template_Default": "Predefinito",
+            "Enum_style_template_Minimal": "Minimale",
+            "Enum_style_template_Outline": "Contorno",
+            "Enum_swimlaneSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_swimlaneSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_swimlaneSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_swimlaneSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_swimlaneSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_valueFormatSettings_format_Compact": "Compatto (1,2K / 3,4M)",
+            "Enum_valueFormatSettings_format_Model": "Formato del modello",
+            "Enum_valueFormatSettings_format_Percent": "Percentuale (12,3%)",
+            "Enum_valueFormatSettings_format_Plain": "Semplice (1234)",
+            "Enum_valueFormatSettings_format_Thousands": "Migliaia (1.234)",
+            "Obj_dataPoint": "Colori dati",
+            "Obj_layoutSettings": "Layout",
+            "Obj_legendSettings": "Legenda",
+            "Obj_linkSettings": "Collegamenti",
+            "Obj_nodeSettings": "Nodi",
+            "Obj_rules": "Regole di colore (Pro)",
+            "Obj_style": "Modello di stile",
+            "Obj_swimlaneSettings": "Corsie",
+            "Obj_valueFormatSettings": "Formato valore",
+            "Prop_dataPoint_colorByLevel": "Colore nodi per livello",
+            "Prop_dataPoint_defaultColor": "Colore nodo predefinito",
+            "Prop_dataPoint_levelColor1": "Colore livello 1",
+            "Prop_dataPoint_levelColor2": "Colore livello 2",
+            "Prop_dataPoint_levelColor3": "Colore livello 3",
+            "Prop_dataPoint_levelColor4": "Colore livello 4",
+            "Prop_dataPoint_levelColor5": "Colore livello 5",
+            "Prop_dataPoint_levelColor6": "Colore livello 6",
+            "Prop_layoutSettings_backgroundColor": "Colore di sfondo",
+            "Prop_layoutSettings_direction": "Direzione",
+            "Prop_layoutSettings_fillBackground": "Sfondo",
+            "Prop_layoutSettings_fitOnLoad": "Adatta i diagrammi grandi all\u2019oggetto visivo",
+            "Prop_layoutSettings_gridColor": "Colore griglia",
+            "Prop_layoutSettings_headerColor": "Colore intestazione",
+            "Prop_layoutSettings_headerSize": "Dimensione intestazione",
+            "Prop_layoutSettings_layerGap": "Spazio tra livelli",
+            "Prop_layoutSettings_nodeGap": "Spazio tra nodi",
+            "Prop_layoutSettings_showGrid": "Griglia di sfondo",
+            "Prop_layoutSettings_showLevelHeaders": "Intestazioni di livello",
+            "Prop_layoutSettings_showMinimap": "Minimappa",
+            "Prop_layoutSettings_showToolbar": "Barra degli strumenti",
+            "Prop_layoutSettings_showZoomButtons": "Pulsanti zoom",
+            "Prop_layoutSettings_toolbarSize": "Dimensione barra",
+            "Prop_legendSettings_fontSize": "Dimensione testo",
+            "Prop_legendSettings_position": "Posizione",
+            "Prop_legendSettings_show": "Mostra legenda",
+            "Prop_legendSettings_textColor": "Colore testo",
+            "Prop_legendSettings_useFieldNames": "Usa nomi dei campi",
+            "Prop_linkSettings_color": "Colore collegamenti",
+            "Prop_linkSettings_curvature": "Curvatura",
+            "Prop_linkSettings_dominantEmphasis": "Spessore percorso dominante x",
+            "Prop_linkSettings_highlightDominant": "Evidenzia percorso dominante",
+            "Prop_linkSettings_highlightTopVariant": "Evidenzia la variante end-to-end principale",
+            "Prop_linkSettings_labelColor": "Colore etichetta",
+            "Prop_linkSettings_labelContent": "L\u2019etichetta mostra",
+            "Prop_linkSettings_labelSize": "Dimensione etichetta",
+            "Prop_linkSettings_showLabels": "Etichette collegamenti",
+            "Prop_linkSettings_topVariantColor": "Colore variante principale",
+            "Prop_linkSettings_width": "Spessore base collegamenti",
+            "Prop_nodeSettings_badgeBackgroundColor": "Sfondo del badge",
+            "Prop_nodeSettings_badgeBackgroundOpacity": "Opacit\u00e0 sfondo badge %",
+            "Prop_nodeSettings_badgeFontFamily": "Carattere badge",
+            "Prop_nodeSettings_badgeFontSize": "Dimensione carattere badge",
+            "Prop_nodeSettings_badgeTextColor": "Colore testo badge",
+            "Prop_nodeSettings_borderColor": "Colore bordo",
+            "Prop_nodeSettings_borderWidth": "Spessore bordo",
+            "Prop_nodeSettings_colorBorderByLevel": "Colore bordo per livello",
+            "Prop_nodeSettings_cornerRadius": "Raggio angoli",
+            "Prop_nodeSettings_fontFamily": "Famiglia di caratteri",
+            "Prop_nodeSettings_fontSize": "Dimensione etichetta",
+            "Prop_nodeSettings_height": "Altezza nodo",
+            "Prop_nodeSettings_imageBackground": "Sfondo immagine",
+            "Prop_nodeSettings_imageBackgroundColor": "Colore sfondo immagine",
+            "Prop_nodeSettings_imageShape": "Forma immagine",
+            "Prop_nodeSettings_imageSize": "Dimensione immagine",
+            "Prop_nodeSettings_kpiDownColor": "Colore KPI in calo",
+            "Prop_nodeSettings_kpiUpColor": "Colore KPI in crescita",
+            "Prop_nodeSettings_shadowBlur": "Sfocatura ombra",
+            "Prop_nodeSettings_shadowColor": "Colore ombra",
+            "Prop_nodeSettings_shadowOffsetX": "Offset X ombra",
+            "Prop_nodeSettings_shadowOffsetY": "Offset Y ombra",
+            "Prop_nodeSettings_shadowOpacity": "Opacit\u00e0 ombra %",
+            "Prop_nodeSettings_showBadge": "Mostra badge del valore nel nodo",
+            "Prop_nodeSettings_showShadow": "Mostra ombra nodi",
+            "Prop_nodeSettings_showStepNumber": "Numero passaggio",
+            "Prop_nodeSettings_textColor": "Colore testo",
+            "Prop_nodeSettings_width": "Larghezza nodo",
+            "Prop_rules_basis": "Confronta",
+            "Prop_rules_rule1Color": "Colore",
+            "Prop_rules_rule1On": "Regola 1",
+            "Prop_rules_rule1Op": "Condizione",
+            "Prop_rules_rule1Value": "Valore",
+            "Prop_rules_rule2Color": "Colore",
+            "Prop_rules_rule2On": "Regola 2",
+            "Prop_rules_rule2Op": "Condizione",
+            "Prop_rules_rule2Value": "Valore",
+            "Prop_rules_rule3Color": "Colore",
+            "Prop_rules_rule3On": "Regola 3",
+            "Prop_rules_rule3Op": "Condizione",
+            "Prop_rules_rule3Value": "Valore",
+            "Prop_style_guide": "Mostra suggerimenti di configurazione",
+            "Prop_style_template": "Modello",
+            "Prop_swimlaneSettings_bandColor1": "Colore banda 1",
+            "Prop_swimlaneSettings_bandColor2": "Colore banda 2",
+            "Prop_swimlaneSettings_bandColor3": "Colore banda 3",
+            "Prop_swimlaneSettings_bandColor4": "Colore banda 4",
+            "Prop_swimlaneSettings_bandOpacity": "Opacit\u00e0 bande %",
+            "Prop_swimlaneSettings_fontFamily": "Carattere etichetta",
+            "Prop_swimlaneSettings_labelSize": "Dimensione etichetta",
+            "Prop_swimlaneSettings_show": "Mostra bande delle corsie",
+            "Prop_swimlaneSettings_textColor": "Colore etichetta",
+            "Prop_valueFormatSettings_decimals": "Decimali",
+            "Prop_valueFormatSettings_format": "Formato numeri",
+            "Prop_valueFormatSettings_prefix": "Prefisso",
+            "Prop_valueFormatSettings_suffix": "Suffisso",
+            "Role_levelImages": "Immagini per livello (Pro)",
+            "Role_levelImages_Desc": "Un\u2019immagine Base64 per livello, gi\u00e0 presente nel modello.",
+            "Role_levels": "Livelli (trascina un campo per livello, in ordine)",
+            "Role_levels_Desc": "Un campo per passaggio del processo, in ordine. Almeno due livelli.",
+            "Role_swimlane": "Corsia (Pro)",
+            "Role_swimlane_Desc": "Bande per reparto, regione o fase.",
+            "Role_target": "Obiettivo \u2014 badge KPI (Pro)",
+            "Role_target_Desc": "Ogni nodo mostra il valore effettivo rispetto all\u2019obiettivo.",
+            "Role_tooltips": "Campi descrizione comando (Pro)",
+            "Role_tooltips_Desc": "Valori aggiuntivi nella descrizione comando.",
+            "Role_value": "Valore",
+            "Role_value_Desc": "Dimensiona i collegamenti. Senza, ogni riga conta 1."
+        },
+        "ja-JP": {
+            "Enum_layoutSettings_direction_Horizontal": "\u5de6\u304b\u3089\u53f3",
+            "Enum_layoutSettings_direction_Vertical": "\u4e0a\u304b\u3089\u4e0b",
+            "Enum_legendSettings_position_BottomLeft": "\u5de6\u4e0b",
+            "Enum_legendSettings_position_BottomRight": "\u53f3\u4e0b",
+            "Enum_legendSettings_position_TopRight": "\u53f3\u4e0a",
+            "Enum_linkSettings_labelContent_Both": "\u5024\u3068 %",
+            "Enum_linkSettings_labelContent_Percent": "\u5408\u8a08\u306b\u5bfe\u3059\u308b %",
+            "Enum_linkSettings_labelContent_Value": "\u5024",
+            "Enum_nodeSettings_badgeFontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_badgeFontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_badgeFontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_badgeFontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_badgeFontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_imageShape_Circle": "\u5186",
+            "Enum_nodeSettings_imageShape_Rounded": "\u89d2\u4e38",
+            "Enum_nodeSettings_imageShape_Square": "\u56db\u89d2",
+            "Enum_rules_basis_Share": "\u5408\u8a08\u306b\u5bfe\u3059\u308b %",
+            "Enum_rules_basis_Value": "\u30ce\u30fc\u30c9\u306e\u5024",
+            "Enum_rules_basis_Variance": "\u76ee\u6a19\u6bd4 %",
+            "Enum_rules_rule1Op_Gt": "\u3088\u308a\u5927\u304d\u3044",
+            "Enum_rules_rule1Op_Lt": "\u3088\u308a\u5c0f\u3055\u3044",
+            "Enum_rules_rule2Op_Gt": "\u3088\u308a\u5927\u304d\u3044",
+            "Enum_rules_rule2Op_Lt": "\u3088\u308a\u5c0f\u3055\u3044",
+            "Enum_rules_rule3Op_Gt": "\u3088\u308a\u5927\u304d\u3044",
+            "Enum_rules_rule3Op_Lt": "\u3088\u308a\u5c0f\u3055\u3044",
+            "Enum_style_template_Clean": "\u30af\u30ea\u30fc\u30f3",
+            "Enum_style_template_Compact": "\u30b3\u30f3\u30d1\u30af\u30c8",
+            "Enum_style_template_Contrast": "\u30b3\u30f3\u30c8\u30e9\u30b9\u30c8",
+            "Enum_style_template_Default": "\u65e2\u5b9a",
+            "Enum_style_template_Minimal": "\u30df\u30cb\u30de\u30eb",
+            "Enum_style_template_Outline": "\u30a2\u30a6\u30c8\u30e9\u30a4\u30f3",
+            "Enum_swimlaneSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_swimlaneSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_swimlaneSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_swimlaneSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_swimlaneSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_valueFormatSettings_format_Compact": "\u30b3\u30f3\u30d1\u30af\u30c8 (1.2K / 3.4M)",
+            "Enum_valueFormatSettings_format_Model": "\u30e2\u30c7\u30eb\u306e\u66f8\u5f0f",
+            "Enum_valueFormatSettings_format_Percent": "\u30d1\u30fc\u30bb\u30f3\u30c8 (12.3%)",
+            "Enum_valueFormatSettings_format_Plain": "\u6a19\u6e96 (1234)",
+            "Enum_valueFormatSettings_format_Thousands": "\u6841\u533a\u5207\u308a (1,234)",
+            "Obj_dataPoint": "\u30c7\u30fc\u30bf\u306e\u8272",
+            "Obj_layoutSettings": "\u30ec\u30a4\u30a2\u30a6\u30c8",
+            "Obj_legendSettings": "\u51e1\u4f8b",
+            "Obj_linkSettings": "\u30ea\u30f3\u30af",
+            "Obj_nodeSettings": "\u30ce\u30fc\u30c9",
+            "Obj_rules": "\u8272\u306e\u30eb\u30fc\u30eb (Pro)",
+            "Obj_style": "\u30b9\u30bf\u30a4\u30eb \u30c6\u30f3\u30d7\u30ec\u30fc\u30c8",
+            "Obj_swimlaneSettings": "\u30b9\u30a4\u30e0\u30ec\u30fc\u30f3",
+            "Obj_valueFormatSettings": "\u5024\u306e\u66f8\u5f0f",
+            "Prop_dataPoint_colorByLevel": "\u30ec\u30d9\u30eb\u3067\u30ce\u30fc\u30c9\u3092\u8272\u5206\u3051",
+            "Prop_dataPoint_defaultColor": "\u65e2\u5b9a\u306e\u30ce\u30fc\u30c9\u306e\u8272",
+            "Prop_dataPoint_levelColor1": "\u30ec\u30d9\u30eb 1 \u306e\u8272",
+            "Prop_dataPoint_levelColor2": "\u30ec\u30d9\u30eb 2 \u306e\u8272",
+            "Prop_dataPoint_levelColor3": "\u30ec\u30d9\u30eb 3 \u306e\u8272",
+            "Prop_dataPoint_levelColor4": "\u30ec\u30d9\u30eb 4 \u306e\u8272",
+            "Prop_dataPoint_levelColor5": "\u30ec\u30d9\u30eb 5 \u306e\u8272",
+            "Prop_dataPoint_levelColor6": "\u30ec\u30d9\u30eb 6 \u306e\u8272",
+            "Prop_layoutSettings_backgroundColor": "\u80cc\u666f\u8272",
+            "Prop_layoutSettings_direction": "\u65b9\u5411",
+            "Prop_layoutSettings_fillBackground": "\u80cc\u666f",
+            "Prop_layoutSettings_fitOnLoad": "\u5927\u304d\u306a\u56f3\u3092\u30d3\u30b8\u30e5\u30a2\u30eb\u306b\u5408\u308f\u305b\u308b",
+            "Prop_layoutSettings_gridColor": "\u30b0\u30ea\u30c3\u30c9\u306e\u8272",
+            "Prop_layoutSettings_headerColor": "\u30d8\u30c3\u30c0\u30fc\u306e\u8272",
+            "Prop_layoutSettings_headerSize": "\u30d8\u30c3\u30c0\u30fc\u306e\u30b5\u30a4\u30ba",
+            "Prop_layoutSettings_layerGap": "\u30ec\u30d9\u30eb\u9593\u306e\u9593\u9694",
+            "Prop_layoutSettings_nodeGap": "\u30ce\u30fc\u30c9\u9593\u306e\u9593\u9694",
+            "Prop_layoutSettings_showGrid": "\u80cc\u666f\u306e\u30b0\u30ea\u30c3\u30c9",
+            "Prop_layoutSettings_showLevelHeaders": "\u30ec\u30d9\u30eb\u306e\u30d8\u30c3\u30c0\u30fc",
+            "Prop_layoutSettings_showMinimap": "\u30df\u30cb\u30de\u30c3\u30d7",
+            "Prop_layoutSettings_showToolbar": "\u30c4\u30fc\u30eb \u30d0\u30fc",
+            "Prop_layoutSettings_showZoomButtons": "\u30ba\u30fc\u30e0 \u30dc\u30bf\u30f3",
+            "Prop_layoutSettings_toolbarSize": "\u30c4\u30fc\u30eb \u30d0\u30fc\u306e\u30b5\u30a4\u30ba",
+            "Prop_legendSettings_fontSize": "\u30c6\u30ad\u30b9\u30c8\u306e\u30b5\u30a4\u30ba",
+            "Prop_legendSettings_position": "\u4f4d\u7f6e",
+            "Prop_legendSettings_show": "\u51e1\u4f8b\u3092\u8868\u793a",
+            "Prop_legendSettings_textColor": "\u30c6\u30ad\u30b9\u30c8\u306e\u8272",
+            "Prop_legendSettings_useFieldNames": "\u30d5\u30a3\u30fc\u30eb\u30c9\u540d\u3092\u4f7f\u7528",
+            "Prop_linkSettings_color": "\u30ea\u30f3\u30af\u306e\u8272",
+            "Prop_linkSettings_curvature": "\u66f2\u7387",
+            "Prop_linkSettings_dominantEmphasis": "\u4e3b\u8981\u30d1\u30b9\u306e\u592a\u3055 (\u500d)",
+            "Prop_linkSettings_highlightDominant": "\u4e3b\u8981\u30d1\u30b9\u3092\u5f37\u8abf\u8868\u793a",
+            "Prop_linkSettings_highlightTopVariant": "\u6700\u591a\u306e\u30a8\u30f3\u30c9\u30c4\u30fc\u30a8\u30f3\u30c9 \u30d0\u30ea\u30a2\u30f3\u30c8\u3092\u5f37\u8abf\u8868\u793a",
+            "Prop_linkSettings_labelColor": "\u30e9\u30d9\u30eb\u306e\u8272",
+            "Prop_linkSettings_labelContent": "\u30e9\u30d9\u30eb\u306e\u8868\u793a\u5185\u5bb9",
+            "Prop_linkSettings_labelSize": "\u30e9\u30d9\u30eb\u306e\u30b5\u30a4\u30ba",
+            "Prop_linkSettings_showLabels": "\u30ea\u30f3\u30af\u306e\u30e9\u30d9\u30eb",
+            "Prop_linkSettings_topVariantColor": "\u6700\u591a\u30d0\u30ea\u30a2\u30f3\u30c8\u306e\u8272",
+            "Prop_linkSettings_width": "\u30ea\u30f3\u30af\u306e\u57fa\u672c\u306e\u592a\u3055",
+            "Prop_nodeSettings_badgeBackgroundColor": "\u30d0\u30c3\u30b8\u306e\u80cc\u666f",
+            "Prop_nodeSettings_badgeBackgroundOpacity": "\u30d0\u30c3\u30b8\u306e\u80cc\u666f\u306e\u4e0d\u900f\u660e\u5ea6 %",
+            "Prop_nodeSettings_badgeFontFamily": "\u30d0\u30c3\u30b8\u306e\u30d5\u30a9\u30f3\u30c8",
+            "Prop_nodeSettings_badgeFontSize": "\u30d0\u30c3\u30b8\u306e\u30d5\u30a9\u30f3\u30c8 \u30b5\u30a4\u30ba",
+            "Prop_nodeSettings_badgeTextColor": "\u30d0\u30c3\u30b8\u306e\u30c6\u30ad\u30b9\u30c8\u306e\u8272",
+            "Prop_nodeSettings_borderColor": "\u67a0\u7dda\u306e\u8272",
+            "Prop_nodeSettings_borderWidth": "\u67a0\u7dda\u306e\u5e45",
+            "Prop_nodeSettings_colorBorderByLevel": "\u30ec\u30d9\u30eb\u3067\u67a0\u7dda\u3092\u8272\u5206\u3051",
+            "Prop_nodeSettings_cornerRadius": "\u89d2\u306e\u534a\u5f84",
+            "Prop_nodeSettings_fontFamily": "\u30d5\u30a9\u30f3\u30c8 \u30d5\u30a1\u30df\u30ea",
+            "Prop_nodeSettings_fontSize": "\u30e9\u30d9\u30eb\u306e\u30b5\u30a4\u30ba",
+            "Prop_nodeSettings_height": "\u30ce\u30fc\u30c9\u306e\u9ad8\u3055",
+            "Prop_nodeSettings_imageBackground": "\u753b\u50cf\u306e\u80cc\u666f",
+            "Prop_nodeSettings_imageBackgroundColor": "\u753b\u50cf\u306e\u80cc\u666f\u8272",
+            "Prop_nodeSettings_imageShape": "\u753b\u50cf\u306e\u5f62",
+            "Prop_nodeSettings_imageSize": "\u753b\u50cf\u306e\u30b5\u30a4\u30ba",
+            "Prop_nodeSettings_kpiDownColor": "KPI \u4e0b\u964d\u306e\u8272",
+            "Prop_nodeSettings_kpiUpColor": "KPI \u4e0a\u6607\u306e\u8272",
+            "Prop_nodeSettings_shadowBlur": "\u5f71\u306e\u307c\u304b\u3057",
+            "Prop_nodeSettings_shadowColor": "\u5f71\u306e\u8272",
+            "Prop_nodeSettings_shadowOffsetX": "\u5f71\u306e\u30aa\u30d5\u30bb\u30c3\u30c8 X",
+            "Prop_nodeSettings_shadowOffsetY": "\u5f71\u306e\u30aa\u30d5\u30bb\u30c3\u30c8 Y",
+            "Prop_nodeSettings_shadowOpacity": "\u5f71\u306e\u4e0d\u900f\u660e\u5ea6 %",
+            "Prop_nodeSettings_showBadge": "\u30ce\u30fc\u30c9\u306b\u5024\u306e\u30d0\u30c3\u30b8\u3092\u8868\u793a",
+            "Prop_nodeSettings_showShadow": "\u30ce\u30fc\u30c9\u306e\u5f71\u3092\u8868\u793a",
+            "Prop_nodeSettings_showStepNumber": "\u30b9\u30c6\u30c3\u30d7\u756a\u53f7",
+            "Prop_nodeSettings_textColor": "\u30c6\u30ad\u30b9\u30c8\u306e\u8272",
+            "Prop_nodeSettings_width": "\u30ce\u30fc\u30c9\u306e\u5e45",
+            "Prop_rules_basis": "\u6bd4\u8f03\u5bfe\u8c61",
+            "Prop_rules_rule1Color": "\u8272",
+            "Prop_rules_rule1On": "\u30eb\u30fc\u30eb 1",
+            "Prop_rules_rule1Op": "\u6761\u4ef6",
+            "Prop_rules_rule1Value": "\u5024",
+            "Prop_rules_rule2Color": "\u8272",
+            "Prop_rules_rule2On": "\u30eb\u30fc\u30eb 2",
+            "Prop_rules_rule2Op": "\u6761\u4ef6",
+            "Prop_rules_rule2Value": "\u5024",
+            "Prop_rules_rule3Color": "\u8272",
+            "Prop_rules_rule3On": "\u30eb\u30fc\u30eb 3",
+            "Prop_rules_rule3Op": "\u6761\u4ef6",
+            "Prop_rules_rule3Value": "\u5024",
+            "Prop_style_guide": "\u8a2d\u5b9a\u306e\u30d2\u30f3\u30c8\u3092\u8868\u793a",
+            "Prop_style_template": "\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8",
+            "Prop_swimlaneSettings_bandColor1": "\u5e2f 1 \u306e\u8272",
+            "Prop_swimlaneSettings_bandColor2": "\u5e2f 2 \u306e\u8272",
+            "Prop_swimlaneSettings_bandColor3": "\u5e2f 3 \u306e\u8272",
+            "Prop_swimlaneSettings_bandColor4": "\u5e2f 4 \u306e\u8272",
+            "Prop_swimlaneSettings_bandOpacity": "\u5e2f\u306e\u4e0d\u900f\u660e\u5ea6 %",
+            "Prop_swimlaneSettings_fontFamily": "\u30e9\u30d9\u30eb\u306e\u30d5\u30a9\u30f3\u30c8",
+            "Prop_swimlaneSettings_labelSize": "\u30e9\u30d9\u30eb\u306e\u30b5\u30a4\u30ba",
+            "Prop_swimlaneSettings_show": "\u30b9\u30a4\u30e0\u30ec\u30fc\u30f3\u306e\u5e2f\u3092\u8868\u793a",
+            "Prop_swimlaneSettings_textColor": "\u30e9\u30d9\u30eb\u306e\u8272",
+            "Prop_valueFormatSettings_decimals": "\u5c0f\u6570\u70b9\u4ee5\u4e0b\u6841\u6570",
+            "Prop_valueFormatSettings_format": "\u6570\u5024\u306e\u66f8\u5f0f",
+            "Prop_valueFormatSettings_prefix": "\u63a5\u982d\u8f9e",
+            "Prop_valueFormatSettings_suffix": "\u63a5\u5c3e\u8f9e",
+            "Role_levelImages": "\u30ec\u30d9\u30eb\u306e\u753b\u50cf (Pro)",
+            "Role_levelImages_Desc": "\u30ec\u30d9\u30eb\u3054\u3068\u306e Base64 \u753b\u50cf (\u30e2\u30c7\u30eb\u5185\u306b\u3042\u308b\u3082\u306e)\u3002",
+            "Role_levels": "\u30ec\u30d9\u30eb (\u30ec\u30d9\u30eb\u3054\u3068\u306b 1 \u3064\u306e\u30d5\u30a3\u30fc\u30eb\u30c9\u3092\u9806\u756a\u306b\u30c9\u30e9\u30c3\u30b0)",
+            "Role_levels_Desc": "\u30d7\u30ed\u30bb\u30b9\u306e\u30b9\u30c6\u30c3\u30d7\u3054\u3068\u306b 1 \u3064\u306e\u30d5\u30a3\u30fc\u30eb\u30c9\u3092\u9806\u756a\u306b\u30022 \u30ec\u30d9\u30eb\u4ee5\u4e0a\u3002",
+            "Role_swimlane": "\u30b9\u30a4\u30e0\u30ec\u30fc\u30f3 (Pro)",
+            "Role_swimlane_Desc": "\u90e8\u9580\u3001\u5730\u57df\u3001\u30d5\u30a7\u30fc\u30ba\u3054\u3068\u306e\u5e2f\u3002",
+            "Role_target": "\u76ee\u6a19 \u2014 KPI \u30d0\u30c3\u30b8 (Pro)",
+            "Role_target_Desc": "\u5404\u30ce\u30fc\u30c9\u306b\u5b9f\u7e3e\u3068\u76ee\u6a19\u306e\u6bd4\u8f03\u3092\u8868\u793a\u3057\u307e\u3059\u3002",
+            "Role_tooltips": "\u30c4\u30fc\u30eb\u30d2\u30f3\u30c8\u306e\u30d5\u30a3\u30fc\u30eb\u30c9 (Pro)",
+            "Role_tooltips_Desc": "\u30c4\u30fc\u30eb\u30d2\u30f3\u30c8\u306e\u8ffd\u52a0\u306e\u5024\u3002",
+            "Role_value": "\u5024",
+            "Role_value_Desc": "\u30ea\u30f3\u30af\u306e\u592a\u3055\u3092\u6c7a\u3081\u307e\u3059\u3002\u306a\u3044\u5834\u5408\u3001\u5404\u884c\u3092 1 \u3068\u3057\u3066\u6570\u3048\u307e\u3059\u3002"
+        },
+        "ko-KR": {
+            "Enum_layoutSettings_direction_Horizontal": "\uc67c\ucabd\uc5d0\uc11c \uc624\ub978\ucabd",
+            "Enum_layoutSettings_direction_Vertical": "\uc704\uc5d0\uc11c \uc544\ub798",
+            "Enum_legendSettings_position_BottomLeft": "\uc67c\ucabd \uc544\ub798",
+            "Enum_legendSettings_position_BottomRight": "\uc624\ub978\ucabd \uc544\ub798",
+            "Enum_legendSettings_position_TopRight": "\uc624\ub978\ucabd \uc704",
+            "Enum_linkSettings_labelContent_Both": "\uac12 \ubc0f %",
+            "Enum_linkSettings_labelContent_Percent": "\ucd1d\uacc4 \ub300\ube44 %",
+            "Enum_linkSettings_labelContent_Value": "\uac12",
+            "Enum_nodeSettings_badgeFontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_badgeFontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_badgeFontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_badgeFontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_badgeFontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_imageShape_Circle": "\uc6d0",
+            "Enum_nodeSettings_imageShape_Rounded": "\ub465\uadfc \ubaa8\uc11c\ub9ac",
+            "Enum_nodeSettings_imageShape_Square": "\uc0ac\uac01\ud615",
+            "Enum_rules_basis_Share": "\ucd1d\uacc4 \ub300\ube44 %",
+            "Enum_rules_basis_Value": "\ub178\ub4dc \uac12",
+            "Enum_rules_basis_Variance": "\ubaa9\ud45c \ub300\ube44 %",
+            "Enum_rules_rule1Op_Gt": "\ubcf4\ub2e4 \ud07c",
+            "Enum_rules_rule1Op_Lt": "\ubcf4\ub2e4 \uc791\uc74c",
+            "Enum_rules_rule2Op_Gt": "\ubcf4\ub2e4 \ud07c",
+            "Enum_rules_rule2Op_Lt": "\ubcf4\ub2e4 \uc791\uc74c",
+            "Enum_rules_rule3Op_Gt": "\ubcf4\ub2e4 \ud07c",
+            "Enum_rules_rule3Op_Lt": "\ubcf4\ub2e4 \uc791\uc74c",
+            "Enum_style_template_Clean": "\uae54\ub054",
+            "Enum_style_template_Compact": "\uac04\uacb0",
+            "Enum_style_template_Contrast": "\ub300\ube44",
+            "Enum_style_template_Default": "\uae30\ubcf8\uac12",
+            "Enum_style_template_Minimal": "\ubbf8\ub2c8\uba40",
+            "Enum_style_template_Outline": "\uc724\uacfd\uc120",
+            "Enum_swimlaneSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_swimlaneSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_swimlaneSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_swimlaneSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_swimlaneSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_valueFormatSettings_format_Compact": "\uac04\uacb0(1.2K / 3.4M)",
+            "Enum_valueFormatSettings_format_Model": "\ubaa8\ub378 \uc11c\uc2dd",
+            "Enum_valueFormatSettings_format_Percent": "\ubc31\ubd84\uc728(12.3%)",
+            "Enum_valueFormatSettings_format_Plain": "\uc77c\ubc18(1234)",
+            "Enum_valueFormatSettings_format_Thousands": "\ucc9c \ub2e8\uc704(1,234)",
+            "Obj_dataPoint": "\ub370\uc774\ud130 \uc0c9",
+            "Obj_layoutSettings": "\ub808\uc774\uc544\uc6c3",
+            "Obj_legendSettings": "\ubc94\ub840",
+            "Obj_linkSettings": "\uc5f0\uacb0\uc120",
+            "Obj_nodeSettings": "\ub178\ub4dc",
+            "Obj_rules": "\uc0c9 \uaddc\uce59(Pro)",
+            "Obj_style": "\uc2a4\ud0c0\uc77c \ud15c\ud50c\ub9bf",
+            "Obj_swimlaneSettings": "\uc2a4\uc714\ub808\uc778",
+            "Obj_valueFormatSettings": "\uac12 \uc11c\uc2dd",
+            "Prop_dataPoint_colorByLevel": "\uc218\uc900\ubcc4 \ub178\ub4dc \uc0c9",
+            "Prop_dataPoint_defaultColor": "\uae30\ubcf8 \ub178\ub4dc \uc0c9",
+            "Prop_dataPoint_levelColor1": "\uc218\uc900 1 \uc0c9",
+            "Prop_dataPoint_levelColor2": "\uc218\uc900 2 \uc0c9",
+            "Prop_dataPoint_levelColor3": "\uc218\uc900 3 \uc0c9",
+            "Prop_dataPoint_levelColor4": "\uc218\uc900 4 \uc0c9",
+            "Prop_dataPoint_levelColor5": "\uc218\uc900 5 \uc0c9",
+            "Prop_dataPoint_levelColor6": "\uc218\uc900 6 \uc0c9",
+            "Prop_layoutSettings_backgroundColor": "\ubc30\uacbd\uc0c9",
+            "Prop_layoutSettings_direction": "\ubc29\ud5a5",
+            "Prop_layoutSettings_fillBackground": "\ubc30\uacbd",
+            "Prop_layoutSettings_fitOnLoad": "\ud070 \ub2e4\uc774\uc5b4\uadf8\ub7a8\uc744 \uc2dc\uac01\uc801 \uac1c\uccb4\uc5d0 \ub9de\ucda4",
+            "Prop_layoutSettings_gridColor": "\ub208\uae08 \uc0c9",
+            "Prop_layoutSettings_headerColor": "\uba38\ub9ac\uae00 \uc0c9",
+            "Prop_layoutSettings_headerSize": "\uba38\ub9ac\uae00 \ud06c\uae30",
+            "Prop_layoutSettings_layerGap": "\uc218\uc900 \uac04 \uac04\uaca9",
+            "Prop_layoutSettings_nodeGap": "\ub178\ub4dc \uac04 \uac04\uaca9",
+            "Prop_layoutSettings_showGrid": "\ubc30\uacbd \ub208\uae08",
+            "Prop_layoutSettings_showLevelHeaders": "\uc218\uc900 \uba38\ub9ac\uae00",
+            "Prop_layoutSettings_showMinimap": "\ubbf8\ub2c8\ub9f5",
+            "Prop_layoutSettings_showToolbar": "\ub3c4\uad6c \ubaa8\uc74c",
+            "Prop_layoutSettings_showZoomButtons": "\ud655\ub300/\ucd95\uc18c \ub2e8\ucd94",
+            "Prop_layoutSettings_toolbarSize": "\ub3c4\uad6c \ubaa8\uc74c \ud06c\uae30",
+            "Prop_legendSettings_fontSize": "\ud14d\uc2a4\ud2b8 \ud06c\uae30",
+            "Prop_legendSettings_position": "\uc704\uce58",
+            "Prop_legendSettings_show": "\ubc94\ub840 \ud45c\uc2dc",
+            "Prop_legendSettings_textColor": "\ud14d\uc2a4\ud2b8 \uc0c9",
+            "Prop_legendSettings_useFieldNames": "\ud544\ub4dc \uc774\ub984 \uc0ac\uc6a9",
+            "Prop_linkSettings_color": "\uc5f0\uacb0\uc120 \uc0c9",
+            "Prop_linkSettings_curvature": "\uace1\ub960",
+            "Prop_linkSettings_dominantEmphasis": "\uc8fc \uacbd\ub85c \ub450\uaed8 \ubc30\uc728",
+            "Prop_linkSettings_highlightDominant": "\uc8fc \uacbd\ub85c \uac15\uc870 \ud45c\uc2dc",
+            "Prop_linkSettings_highlightTopVariant": "\ucd5c\ub2e4 \uc5d4\ub4dc\ud22c\uc5d4\ub4dc \ubcc0\ud615 \uac15\uc870 \ud45c\uc2dc",
+            "Prop_linkSettings_labelColor": "\ub808\uc774\ube14 \uc0c9",
+            "Prop_linkSettings_labelContent": "\ub808\uc774\ube14 \ud45c\uc2dc \ub0b4\uc6a9",
+            "Prop_linkSettings_labelSize": "\ub808\uc774\ube14 \ud06c\uae30",
+            "Prop_linkSettings_showLabels": "\uc5f0\uacb0\uc120 \ub808\uc774\ube14",
+            "Prop_linkSettings_topVariantColor": "\uc0c1\uc704 \ubcc0\ud615 \uc0c9",
+            "Prop_linkSettings_width": "\uc5f0\uacb0\uc120 \uae30\ubcf8 \ub450\uaed8",
+            "Prop_nodeSettings_badgeBackgroundColor": "\ubc30\uc9c0 \ubc30\uacbd",
+            "Prop_nodeSettings_badgeBackgroundOpacity": "\ubc30\uc9c0 \ubc30\uacbd \ubd88\ud22c\uba85\ub3c4 %",
+            "Prop_nodeSettings_badgeFontFamily": "\ubc30\uc9c0 \uae00\uaf34",
+            "Prop_nodeSettings_badgeFontSize": "\ubc30\uc9c0 \uae00\uaf34 \ud06c\uae30",
+            "Prop_nodeSettings_badgeTextColor": "\ubc30\uc9c0 \ud14d\uc2a4\ud2b8 \uc0c9",
+            "Prop_nodeSettings_borderColor": "\ud14c\ub450\ub9ac \uc0c9",
+            "Prop_nodeSettings_borderWidth": "\ud14c\ub450\ub9ac \ub450\uaed8",
+            "Prop_nodeSettings_colorBorderByLevel": "\uc218\uc900\ubcc4 \ud14c\ub450\ub9ac \uc0c9",
+            "Prop_nodeSettings_cornerRadius": "\ubaa8\uc11c\ub9ac \ubc18\uacbd",
+            "Prop_nodeSettings_fontFamily": "\uae00\uaf34 \ud328\ubc00\ub9ac",
+            "Prop_nodeSettings_fontSize": "\ub808\uc774\ube14 \ud06c\uae30",
+            "Prop_nodeSettings_height": "\ub178\ub4dc \ub192\uc774",
+            "Prop_nodeSettings_imageBackground": "\uc774\ubbf8\uc9c0 \ubc30\uacbd",
+            "Prop_nodeSettings_imageBackgroundColor": "\uc774\ubbf8\uc9c0 \ubc30\uacbd\uc0c9",
+            "Prop_nodeSettings_imageShape": "\uc774\ubbf8\uc9c0 \ubaa8\uc591",
+            "Prop_nodeSettings_imageSize": "\uc774\ubbf8\uc9c0 \ud06c\uae30",
+            "Prop_nodeSettings_kpiDownColor": "KPI \ud558\ub77d \uc0c9",
+            "Prop_nodeSettings_kpiUpColor": "KPI \uc0c1\uc2b9 \uc0c9",
+            "Prop_nodeSettings_shadowBlur": "\uadf8\ub9bc\uc790 \ud750\ub9bc",
+            "Prop_nodeSettings_shadowColor": "\uadf8\ub9bc\uc790 \uc0c9",
+            "Prop_nodeSettings_shadowOffsetX": "\uadf8\ub9bc\uc790 \uc624\ud504\uc14b X",
+            "Prop_nodeSettings_shadowOffsetY": "\uadf8\ub9bc\uc790 \uc624\ud504\uc14b Y",
+            "Prop_nodeSettings_shadowOpacity": "\uadf8\ub9bc\uc790 \ubd88\ud22c\uba85\ub3c4 %",
+            "Prop_nodeSettings_showBadge": "\ub178\ub4dc\uc5d0 \uac12 \ubc30\uc9c0 \ud45c\uc2dc",
+            "Prop_nodeSettings_showShadow": "\ub178\ub4dc \uadf8\ub9bc\uc790 \ud45c\uc2dc",
+            "Prop_nodeSettings_showStepNumber": "\ub2e8\uacc4 \ubc88\ud638",
+            "Prop_nodeSettings_textColor": "\ud14d\uc2a4\ud2b8 \uc0c9",
+            "Prop_nodeSettings_width": "\ub178\ub4dc \ub108\ube44",
+            "Prop_rules_basis": "\ube44\uad50 \uae30\uc900",
+            "Prop_rules_rule1Color": "\uc0c9",
+            "Prop_rules_rule1On": "\uaddc\uce59 1",
+            "Prop_rules_rule1Op": "\uc870\uac74",
+            "Prop_rules_rule1Value": "\uac12",
+            "Prop_rules_rule2Color": "\uc0c9",
+            "Prop_rules_rule2On": "\uaddc\uce59 2",
+            "Prop_rules_rule2Op": "\uc870\uac74",
+            "Prop_rules_rule2Value": "\uac12",
+            "Prop_rules_rule3Color": "\uc0c9",
+            "Prop_rules_rule3On": "\uaddc\uce59 3",
+            "Prop_rules_rule3Op": "\uc870\uac74",
+            "Prop_rules_rule3Value": "\uac12",
+            "Prop_style_guide": "\uc124\uc815 \ud301 \ud45c\uc2dc",
+            "Prop_style_template": "\ud15c\ud50c\ub9bf",
+            "Prop_swimlaneSettings_bandColor1": "\ubc34\ub4dc 1 \uc0c9",
+            "Prop_swimlaneSettings_bandColor2": "\ubc34\ub4dc 2 \uc0c9",
+            "Prop_swimlaneSettings_bandColor3": "\ubc34\ub4dc 3 \uc0c9",
+            "Prop_swimlaneSettings_bandColor4": "\ubc34\ub4dc 4 \uc0c9",
+            "Prop_swimlaneSettings_bandOpacity": "\ubc34\ub4dc \ubd88\ud22c\uba85\ub3c4 %",
+            "Prop_swimlaneSettings_fontFamily": "\ub808\uc774\ube14 \uae00\uaf34",
+            "Prop_swimlaneSettings_labelSize": "\ub808\uc774\ube14 \ud06c\uae30",
+            "Prop_swimlaneSettings_show": "\uc2a4\uc714\ub808\uc778 \ubc34\ub4dc \ud45c\uc2dc",
+            "Prop_swimlaneSettings_textColor": "\ub808\uc774\ube14 \uc0c9",
+            "Prop_valueFormatSettings_decimals": "\uc18c\uc218 \uc790\ub9bf\uc218",
+            "Prop_valueFormatSettings_format": "\uc22b\uc790 \uc11c\uc2dd",
+            "Prop_valueFormatSettings_prefix": "\uc811\ub450\uc0ac",
+            "Prop_valueFormatSettings_suffix": "\uc811\ubbf8\uc0ac",
+            "Role_levelImages": "\uc218\uc900 \uc774\ubbf8\uc9c0(Pro)",
+            "Role_levelImages_Desc": "\uc218\uc900\ubcc4 Base64 \uc774\ubbf8\uc9c0(\ubaa8\ub378\uc5d0 \uc774\ubbf8 \uc788\ub294 \uac83).",
+            "Role_levels": "\uc218\uc900(\uc218\uc900\ub9c8\ub2e4 \ud544\ub4dc \ud558\ub098\ub97c \uc21c\uc11c\ub300\ub85c \ub04c\uc5b4 \ub193\uae30)",
+            "Role_levels_Desc": "\ud504\ub85c\uc138\uc2a4 \ub2e8\uacc4\ub9c8\ub2e4 \ud544\ub4dc \ud558\ub098\uc529 \uc21c\uc11c\ub300\ub85c. \uc218\uc900\uc740 2\uac1c \uc774\uc0c1.",
+            "Role_swimlane": "\uc2a4\uc714\ub808\uc778(Pro)",
+            "Role_swimlane_Desc": "\ubd80\uc11c, \uc9c0\uc5ed \ub610\ub294 \ub2e8\uacc4\ubcc4 \ubc34\ub4dc.",
+            "Role_target": "\ubaa9\ud45c \u2014 KPI \ubc30\uc9c0(Pro)",
+            "Role_target_Desc": "\uac01 \ub178\ub4dc\uc5d0 \ubaa9\ud45c \ub300\ube44 \uc2e4\uc801\uc744 \ud45c\uc2dc\ud569\ub2c8\ub2e4.",
+            "Role_tooltips": "\ub3c4\uad6c \uc124\uba85 \ud544\ub4dc(Pro)",
+            "Role_tooltips_Desc": "\ub3c4\uad6c \uc124\uba85\uc758 \ucd94\uac00 \uac12.",
+            "Role_value": "\uac12",
+            "Role_value_Desc": "\uc5f0\uacb0\uc120 \ub450\uaed8\ub97c \uacb0\uc815\ud569\ub2c8\ub2e4. \uc5c6\uc73c\uba74 \uac01 \ud589\uc744 1\ub85c \uc149\ub2c8\ub2e4."
+        },
+        "nl-NL": {
+            "Enum_layoutSettings_direction_Horizontal": "Van links naar rechts",
+            "Enum_layoutSettings_direction_Vertical": "Van boven naar beneden",
+            "Enum_legendSettings_position_BottomLeft": "Linksonder",
+            "Enum_legendSettings_position_BottomRight": "Rechtsonder",
+            "Enum_legendSettings_position_TopRight": "Rechtsboven",
+            "Enum_linkSettings_labelContent_Both": "Waarde en %",
+            "Enum_linkSettings_labelContent_Percent": "% van totaal",
+            "Enum_linkSettings_labelContent_Value": "Waarde",
+            "Enum_nodeSettings_badgeFontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_badgeFontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_badgeFontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_badgeFontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_badgeFontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_imageShape_Circle": "Cirkel",
+            "Enum_nodeSettings_imageShape_Rounded": "Afgerond",
+            "Enum_nodeSettings_imageShape_Square": "Vierkant",
+            "Enum_rules_basis_Share": "% van totaal",
+            "Enum_rules_basis_Value": "Waarde knooppunt",
+            "Enum_rules_basis_Variance": "% t.o.v. doel",
+            "Enum_rules_rule1Op_Gt": "Groter dan",
+            "Enum_rules_rule1Op_Lt": "Kleiner dan",
+            "Enum_rules_rule2Op_Gt": "Groter dan",
+            "Enum_rules_rule2Op_Lt": "Kleiner dan",
+            "Enum_rules_rule3Op_Gt": "Groter dan",
+            "Enum_rules_rule3Op_Lt": "Kleiner dan",
+            "Enum_style_template_Clean": "Strak",
+            "Enum_style_template_Compact": "Compact",
+            "Enum_style_template_Contrast": "Contrast",
+            "Enum_style_template_Default": "Standaard",
+            "Enum_style_template_Minimal": "Minimaal",
+            "Enum_style_template_Outline": "Omtrek",
+            "Enum_swimlaneSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_swimlaneSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_swimlaneSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_swimlaneSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_swimlaneSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_valueFormatSettings_format_Compact": "Compact (1,2K / 3,4M)",
+            "Enum_valueFormatSettings_format_Model": "Modelopmaak",
+            "Enum_valueFormatSettings_format_Percent": "Percentage (12,3%)",
+            "Enum_valueFormatSettings_format_Plain": "Eenvoudig (1234)",
+            "Enum_valueFormatSettings_format_Thousands": "Duizendtallen (1.234)",
+            "Obj_dataPoint": "Gegevenskleuren",
+            "Obj_layoutSettings": "Indeling",
+            "Obj_legendSettings": "Legenda",
+            "Obj_linkSettings": "Verbindingen",
+            "Obj_nodeSettings": "Knooppunten",
+            "Obj_rules": "Kleurregels (Pro)",
+            "Obj_style": "Stijlsjabloon",
+            "Obj_swimlaneSettings": "Zwembanen",
+            "Obj_valueFormatSettings": "Waardeopmaak",
+            "Prop_dataPoint_colorByLevel": "Knooppunten kleuren per niveau",
+            "Prop_dataPoint_defaultColor": "Standaardkleur knooppunt",
+            "Prop_dataPoint_levelColor1": "Kleur niveau 1",
+            "Prop_dataPoint_levelColor2": "Kleur niveau 2",
+            "Prop_dataPoint_levelColor3": "Kleur niveau 3",
+            "Prop_dataPoint_levelColor4": "Kleur niveau 4",
+            "Prop_dataPoint_levelColor5": "Kleur niveau 5",
+            "Prop_dataPoint_levelColor6": "Kleur niveau 6",
+            "Prop_layoutSettings_backgroundColor": "Achtergrondkleur",
+            "Prop_layoutSettings_direction": "Richting",
+            "Prop_layoutSettings_fillBackground": "Achtergrond",
+            "Prop_layoutSettings_fitOnLoad": "Grote diagrammen aan de visual aanpassen",
+            "Prop_layoutSettings_gridColor": "Rasterkleur",
+            "Prop_layoutSettings_headerColor": "Kleur koptekst",
+            "Prop_layoutSettings_headerSize": "Grootte koptekst",
+            "Prop_layoutSettings_layerGap": "Ruimte tussen niveaus",
+            "Prop_layoutSettings_nodeGap": "Ruimte tussen knooppunten",
+            "Prop_layoutSettings_showGrid": "Achtergrondraster",
+            "Prop_layoutSettings_showLevelHeaders": "Niveaukoppen",
+            "Prop_layoutSettings_showMinimap": "Minikaart",
+            "Prop_layoutSettings_showToolbar": "Werkbalk",
+            "Prop_layoutSettings_showZoomButtons": "Zoomknoppen",
+            "Prop_layoutSettings_toolbarSize": "Grootte van werkbalk",
+            "Prop_legendSettings_fontSize": "Tekstgrootte",
+            "Prop_legendSettings_position": "Positie",
+            "Prop_legendSettings_show": "Legenda tonen",
+            "Prop_legendSettings_textColor": "Tekstkleur",
+            "Prop_legendSettings_useFieldNames": "Veldnamen gebruiken",
+            "Prop_linkSettings_color": "Verbindingskleur",
+            "Prop_linkSettings_curvature": "Kromming",
+            "Prop_linkSettings_dominantEmphasis": "Dikte dominant pad x",
+            "Prop_linkSettings_highlightDominant": "Dominant pad markeren",
+            "Prop_linkSettings_highlightTopVariant": "Belangrijkste end-to-end-variant markeren",
+            "Prop_linkSettings_labelColor": "Labelkleur",
+            "Prop_linkSettings_labelContent": "Label toont",
+            "Prop_linkSettings_labelSize": "Labelgrootte",
+            "Prop_linkSettings_showLabels": "Verbindingslabels",
+            "Prop_linkSettings_topVariantColor": "Kleur topvariant",
+            "Prop_linkSettings_width": "Basisbreedte verbindingen",
+            "Prop_nodeSettings_badgeBackgroundColor": "Achtergrond badge",
+            "Prop_nodeSettings_badgeBackgroundOpacity": "Dekking achtergrond badge %",
+            "Prop_nodeSettings_badgeFontFamily": "Lettertype badge",
+            "Prop_nodeSettings_badgeFontSize": "Tekengrootte badge",
+            "Prop_nodeSettings_badgeTextColor": "Tekstkleur badge",
+            "Prop_nodeSettings_borderColor": "Randkleur",
+            "Prop_nodeSettings_borderWidth": "Randbreedte",
+            "Prop_nodeSettings_colorBorderByLevel": "Randkleur per niveau",
+            "Prop_nodeSettings_cornerRadius": "Hoekradius",
+            "Prop_nodeSettings_fontFamily": "Lettertypefamilie",
+            "Prop_nodeSettings_fontSize": "Labelgrootte",
+            "Prop_nodeSettings_height": "Hoogte knooppunt",
+            "Prop_nodeSettings_imageBackground": "Achtergrond van afbeelding",
+            "Prop_nodeSettings_imageBackgroundColor": "Achtergrondkleur van afbeelding",
+            "Prop_nodeSettings_imageShape": "Vorm van afbeelding",
+            "Prop_nodeSettings_imageSize": "Afbeeldingsgrootte",
+            "Prop_nodeSettings_kpiDownColor": "Kleur KPI omlaag",
+            "Prop_nodeSettings_kpiUpColor": "Kleur KPI omhoog",
+            "Prop_nodeSettings_shadowBlur": "Vervaging schaduw",
+            "Prop_nodeSettings_shadowColor": "Schaduwkleur",
+            "Prop_nodeSettings_shadowOffsetX": "Schaduwverschuiving X",
+            "Prop_nodeSettings_shadowOffsetY": "Schaduwverschuiving Y",
+            "Prop_nodeSettings_shadowOpacity": "Dekking schaduw %",
+            "Prop_nodeSettings_showBadge": "Waardebadge in knooppunt tonen",
+            "Prop_nodeSettings_showShadow": "Schaduw knooppunten tonen",
+            "Prop_nodeSettings_showStepNumber": "Stapnummer",
+            "Prop_nodeSettings_textColor": "Tekstkleur",
+            "Prop_nodeSettings_width": "Breedte knooppunt",
+            "Prop_rules_basis": "Vergelijken",
+            "Prop_rules_rule1Color": "Kleur",
+            "Prop_rules_rule1On": "Regel 1",
+            "Prop_rules_rule1Op": "Voorwaarde",
+            "Prop_rules_rule1Value": "Waarde",
+            "Prop_rules_rule2Color": "Kleur",
+            "Prop_rules_rule2On": "Regel 2",
+            "Prop_rules_rule2Op": "Voorwaarde",
+            "Prop_rules_rule2Value": "Waarde",
+            "Prop_rules_rule3Color": "Kleur",
+            "Prop_rules_rule3On": "Regel 3",
+            "Prop_rules_rule3Op": "Voorwaarde",
+            "Prop_rules_rule3Value": "Waarde",
+            "Prop_style_guide": "Installatietips tonen",
+            "Prop_style_template": "Sjabloon",
+            "Prop_swimlaneSettings_bandColor1": "Kleur band 1",
+            "Prop_swimlaneSettings_bandColor2": "Kleur band 2",
+            "Prop_swimlaneSettings_bandColor3": "Kleur band 3",
+            "Prop_swimlaneSettings_bandColor4": "Kleur band 4",
+            "Prop_swimlaneSettings_bandOpacity": "Dekking banden %",
+            "Prop_swimlaneSettings_fontFamily": "Lettertype label",
+            "Prop_swimlaneSettings_labelSize": "Labelgrootte",
+            "Prop_swimlaneSettings_show": "Zwembaanbanden tonen",
+            "Prop_swimlaneSettings_textColor": "Labelkleur",
+            "Prop_valueFormatSettings_decimals": "Decimalen",
+            "Prop_valueFormatSettings_format": "Getalnotatie",
+            "Prop_valueFormatSettings_prefix": "Voorvoegsel",
+            "Prop_valueFormatSettings_suffix": "Achtervoegsel",
+            "Role_levelImages": "Afbeeldingen per niveau (Pro)",
+            "Role_levelImages_Desc": "E\u00e9n Base64-afbeelding per niveau, al in het model aanwezig.",
+            "Role_levels": "Niveaus (sleep \u00e9\u00e9n veld per niveau, op volgorde)",
+            "Role_levels_Desc": "E\u00e9n veld per processtap, op volgorde. Minstens twee niveaus.",
+            "Role_swimlane": "Zwembaan (Pro)",
+            "Role_swimlane_Desc": "Banden per afdeling, regio of fase.",
+            "Role_target": "Doel \u2014 KPI-badge (Pro)",
+            "Role_target_Desc": "Elk knooppunt toont werkelijk ten opzichte van doel.",
+            "Role_tooltips": "Knopinfovelden (Pro)",
+            "Role_tooltips_Desc": "Extra waarden in de knopinfo.",
+            "Role_value": "Waarde",
+            "Role_value_Desc": "Bepaalt de dikte van de verbindingen. Zonder telt elke rij als 1."
+        },
+        "pl-PL": {
+            "Enum_layoutSettings_direction_Horizontal": "Od lewej do prawej",
+            "Enum_layoutSettings_direction_Vertical": "Od g\u00f3ry do do\u0142u",
+            "Enum_legendSettings_position_BottomLeft": "Na dole po lewej",
+            "Enum_legendSettings_position_BottomRight": "Na dole po prawej",
+            "Enum_legendSettings_position_TopRight": "Na g\u00f3rze po prawej",
+            "Enum_linkSettings_labelContent_Both": "Warto\u015b\u0107 i %",
+            "Enum_linkSettings_labelContent_Percent": "% sumy",
+            "Enum_linkSettings_labelContent_Value": "Warto\u015b\u0107",
+            "Enum_nodeSettings_badgeFontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_badgeFontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_badgeFontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_badgeFontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_badgeFontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_imageShape_Circle": "Okr\u0105g",
+            "Enum_nodeSettings_imageShape_Rounded": "Zaokr\u0105glony",
+            "Enum_nodeSettings_imageShape_Square": "Kwadrat",
+            "Enum_rules_basis_Share": "% sumy",
+            "Enum_rules_basis_Value": "Warto\u015b\u0107 w\u0119z\u0142a",
+            "Enum_rules_basis_Variance": "% wzgl\u0119dem celu",
+            "Enum_rules_rule1Op_Gt": "Wi\u0119ksze ni\u017c",
+            "Enum_rules_rule1Op_Lt": "Mniejsze ni\u017c",
+            "Enum_rules_rule2Op_Gt": "Wi\u0119ksze ni\u017c",
+            "Enum_rules_rule2Op_Lt": "Mniejsze ni\u017c",
+            "Enum_rules_rule3Op_Gt": "Wi\u0119ksze ni\u017c",
+            "Enum_rules_rule3Op_Lt": "Mniejsze ni\u017c",
+            "Enum_style_template_Clean": "Czysty",
+            "Enum_style_template_Compact": "Kompaktowy",
+            "Enum_style_template_Contrast": "Kontrast",
+            "Enum_style_template_Default": "Domy\u015blny",
+            "Enum_style_template_Minimal": "Minimalny",
+            "Enum_style_template_Outline": "Kontur",
+            "Enum_swimlaneSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_swimlaneSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_swimlaneSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_swimlaneSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_swimlaneSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_valueFormatSettings_format_Compact": "Kompaktowy (1,2K / 3,4M)",
+            "Enum_valueFormatSettings_format_Model": "Format modelu",
+            "Enum_valueFormatSettings_format_Percent": "Procent (12,3%)",
+            "Enum_valueFormatSettings_format_Plain": "Zwyk\u0142y (1234)",
+            "Enum_valueFormatSettings_format_Thousands": "Tysi\u0105ce (1 234)",
+            "Obj_dataPoint": "Kolory danych",
+            "Obj_layoutSettings": "Uk\u0142ad",
+            "Obj_legendSettings": "Legenda",
+            "Obj_linkSettings": "Po\u0142\u0105czenia",
+            "Obj_nodeSettings": "W\u0119z\u0142y",
+            "Obj_rules": "Regu\u0142y kolor\u00f3w (Pro)",
+            "Obj_style": "Szablon stylu",
+            "Obj_swimlaneSettings": "Tory",
+            "Obj_valueFormatSettings": "Format warto\u015bci",
+            "Prop_dataPoint_colorByLevel": "Kolor w\u0119z\u0142\u00f3w wed\u0142ug poziomu",
+            "Prop_dataPoint_defaultColor": "Domy\u015blny kolor w\u0119z\u0142a",
+            "Prop_dataPoint_levelColor1": "Kolor poziomu 1",
+            "Prop_dataPoint_levelColor2": "Kolor poziomu 2",
+            "Prop_dataPoint_levelColor3": "Kolor poziomu 3",
+            "Prop_dataPoint_levelColor4": "Kolor poziomu 4",
+            "Prop_dataPoint_levelColor5": "Kolor poziomu 5",
+            "Prop_dataPoint_levelColor6": "Kolor poziomu 6",
+            "Prop_layoutSettings_backgroundColor": "Kolor t\u0142a",
+            "Prop_layoutSettings_direction": "Kierunek",
+            "Prop_layoutSettings_fillBackground": "T\u0142o",
+            "Prop_layoutSettings_fitOnLoad": "Dopasuj du\u017ce diagramy do wizualizacji",
+            "Prop_layoutSettings_gridColor": "Kolor siatki",
+            "Prop_layoutSettings_headerColor": "Kolor nag\u0142\u00f3wka",
+            "Prop_layoutSettings_headerSize": "Rozmiar nag\u0142\u00f3wka",
+            "Prop_layoutSettings_layerGap": "Odst\u0119p mi\u0119dzy poziomami",
+            "Prop_layoutSettings_nodeGap": "Odst\u0119p mi\u0119dzy w\u0119z\u0142ami",
+            "Prop_layoutSettings_showGrid": "Siatka t\u0142a",
+            "Prop_layoutSettings_showLevelHeaders": "Nag\u0142\u00f3wki poziom\u00f3w",
+            "Prop_layoutSettings_showMinimap": "Minimapa",
+            "Prop_layoutSettings_showToolbar": "Pasek narz\u0119dzi",
+            "Prop_layoutSettings_showZoomButtons": "Przyciski powi\u0119kszenia",
+            "Prop_layoutSettings_toolbarSize": "Rozmiar paska",
+            "Prop_legendSettings_fontSize": "Rozmiar tekstu",
+            "Prop_legendSettings_position": "Po\u0142o\u017cenie",
+            "Prop_legendSettings_show": "Poka\u017c legend\u0119",
+            "Prop_legendSettings_textColor": "Kolor tekstu",
+            "Prop_legendSettings_useFieldNames": "U\u017cyj nazw p\u00f3l",
+            "Prop_linkSettings_color": "Kolor po\u0142\u0105cze\u0144",
+            "Prop_linkSettings_curvature": "Krzywizna",
+            "Prop_linkSettings_dominantEmphasis": "Grubo\u015b\u0107 \u015bcie\u017cki dominuj\u0105cej x",
+            "Prop_linkSettings_highlightDominant": "Wyr\u00f3\u017cnij \u015bcie\u017ck\u0119 dominuj\u0105c\u0105",
+            "Prop_linkSettings_highlightTopVariant": "Wyr\u00f3\u017cnij g\u0142\u00f3wny wariant od pocz\u0105tku do ko\u0144ca",
+            "Prop_linkSettings_labelColor": "Kolor etykiety",
+            "Prop_linkSettings_labelContent": "Etykieta pokazuje",
+            "Prop_linkSettings_labelSize": "Rozmiar etykiety",
+            "Prop_linkSettings_showLabels": "Etykiety po\u0142\u0105cze\u0144",
+            "Prop_linkSettings_topVariantColor": "Kolor g\u0142\u00f3wnego wariantu",
+            "Prop_linkSettings_width": "Bazowa grubo\u015b\u0107 po\u0142\u0105cze\u0144",
+            "Prop_nodeSettings_badgeBackgroundColor": "T\u0142o plakietki",
+            "Prop_nodeSettings_badgeBackgroundOpacity": "Krycie t\u0142a plakietki %",
+            "Prop_nodeSettings_badgeFontFamily": "Czcionka plakietki",
+            "Prop_nodeSettings_badgeFontSize": "Rozmiar czcionki plakietki",
+            "Prop_nodeSettings_badgeTextColor": "Kolor tekstu plakietki",
+            "Prop_nodeSettings_borderColor": "Kolor obramowania",
+            "Prop_nodeSettings_borderWidth": "Grubo\u015b\u0107 obramowania",
+            "Prop_nodeSettings_colorBorderByLevel": "Kolor obramowania wed\u0142ug poziomu",
+            "Prop_nodeSettings_cornerRadius": "Promie\u0144 naro\u017cnika",
+            "Prop_nodeSettings_fontFamily": "Rodzina czcionek",
+            "Prop_nodeSettings_fontSize": "Rozmiar etykiety",
+            "Prop_nodeSettings_height": "Wysoko\u015b\u0107 w\u0119z\u0142a",
+            "Prop_nodeSettings_imageBackground": "T\u0142o obrazu",
+            "Prop_nodeSettings_imageBackgroundColor": "Kolor t\u0142a obrazu",
+            "Prop_nodeSettings_imageShape": "Kszta\u0142t obrazu",
+            "Prop_nodeSettings_imageSize": "Rozmiar obrazu",
+            "Prop_nodeSettings_kpiDownColor": "Kolor KPI w d\u00f3\u0142",
+            "Prop_nodeSettings_kpiUpColor": "Kolor KPI w g\u00f3r\u0119",
+            "Prop_nodeSettings_shadowBlur": "Rozmycie cienia",
+            "Prop_nodeSettings_shadowColor": "Kolor cienia",
+            "Prop_nodeSettings_shadowOffsetX": "Przesuni\u0119cie cienia X",
+            "Prop_nodeSettings_shadowOffsetY": "Przesuni\u0119cie cienia Y",
+            "Prop_nodeSettings_shadowOpacity": "Krycie cienia %",
+            "Prop_nodeSettings_showBadge": "Poka\u017c plakietk\u0119 warto\u015bci w w\u0119\u017ale",
+            "Prop_nodeSettings_showShadow": "Poka\u017c cie\u0144 w\u0119z\u0142\u00f3w",
+            "Prop_nodeSettings_showStepNumber": "Numer kroku",
+            "Prop_nodeSettings_textColor": "Kolor tekstu",
+            "Prop_nodeSettings_width": "Szeroko\u015b\u0107 w\u0119z\u0142a",
+            "Prop_rules_basis": "Por\u00f3wnaj",
+            "Prop_rules_rule1Color": "Kolor",
+            "Prop_rules_rule1On": "Regu\u0142a 1",
+            "Prop_rules_rule1Op": "Warunek",
+            "Prop_rules_rule1Value": "Warto\u015b\u0107",
+            "Prop_rules_rule2Color": "Kolor",
+            "Prop_rules_rule2On": "Regu\u0142a 2",
+            "Prop_rules_rule2Op": "Warunek",
+            "Prop_rules_rule2Value": "Warto\u015b\u0107",
+            "Prop_rules_rule3Color": "Kolor",
+            "Prop_rules_rule3On": "Regu\u0142a 3",
+            "Prop_rules_rule3Op": "Warunek",
+            "Prop_rules_rule3Value": "Warto\u015b\u0107",
+            "Prop_style_guide": "Poka\u017c wskaz\u00f3wki konfiguracji",
+            "Prop_style_template": "Szablon",
+            "Prop_swimlaneSettings_bandColor1": "Kolor pasma 1",
+            "Prop_swimlaneSettings_bandColor2": "Kolor pasma 2",
+            "Prop_swimlaneSettings_bandColor3": "Kolor pasma 3",
+            "Prop_swimlaneSettings_bandColor4": "Kolor pasma 4",
+            "Prop_swimlaneSettings_bandOpacity": "Krycie pasm %",
+            "Prop_swimlaneSettings_fontFamily": "Czcionka etykiety",
+            "Prop_swimlaneSettings_labelSize": "Rozmiar etykiety",
+            "Prop_swimlaneSettings_show": "Poka\u017c pasma tor\u00f3w",
+            "Prop_swimlaneSettings_textColor": "Kolor etykiety",
+            "Prop_valueFormatSettings_decimals": "Miejsca dziesi\u0119tne",
+            "Prop_valueFormatSettings_format": "Format liczb",
+            "Prop_valueFormatSettings_prefix": "Prefiks",
+            "Prop_valueFormatSettings_suffix": "Sufiks",
+            "Role_levelImages": "Obrazy poziom\u00f3w (Pro)",
+            "Role_levelImages_Desc": "Jeden obraz Base64 na poziom, ju\u017c zapisany w modelu.",
+            "Role_levels": "Poziomy (przeci\u0105gnij jedno pole na poziom, po kolei)",
+            "Role_levels_Desc": "Jedno pole na krok procesu, po kolei. Co najmniej dwa poziomy.",
+            "Role_swimlane": "Tor (Pro)",
+            "Role_swimlane_Desc": "Pasma wed\u0142ug dzia\u0142u, regionu lub fazy.",
+            "Role_target": "Cel \u2014 plakietka KPI (Pro)",
+            "Role_target_Desc": "Ka\u017cdy w\u0119ze\u0142 pokazuje warto\u015b\u0107 rzeczywist\u0105 wzgl\u0119dem celu.",
+            "Role_tooltips": "Pola etykietki narz\u0119dzi (Pro)",
+            "Role_tooltips_Desc": "Dodatkowe warto\u015bci w etykietce.",
+            "Role_value": "Warto\u015b\u0107",
+            "Role_value_Desc": "Okre\u015bla grubo\u015b\u0107 po\u0142\u0105cze\u0144. Bez niej ka\u017cdy wiersz liczy si\u0119 jako 1."
+        },
+        "pt-BR": {
+            "Enum_layoutSettings_direction_Horizontal": "Da esquerda para a direita",
+            "Enum_layoutSettings_direction_Vertical": "De cima para baixo",
+            "Enum_legendSettings_position_BottomLeft": "Inferior esquerdo",
+            "Enum_legendSettings_position_BottomRight": "Inferior direito",
+            "Enum_legendSettings_position_TopRight": "Superior direito",
+            "Enum_linkSettings_labelContent_Both": "Valor e %",
+            "Enum_linkSettings_labelContent_Percent": "% do total",
+            "Enum_linkSettings_labelContent_Value": "Valor",
+            "Enum_nodeSettings_badgeFontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_badgeFontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_badgeFontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_badgeFontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_badgeFontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_imageShape_Circle": "C\u00edrculo",
+            "Enum_nodeSettings_imageShape_Rounded": "Arredondada",
+            "Enum_nodeSettings_imageShape_Square": "Quadrada",
+            "Enum_rules_basis_Share": "% do total",
+            "Enum_rules_basis_Value": "Valor do n\u00f3",
+            "Enum_rules_basis_Variance": "% vs. meta",
+            "Enum_rules_rule1Op_Gt": "Maior que",
+            "Enum_rules_rule1Op_Lt": "Menor que",
+            "Enum_rules_rule2Op_Gt": "Maior que",
+            "Enum_rules_rule2Op_Lt": "Menor que",
+            "Enum_rules_rule3Op_Gt": "Maior que",
+            "Enum_rules_rule3Op_Lt": "Menor que",
+            "Enum_style_template_Clean": "Limpo",
+            "Enum_style_template_Compact": "Compacto",
+            "Enum_style_template_Contrast": "Contraste",
+            "Enum_style_template_Default": "Padr\u00e3o",
+            "Enum_style_template_Minimal": "M\u00ednimo",
+            "Enum_style_template_Outline": "Contorno",
+            "Enum_swimlaneSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_swimlaneSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_swimlaneSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_swimlaneSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_swimlaneSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_valueFormatSettings_format_Compact": "Compacto (1,2K / 3,4M)",
+            "Enum_valueFormatSettings_format_Model": "Formato do modelo",
+            "Enum_valueFormatSettings_format_Percent": "Porcentagem (12,3%)",
+            "Enum_valueFormatSettings_format_Plain": "Simples (1234)",
+            "Enum_valueFormatSettings_format_Thousands": "Milhares (1.234)",
+            "Obj_dataPoint": "Cores de dados",
+            "Obj_layoutSettings": "Layout",
+            "Obj_legendSettings": "Legenda",
+            "Obj_linkSettings": "Conex\u00f5es",
+            "Obj_nodeSettings": "N\u00f3s",
+            "Obj_rules": "Regras de cor (Pro)",
+            "Obj_style": "Modelo de estilo",
+            "Obj_swimlaneSettings": "Raias",
+            "Obj_valueFormatSettings": "Formato do valor",
+            "Prop_dataPoint_colorByLevel": "Cor dos n\u00f3s por n\u00edvel",
+            "Prop_dataPoint_defaultColor": "Cor padr\u00e3o dos n\u00f3s",
+            "Prop_dataPoint_levelColor1": "Cor do n\u00edvel 1",
+            "Prop_dataPoint_levelColor2": "Cor do n\u00edvel 2",
+            "Prop_dataPoint_levelColor3": "Cor do n\u00edvel 3",
+            "Prop_dataPoint_levelColor4": "Cor do n\u00edvel 4",
+            "Prop_dataPoint_levelColor5": "Cor do n\u00edvel 5",
+            "Prop_dataPoint_levelColor6": "Cor do n\u00edvel 6",
+            "Prop_layoutSettings_backgroundColor": "Cor da tela de fundo",
+            "Prop_layoutSettings_direction": "Dire\u00e7\u00e3o",
+            "Prop_layoutSettings_fillBackground": "Tela de fundo",
+            "Prop_layoutSettings_fitOnLoad": "Ajustar diagramas grandes ao visual",
+            "Prop_layoutSettings_gridColor": "Cor da grade",
+            "Prop_layoutSettings_headerColor": "Cor do cabe\u00e7alho",
+            "Prop_layoutSettings_headerSize": "Tamanho do cabe\u00e7alho",
+            "Prop_layoutSettings_layerGap": "Espa\u00e7o entre n\u00edveis",
+            "Prop_layoutSettings_nodeGap": "Espa\u00e7o entre n\u00f3s",
+            "Prop_layoutSettings_showGrid": "Grade de fundo",
+            "Prop_layoutSettings_showLevelHeaders": "Cabe\u00e7alhos de n\u00edvel",
+            "Prop_layoutSettings_showMinimap": "Minimapa",
+            "Prop_layoutSettings_showToolbar": "Barra de ferramentas",
+            "Prop_layoutSettings_showZoomButtons": "Bot\u00f5es de zoom",
+            "Prop_layoutSettings_toolbarSize": "Tamanho da barra",
+            "Prop_legendSettings_fontSize": "Tamanho do texto",
+            "Prop_legendSettings_position": "Posi\u00e7\u00e3o",
+            "Prop_legendSettings_show": "Mostrar legenda",
+            "Prop_legendSettings_textColor": "Cor do texto",
+            "Prop_legendSettings_useFieldNames": "Usar nomes de campo",
+            "Prop_linkSettings_color": "Cor das conex\u00f5es",
+            "Prop_linkSettings_curvature": "Curvatura",
+            "Prop_linkSettings_dominantEmphasis": "Espessura do caminho dominante x",
+            "Prop_linkSettings_highlightDominant": "Real\u00e7ar o caminho dominante",
+            "Prop_linkSettings_highlightTopVariant": "Real\u00e7ar a principal variante de ponta a ponta",
+            "Prop_linkSettings_labelColor": "Cor do r\u00f3tulo",
+            "Prop_linkSettings_labelContent": "O r\u00f3tulo mostra",
+            "Prop_linkSettings_labelSize": "Tamanho do r\u00f3tulo",
+            "Prop_linkSettings_showLabels": "R\u00f3tulos das conex\u00f5es",
+            "Prop_linkSettings_topVariantColor": "Cor da variante principal",
+            "Prop_linkSettings_width": "Espessura base das conex\u00f5es",
+            "Prop_nodeSettings_badgeBackgroundColor": "Fundo do selo",
+            "Prop_nodeSettings_badgeBackgroundOpacity": "Opacidade do fundo do selo %",
+            "Prop_nodeSettings_badgeFontFamily": "Fonte do selo",
+            "Prop_nodeSettings_badgeFontSize": "Tamanho da fonte do selo",
+            "Prop_nodeSettings_badgeTextColor": "Cor do texto do selo",
+            "Prop_nodeSettings_borderColor": "Cor da borda",
+            "Prop_nodeSettings_borderWidth": "Largura da borda",
+            "Prop_nodeSettings_colorBorderByLevel": "Cor da borda por n\u00edvel",
+            "Prop_nodeSettings_cornerRadius": "Raio do canto",
+            "Prop_nodeSettings_fontFamily": "Fam\u00edlia da fonte",
+            "Prop_nodeSettings_fontSize": "Tamanho do r\u00f3tulo",
+            "Prop_nodeSettings_height": "Altura do n\u00f3",
+            "Prop_nodeSettings_imageBackground": "Fundo da imagem",
+            "Prop_nodeSettings_imageBackgroundColor": "Cor de fundo da imagem",
+            "Prop_nodeSettings_imageShape": "Forma da imagem",
+            "Prop_nodeSettings_imageSize": "Tamanho da imagem",
+            "Prop_nodeSettings_kpiDownColor": "Cor do KPI em queda",
+            "Prop_nodeSettings_kpiUpColor": "Cor do KPI em alta",
+            "Prop_nodeSettings_shadowBlur": "Desfoque da sombra",
+            "Prop_nodeSettings_shadowColor": "Cor da sombra",
+            "Prop_nodeSettings_shadowOffsetX": "Deslocamento X da sombra",
+            "Prop_nodeSettings_shadowOffsetY": "Deslocamento Y da sombra",
+            "Prop_nodeSettings_shadowOpacity": "Opacidade da sombra %",
+            "Prop_nodeSettings_showBadge": "Mostrar selo de valor no n\u00f3",
+            "Prop_nodeSettings_showShadow": "Mostrar sombra dos n\u00f3s",
+            "Prop_nodeSettings_showStepNumber": "N\u00famero da etapa",
+            "Prop_nodeSettings_textColor": "Cor do texto",
+            "Prop_nodeSettings_width": "Largura do n\u00f3",
+            "Prop_rules_basis": "Comparar",
+            "Prop_rules_rule1Color": "Cor",
+            "Prop_rules_rule1On": "Regra 1",
+            "Prop_rules_rule1Op": "Condi\u00e7\u00e3o",
+            "Prop_rules_rule1Value": "Valor",
+            "Prop_rules_rule2Color": "Cor",
+            "Prop_rules_rule2On": "Regra 2",
+            "Prop_rules_rule2Op": "Condi\u00e7\u00e3o",
+            "Prop_rules_rule2Value": "Valor",
+            "Prop_rules_rule3Color": "Cor",
+            "Prop_rules_rule3On": "Regra 3",
+            "Prop_rules_rule3Op": "Condi\u00e7\u00e3o",
+            "Prop_rules_rule3Value": "Valor",
+            "Prop_style_guide": "Mostrar dicas de configura\u00e7\u00e3o",
+            "Prop_style_template": "Modelo",
+            "Prop_swimlaneSettings_bandColor1": "Cor da faixa 1",
+            "Prop_swimlaneSettings_bandColor2": "Cor da faixa 2",
+            "Prop_swimlaneSettings_bandColor3": "Cor da faixa 3",
+            "Prop_swimlaneSettings_bandColor4": "Cor da faixa 4",
+            "Prop_swimlaneSettings_bandOpacity": "Opacidade das faixas %",
+            "Prop_swimlaneSettings_fontFamily": "Fonte do r\u00f3tulo",
+            "Prop_swimlaneSettings_labelSize": "Tamanho do r\u00f3tulo",
+            "Prop_swimlaneSettings_show": "Mostrar faixas de raias",
+            "Prop_swimlaneSettings_textColor": "Cor do r\u00f3tulo",
+            "Prop_valueFormatSettings_decimals": "Casas decimais",
+            "Prop_valueFormatSettings_format": "Formato de n\u00famero",
+            "Prop_valueFormatSettings_prefix": "Prefixo",
+            "Prop_valueFormatSettings_suffix": "Sufixo",
+            "Role_levelImages": "Imagens por n\u00edvel (Pro)",
+            "Role_levelImages_Desc": "Uma imagem Base64 por n\u00edvel, j\u00e1 presente no modelo.",
+            "Role_levels": "N\u00edveis (arraste um campo por n\u00edvel, em ordem)",
+            "Role_levels_Desc": "Um campo por etapa do processo, em ordem. Pelo menos dois n\u00edveis.",
+            "Role_swimlane": "Raia (Pro)",
+            "Role_swimlane_Desc": "Faixas por departamento, regi\u00e3o ou fase.",
+            "Role_target": "Meta \u2014 selo de KPI (Pro)",
+            "Role_target_Desc": "Cada n\u00f3 mostra o realizado em rela\u00e7\u00e3o \u00e0 meta.",
+            "Role_tooltips": "Campos de dica de ferramenta (Pro)",
+            "Role_tooltips_Desc": "Valores adicionais na dica de ferramenta.",
+            "Role_value": "Valor",
+            "Role_value_Desc": "Define a espessura das conex\u00f5es. Sem ela, cada linha conta 1."
+        },
+        "pt-PT": {
+            "Enum_layoutSettings_direction_Horizontal": "Da esquerda para a direita",
+            "Enum_layoutSettings_direction_Vertical": "De cima para baixo",
+            "Enum_legendSettings_position_BottomLeft": "Inferior esquerdo",
+            "Enum_legendSettings_position_BottomRight": "Inferior direito",
+            "Enum_legendSettings_position_TopRight": "Superior direito",
+            "Enum_linkSettings_labelContent_Both": "Valor e %",
+            "Enum_linkSettings_labelContent_Percent": "% do total",
+            "Enum_linkSettings_labelContent_Value": "Valor",
+            "Enum_nodeSettings_badgeFontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_badgeFontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_badgeFontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_badgeFontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_badgeFontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_imageShape_Circle": "C\u00edrculo",
+            "Enum_nodeSettings_imageShape_Rounded": "Arredondada",
+            "Enum_nodeSettings_imageShape_Square": "Quadrada",
+            "Enum_rules_basis_Share": "% do total",
+            "Enum_rules_basis_Value": "Valor do n\u00f3",
+            "Enum_rules_basis_Variance": "% vs. meta",
+            "Enum_rules_rule1Op_Gt": "Maior que",
+            "Enum_rules_rule1Op_Lt": "Menor que",
+            "Enum_rules_rule2Op_Gt": "Maior que",
+            "Enum_rules_rule2Op_Lt": "Menor que",
+            "Enum_rules_rule3Op_Gt": "Maior que",
+            "Enum_rules_rule3Op_Lt": "Menor que",
+            "Enum_style_template_Clean": "Limpo",
+            "Enum_style_template_Compact": "Compacto",
+            "Enum_style_template_Contrast": "Contraste",
+            "Enum_style_template_Default": "Padr\u00e3o",
+            "Enum_style_template_Minimal": "M\u00ednimo",
+            "Enum_style_template_Outline": "Contorno",
+            "Enum_swimlaneSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_swimlaneSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_swimlaneSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_swimlaneSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_swimlaneSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_valueFormatSettings_format_Compact": "Compacto (1,2K / 3,4M)",
+            "Enum_valueFormatSettings_format_Model": "Formato do modelo",
+            "Enum_valueFormatSettings_format_Percent": "Porcentagem (12,3%)",
+            "Enum_valueFormatSettings_format_Plain": "Simples (1234)",
+            "Enum_valueFormatSettings_format_Thousands": "Milhares (1.234)",
+            "Obj_dataPoint": "Cores de dados",
+            "Obj_layoutSettings": "Layout",
+            "Obj_legendSettings": "Legenda",
+            "Obj_linkSettings": "Conex\u00f5es",
+            "Obj_nodeSettings": "N\u00f3s",
+            "Obj_rules": "Regras de cor (Pro)",
+            "Obj_style": "Modelo de estilo",
+            "Obj_swimlaneSettings": "Raias",
+            "Obj_valueFormatSettings": "Formato do valor",
+            "Prop_dataPoint_colorByLevel": "Cor dos n\u00f3s por n\u00edvel",
+            "Prop_dataPoint_defaultColor": "Cor padr\u00e3o dos n\u00f3s",
+            "Prop_dataPoint_levelColor1": "Cor do n\u00edvel 1",
+            "Prop_dataPoint_levelColor2": "Cor do n\u00edvel 2",
+            "Prop_dataPoint_levelColor3": "Cor do n\u00edvel 3",
+            "Prop_dataPoint_levelColor4": "Cor do n\u00edvel 4",
+            "Prop_dataPoint_levelColor5": "Cor do n\u00edvel 5",
+            "Prop_dataPoint_levelColor6": "Cor do n\u00edvel 6",
+            "Prop_layoutSettings_backgroundColor": "Cor da tela de fundo",
+            "Prop_layoutSettings_direction": "Dire\u00e7\u00e3o",
+            "Prop_layoutSettings_fillBackground": "Tela de fundo",
+            "Prop_layoutSettings_fitOnLoad": "Ajustar diagramas grandes ao visual",
+            "Prop_layoutSettings_gridColor": "Cor da grade",
+            "Prop_layoutSettings_headerColor": "Cor do cabe\u00e7alho",
+            "Prop_layoutSettings_headerSize": "Tamanho do cabe\u00e7alho",
+            "Prop_layoutSettings_layerGap": "Espa\u00e7o entre n\u00edveis",
+            "Prop_layoutSettings_nodeGap": "Espa\u00e7o entre n\u00f3s",
+            "Prop_layoutSettings_showGrid": "Grade de fundo",
+            "Prop_layoutSettings_showLevelHeaders": "Cabe\u00e7alhos de n\u00edvel",
+            "Prop_layoutSettings_showMinimap": "Minimapa",
+            "Prop_layoutSettings_showToolbar": "Barra de ferramentas",
+            "Prop_layoutSettings_showZoomButtons": "Bot\u00f5es de zoom",
+            "Prop_layoutSettings_toolbarSize": "Tamanho da barra",
+            "Prop_legendSettings_fontSize": "Tamanho do texto",
+            "Prop_legendSettings_position": "Posi\u00e7\u00e3o",
+            "Prop_legendSettings_show": "Mostrar legenda",
+            "Prop_legendSettings_textColor": "Cor do texto",
+            "Prop_legendSettings_useFieldNames": "Usar nomes de campo",
+            "Prop_linkSettings_color": "Cor das conex\u00f5es",
+            "Prop_linkSettings_curvature": "Curvatura",
+            "Prop_linkSettings_dominantEmphasis": "Espessura do caminho dominante x",
+            "Prop_linkSettings_highlightDominant": "Real\u00e7ar o caminho dominante",
+            "Prop_linkSettings_highlightTopVariant": "Real\u00e7ar a principal variante de ponta a ponta",
+            "Prop_linkSettings_labelColor": "Cor do r\u00f3tulo",
+            "Prop_linkSettings_labelContent": "O r\u00f3tulo mostra",
+            "Prop_linkSettings_labelSize": "Tamanho do r\u00f3tulo",
+            "Prop_linkSettings_showLabels": "R\u00f3tulos das conex\u00f5es",
+            "Prop_linkSettings_topVariantColor": "Cor da variante principal",
+            "Prop_linkSettings_width": "Espessura base das conex\u00f5es",
+            "Prop_nodeSettings_badgeBackgroundColor": "Fundo do selo",
+            "Prop_nodeSettings_badgeBackgroundOpacity": "Opacidade do fundo do selo %",
+            "Prop_nodeSettings_badgeFontFamily": "Fonte do selo",
+            "Prop_nodeSettings_badgeFontSize": "Tamanho da fonte do selo",
+            "Prop_nodeSettings_badgeTextColor": "Cor do texto do selo",
+            "Prop_nodeSettings_borderColor": "Cor da borda",
+            "Prop_nodeSettings_borderWidth": "Largura da borda",
+            "Prop_nodeSettings_colorBorderByLevel": "Cor da borda por n\u00edvel",
+            "Prop_nodeSettings_cornerRadius": "Raio do canto",
+            "Prop_nodeSettings_fontFamily": "Fam\u00edlia da fonte",
+            "Prop_nodeSettings_fontSize": "Tamanho do r\u00f3tulo",
+            "Prop_nodeSettings_height": "Altura do n\u00f3",
+            "Prop_nodeSettings_imageBackground": "Fundo da imagem",
+            "Prop_nodeSettings_imageBackgroundColor": "Cor de fundo da imagem",
+            "Prop_nodeSettings_imageShape": "Forma da imagem",
+            "Prop_nodeSettings_imageSize": "Tamanho da imagem",
+            "Prop_nodeSettings_kpiDownColor": "Cor do KPI em queda",
+            "Prop_nodeSettings_kpiUpColor": "Cor do KPI em alta",
+            "Prop_nodeSettings_shadowBlur": "Desfoque da sombra",
+            "Prop_nodeSettings_shadowColor": "Cor da sombra",
+            "Prop_nodeSettings_shadowOffsetX": "Deslocamento X da sombra",
+            "Prop_nodeSettings_shadowOffsetY": "Deslocamento Y da sombra",
+            "Prop_nodeSettings_shadowOpacity": "Opacidade da sombra %",
+            "Prop_nodeSettings_showBadge": "Mostrar selo de valor no n\u00f3",
+            "Prop_nodeSettings_showShadow": "Mostrar sombra dos n\u00f3s",
+            "Prop_nodeSettings_showStepNumber": "N\u00famero da etapa",
+            "Prop_nodeSettings_textColor": "Cor do texto",
+            "Prop_nodeSettings_width": "Largura do n\u00f3",
+            "Prop_rules_basis": "Comparar",
+            "Prop_rules_rule1Color": "Cor",
+            "Prop_rules_rule1On": "Regra 1",
+            "Prop_rules_rule1Op": "Condi\u00e7\u00e3o",
+            "Prop_rules_rule1Value": "Valor",
+            "Prop_rules_rule2Color": "Cor",
+            "Prop_rules_rule2On": "Regra 2",
+            "Prop_rules_rule2Op": "Condi\u00e7\u00e3o",
+            "Prop_rules_rule2Value": "Valor",
+            "Prop_rules_rule3Color": "Cor",
+            "Prop_rules_rule3On": "Regra 3",
+            "Prop_rules_rule3Op": "Condi\u00e7\u00e3o",
+            "Prop_rules_rule3Value": "Valor",
+            "Prop_style_guide": "Mostrar dicas de configura\u00e7\u00e3o",
+            "Prop_style_template": "Modelo",
+            "Prop_swimlaneSettings_bandColor1": "Cor da faixa 1",
+            "Prop_swimlaneSettings_bandColor2": "Cor da faixa 2",
+            "Prop_swimlaneSettings_bandColor3": "Cor da faixa 3",
+            "Prop_swimlaneSettings_bandColor4": "Cor da faixa 4",
+            "Prop_swimlaneSettings_bandOpacity": "Opacidade das faixas %",
+            "Prop_swimlaneSettings_fontFamily": "Fonte do r\u00f3tulo",
+            "Prop_swimlaneSettings_labelSize": "Tamanho do r\u00f3tulo",
+            "Prop_swimlaneSettings_show": "Mostrar faixas de raias",
+            "Prop_swimlaneSettings_textColor": "Cor do r\u00f3tulo",
+            "Prop_valueFormatSettings_decimals": "Casas decimais",
+            "Prop_valueFormatSettings_format": "Formato de n\u00famero",
+            "Prop_valueFormatSettings_prefix": "Prefixo",
+            "Prop_valueFormatSettings_suffix": "Sufixo",
+            "Role_levelImages": "Imagens por n\u00edvel (Pro)",
+            "Role_levelImages_Desc": "Uma imagem Base64 por n\u00edvel, j\u00e1 presente no modelo.",
+            "Role_levels": "N\u00edveis (arraste um campo por n\u00edvel, em ordem)",
+            "Role_levels_Desc": "Um campo por etapa do processo, em ordem. Pelo menos dois n\u00edveis.",
+            "Role_swimlane": "Raia (Pro)",
+            "Role_swimlane_Desc": "Faixas por departamento, regi\u00e3o ou fase.",
+            "Role_target": "Meta \u2014 selo de KPI (Pro)",
+            "Role_target_Desc": "Cada n\u00f3 mostra o realizado em rela\u00e7\u00e3o \u00e0 meta.",
+            "Role_tooltips": "Campos de dica de ferramenta (Pro)",
+            "Role_tooltips_Desc": "Valores adicionais na dica de ferramenta.",
+            "Role_value": "Valor",
+            "Role_value_Desc": "Define a espessura das conex\u00f5es. Sem ela, cada linha conta 1."
+        },
+        "zh-CN": {
+            "Enum_layoutSettings_direction_Horizontal": "\u4ece\u5de6\u5230\u53f3",
+            "Enum_layoutSettings_direction_Vertical": "\u4ece\u4e0a\u5230\u4e0b",
+            "Enum_legendSettings_position_BottomLeft": "\u5de6\u4e0b",
+            "Enum_legendSettings_position_BottomRight": "\u53f3\u4e0b",
+            "Enum_legendSettings_position_TopRight": "\u53f3\u4e0a",
+            "Enum_linkSettings_labelContent_Both": "\u503c\u548c %",
+            "Enum_linkSettings_labelContent_Percent": "\u5360\u603b\u8ba1\u7684\u767e\u5206\u6bd4",
+            "Enum_linkSettings_labelContent_Value": "\u503c",
+            "Enum_nodeSettings_badgeFontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_badgeFontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_badgeFontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_badgeFontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_badgeFontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_nodeSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_nodeSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_nodeSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_nodeSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_nodeSettings_imageShape_Circle": "\u5706\u5f62",
+            "Enum_nodeSettings_imageShape_Rounded": "\u5706\u89d2",
+            "Enum_nodeSettings_imageShape_Square": "\u65b9\u5f62",
+            "Enum_rules_basis_Share": "\u5360\u603b\u8ba1\u7684\u767e\u5206\u6bd4",
+            "Enum_rules_basis_Value": "\u8282\u70b9\u503c",
+            "Enum_rules_basis_Variance": "\u76f8\u5bf9\u76ee\u6807\u7684\u767e\u5206\u6bd4",
+            "Enum_rules_rule1Op_Gt": "\u5927\u4e8e",
+            "Enum_rules_rule1Op_Lt": "\u5c0f\u4e8e",
+            "Enum_rules_rule2Op_Gt": "\u5927\u4e8e",
+            "Enum_rules_rule2Op_Lt": "\u5c0f\u4e8e",
+            "Enum_rules_rule3Op_Gt": "\u5927\u4e8e",
+            "Enum_rules_rule3Op_Lt": "\u5c0f\u4e8e",
+            "Enum_style_template_Clean": "\u7b80\u6d01",
+            "Enum_style_template_Compact": "\u7d27\u51d1",
+            "Enum_style_template_Contrast": "\u5bf9\u6bd4",
+            "Enum_style_template_Default": "\u9ed8\u8ba4",
+            "Enum_style_template_Minimal": "\u6781\u7b80",
+            "Enum_style_template_Outline": "\u8f6e\u5ed3",
+            "Enum_swimlaneSettings_fontFamily_Arialsansserif": "Arial",
+            "Enum_swimlaneSettings_fontFamily_Calibrisansserif": "Calibri",
+            "Enum_swimlaneSettings_fontFamily_Consolasmonospace": "Consolas",
+            "Enum_swimlaneSettings_fontFamily_Georgiaserif": "Georgia",
+            "Enum_swimlaneSettings_fontFamily_SegoeUIsansserif": "Segoe UI",
+            "Enum_valueFormatSettings_format_Compact": "\u7d27\u51d1 (1.2K / 3.4M)",
+            "Enum_valueFormatSettings_format_Model": "\u6a21\u578b\u683c\u5f0f",
+            "Enum_valueFormatSettings_format_Percent": "\u767e\u5206\u6bd4 (12.3%)",
+            "Enum_valueFormatSettings_format_Plain": "\u5e38\u89c4 (1234)",
+            "Enum_valueFormatSettings_format_Thousands": "\u5343\u4f4d\u5206\u9694 (1,234)",
+            "Obj_dataPoint": "\u6570\u636e\u989c\u8272",
+            "Obj_layoutSettings": "\u5e03\u5c40",
+            "Obj_legendSettings": "\u56fe\u4f8b",
+            "Obj_linkSettings": "\u8fde\u63a5\u7ebf",
+            "Obj_nodeSettings": "\u8282\u70b9",
+            "Obj_rules": "\u989c\u8272\u89c4\u5219 (Pro)",
+            "Obj_style": "\u6837\u5f0f\u6a21\u677f",
+            "Obj_swimlaneSettings": "\u6cf3\u9053",
+            "Obj_valueFormatSettings": "\u503c\u683c\u5f0f",
+            "Prop_dataPoint_colorByLevel": "\u6309\u7ea7\u522b\u4e3a\u8282\u70b9\u7740\u8272",
+            "Prop_dataPoint_defaultColor": "\u9ed8\u8ba4\u8282\u70b9\u989c\u8272",
+            "Prop_dataPoint_levelColor1": "\u7ea7\u522b 1 \u989c\u8272",
+            "Prop_dataPoint_levelColor2": "\u7ea7\u522b 2 \u989c\u8272",
+            "Prop_dataPoint_levelColor3": "\u7ea7\u522b 3 \u989c\u8272",
+            "Prop_dataPoint_levelColor4": "\u7ea7\u522b 4 \u989c\u8272",
+            "Prop_dataPoint_levelColor5": "\u7ea7\u522b 5 \u989c\u8272",
+            "Prop_dataPoint_levelColor6": "\u7ea7\u522b 6 \u989c\u8272",
+            "Prop_layoutSettings_backgroundColor": "\u80cc\u666f\u8272",
+            "Prop_layoutSettings_direction": "\u65b9\u5411",
+            "Prop_layoutSettings_fillBackground": "\u80cc\u666f",
+            "Prop_layoutSettings_fitOnLoad": "\u4f7f\u5927\u578b\u56fe\u8868\u9002\u5e94\u89c6\u89c9\u5bf9\u8c61",
+            "Prop_layoutSettings_gridColor": "\u7f51\u683c\u989c\u8272",
+            "Prop_layoutSettings_headerColor": "\u6807\u9898\u989c\u8272",
+            "Prop_layoutSettings_headerSize": "\u6807\u9898\u5927\u5c0f",
+            "Prop_layoutSettings_layerGap": "\u7ea7\u522b\u95f4\u8ddd",
+            "Prop_layoutSettings_nodeGap": "\u8282\u70b9\u95f4\u8ddd",
+            "Prop_layoutSettings_showGrid": "\u80cc\u666f\u7f51\u683c",
+            "Prop_layoutSettings_showLevelHeaders": "\u7ea7\u522b\u6807\u9898",
+            "Prop_layoutSettings_showMinimap": "\u5c0f\u5730\u56fe",
+            "Prop_layoutSettings_showToolbar": "\u5de5\u5177\u680f",
+            "Prop_layoutSettings_showZoomButtons": "\u7f29\u653e\u6309\u94ae",
+            "Prop_layoutSettings_toolbarSize": "\u5de5\u5177\u680f\u5927\u5c0f",
+            "Prop_legendSettings_fontSize": "\u6587\u672c\u5927\u5c0f",
+            "Prop_legendSettings_position": "\u4f4d\u7f6e",
+            "Prop_legendSettings_show": "\u663e\u793a\u56fe\u4f8b",
+            "Prop_legendSettings_textColor": "\u6587\u672c\u989c\u8272",
+            "Prop_legendSettings_useFieldNames": "\u4f7f\u7528\u5b57\u6bb5\u540d\u79f0",
+            "Prop_linkSettings_color": "\u8fde\u63a5\u7ebf\u989c\u8272",
+            "Prop_linkSettings_curvature": "\u66f2\u7387",
+            "Prop_linkSettings_dominantEmphasis": "\u4e3b\u8def\u5f84\u7c97\u7ec6\u500d\u6570",
+            "Prop_linkSettings_highlightDominant": "\u7a81\u51fa\u663e\u793a\u4e3b\u8def\u5f84",
+            "Prop_linkSettings_highlightTopVariant": "\u7a81\u51fa\u663e\u793a\u6700\u5e38\u89c1\u7684\u7aef\u5230\u7aef\u53d8\u4f53",
+            "Prop_linkSettings_labelColor": "\u6807\u7b7e\u989c\u8272",
+            "Prop_linkSettings_labelContent": "\u6807\u7b7e\u663e\u793a",
+            "Prop_linkSettings_labelSize": "\u6807\u7b7e\u5927\u5c0f",
+            "Prop_linkSettings_showLabels": "\u8fde\u63a5\u7ebf\u6807\u7b7e",
+            "Prop_linkSettings_topVariantColor": "\u6700\u5e38\u89c1\u53d8\u4f53\u989c\u8272",
+            "Prop_linkSettings_width": "\u8fde\u63a5\u7ebf\u57fa\u7840\u5bbd\u5ea6",
+            "Prop_nodeSettings_badgeBackgroundColor": "\u5fbd\u7ae0\u80cc\u666f",
+            "Prop_nodeSettings_badgeBackgroundOpacity": "\u5fbd\u7ae0\u80cc\u666f\u4e0d\u900f\u660e\u5ea6 %",
+            "Prop_nodeSettings_badgeFontFamily": "\u5fbd\u7ae0\u5b57\u4f53",
+            "Prop_nodeSettings_badgeFontSize": "\u5fbd\u7ae0\u5b57\u53f7",
+            "Prop_nodeSettings_badgeTextColor": "\u5fbd\u7ae0\u6587\u672c\u989c\u8272",
+            "Prop_nodeSettings_borderColor": "\u8fb9\u6846\u989c\u8272",
+            "Prop_nodeSettings_borderWidth": "\u8fb9\u6846\u5bbd\u5ea6",
+            "Prop_nodeSettings_colorBorderByLevel": "\u6309\u7ea7\u522b\u8bbe\u7f6e\u8fb9\u6846\u989c\u8272",
+            "Prop_nodeSettings_cornerRadius": "\u5706\u89d2\u534a\u5f84",
+            "Prop_nodeSettings_fontFamily": "\u5b57\u4f53\u7cfb\u5217",
+            "Prop_nodeSettings_fontSize": "\u6807\u7b7e\u5927\u5c0f",
+            "Prop_nodeSettings_height": "\u8282\u70b9\u9ad8\u5ea6",
+            "Prop_nodeSettings_imageBackground": "\u56fe\u50cf\u80cc\u666f",
+            "Prop_nodeSettings_imageBackgroundColor": "\u56fe\u50cf\u80cc\u666f\u8272",
+            "Prop_nodeSettings_imageShape": "\u56fe\u50cf\u5f62\u72b6",
+            "Prop_nodeSettings_imageSize": "\u56fe\u50cf\u5927\u5c0f",
+            "Prop_nodeSettings_kpiDownColor": "KPI \u4e0b\u964d\u989c\u8272",
+            "Prop_nodeSettings_kpiUpColor": "KPI \u4e0a\u5347\u989c\u8272",
+            "Prop_nodeSettings_shadowBlur": "\u9634\u5f71\u6a21\u7cca",
+            "Prop_nodeSettings_shadowColor": "\u9634\u5f71\u989c\u8272",
+            "Prop_nodeSettings_shadowOffsetX": "\u9634\u5f71\u504f\u79fb X",
+            "Prop_nodeSettings_shadowOffsetY": "\u9634\u5f71\u504f\u79fb Y",
+            "Prop_nodeSettings_shadowOpacity": "\u9634\u5f71\u4e0d\u900f\u660e\u5ea6 %",
+            "Prop_nodeSettings_showBadge": "\u5728\u8282\u70b9\u4e2d\u663e\u793a\u503c\u5fbd\u7ae0",
+            "Prop_nodeSettings_showShadow": "\u663e\u793a\u8282\u70b9\u9634\u5f71",
+            "Prop_nodeSettings_showStepNumber": "\u6b65\u9aa4\u7f16\u53f7",
+            "Prop_nodeSettings_textColor": "\u6587\u672c\u989c\u8272",
+            "Prop_nodeSettings_width": "\u8282\u70b9\u5bbd\u5ea6",
+            "Prop_rules_basis": "\u6bd4\u8f83",
+            "Prop_rules_rule1Color": "\u989c\u8272",
+            "Prop_rules_rule1On": "\u89c4\u5219 1",
+            "Prop_rules_rule1Op": "\u6761\u4ef6",
+            "Prop_rules_rule1Value": "\u503c",
+            "Prop_rules_rule2Color": "\u989c\u8272",
+            "Prop_rules_rule2On": "\u89c4\u5219 2",
+            "Prop_rules_rule2Op": "\u6761\u4ef6",
+            "Prop_rules_rule2Value": "\u503c",
+            "Prop_rules_rule3Color": "\u989c\u8272",
+            "Prop_rules_rule3On": "\u89c4\u5219 3",
+            "Prop_rules_rule3Op": "\u6761\u4ef6",
+            "Prop_rules_rule3Value": "\u503c",
+            "Prop_style_guide": "\u663e\u793a\u8bbe\u7f6e\u63d0\u793a",
+            "Prop_style_template": "\u6a21\u677f",
+            "Prop_swimlaneSettings_bandColor1": "\u8272\u5e26 1 \u989c\u8272",
+            "Prop_swimlaneSettings_bandColor2": "\u8272\u5e26 2 \u989c\u8272",
+            "Prop_swimlaneSettings_bandColor3": "\u8272\u5e26 3 \u989c\u8272",
+            "Prop_swimlaneSettings_bandColor4": "\u8272\u5e26 4 \u989c\u8272",
+            "Prop_swimlaneSettings_bandOpacity": "\u8272\u5e26\u4e0d\u900f\u660e\u5ea6 %",
+            "Prop_swimlaneSettings_fontFamily": "\u6807\u7b7e\u5b57\u4f53",
+            "Prop_swimlaneSettings_labelSize": "\u6807\u7b7e\u5927\u5c0f",
+            "Prop_swimlaneSettings_show": "\u663e\u793a\u6cf3\u9053\u8272\u5e26",
+            "Prop_swimlaneSettings_textColor": "\u6807\u7b7e\u989c\u8272",
+            "Prop_valueFormatSettings_decimals": "\u5c0f\u6570\u4f4d\u6570",
+            "Prop_valueFormatSettings_format": "\u6570\u5b57\u683c\u5f0f",
+            "Prop_valueFormatSettings_prefix": "\u524d\u7f00",
+            "Prop_valueFormatSettings_suffix": "\u540e\u7f00",
+            "Role_levelImages": "\u7ea7\u522b\u56fe\u50cf (Pro)",
+            "Role_levelImages_Desc": "\u6bcf\u4e2a\u7ea7\u522b\u4e00\u5f20 Base64 \u56fe\u50cf\uff0c\u9700\u5df2\u5728\u6a21\u578b\u4e2d\u3002",
+            "Role_levels": "\u7ea7\u522b (\u6309\u987a\u5e8f\u6bcf\u4e2a\u7ea7\u522b\u62d6\u5165\u4e00\u4e2a\u5b57\u6bb5)",
+            "Role_levels_Desc": "\u6309\u987a\u5e8f\u4e3a\u6d41\u7a0b\u7684\u6bcf\u4e2a\u6b65\u9aa4\u653e\u4e00\u4e2a\u5b57\u6bb5\u3002\u81f3\u5c11\u4e24\u4e2a\u7ea7\u522b\u3002",
+            "Role_swimlane": "\u6cf3\u9053 (Pro)",
+            "Role_swimlane_Desc": "\u6309\u90e8\u95e8\u3001\u533a\u57df\u6216\u9636\u6bb5\u5212\u5206\u7684\u8272\u5e26\u3002",
+            "Role_target": "\u76ee\u6807 \u2014 KPI \u5fbd\u7ae0 (Pro)",
+            "Role_target_Desc": "\u6bcf\u4e2a\u8282\u70b9\u663e\u793a\u5b9e\u9645\u503c\u4e0e\u76ee\u6807\u7684\u5bf9\u6bd4\u3002",
+            "Role_tooltips": "\u5de5\u5177\u63d0\u793a\u5b57\u6bb5 (Pro)",
+            "Role_tooltips_Desc": "\u5de5\u5177\u63d0\u793a\u4e2d\u7684\u5176\u4ed6\u503c\u3002",
+            "Role_value": "\u503c",
+            "Role_value_Desc": "\u51b3\u5b9a\u8fde\u63a5\u7ebf\u7684\u7c97\u7ec6\u3002\u6ca1\u6709\u5b83\u65f6\uff0c\u6bcf\u884c\u8ba1\u4e3a 1\u3002"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Levels (drag one field per level, in order)",
+                "displayNameKey": "Role_levels",
+                "description": "One field per step of the process, in order. Two levels at least.",
+                "descriptionKey": "Role_levels_Desc",
+                "name": "levels",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Level images (Pro)",
+                "displayNameKey": "Role_levelImages",
+                "description": "A Base64 image per level, already in your model.",
+                "descriptionKey": "Role_levelImages_Desc",
+                "name": "levelImages",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Value",
+                "displayNameKey": "Role_value",
+                "description": "Sizes the links. Without it, each row counts 1.",
+                "descriptionKey": "Role_value_Desc",
+                "name": "value",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Target \u2014 KPI badge (Pro)",
+                "displayNameKey": "Role_target",
+                "description": "Each node shows actual against target.",
+                "descriptionKey": "Role_target_Desc",
+                "name": "target",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Swimlane (Pro)",
+                "displayNameKey": "Role_swimlane",
+                "description": "Bands by department, region or phase.",
+                "descriptionKey": "Role_swimlane_Desc",
+                "name": "swimlane",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Tooltip fields (Pro)",
+                "displayNameKey": "Role_tooltips",
+                "description": "Extra values in the tooltip.",
+                "descriptionKey": "Role_tooltips_Desc",
+                "name": "tooltips",
+                "kind": "Measure"
+            }
+        ],
+        "objects": {
+            "general": {
+                "properties": {
+                    "formatString": {
+                        "type": {
+                            "formatting": {
+                                "formatString": true
+                            }
+                        }
+                    }
+                }
+            },
+            "style": {
+                "displayName": "Style template",
+                "displayNameKey": "Obj_style",
+                "properties": {
+                    "template": {
+                        "displayName": "Template",
+                        "displayNameKey": "Prop_style_template",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "default",
+                                    "displayName": "Default",
+                                    "displayNameKey": "Enum_style_template_Default"
+                                },
+                                {
+                                    "value": "clean",
+                                    "displayName": "Clean",
+                                    "displayNameKey": "Enum_style_template_Clean"
+                                },
+                                {
+                                    "value": "outline",
+                                    "displayName": "Outline",
+                                    "displayNameKey": "Enum_style_template_Outline"
+                                },
+                                {
+                                    "value": "contrast",
+                                    "displayName": "Contrast",
+                                    "displayNameKey": "Enum_style_template_Contrast"
+                                },
+                                {
+                                    "value": "compact",
+                                    "displayName": "Compact",
+                                    "displayNameKey": "Enum_style_template_Compact"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal",
+                                    "displayNameKey": "Enum_style_template_Minimal"
+                                }
+                            ]
+                        }
+                    },
+                    "guide": {
+                        "displayName": "Show setup tips",
+                        "displayNameKey": "Prop_style_guide",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "layoutSettings": {
+                "displayName": "Layout",
+                "displayNameKey": "Obj_layoutSettings",
+                "properties": {
+                    "direction": {
+                        "displayName": "Direction",
+                        "displayNameKey": "Prop_layoutSettings_direction",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "horizontal",
+                                    "displayName": "Left to right",
+                                    "displayNameKey": "Enum_layoutSettings_direction_Horizontal"
+                                },
+                                {
+                                    "value": "vertical",
+                                    "displayName": "Top to bottom",
+                                    "displayNameKey": "Enum_layoutSettings_direction_Vertical"
+                                }
+                            ]
+                        }
+                    },
+                    "nodeGap": {
+                        "displayName": "Spacing between nodes",
+                        "displayNameKey": "Prop_layoutSettings_nodeGap",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "layerGap": {
+                        "displayName": "Spacing between levels",
+                        "displayNameKey": "Prop_layoutSettings_layerGap",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fitOnLoad": {
+                        "displayName": "Fit large diagrams to the visual",
+                        "displayNameKey": "Prop_layoutSettings_fitOnLoad",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showToolbar": {
+                        "displayName": "Toolbar",
+                        "displayNameKey": "Prop_layoutSettings_showToolbar",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showZoomButtons": {
+                        "displayName": "Zoom buttons",
+                        "displayNameKey": "Prop_layoutSettings_showZoomButtons",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "toolbarSize": {
+                        "displayName": "Toolbar size",
+                        "displayNameKey": "Prop_layoutSettings_toolbarSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showMinimap": {
+                        "displayName": "Minimap",
+                        "displayNameKey": "Prop_layoutSettings_showMinimap",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showLevelHeaders": {
+                        "displayName": "Level headers",
+                        "displayNameKey": "Prop_layoutSettings_showLevelHeaders",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "headerSize": {
+                        "displayName": "Header size",
+                        "displayNameKey": "Prop_layoutSettings_headerSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "headerColor": {
+                        "displayName": "Header color",
+                        "displayNameKey": "Prop_layoutSettings_headerColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fillBackground": {
+                        "displayName": "Background",
+                        "displayNameKey": "Prop_layoutSettings_fillBackground",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "backgroundColor": {
+                        "displayName": "Background color",
+                        "displayNameKey": "Prop_layoutSettings_backgroundColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showGrid": {
+                        "displayName": "Background grid",
+                        "displayNameKey": "Prop_layoutSettings_showGrid",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gridColor": {
+                        "displayName": "Grid color",
+                        "displayNameKey": "Prop_layoutSettings_gridColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "nodeSettings": {
+                "displayName": "Nodes",
+                "displayNameKey": "Obj_nodeSettings",
+                "properties": {
+                    "width": {
+                        "displayName": "Node width",
+                        "displayNameKey": "Prop_nodeSettings_width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "height": {
+                        "displayName": "Node height",
+                        "displayNameKey": "Prop_nodeSettings_height",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cornerRadius": {
+                        "displayName": "Corner radius",
+                        "displayNameKey": "Prop_nodeSettings_cornerRadius",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "displayNameKey": "Prop_nodeSettings_fontFamily",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "'Segoe UI',sans-serif",
+                                    "displayName": "Segoe UI",
+                                    "displayNameKey": "Enum_nodeSettings_fontFamily_SegoeUIsansserif"
+                                },
+                                {
+                                    "value": "Arial,sans-serif",
+                                    "displayName": "Arial",
+                                    "displayNameKey": "Enum_nodeSettings_fontFamily_Arialsansserif"
+                                },
+                                {
+                                    "value": "Calibri,sans-serif",
+                                    "displayName": "Calibri",
+                                    "displayNameKey": "Enum_nodeSettings_fontFamily_Calibrisansserif"
+                                },
+                                {
+                                    "value": "Georgia,serif",
+                                    "displayName": "Georgia",
+                                    "displayNameKey": "Enum_nodeSettings_fontFamily_Georgiaserif"
+                                },
+                                {
+                                    "value": "Consolas,monospace",
+                                    "displayName": "Consolas",
+                                    "displayNameKey": "Enum_nodeSettings_fontFamily_Consolasmonospace"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Label size",
+                        "displayNameKey": "Prop_nodeSettings_fontSize",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "displayName": "Text color",
+                        "displayNameKey": "Prop_nodeSettings_textColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showStepNumber": {
+                        "displayName": "Step number",
+                        "displayNameKey": "Prop_nodeSettings_showStepNumber",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showBadge": {
+                        "displayName": "Show value badge in chip",
+                        "displayNameKey": "Prop_nodeSettings_showBadge",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "badgeFontFamily": {
+                        "displayName": "Badge font",
+                        "displayNameKey": "Prop_nodeSettings_badgeFontFamily",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "'Segoe UI',sans-serif",
+                                    "displayName": "Segoe UI",
+                                    "displayNameKey": "Enum_nodeSettings_badgeFontFamily_SegoeUIsansserif"
+                                },
+                                {
+                                    "value": "Arial,sans-serif",
+                                    "displayName": "Arial",
+                                    "displayNameKey": "Enum_nodeSettings_badgeFontFamily_Arialsansserif"
+                                },
+                                {
+                                    "value": "Calibri,sans-serif",
+                                    "displayName": "Calibri",
+                                    "displayNameKey": "Enum_nodeSettings_badgeFontFamily_Calibrisansserif"
+                                },
+                                {
+                                    "value": "Georgia,serif",
+                                    "displayName": "Georgia",
+                                    "displayNameKey": "Enum_nodeSettings_badgeFontFamily_Georgiaserif"
+                                },
+                                {
+                                    "value": "Consolas,monospace",
+                                    "displayName": "Consolas",
+                                    "displayNameKey": "Enum_nodeSettings_badgeFontFamily_Consolasmonospace"
+                                }
+                            ]
+                        }
+                    },
+                    "badgeFontSize": {
+                        "displayName": "Badge font size",
+                        "displayNameKey": "Prop_nodeSettings_badgeFontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "badgeTextColor": {
+                        "displayName": "Badge text color",
+                        "displayNameKey": "Prop_nodeSettings_badgeTextColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "badgeBackgroundColor": {
+                        "displayName": "Badge background",
+                        "displayNameKey": "Prop_nodeSettings_badgeBackgroundColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "badgeBackgroundOpacity": {
+                        "displayName": "Badge background opacity %",
+                        "displayNameKey": "Prop_nodeSettings_badgeBackgroundOpacity",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "kpiUpColor": {
+                        "displayName": "KPI up color",
+                        "displayNameKey": "Prop_nodeSettings_kpiUpColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "kpiDownColor": {
+                        "displayName": "KPI down color",
+                        "displayNameKey": "Prop_nodeSettings_kpiDownColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderWidth": {
+                        "displayName": "Border width",
+                        "displayNameKey": "Prop_nodeSettings_borderWidth",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "borderColor": {
+                        "displayName": "Border color",
+                        "displayNameKey": "Prop_nodeSettings_borderColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorBorderByLevel": {
+                        "displayName": "Color border by level",
+                        "displayNameKey": "Prop_nodeSettings_colorBorderByLevel",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "imageSize": {
+                        "displayName": "Image size",
+                        "displayNameKey": "Prop_nodeSettings_imageSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "imageBackground": {
+                        "displayName": "Image background",
+                        "displayNameKey": "Prop_nodeSettings_imageBackground",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "imageBackgroundColor": {
+                        "displayName": "Image background color",
+                        "displayNameKey": "Prop_nodeSettings_imageBackgroundColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "imageShape": {
+                        "displayName": "Image shape",
+                        "displayNameKey": "Prop_nodeSettings_imageShape",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "rounded",
+                                    "displayName": "Rounded",
+                                    "displayNameKey": "Enum_nodeSettings_imageShape_Rounded"
+                                },
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle",
+                                    "displayNameKey": "Enum_nodeSettings_imageShape_Circle"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Square",
+                                    "displayNameKey": "Enum_nodeSettings_imageShape_Square"
+                                }
+                            ]
+                        }
+                    },
+                    "showShadow": {
+                        "displayName": "Show node shadow",
+                        "displayNameKey": "Prop_nodeSettings_showShadow",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "shadowColor": {
+                        "displayName": "Shadow color",
+                        "displayNameKey": "Prop_nodeSettings_shadowColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadowBlur": {
+                        "displayName": "Shadow blur",
+                        "displayNameKey": "Prop_nodeSettings_shadowBlur",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "shadowOffsetX": {
+                        "displayName": "Shadow offset X",
+                        "displayNameKey": "Prop_nodeSettings_shadowOffsetX",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "shadowOffsetY": {
+                        "displayName": "Shadow offset Y",
+                        "displayNameKey": "Prop_nodeSettings_shadowOffsetY",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "shadowOpacity": {
+                        "displayName": "Shadow opacity %",
+                        "displayNameKey": "Prop_nodeSettings_shadowOpacity",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "valueFormatSettings": {
+                "displayName": "Value format",
+                "displayNameKey": "Obj_valueFormatSettings",
+                "properties": {
+                    "format": {
+                        "displayName": "Number format",
+                        "displayNameKey": "Prop_valueFormatSettings_format",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "model",
+                                    "displayName": "Model format",
+                                    "displayNameKey": "Enum_valueFormatSettings_format_Model"
+                                },
+                                {
+                                    "value": "thousands",
+                                    "displayName": "Thousands (1,234)",
+                                    "displayNameKey": "Enum_valueFormatSettings_format_Thousands"
+                                },
+                                {
+                                    "value": "compact",
+                                    "displayName": "Compact (1.2K / 3.4M)",
+                                    "displayNameKey": "Enum_valueFormatSettings_format_Compact"
+                                },
+                                {
+                                    "value": "plain",
+                                    "displayName": "Plain (1234)",
+                                    "displayNameKey": "Enum_valueFormatSettings_format_Plain"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "Percent (12.3%)",
+                                    "displayNameKey": "Enum_valueFormatSettings_format_Percent"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "displayName": "Decimal places",
+                        "displayNameKey": "Prop_valueFormatSettings_decimals",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "prefix": {
+                        "displayName": "Prefix",
+                        "displayNameKey": "Prop_valueFormatSettings_prefix",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "suffix": {
+                        "displayName": "Suffix",
+                        "displayNameKey": "Prop_valueFormatSettings_suffix",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "linkSettings": {
+                "displayName": "Links",
+                "displayNameKey": "Obj_linkSettings",
+                "properties": {
+                    "color": {
+                        "displayName": "Link color",
+                        "displayNameKey": "Prop_linkSettings_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "width": {
+                        "displayName": "Base link width",
+                        "displayNameKey": "Prop_linkSettings_width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "curvature": {
+                        "displayName": "Curvature",
+                        "displayNameKey": "Prop_linkSettings_curvature",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "highlightDominant": {
+                        "displayName": "Highlight dominant path",
+                        "displayNameKey": "Prop_linkSettings_highlightDominant",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dominantEmphasis": {
+                        "displayName": "Dominant path thickness x",
+                        "displayNameKey": "Prop_linkSettings_dominantEmphasis",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "highlightTopVariant": {
+                        "displayName": "Highlight top end-to-end variant",
+                        "displayNameKey": "Prop_linkSettings_highlightTopVariant",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "topVariantColor": {
+                        "displayName": "Top variant color",
+                        "displayNameKey": "Prop_linkSettings_topVariantColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showLabels": {
+                        "displayName": "Link labels",
+                        "displayNameKey": "Prop_linkSettings_showLabels",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelContent": {
+                        "displayName": "Label shows",
+                        "displayNameKey": "Prop_linkSettings_labelContent",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "value",
+                                    "displayName": "Value",
+                                    "displayNameKey": "Enum_linkSettings_labelContent_Value"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "% of total",
+                                    "displayNameKey": "Enum_linkSettings_labelContent_Percent"
+                                },
+                                {
+                                    "value": "both",
+                                    "displayName": "Value and %",
+                                    "displayNameKey": "Enum_linkSettings_labelContent_Both"
+                                }
+                            ]
+                        }
+                    },
+                    "labelSize": {
+                        "displayName": "Label size",
+                        "displayNameKey": "Prop_linkSettings_labelSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "labelColor": {
+                        "displayName": "Label color",
+                        "displayNameKey": "Prop_linkSettings_labelColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "rules": {
+                "displayName": "Color rules (Pro)",
+                "displayNameKey": "Obj_rules",
+                "properties": {
+                    "basis": {
+                        "displayName": "Compare",
+                        "displayNameKey": "Prop_rules_basis",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "value",
+                                    "displayName": "Node value",
+                                    "displayNameKey": "Enum_rules_basis_Value"
+                                },
+                                {
+                                    "value": "share",
+                                    "displayName": "% of total",
+                                    "displayNameKey": "Enum_rules_basis_Share"
+                                },
+                                {
+                                    "value": "variance",
+                                    "displayName": "% vs target",
+                                    "displayNameKey": "Enum_rules_basis_Variance"
+                                }
+                            ]
+                        }
+                    },
+                    "rule1On": {
+                        "displayName": "Rule 1",
+                        "displayNameKey": "Prop_rules_rule1On",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rule1Op": {
+                        "displayName": "Condition",
+                        "displayNameKey": "Prop_rules_rule1Op",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "gt",
+                                    "displayName": "Greater than",
+                                    "displayNameKey": "Enum_rules_rule1Op_Gt"
+                                },
+                                {
+                                    "value": "lt",
+                                    "displayName": "Less than",
+                                    "displayNameKey": "Enum_rules_rule1Op_Lt"
+                                }
+                            ]
+                        }
+                    },
+                    "rule1Value": {
+                        "displayName": "Value",
+                        "displayNameKey": "Prop_rules_rule1Value",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rule1Color": {
+                        "displayName": "Color",
+                        "displayNameKey": "Prop_rules_rule1Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "rule2On": {
+                        "displayName": "Rule 2",
+                        "displayNameKey": "Prop_rules_rule2On",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rule2Op": {
+                        "displayName": "Condition",
+                        "displayNameKey": "Prop_rules_rule2Op",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "gt",
+                                    "displayName": "Greater than",
+                                    "displayNameKey": "Enum_rules_rule2Op_Gt"
+                                },
+                                {
+                                    "value": "lt",
+                                    "displayName": "Less than",
+                                    "displayNameKey": "Enum_rules_rule2Op_Lt"
+                                }
+                            ]
+                        }
+                    },
+                    "rule2Value": {
+                        "displayName": "Value",
+                        "displayNameKey": "Prop_rules_rule2Value",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rule2Color": {
+                        "displayName": "Color",
+                        "displayNameKey": "Prop_rules_rule2Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "rule3On": {
+                        "displayName": "Rule 3",
+                        "displayNameKey": "Prop_rules_rule3On",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rule3Op": {
+                        "displayName": "Condition",
+                        "displayNameKey": "Prop_rules_rule3Op",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "gt",
+                                    "displayName": "Greater than",
+                                    "displayNameKey": "Enum_rules_rule3Op_Gt"
+                                },
+                                {
+                                    "value": "lt",
+                                    "displayName": "Less than",
+                                    "displayNameKey": "Enum_rules_rule3Op_Lt"
+                                }
+                            ]
+                        }
+                    },
+                    "rule3Value": {
+                        "displayName": "Value",
+                        "displayNameKey": "Prop_rules_rule3Value",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rule3Color": {
+                        "displayName": "Color",
+                        "displayNameKey": "Prop_rules_rule3Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "swimlaneSettings": {
+                "displayName": "Swimlanes",
+                "displayNameKey": "Obj_swimlaneSettings",
+                "properties": {
+                    "show": {
+                        "displayName": "Show swimlane bands",
+                        "displayNameKey": "Prop_swimlaneSettings_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelSize": {
+                        "displayName": "Label size",
+                        "displayNameKey": "Prop_swimlaneSettings_labelSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Label font",
+                        "displayNameKey": "Prop_swimlaneSettings_fontFamily",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "'Segoe UI',sans-serif",
+                                    "displayName": "Segoe UI",
+                                    "displayNameKey": "Enum_swimlaneSettings_fontFamily_SegoeUIsansserif"
+                                },
+                                {
+                                    "value": "Arial,sans-serif",
+                                    "displayName": "Arial",
+                                    "displayNameKey": "Enum_swimlaneSettings_fontFamily_Arialsansserif"
+                                },
+                                {
+                                    "value": "Calibri,sans-serif",
+                                    "displayName": "Calibri",
+                                    "displayNameKey": "Enum_swimlaneSettings_fontFamily_Calibrisansserif"
+                                },
+                                {
+                                    "value": "Georgia,serif",
+                                    "displayName": "Georgia",
+                                    "displayNameKey": "Enum_swimlaneSettings_fontFamily_Georgiaserif"
+                                },
+                                {
+                                    "value": "Consolas,monospace",
+                                    "displayName": "Consolas",
+                                    "displayNameKey": "Enum_swimlaneSettings_fontFamily_Consolasmonospace"
+                                }
+                            ]
+                        }
+                    },
+                    "textColor": {
+                        "displayName": "Label color",
+                        "displayNameKey": "Prop_swimlaneSettings_textColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bandColor1": {
+                        "displayName": "Band 1 color",
+                        "displayNameKey": "Prop_swimlaneSettings_bandColor1",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bandColor2": {
+                        "displayName": "Band 2 color",
+                        "displayNameKey": "Prop_swimlaneSettings_bandColor2",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bandColor3": {
+                        "displayName": "Band 3 color",
+                        "displayNameKey": "Prop_swimlaneSettings_bandColor3",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bandColor4": {
+                        "displayName": "Band 4 color",
+                        "displayNameKey": "Prop_swimlaneSettings_bandColor4",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bandOpacity": {
+                        "displayName": "Band opacity %",
+                        "displayNameKey": "Prop_swimlaneSettings_bandOpacity",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "legendSettings": {
+                "displayName": "Legend",
+                "displayNameKey": "Obj_legendSettings",
+                "properties": {
+                    "show": {
+                        "displayName": "Show legend",
+                        "displayNameKey": "Prop_legendSettings_show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "displayName": "Position",
+                        "displayNameKey": "Prop_legendSettings_position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bottomLeft",
+                                    "displayName": "Bottom left",
+                                    "displayNameKey": "Enum_legendSettings_position_BottomLeft"
+                                },
+                                {
+                                    "value": "bottomRight",
+                                    "displayName": "Bottom right",
+                                    "displayNameKey": "Enum_legendSettings_position_BottomRight"
+                                },
+                                {
+                                    "value": "topRight",
+                                    "displayName": "Top right",
+                                    "displayNameKey": "Enum_legendSettings_position_TopRight"
+                                }
+                            ]
+                        }
+                    },
+                    "useFieldNames": {
+                        "displayName": "Use field names",
+                        "displayNameKey": "Prop_legendSettings_useFieldNames",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "displayNameKey": "Prop_legendSettings_fontSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "textColor": {
+                        "displayName": "Text color",
+                        "displayNameKey": "Prop_legendSettings_textColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "dataPoint": {
+                "displayName": "Data colors",
+                "displayNameKey": "Obj_dataPoint",
+                "properties": {
+                    "defaultColor": {
+                        "displayName": "Default node color",
+                        "displayNameKey": "Prop_dataPoint_defaultColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorByLevel": {
+                        "displayName": "Color nodes by level",
+                        "displayNameKey": "Prop_dataPoint_colorByLevel",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "levelColor1": {
+                        "displayName": "Level 1 color",
+                        "displayNameKey": "Prop_dataPoint_levelColor1",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "levelColor2": {
+                        "displayName": "Level 2 color",
+                        "displayNameKey": "Prop_dataPoint_levelColor2",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "levelColor3": {
+                        "displayName": "Level 3 color",
+                        "displayNameKey": "Prop_dataPoint_levelColor3",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "levelColor4": {
+                        "displayName": "Level 4 color",
+                        "displayNameKey": "Prop_dataPoint_levelColor4",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "levelColor5": {
+                        "displayName": "Level 5 color",
+                        "displayNameKey": "Prop_dataPoint_levelColor5",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "levelColor6": {
+                        "displayName": "Level 6 color",
+                        "displayNameKey": "Prop_dataPoint_levelColor6",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "levels"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "levelImages"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "value"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "target"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "swimlane"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {}
+                        }
+                    }
+                }
+            }
+        ],
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ],
+            "supportEnhancedTooltips": true
+        },
+        "supportsHighlight": true,
+        "supportsSynchronizingFilterState": true,
+        "supportsLandingPage": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "privileges": [],
+        "supportsOnObjectFormatting": true,
+        "enablePointerEventsFormatMode": true
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

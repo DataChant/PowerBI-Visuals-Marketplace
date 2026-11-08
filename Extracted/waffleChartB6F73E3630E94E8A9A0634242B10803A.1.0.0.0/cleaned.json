@@ -1,0 +1,956 @@
+{
+    "visual": {
+        "name": "waffleChart",
+        "displayName": "Waffle Chart by CBT",
+        "guid": "waffleChartB6F73E3630E94E8A9A0634242B10803A",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "A configurable waffle / isotype chart. Any N x M grid, choosable fill direction and cell shape, single-value or part-to-whole fill with a legend, target and over/under banding, conditional formatting on cell colour, pictograph icons and small multiples.",
+        "supportUrl": "https://convergentbt.com/cbt-custom-visuals",
+        "gitHubUrl": "https://github.com/Convergent-Business-Technologies/PBIVC-Waffle-Chart"
+    },
+    "author": {
+        "name": "Convergent Business Technologies",
+        "email": "contactus@convergentbt.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "privileges": [],
+        "supportsHighlight": true,
+        "supportsMultiVisualSelection": true,
+        "supportsLandingPage": true,
+        "sorting": {
+            "default": {}
+        },
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "dataRoles": [
+            {
+                "displayName": "Category",
+                "description": "Optional. Splits the waffle into coloured segments (part-to-whole) and drives the legend.",
+                "name": "category",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Values",
+                "description": "Required. The measure(s) that fill the cells.",
+                "name": "values",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Target / Max",
+                "description": "Optional. Denominator for progress %, or the per-category target.",
+                "name": "targetMax",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Small multiple",
+                "description": "Optional. Splits the visual into a grid of waffles sharing one scale.",
+                "name": "smallMultiple",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Tooltips",
+                "description": "Optional. Extra measures shown in the tooltip.",
+                "name": "tooltips",
+                "kind": "Measure"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "category": {
+                            "max": 1
+                        },
+                        "smallMultiple": {
+                            "max": 1
+                        },
+                        "targetMax": {
+                            "max": 1
+                        },
+                        "values": {
+                            "min": 0
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "smallMultiple"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "category"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 3000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "values"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "targetMax"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "tooltips"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "grid": {
+                "displayName": "Grid",
+                "properties": {
+                    "rows": {
+                        "displayName": "Rows",
+                        "description": "Number of cell rows in each waffle.",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "columns": {
+                        "displayName": "Columns",
+                        "description": "Number of cell columns in each waffle.",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "cellShape": {
+                        "displayName": "Cell shape",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "square",
+                                    "displayName": "Square"
+                                },
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle"
+                                },
+                                {
+                                    "value": "rounded",
+                                    "displayName": "Rounded"
+                                }
+                            ]
+                        }
+                    },
+                    "cornerRadius": {
+                        "displayName": "Corner radius",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cellGap": {
+                        "displayName": "Cell gap",
+                        "description": "Padding between cells, in % of the cell size.",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fillDirection": {
+                        "displayName": "Fill direction",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bottomUp",
+                                    "displayName": "Bottom up"
+                                },
+                                {
+                                    "value": "topDown",
+                                    "displayName": "Top down"
+                                },
+                                {
+                                    "value": "leftRight",
+                                    "displayName": "Left to right"
+                                }
+                            ]
+                        }
+                    },
+                    "order": {
+                        "displayName": "Cell order",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "rowMajor",
+                                    "displayName": "Row major"
+                                },
+                                {
+                                    "value": "columnMajor",
+                                    "displayName": "Column major"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "fill": {
+                "displayName": "Fill",
+                "properties": {
+                    "mode": {
+                        "displayName": "Fill mode",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "singleValue",
+                                    "displayName": "Single value"
+                                },
+                                {
+                                    "value": "partToWhole",
+                                    "displayName": "Part to whole"
+                                }
+                            ]
+                        }
+                    },
+                    "baseColor": {
+                        "displayName": "Base colour",
+                        "description": "The \"All\" entry under Apply settings to; every category without its own colour uses this.",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryColor": {
+                        "displayName": "Colour",
+                        "description": "Per-category override, set through Apply settings to.",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "remainderColor": {
+                        "displayName": "Remainder colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "remainderOpacity": {
+                        "displayName": "Remainder opacity",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cellStrokeShow": {
+                        "displayName": "Cell outline",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "cellStrokeColor": {
+                        "displayName": "Outline colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "labels": {
+                "displayName": "Labels",
+                "properties": {
+                    "showCenterLabel": {
+                        "displayName": "Centre label",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "centerContent": {
+                        "displayName": "Show",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "percent",
+                                    "displayName": "Percent"
+                                },
+                                {
+                                    "value": "value",
+                                    "displayName": "Value"
+                                },
+                                {
+                                    "value": "both",
+                                    "displayName": "Both"
+                                }
+                            ]
+                        }
+                    },
+                    "centerPosition": {
+                        "displayName": "Position",
+                        "description": "Where the label sits: centred on the grid, or outside it on one side.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "center",
+                                    "displayName": "Centre"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "Top (outside)"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom (outside)"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left (outside)"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right (outside)"
+                                }
+                            ]
+                        }
+                    },
+                    "centerFontFamily": {
+                        "displayName": "Font",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "centerFontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "centerBold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "centerItalic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "centerUnderline": {
+                        "displayName": "Underline",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "centerColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "centerAutoContrast": {
+                        "displayName": "Auto contrast",
+                        "description": "Draw a halo behind the centre label so it stays readable over filled cells.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showCategoryLabels": {
+                        "displayName": "Category labels",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "categoryLabelPosition": {
+                        "displayName": "Position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "categoryFontFamily": {
+                        "displayName": "Font",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "categoryFontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "categoryBold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "categoryItalic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "categoryUnderline": {
+                        "displayName": "Underline",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "categoryColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showValueInCategoryLabel": {
+                        "displayName": "Show value with label",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelDisplayUnits": {
+                        "displayName": "Display units",
+                        "type": {
+                            "formatting": {
+                                "labelDisplayUnits": true
+                            }
+                        }
+                    },
+                    "labelPrecision": {
+                        "displayName": "Decimal places",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "percentPrecision": {
+                        "displayName": "Percent decimal places",
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "displayName": "Legend",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "displayName": "Position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "showTitle": {
+                        "displayName": "Title",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "displayName": "Title text",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "displayName": "Underline",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showValues": {
+                        "displayName": "Values",
+                        "description": "Print each category's total after its name.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "valueFontFamily": {
+                        "displayName": "Font",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "valueFontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "valueBold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "valueItalic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "valueUnderline": {
+                        "displayName": "Underline",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "valueColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "target": {
+                "displayName": "Target",
+                "properties": {
+                    "showTarget": {
+                        "displayName": "Show target",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fillToTarget": {
+                        "displayName": "Fill to target",
+                        "description": "Use Target / Max as the denominator of the grid.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTargetMarker": {
+                        "displayName": "Target marker",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "targetMarkerColor": {
+                        "displayName": "Marker colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "overUnderColoring": {
+                        "displayName": "Over / under colouring",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "overColor": {
+                        "displayName": "Over target",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "onTargetColor": {
+                        "displayName": "On target",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "underColor": {
+                        "displayName": "Under target",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "onTargetTolerance": {
+                        "displayName": "On-target tolerance (%)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "over100": {
+                        "displayName": "Over 100%",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "clampAtFull",
+                                    "displayName": "Clamp at full"
+                                },
+                                {
+                                    "value": "overflowBand",
+                                    "displayName": "Overflow band"
+                                }
+                            ]
+                        }
+                    },
+                    "overflowBandColor": {
+                        "displayName": "Overflow colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "pictograph": {
+                "displayName": "Pictograph",
+                "properties": {
+                    "enabled": {
+                        "displayName": "Enabled",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "iconSet": {
+                        "displayName": "Icon",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "person",
+                                    "displayName": "Person"
+                                },
+                                {
+                                    "value": "star",
+                                    "displayName": "Star"
+                                },
+                                {
+                                    "value": "heart",
+                                    "displayName": "Heart"
+                                },
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Square"
+                                },
+                                {
+                                    "value": "triangle",
+                                    "displayName": "Triangle"
+                                },
+                                {
+                                    "value": "diamond",
+                                    "displayName": "Diamond"
+                                },
+                                {
+                                    "value": "house",
+                                    "displayName": "House"
+                                },
+                                {
+                                    "value": "car",
+                                    "displayName": "Car"
+                                },
+                                {
+                                    "value": "tree",
+                                    "displayName": "Tree"
+                                },
+                                {
+                                    "value": "drop",
+                                    "displayName": "Droplet"
+                                },
+                                {
+                                    "value": "bolt",
+                                    "displayName": "Bolt"
+                                },
+                                {
+                                    "value": "check",
+                                    "displayName": "Check"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom SVG path"
+                                }
+                            ]
+                        }
+                    },
+                    "customPath": {
+                        "displayName": "Custom SVG path",
+                        "description": "An SVG path 'd' string. It is normalised to fit the cell.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryIcon": {
+                        "displayName": "Icon",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "inherit",
+                                    "displayName": "Default"
+                                },
+                                {
+                                    "value": "person",
+                                    "displayName": "Person"
+                                },
+                                {
+                                    "value": "star",
+                                    "displayName": "Star"
+                                },
+                                {
+                                    "value": "heart",
+                                    "displayName": "Heart"
+                                },
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Square"
+                                },
+                                {
+                                    "value": "triangle",
+                                    "displayName": "Triangle"
+                                },
+                                {
+                                    "value": "diamond",
+                                    "displayName": "Diamond"
+                                },
+                                {
+                                    "value": "house",
+                                    "displayName": "House"
+                                },
+                                {
+                                    "value": "car",
+                                    "displayName": "Car"
+                                },
+                                {
+                                    "value": "tree",
+                                    "displayName": "Tree"
+                                },
+                                {
+                                    "value": "drop",
+                                    "displayName": "Droplet"
+                                },
+                                {
+                                    "value": "bolt",
+                                    "displayName": "Bolt"
+                                },
+                                {
+                                    "value": "check",
+                                    "displayName": "Check"
+                                }
+                            ]
+                        }
+                    },
+                    "iconPadding": {
+                        "displayName": "Icon padding",
+                        "description": "Padding inside the cell box, in % of the cell size.",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "smallMultiples": {
+                "displayName": "Small multiples",
+                "properties": {
+                    "showTitles": {
+                        "displayName": "Panel titles",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maxColumns": {
+                        "displayName": "Max columns",
+                        "description": "0 = automatic.",
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "panelPadding": {
+                        "displayName": "Panel padding",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "titleFontFamily": {
+                        "displayName": "Font",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "titleFontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "titleBold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleItalic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleUnderline": {
+                        "displayName": "Underline",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleColor": {
+                        "displayName": "Colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

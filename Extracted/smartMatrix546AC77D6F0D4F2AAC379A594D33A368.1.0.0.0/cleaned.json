@@ -1,0 +1,213 @@
+{
+    "visual": {
+        "name": "smartMatrix",
+        "displayName": "Smart Matrix by SCvation",
+        "guid": "smartMatrix546AC77D6F0D4F2AAC379A594D33A368",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "A high-performance matrix visual for Power BI",
+        "supportUrl": "https://scvation.com/contact/",
+        "gitHubUrl": "https://github.com/SCvation/Smart_Matrix"
+    },
+    "author": {
+        "name": "SCvation GmbH",
+        "email": "contact@scvation.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "Rows",
+                "kind": "Grouping",
+                "displayName": "Rows"
+            },
+            {
+                "name": "Columns",
+                "kind": "Grouping",
+                "displayName": "Columns"
+            },
+            {
+                "name": "Values",
+                "kind": "Measure",
+                "displayName": "Values"
+            }
+        ],
+        "objects": {
+            "general": {
+                "properties": {
+                    "formatString": {
+                        "type": {
+                            "formatting": {
+                                "formatString": true
+                            }
+                        }
+                    }
+                }
+            },
+            "persistedState": {
+                "properties": {
+                    "state": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "information": {
+                "properties": {
+                    "informationText": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "licenseKey": {
+                "properties": {
+                    "licenseKeyType": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "licenseKeyExpiry": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "licenseKeyText": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "licenseKeyState": {
+                "properties": {
+                    "licenseKeyText": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        },
+        "keepAllMetadataColumns": true,
+        "drilldown": {
+            "roles": [
+                "Rows"
+            ],
+            "canDisableDrill": {}
+        },
+        "expandCollapse": {
+            "roles": [
+                "Rows"
+            ],
+            "addDataViewFlags": {
+                "defaultValue": true
+            }
+        },
+        "sorting": {
+            "default": {},
+            "custom": {}
+        },
+        "subtotals": {
+            "matrix": {
+                "rowSubtotals": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "rowSubtotals"
+                    },
+                    "defaultValue": true
+                },
+                "rowSubtotalsPerLevel": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "perRowLevel"
+                    },
+                    "defaultValue": true
+                },
+                "columnSubtotals": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "columnSubtotals"
+                    },
+                    "defaultValue": true
+                },
+                "columnSubtotalsPerLevel": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "perColumnLevel"
+                    },
+                    "defaultValue": true
+                },
+                "levelSubtotalEnabled": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "levelSubtotalEnabled"
+                    },
+                    "defaultValue": true
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "Rows": {
+                            "min": 0
+                        },
+                        "Columns": {
+                            "min": 0
+                        },
+                        "Values": {
+                            "min": 0
+                        }
+                    }
+                ],
+                "matrix": {
+                    "rows": {
+                        "for": {
+                            "in": "Rows"
+                        },
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "columns": {
+                        "for": {
+                            "in": "Columns"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "for": {
+                            "in": "Values"
+                        }
+                    }
+                }
+            }
+        ],
+        "privileges": [
+            {
+                "name": "ExportContent",
+                "essential": false
+            }
+        ],
+        "advancedEditModeSupport": 2,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
