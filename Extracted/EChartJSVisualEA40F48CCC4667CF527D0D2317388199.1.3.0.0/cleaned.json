@@ -1,0 +1,238 @@
+{
+    "visual": {
+        "name": "EChartJSVisual",
+        "displayName": "ECharts for PowerBI v1.3.0.0",
+        "guid": "EChartJSVisualEA40F48CCC4667CF527D0D2317388199",
+        "visualClassName": "Visual",
+        "version": "1.3.0.0",
+        "description": "ECharts for PowerBI",
+        "supportUrl": "https://xiangeotime.cn/echartsforpowerbi/index.html",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "luojiandan",
+        "email": "luojiandan@163.com"
+    },
+    "apiVersion": "5.10.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "privileges": [
+            {
+                "name": "WebAccess",
+                "essential": true,
+                "parameters": [
+                    "https://*.microsoft.com",
+                    "https://*.githubusercontent.com",
+                    "https://github.com",
+                    "https://*.github.com",
+                    "https://*.isqqw.com",
+                    "https://*.seniverse.com",
+                    "https://lottie.host",
+                    "https://xiangeotime.cn",
+                    "https://*.xiangeotime.cn"
+                ]
+            },
+            {
+                "name": "ExportContent",
+                "essential": false
+            },
+            {
+                "name": "LocalStorage",
+                "essential": false
+            }
+        ],
+        "dataRoles": [
+            {
+                "displayName": "\u7ef4\u5ea6",
+                "description": "\u7ef4\u5ea6",
+                "name": "category",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "\u5ea6\u91cf",
+                "description": "\u5ea6\u91cf",
+                "name": "value",
+                "kind": "Measure"
+            }
+        ],
+        "objects": {
+            "echartsJSCode": {
+                "displayName": "\u4ee3\u7801",
+                "properties": {
+                    "jscode": {
+                        "displayName": "code",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "echartsSetting": {
+                "displayName": "ECharts\u8bbe\u7f6e",
+                "properties": {
+                    "renderer": {
+                        "displayName": "\u6e32\u67d3\u65b9\u5f0f",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "svg",
+                                    "value": "svg"
+                                },
+                                {
+                                    "displayName": "canvas",
+                                    "value": "canvas"
+                                }
+                            ]
+                        }
+                    },
+                    "sfld": {
+                        "displayName": "\u542f\u7528\u8054\u52a8\u529f\u80fd",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "singleSelect": {
+                        "displayName": "\u5355\u9009",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableSelectionHighlight": {
+                        "displayName": "\u70b9\u51fb\u540e\u4fdd\u6301\u9ad8\u4eae",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "userInfo": {
+                "displayName": "\u6388\u6743\u4fe1\u606f",
+                "properties": {
+                    "userName": {
+                        "displayName": "\u7528\u6237\u90ae\u7bb1",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "userToken": {
+                        "displayName": "Token(\u8bf7\u767b\u5f55\u5b98\u7f51\u83b7\u53d6)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "authorEmail": {
+                        "displayName": "\u4f5c\u8005\u90ae\u7bb1",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "totalAuthorized": {
+                        "displayName": "\u603b\u6388\u6743\u6570\u91cf",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "usedCount": {
+                        "displayName": "\u5df2\u4f7f\u7528\u6570\u91cf",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "remainingCount": {
+                        "displayName": "\u5269\u4f59\u6570\u91cf",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "effectivePeriodsText": {
+                        "displayName": "\u6388\u6743\u4fe1\u606f",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "usageReport": {
+                "displayName": "\u4f7f\u7528\u8bb0\u5f55\u8bbe\u7f6e",
+                "properties": {
+                    "reportName": {
+                        "displayName": "\u62a5\u544a\u540d\u79f0\uff08\u9009\u586b\uff09",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "authCache": {
+                "displayName": "authCache",
+                "properties": {
+                    "payload": {
+                        "displayName": "payload",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "tokenUsageState": {
+                "displayName": "tokenUsageState",
+                "properties": {
+                    "payload": {
+                        "displayName": "payload",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "productVersionCheckState": {
+                "displayName": "productVersionCheckState",
+                "properties": {
+                    "payload": {
+                        "displayName": "payload",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "categorical": {
+                    "categories": {
+                        "for": {
+                            "in": "category"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 3000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "value"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "advancedEditModeSupport": 2,
+        "sorting": {
+            "default": {}
+        },
+        "supportsLandingPage": true,
+        "supportsHighlight": true
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
