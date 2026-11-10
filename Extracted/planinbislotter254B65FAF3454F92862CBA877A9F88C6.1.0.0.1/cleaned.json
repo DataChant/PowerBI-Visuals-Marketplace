@@ -1,0 +1,299 @@
+{
+    "visual": {
+        "name": "planinbislotter",
+        "displayName": "PlanIn BI Slotter",
+        "guid": "planinbislotter254B65FAF3454F92862CBA877A9F88C6",
+        "visualClassName": "Visual",
+        "version": "1.0.0.1",
+        "description": "Interactive slot planning matrix with drag & drop, write-back, and Slotter API integration for Power BI.",
+        "supportUrl": "https://www.b2-bi.com/",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "B2 BI d.o.o.",
+        "email": "info@b2-bi.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "dataRoles": [
+            {
+                "displayName": "PLN ID",
+                "name": "planId",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "PLV ID",
+                "name": "plvId",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "SPL ID",
+                "name": "splId",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Slot Sort",
+                "name": "slotSort",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Tooltips",
+                "name": "tooltips",
+                "kind": "Grouping"
+            }
+        ],
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "sorting": {
+            "default": {}
+        },
+        "dataViewMappings": [
+            {
+                "matrix": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "planId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "plvId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "slotSort"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "splId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "slotterAPI": {
+                "displayName": "Slotter API",
+                "properties": {
+                    "ApiBaseUrl": {
+                        "displayName": "API Base URL",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "Endpoint": {
+                        "displayName": "Endpoint",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "ServiceSecret": {
+                        "displayName": "Service Secret",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "enableRoles": {
+                        "displayName": "Enable Roles",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "matrixFormat": {
+                "displayName": "Grid",
+                "properties": {
+                    "rowsWidth": {
+                        "displayName": "Row Headers Width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cellWidth": {
+                        "displayName": "Cell Width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rowHeight": {
+                        "displayName": "Row Height",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rowHeaderFontSize": {
+                        "displayName": "Row Header Font Size",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "groupMove": {
+                "displayName": "Group Move",
+                "properties": {
+                    "showGroupMoveToggle": {
+                        "displayName": "Show group move toggle",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showDependenciesDefault": {
+                        "displayName": "Group move enabled by default",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showDependencyLines": {
+                        "displayName": "Show dependency lines",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "unitFeatures": {
+                "displayName": "Unit Features",
+                "properties": {
+                    "enableLocking": {
+                        "displayName": "Enable locking",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableSplit": {
+                        "displayName": "Enable split unit",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableResize": {
+                        "displayName": "Enable resize unit",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableMerge": {
+                        "displayName": "Enable merge units",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableValue": {
+                        "displayName": "Enable unit value entry",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "sort": {
+                "displayName": "Sort",
+                "properties": {
+                    "sortByUnitType": {
+                        "displayName": "Sort slots by measure",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "dateRangeFormat": {
+                "displayName": "Date Range",
+                "properties": {
+                    "minDate": {
+                        "displayName": "Min Date",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "maxDate": {
+                        "displayName": "Max Date",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showNonWorkingDays": {
+                        "displayName": "Show non-working days",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "highlightCurrentPeriod": {
+                        "displayName": "Highlight current period",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "other": {
+                "displayName": "Other",
+                "properties": {
+                    "UserPrincipalName": {
+                        "displayName": "User",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "enableTooltips": {
+                        "displayName": "Enable tooltips",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "privileges": [
+            {
+                "name": "WebAccess",
+                "essential": true,
+                "parameters": [
+                    "https://*"
+                ]
+            },
+            {
+                "name": "AADAuthentication",
+                "parameters": {
+                    "COM": "https://www.b2-bi.si"
+                }
+            }
+        ]
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

@@ -1,0 +1,332 @@
+{
+    "visual": {
+        "name": "TradeBlotterFlowAttributionRiver",
+        "displayName": "Trade Blotter Flow & Attribution River",
+        "guid": "TradeBlotterFlowAttributionRiverByOfficeSolution",
+        "visualClassName": "TradeBlotterFlowAttributionRiver",
+        "version": "1.0.1.0",
+        "description": "Investment Banking Trade Blotter Flow & Attribution River custom visual tracking order lifecycle (Order -> Execution -> Allocation -> Settlement) with dynamic P&L attribution and contextual blotter drill drawer.",
+        "supportUrl": "https://newwebsite.innovationalofficesolution.com/power-bi-custom-charts",
+        "gitHubUrl": "https://github.com"
+    },
+    "author": {
+        "name": "Rajesh",
+        "email": "rajesh.singh@innovationalofficesolution.com"
+    },
+    "apiVersion": "5.10.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Stage",
+                "name": "stage",
+                "kind": "Grouping",
+                "description": "Lifecycle stage of trade (e.g., Order, Execution, Allocation, Settlement)"
+            },
+            {
+                "displayName": "Source Node",
+                "name": "sourceNode",
+                "kind": "Grouping",
+                "description": "Origin node or entity (e.g., Desk, Strategy, Trader, Asset Class)"
+            },
+            {
+                "displayName": "Target Node",
+                "name": "targetNode",
+                "kind": "Grouping",
+                "description": "Destination node or entity (e.g., Execution Desk, Broker, Client, Custodian)"
+            },
+            {
+                "displayName": "Volume / Notional",
+                "name": "volume",
+                "kind": "Measure",
+                "description": "Measure sizing the flow bands (e.g., Notional USD, Trade Count, Quantity)"
+            },
+            {
+                "displayName": "P&L / Attribution",
+                "name": "pnl",
+                "kind": "Measure",
+                "description": "P&L or attribution measure (e.g., Total P&L, Market Move, Fees, Residual)"
+            },
+            {
+                "displayName": "Desk / Category",
+                "name": "category",
+                "kind": "Grouping",
+                "description": "Category dimension for color encoding and filtering (e.g., Desk, Book, Client)"
+            },
+            {
+                "displayName": "Trade ID",
+                "name": "tradeId",
+                "kind": "Grouping",
+                "description": "Unique trade identifier for drill-through into individual blotter deals"
+            },
+            {
+                "displayName": "Timestamp / Period",
+                "name": "timestamp",
+                "kind": "Grouping",
+                "description": "Timestamp or period for timeline playback and scenario comparison"
+            },
+            {
+                "displayName": "Trade Details",
+                "name": "tradeDetail",
+                "kind": "Grouping",
+                "description": "Additional blotter attributes (e.g., Trader, Venue, Asset Class, Status)"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "stage": {
+                            "max": 10
+                        },
+                        "sourceNode": {
+                            "max": 10
+                        },
+                        "targetNode": {
+                            "max": 10
+                        },
+                        "volume": {
+                            "max": 10
+                        },
+                        "pnl": {
+                            "max": 10
+                        },
+                        "category": {
+                            "max": 10
+                        },
+                        "tradeId": {
+                            "max": 10
+                        },
+                        "timestamp": {
+                            "max": 10
+                        },
+                        "tradeDetail": {
+                            "max": 10
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "stage"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "sourceNode"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "targetNode"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "category"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "tradeId"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "timestamp"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "tradeDetail"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "volume"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "pnl"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "flowSettings": {
+                "displayName": "Flow & River Settings",
+                "properties": {
+                    "bandCurvature": {
+                        "displayName": "Band Curvature",
+                        "description": "Cubic bezier curvature factor (0.1 to 0.9)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bandOpacity": {
+                        "displayName": "Band Opacity (%)",
+                        "description": "Flow band transparency percentage",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "nodeWidth": {
+                        "displayName": "Node Width",
+                        "description": "Width of stage node bars in pixels",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "nodePadding": {
+                        "displayName": "Node Padding",
+                        "description": "Vertical spacing between nodes in pixels",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "enablePips": {
+                        "displayName": "Show Anchor Pips",
+                        "description": "Render circular anchor pips at flow connection points",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableGradients": {
+                        "displayName": "Smooth Gradients",
+                        "description": "Render soft directional linear gradients on flow bands",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "flowAnimation": {
+                        "displayName": "Flow Wave Animation",
+                        "description": "Enable subtle micro-animation wave on active flows",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "colorSettings": {
+                "displayName": "Color & Theme Settings",
+                "properties": {
+                    "colorMode": {
+                        "displayName": "Color Encoding",
+                        "description": "Color flows by P&L attribution or categorical desk/client",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "positivePnlColor": {
+                        "displayName": "Positive P&L Color",
+                        "description": "Color for profitable trade flows",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "negativePnlColor": {
+                        "displayName": "Negative P&L Color",
+                        "description": "Color for loss trade flows",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "neutralPnlColor": {
+                        "displayName": "Neutral Color",
+                        "description": "Color for zero or neutral flows",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "themeMode": {
+                        "displayName": "Theme Mode",
+                        "description": "Visual theme (Dark, Light, or Auto)",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "drawerSettings": {
+                "displayName": "Trade Blotter Drawer",
+                "properties": {
+                    "enableDrawer": {
+                        "displayName": "Enable Blotter Drawer",
+                        "description": "Allow slide-out trade blotter record inspection",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "autoOpenOnClick": {
+                        "displayName": "Auto-Open on Click",
+                        "description": "Automatically slide open blotter drawer when clicking a flow band",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "blotterPageSize": {
+                        "displayName": "Blotter Page Size",
+                        "description": "Number of deal records displayed per page",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "parameterSettings": {
+                "displayName": "Field Parameter Bar",
+                "properties": {
+                    "showFieldParameterBar": {
+                        "displayName": "Show Dynamic Parameter Bar",
+                        "description": "Show interactive field parameter switching ribbon when multiple columns are mapped",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "privileges": [
+            {
+                "name": "ExportContent",
+                "essential": false
+            }
+        ]
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

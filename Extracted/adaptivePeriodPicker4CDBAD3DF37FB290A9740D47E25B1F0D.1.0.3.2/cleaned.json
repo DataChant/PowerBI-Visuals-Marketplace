@@ -1,0 +1,1327 @@
+{
+    "visual": {
+        "name": "adaptivePeriodPicker",
+        "displayName": "Adaptive Period Picker",
+        "guid": "adaptivePeriodPicker4CDBAD3DF37FB290A9740D47E25B1F0D",
+        "visualClassName": "Visual",
+        "version": "1.0.3.2",
+        "description": "Date range picker with a calendar that adapts its grid to the selected granularity (days/weeks, months, quarters, semesters, years)",
+        "supportUrl": "https://github.com/sergiopbi/AdaptivePeriodPicker/issues",
+        "gitHubUrl": "https://github.com/sergiopbi/AdaptivePeriodPicker"
+    },
+    "author": {
+        "name": "Sergio Borges",
+        "email": "sergio@qahs.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "Role_DateColumn": "Date Column",
+            "Role_GranColumn": "Granularity Column (optional)",
+            "Role_GranColumn_Desc": "Physical column with granularity codes (D/W/M/Q/S/Y), e.g. AUX_PERIOD[Aux_Period]. Can be an ordinary small disconnected table \u2014 no cartesian join or special shaping needed. When bound, granularity becomes part of the same real, cross-page-synced filter as the date range. When left unbound, the selector still works fully; granularity is just UI-only (no filter sent for it specifically).",
+            "Role_Language": "Language",
+            "Role_RefDate": "Reference Date (optional)",
+            "Card_GlobalStyle": "Global Style",
+            "Prop_FontFamily": "Font",
+            "Prop_FontFamily_Desc": "Used throughout the widget \u2014 granularity, dates, shortcuts, calendar and control panel. Font size is still configurable per zone (under \"Zones\").",
+            "Prop_BackgroundColor": "Main background",
+            "Prop_BackgroundColor_Desc": "The widget's own background, behind every zone. Each zone (below, under \"Zones\") has its own independent background and boxes \u2014 this is just what shows where no zone has a box of its own.",
+            "Prop_BackgroundOpacity": "Main background opacity (%)",
+            "Prop_HoverRevealOpacity": "Expandable area opacity (%)",
+            "Prop_HoverRevealOpacity_Desc": "Only applies with \"Show only when selected\" enabled (Display Mode). Controls the opacity of the blank space left while Shortcuts/Calendar/Control panel are hidden \u2014 each of those zones keeps its own background (under \"Zones\") once revealed.",
+            "Prop_BorderColor": "Zone divider line color",
+            "Prop_BorderWidth": "Zone divider line width (px)",
+            "Prop_ResizerColor": "Resizer handle color",
+            "Prop_ResizerThickness": "Resizer handle thickness (px)",
+            "Card_ZonesCard": "Zones \u2014 Colors, Shape, Size and Text",
+            "Group_ZoneGran": "Granularity",
+            "Prop_ZoneGranColor": "Zone background \u2014 Granularity",
+            "Prop_ZoneGranOpacity": "Zone opacity \u2014 Granularity (%)",
+            "Prop_ZoneGranRadius": "Corner radius \u2014 Granularity (px)",
+            "Prop_ZoneGranBoxSize": "Box size \u2014 Granularity (px)",
+            "Prop_ZoneGranFontSize": "Font size \u2014 Granularity (pt)",
+            "Prop_ZoneGranBoxColor": "Box background \u2014 Granularity",
+            "Prop_ZoneGranBoxColor_Desc": "Background of each letter (D/W/M/Q/S/Y), independent of the zone background above \u2014 invisible by default, same as it always was.",
+            "Prop_ZoneGranBoxOpacity": "Box opacity \u2014 Granularity (%)",
+            "Prop_ZoneGranSelectedColor": "Selected / accent color \u2014 Granularity",
+            "Prop_ZoneGranSelectedColor_Desc": "The color of the active/selected element in this zone (active granularity button, selected day, active shortcut, Apply button, etc.).",
+            "Prop_ZoneGranSelectedTextColor": "Text on selected color \u2014 Granularity",
+            "Prop_ZoneGranUnselectedColor": "Unselected color / secondary text \u2014 Granularity",
+            "Prop_ZoneGranUnselectedColor_Desc": "The color of everything NOT selected in this zone \u2014 text, icons, arrows and idle outlines.",
+            "Prop_ZoneGranValueColor": "Value color / primary text \u2014 Granularity",
+            "Group_ZoneDates": "Start/End Dates",
+            "Prop_ZoneDatesColor": "Zone background \u2014 Start/End Dates",
+            "Prop_ZoneDatesOpacity": "Zone opacity \u2014 Start/End Dates (%)",
+            "Prop_ZoneDatesRadius": "Corner radius \u2014 Start/End Dates (px)",
+            "Prop_ZoneDatesBoxSize": "Box size \u2014 Start/End Dates (px)",
+            "Prop_ZoneDatesFontSize": "Font size \u2014 Start/End Dates (pt)",
+            "Prop_ZoneDatesBoxColor": "Box background \u2014 Start/End Dates",
+            "Prop_ZoneDatesBoxColor_Desc": "Background of each date box (Start / End), independent of the zone background above.",
+            "Prop_ZoneDatesBoxOpacity": "Box opacity \u2014 Start/End Dates (%)",
+            "Prop_ZoneDatesSelectedColor": "Selected / accent color \u2014 Start/End Dates",
+            "Prop_ZoneDatesSelectedColor_Desc": "The color of the active/selected element in this zone (active granularity button, selected day, active shortcut, Apply button, etc.).",
+            "Prop_ZoneDatesSelectedTextColor": "Text on selected color \u2014 Start/End Dates",
+            "Prop_ZoneDatesUnselectedColor": "Unselected color / secondary text \u2014 Start/End Dates",
+            "Prop_ZoneDatesUnselectedColor_Desc": "The color of everything NOT selected in this zone \u2014 text, icons, arrows and idle outlines.",
+            "Prop_ZoneDatesValueColor": "Value color / primary text \u2014 Start/End Dates",
+            "Group_ZoneShortcuts": "Shortcuts",
+            "Prop_ZoneShortcutsColor": "Zone background \u2014 Shortcuts",
+            "Prop_ZoneShortcutsOpacity": "Zone opacity \u2014 Shortcuts (%)",
+            "Prop_ZoneShortcutsRadius": "Corner radius \u2014 Shortcuts (px)",
+            "Prop_ZoneShortcutsBoxSize": "Box size \u2014 Shortcuts (px)",
+            "Prop_ZoneShortcutsFontSize": "Font size \u2014 Shortcuts (pt)",
+            "Prop_ZoneShortcutsBoxColor": "Box background \u2014 Shortcuts",
+            "Prop_ZoneShortcutsBoxColor_Desc": "Background of the \"Last N\" shortcut's number box, independent of the zone background above.",
+            "Prop_ZoneShortcutsBoxOpacity": "Box opacity \u2014 Shortcuts (%)",
+            "Prop_ZoneShortcutsSelectedColor": "Selected / accent color \u2014 Shortcuts",
+            "Prop_ZoneShortcutsSelectedColor_Desc": "The color of the active/selected element in this zone (active granularity button, selected day, active shortcut, Apply button, etc.).",
+            "Prop_ZoneShortcutsSelectedTextColor": "Text on selected color \u2014 Shortcuts",
+            "Prop_ZoneShortcutsUnselectedColor": "Unselected color / secondary text \u2014 Shortcuts",
+            "Prop_ZoneShortcutsUnselectedColor_Desc": "The color of everything NOT selected in this zone \u2014 text, icons, arrows and idle outlines.",
+            "Prop_ZoneShortcutsValueColor": "Value color / primary text \u2014 Shortcuts",
+            "Group_ZoneCal": "Period Selection (Calendar)",
+            "Prop_ZoneCalColor": "Zone background \u2014 Period Selection (Calendar)",
+            "Prop_ZoneCalOpacity": "Zone opacity \u2014 Period Selection (Calendar) (%)",
+            "Prop_ZoneCalRadius": "Corner radius \u2014 Period Selection (Calendar) (px)",
+            "Prop_ZoneCalBoxSize": "Box size \u2014 Period Selection (Calendar) (px)",
+            "Prop_ZoneCalFontSize": "Font size \u2014 Period Selection (Calendar) (pt)",
+            "Prop_ZoneCalSelectedColor": "Selected / accent color \u2014 Period Selection (Calendar)",
+            "Prop_ZoneCalSelectedColor_Desc": "The color of the active/selected element in this zone (active granularity button, selected day, active shortcut, Apply button, etc.).",
+            "Prop_ZoneCalSelectedTextColor": "Text on selected color \u2014 Period Selection (Calendar)",
+            "Prop_ZoneCalUnselectedColor": "Unselected color / secondary text \u2014 Period Selection (Calendar)",
+            "Prop_ZoneCalUnselectedColor_Desc": "The color of everything NOT selected in this zone \u2014 text, icons, arrows and idle outlines.",
+            "Prop_ZoneCalValueColor": "Value color / primary text \u2014 Period Selection (Calendar)",
+            "Group_ZoneControl": "Control Panel",
+            "Prop_ZoneControlColor": "Zone background \u2014 Control Panel",
+            "Prop_ZoneControlOpacity": "Zone opacity \u2014 Control Panel (%)",
+            "Prop_ZoneControlRadius": "Corner radius \u2014 Control Panel (px)",
+            "Prop_ZoneControlBoxSize": "Box size \u2014 Control Panel (px)",
+            "Prop_ZoneControlFontSize": "Font size \u2014 Control Panel (pt)",
+            "Prop_ZoneControlSelectedColor": "Selected / accent color \u2014 Control Panel",
+            "Prop_ZoneControlSelectedColor_Desc": "The color of the active/selected element in this zone (active granularity button, selected day, active shortcut, Apply button, etc.).",
+            "Prop_ZoneControlSelectedTextColor": "Text on selected color \u2014 Control Panel",
+            "Prop_ZoneControlUnselectedColor": "Unselected color / secondary text \u2014 Control Panel",
+            "Prop_ZoneControlUnselectedColor_Desc": "The color of everything NOT selected in this zone \u2014 text, icons, arrows and idle outlines.",
+            "Prop_ZoneControlValueColor": "Value color / primary text \u2014 Control Panel",
+            "Prop_GranLabelD": "D \u2014 button text",
+            "Prop_GranLabelW": "W \u2014 button text",
+            "Prop_GranLabelM": "M \u2014 button text",
+            "Prop_GranLabelQ": "Q \u2014 button text",
+            "Prop_GranLabelS": "S \u2014 button text",
+            "Prop_GranLabelY": "Y \u2014 button text",
+            "Card_DisplayMode": "Display Mode",
+            "Prop_LayoutMode": "Display mode",
+            "Prop_LayoutMode_Desc": "Pop-up: opens a native Power BI dialog on click (may show a 'don't show again' warning). Inline Vertical: calendar always visible, column layout. Inline Horizontal: calendar always visible, row layout \u2014 designed for wide, short bars at the top of the page.",
+            "Enum_Popup": "Pop-up",
+            "Enum_InlineVertical": "Inline Vertical",
+            "Enum_InlineHorizontal": "Inline Horizontal",
+            "Prop_ApplyMode": "Apply mode",
+            "Prop_HoverExpand": "Show only when selected",
+            "Prop_LockResizers": "Lock sizes (drag dividers)",
+            "Prop_LockResizers_Desc": "Adjust the drag dividers (shortcuts, calendar, Start/End, etc.) while this is off; once you're happy with the sizes, turn it on to lock them in place \u2014 dividers stop responding to dragging or double-click, both for you and anyone viewing the published report. Exception: the shortcuts panel's divider always stays free, even with this on.",
+            "Prop_ApplyMode_Desc": "Immediate: clicking a shortcut (or the 2nd click of a manual selection) applies the filter right away, no buttons. Confirm: shows Apply/Cancel buttons and the filter is only applied on confirmation.",
+            "Prop_PopupWidth": "Pop-up width (px)",
+            "Prop_PopupWidth_Desc": "Only applies in Pop-up mode. The absolute minimum allowed by Power BI is 240px, but below ~380px the shortcuts sidebar and calendar grid in this dialog start not fitting, and horizontal scroll can reappear.",
+            "Prop_PopupHeight": "Pop-up height (px)",
+            "Prop_PopupHorizontalAnchor": "Pop-up opening side",
+            "Enum_AnchorRight": "Right (from the visual)",
+            "Enum_AnchorLeft": "Left (from the visual)",
+            "Enum_Immediate": "Immediate",
+            "Enum_Confirm": "Confirm",
+            "Card_DefaultPeriod": "Default Period",
+            "Prop_DefaultType": "Default period",
+            "Prop_DefaultType_Desc": "Sets the period applied by the refresh button (\u27f3). 'Last N' uses the number below, sensitive to granularity.",
+            "Enum_Today": "Today",
+            "Enum_Yesterday": "Yesterday",
+            "Enum_ThisWeek": "This Week",
+            "Enum_LastWeek": "Last Week",
+            "Enum_ThisMonth": "This Month",
+            "Enum_Mtd": "Month to date (MTD)",
+            "Enum_Qtd": "Quarter to date (QTD)",
+            "Enum_Ytd": "Year to date (YTD)",
+            "Enum_ThisQuarter": "This Quarter",
+            "Enum_ThisSemester": "This Semester",
+            "Enum_ThisYear": "This Year",
+            "Enum_Dynamic": "Last N (by granularity)",
+            "Card_Shortcuts": "Visible Shortcuts",
+            "Prop_ScShowAll": "Show shortcuts",
+            "Prop_ScToday": "Today",
+            "Prop_ScYesterday": "Yesterday",
+            "Prop_ScThisWeek": "This Week",
+            "Prop_ScLastWeek": "Last Week",
+            "Prop_ScThisMonth": "This Month",
+            "Prop_ScLastMonth": "Last Month",
+            "Prop_ScMtd": "Month to date",
+            "Prop_ScQtd": "Quarter to date",
+            "Prop_ScYtd": "Year to date",
+            "Prop_ScThisQuarter": "This Quarter",
+            "Prop_ScLastQuarter": "Last Quarter",
+            "Prop_ScThisSemester": "This Semester",
+            "Prop_ScLastSemester": "Last Semester",
+            "Prop_ScThisYear": "This Year",
+            "Prop_ScDynamic": "Last N",
+            "Card_GranularityOptions": "Visible Granularities",
+            "Card_GranularityOptions_Desc": "Each granularity: whether it's visible, the minimum points for automatic granularity to pick it, and the text shown on its button (blank = automatic, translated per the report's language).",
+            "Prop_AutoGranularity": "Automatic granularity",
+            "Prop_AutoGranularity_Desc": "On: the granularity picked above is only a suggestion \u2014 if the selected range has too few points at that level (or that level is turned off), it automatically steps down to the next available level. The calendar shown never changes on its own; only the effective filter sent to other visuals may differ from the level you clicked. Off: always forces the picked level, with no downgrade. This is the starting value \u2014 if the switch below is visible, the viewer can change this during the session.",
+            "Prop_ShowAutoGranToggle": "Show Automatic/Manual switch to the viewer",
+            "Prop_ShowAutoGranToggle_Desc": "Shows, inside the picker itself, a switch letting report viewers toggle between automatic and manual granularity. The choice isn't saved \u2014 it always resets to the \"Automatic granularity\" value above when the report is reopened.",
+            "Prop_GranD": "Daily (D)",
+            "Prop_GranW": "Weekly (W)",
+            "Prop_GranWThreshold": "W \u2014 minimum weeks",
+            "Prop_GranM": "Monthly (M)",
+            "Prop_GranMThreshold": "M \u2014 minimum months",
+            "Prop_GranQ": "Quarterly (Q)",
+            "Prop_GranQThreshold": "Q \u2014 minimum quarters",
+            "Prop_GranS": "Semi-annual (S)",
+            "Prop_GranSThreshold": "S \u2014 minimum semesters",
+            "Prop_GranY": "Annual (Y)",
+            "Prop_GranYThreshold": "Y \u2014 minimum years"
+        },
+        "pt-PT": {
+            "Role_DateColumn": "Coluna de Data",
+            "Role_GranColumn": "Coluna de Granularidade (opcional)",
+            "Role_GranColumn_Desc": "Coluna f\u00edsica com c\u00f3digos de granularidade (D/W/M/Q/S/Y), ex. AUX_PERIOD[Aux_Period]. Pode ser uma tabela desligada pequena e normal \u2014 n\u00e3o precisa de cartesian join nem de tratamento especial. Quando associada, a granularidade passa a fazer parte do mesmo filtro real, sincronizado entre p\u00e1ginas, que o intervalo de datas. Quando n\u00e3o associada, o seletor continua a funcionar por completo; a granularidade fica apenas visual (sem filtro real enviado especificamente para ela).",
+            "Role_Language": "Idioma",
+            "Role_RefDate": "Data de Refer\u00eancia (opcional)",
+            "Card_GlobalStyle": "Estilo Global",
+            "Prop_FontFamily": "Tipo de letra",
+            "Prop_FontFamily_Desc": "Usado em todo o widget \u2014 granularidade, datas, atalhos, calend\u00e1rio e painel de controlo. O tamanho da letra continua configur\u00e1vel por zona (em \"Zonas\").",
+            "Prop_BackgroundColor": "Fundo principal",
+            "Prop_BackgroundColor_Desc": "O fundo do pr\u00f3prio widget, por tr\u00e1s de todas as zonas. Cada zona (abaixo, em \"Zonas\") tem o seu pr\u00f3prio fundo e caixas independentes \u2014 isto \u00e9 s\u00f3 o que aparece onde nenhuma zona tem uma caixa pr\u00f3pria.",
+            "Prop_BackgroundOpacity": "Transpar\u00eancia do fundo principal (%)",
+            "Prop_HoverRevealOpacity": "Transpar\u00eancia da \u00e1rea expans\u00edvel (%)",
+            "Prop_HoverRevealOpacity_Desc": "S\u00f3 se aplica com \"Mostrar apenas quando selecionado\" ativo (Modo de Exibi\u00e7\u00e3o). Controla a transpar\u00eancia do espa\u00e7o em branco que fica enquanto os Atalhos/Calend\u00e1rio/Painel de controlo est\u00e3o escondidos \u2014 cada uma dessas zonas mant\u00e9m o seu pr\u00f3prio fundo (em \"Zonas\") quando aparece.",
+            "Prop_BorderColor": "Cor das linhas divis\u00f3rias entre zonas",
+            "Prop_BorderWidth": "Espessura das linhas divis\u00f3rias (px)",
+            "Prop_ResizerColor": "Cor dos separadores de arrasto",
+            "Prop_ResizerThickness": "Espessura dos separadores de arrasto (px)",
+            "Card_ZonesCard": "Zonas \u2014 Cores, Forma, Tamanho e Texto",
+            "Group_ZoneGran": "Granularidade",
+            "Prop_ZoneGranColor": "Fundo da zona \u2014 Granularidade",
+            "Prop_ZoneGranOpacity": "Transpar\u00eancia da zona \u2014 Granularidade (%)",
+            "Prop_ZoneGranRadius": "Arredondamento dos cantos \u2014 Granularidade (px)",
+            "Prop_ZoneGranBoxSize": "Tamanho da caixa \u2014 Granularidade (px)",
+            "Prop_ZoneGranFontSize": "Tamanho de letra \u2014 Granularidade (pt)",
+            "Prop_ZoneGranBoxColor": "Fundo das caixas \u2014 Granularidade",
+            "Prop_ZoneGranBoxColor_Desc": "Fundo de cada letra (D/S/M/T/SM/A), independente do fundo da zona acima \u2014 por omiss\u00e3o invis\u00edvel, tal como sempre foi.",
+            "Prop_ZoneGranBoxOpacity": "Transpar\u00eancia das caixas \u2014 Granularidade (%)",
+            "Prop_ZoneGranSelectedColor": "Cor selecionada / destaque \u2014 Granularidade",
+            "Prop_ZoneGranSelectedColor_Desc": "A cor do elemento ativo/selecionado nesta zona (bot\u00e3o de granularidade ativo, dia selecionado, atalho ativo, bot\u00e3o Aplicar, etc.).",
+            "Prop_ZoneGranSelectedTextColor": "Texto sobre a cor selecionada \u2014 Granularidade",
+            "Prop_ZoneGranUnselectedColor": "Cor n\u00e3o selecionada / texto secund\u00e1rio \u2014 Granularidade",
+            "Prop_ZoneGranUnselectedColor_Desc": "A cor de tudo o que N\u00c3O est\u00e1 selecionado nesta zona \u2014 texto, \u00edcones, setas e contornos em repouso.",
+            "Prop_ZoneGranValueColor": "Cor de valores / texto principal \u2014 Granularidade",
+            "Group_ZoneDates": "Datas In\u00edcio/Fim",
+            "Prop_ZoneDatesColor": "Fundo da zona \u2014 Datas In\u00edcio/Fim",
+            "Prop_ZoneDatesOpacity": "Transpar\u00eancia da zona \u2014 Datas In\u00edcio/Fim (%)",
+            "Prop_ZoneDatesRadius": "Arredondamento dos cantos \u2014 Datas In\u00edcio/Fim (px)",
+            "Prop_ZoneDatesBoxSize": "Tamanho da caixa \u2014 Datas In\u00edcio/Fim (px)",
+            "Prop_ZoneDatesFontSize": "Tamanho de letra \u2014 Datas In\u00edcio/Fim (pt)",
+            "Prop_ZoneDatesBoxColor": "Fundo das caixas \u2014 Datas In\u00edcio/Fim",
+            "Prop_ZoneDatesBoxColor_Desc": "Fundo de cada caixa de data (In\u00edcio / Fim), independente do fundo da zona acima.",
+            "Prop_ZoneDatesBoxOpacity": "Transpar\u00eancia das caixas \u2014 Datas In\u00edcio/Fim (%)",
+            "Prop_ZoneDatesSelectedColor": "Cor selecionada / destaque \u2014 Datas In\u00edcio/Fim",
+            "Prop_ZoneDatesSelectedColor_Desc": "A cor do elemento ativo/selecionado nesta zona (bot\u00e3o de granularidade ativo, dia selecionado, atalho ativo, bot\u00e3o Aplicar, etc.).",
+            "Prop_ZoneDatesSelectedTextColor": "Texto sobre a cor selecionada \u2014 Datas In\u00edcio/Fim",
+            "Prop_ZoneDatesUnselectedColor": "Cor n\u00e3o selecionada / texto secund\u00e1rio \u2014 Datas In\u00edcio/Fim",
+            "Prop_ZoneDatesUnselectedColor_Desc": "A cor de tudo o que N\u00c3O est\u00e1 selecionado nesta zona \u2014 texto, \u00edcones, setas e contornos em repouso.",
+            "Prop_ZoneDatesValueColor": "Cor de valores / texto principal \u2014 Datas In\u00edcio/Fim",
+            "Group_ZoneShortcuts": "Atalhos",
+            "Prop_ZoneShortcutsColor": "Fundo da zona \u2014 Atalhos",
+            "Prop_ZoneShortcutsOpacity": "Transpar\u00eancia da zona \u2014 Atalhos (%)",
+            "Prop_ZoneShortcutsRadius": "Arredondamento dos cantos \u2014 Atalhos (px)",
+            "Prop_ZoneShortcutsBoxSize": "Tamanho da caixa \u2014 Atalhos (px)",
+            "Prop_ZoneShortcutsFontSize": "Tamanho de letra \u2014 Atalhos (pt)",
+            "Prop_ZoneShortcutsBoxColor": "Fundo das caixas \u2014 Atalhos",
+            "Prop_ZoneShortcutsBoxColor_Desc": "Fundo da caixa num\u00e9rica do atalho \"\u00daltimos N\", independente do fundo da zona acima.",
+            "Prop_ZoneShortcutsBoxOpacity": "Transpar\u00eancia das caixas \u2014 Atalhos (%)",
+            "Prop_ZoneShortcutsSelectedColor": "Cor selecionada / destaque \u2014 Atalhos",
+            "Prop_ZoneShortcutsSelectedColor_Desc": "A cor do elemento ativo/selecionado nesta zona (bot\u00e3o de granularidade ativo, dia selecionado, atalho ativo, bot\u00e3o Aplicar, etc.).",
+            "Prop_ZoneShortcutsSelectedTextColor": "Texto sobre a cor selecionada \u2014 Atalhos",
+            "Prop_ZoneShortcutsUnselectedColor": "Cor n\u00e3o selecionada / texto secund\u00e1rio \u2014 Atalhos",
+            "Prop_ZoneShortcutsUnselectedColor_Desc": "A cor de tudo o que N\u00c3O est\u00e1 selecionado nesta zona \u2014 texto, \u00edcones, setas e contornos em repouso.",
+            "Prop_ZoneShortcutsValueColor": "Cor de valores / texto principal \u2014 Atalhos",
+            "Group_ZoneCal": "Sele\u00e7\u00e3o de Per\u00edodos (Calend\u00e1rio)",
+            "Prop_ZoneCalColor": "Fundo da zona \u2014 Sele\u00e7\u00e3o de Per\u00edodos (Calend\u00e1rio)",
+            "Prop_ZoneCalOpacity": "Transpar\u00eancia da zona \u2014 Sele\u00e7\u00e3o de Per\u00edodos (Calend\u00e1rio) (%)",
+            "Prop_ZoneCalRadius": "Arredondamento dos cantos \u2014 Sele\u00e7\u00e3o de Per\u00edodos (Calend\u00e1rio) (px)",
+            "Prop_ZoneCalBoxSize": "Tamanho da caixa \u2014 Sele\u00e7\u00e3o de Per\u00edodos (Calend\u00e1rio) (px)",
+            "Prop_ZoneCalFontSize": "Tamanho de letra \u2014 Sele\u00e7\u00e3o de Per\u00edodos (Calend\u00e1rio) (pt)",
+            "Prop_ZoneCalSelectedColor": "Cor selecionada / destaque \u2014 Sele\u00e7\u00e3o de Per\u00edodos (Calend\u00e1rio)",
+            "Prop_ZoneCalSelectedColor_Desc": "A cor do elemento ativo/selecionado nesta zona (bot\u00e3o de granularidade ativo, dia selecionado, atalho ativo, bot\u00e3o Aplicar, etc.).",
+            "Prop_ZoneCalSelectedTextColor": "Texto sobre a cor selecionada \u2014 Sele\u00e7\u00e3o de Per\u00edodos (Calend\u00e1rio)",
+            "Prop_ZoneCalUnselectedColor": "Cor n\u00e3o selecionada / texto secund\u00e1rio \u2014 Sele\u00e7\u00e3o de Per\u00edodos (Calend\u00e1rio)",
+            "Prop_ZoneCalUnselectedColor_Desc": "A cor de tudo o que N\u00c3O est\u00e1 selecionado nesta zona \u2014 texto, \u00edcones, setas e contornos em repouso.",
+            "Prop_ZoneCalValueColor": "Cor de valores / texto principal \u2014 Sele\u00e7\u00e3o de Per\u00edodos (Calend\u00e1rio)",
+            "Group_ZoneControl": "Painel de Controlo",
+            "Prop_ZoneControlColor": "Fundo da zona \u2014 Painel de Controlo",
+            "Prop_ZoneControlOpacity": "Transpar\u00eancia da zona \u2014 Painel de Controlo (%)",
+            "Prop_ZoneControlRadius": "Arredondamento dos cantos \u2014 Painel de Controlo (px)",
+            "Prop_ZoneControlBoxSize": "Tamanho da caixa \u2014 Painel de Controlo (px)",
+            "Prop_ZoneControlFontSize": "Tamanho de letra \u2014 Painel de Controlo (pt)",
+            "Prop_ZoneControlSelectedColor": "Cor selecionada / destaque \u2014 Painel de Controlo",
+            "Prop_ZoneControlSelectedColor_Desc": "A cor do elemento ativo/selecionado nesta zona (bot\u00e3o de granularidade ativo, dia selecionado, atalho ativo, bot\u00e3o Aplicar, etc.).",
+            "Prop_ZoneControlSelectedTextColor": "Texto sobre a cor selecionada \u2014 Painel de Controlo",
+            "Prop_ZoneControlUnselectedColor": "Cor n\u00e3o selecionada / texto secund\u00e1rio \u2014 Painel de Controlo",
+            "Prop_ZoneControlUnselectedColor_Desc": "A cor de tudo o que N\u00c3O est\u00e1 selecionado nesta zona \u2014 texto, \u00edcones, setas e contornos em repouso.",
+            "Prop_ZoneControlValueColor": "Cor de valores / texto principal \u2014 Painel de Controlo",
+            "Prop_GranLabelD": "D \u2014 texto do bot\u00e3o",
+            "Prop_GranLabelW": "W \u2014 texto do bot\u00e3o",
+            "Prop_GranLabelM": "M \u2014 texto do bot\u00e3o",
+            "Prop_GranLabelQ": "Q \u2014 texto do bot\u00e3o",
+            "Prop_GranLabelS": "S \u2014 texto do bot\u00e3o",
+            "Prop_GranLabelY": "Y \u2014 texto do bot\u00e3o",
+            "Card_DisplayMode": "Modo de Exibi\u00e7\u00e3o",
+            "Prop_LayoutMode": "Modo de exibi\u00e7\u00e3o",
+            "Prop_LayoutMode_Desc": "Pop-up: abre um di\u00e1logo nativo do Power BI ao clicar (pode mostrar aviso 'n\u00e3o mostrar novamente'). Inline Vertical: calend\u00e1rio sempre vis\u00edvel, layout em coluna. Inline Horizontal: calend\u00e1rio sempre vis\u00edvel, layout em linha \u2014 pensado para barras largas e baixas no topo da p\u00e1gina.",
+            "Enum_Popup": "Pop-up",
+            "Enum_InlineVertical": "Inline Vertical",
+            "Enum_InlineHorizontal": "Inline Horizontal",
+            "Prop_ApplyMode": "Modo de aplica\u00e7\u00e3o",
+            "Prop_HoverExpand": "Mostrar apenas quando selecionado",
+            "Prop_LockResizers": "Bloquear tamanhos (separadores de arrasto)",
+            "Prop_LockResizers_Desc": "Ajuste os separadores de arrasto (atalhos, calend\u00e1rio, In\u00edcio/Fim, etc.) enquanto esta op\u00e7\u00e3o est\u00e1 desativada; depois de ficar satisfeito com os tamanhos, ative-a para os fixar nesse estado \u2014 os separadores deixam de responder a arrastar ou duplo clique, tanto para si como para quem vir o relat\u00f3rio publicado. Exce\u00e7\u00e3o: o separador do painel de atalhos mant\u00e9m-se sempre livre, mesmo com isto ativo.",
+            "Prop_ApplyMode_Desc": "Imediato: clicar num atalho (ou no 2.\u00ba clique de uma sele\u00e7\u00e3o manual) aplica o filtro logo, sem bot\u00f5es. Confirmar: mostra os bot\u00f5es Aplicar/Cancelar e o filtro s\u00f3 \u00e9 aplicado ao confirmar.",
+            "Prop_PopupWidth": "Largura do pop-up (px)",
+            "Prop_PopupWidth_Desc": "S\u00f3 se aplica no modo Pop-up. O m\u00ednimo absoluto permitido pelo Power BI \u00e9 240px, mas por baixo de ~380px a barra de atalhos e a grelha do calend\u00e1rio deste di\u00e1logo come\u00e7am a n\u00e3o caber e pode voltar a aparecer scroll horizontal.",
+            "Prop_PopupHeight": "Altura do pop-up (px)",
+            "Prop_PopupHorizontalAnchor": "Lado de abertura do pop-up",
+            "Enum_AnchorRight": "Direita (a partir do visual)",
+            "Enum_AnchorLeft": "Esquerda (a partir do visual)",
+            "Enum_Immediate": "Imediato",
+            "Enum_Confirm": "Confirmar",
+            "Card_DefaultPeriod": "Per\u00edodo Predefinido",
+            "Prop_DefaultType": "Per\u00edodo predefinido",
+            "Prop_DefaultType_Desc": "Define o per\u00edodo aplicado pelo bot\u00e3o de atualiza\u00e7\u00e3o (\u27f3). '\u00daltimos N' usa o n\u00famero abaixo, sens\u00edvel \u00e0 granularidade.",
+            "Enum_Today": "Hoje",
+            "Enum_Yesterday": "Ontem",
+            "Enum_ThisWeek": "Esta Semana",
+            "Enum_LastWeek": "Semana Passada",
+            "Enum_ThisMonth": "Este M\u00eas",
+            "Enum_Mtd": "M\u00eas at\u00e9 \u00e0 data (MTD)",
+            "Enum_Qtd": "Trimestre at\u00e9 \u00e0 data (QTD)",
+            "Enum_Ytd": "Ano at\u00e9 \u00e0 data (YTD)",
+            "Enum_ThisQuarter": "Este Trimestre",
+            "Enum_ThisSemester": "Este Semestre",
+            "Enum_ThisYear": "Este Ano",
+            "Enum_Dynamic": "\u00daltimos N (por granularidade)",
+            "Card_Shortcuts": "Atalhos Vis\u00edveis",
+            "Prop_ScShowAll": "Mostrar atalhos",
+            "Prop_ScToday": "Hoje",
+            "Prop_ScYesterday": "Ontem",
+            "Prop_ScThisWeek": "Esta Semana",
+            "Prop_ScLastWeek": "Semana Passada",
+            "Prop_ScThisMonth": "Este M\u00eas",
+            "Prop_ScLastMonth": "M\u00eas Passado",
+            "Prop_ScMtd": "M\u00eas at\u00e9 \u00e0 data",
+            "Prop_ScQtd": "Trimestre at\u00e9 \u00e0 data",
+            "Prop_ScYtd": "Ano at\u00e9 \u00e0 data",
+            "Prop_ScThisQuarter": "Este Trimestre",
+            "Prop_ScLastQuarter": "Trimestre Passado",
+            "Prop_ScThisSemester": "Este Semestre",
+            "Prop_ScLastSemester": "Semestre Passado",
+            "Prop_ScThisYear": "Este Ano",
+            "Prop_ScDynamic": "\u00daltimos N",
+            "Card_GranularityOptions": "Granularidades Vis\u00edveis",
+            "Card_GranularityOptions_Desc": "Cada granularidade: se est\u00e1 vis\u00edvel, o m\u00ednimo de pontos para a granularidade autom\u00e1tica a escolher, e o texto mostrado no respetivo bot\u00e3o (em branco = autom\u00e1tico, traduzido conforme o idioma do relat\u00f3rio).",
+            "Prop_AutoGranularity": "Granularidade autom\u00e1tica",
+            "Prop_AutoGranularity_Desc": "Ligado: a granularidade escolhida acima \u00e9 s\u00f3 uma sugest\u00e3o \u2014 se o intervalo selecionado tiver poucos pontos nesse n\u00edvel (ou esse n\u00edvel estiver desligado), desce automaticamente para o pr\u00f3ximo n\u00edvel dispon\u00edvel. A grelha mostrada nunca muda sozinha; s\u00f3 o filtro efetivo enviado aos outros visuais \u00e9 que pode ser diferente do n\u00edvel clicado. Desligado: for\u00e7a sempre o n\u00edvel escolhido, sem downgrade nenhum. Este \u00e9 o valor inicial \u2014 se o interruptor abaixo estiver vis\u00edvel, o utilizador pode mudar isto durante a sess\u00e3o.",
+            "Prop_ShowAutoGranToggle": "Mostrar interruptor Autom\u00e1tico/Manual ao utilizador",
+            "Prop_ShowAutoGranToggle_Desc": "Mostra, dentro do pr\u00f3prio seletor, um interruptor que permite a quem v\u00ea o relat\u00f3rio trocar entre granularidade autom\u00e1tica e manual. A escolha n\u00e3o fica gravada \u2014 reinicia sempre no valor de \"Granularidade autom\u00e1tica\" acima ao reabrir o relat\u00f3rio.",
+            "Prop_GranD": "Di\u00e1rio (D)",
+            "Prop_GranW": "Semanal (W)",
+            "Prop_GranWThreshold": "W \u2014 m\u00ednimo de semanas",
+            "Prop_GranM": "Mensal (M)",
+            "Prop_GranMThreshold": "M \u2014 m\u00ednimo de meses",
+            "Prop_GranQ": "Trimestral (Q)",
+            "Prop_GranQThreshold": "Q \u2014 m\u00ednimo de trimestres",
+            "Prop_GranS": "Semestral (S)",
+            "Prop_GranSThreshold": "S \u2014 m\u00ednimo de semestres",
+            "Prop_GranY": "Anual (Y)",
+            "Prop_GranYThreshold": "Y \u2014 m\u00ednimo de anos"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Date Column",
+                "displayNameKey": "Role_DateColumn",
+                "name": "dateColumn",
+                "kind": "Grouping",
+                "description": "DT_DATE[Date_D]"
+            },
+            {
+                "displayName": "Granularity Column (optional)",
+                "displayNameKey": "Role_GranColumn",
+                "name": "granColumn",
+                "kind": "Grouping",
+                "description": "Physical column with granularity codes (D/W/M/Q/S/Y), e.g. AUX_PERIOD[Aux_Period]. Can be an ordinary small disconnected table \u2014 no cartesian join or special shaping needed. When bound, granularity becomes part of the same real, cross-page-synced filter as the date range. When left unbound, the selector still works fully; granularity is just UI-only (no filter sent for it specifically).",
+                "descriptionKey": "Role_GranColumn_Desc"
+            },
+            {
+                "displayName": "Language",
+                "displayNameKey": "Role_Language",
+                "name": "langMeasure",
+                "kind": "Measure",
+                "description": "AUX_LANGUAGE[_SELECTED_LANG]"
+            },
+            {
+                "displayName": "Reference Date (optional)",
+                "displayNameKey": "Role_RefDate",
+                "name": "refDateMeasure",
+                "kind": "Measure",
+                "description": "Optional measure for reference date. Use CALCULATE(MAX(DT_DATE[Date_D]), ALL()) to ensure stable value across pages."
+            }
+        ],
+        "objects": {
+            "general": {
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": {}
+                        }
+                    },
+                    "state": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "globalStyle": {
+                "properties": {
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "backgroundColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "backgroundOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "hoverRevealOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "resizerColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "resizerThickness": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "zonesCard": {
+                "properties": {
+                    "zoneGranColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneGranOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneGranRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneGranBoxSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneGranFontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneGranBoxColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneGranBoxOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneGranSelectedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneGranSelectedTextColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneGranUnselectedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneGranValueColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneDatesColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneDatesOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneDatesRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneDatesBoxSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneDatesFontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneDatesBoxColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneDatesBoxOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneDatesSelectedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneDatesSelectedTextColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneDatesUnselectedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneDatesValueColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneShortcutsColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneShortcutsOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneShortcutsRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneShortcutsBoxSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneShortcutsFontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneShortcutsBoxColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneShortcutsBoxOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneShortcutsSelectedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneShortcutsSelectedTextColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneShortcutsUnselectedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneShortcutsValueColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneCalColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneCalOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneCalRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneCalBoxSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneCalFontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneCalSelectedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneCalSelectedTextColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneCalUnselectedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneCalValueColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneControlColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneControlOpacity": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneControlRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneControlBoxSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneControlFontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zoneControlSelectedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneControlSelectedTextColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneControlUnselectedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "zoneControlValueColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "displayMode": {
+                "displayName": "Modo de Exibi\u00e7\u00e3o",
+                "displayNameKey": "Card_DisplayMode",
+                "properties": {
+                    "layoutMode": {
+                        "displayName": "Modo de exibi\u00e7\u00e3o",
+                        "displayNameKey": "Prop_LayoutMode",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Pop-up",
+                                    "displayNameKey": "Enum_Popup",
+                                    "value": "popup"
+                                },
+                                {
+                                    "displayName": "Inline Vertical",
+                                    "displayNameKey": "Enum_InlineVertical",
+                                    "value": "inline-vertical"
+                                },
+                                {
+                                    "displayName": "Inline Horizontal",
+                                    "displayNameKey": "Enum_InlineHorizontal",
+                                    "value": "inline-horizontal"
+                                }
+                            ]
+                        }
+                    },
+                    "applyMode": {
+                        "displayName": "Modo de aplica\u00e7\u00e3o",
+                        "displayNameKey": "Prop_ApplyMode",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "immediate",
+                                    "displayName": "Imediato",
+                                    "displayNameKey": "Enum_Immediate"
+                                },
+                                {
+                                    "value": "confirm",
+                                    "displayName": "Confirmar",
+                                    "displayNameKey": "Enum_Confirm"
+                                }
+                            ]
+                        }
+                    },
+                    "hoverExpand": {
+                        "displayName": "Mostrar apenas ao passar o rato",
+                        "displayNameKey": "Prop_HoverExpand",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lockResizers": {
+                        "displayName": "Bloquear tamanhos (separadores de arrasto)",
+                        "displayNameKey": "Prop_LockResizers",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "popupWidth": {
+                        "displayName": "Largura do pop-up (px)",
+                        "displayNameKey": "Prop_PopupWidth",
+                        "description": "S\u00f3 se aplica no modo Pop-up. Reduz este valor se o pop-up estiver a ultrapassar a margem direita do ecr\u00e3 e a criar scroll horizontal.",
+                        "descriptionKey": "Prop_PopupWidth_Desc",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "popupHeight": {
+                        "displayName": "Altura do pop-up (px)",
+                        "displayNameKey": "Prop_PopupHeight",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "popupHorizontalAnchor": {
+                        "displayName": "Lado de abertura do pop-up",
+                        "displayNameKey": "Prop_PopupHorizontalAnchor",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Direita (a partir do visual)",
+                                    "displayNameKey": "Enum_AnchorRight",
+                                    "value": "right"
+                                },
+                                {
+                                    "displayName": "Esquerda (a partir do visual)",
+                                    "displayNameKey": "Enum_AnchorLeft",
+                                    "value": "left"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "defaultPeriod": {
+                "displayName": "Per\u00edodo Predefinido",
+                "displayNameKey": "Card_DefaultPeriod",
+                "properties": {
+                    "defaultType": {
+                        "displayName": "Per\u00edodo predefinido",
+                        "displayNameKey": "Prop_DefaultType",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "today",
+                                    "displayName": "today",
+                                    "displayNameKey": "Enum_Today"
+                                },
+                                {
+                                    "value": "yesterday",
+                                    "displayName": "yesterday",
+                                    "displayNameKey": "Enum_Yesterday"
+                                },
+                                {
+                                    "value": "thisWeek",
+                                    "displayName": "thisWeek",
+                                    "displayNameKey": "Enum_ThisWeek"
+                                },
+                                {
+                                    "value": "lastWeek",
+                                    "displayName": "lastWeek",
+                                    "displayNameKey": "Enum_LastWeek"
+                                },
+                                {
+                                    "value": "thisMonth",
+                                    "displayName": "thisMonth",
+                                    "displayNameKey": "Enum_ThisMonth"
+                                },
+                                {
+                                    "value": "mtd",
+                                    "displayName": "mtd",
+                                    "displayNameKey": "Enum_Mtd"
+                                },
+                                {
+                                    "value": "qtd",
+                                    "displayName": "qtd",
+                                    "displayNameKey": "Enum_Qtd"
+                                },
+                                {
+                                    "value": "ytd",
+                                    "displayName": "ytd",
+                                    "displayNameKey": "Enum_Ytd"
+                                },
+                                {
+                                    "value": "thisQuarter",
+                                    "displayName": "thisQuarter",
+                                    "displayNameKey": "Enum_ThisQuarter"
+                                },
+                                {
+                                    "value": "thisSemester",
+                                    "displayName": "thisSemester",
+                                    "displayNameKey": "Enum_ThisSemester"
+                                },
+                                {
+                                    "value": "thisYear",
+                                    "displayName": "thisYear",
+                                    "displayNameKey": "Enum_ThisYear"
+                                },
+                                {
+                                    "value": "dynamic",
+                                    "displayName": "dynamic",
+                                    "displayNameKey": "Enum_Dynamic"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "shortcuts": {
+                "displayName": "Atalhos Vis\u00edveis",
+                "displayNameKey": "Card_Shortcuts",
+                "properties": {
+                    "scShowAll": {
+                        "displayName": "scShowAll",
+                        "displayNameKey": "Prop_ScShowAll",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scToday": {
+                        "displayName": "scToday",
+                        "displayNameKey": "Prop_ScToday",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scYesterday": {
+                        "displayName": "scYesterday",
+                        "displayNameKey": "Prop_ScYesterday",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scThisWeek": {
+                        "displayName": "scThisWeek",
+                        "displayNameKey": "Prop_ScThisWeek",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scLastWeek": {
+                        "displayName": "scLastWeek",
+                        "displayNameKey": "Prop_ScLastWeek",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scThisMonth": {
+                        "displayName": "scThisMonth",
+                        "displayNameKey": "Prop_ScThisMonth",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scLastMonth": {
+                        "displayName": "scLastMonth",
+                        "displayNameKey": "Prop_ScLastMonth",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scMtd": {
+                        "displayName": "scMtd",
+                        "displayNameKey": "Prop_ScMtd",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scQtd": {
+                        "displayName": "scQtd",
+                        "displayNameKey": "Prop_ScQtd",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scYtd": {
+                        "displayName": "scYtd",
+                        "displayNameKey": "Prop_ScYtd",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scThisQuarter": {
+                        "displayName": "scThisQuarter",
+                        "displayNameKey": "Prop_ScThisQuarter",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scLastQuarter": {
+                        "displayName": "scLastQuarter",
+                        "displayNameKey": "Prop_ScLastQuarter",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scThisSemester": {
+                        "displayName": "scThisSemester",
+                        "displayNameKey": "Prop_ScThisSemester",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scLastSemester": {
+                        "displayName": "scLastSemester",
+                        "displayNameKey": "Prop_ScLastSemester",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scThisYear": {
+                        "displayName": "scThisYear",
+                        "displayNameKey": "Prop_ScThisYear",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scDynamic": {
+                        "displayName": "scDynamic",
+                        "displayNameKey": "Prop_ScDynamic",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "granularityOptions": {
+                "displayName": "Granularidades Vis\u00edveis",
+                "displayNameKey": "Card_GranularityOptions",
+                "properties": {
+                    "autoGranularity": {
+                        "displayName": "Granularidade autom\u00e1tica",
+                        "displayNameKey": "Prop_AutoGranularity",
+                        "description": "Ligado: a granularidade escolhida acima \u00e9 s\u00f3 uma sugest\u00e3o \u2014 se o intervalo selecionado tiver poucos pontos nesse n\u00edvel (ou esse n\u00edvel estiver desligado), desce automaticamente para o pr\u00f3ximo n\u00edvel dispon\u00edvel. A grelha mostrada nunca muda sozinha; s\u00f3 o filtro efetivo enviado aos outros visuais \u00e9 que pode ser diferente do n\u00edvel clicado. Desligado: for\u00e7a sempre o n\u00edvel escolhido, sem downgrade nenhum.",
+                        "descriptionKey": "Prop_AutoGranularity_Desc",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showAutoGranToggle": {
+                        "displayName": "Mostrar interruptor Autom\u00e1tico/Manual ao utilizador",
+                        "displayNameKey": "Prop_ShowAutoGranToggle",
+                        "description": "Mostra, dentro do pr\u00f3prio seletor, um interruptor que permite a quem v\u00ea o relat\u00f3rio trocar entre granularidade autom\u00e1tica e manual. A escolha n\u00e3o fica gravada \u2014 reinicia sempre no valor de \"Granularidade autom\u00e1tica\" acima ao reabrir o relat\u00f3rio.",
+                        "descriptionKey": "Prop_ShowAutoGranToggle_Desc",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "granD": {
+                        "displayName": "Di\u00e1rio (D)",
+                        "displayNameKey": "Prop_GranD",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "granLabelD": {
+                        "displayName": "Di\u00e1rio",
+                        "displayNameKey": "Prop_GranLabelD",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "granW": {
+                        "displayName": "Semanal (W)",
+                        "displayNameKey": "Prop_GranW",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "granWThreshold": {
+                        "displayName": "W \u2014 m\u00ednimo de semanas",
+                        "displayNameKey": "Prop_GranWThreshold",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "granLabelW": {
+                        "displayName": "Semanal",
+                        "displayNameKey": "Prop_GranLabelW",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "granM": {
+                        "displayName": "Mensal (M)",
+                        "displayNameKey": "Prop_GranM",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "granMThreshold": {
+                        "displayName": "M \u2014 m\u00ednimo de meses",
+                        "displayNameKey": "Prop_GranMThreshold",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "granLabelM": {
+                        "displayName": "Mensal",
+                        "displayNameKey": "Prop_GranLabelM",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "granQ": {
+                        "displayName": "Trimestral (Q)",
+                        "displayNameKey": "Prop_GranQ",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "granQThreshold": {
+                        "displayName": "Q \u2014 m\u00ednimo de trimestres",
+                        "displayNameKey": "Prop_GranQThreshold",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "granLabelQ": {
+                        "displayName": "Trimestral",
+                        "displayNameKey": "Prop_GranLabelQ",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "granS": {
+                        "displayName": "Semestral (S)",
+                        "displayNameKey": "Prop_GranS",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "granSThreshold": {
+                        "displayName": "S \u2014 m\u00ednimo de semestres",
+                        "displayNameKey": "Prop_GranSThreshold",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "granLabelS": {
+                        "displayName": "Semestral",
+                        "displayNameKey": "Prop_GranLabelS",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "granY": {
+                        "displayName": "Anual (Y)",
+                        "displayNameKey": "Prop_GranY",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "granYThreshold": {
+                        "displayName": "Y \u2014 m\u00ednimo de anos",
+                        "displayNameKey": "Prop_GranYThreshold",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "granLabelY": {
+                        "displayName": "Anual",
+                        "displayNameKey": "Prop_GranLabelY",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "dateColumn": {
+                            "max": 1
+                        },
+                        "langMeasure": {
+                            "max": 1
+                        },
+                        "refDateMeasure": {
+                            "max": 1
+                        },
+                        "granColumn": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "dateColumn"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "granColumn"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "langMeasure"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "refDateMeasure"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "privileges": [],
+        "supportsEmptyDataView": true,
+        "suppressDefaultTitle": true,
+        "supportsSynchronizingFilterState": true,
+        "supportsLandingPage": true,
+        "supportsKeyboardFocus": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "supportEnhancedTooltips": true
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
