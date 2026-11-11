@@ -1,0 +1,103 @@
+{
+    "visual": {
+        "name": "trailsbiVisual",
+        "displayName": "TrailsBI",
+        "guid": "trailsbiE7A4C19D",
+        "visualClassName": "Visual",
+        "version": "1.0.1.0",
+        "description": "Shows the TrailsBI report (lineage, model, reports, health and AI readiness) inside Power BI. Reads the hidden TrailsBI table that `trailsbi --embed` writes into the model. Runs entirely inside Power BI and makes no network calls. Support: contact@trailsbi.com",
+        "supportUrl": "https://trailsbi.com/support/",
+        "gitHubUrl": "https://github.com/trailsbi/trailsbi-visual"
+    },
+    "author": {
+        "name": "TrailsBI",
+        "email": "dev@trailsbi.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Chunk",
+                "name": "chunk",
+                "kind": "Grouping",
+                "description": "The Chunk column of the hidden TrailsBI table that trailsbi --embed writes."
+            }
+        ],
+        "objects": {
+            "pages": {
+                "displayName": "Pages",
+                "properties": {
+                    "lineage": {
+                        "displayName": "Lineage",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "model": {
+                        "displayName": "Model",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "reports": {
+                        "displayName": "Reports",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "health": {
+                        "displayName": "Health",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "ai": {
+                        "displayName": "AI Readiness",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "chunk": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "chunk"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "supportsKeyboardFocus": true,
+        "suppressDefaultTitle": true,
+        "privileges": [],
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
