@@ -1,0 +1,3284 @@
+{
+    "visual": {
+        "name": "plumeMatrix",
+        "displayName": "Matrix Plume",
+        "guid": "plumeMatrix2D6A9F3C8B1E4D7A9E5C04B8F2A6D3E1",
+        "visualClassName": "Visual",
+        "version": "1.7.0.0",
+        "description": "Matrix with the Plume Studio look: expand and collapse in place, stepped or tabular layout, subtotals and grand totals, heatmap and data bars per measure, sparklines along the columns, sort, search, resizable columns, one-click styles.",
+        "supportUrl": "https://plumevisuals.com/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Plume Studio",
+        "email": "contact@plumevisuals.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "premium_desc": "Premium feature: usable for free with a \u201cPremium preview\u201d watermark, unlocked by a Plume Studio license key.",
+            "card_license": "Plume Studio License",
+            "license_buy": "Get a license",
+            "license_key": "License key",
+            "license_key_desc": "Paste the key received after purchase on plumevisuals.com (starts with PLUM1.). Checked offline.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Show license holder (edit mode)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Custom colors",
+            "group_style_text": "Text",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Complete look shared by all Plume visuals: colors, three palettes, fonts, frame, table header, marks and effects. Customize colors below.",
+            "style_preset_none": "None",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Black & White",
+            "style_preset_press": "Newspaper \u2605",
+            "style_preset_vintage": "Vintage (antique plate) \u2605",
+            "style_preset_earth": "Earth \u2605",
+            "style_preset_nordic": "Nordic \u2605",
+            "style_preset_executive": "Executive \u2605",
+            "style_preset_accessible": "Accessible (high legibility) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climate \u2605",
+            "style_preset_blueprint": "Blueprint \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (dark) \u2605",
+            "style_preset_neon": "Neon \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographic \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologram \u2605",
+            "style_themeJson": "Theme JSON \u2605",
+            "style_themeJson_desc": "Paste a JSON theme: see the 'JSON themes' tutorial on plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Follow report theme",
+            "style_followTheme_desc": "Text, background, accent and data colors come from the Power BI report theme.",
+            "style_reverse": "Reverse gradients",
+            "style_customColors": "Customize colors",
+            "style_customColors_desc": "Start from the style and pick your own colors. A color left empty keeps the style's color.",
+            "style_colorBackground": "Background",
+            "style_colorText": "Text",
+            "style_colorMuted": "Secondary text",
+            "style_colorGrid": "Lines and grid",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "Unfavorable",
+            "style_series1": "Series 1",
+            "style_series2": "Series 2",
+            "style_series3": "Series 3",
+            "style_series4": "Series 4",
+            "style_series5": "Series 5",
+            "style_series6": "Series 6",
+            "style_series7": "Series 7",
+            "style_series8": "Series 8",
+            "style_palette": "Gradient palette",
+            "style_palette_desc": "Gradient from the catalog (Viridis, Magma\u2026). The start, middle and end colors below replace it.",
+            "style_palette_auto": "Style or theme palette",
+            "style_palette_crest": "Plume (sequential)",
+            "style_palette_crestDiverging": "Plume (diverging)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (colorblind-safe) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Red\u2013Yellow\u2013Blue \u2605",
+            "style_palette_brBG": "Brown\u2013Teal (drought) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Blues \u2605",
+            "style_palette_reds": "Reds \u2605",
+            "style_palette_grays": "Grays \u2605",
+            "style_palette_press": "Press (ink and paper) \u2605",
+            "style_palette_nordic": "Nordic \u2605",
+            "style_palette_earth": "Earth (ochre to umber) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (colorblind-safe) \u2605",
+            "style_scaleLow": "Gradient: start",
+            "style_scaleMid": "Gradient: middle (diverging)",
+            "style_scaleHigh": "Gradient: end",
+            "style_fontFamily": "Font",
+            "style_fontFamily_desc": "Used by every text of the visual (title, axes, labels, cells).",
+            "style_textColor": "Text color (empty = style)",
+            "style_mutedColor": "Secondary text (empty = style)",
+            "style_animate": "Animations",
+            "style_animate_desc": "Smooth transitions when data changes. Automatically disabled when the system asks to reduce motion.",
+            "card_columnFormat": "Column formatting",
+            "columnFormat_align": "Alignment",
+            "columnFormat_align_auto": "Automatic (numbers right)",
+            "columnFormat_align_left": "Left",
+            "columnFormat_align_center": "Center",
+            "columnFormat_align_right": "Right",
+            "columnFormat_units": "Display units",
+            "columnFormat_units_auto": "Auto",
+            "columnFormat_units_none": "None",
+            "columnFormat_units_k": "Thousands",
+            "columnFormat_units_m": "Millions",
+            "columnFormat_units_b": "Billions",
+            "columnFormat_decimals": "Decimals (-1 = field format)",
+            "columnFormat_prefix": "Prefix",
+            "columnFormat_suffix": "Suffix",
+            "columnFormat_cf": "Conditional formatting",
+            "columnFormat_cf_desc": "Quick formatting of a column (\u2605). Free, like in the native table: Cell elements card (gradient, rules, a measure giving the color or an icon).",
+            "columnFormat_cf_none": "None",
+            "columnFormat_cf_negative": "Colored negatives",
+            "columnFormat_cf_dataBar": "Data bars \u2605",
+            "columnFormat_cf_colorScale": "Background color scale \u2605",
+            "columnFormat_cf_textScale": "Text color scale \u2605",
+            "columnFormat_cf_icons": "Icons (\u25b2 \u25cf \u25bc) \u2605",
+            "columnFormat_cf_pill": "Colored pill \u2605",
+            "columnFormat_barColor": "Bar color (empty = accent)",
+            "columnFormat_barOnly": "Bar only (no value)",
+            "columnFormat_scale": "Scale colors",
+            "columnFormat_scale_accent": "Background \u2192 style accent",
+            "columnFormat_scale_style": "Style palette",
+            "columnFormat_scale_greenRed": "Green \u2192 red",
+            "columnFormat_scale_redGreen": "Red \u2192 green",
+            "columnFormat_scale_custom": "Custom",
+            "columnFormat_scaleType": "Color scale type",
+            "columnFormat_scaleType_desc": "Linear: proportional to the value. Logarithmic: spreads small values when a few large ones crush the rest. Quantiles: each shade covers as many cells (rank of the value).",
+            "columnFormat_scaleType_linear": "Linear",
+            "columnFormat_scaleType_log": "Logarithmic \u2605",
+            "columnFormat_scaleType_quantile": "Quantiles (rank) \u2605",
+            "columnFormat_cfGroups": "Group rows and totals",
+            "columnFormat_cfGroups_desc": "By default, conditional formatting only colors detail cells. \"Scale per level\" also colors group rows (subtotals), each level with its own scale (regions together, cities together).",
+            "columnFormat_cfGroups_none": "Detail only",
+            "columnFormat_cfGroups_level": "Scale per level (groups included)",
+            "columnFormat_lowColor": "Low color",
+            "columnFormat_highColor": "High color",
+            "columnFormat_negColor": "Negative color",
+            "columnFormat_posColor": "Positive color (icons)",
+            "columnFormat_iconMode": "Icon rule",
+            "columnFormat_iconMode_sign": "Sign (positive / zero / negative)",
+            "columnFormat_iconMode_terciles": "Thirds of the values (high / mid / low)",
+            "columnFormat_width": "Width (px, 0 = auto)",
+            "columnFormat_group": "Group",
+            "columnFormat_group_desc": "Neighboring columns with the same group name share a header with a + / \u2212 button. Use \"\u203a\" for a subgroup: Sales \u203a 2025.",
+            "columnFormat_groupKeep": "Stays visible when the group is collapsed",
+            "columnFormat_bold": "Bold",
+            "columnFormat_fontColor": "Text color (empty = values)",
+            "columnFormat_background": "Background color (empty = none)",
+            "columnFormat_applyHeader": "Apply to header too",
+            "columnFormat_applyHeader_desc": "Text color, background, bold and alignment of the column on its header too (like \"Specific column \u203a Apply to header\" in the native table).",
+            "columnFormat_applyTotal": "Apply to total too",
+            "columnFormat_image": "Images",
+            "columnFormat_image_desc": "Automatic: a data:image/\u2026 value (or an Image URL column holding base64) becomes an image. Always: also raw base64 and SVG text. Chunk: this column continues the previous column's image (text joined, column hidden), for images longer than 32,766 characters.",
+            "columnFormat_image_auto": "Automatic (data:image\u2026)",
+            "columnFormat_image_on": "Always (raw base64, SVG)",
+            "columnFormat_image_part": "Chunk of the previous column's image",
+            "columnFormat_image_off": "Never (text)",
+            "card_cellElements": "Cell elements",
+            "cellElements_bgMode": "Background color",
+            "cellElements_bgMode_desc": "Like conditional formatting in the native table: gradient, rules, or a measure that returns the color (#RRGGBB, rgb(), CSS name).",
+            "cellElements_bgMode_none": "None",
+            "cellElements_bgMode_gradient": "Gradient",
+            "cellElements_bgMode_rules": "Rules",
+            "cellElements_bgMode_field": "Field value",
+            "cellElements_bgField": "Based on field",
+            "cellElements_bgField_desc": "The column itself, another displayed column, or a field of the \"Cell elements fields\" role (not displayed).",
+            "cellElements_bgLow": "Minimum color (empty = style)",
+            "cellElements_bgMid": "Center color (empty = none)",
+            "cellElements_bgHigh": "Maximum color (empty = style)",
+            "cellElements_bgMin": "Minimum (empty = lowest value)",
+            "cellElements_bgMin_desc": "A number (0), a percentage of the range (10%) or a percentile (p10).",
+            "cellElements_bgMax": "Maximum (empty = highest value)",
+            "cellElements_bgMax_desc": "A number (100), a percentage of the range (90%) or a percentile (p90).",
+            "cellElements_bgRules": "Rules",
+            "cellElements_bgRules_desc": "One rule per line: condition(s), then \":\" and the color. E.g. \">= 100 : #2E7D4F\", \">= 50 and < 100 : orange\", \"< 50 : red\", \"blank : #CCCCCC\", \"else : gray\". A % = share of the range (min \u2192 max), like \"Percent\" in Power BI: \">= 80% : green\". The first matching rule wins.",
+            "cellElements_fontMode": "Font color",
+            "cellElements_fontMode_desc": "Like conditional formatting in the native table: gradient, rules, or a measure that returns the color (#RRGGBB, rgb(), CSS name).",
+            "cellElements_fontMode_none": "None",
+            "cellElements_fontMode_gradient": "Gradient",
+            "cellElements_fontMode_rules": "Rules",
+            "cellElements_fontMode_field": "Field value",
+            "cellElements_fontField": "Based on field",
+            "cellElements_fontField_desc": "The column itself, another displayed column, or a field of the \"Cell elements fields\" role (not displayed).",
+            "cellElements_fontLow": "Minimum color (empty = style)",
+            "cellElements_fontMid": "Center color (empty = none)",
+            "cellElements_fontHigh": "Maximum color (empty = style)",
+            "cellElements_fontMin": "Minimum (empty = lowest value)",
+            "cellElements_fontMin_desc": "A number (0), a percentage of the range (10%) or a percentile (p10).",
+            "cellElements_fontMax": "Maximum (empty = highest value)",
+            "cellElements_fontMax_desc": "A number (100), a percentage of the range (90%) or a percentile (p90).",
+            "cellElements_fontRules": "Rules",
+            "cellElements_fontRules_desc": "One rule per line: condition(s), then \":\" and the color. E.g. \">= 100 : #2E7D4F\", \">= 50 and < 100 : orange\", \"< 50 : red\", \"blank : #CCCCCC\", \"else : gray\". A % = share of the range (min \u2192 max), like \"Percent\" in Power BI: \">= 80% : green\". The first matching rule wins.",
+            "cellElements_scale": "Gradient scale",
+            "cellElements_scale_linear": "Linear",
+            "cellElements_scale_log": "Logarithmic \u2605",
+            "cellElements_scale_quantile": "Quantiles (rank) \u2605",
+            "cellElements_iconMode": "Icons",
+            "cellElements_iconMode_desc": "Rules: a marker set (green / amber / red dots, arrows\u2026) by value; without rules, thirds of the range. Field value: a measure returning an icon name (green, amber, red, up, down, check, warning\u2026), an emoji, or an SVG / base64 image \u2605.",
+            "cellElements_iconMode_none": "None",
+            "cellElements_iconMode_rules": "Rules",
+            "cellElements_iconMode_field": "Field value",
+            "cellElements_iconField": "Based on field",
+            "cellElements_iconSet": "Icon set",
+            "cellElements_iconSet_traffic": "Green / amber / red dots",
+            "cellElements_iconSet_arrows": "Arrows",
+            "cellElements_iconSet_triangles": "Triangles",
+            "cellElements_iconSet_symbols": "Symbols (\u2713 ! \u2717)",
+            "cellElements_iconSet_flags": "Flags",
+            "cellElements_iconSet_shapes": "Shapes (circle, diamond, triangle)",
+            "cellElements_iconSet_stars": "Stars",
+            "cellElements_iconRules": "Icon rules",
+            "cellElements_iconRules_desc": "One rule per line, then \":\" and the icon: high / mid / low (of the chosen set) or a name (green, amber, red, up, down, flat, check, warning, cross, star\u2026). E.g. \">= 0.1 : high\", \">= 0 : mid\", \"else : low\". Empty: thirds of the range.",
+            "cellElements_iconPos": "Icon layout",
+            "cellElements_iconPos_left": "Left of the value",
+            "cellElements_iconPos_right": "Right of the value",
+            "cellElements_iconPos_only": "Icon only",
+            "cellElements_iconAlign": "Icon vertical alignment",
+            "cellElements_iconAlign_top": "Top",
+            "cellElements_iconAlign_middle": "Middle",
+            "cellElements_iconAlign_bottom": "Bottom",
+            "cellElements_iconSize": "Icon size (px, 0 = text size) \u2605",
+            "cellElements_urlMode": "Web URL",
+            "cellElements_urlMode_desc": "The value becomes a link to the address given by the field (https only, opened by Power BI).",
+            "cellElements_urlMode_none": "None",
+            "cellElements_urlMode_field": "Field value",
+            "cellElements_urlField": "Based on field",
+            "cellElements_applyValues": "Apply to values",
+            "cellElements_applyTotals": "Apply to totals and subtotals",
+            "card_grid": "Grid",
+            "group_grid_densityGroup": "Layout",
+            "group_grid_linesGroup": "Lines",
+            "grid_density": "Density",
+            "grid_density_compact": "Compact",
+            "grid_density_normal": "Normal",
+            "grid_density_comfortable": "Comfortable",
+            "grid_fit": "Stretch columns to the visual width",
+            "grid_fit_desc": "Like \"Grow to fit\" in the native table. Off: each column is as wide as its content.",
+            "grid_defaultWidth": "Default column width (px, 0 = fit to content)",
+            "grid_defaultWidth_desc": "Like \"Fixed width\" in the native table: the same width for every column, except those set in Column formatting \u203a Width or with the mouse.",
+            "grid_rowHeight": "Minimum row height (px, 0 = automatic)",
+            "grid_rowHeight_desc": "Taller rows (images, icons, wall displays). Text stays vertically centered.",
+            "grid_rowLines": "Lines between rows",
+            "grid_colLines": "Lines between columns",
+            "grid_lineColor": "Line color (empty = style grid)",
+            "grid_lineWidth": "Line width (px)",
+            "grid_banding": "Banded rows",
+            "grid_bandColor": "Banded row background (empty = automatic)",
+            "grid_bandText": "Banded row text (empty = values text)",
+            "grid_hover": "Highlight hovered row",
+            "card_cells": "Values",
+            "cells_fontSize": "Size",
+            "cells_color": "Color (empty = style text)",
+            "cells_background": "Background color (empty = none)",
+            "cells_bold": "Bold",
+            "cells_italic": "Italic",
+            "cells_wrap": "Text wrap",
+            "cells_blank": "Text for blank cells",
+            "cells_blank_ph": "(empty)",
+            "cells_selColor": "Selected rows background (empty = light accent)",
+            "cells_urlIcon": "Link icon instead of web addresses",
+            "cells_urlIcon_desc": "Like \"URL icon \u203a Values\" in the native table: a URL column (Web URL data category) or a cell elements link shows a clickable icon.",
+            "card_columnHeaders": "Column headers",
+            "columnHeaders_show": "Show",
+            "columnHeaders_fontSize": "Size",
+            "columnHeaders_bold": "Bold",
+            "columnHeaders_italic": "Italic",
+            "columnHeaders_caps": "Small caps",
+            "columnHeaders_color": "Color (empty = secondary text)",
+            "columnHeaders_background": "Background color (empty = none)",
+            "columnHeaders_align": "Alignment",
+            "columnHeaders_align_auto": "Same as the column (numbers right)",
+            "columnHeaders_align_left": "Left",
+            "columnHeaders_align_center": "Center",
+            "columnHeaders_align_right": "Right",
+            "columnHeaders_wrap": "Text wrap",
+            "columnHeaders_rotation": "Text angle (\u00b0) \u2605",
+            "columnHeaders_rotation_desc": "0: horizontal. 45: slanted upward, like Excel. 90: vertical, read from bottom to top. Negative angles slant downward (-90: read from top to bottom). Long headers take little width.",
+            "columnHeaders_rotLength": "Maximum length of a slanted line (px)",
+            "columnHeaders_rotLength_desc": "With \"Text wrap\", a longer header continues on the next line (4 lines at most); without it, it is cut with \"\u2026\".",
+            "columnHeaders_underline": "Rule under headers (text color)",
+            "columnHeaders_sortable": "Sort by clicking a header",
+            "columnHeaders_sortable_desc": "Click: descending (numbers) or A to Z (text), again: the reverse, a third time: model order. Power BI's own sort (\u2026 \u203a Sort by) also works.",
+            "columnHeaders_resizable": "Resize with the mouse",
+            "columnHeaders_resizable_desc": "Drag the edge of a header. Double-click resets the width.",
+            "columnHeaders_urlIcon": "Link icon in URL column headers",
+            "columnHeaders_urlIcon_desc": "Like \"URL icon \u203a Headers\" in the native table.",
+            "card_rowHeaders": "Row headers",
+            "rowHeaders_layout": "Layout",
+            "rowHeaders_layout_stepped": "Stepped (one indented column)",
+            "rowHeaders_layout_tabular": "Tabular (one column per level)",
+            "rowHeaders_indent": "Indent per level (px)",
+            "rowHeaders_icons": "+ / \u2212 buttons",
+            "rowHeaders_boldParents": "Bold groups",
+            "rowHeaders_shade": "Shade group rows",
+            "rowHeaders_fontSize": "Size",
+            "rowHeaders_italic": "Italic",
+            "rowHeaders_color": "Color (empty = text)",
+            "rowHeaders_background": "Background color (empty = none)",
+            "rowHeaders_wrap": "Text wrap",
+            "rowHeaders_iconColor": "+ / \u2212 button color (empty = secondary text)",
+            "rowHeaders_iconSize": "+ / \u2212 button size (px)",
+            "rowHeaders_maxWidth": "Maximum width (% of the visual)",
+            "card_subTotals": "Subtotals",
+            "subTotals_rowSubtotals": "Row subtotals",
+            "subTotals_rowSubtotalsType": "Position",
+            "subTotals_rowSubtotalsType_Top": "On the group row",
+            "subTotals_rowSubtotalsType_Bottom": "\"Total\" row below the group",
+            "subTotals_columnSubtotals": "Column subtotals",
+            "subTotals_grandRow": "Grand total row",
+            "subTotals_grandCol": "Grand total column",
+            "subTotals_grandColPos": "Grand total column position",
+            "subTotals_grandColPos_right": "Right (after all columns)",
+            "subTotals_grandColPos_left": "Left (after the row headers, frozen) \u2605",
+            "subTotals_label": "Total label",
+            "subTotals_label_ph": "Total",
+            "subTotals_background": "Totals background (empty = automatic)",
+            "subTotals_color": "Totals text (empty = text)",
+            "subTotals_bold": "Bold totals",
+            "subTotals_perRowLevel": "Per level (rows)",
+            "subTotals_perColumnLevel": "Per level (columns)",
+            "subTotals_levelSubtotalEnabled": "Level subtotal",
+            "card_expand": "Expand and collapse",
+            "expand_startLevel": "Levels expanded at start",
+            "expand_startLevel_desc": "0: only the first level is shown. 1: its children are shown too\u2026",
+            "expand_remember": "Save the state in the report (edit mode)",
+            "card_colGroups": "Column groups",
+            "colGroups_show": "Collapsible groups \u2605",
+            "colGroups_show_desc": "+ / \u2212 button on group headers (multi-level \"Columns\" field, or groups named in Column formatting \u203a Group). A collapsed group keeps its subtotal when there is one.",
+            "colGroups_startCollapsed": "Groups collapsed at start",
+            "colGroups_remember": "Save the state in the report (edit mode)",
+            "colGroups_separators": "Lines between groups",
+            "colGroups_separators_desc": "Strong vertical line between two column groups (lighter between subgroups), in the header and down every row.",
+            "card_sparklines": "Sparklines \u2605",
+            "sparklines_show": "Show",
+            "sparklines_show_desc": "Adds, for each measure, a column that draws the row along the matrix columns (years, months\u2026): each row's trend at a glance. A field in \"Columns\" is needed.",
+            "sparklines_kind": "Type",
+            "sparklines_kind_line": "Line",
+            "sparklines_kind_bar": "Columns",
+            "sparklines_position": "Position",
+            "sparklines_position_end": "After the columns",
+            "sparklines_position_start": "After the row headers",
+            "sparklines_title": "Header",
+            "sparklines_title_desc": "With several measures, each measure's name is added.",
+            "sparklines_title_ph": "Trend",
+            "sparklines_width": "Minimum width (px)",
+            "sparklines_color": "Color (empty = style accent)",
+            "sparklines_lineWidth": "Line width",
+            "sparklines_area": "Area under the line",
+            "sparklines_last": "Highlight the last value",
+            "sparklines_minMax": "Minimum and maximum points",
+            "sparklines_minMax_desc": "Minimum in the unfavorable color, maximum in the favorable color (style colors).",
+            "sparklines_negColor": "Negative columns (empty = unfavorable)",
+            "sparklines_sameScale": "Same scale for every row",
+            "sparklines_sameScale_desc": "Off: each sparkline uses its full height (read the shape). On: rows can be compared with each other.",
+            "sparklines_zero": "Axis from zero (lines)",
+            "card_images": "Images",
+            "images_size": "Size",
+            "images_size_fixed": "Fixed (same box for every image)",
+            "images_size_auto": "Variable (each image's proportions)",
+            "images_height": "Height (px)",
+            "images_height_desc": "Fixed: box height. Variable: maximum height.",
+            "images_width": "Width (px, 0 = same as height)",
+            "images_width_desc": "Fixed: box width (0: square). Variable: maximum width (0: no limit).",
+            "images_fit": "Fit",
+            "images_fit_contain": "Contain (whole image)",
+            "images_fit_cover": "Crop (fill the box)",
+            "images_fit_fill": "Stretch",
+            "images_align": "Alignment",
+            "images_align_auto": "Same as the column",
+            "images_align_left": "Left",
+            "images_align_center": "Center",
+            "images_align_right": "Right",
+            "images_invalid": "Value that is not an image",
+            "images_invalid_desc": "A web address is never loaded (embedded images only: base64 or data URI).",
+            "images_invalid_blank": "Blank cell",
+            "images_invalid_text": "Original text",
+            "images_headers": "Images in row and column headers",
+            "images_headers_desc": "A data:image/\u2026 value of the \"Rows\" or \"Columns\" field (flag, logo) is shown as an image; screen readers still read its text.",
+            "card_toolbar": "Toolbar",
+            "toolbar_show": "Show",
+            "toolbar_show_desc": "Expand all / collapse all buttons and search above the matrix.",
+            "toolbar_buttons": "Expand all / Collapse all",
+            "toolbar_search": "Search in rows",
+            "toolbar_placeholder": "Placeholder",
+            "toolbar_placeholder_ph": "Search\u2026",
+            "card_autoScroll": "Auto-scroll",
+            "autoScroll_show": "Auto-scroll \u2605",
+            "autoScroll_show_desc": "Scrolls the rows by itself when they do not fit in the visual (vertical scrollbar): ideal in a report page tooltip or on a wall display.",
+            "autoScroll_speed": "Speed (rows per second)",
+            "autoScroll_loop": "Loop (back to the top at the end)",
+            "autoScroll_pause": "Pause at the top and bottom (s)",
+            "autoScroll_hoverPause": "Pause on mouse hover",
+            "card_tooltip": "Tooltips",
+            "tooltip_show": "Show",
+            "tooltip_show_desc": "Tooltip on hover (with the fields of the \"Tooltips\" well and report page tooltips).",
+            "tooltip_rowLabels": "Repeat the row and the column",
+            "tooltip_rowLabels_desc": "A cell's tooltip starts with its row and column headers (Region, City, Year\u2026), then the value and the \"Tooltips\" fields.",
+            "card_title": "Title",
+            "group_title_titleText": "Title",
+            "group_title_subtitleGroup": "Subtitle",
+            "group_title_divider": "Divider",
+            "group_title_spacing": "Spacing",
+            "title_show": "Show",
+            "title_text": "Text",
+            "title_text_desc": "Leave empty for an automatic title built from the fields.",
+            "title_text_ph": "Automatic",
+            "title_fontSize": "Size",
+            "title_bold": "Bold",
+            "title_italic": "Italic",
+            "title_underline": "Underline",
+            "title_color": "Color (empty = text)",
+            "title_bgColor": "Background color",
+            "title_align": "Horizontal alignment",
+            "title_align_left": "Left",
+            "title_align_center": "Center",
+            "title_align_right": "Right",
+            "title_wrap": "Text wrap",
+            "title_subtitle": "Subtitle",
+            "title_subtitle_desc": "Several lines allowed: type \\n to go to the next line.",
+            "title_subFontSize": "Size",
+            "title_subColor": "Color (empty = secondary text)",
+            "title_subItalic": "Italic",
+            "title_divider": "Show divider",
+            "title_dividerColor": "Color (empty = lines)",
+            "title_dividerStyle": "Line style",
+            "title_dividerStyle_solid": "Solid",
+            "title_dividerStyle_dashed": "Dashed",
+            "title_dividerStyle_dotted": "Dotted",
+            "title_dividerWidth": "Width",
+            "title_spaceBelow": "Space below the title (px)",
+            "card_source": "Source note",
+            "source_show": "Show",
+            "source_text": "Text",
+            "source_text_ph": "Source: \u2026",
+            "source_fontSize": "Size",
+            "source_italic": "Italic",
+            "source_color": "Color (empty = secondary text)",
+            "source_align": "Alignment",
+            "source_align_left": "Left",
+            "source_align_center": "Center",
+            "source_align_right": "Right",
+            "card_container": "Frame",
+            "group_container_background": "Background",
+            "group_container_borderGroup": "Border",
+            "group_container_shadowGroup": "Shadow",
+            "group_container_spacing": "Spacing",
+            "container_bgShow": "Background",
+            "container_bgColor": "Color",
+            "container_bgColor2": "Gradient end (optional)",
+            "container_bgTransparency": "Transparency (%)",
+            "container_border": "Border",
+            "container_borderColor": "Color (empty = lines)",
+            "container_borderWidth": "Width",
+            "container_radius": "Rounded corners",
+            "container_shadow": "Shadow",
+            "container_shadowColor": "Color (empty = soft)",
+            "container_shadowSize": "Blur (px)",
+            "container_padding": "Inner padding",
+            "card_texts": "Language and numbers",
+            "texts_language": "Interface language",
+            "texts_language_auto": "Same as Power BI",
+            "texts_language_fr": "French",
+            "texts_language_en": "English",
+            "texts_numberLocale": "Number format locale (e.g. en-GB)",
+            "texts_numberLocale_desc": "Thousands and decimal separators. Empty: same as Power BI.",
+            "texts_numberLocale_ph": "auto",
+            "apply_all": "All columns",
+            "apply_to": "Apply settings to",
+            "role_cellFields": "Cell elements fields",
+            "roleDesc_cellFields": "Not displayed: measures or columns that drive the cell elements (color, icon, link) of the displayed columns",
+            "role_tooltips": "Tooltips",
+            "roleDesc_tooltips": "Not displayed: shown in the tooltip of each row or cell",
+            "cell_self": "(this column)",
+            "cell_apply": "Apply settings to",
+            "role_rows": "Rows",
+            "role_columns": "Columns",
+            "role_values": "Values",
+            "role_format": "Dynamic format",
+            "roleDesc_format": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX"
+        },
+        "fr-FR": {
+            "premium_desc": "Fonction premium : utilisable avec un filigrane \u00ab Aper\u00e7u premium \u00bb, d\u00e9bloqu\u00e9e par une cl\u00e9 de licence Plume Studio.",
+            "card_license": "Licence Plume Studio",
+            "license_buy": "Obtenir une licence",
+            "license_key": "Cl\u00e9 de licence",
+            "license_key_desc": "Collez la cl\u00e9 re\u00e7ue apr\u00e8s l'achat sur plumevisuals.com (commence par PLUM1.). V\u00e9rifi\u00e9e hors ligne.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Afficher le titulaire (mode \u00e9dition)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Couleurs personnalis\u00e9es",
+            "group_style_text": "Texte",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Habillage complet commun \u00e0 tous les visuels Plume : couleurs, trois palettes, polices, cadre, en-t\u00eate des tableaux, marques et effets. Personnalisez les couleurs plus bas.",
+            "style_preset_none": "Aucun",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Noir et blanc",
+            "style_preset_press": "Journal \u2605",
+            "style_preset_vintage": "Vintage (planche ancienne) \u2605",
+            "style_preset_earth": "Terre \u2605",
+            "style_preset_nordic": "Nordique \u2605",
+            "style_preset_executive": "Direction \u2605",
+            "style_preset_accessible": "Accessible (lisibilit\u00e9) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climat \u2605",
+            "style_preset_blueprint": "Plan d'architecte \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (sombre) \u2605",
+            "style_preset_neon": "N\u00e9on \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographie \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologramme \u2605",
+            "style_themeJson": "Th\u00e8me JSON \u2605",
+            "style_themeJson_desc": "Collez un th\u00e8me JSON : voir le tutoriel \u00ab Th\u00e8mes JSON \u00bb sur plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Suivre le th\u00e8me du rapport",
+            "style_followTheme_desc": "Texte, fond, accent et couleurs des donn\u00e9es viennent du th\u00e8me du rapport Power BI.",
+            "style_reverse": "Inverser les d\u00e9grad\u00e9s",
+            "style_customColors": "Personnaliser les couleurs",
+            "style_customColors_desc": "Partez du style et choisissez vos propres couleurs. Une couleur laiss\u00e9e vide garde celle du style.",
+            "style_colorBackground": "Fond",
+            "style_colorText": "Texte",
+            "style_colorMuted": "Texte secondaire",
+            "style_colorGrid": "Traits et grille",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "D\u00e9favorable",
+            "style_series1": "S\u00e9rie 1",
+            "style_series2": "S\u00e9rie 2",
+            "style_series3": "S\u00e9rie 3",
+            "style_series4": "S\u00e9rie 4",
+            "style_series5": "S\u00e9rie 5",
+            "style_series6": "S\u00e9rie 6",
+            "style_series7": "S\u00e9rie 7",
+            "style_series8": "S\u00e9rie 8",
+            "style_palette": "Palette du d\u00e9grad\u00e9",
+            "style_palette_desc": "D\u00e9grad\u00e9 tir\u00e9 du catalogue (Viridis, Magma\u2026). Les couleurs de d\u00e9but, milieu et fin ci-dessous le remplacent.",
+            "style_palette_auto": "Palette du style ou du th\u00e8me",
+            "style_palette_crest": "Plume (s\u00e9quentielle)",
+            "style_palette_crestDiverging": "Plume (divergente)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (daltonisme) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Rouge\u2013Jaune\u2013Bleu \u2605",
+            "style_palette_brBG": "Brun\u2013Bleu-vert (s\u00e9cheresse) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Bleus \u2605",
+            "style_palette_reds": "Rouges \u2605",
+            "style_palette_grays": "Gris \u2605",
+            "style_palette_press": "Presse (encre et papier) \u2605",
+            "style_palette_nordic": "Nordique \u2605",
+            "style_palette_earth": "Terre (ocre \u00e0 terre d'ombre) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (daltonisme) \u2605",
+            "style_scaleLow": "D\u00e9grad\u00e9 : d\u00e9but",
+            "style_scaleMid": "D\u00e9grad\u00e9 : milieu (\u00e9carts)",
+            "style_scaleHigh": "D\u00e9grad\u00e9 : fin",
+            "style_fontFamily": "Police",
+            "style_fontFamily_desc": "Utilis\u00e9e par tous les textes du visuel (titre, axes, \u00e9tiquettes, cellules).",
+            "style_textColor": "Couleur du texte (vide = style)",
+            "style_mutedColor": "Texte secondaire (vide = style)",
+            "style_animate": "Animations",
+            "style_animate_desc": "Transitions fluides quand les donn\u00e9es changent. D\u00e9sactiv\u00e9es automatiquement si le syst\u00e8me demande de r\u00e9duire les animations.",
+            "card_columnFormat": "Mise en forme des colonnes",
+            "columnFormat_align": "Alignement",
+            "columnFormat_align_auto": "Automatique (nombres \u00e0 droite)",
+            "columnFormat_align_left": "Gauche",
+            "columnFormat_align_center": "Centr\u00e9",
+            "columnFormat_align_right": "Droite",
+            "columnFormat_units": "Unit\u00e9s d'affichage",
+            "columnFormat_units_auto": "Auto",
+            "columnFormat_units_none": "Aucune",
+            "columnFormat_units_k": "Milliers",
+            "columnFormat_units_m": "Millions",
+            "columnFormat_units_b": "Milliards",
+            "columnFormat_decimals": "D\u00e9cimales (-1 = format du champ)",
+            "columnFormat_prefix": "Pr\u00e9fixe",
+            "columnFormat_suffix": "Suffixe",
+            "columnFormat_cf": "Mise en forme conditionnelle",
+            "columnFormat_cf_desc": "Mise en forme rapide d'une colonne (\u2605). Gratuit, comme dans le tableau natif : carte \u00c9l\u00e9ments de cellule (d\u00e9grad\u00e9, r\u00e8gles, mesure qui donne la couleur ou une ic\u00f4ne).",
+            "columnFormat_cf_none": "Aucune",
+            "columnFormat_cf_negative": "N\u00e9gatifs en couleur",
+            "columnFormat_cf_dataBar": "Barres de donn\u00e9es \u2605",
+            "columnFormat_cf_colorScale": "Fond en d\u00e9grad\u00e9 \u2605",
+            "columnFormat_cf_textScale": "Texte en d\u00e9grad\u00e9 \u2605",
+            "columnFormat_cf_icons": "Ic\u00f4nes (\u25b2 \u25cf \u25bc) \u2605",
+            "columnFormat_cf_pill": "Pastille color\u00e9e \u2605",
+            "columnFormat_barColor": "Couleur des barres (vide = accent)",
+            "columnFormat_barOnly": "Barre seule (sans valeur)",
+            "columnFormat_scale": "Couleurs du d\u00e9grad\u00e9",
+            "columnFormat_scale_accent": "Fond \u2192 accent du style",
+            "columnFormat_scale_style": "Palette du style",
+            "columnFormat_scale_greenRed": "Vert \u2192 rouge",
+            "columnFormat_scale_redGreen": "Rouge \u2192 vert",
+            "columnFormat_scale_custom": "Personnalis\u00e9es",
+            "columnFormat_scaleType": "\u00c9chelle du d\u00e9grad\u00e9",
+            "columnFormat_scaleType_desc": "Lin\u00e9aire : proportionnelle \u00e0 la valeur. Logarithmique : \u00e9carte les petites valeurs quand quelques grandes \u00e9crasent le reste. Quantiles : chaque teinte couvre autant de cellules (rang de la valeur).",
+            "columnFormat_scaleType_linear": "Lin\u00e9aire",
+            "columnFormat_scaleType_log": "Logarithmique \u2605",
+            "columnFormat_scaleType_quantile": "Quantiles (rang) \u2605",
+            "columnFormat_cfGroups": "Lignes de groupe et totaux",
+            "columnFormat_cfGroups_desc": "Par d\u00e9faut, la mise en forme conditionnelle ne colore que les cellules de d\u00e9tail. \u00ab \u00c9chelle par niveau \u00bb colore aussi les lignes de groupe (sous-totaux), chaque niveau avec sa propre \u00e9chelle (les r\u00e9gions entre elles, les villes entre elles).",
+            "columnFormat_cfGroups_none": "D\u00e9tail seulement",
+            "columnFormat_cfGroups_level": "\u00c9chelle par niveau (groupes compris)",
+            "columnFormat_lowColor": "Couleur basse",
+            "columnFormat_highColor": "Couleur haute",
+            "columnFormat_negColor": "Couleur des n\u00e9gatifs",
+            "columnFormat_posColor": "Couleur des positifs (ic\u00f4nes)",
+            "columnFormat_iconMode": "R\u00e8gle des ic\u00f4nes",
+            "columnFormat_iconMode_sign": "Signe (positif / nul / n\u00e9gatif)",
+            "columnFormat_iconMode_terciles": "Tiers des valeurs (haut / milieu / bas)",
+            "columnFormat_width": "Largeur (px, 0 = auto)",
+            "columnFormat_group": "Groupe",
+            "columnFormat_group_desc": "Les colonnes voisines qui ont le m\u00eame nom de groupe partagent un en-t\u00eate avec un bouton + / \u2212. \u00ab \u203a \u00bb pour un sous-groupe : Ventes \u203a 2025.",
+            "columnFormat_groupKeep": "Reste visible quand le groupe est r\u00e9duit",
+            "columnFormat_bold": "Gras",
+            "columnFormat_fontColor": "Couleur du texte (vide = valeurs)",
+            "columnFormat_background": "Couleur d'arri\u00e8re-plan (vide = aucune)",
+            "columnFormat_applyHeader": "Appliquer aussi \u00e0 l'en-t\u00eate",
+            "columnFormat_applyHeader_desc": "Couleur du texte, arri\u00e8re-plan, gras et alignement de la colonne aussi sur son en-t\u00eate (comme \u00ab Colonne sp\u00e9cifique \u203a Appliquer \u00e0 l'en-t\u00eate \u00bb du tableau natif).",
+            "columnFormat_applyTotal": "Appliquer aussi au total",
+            "columnFormat_image": "Images",
+            "columnFormat_image_desc": "Automatique : une valeur data:image/\u2026 (ou une colonne de cat\u00e9gorie URL d'image contenant du base64) devient une image. Toujours : aussi le base64 brut et le texte SVG. Morceau : cette colonne continue l'image de la colonne pr\u00e9c\u00e9dente (texte recoll\u00e9, colonne masqu\u00e9e), pour les images de plus de 32 766 caract\u00e8res.",
+            "columnFormat_image_auto": "Automatique (data:image\u2026)",
+            "columnFormat_image_on": "Toujours (base64 brut, SVG)",
+            "columnFormat_image_part": "Morceau de l'image de la colonne pr\u00e9c\u00e9dente",
+            "columnFormat_image_off": "Jamais (texte)",
+            "card_cellElements": "\u00c9l\u00e9ments de cellule",
+            "cellElements_bgMode": "Couleur d'arri\u00e8re-plan",
+            "cellElements_bgMode_desc": "Comme la mise en forme conditionnelle du tableau natif : d\u00e9grad\u00e9, r\u00e8gles, ou une mesure qui renvoie la couleur (#RRGGBB, rgb(), nom CSS).",
+            "cellElements_bgMode_none": "Aucun",
+            "cellElements_bgMode_gradient": "D\u00e9grad\u00e9",
+            "cellElements_bgMode_rules": "R\u00e8gles",
+            "cellElements_bgMode_field": "Valeur du champ",
+            "cellElements_bgField": "Selon le champ",
+            "cellElements_bgField_desc": "La colonne elle-m\u00eame, une autre colonne affich\u00e9e, ou un champ du r\u00f4le \u00ab Champs des \u00e9l\u00e9ments de cellule \u00bb (non affich\u00e9).",
+            "cellElements_bgLow": "Couleur minimale (vide = style)",
+            "cellElements_bgMid": "Couleur centrale (vide = aucune)",
+            "cellElements_bgHigh": "Couleur maximale (vide = style)",
+            "cellElements_bgMin": "Minimum (vide = valeur la plus basse)",
+            "cellElements_bgMin_desc": "Un nombre (0), un pourcentage de l'\u00e9tendue (10%) ou un centile (p10).",
+            "cellElements_bgMax": "Maximum (vide = valeur la plus haute)",
+            "cellElements_bgMax_desc": "Un nombre (100), un pourcentage de l'\u00e9tendue (90%) ou un centile (p90).",
+            "cellElements_bgRules": "R\u00e8gles",
+            "cellElements_bgRules_desc": "Une r\u00e8gle par ligne : condition(s) puis \u00ab : \u00bb et la couleur. Ex. \u00ab >= 100 : #2E7D4F \u00bb, \u00ab >= 50 et < 100 : orange \u00bb, \u00ab < 50 : rouge \u00bb, \u00ab vide : #CCCCCC \u00bb, \u00ab sinon : gris \u00bb. Un % = part de l'\u00e9tendue (min \u2192 max), comme \u00ab Pourcentage \u00bb dans Power BI : \u00ab >= 80% : vert \u00bb. La premi\u00e8re r\u00e8gle qui convient l'emporte.",
+            "cellElements_fontMode": "Couleur de police",
+            "cellElements_fontMode_desc": "Comme la mise en forme conditionnelle du tableau natif : d\u00e9grad\u00e9, r\u00e8gles, ou une mesure qui renvoie la couleur (#RRGGBB, rgb(), nom CSS).",
+            "cellElements_fontMode_none": "Aucun",
+            "cellElements_fontMode_gradient": "D\u00e9grad\u00e9",
+            "cellElements_fontMode_rules": "R\u00e8gles",
+            "cellElements_fontMode_field": "Valeur du champ",
+            "cellElements_fontField": "Selon le champ",
+            "cellElements_fontField_desc": "La colonne elle-m\u00eame, une autre colonne affich\u00e9e, ou un champ du r\u00f4le \u00ab Champs des \u00e9l\u00e9ments de cellule \u00bb (non affich\u00e9).",
+            "cellElements_fontLow": "Couleur minimale (vide = style)",
+            "cellElements_fontMid": "Couleur centrale (vide = aucune)",
+            "cellElements_fontHigh": "Couleur maximale (vide = style)",
+            "cellElements_fontMin": "Minimum (vide = valeur la plus basse)",
+            "cellElements_fontMin_desc": "Un nombre (0), un pourcentage de l'\u00e9tendue (10%) ou un centile (p10).",
+            "cellElements_fontMax": "Maximum (vide = valeur la plus haute)",
+            "cellElements_fontMax_desc": "Un nombre (100), un pourcentage de l'\u00e9tendue (90%) ou un centile (p90).",
+            "cellElements_fontRules": "R\u00e8gles",
+            "cellElements_fontRules_desc": "Une r\u00e8gle par ligne : condition(s) puis \u00ab : \u00bb et la couleur. Ex. \u00ab >= 100 : #2E7D4F \u00bb, \u00ab >= 50 et < 100 : orange \u00bb, \u00ab < 50 : rouge \u00bb, \u00ab vide : #CCCCCC \u00bb, \u00ab sinon : gris \u00bb. Un % = part de l'\u00e9tendue (min \u2192 max), comme \u00ab Pourcentage \u00bb dans Power BI : \u00ab >= 80% : vert \u00bb. La premi\u00e8re r\u00e8gle qui convient l'emporte.",
+            "cellElements_scale": "\u00c9chelle des d\u00e9grad\u00e9s",
+            "cellElements_scale_linear": "Lin\u00e9aire",
+            "cellElements_scale_log": "Logarithmique \u2605",
+            "cellElements_scale_quantile": "Quantiles (rang) \u2605",
+            "cellElements_iconMode": "Ic\u00f4nes",
+            "cellElements_iconMode_desc": "R\u00e8gles : un jeu de marqueurs (pastilles vert / orange / rouge, fl\u00e8ches\u2026) selon la valeur ; sans r\u00e8gle, tiers de l'\u00e9tendue. Valeur du champ : une mesure qui renvoie le nom d'une ic\u00f4ne (vert, orange, rouge, haut, bas, ok, attention\u2026), un emoji, ou une image SVG / base64 \u2605.",
+            "cellElements_iconMode_none": "Aucun",
+            "cellElements_iconMode_rules": "R\u00e8gles",
+            "cellElements_iconMode_field": "Valeur du champ",
+            "cellElements_iconField": "Selon le champ",
+            "cellElements_iconSet": "Jeu d'ic\u00f4nes",
+            "cellElements_iconSet_traffic": "Pastilles vert / orange / rouge",
+            "cellElements_iconSet_arrows": "Fl\u00e8ches",
+            "cellElements_iconSet_triangles": "Triangles",
+            "cellElements_iconSet_symbols": "Symboles (\u2713 ! \u2717)",
+            "cellElements_iconSet_flags": "Drapeaux",
+            "cellElements_iconSet_shapes": "Formes (rond, losange, triangle)",
+            "cellElements_iconSet_stars": "\u00c9toiles",
+            "cellElements_iconRules": "R\u00e8gles des ic\u00f4nes",
+            "cellElements_iconRules_desc": "Une r\u00e8gle par ligne, puis \u00ab : \u00bb et l'ic\u00f4ne : fort / moyen / faible (selon le jeu choisi) ou un nom (vert, orange, rouge, haut, bas, stable, ok, attention, ko, \u00e9toile\u2026). Ex. \u00ab >= 0.1 : fort \u00bb, \u00ab >= 0 : moyen \u00bb, \u00ab sinon : faible \u00bb. Vide : tiers de l'\u00e9tendue.",
+            "cellElements_iconPos": "Disposition de l'ic\u00f4ne",
+            "cellElements_iconPos_left": "\u00c0 gauche de la valeur",
+            "cellElements_iconPos_right": "\u00c0 droite de la valeur",
+            "cellElements_iconPos_only": "Ic\u00f4ne seule",
+            "cellElements_iconAlign": "Alignement vertical de l'ic\u00f4ne",
+            "cellElements_iconAlign_top": "Haut",
+            "cellElements_iconAlign_middle": "Milieu",
+            "cellElements_iconAlign_bottom": "Bas",
+            "cellElements_iconSize": "Taille de l'ic\u00f4ne (px, 0 = taille du texte) \u2605",
+            "cellElements_urlMode": "URL web",
+            "cellElements_urlMode_desc": "La valeur devient un lien vers l'adresse donn\u00e9e par le champ (https seulement, ouverte par Power BI).",
+            "cellElements_urlMode_none": "Aucun",
+            "cellElements_urlMode_field": "Valeur du champ",
+            "cellElements_urlField": "Selon le champ",
+            "cellElements_applyValues": "Appliquer aux valeurs",
+            "cellElements_applyTotals": "Appliquer aux totaux et sous-totaux",
+            "card_grid": "Grille",
+            "group_grid_densityGroup": "Mise en page",
+            "group_grid_linesGroup": "Traits",
+            "grid_density": "Densit\u00e9",
+            "grid_density_compact": "Compacte",
+            "grid_density_normal": "Normale",
+            "grid_density_comfortable": "A\u00e9r\u00e9e",
+            "grid_fit": "\u00c9tirer les colonnes \u00e0 la largeur du visuel",
+            "grid_fit_desc": "Comme \u00ab Ajuster pour agrandir \u00bb du tableau natif. D\u00e9sactiv\u00e9 : chaque colonne a la largeur de son contenu.",
+            "grid_defaultWidth": "Largeur par d\u00e9faut des colonnes (px, 0 = selon le contenu)",
+            "grid_defaultWidth_desc": "Comme \u00ab Largeur fixe \u00bb du tableau natif : la m\u00eame largeur pour toutes les colonnes, sauf celles r\u00e9gl\u00e9es dans Mise en forme des colonnes \u203a Largeur ou \u00e0 la souris.",
+            "grid_rowHeight": "Hauteur minimale des lignes (px, 0 = automatique)",
+            "grid_rowHeight_desc": "Lignes plus hautes (images, ic\u00f4nes, lecture sur \u00e9cran). Le texte reste centr\u00e9 verticalement.",
+            "grid_rowLines": "Traits entre les lignes",
+            "grid_colLines": "Traits entre les colonnes",
+            "grid_lineColor": "Couleur des traits (vide = grille du style)",
+            "grid_lineWidth": "\u00c9paisseur des traits (px)",
+            "grid_banding": "Lignes altern\u00e9es",
+            "grid_bandColor": "Fond des lignes altern\u00e9es (vide = automatique)",
+            "grid_bandText": "Texte des lignes altern\u00e9es (vide = texte des valeurs)",
+            "grid_hover": "Surligner la ligne survol\u00e9e",
+            "card_cells": "Valeurs",
+            "cells_fontSize": "Taille",
+            "cells_color": "Couleur (vide = texte du style)",
+            "cells_background": "Couleur d'arri\u00e8re-plan (vide = aucune)",
+            "cells_bold": "Gras",
+            "cells_italic": "Italique",
+            "cells_wrap": "Retour automatique \u00e0 la ligne",
+            "cells_blank": "Texte des cellules vides",
+            "cells_blank_ph": "(vide)",
+            "cells_selColor": "Fond des lignes s\u00e9lectionn\u00e9es (vide = accent p\u00e2le)",
+            "cells_urlIcon": "Ic\u00f4ne de lien \u00e0 la place des adresses web",
+            "cells_urlIcon_desc": "Comme \u00ab Ic\u00f4ne d'URL \u203a Valeurs \u00bb du tableau natif : une colonne d'URL (cat\u00e9gorie de donn\u00e9es URL web) ou un lien des \u00e9l\u00e9ments de cellule montre une ic\u00f4ne cliquable.",
+            "card_columnHeaders": "En-t\u00eates de colonnes",
+            "columnHeaders_show": "Afficher",
+            "columnHeaders_fontSize": "Taille",
+            "columnHeaders_bold": "Gras",
+            "columnHeaders_italic": "Italique",
+            "columnHeaders_caps": "Petites majuscules",
+            "columnHeaders_color": "Couleur (vide = texte secondaire)",
+            "columnHeaders_background": "Couleur d'arri\u00e8re-plan (vide = aucune)",
+            "columnHeaders_align": "Alignement",
+            "columnHeaders_align_auto": "Comme la colonne (nombres \u00e0 droite)",
+            "columnHeaders_align_left": "Gauche",
+            "columnHeaders_align_center": "Centr\u00e9",
+            "columnHeaders_align_right": "Droite",
+            "columnHeaders_wrap": "Retour automatique \u00e0 la ligne",
+            "columnHeaders_rotation": "Inclinaison du texte (\u00b0) \u2605",
+            "columnHeaders_rotation_desc": "0 : horizontal. 45 : inclin\u00e9 vers le haut, comme dans Excel. 90 : vertical, lu de bas en haut. Un angle n\u00e9gatif incline vers le bas (-90 : lu de haut en bas). Les en-t\u00eates longs prennent peu de largeur.",
+            "columnHeaders_rotLength": "Longueur maximale d'une ligne inclin\u00e9e (px)",
+            "columnHeaders_rotLength_desc": "Avec \u00ab Retour automatique \u00e0 la ligne \u00bb, un en-t\u00eate plus long continue sur la ligne suivante (4 lignes au plus) ; sans, il est coup\u00e9 par \u00ab \u2026 \u00bb.",
+            "columnHeaders_underline": "Trait sous les en-t\u00eates (couleur du texte)",
+            "columnHeaders_sortable": "Trier en cliquant sur un en-t\u00eate",
+            "columnHeaders_sortable_desc": "Un clic : d\u00e9croissant (nombres) ou A \u2192 Z (texte), deux : l'inverse, trois : ordre du mod\u00e8le. Le tri de Power BI (\u2026 \u203a Trier par) fonctionne aussi.",
+            "columnHeaders_resizable": "Largeur ajustable \u00e0 la souris",
+            "columnHeaders_resizable_desc": "Faites glisser le bord d'un en-t\u00eate. Un double-clic r\u00e9tablit la largeur automatique.",
+            "columnHeaders_urlIcon": "Ic\u00f4ne de lien dans les en-t\u00eates des colonnes d'URL",
+            "columnHeaders_urlIcon_desc": "Comme \u00ab Ic\u00f4ne d'URL \u203a En-t\u00eates \u00bb du tableau natif.",
+            "card_rowHeaders": "En-t\u00eates de lignes",
+            "rowHeaders_layout": "Disposition",
+            "rowHeaders_layout_stepped": "En escalier (une colonne, d\u00e9cal\u00e9e)",
+            "rowHeaders_layout_tabular": "Tabulaire (une colonne par niveau)",
+            "rowHeaders_indent": "D\u00e9calage par niveau (px)",
+            "rowHeaders_icons": "Boutons + / \u2212",
+            "rowHeaders_boldParents": "Groupes en gras",
+            "rowHeaders_shade": "Teinter les lignes de groupe",
+            "rowHeaders_fontSize": "Taille",
+            "rowHeaders_italic": "Italique",
+            "rowHeaders_color": "Couleur (vide = texte)",
+            "rowHeaders_background": "Couleur d'arri\u00e8re-plan (vide = aucune)",
+            "rowHeaders_wrap": "Retour automatique \u00e0 la ligne",
+            "rowHeaders_iconColor": "Couleur des boutons + / \u2212 (vide = texte secondaire)",
+            "rowHeaders_iconSize": "Taille des boutons + / \u2212 (px)",
+            "rowHeaders_maxWidth": "Largeur maximale (% du visuel)",
+            "card_subTotals": "Sous-totaux",
+            "subTotals_rowSubtotals": "Sous-totaux des lignes",
+            "subTotals_rowSubtotalsType": "Position",
+            "subTotals_rowSubtotalsType_Top": "Sur la ligne du groupe",
+            "subTotals_rowSubtotalsType_Bottom": "Ligne \u00ab Total \u00bb sous le groupe",
+            "subTotals_columnSubtotals": "Sous-totaux des colonnes",
+            "subTotals_grandRow": "Ligne de total g\u00e9n\u00e9ral",
+            "subTotals_grandCol": "Colonne de total g\u00e9n\u00e9ral",
+            "subTotals_grandColPos": "Position de la colonne de total",
+            "subTotals_grandColPos_right": "\u00c0 droite (apr\u00e8s toutes les colonnes)",
+            "subTotals_grandColPos_left": "\u00c0 gauche (apr\u00e8s les en-t\u00eates de lignes, fig\u00e9e) \u2605",
+            "subTotals_label": "Libell\u00e9 du total",
+            "subTotals_label_ph": "Total",
+            "subTotals_background": "Arri\u00e8re-plan des totaux (vide = automatique)",
+            "subTotals_color": "Texte des totaux (vide = texte)",
+            "subTotals_bold": "Totaux en gras",
+            "subTotals_perRowLevel": "Par niveau (lignes)",
+            "subTotals_perColumnLevel": "Par niveau (colonnes)",
+            "subTotals_levelSubtotalEnabled": "Sous-total du niveau",
+            "card_expand": "D\u00e9velopper et r\u00e9duire",
+            "expand_startLevel": "Niveaux d\u00e9velopp\u00e9s au d\u00e9part",
+            "expand_startLevel_desc": "0 : seul le premier niveau est affich\u00e9. 1 : ses enfants aussi\u2026",
+            "expand_remember": "M\u00e9moriser l'\u00e9tat dans le rapport (mode \u00e9dition)",
+            "card_colGroups": "Groupes de colonnes",
+            "colGroups_show": "Groupes repliables \u2605",
+            "colGroups_show_desc": "Bouton + / \u2212 sur les en-t\u00eates de groupes (champ \u00ab Colonnes \u00bb sur plusieurs niveaux, ou groupes nomm\u00e9s dans Mise en forme des colonnes \u203a Groupe). Un groupe r\u00e9duit garde son sous-total s'il existe.",
+            "colGroups_startCollapsed": "Groupes r\u00e9duits au d\u00e9part",
+            "colGroups_remember": "M\u00e9moriser l'\u00e9tat dans le rapport (mode \u00e9dition)",
+            "colGroups_separators": "Traits entre les groupes",
+            "colGroups_separators_desc": "Trait vertical marqu\u00e9 entre deux groupes de colonnes (plus l\u00e9ger entre deux sous-groupes), en en-t\u00eate et dans toutes les lignes.",
+            "card_sparklines": "Mini-graphiques \u2605",
+            "sparklines_show": "Afficher",
+            "sparklines_show_desc": "Ajoute, pour chaque mesure, une colonne qui dessine la ligne le long des colonnes de la matrice (ann\u00e9es, mois\u2026) : la tendance de chaque ligne d'un coup d'\u0153il. Il faut un champ dans \u00ab Colonnes \u00bb.",
+            "sparklines_kind": "Type",
+            "sparklines_kind_line": "Courbe",
+            "sparklines_kind_bar": "Histogramme",
+            "sparklines_position": "Position",
+            "sparklines_position_end": "Apr\u00e8s les colonnes",
+            "sparklines_position_start": "Apr\u00e8s les en-t\u00eates de lignes",
+            "sparklines_title": "En-t\u00eate",
+            "sparklines_title_desc": "Avec plusieurs mesures, le nom de chaque mesure est ajout\u00e9.",
+            "sparklines_title_ph": "Tendance",
+            "sparklines_width": "Largeur minimale (px)",
+            "sparklines_color": "Couleur (vide = accent du style)",
+            "sparklines_lineWidth": "\u00c9paisseur des courbes",
+            "sparklines_area": "Aire sous la courbe",
+            "sparklines_last": "Mettre en avant la derni\u00e8re valeur",
+            "sparklines_minMax": "Points minimum et maximum",
+            "sparklines_minMax_desc": "Minimum en couleur d\u00e9favorable, maximum en couleur favorable (couleurs du style).",
+            "sparklines_negColor": "Barres n\u00e9gatives (vide = d\u00e9favorable)",
+            "sparklines_sameScale": "M\u00eame \u00e9chelle pour toutes les lignes",
+            "sparklines_sameScale_desc": "D\u00e9sactiv\u00e9 : chaque mini-graphique occupe toute sa hauteur (on lit la forme). Activ\u00e9 : les lignes se comparent entre elles.",
+            "sparklines_zero": "Axe depuis z\u00e9ro (courbes)",
+            "card_images": "Images",
+            "images_size": "Dimension",
+            "images_size_fixed": "Fixe (m\u00eame bo\u00eete pour toutes les images)",
+            "images_size_auto": "Variable (proportions de chaque image)",
+            "images_height": "Hauteur (px)",
+            "images_height_desc": "Fixe : hauteur de la bo\u00eete. Variable : hauteur maximale.",
+            "images_width": "Largeur (px, 0 = comme la hauteur)",
+            "images_width_desc": "Fixe : largeur de la bo\u00eete (0 : carr\u00e9e). Variable : largeur maximale (0 : sans limite).",
+            "images_fit": "Ajustement",
+            "images_fit_contain": "Contenir (image enti\u00e8re)",
+            "images_fit_cover": "Recadrer (remplir la bo\u00eete)",
+            "images_fit_fill": "\u00c9tirer",
+            "images_align": "Alignement",
+            "images_align_auto": "Comme la colonne",
+            "images_align_left": "Gauche",
+            "images_align_center": "Centr\u00e9",
+            "images_align_right": "Droite",
+            "images_invalid": "Valeur qui n'est pas une image",
+            "images_invalid_desc": "Une adresse web n'est jamais charg\u00e9e (images int\u00e9gr\u00e9es seulement : base64 ou data URI).",
+            "images_invalid_blank": "Cellule vide",
+            "images_invalid_text": "Texte d'origine",
+            "images_headers": "Images dans les en-t\u00eates de lignes et de colonnes",
+            "images_headers_desc": "Une valeur data:image/\u2026 du champ \u00ab Lignes \u00bb ou \u00ab Colonnes \u00bb (drapeau, logo) s'affiche en image ; son texte reste lu par les lecteurs d'\u00e9cran.",
+            "card_toolbar": "Barre d'outils",
+            "toolbar_show": "Afficher",
+            "toolbar_show_desc": "Boutons \u00ab Tout d\u00e9velopper / Tout r\u00e9duire \u00bb et recherche au-dessus de la matrice.",
+            "toolbar_buttons": "Tout d\u00e9velopper / Tout r\u00e9duire",
+            "toolbar_search": "Recherche dans les lignes",
+            "toolbar_placeholder": "Texte indicatif",
+            "toolbar_placeholder_ph": "Rechercher\u2026",
+            "card_autoScroll": "D\u00e9filement automatique",
+            "autoScroll_show": "D\u00e9filement automatique \u2605",
+            "autoScroll_show_desc": "Fait d\u00e9filer les lignes toutes seules quand elles ne tiennent pas dans le visuel (barre de d\u00e9filement verticale) : id\u00e9al dans une info-bulle de page de rapport ou sur un \u00e9cran d'affichage.",
+            "autoScroll_speed": "Vitesse (lignes par seconde)",
+            "autoScroll_loop": "Boucler (revenir en haut \u00e0 la fin)",
+            "autoScroll_pause": "Pause en haut et en bas (s)",
+            "autoScroll_hoverPause": "Pause au survol de la souris",
+            "card_tooltip": "Infobulles",
+            "tooltip_show": "Afficher",
+            "tooltip_show_desc": "Infobulle au survol (avec les champs de la zone \u00ab Info-bulles \u00bb et les pages d'info-bulle du rapport).",
+            "tooltip_rowLabels": "Rappeler la ligne et la colonne",
+            "tooltip_rowLabels_desc": "L'infobulle d'une cellule commence par ses en-t\u00eates de lignes et de colonnes (R\u00e9gion, Ville, Ann\u00e9e\u2026), puis la valeur et les champs \u00ab Info-bulles \u00bb.",
+            "card_title": "Titre",
+            "group_title_titleText": "Titre",
+            "group_title_subtitleGroup": "Sous-titre",
+            "group_title_divider": "S\u00e9parateur",
+            "group_title_spacing": "Espacement",
+            "title_show": "Afficher",
+            "title_text": "Texte",
+            "title_text_desc": "Laisser vide pour un titre automatique construit \u00e0 partir des champs.",
+            "title_text_ph": "Automatique",
+            "title_fontSize": "Taille",
+            "title_bold": "Gras",
+            "title_italic": "Italique",
+            "title_underline": "Soulign\u00e9",
+            "title_color": "Couleur (vide = texte)",
+            "title_bgColor": "Couleur d'arri\u00e8re-plan",
+            "title_align": "Alignement horizontal",
+            "title_align_left": "Gauche",
+            "title_align_center": "Centr\u00e9",
+            "title_align_right": "Droite",
+            "title_wrap": "Retour automatique \u00e0 la ligne",
+            "title_subtitle": "Sous-titre",
+            "title_subtitle_desc": "Plusieurs lignes possibles : tapez \\n pour aller \u00e0 la ligne.",
+            "title_subFontSize": "Taille",
+            "title_subColor": "Couleur (vide = texte secondaire)",
+            "title_subItalic": "Italique",
+            "title_divider": "Afficher le s\u00e9parateur",
+            "title_dividerColor": "Couleur (vide = traits)",
+            "title_dividerStyle": "Style de trait",
+            "title_dividerStyle_solid": "Continu",
+            "title_dividerStyle_dashed": "Tirets",
+            "title_dividerStyle_dotted": "Pointill\u00e9s",
+            "title_dividerWidth": "\u00c9paisseur",
+            "title_spaceBelow": "Espace sous le titre (px)",
+            "card_source": "Note de source",
+            "source_show": "Afficher",
+            "source_text": "Texte",
+            "source_text_ph": "Source : \u2026",
+            "source_fontSize": "Taille",
+            "source_italic": "Italique",
+            "source_color": "Couleur (vide = texte secondaire)",
+            "source_align": "Alignement",
+            "source_align_left": "Gauche",
+            "source_align_center": "Centr\u00e9",
+            "source_align_right": "Droite",
+            "card_container": "Cadre",
+            "group_container_background": "Arri\u00e8re-plan",
+            "group_container_borderGroup": "Bordure",
+            "group_container_shadowGroup": "Ombre",
+            "group_container_spacing": "Marges",
+            "container_bgShow": "Arri\u00e8re-plan",
+            "container_bgColor": "Couleur",
+            "container_bgColor2": "Fin du d\u00e9grad\u00e9 (optionnel)",
+            "container_bgTransparency": "Transparence (%)",
+            "container_border": "Bordure",
+            "container_borderColor": "Couleur (vide = traits)",
+            "container_borderWidth": "\u00c9paisseur",
+            "container_radius": "Coins arrondis",
+            "container_shadow": "Ombre",
+            "container_shadowColor": "Couleur (vide = douce)",
+            "container_shadowSize": "Flou (px)",
+            "container_padding": "Marge int\u00e9rieure",
+            "card_texts": "Langue et nombres",
+            "texts_language": "Langue de l'interface",
+            "texts_language_auto": "Comme Power BI",
+            "texts_language_fr": "Fran\u00e7ais",
+            "texts_language_en": "Anglais",
+            "texts_numberLocale": "Format des nombres (ex. fr-FR)",
+            "texts_numberLocale_desc": "S\u00e9parateurs des milliers et des d\u00e9cimales. Vide : comme Power BI.",
+            "texts_numberLocale_ph": "auto",
+            "apply_all": "Toutes les colonnes",
+            "apply_to": "Appliquer les r\u00e9glages \u00e0",
+            "role_cellFields": "Champs des \u00e9l\u00e9ments de cellule",
+            "roleDesc_cellFields": "Non affich\u00e9s : mesures ou colonnes qui pilotent les \u00e9l\u00e9ments de cellule (couleur, ic\u00f4ne, lien) des colonnes affich\u00e9es",
+            "role_tooltips": "Info-bulles",
+            "roleDesc_tooltips": "Non affich\u00e9s : montr\u00e9s dans l'info-bulle de chaque ligne ou cellule",
+            "cell_self": "(cette colonne)",
+            "cell_apply": "Appliquer les r\u00e9glages \u00e0",
+            "role_rows": "Lignes",
+            "role_columns": "Colonnes",
+            "role_values": "Valeurs",
+            "role_format": "Format dynamique",
+            "roleDesc_format": "Mesures nomm\u00e9es carte.r\u00e9glage (ex. title.fontSize) : pilotez n'importe quel r\u00e9glage du volet Format en DAX"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "rows",
+                "kind": "Grouping",
+                "displayName": "Rows",
+                "displayNameKey": "role_rows"
+            },
+            {
+                "name": "columns",
+                "kind": "Grouping",
+                "displayName": "Columns",
+                "displayNameKey": "role_columns"
+            },
+            {
+                "name": "values",
+                "kind": "Measure",
+                "displayName": "Values",
+                "displayNameKey": "role_values"
+            },
+            {
+                "name": "cellFields",
+                "kind": "Measure",
+                "displayName": "Cell elements fields",
+                "displayNameKey": "role_cellFields",
+                "description": "Not displayed: measures or columns that drive the cell elements (color, icon, link) of the displayed columns",
+                "descriptionKey": "roleDesc_cellFields"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "role_tooltips",
+                "description": "Not displayed: shown in the tooltip of each row or cell",
+                "descriptionKey": "roleDesc_tooltips"
+            },
+            {
+                "name": "format",
+                "kind": "Measure",
+                "displayName": "Dynamic format",
+                "displayNameKey": "role_format",
+                "description": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX",
+                "descriptionKey": "roleDesc_format"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "matrix": {
+                    "rows": {
+                        "for": {
+                            "in": "rows"
+                        },
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "columns": {
+                        "for": {
+                            "in": "columns"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 120
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "values"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "cellFields"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "format"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "subtotals": {
+            "matrix": {
+                "rowSubtotals": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "rowSubtotals"
+                    },
+                    "defaultValue": true
+                },
+                "rowSubtotalsPerLevel": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "perRowLevel"
+                    },
+                    "defaultValue": false
+                },
+                "columnSubtotals": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "columnSubtotals"
+                    },
+                    "defaultValue": true
+                },
+                "columnSubtotalsPerLevel": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "perColumnLevel"
+                    },
+                    "defaultValue": false
+                },
+                "levelSubtotalEnabled": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "levelSubtotalEnabled"
+                    },
+                    "defaultValue": true
+                },
+                "rowSubtotalsType": {
+                    "propertyIdentifier": {
+                        "objectName": "subTotals",
+                        "propertyName": "rowSubtotalsType"
+                    },
+                    "defaultValue": "Top"
+                }
+            }
+        },
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "supportsHighlight": false,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "suppressDefaultTitle": true,
+        "privileges": [],
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "sorting": {
+            "default": {}
+        },
+        "objects": {
+            "license": {
+                "properties": {
+                    "buy": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "key": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showOwner": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "style": {
+                "properties": {
+                    "preset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal"
+                                },
+                                {
+                                    "value": "blackWhite",
+                                    "displayName": "Black & White"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Newspaper \u2605"
+                                },
+                                {
+                                    "value": "vintage",
+                                    "displayName": "Vintage (antique plate) \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "executive",
+                                    "displayName": "Executive \u2605"
+                                },
+                                {
+                                    "value": "accessible",
+                                    "displayName": "Accessible (high legibility) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "bauhaus",
+                                    "displayName": "Bauhaus (pop) \u2605"
+                                },
+                                {
+                                    "value": "climate",
+                                    "displayName": "Climate \u2605"
+                                },
+                                {
+                                    "value": "blueprint",
+                                    "displayName": "Blueprint \u2605"
+                                },
+                                {
+                                    "value": "unknownPleasures",
+                                    "displayName": "Unknown Pleasures \u2605"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Graphite (dark) \u2605"
+                                },
+                                {
+                                    "value": "neon",
+                                    "displayName": "Neon \u2605"
+                                },
+                                {
+                                    "value": "terminal",
+                                    "displayName": "Terminal (Matrix) \u2605"
+                                },
+                                {
+                                    "value": "infographic",
+                                    "displayName": "Infographic \u2605"
+                                },
+                                {
+                                    "value": "cockpit",
+                                    "displayName": "Cockpit (HUD) \u2605"
+                                },
+                                {
+                                    "value": "hologram",
+                                    "displayName": "Hologram \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "themeJson": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "followTheme": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "reverse": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "customColors": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorText": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorMuted": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorGrid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorAccent": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorPositive": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorNegative": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series1": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series3": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series4": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series5": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series6": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series7": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series8": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "palette": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Style or theme palette"
+                                },
+                                {
+                                    "value": "crest",
+                                    "displayName": "Plume (sequential)"
+                                },
+                                {
+                                    "value": "crestDiverging",
+                                    "displayName": "Plume (diverging)"
+                                },
+                                {
+                                    "value": "viridis",
+                                    "displayName": "Viridis \u2605"
+                                },
+                                {
+                                    "value": "magma",
+                                    "displayName": "Magma \u2605"
+                                },
+                                {
+                                    "value": "inferno",
+                                    "displayName": "Inferno \u2605"
+                                },
+                                {
+                                    "value": "cividis",
+                                    "displayName": "Cividis (colorblind-safe) \u2605"
+                                },
+                                {
+                                    "value": "warmingStripes",
+                                    "displayName": "Warming stripes \u2605"
+                                },
+                                {
+                                    "value": "rdYlBu",
+                                    "displayName": "Red\u2013Yellow\u2013Blue \u2605"
+                                },
+                                {
+                                    "value": "brBG",
+                                    "displayName": "Brown\u2013Teal (drought) \u2605"
+                                },
+                                {
+                                    "value": "spectral",
+                                    "displayName": "Spectral \u2605"
+                                },
+                                {
+                                    "value": "blues",
+                                    "displayName": "Blues \u2605"
+                                },
+                                {
+                                    "value": "reds",
+                                    "displayName": "Reds \u2605"
+                                },
+                                {
+                                    "value": "grays",
+                                    "displayName": "Grays \u2605"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Press (ink and paper) \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth (ochre to umber) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "okabeIto",
+                                    "displayName": "Okabe-Ito (colorblind-safe) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "scaleLow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleMid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleHigh": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "mutedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "animate": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "columnFormat": {
+                "properties": {
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (numbers right)"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "units": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "k",
+                                    "displayName": "Thousands"
+                                },
+                                {
+                                    "value": "m",
+                                    "displayName": "Millions"
+                                },
+                                {
+                                    "value": "b",
+                                    "displayName": "Billions"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "prefix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "suffix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "cf": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "negative",
+                                    "displayName": "Colored negatives"
+                                },
+                                {
+                                    "value": "dataBar",
+                                    "displayName": "Data bars \u2605"
+                                },
+                                {
+                                    "value": "colorScale",
+                                    "displayName": "Background color scale \u2605"
+                                },
+                                {
+                                    "value": "textScale",
+                                    "displayName": "Text color scale \u2605"
+                                },
+                                {
+                                    "value": "icons",
+                                    "displayName": "Icons (\u25b2 \u25cf \u25bc) \u2605"
+                                },
+                                {
+                                    "value": "pill",
+                                    "displayName": "Colored pill \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "barColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "barOnly": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scale": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "accent",
+                                    "displayName": "Background \u2192 style accent"
+                                },
+                                {
+                                    "value": "style",
+                                    "displayName": "Style palette"
+                                },
+                                {
+                                    "value": "greenRed",
+                                    "displayName": "Green \u2192 red"
+                                },
+                                {
+                                    "value": "redGreen",
+                                    "displayName": "Red \u2192 green"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom"
+                                }
+                            ]
+                        }
+                    },
+                    "scaleType": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "linear",
+                                    "displayName": "Linear"
+                                },
+                                {
+                                    "value": "log",
+                                    "displayName": "Logarithmic \u2605"
+                                },
+                                {
+                                    "value": "quantile",
+                                    "displayName": "Quantiles (rank) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "cfGroups": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "Detail only"
+                                },
+                                {
+                                    "value": "level",
+                                    "displayName": "Scale per level (groups included)"
+                                }
+                            ]
+                        }
+                    },
+                    "lowColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "highColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "negColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "posColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "iconMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sign",
+                                    "displayName": "Sign (positive / zero / negative)"
+                                },
+                                {
+                                    "value": "terciles",
+                                    "displayName": "Thirds of the values (high / mid / low)"
+                                }
+                            ]
+                        }
+                    },
+                    "width": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "group": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "groupKeep": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "applyHeader": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "applyTotal": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "image": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (data:image\u2026)"
+                                },
+                                {
+                                    "value": "on",
+                                    "displayName": "Always (raw base64, SVG)"
+                                },
+                                {
+                                    "value": "part",
+                                    "displayName": "Chunk of the previous column's image"
+                                },
+                                {
+                                    "value": "off",
+                                    "displayName": "Never (text)"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "cellElements": {
+                "properties": {
+                    "bgMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "gradient",
+                                    "displayName": "Gradient"
+                                },
+                                {
+                                    "value": "rules",
+                                    "displayName": "Rules"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "Field value"
+                                }
+                            ]
+                        }
+                    },
+                    "bgField": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "bgLow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgMid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgHigh": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgMin": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "bgMax": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "bgRules": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "gradient",
+                                    "displayName": "Gradient"
+                                },
+                                {
+                                    "value": "rules",
+                                    "displayName": "Rules"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "Field value"
+                                }
+                            ]
+                        }
+                    },
+                    "fontField": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "fontLow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontMid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontHigh": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontMin": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontMax": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontRules": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "scale": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "linear",
+                                    "displayName": "Linear"
+                                },
+                                {
+                                    "value": "log",
+                                    "displayName": "Logarithmic \u2605"
+                                },
+                                {
+                                    "value": "quantile",
+                                    "displayName": "Quantiles (rank) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "iconMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "rules",
+                                    "displayName": "Rules"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "Field value"
+                                }
+                            ]
+                        }
+                    },
+                    "iconField": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "iconSet": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "traffic",
+                                    "displayName": "Green / amber / red dots"
+                                },
+                                {
+                                    "value": "arrows",
+                                    "displayName": "Arrows"
+                                },
+                                {
+                                    "value": "triangles",
+                                    "displayName": "Triangles"
+                                },
+                                {
+                                    "value": "symbols",
+                                    "displayName": "Symbols (\u2713 ! \u2717)"
+                                },
+                                {
+                                    "value": "flags",
+                                    "displayName": "Flags"
+                                },
+                                {
+                                    "value": "shapes",
+                                    "displayName": "Shapes (circle, diamond, triangle)"
+                                },
+                                {
+                                    "value": "stars",
+                                    "displayName": "Stars"
+                                }
+                            ]
+                        }
+                    },
+                    "iconRules": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "iconPos": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left of the value"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right of the value"
+                                },
+                                {
+                                    "value": "only",
+                                    "displayName": "Icon only"
+                                }
+                            ]
+                        }
+                    },
+                    "iconAlign": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "middle",
+                                    "displayName": "Middle"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "iconSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "urlMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "Field value"
+                                }
+                            ]
+                        }
+                    },
+                    "urlField": {
+                        "type": {
+                            "enumeration": []
+                        }
+                    },
+                    "applyValues": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "applyTotals": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "grid": {
+                "properties": {
+                    "density": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "compact",
+                                    "displayName": "Compact"
+                                },
+                                {
+                                    "value": "normal",
+                                    "displayName": "Normal"
+                                },
+                                {
+                                    "value": "comfortable",
+                                    "displayName": "Comfortable"
+                                }
+                            ]
+                        }
+                    },
+                    "fit": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "defaultWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "rowHeight": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "rowLines": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colLines": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lineColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "lineWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "banding": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bandColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bandText": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "hover": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "cells": {
+                "properties": {
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "wrap": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "blank": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "selColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "urlIcon": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "columnHeaders": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "caps": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Same as the column (numbers right)"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "wrap": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rotation": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rotLength": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "sortable": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "resizable": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "urlIcon": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "rowHeaders": {
+                "properties": {
+                    "layout": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "stepped",
+                                    "displayName": "Stepped (one indented column)"
+                                },
+                                {
+                                    "value": "tabular",
+                                    "displayName": "Tabular (one column per level)"
+                                }
+                            ]
+                        }
+                    },
+                    "indent": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "icons": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "boldParents": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "shade": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "wrap": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "iconColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "iconSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "maxWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "subTotals": {
+                "properties": {
+                    "rowSubtotals": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rowSubtotalsType": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Top",
+                                    "displayName": "On the group row"
+                                },
+                                {
+                                    "value": "Bottom",
+                                    "displayName": "\"Total\" row below the group"
+                                }
+                            ]
+                        }
+                    },
+                    "columnSubtotals": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "grandRow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "grandCol": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "grandColPos": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "right",
+                                    "displayName": "Right (after all columns)"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left (after the row headers, frozen) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "label": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "perRowLevel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "perColumnLevel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "levelSubtotalEnabled": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "expand": {
+                "properties": {
+                    "startLevel": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "remember": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "colGroups": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "startCollapsed": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "remember": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "separators": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "sparklines": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "kind": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "line",
+                                    "displayName": "Line"
+                                },
+                                {
+                                    "value": "bar",
+                                    "displayName": "Columns"
+                                }
+                            ]
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "end",
+                                    "displayName": "After the columns"
+                                },
+                                {
+                                    "value": "start",
+                                    "displayName": "After the row headers"
+                                }
+                            ]
+                        }
+                    },
+                    "title": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "width": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "lineWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "area": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "last": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "minMax": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "negColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "sameScale": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "zero": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "images": {
+                "properties": {
+                    "size": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "fixed",
+                                    "displayName": "Fixed (same box for every image)"
+                                },
+                                {
+                                    "value": "auto",
+                                    "displayName": "Variable (each image's proportions)"
+                                }
+                            ]
+                        }
+                    },
+                    "height": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "width": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "fit": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "contain",
+                                    "displayName": "Contain (whole image)"
+                                },
+                                {
+                                    "value": "cover",
+                                    "displayName": "Crop (fill the box)"
+                                },
+                                {
+                                    "value": "fill",
+                                    "displayName": "Stretch"
+                                }
+                            ]
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Same as the column"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "invalid": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "blank",
+                                    "displayName": "Blank cell"
+                                },
+                                {
+                                    "value": "text",
+                                    "displayName": "Original text"
+                                }
+                            ]
+                        }
+                    },
+                    "headers": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "toolbar": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "buttons": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "search": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "placeholder": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "autoScroll": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "speed": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "loop": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "pause": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "hoverPause": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "tooltip": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rowLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "title": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "wrap": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "subtitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subFontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "subColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "subItalic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "divider": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dividerColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "dividerStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "dividerWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "spaceBelow": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "source": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "container": {
+                "properties": {
+                    "bgShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgTransparency": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "shadow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "shadowColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadowSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "padding": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "texts": {
+                "properties": {
+                    "language": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Same as Power BI"
+                                },
+                                {
+                                    "value": "fr",
+                                    "displayName": "French"
+                                },
+                                {
+                                    "value": "en",
+                                    "displayName": "English"
+                                }
+                            ]
+                        }
+                    },
+                    "numberLocale": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "state": {
+                "properties": {
+                    "widths": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "expanded": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "colGroups": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "header": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "caps": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "wrap": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rotation": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rotLength": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "sortable": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "resizable": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

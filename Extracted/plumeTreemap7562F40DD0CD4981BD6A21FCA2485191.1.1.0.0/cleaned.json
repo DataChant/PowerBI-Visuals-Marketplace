@@ -1,0 +1,3501 @@
+{
+    "visual": {
+        "name": "plumeTreemap",
+        "displayName": "Treemap Plume",
+        "guid": "plumeTreemap7562F40DD0CD4981BD6A21FCA2485191",
+        "visualClassName": "Visual",
+        "version": "1.1.0.0",
+        "description": "Treemap with the Plume Studio look: nested hierarchy of 1 to 6 levels with group headers and borders, squarified, binary or alternating tiling, zoom into a group with breadcrumb, labels that grow with the tile and wrap, sort, colors by category, single or gradient; premium: play axis with animated, stable tiles, color by tile, diverging or threshold colors, shares in labels, Voronoi treemap inside a shape, stock-market change map, Top N + Others, images in tiles and small multiples.",
+        "supportUrl": "https://plumevisuals.com/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Plume Studio",
+        "email": "contact@plumevisuals.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "premium_desc": "Premium feature: usable for free with a \u201cPremium preview\u201d watermark, unlocked by a Plume Studio license key.",
+            "card_license": "Plume Studio License",
+            "license_buy": "Get a license",
+            "license_key": "License key",
+            "license_key_desc": "Paste the key received after purchase on plumevisuals.com (starts with PLUM1.). Checked offline.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Show license holder (edit mode)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Custom colors",
+            "group_style_text": "Text",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Complete look shared by all Plume visuals: colors, three palettes, fonts, frame, table header, marks and effects. Customize colors below.",
+            "style_preset_none": "None",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Black & White",
+            "style_preset_press": "Newspaper \u2605",
+            "style_preset_vintage": "Vintage (antique plate) \u2605",
+            "style_preset_earth": "Earth \u2605",
+            "style_preset_nordic": "Nordic \u2605",
+            "style_preset_executive": "Executive \u2605",
+            "style_preset_accessible": "Accessible (high legibility) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climate \u2605",
+            "style_preset_blueprint": "Blueprint \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (dark) \u2605",
+            "style_preset_neon": "Neon \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographic \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologram \u2605",
+            "style_themeJson": "Theme JSON \u2605",
+            "style_themeJson_desc": "Paste a JSON theme: see the 'JSON themes' tutorial on plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Follow report theme",
+            "style_followTheme_desc": "Text, background, accent and data colors come from the Power BI report theme.",
+            "style_reverse": "Reverse gradients",
+            "style_customColors": "Customize colors",
+            "style_customColors_desc": "Start from the style and pick your own colors. A color left empty keeps the style's color.",
+            "style_colorBackground": "Background",
+            "style_colorText": "Text",
+            "style_colorMuted": "Secondary text",
+            "style_colorGrid": "Lines and grid",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "Unfavorable",
+            "style_series1": "Series 1",
+            "style_series2": "Series 2",
+            "style_series3": "Series 3",
+            "style_series4": "Series 4",
+            "style_series5": "Series 5",
+            "style_series6": "Series 6",
+            "style_series7": "Series 7",
+            "style_series8": "Series 8",
+            "style_palette": "Gradient palette",
+            "style_palette_desc": "Gradient from the catalog (Viridis, Magma\u2026). The start, middle and end colors below replace it.",
+            "style_palette_auto": "Style or theme palette",
+            "style_palette_crest": "Plume (sequential)",
+            "style_palette_crestDiverging": "Plume (diverging)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (colorblind-safe) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Red\u2013Yellow\u2013Blue \u2605",
+            "style_palette_brBG": "Brown\u2013Teal (drought) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Blues \u2605",
+            "style_palette_reds": "Reds \u2605",
+            "style_palette_grays": "Grays \u2605",
+            "style_palette_press": "Press (ink and paper) \u2605",
+            "style_palette_nordic": "Nordic \u2605",
+            "style_palette_earth": "Earth (ochre to umber) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (colorblind-safe) \u2605",
+            "style_scaleLow": "Gradient: start",
+            "style_scaleMid": "Gradient: middle (diverging)",
+            "style_scaleHigh": "Gradient: end",
+            "style_fontFamily": "Font",
+            "style_fontFamily_desc": "Used by every text of the visual (title, axes, labels, cells).",
+            "style_textColor": "Text color (empty = style)",
+            "style_mutedColor": "Secondary text (empty = style)",
+            "style_animate": "Animations",
+            "style_animate_desc": "Smooth transitions when data changes. Automatically disabled when the system asks to reduce motion.",
+            "card_layout": "Layout",
+            "group_layout_algo": "Tiling",
+            "group_layout_spacing": "Spacing and corners",
+            "group_layout_others": "Top N and \"Others\"",
+            "layout_algorithm": "Tiling method",
+            "layout_algorithm_desc": "Squarified: near-square tiles (most readable). Voronoi \u2605: polygonal cells inside a shape (circle, map of France\u2026).",
+            "layout_algorithm_squarify": "Squarified",
+            "layout_algorithm_binary": "Binary",
+            "layout_algorithm_sliceDice": "Alternating (columns, rows)",
+            "layout_algorithm_slice": "Rows",
+            "layout_algorithm_dice": "Columns",
+            "layout_algorithm_voronoi": "Voronoi (cells) \u2605",
+            "layout_shape": "Voronoi shape",
+            "layout_shape_desc": "Outline the cells share (shapes without \u2605: circle, square, hexagon, heart\u2026).",
+            "layout_shape_circle": "Circle",
+            "layout_shape_square": "Square",
+            "layout_shape_roundedSquare": "Rounded square",
+            "layout_shape_rectangle": "Rectangle",
+            "layout_shape_triangle": "Triangle",
+            "layout_shape_diamond": "Diamond",
+            "layout_shape_hexagon": "Hexagon",
+            "layout_shape_star": "Star",
+            "layout_shape_heart": "Heart",
+            "layout_shape_ellipse": "Ellipse \u2605",
+            "layout_shape_pentagon": "Pentagon \u2605",
+            "layout_shape_octagon": "Octagon \u2605",
+            "layout_shape_rightTriangle": "Right triangle \u2605",
+            "layout_shape_parallelogram": "Parallelogram \u2605",
+            "layout_shape_trapezoid": "Trapezoid \u2605",
+            "layout_shape_ring": "Ring \u2605",
+            "layout_shape_semicircle": "Semicircle \u2605",
+            "layout_shape_arch": "Arch \u2605",
+            "layout_shape_capsule": "Pill \u2605",
+            "layout_shape_star6": "Six-pointed star \u2605",
+            "layout_shape_seal": "Seal \u2605",
+            "layout_shape_cross": "Cross \u2605",
+            "layout_shape_arrow": "Arrow",
+            "layout_shape_arrowUp": "Arrow up \u2605",
+            "layout_shape_arrowDown": "Arrow down \u2605",
+            "layout_shape_arrowLeft": "Arrow left \u2605",
+            "layout_shape_doubleArrow": "Double arrow \u2605",
+            "layout_shape_chevron": "Chevron \u2605",
+            "layout_shape_check": "Check mark \u2605",
+            "layout_shape_close": "Close (X) \u2605",
+            "layout_shape_plus": "Plus \u2605",
+            "layout_shape_minus": "Minus \u2605",
+            "layout_shape_warning": "Warning \u2605",
+            "layout_shape_info": "Information \u2605",
+            "layout_shape_playButton": "Play button \u2605",
+            "layout_shape_bubble": "Speech bubble",
+            "layout_shape_thought": "Thought bubble \u2605",
+            "layout_shape_flag": "Flag \u2605",
+            "layout_shape_bookmark": "Bookmark \u2605",
+            "layout_shape_tag": "Tag \u2605",
+            "layout_shape_bolt": "Lightning bolt \u2605",
+            "layout_shape_shield": "Shield \u2605",
+            "layout_shape_award": "Award \u2605",
+            "layout_shape_puzzle": "Puzzle piece \u2605",
+            "layout_shape_gear": "Gear \u2605",
+            "layout_shape_lock": "Lock \u2605",
+            "layout_shape_key": "Key \u2605",
+            "layout_shape_bell": "Bell \u2605",
+            "layout_shape_eye": "Eye \u2605",
+            "layout_shape_cloud": "Cloud",
+            "layout_shape_drop": "Drop",
+            "layout_shape_sun": "Sun \u2605",
+            "layout_shape_moon": "Moon \u2605",
+            "layout_shape_snowflake": "Snowflake \u2605",
+            "layout_shape_leaf": "Leaf \u2605",
+            "layout_shape_pine": "Pine tree \u2605",
+            "layout_shape_tree": "Tree \u2605",
+            "layout_shape_flower": "Flower \u2605",
+            "layout_shape_mountain": "Mountain \u2605",
+            "layout_shape_wave": "Wave \u2605",
+            "layout_shape_flame": "Flame \u2605",
+            "layout_shape_umbrella": "Umbrella \u2605",
+            "layout_shape_apple": "Apple \u2605",
+            "layout_shape_fish": "Fish \u2605",
+            "layout_shape_paw": "Paw print \u2605",
+            "layout_shape_rain": "Rain \u2605",
+            "layout_shape_sprout": "Sprout \u2605",
+            "layout_shape_person": "Person",
+            "layout_shape_man": "Man \u2605",
+            "layout_shape_woman": "Woman \u2605",
+            "layout_shape_child": "Child \u2605",
+            "layout_shape_people": "Group of people \u2605",
+            "layout_shape_bust": "User bust \u2605",
+            "layout_shape_house": "House",
+            "layout_shape_building": "Office building \u2605",
+            "layout_shape_factory": "Factory \u2605",
+            "layout_shape_castle": "Castle \u2605",
+            "layout_shape_shop": "Shop \u2605",
+            "layout_shape_bank": "Bank \u2605",
+            "layout_shape_hospital": "Hospital \u2605",
+            "layout_shape_book": "Book \u2605",
+            "layout_shape_envelope": "Envelope \u2605",
+            "layout_shape_phone": "Phone \u2605",
+            "layout_shape_laptop": "Laptop \u2605",
+            "layout_shape_monitor": "Monitor \u2605",
+            "layout_shape_gift": "Gift \u2605",
+            "layout_shape_clock": "Clock \u2605",
+            "layout_shape_calendar": "Calendar \u2605",
+            "layout_shape_pencil": "Pencil \u2605",
+            "layout_shape_lightbulb": "Light bulb \u2605",
+            "layout_shape_cup": "Trophy \u2605",
+            "layout_shape_crown": "Crown \u2605",
+            "layout_shape_trashCan": "Trash can \u2605",
+            "layout_shape_barrel": "Barrel",
+            "layout_shape_bottle": "Bottle",
+            "layout_shape_wineGlass": "Wine glass",
+            "layout_shape_glass": "Glass",
+            "layout_shape_mug": "Mug \u2605",
+            "layout_shape_jar": "Jar \u2605",
+            "layout_shape_bucket": "Bucket \u2605",
+            "layout_shape_battery": "Battery",
+            "layout_shape_batteryVertical": "Vertical battery",
+            "layout_shape_thermometer": "Thermometer",
+            "layout_shape_testTube": "Test tube \u2605",
+            "layout_shape_tank": "Tank \u2605",
+            "layout_shape_funnel": "Funnel \u2605",
+            "layout_shape_hourglass": "Hourglass \u2605",
+            "layout_shape_bag": "Bag \u2605",
+            "layout_shape_piggyBank": "Piggy bank \u2605",
+            "layout_shape_flask": "Flask \u2605",
+            "layout_shape_beaker": "Beaker \u2605",
+            "layout_shape_can": "Can \u2605",
+            "layout_shape_coffeeCup": "Coffee cup \u2605",
+            "layout_shape_vase": "Vase \u2605",
+            "layout_shape_milkCarton": "Milk carton \u2605",
+            "layout_shape_france": "Metropolitan France \u2605",
+            "layout_shape_africa": "Africa \u2605",
+            "layout_shape_australia": "Australia \u2605",
+            "layout_shape_southAmerica": "South America \u2605",
+            "layout_shape_pin": "Map pin \u2605",
+            "layout_shape_globe": "Globe \u2605",
+            "layout_shape_foldedMap": "Folded map \u2605",
+            "layout_shape_compass": "Compass \u2605",
+            "layout_shape_city": "City skyline \u2605",
+            "layout_shape_target": "Target \u2605",
+            "layout_shape_barChart": "Bar chart \u2605",
+            "layout_shape_pieChart": "Pie chart \u2605",
+            "layout_shape_trendUp": "Trend up \u2605",
+            "layout_shape_coin": "Coin \u2605",
+            "layout_shape_banknote": "Banknote \u2605",
+            "layout_shape_wallet": "Wallet \u2605",
+            "layout_shape_creditCard": "Credit card \u2605",
+            "layout_shape_cart": "Shopping cart \u2605",
+            "layout_shape_briefcase": "Briefcase \u2605",
+            "layout_shape_percent": "Percent \u2605",
+            "layout_shape_podium": "Podium \u2605",
+            "layout_shape_megaphone": "Megaphone \u2605",
+            "layout_shape_gem": "Gem \u2605",
+            "layout_shape_medal": "Medal \u2605",
+            "layout_shape_clipboard": "Clipboard \u2605",
+            "layout_shape_handshake": "Handshake \u2605",
+            "layout_shape_car": "Car \u2605",
+            "layout_shape_truck": "Truck \u2605",
+            "layout_shape_bus": "Bus \u2605",
+            "layout_shape_bicycle": "Bicycle \u2605",
+            "layout_shape_plane": "Plane \u2605",
+            "layout_shape_boat": "Sailboat \u2605",
+            "layout_shape_train": "Train \u2605",
+            "layout_shape_rocket": "Rocket \u2605",
+            "layout_shape_helicopter": "Helicopter \u2605",
+            "layout_shape_ship": "Cargo ship \u2605",
+            "layout_shape_fuel": "Fuel pump \u2605",
+            "layout_shape_scooter": "Scooter \u2605",
+            "layout_sort": "Tile order",
+            "layout_sort_desc": "The first tile is at the top left. \"Data order\" follows the model's sort-by-column (months, priorities\u2026).",
+            "layout_sort_valueDesc": "Value, descending",
+            "layout_sort_valueAsc": "Value, ascending",
+            "layout_sort_nameAsc": "Name (A \u2192 Z)",
+            "layout_sort_nameDesc": "Name (Z \u2192 A)",
+            "layout_sort_data": "Data order (Power BI sort)",
+            "layout_stable": "Stable layout while playing",
+            "layout_stable_desc": "Play axis: tiles grow, shrink and slide, never jumping from one place to another.",
+            "layout_depth": "Levels shown at once (0 = all)",
+            "layout_depth_desc": "1 = like the Power BI treemap: one level, double-click to drill down. 0 = the whole nested hierarchy.",
+            "layout_nodeGap": "Space between tiles (px)",
+            "layout_groupGap": "Space between groups (px)",
+            "layout_tileRadius": "Tile corner radius",
+            "layout_topN": "Top N + \"Others\" \u2605",
+            "layout_topN_desc": "In each group, the N largest tiles; the rest is merged into a hatched \"Others\" tile.",
+            "layout_topNCount": "Tiles kept per group",
+            "layout_othersLabel": "\"Others\" label",
+            "layout_othersLabel_ph": "Others",
+            "card_dataColors": "Data colors",
+            "dataColors_mode": "Coloring",
+            "dataColors_mode_category": "One color per category (top level)",
+            "dataColors_mode_leaf": "One color per tile (last level) \u2605",
+            "dataColors_mode_single": "Single color",
+            "dataColors_mode_gradient": "Gradient by a measure",
+            "dataColors_mode_diverging": "Diverging around a midpoint \u2605",
+            "dataColors_mode_rules": "Thresholds (3 colors) \u2605",
+            "dataColors_mode_change": "Stock map: change (Comparison field) \u2605",
+            "dataColors_mode_highlight": "Highlight \u2605",
+            "dataColors_single": "Color",
+            "dataColors_fill": "Color",
+            "dataColors_shade": "Shade tiles within a group",
+            "dataColors_shade_desc": "Smaller tiles of a group are slightly lighter, so neighboring tiles of the same color stand apart.",
+            "dataColors_gradMin": "Start value (empty = minimum)",
+            "dataColors_gradMax": "End value (empty = maximum)",
+            "dataColors_divMid": "Midpoint value",
+            "dataColors_rule1": "Low threshold",
+            "dataColors_rule1_ph": "e.g. 0",
+            "dataColors_rule2": "High threshold",
+            "dataColors_rule2_ph": "e.g. 100",
+            "dataColors_ruleLow": "Below the low threshold",
+            "dataColors_ruleMid": "Between thresholds",
+            "dataColors_ruleHigh": "Above the high threshold",
+            "dataColors_changeSource": "Change read from",
+            "dataColors_changeSource_desc": "Color field: a change measure (e.g. Change % = 0.034 or 3.4%) colors the tiles, whatever measure sizes them (market cap, sales\u2026).",
+            "dataColors_changeSource_auto": "Automatic (Comparison field, else Color field)",
+            "dataColors_changeSource_comparison": "Values compared with the Comparison field",
+            "dataColors_changeSource_measure": "Color field (change already computed)",
+            "dataColors_changeAuto": "Automatic change range",
+            "dataColors_changeAuto_desc": "The strongest color matches a round change (\u00b11, 2, 3, 5, 10%\u2026) reached by 90% of the tiles shown. Off: the value below.",
+            "dataColors_changeRange": "Change for the strongest color (%)",
+            "dataColors_changeRange_desc": "Like stock market maps: at \u00b13% the tile takes the strongest favorable or unfavorable color; at 0%, gray.",
+            "dataColors_lowerBetter": "A decrease is favorable",
+            "dataColors_highlightNames": "Highlighted categories",
+            "dataColors_highlightNames_desc": "Comma-separated names, at any level. Other tiles are grayed out.",
+            "dataColors_highlightNames_ph": "e.g. France, Italy",
+            "dataColors_highlightColor": "Highlight color (empty = accent)",
+            "dataColors_othersColor": "Other tiles color (empty = gray)",
+            "card_groups": "Groups (headers and borders)",
+            "group_groups_header": "Headers",
+            "group_groups_border": "Borders",
+            "groups_headers": "Group headers",
+            "groups_headerSize": "Text size",
+            "groups_headerBold": "Bold",
+            "groups_headerValue": "Group total",
+            "groups_headerFill": "Header background",
+            "groups_headerFill_auto": "Group color",
+            "groups_headerFill_neutral": "Neutral",
+            "groups_headerFill_none": "None",
+            "groups_headerColor": "Text color (empty = automatic)",
+            "groups_borders": "Border around groups",
+            "groups_borderWidth": "Width",
+            "groups_borderColor": "Color (empty = secondary text)",
+            "groups_tileBorder": "Gap color between tiles (empty = background)",
+            "card_labels": "Data labels",
+            "group_labels_main": "Content",
+            "group_labels_text": "Text",
+            "group_labels_number": "Numbers",
+            "labels_show": "Show",
+            "labels_show_desc": "Values in the tiles. Names are set in \u00ab Category labels \u00bb.",
+            "labels_showValue": "Value",
+            "labels_percent": "Percentage",
+            "labels_percent_none": "None",
+            "labels_percent_parent": "Share of the group \u2605",
+            "labels_percent_total": "Share of the total \u2605",
+            "labels_change": "Change \u25b2\u25bc (Comparison field)",
+            "labels_position": "Position",
+            "labels_position_topLeft": "Top left",
+            "labels_position_center": "Center",
+            "labels_autoSize": "Auto size",
+            "labels_autoSize_desc": "Text grows with the tile (from the minimum to the maximum size) and never overflows.",
+            "labels_fontSize": "Size (minimum)",
+            "labels_maxSize": "Maximum size",
+            "labels_minTile": "Hide in tiles narrower than (px)",
+            "labels_color": "Color (empty = automatic)",
+            "labels_color_desc": "Automatic: white or dark depending on the tile color.",
+            "labels_units": "Display units",
+            "labels_units_auto": "Auto",
+            "labels_units_none": "None",
+            "labels_units_k": "Thousands",
+            "labels_units_m": "Millions",
+            "labels_units_b": "Billions",
+            "labels_decimals": "Decimals (-1 = auto)",
+            "labels_prefix": "Prefix",
+            "labels_suffix": "Suffix (e.g. \u20ac)",
+            "card_categoryLabels": "Category labels",
+            "categoryLabels_show": "Show",
+            "categoryLabels_bold": "Bold",
+            "categoryLabels_wrap": "Lines for long names",
+            "categoryLabels_color": "Color (empty = same as data labels)",
+            "card_legend": "Legend",
+            "legend_show": "Show",
+            "legend_show_desc": "Shown when the chart has several series.",
+            "legend_position": "Position",
+            "legend_position_top": "Top",
+            "legend_position_bottom": "Bottom",
+            "legend_position_right": "Right",
+            "legend_position_left": "Left",
+            "legend_align": "Alignment",
+            "legend_align_left": "Start",
+            "legend_align_center": "Center",
+            "legend_align_right": "End",
+            "legend_showTitle": "Legend title",
+            "legend_titleText": "Title text",
+            "legend_titleText_ph": "Field name",
+            "legend_fontSize": "Size",
+            "legend_color": "Color (empty = secondary text)",
+            "legend_interactive": "Click = select the series",
+            "card_zoom": "Zoom",
+            "zoom_headerClick": "Click a header: zoom into the group",
+            "zoom_headerClick_desc": "Ctrl + click on the header: select the whole group (cross-filter).",
+            "zoom_doubleClick": "Double-click a tile: drill down one level",
+            "zoom_breadcrumb": "Breadcrumb",
+            "zoom_rootLabel": "Top level label",
+            "zoom_rootLabel_ph": "All",
+            "card_images": "Images \u2605",
+            "images_fit": "Fit",
+            "images_fit_contain": "Whole (logo)",
+            "images_fit_cover": "Fill the tile (photo)",
+            "images_size": "Size (% of the tile)",
+            "images_opacity": "Opacity (%)",
+            "images_round": "Round image",
+            "card_smallMultiples": "Small multiples \u2605",
+            "smallMultiples_columns": "Columns (0 = automatic)",
+            "smallMultiples_sameScale": "Comparable areas across panels",
+            "smallMultiples_sameScale_desc": "Each panel's area is proportional to its total: a panel half the size weighs half as much.",
+            "smallMultiples_titleSize": "Title size",
+            "smallMultiples_gap": "Space between panels (px)",
+            "card_play": "Playback \u2605",
+            "play_start": "Frame shown on opening",
+            "play_start_last": "The last one (most recent)",
+            "play_start_first": "The first one",
+            "play_speed": "Duration of a frame (ms)",
+            "play_speed_desc": "At speed \u00d71; the speed button of the play bar multiplies it (\u00d70.5 to \u00d74) for the session.",
+            "play_loop": "Loop",
+            "play_autoPlay": "Play automatically on opening",
+            "play_autoPlay_desc": "Once, from the first frame. Not when animations are reduced (Style \u203a Animations or the system) nor on a dashboard tile.",
+            "play_transition": "Animated transitions",
+            "play_transition_desc": "Values, positions and colors move smoothly from one frame to the next.",
+            "play_controls": "Play bar",
+            "play_position": "Bar position",
+            "play_position_bottom": "Bottom",
+            "play_position_top": "Top",
+            "play_ticks": "Tick marks",
+            "play_ticks_auto": "Automatic",
+            "play_ticks_all": "Every frame",
+            "play_ticks_none": "None",
+            "play_tickLabels": "Tick labels",
+            "play_stepButtons": "Start and end buttons",
+            "play_speedButton": "Speed button",
+            "play_showLabel": "Current value in large type",
+            "play_labelSize": "Large value size",
+            "play_labelPosition": "Large value position",
+            "play_labelPosition_bottomRight": "Bottom right",
+            "play_labelPosition_topRight": "Top right",
+            "play_labelPosition_topLeft": "Top left",
+            "play_labelPosition_bottomLeft": "Bottom left",
+            "play_labelPosition_center": "Center",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Highlight on hover",
+            "interaction_dim": "Dimmed items opacity (%)",
+            "card_tooltip": "Tooltips",
+            "tooltip_show": "Show",
+            "tooltip_show_desc": "Tooltip on hover (with the fields of the \"Tooltips\" well and report page tooltips).",
+            "tooltip_path": "Full path (every level)",
+            "tooltip_shareParent": "Share of the group",
+            "tooltip_shareTotal": "Share of the total",
+            "card_title": "Title",
+            "group_title_titleText": "Title",
+            "group_title_subtitleGroup": "Subtitle",
+            "group_title_divider": "Divider",
+            "group_title_spacing": "Spacing",
+            "title_show": "Show",
+            "title_text": "Text",
+            "title_text_desc": "Leave empty for an automatic title built from the fields.",
+            "title_text_ph": "Automatic",
+            "title_fontSize": "Size",
+            "title_bold": "Bold",
+            "title_italic": "Italic",
+            "title_underline": "Underline",
+            "title_color": "Color (empty = text)",
+            "title_bgColor": "Background color",
+            "title_align": "Horizontal alignment",
+            "title_align_left": "Left",
+            "title_align_center": "Center",
+            "title_align_right": "Right",
+            "title_wrap": "Text wrap",
+            "title_subtitle": "Subtitle",
+            "title_subtitle_desc": "Several lines allowed: type \\n to go to the next line.",
+            "title_subFontSize": "Size",
+            "title_subColor": "Color (empty = secondary text)",
+            "title_subItalic": "Italic",
+            "title_divider": "Show divider",
+            "title_dividerColor": "Color (empty = lines)",
+            "title_dividerStyle": "Line style",
+            "title_dividerStyle_solid": "Solid",
+            "title_dividerStyle_dashed": "Dashed",
+            "title_dividerStyle_dotted": "Dotted",
+            "title_dividerWidth": "Width",
+            "title_spaceBelow": "Space below the title (px)",
+            "card_source": "Source note",
+            "source_show": "Show",
+            "source_text": "Text",
+            "source_text_ph": "Source: \u2026",
+            "source_fontSize": "Size",
+            "source_italic": "Italic",
+            "source_color": "Color (empty = secondary text)",
+            "source_align": "Alignment",
+            "source_align_left": "Left",
+            "source_align_center": "Center",
+            "source_align_right": "Right",
+            "card_container": "Frame",
+            "group_container_background": "Background",
+            "group_container_borderGroup": "Border",
+            "group_container_shadowGroup": "Shadow",
+            "group_container_spacing": "Spacing",
+            "container_bgShow": "Background",
+            "container_bgColor": "Color",
+            "container_bgColor2": "Gradient end (optional)",
+            "container_bgTransparency": "Transparency (%)",
+            "container_border": "Border",
+            "container_borderColor": "Color (empty = lines)",
+            "container_borderWidth": "Width",
+            "container_radius": "Rounded corners",
+            "container_shadow": "Shadow",
+            "container_shadowColor": "Color (empty = soft)",
+            "container_shadowSize": "Blur (px)",
+            "container_padding": "Inner padding",
+            "card_texts": "Language and numbers",
+            "texts_language": "Interface language",
+            "texts_language_auto": "Same as Power BI",
+            "texts_language_fr": "French",
+            "texts_language_en": "English",
+            "texts_numberLocale": "Number format locale (e.g. en-GB)",
+            "texts_numberLocale_desc": "Thousands and decimal separators. Empty: same as Power BI.",
+            "texts_numberLocale_ph": "auto",
+            "role_tooltips": "Tooltips",
+            "role_reference": "Reference value",
+            "role_play": "Play axis \u2605",
+            "roleDesc_play": "Premium: a date, a year or an ordered category: the treemap moves from one value to the next (play button), stable layout.",
+            "role_category": "Category (groups)",
+            "roleDesc_category": "1 to 6 fields, from the largest groups to the smallest (e.g. Region, Country, City).",
+            "role_details": "Details",
+            "roleDesc_details": "Splits each tile into smaller tiles of the same color (like the Power BI treemap).",
+            "role_values": "Values",
+            "roleDesc_values": "Measure that sizes the tiles (without it, rows are counted). Negative values are ignored.",
+            "role_colorBy": "Color (measure)",
+            "roleDesc_colorBy": "Measure that colors the tiles (gradient, diverging \u2605 or thresholds \u2605: Data colors card): margin rate, satisfaction\u2026",
+            "role_comparison": "Comparison \u2605",
+            "roleDesc_comparison": "Previous value (e.g. last year, yesterday's close): change \u25b2\u25bc in labels and tooltips, stock map coloring.",
+            "role_image": "Image \u2605",
+            "roleDesc_image": "Text measure or column with a base64 image (data:image/png;base64,\u2026): logo or photo in each tile. Web addresses are never loaded.",
+            "role_multiples": "Small multiples \u2605",
+            "roleDesc_multiples": "One treemap per value of this field, side by side.",
+            "apply_all_series": "All series",
+            "role_format": "Dynamic format",
+            "roleDesc_format": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX"
+        },
+        "fr-FR": {
+            "premium_desc": "Fonction premium : utilisable avec un filigrane \u00ab Aper\u00e7u premium \u00bb, d\u00e9bloqu\u00e9e par une cl\u00e9 de licence Plume Studio.",
+            "card_license": "Licence Plume Studio",
+            "license_buy": "Obtenir une licence",
+            "license_key": "Cl\u00e9 de licence",
+            "license_key_desc": "Collez la cl\u00e9 re\u00e7ue apr\u00e8s l'achat sur plumevisuals.com (commence par PLUM1.). V\u00e9rifi\u00e9e hors ligne.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Afficher le titulaire (mode \u00e9dition)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Couleurs personnalis\u00e9es",
+            "group_style_text": "Texte",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Habillage complet commun \u00e0 tous les visuels Plume : couleurs, trois palettes, polices, cadre, en-t\u00eate des tableaux, marques et effets. Personnalisez les couleurs plus bas.",
+            "style_preset_none": "Aucun",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Noir et blanc",
+            "style_preset_press": "Journal \u2605",
+            "style_preset_vintage": "Vintage (planche ancienne) \u2605",
+            "style_preset_earth": "Terre \u2605",
+            "style_preset_nordic": "Nordique \u2605",
+            "style_preset_executive": "Direction \u2605",
+            "style_preset_accessible": "Accessible (lisibilit\u00e9) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climat \u2605",
+            "style_preset_blueprint": "Plan d'architecte \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (sombre) \u2605",
+            "style_preset_neon": "N\u00e9on \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographie \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologramme \u2605",
+            "style_themeJson": "Th\u00e8me JSON \u2605",
+            "style_themeJson_desc": "Collez un th\u00e8me JSON : voir le tutoriel \u00ab Th\u00e8mes JSON \u00bb sur plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Suivre le th\u00e8me du rapport",
+            "style_followTheme_desc": "Texte, fond, accent et couleurs des donn\u00e9es viennent du th\u00e8me du rapport Power BI.",
+            "style_reverse": "Inverser les d\u00e9grad\u00e9s",
+            "style_customColors": "Personnaliser les couleurs",
+            "style_customColors_desc": "Partez du style et choisissez vos propres couleurs. Une couleur laiss\u00e9e vide garde celle du style.",
+            "style_colorBackground": "Fond",
+            "style_colorText": "Texte",
+            "style_colorMuted": "Texte secondaire",
+            "style_colorGrid": "Traits et grille",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "D\u00e9favorable",
+            "style_series1": "S\u00e9rie 1",
+            "style_series2": "S\u00e9rie 2",
+            "style_series3": "S\u00e9rie 3",
+            "style_series4": "S\u00e9rie 4",
+            "style_series5": "S\u00e9rie 5",
+            "style_series6": "S\u00e9rie 6",
+            "style_series7": "S\u00e9rie 7",
+            "style_series8": "S\u00e9rie 8",
+            "style_palette": "Palette du d\u00e9grad\u00e9",
+            "style_palette_desc": "D\u00e9grad\u00e9 tir\u00e9 du catalogue (Viridis, Magma\u2026). Les couleurs de d\u00e9but, milieu et fin ci-dessous le remplacent.",
+            "style_palette_auto": "Palette du style ou du th\u00e8me",
+            "style_palette_crest": "Plume (s\u00e9quentielle)",
+            "style_palette_crestDiverging": "Plume (divergente)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (daltonisme) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Rouge\u2013Jaune\u2013Bleu \u2605",
+            "style_palette_brBG": "Brun\u2013Bleu-vert (s\u00e9cheresse) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Bleus \u2605",
+            "style_palette_reds": "Rouges \u2605",
+            "style_palette_grays": "Gris \u2605",
+            "style_palette_press": "Presse (encre et papier) \u2605",
+            "style_palette_nordic": "Nordique \u2605",
+            "style_palette_earth": "Terre (ocre \u00e0 terre d'ombre) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (daltonisme) \u2605",
+            "style_scaleLow": "D\u00e9grad\u00e9 : d\u00e9but",
+            "style_scaleMid": "D\u00e9grad\u00e9 : milieu (\u00e9carts)",
+            "style_scaleHigh": "D\u00e9grad\u00e9 : fin",
+            "style_fontFamily": "Police",
+            "style_fontFamily_desc": "Utilis\u00e9e par tous les textes du visuel (titre, axes, \u00e9tiquettes, cellules).",
+            "style_textColor": "Couleur du texte (vide = style)",
+            "style_mutedColor": "Texte secondaire (vide = style)",
+            "style_animate": "Animations",
+            "style_animate_desc": "Transitions fluides quand les donn\u00e9es changent. D\u00e9sactiv\u00e9es automatiquement si le syst\u00e8me demande de r\u00e9duire les animations.",
+            "card_layout": "Disposition",
+            "group_layout_algo": "Algorithme",
+            "group_layout_spacing": "Espacements et angles",
+            "group_layout_others": "Top N et \u00ab Autres \u00bb",
+            "layout_algorithm": "M\u00e9thode de pavage",
+            "layout_algorithm_desc": "Carr\u00e9e : tuiles proches du carr\u00e9 (la plus lisible). Vorono\u00ef \u2605 : cellules polygonales dans une forme (cercle, carte de France\u2026).",
+            "layout_algorithm_squarify": "Carr\u00e9e (squarified)",
+            "layout_algorithm_binary": "Binaire",
+            "layout_algorithm_sliceDice": "Altern\u00e9e (colonnes, lignes)",
+            "layout_algorithm_slice": "En lignes",
+            "layout_algorithm_dice": "En colonnes",
+            "layout_algorithm_voronoi": "Vorono\u00ef (cellules) \u2605",
+            "layout_shape": "Forme du Vorono\u00ef",
+            "layout_shape_desc": "Contour dans lequel les cellules se partagent la place (formes sans \u2605 : cercle, carr\u00e9, hexagone, c\u0153ur\u2026).",
+            "layout_shape_circle": "Cercle",
+            "layout_shape_square": "Carr\u00e9",
+            "layout_shape_roundedSquare": "Carr\u00e9 arrondi",
+            "layout_shape_rectangle": "Rectangle",
+            "layout_shape_triangle": "Triangle",
+            "layout_shape_diamond": "Losange",
+            "layout_shape_hexagon": "Hexagone",
+            "layout_shape_star": "\u00c9toile",
+            "layout_shape_heart": "C\u0153ur",
+            "layout_shape_ellipse": "Ellipse \u2605",
+            "layout_shape_pentagon": "Pentagone \u2605",
+            "layout_shape_octagon": "Octogone \u2605",
+            "layout_shape_rightTriangle": "Triangle rectangle \u2605",
+            "layout_shape_parallelogram": "Parall\u00e9logramme \u2605",
+            "layout_shape_trapezoid": "Trap\u00e8ze \u2605",
+            "layout_shape_ring": "Anneau \u2605",
+            "layout_shape_semicircle": "Demi-cercle \u2605",
+            "layout_shape_arch": "Arche \u2605",
+            "layout_shape_capsule": "G\u00e9lule \u2605",
+            "layout_shape_star6": "\u00c9toile \u00e0 6 branches \u2605",
+            "layout_shape_seal": "Sceau \u2605",
+            "layout_shape_cross": "Croix \u2605",
+            "layout_shape_arrow": "Fl\u00e8che",
+            "layout_shape_arrowUp": "Fl\u00e8che vers le haut \u2605",
+            "layout_shape_arrowDown": "Fl\u00e8che vers le bas \u2605",
+            "layout_shape_arrowLeft": "Fl\u00e8che vers la gauche \u2605",
+            "layout_shape_doubleArrow": "Double fl\u00e8che \u2605",
+            "layout_shape_chevron": "Chevron \u2605",
+            "layout_shape_check": "Coche \u2605",
+            "layout_shape_close": "Croix (fermer) \u2605",
+            "layout_shape_plus": "Plus \u2605",
+            "layout_shape_minus": "Moins \u2605",
+            "layout_shape_warning": "Avertissement \u2605",
+            "layout_shape_info": "Information \u2605",
+            "layout_shape_playButton": "Bouton lecture \u2605",
+            "layout_shape_bubble": "Bulle",
+            "layout_shape_thought": "Bulle de pens\u00e9e \u2605",
+            "layout_shape_flag": "Drapeau \u2605",
+            "layout_shape_bookmark": "Signet \u2605",
+            "layout_shape_tag": "\u00c9tiquette \u2605",
+            "layout_shape_bolt": "\u00c9clair \u2605",
+            "layout_shape_shield": "Bouclier \u2605",
+            "layout_shape_award": "R\u00e9compense \u2605",
+            "layout_shape_puzzle": "Pi\u00e8ce de puzzle \u2605",
+            "layout_shape_gear": "Engrenage \u2605",
+            "layout_shape_lock": "Cadenas \u2605",
+            "layout_shape_key": "Cl\u00e9 \u2605",
+            "layout_shape_bell": "Cloche \u2605",
+            "layout_shape_eye": "\u0152il \u2605",
+            "layout_shape_cloud": "Nuage",
+            "layout_shape_drop": "Goutte",
+            "layout_shape_sun": "Soleil \u2605",
+            "layout_shape_moon": "Lune \u2605",
+            "layout_shape_snowflake": "Flocon \u2605",
+            "layout_shape_leaf": "Feuille \u2605",
+            "layout_shape_pine": "Sapin \u2605",
+            "layout_shape_tree": "Arbre \u2605",
+            "layout_shape_flower": "Fleur \u2605",
+            "layout_shape_mountain": "Montagne \u2605",
+            "layout_shape_wave": "Vague \u2605",
+            "layout_shape_flame": "Flamme \u2605",
+            "layout_shape_umbrella": "Parapluie \u2605",
+            "layout_shape_apple": "Pomme \u2605",
+            "layout_shape_fish": "Poisson \u2605",
+            "layout_shape_paw": "Patte \u2605",
+            "layout_shape_rain": "Pluie \u2605",
+            "layout_shape_sprout": "Pousse \u2605",
+            "layout_shape_person": "Personne",
+            "layout_shape_man": "Homme \u2605",
+            "layout_shape_woman": "Femme \u2605",
+            "layout_shape_child": "Enfant \u2605",
+            "layout_shape_people": "Groupe \u2605",
+            "layout_shape_bust": "Buste \u2605",
+            "layout_shape_house": "Maison",
+            "layout_shape_building": "Immeuble \u2605",
+            "layout_shape_factory": "Usine \u2605",
+            "layout_shape_castle": "Ch\u00e2teau \u2605",
+            "layout_shape_shop": "Boutique \u2605",
+            "layout_shape_bank": "Banque \u2605",
+            "layout_shape_hospital": "H\u00f4pital \u2605",
+            "layout_shape_book": "Livre \u2605",
+            "layout_shape_envelope": "Enveloppe \u2605",
+            "layout_shape_phone": "T\u00e9l\u00e9phone \u2605",
+            "layout_shape_laptop": "Ordinateur portable \u2605",
+            "layout_shape_monitor": "\u00c9cran \u2605",
+            "layout_shape_gift": "Cadeau \u2605",
+            "layout_shape_clock": "Horloge \u2605",
+            "layout_shape_calendar": "Calendrier \u2605",
+            "layout_shape_pencil": "Crayon \u2605",
+            "layout_shape_lightbulb": "Ampoule \u2605",
+            "layout_shape_cup": "Coupe \u2605",
+            "layout_shape_crown": "Couronne \u2605",
+            "layout_shape_trashCan": "Poubelle \u2605",
+            "layout_shape_barrel": "Tonneau",
+            "layout_shape_bottle": "Bouteille",
+            "layout_shape_wineGlass": "Verre \u00e0 vin",
+            "layout_shape_glass": "Verre",
+            "layout_shape_mug": "Tasse \u2605",
+            "layout_shape_jar": "Bocal \u2605",
+            "layout_shape_bucket": "Seau \u2605",
+            "layout_shape_battery": "Pile",
+            "layout_shape_batteryVertical": "Batterie verticale",
+            "layout_shape_thermometer": "Thermom\u00e8tre",
+            "layout_shape_testTube": "\u00c9prouvette \u2605",
+            "layout_shape_tank": "R\u00e9servoir \u2605",
+            "layout_shape_funnel": "Entonnoir \u2605",
+            "layout_shape_hourglass": "Sablier \u2605",
+            "layout_shape_bag": "Sac \u2605",
+            "layout_shape_piggyBank": "Tirelire \u2605",
+            "layout_shape_flask": "Flacon \u2605",
+            "layout_shape_beaker": "B\u00e9cher \u2605",
+            "layout_shape_can": "Canette \u2605",
+            "layout_shape_coffeeCup": "Gobelet \u2605",
+            "layout_shape_vase": "Vase \u2605",
+            "layout_shape_milkCarton": "Brique de lait \u2605",
+            "layout_shape_france": "France m\u00e9tropolitaine \u2605",
+            "layout_shape_africa": "Afrique \u2605",
+            "layout_shape_australia": "Australie \u2605",
+            "layout_shape_southAmerica": "Am\u00e9rique du Sud \u2605",
+            "layout_shape_pin": "Rep\u00e8re \u2605",
+            "layout_shape_globe": "Globe \u2605",
+            "layout_shape_foldedMap": "Carte pli\u00e9e \u2605",
+            "layout_shape_compass": "Boussole \u2605",
+            "layout_shape_city": "Ville \u2605",
+            "layout_shape_target": "Cible \u2605",
+            "layout_shape_barChart": "Graphique en barres \u2605",
+            "layout_shape_pieChart": "Graphique en secteurs \u2605",
+            "layout_shape_trendUp": "Tendance en hausse \u2605",
+            "layout_shape_coin": "Pi\u00e8ce \u2605",
+            "layout_shape_banknote": "Billet \u2605",
+            "layout_shape_wallet": "Portefeuille \u2605",
+            "layout_shape_creditCard": "Carte bancaire \u2605",
+            "layout_shape_cart": "Chariot \u2605",
+            "layout_shape_briefcase": "Mallette \u2605",
+            "layout_shape_percent": "Pourcentage \u2605",
+            "layout_shape_podium": "Podium \u2605",
+            "layout_shape_megaphone": "M\u00e9gaphone \u2605",
+            "layout_shape_gem": "Diamant \u2605",
+            "layout_shape_medal": "M\u00e9daille \u2605",
+            "layout_shape_clipboard": "Presse-papiers \u2605",
+            "layout_shape_handshake": "Poign\u00e9e de main \u2605",
+            "layout_shape_car": "Voiture \u2605",
+            "layout_shape_truck": "Camion \u2605",
+            "layout_shape_bus": "Bus \u2605",
+            "layout_shape_bicycle": "V\u00e9lo \u2605",
+            "layout_shape_plane": "Avion \u2605",
+            "layout_shape_boat": "Voilier \u2605",
+            "layout_shape_train": "Train \u2605",
+            "layout_shape_rocket": "Fus\u00e9e \u2605",
+            "layout_shape_helicopter": "H\u00e9licopt\u00e8re \u2605",
+            "layout_shape_ship": "Cargo \u2605",
+            "layout_shape_fuel": "Carburant \u2605",
+            "layout_shape_scooter": "Trottinette \u2605",
+            "layout_sort": "Ordre des tuiles",
+            "layout_sort_desc": "La premi\u00e8re tuile est en haut \u00e0 gauche. \u00ab Ordre des donn\u00e9es \u00bb suit le tri par colonne du mod\u00e8le (mois, priorit\u00e9s\u2026).",
+            "layout_sort_valueDesc": "Valeur d\u00e9croissante",
+            "layout_sort_valueAsc": "Valeur croissante",
+            "layout_sort_nameAsc": "Nom (A \u2192 Z)",
+            "layout_sort_nameDesc": "Nom (Z \u2192 A)",
+            "layout_sort_data": "Ordre des donn\u00e9es (tri de Power BI)",
+            "layout_stable": "Disposition stable pendant la lecture",
+            "layout_stable_desc": "Axe de lecture : les tuiles grossissent, r\u00e9tr\u00e9cissent et glissent sans jamais sauter d'une place \u00e0 l'autre.",
+            "layout_depth": "Niveaux affich\u00e9s \u00e0 la fois (0 = tous)",
+            "layout_depth_desc": "1 = comme le treemap de Power BI : un niveau, double-clic pour descendre. 0 = toute la hi\u00e9rarchie imbriqu\u00e9e.",
+            "layout_nodeGap": "Espace entre les tuiles (px)",
+            "layout_groupGap": "Espace entre les groupes (px)",
+            "layout_tileRadius": "Arrondi des tuiles",
+            "layout_topN": "Top N + \u00ab Autres \u00bb \u2605",
+            "layout_topN_desc": "Dans chaque groupe, les N plus grandes tuiles ; le reste est regroup\u00e9 dans une tuile \u00ab Autres \u00bb hachur\u00e9e.",
+            "layout_topNCount": "Nombre de tuiles gard\u00e9es par groupe",
+            "layout_othersLabel": "Libell\u00e9 de \u00ab Autres \u00bb",
+            "layout_othersLabel_ph": "Autres",
+            "card_dataColors": "Couleurs des donn\u00e9es",
+            "dataColors_mode": "Coloration",
+            "dataColors_mode_category": "Une couleur par cat\u00e9gorie (1er niveau)",
+            "dataColors_mode_leaf": "Une couleur par tuile (dernier niveau) \u2605",
+            "dataColors_mode_single": "Couleur unique",
+            "dataColors_mode_gradient": "D\u00e9grad\u00e9 selon une mesure",
+            "dataColors_mode_diverging": "Divergent autour d'un milieu \u2605",
+            "dataColors_mode_rules": "Seuils (3 couleurs) \u2605",
+            "dataColors_mode_change": "Carte boursi\u00e8re : variation (champ Comparaison) \u2605",
+            "dataColors_mode_highlight": "Mise en avant \u2605",
+            "dataColors_single": "Couleur",
+            "dataColors_fill": "Couleur",
+            "dataColors_shade": "Nuancer les tuiles d'un groupe",
+            "dataColors_shade_desc": "Les plus petites tuiles d'un groupe sont un peu plus claires : on distingue les tuiles voisines de m\u00eame couleur.",
+            "dataColors_gradMin": "Valeur du d\u00e9but (vide = minimum)",
+            "dataColors_gradMax": "Valeur de la fin (vide = maximum)",
+            "dataColors_divMid": "Valeur du milieu",
+            "dataColors_rule1": "Seuil bas",
+            "dataColors_rule1_ph": "ex. 0",
+            "dataColors_rule2": "Seuil haut",
+            "dataColors_rule2_ph": "ex. 100",
+            "dataColors_ruleLow": "Sous le seuil bas",
+            "dataColors_ruleMid": "Entre les seuils",
+            "dataColors_ruleHigh": "Au-dessus du seuil haut",
+            "dataColors_changeSource": "Variation lue dans",
+            "dataColors_changeSource_desc": "Champ Couleur : une mesure de variation (ex. Variation % = 0,034 ou 3,4 %) colore les tuiles, quelle que soit la mesure qui donne leur taille (capitalisation, CA\u2026).",
+            "dataColors_changeSource_auto": "Automatique (champ Comparaison, sinon champ Couleur)",
+            "dataColors_changeSource_comparison": "Valeurs compar\u00e9es au champ Comparaison",
+            "dataColors_changeSource_measure": "Champ Couleur (variation d\u00e9j\u00e0 calcul\u00e9e)",
+            "dataColors_changeAuto": "Plage de variation automatique",
+            "dataColors_changeAuto_desc": "La couleur la plus vive correspond \u00e0 une variation ronde (\u00b11, 2, 3, 5, 10 %\u2026) atteinte par 90 % des tuiles affich\u00e9es. D\u00e9sactiv\u00e9 : la valeur ci-dessous.",
+            "dataColors_changeRange": "Variation de la couleur la plus vive (%)",
+            "dataColors_changeRange_desc": "Comme les cartes boursi\u00e8res : \u00e0 \u00b13 %, la tuile prend la couleur favorable ou d\u00e9favorable la plus vive ; au milieu (0 %), gris.",
+            "dataColors_lowerBetter": "Une baisse est favorable",
+            "dataColors_highlightNames": "Cat\u00e9gories mises en avant",
+            "dataColors_highlightNames_desc": "Noms s\u00e9par\u00e9s par des virgules, \u00e0 n'importe quel niveau. Les autres tuiles sont gris\u00e9es.",
+            "dataColors_highlightNames_ph": "ex. France, Italie",
+            "dataColors_highlightColor": "Couleur mise en avant (vide = accent)",
+            "dataColors_othersColor": "Couleur des autres tuiles (vide = gris)",
+            "card_groups": "Groupes (en-t\u00eates et bordures)",
+            "group_groups_header": "En-t\u00eates",
+            "group_groups_border": "Bordures",
+            "groups_headers": "En-t\u00eates des groupes",
+            "groups_headerSize": "Taille du texte",
+            "groups_headerBold": "Gras",
+            "groups_headerValue": "Total du groupe",
+            "groups_headerFill": "Fond de l'en-t\u00eate",
+            "groups_headerFill_auto": "Couleur du groupe",
+            "groups_headerFill_neutral": "Neutre",
+            "groups_headerFill_none": "Aucun",
+            "groups_headerColor": "Couleur du texte (vide = automatique)",
+            "groups_borders": "Bordure autour des groupes",
+            "groups_borderWidth": "\u00c9paisseur",
+            "groups_borderColor": "Couleur (vide = texte secondaire)",
+            "groups_tileBorder": "Couleur des espaces entre tuiles (vide = fond)",
+            "card_labels": "\u00c9tiquettes de donn\u00e9es",
+            "group_labels_main": "Contenu",
+            "group_labels_text": "Texte",
+            "group_labels_number": "Nombres",
+            "labels_show": "Afficher",
+            "labels_show_desc": "Valeurs dans les tuiles. Les noms se r\u00e8glent dans \u00ab \u00c9tiquettes des cat\u00e9gories \u00bb.",
+            "labels_showValue": "Valeur",
+            "labels_percent": "Pourcentage",
+            "labels_percent_none": "Aucun",
+            "labels_percent_parent": "Part du groupe \u2605",
+            "labels_percent_total": "Part du total \u2605",
+            "labels_change": "Variation \u25b2\u25bc (champ Comparaison)",
+            "labels_position": "Position",
+            "labels_position_topLeft": "En haut \u00e0 gauche",
+            "labels_position_center": "Au centre",
+            "labels_autoSize": "Taille automatique",
+            "labels_autoSize_desc": "Le texte grandit avec la tuile (de la taille minimale \u00e0 la taille maximale), sans jamais d\u00e9border.",
+            "labels_fontSize": "Taille (minimale)",
+            "labels_maxSize": "Taille maximale",
+            "labels_minTile": "Masquer dans les tuiles plus \u00e9troites que (px)",
+            "labels_color": "Couleur (vide = automatique)",
+            "labels_color_desc": "Automatique : blanc ou fonc\u00e9 selon la couleur de la tuile.",
+            "labels_units": "Unit\u00e9s d'affichage",
+            "labels_units_auto": "Auto",
+            "labels_units_none": "Aucune",
+            "labels_units_k": "Milliers",
+            "labels_units_m": "Millions",
+            "labels_units_b": "Milliards",
+            "labels_decimals": "D\u00e9cimales (-1 = auto)",
+            "labels_prefix": "Pr\u00e9fixe",
+            "labels_suffix": "Suffixe (ex. \u20ac)",
+            "card_categoryLabels": "\u00c9tiquettes des cat\u00e9gories",
+            "categoryLabels_show": "Afficher",
+            "categoryLabels_bold": "Gras",
+            "categoryLabels_wrap": "Lignes pour les noms longs",
+            "categoryLabels_color": "Couleur (vide = comme les \u00e9tiquettes de donn\u00e9es)",
+            "card_legend": "L\u00e9gende",
+            "legend_show": "Afficher",
+            "legend_show_desc": "Affich\u00e9e quand le graphique a plusieurs s\u00e9ries.",
+            "legend_position": "Position",
+            "legend_position_top": "En haut",
+            "legend_position_bottom": "En bas",
+            "legend_position_right": "\u00c0 droite",
+            "legend_position_left": "\u00c0 gauche",
+            "legend_align": "Alignement",
+            "legend_align_left": "D\u00e9but",
+            "legend_align_center": "Centr\u00e9",
+            "legend_align_right": "Fin",
+            "legend_showTitle": "Titre de la l\u00e9gende",
+            "legend_titleText": "Texte du titre",
+            "legend_titleText_ph": "Nom du champ",
+            "legend_fontSize": "Taille",
+            "legend_color": "Couleur (vide = texte secondaire)",
+            "legend_interactive": "Clic = s\u00e9lectionner la s\u00e9rie",
+            "card_zoom": "Zoom",
+            "zoom_headerClick": "Clic sur un en-t\u00eate : zoomer dans le groupe",
+            "zoom_headerClick_desc": "Ctrl + clic sur l'en-t\u00eate : s\u00e9lectionner tout le groupe (filtre crois\u00e9).",
+            "zoom_doubleClick": "Double-clic sur une tuile : descendre d'un niveau",
+            "zoom_breadcrumb": "Fil d'Ariane",
+            "zoom_rootLabel": "Libell\u00e9 du niveau sup\u00e9rieur",
+            "zoom_rootLabel_ph": "Tout",
+            "card_images": "Images \u2605",
+            "images_fit": "Ajustement",
+            "images_fit_contain": "Enti\u00e8re (logo)",
+            "images_fit_cover": "Remplir la tuile (photo)",
+            "images_size": "Taille (% de la tuile)",
+            "images_opacity": "Opacit\u00e9 (%)",
+            "images_round": "Image ronde",
+            "card_smallMultiples": "Petits multiples \u2605",
+            "smallMultiples_columns": "Colonnes (0 = automatique)",
+            "smallMultiples_sameScale": "Surfaces comparables entre panneaux",
+            "smallMultiples_sameScale_desc": "La surface de chaque panneau est proportionnelle \u00e0 son total : un panneau deux fois plus petit p\u00e8se deux fois moins.",
+            "smallMultiples_titleSize": "Taille des titres",
+            "smallMultiples_gap": "Espace entre les panneaux (px)",
+            "card_play": "Lecture \u2605",
+            "play_start": "Image affich\u00e9e \u00e0 l'ouverture",
+            "play_start_last": "La derni\u00e8re (la plus r\u00e9cente)",
+            "play_start_first": "La premi\u00e8re",
+            "play_speed": "Dur\u00e9e d'une image (ms)",
+            "play_speed_desc": "\u00c0 la vitesse \u00d71 ; le bouton de vitesse de la barre la multiplie (\u00d70,5 \u00e0 \u00d74) le temps de la session.",
+            "play_loop": "Lecture en boucle",
+            "play_autoPlay": "Lecture automatique \u00e0 l'ouverture",
+            "play_autoPlay_desc": "Une fois, depuis la premi\u00e8re image. Jamais quand les animations sont r\u00e9duites (Style \u203a Animations ou syst\u00e8me) ni sur une vignette de tableau de bord.",
+            "play_transition": "Transitions anim\u00e9es",
+            "play_transition_desc": "Valeurs, positions et couleurs glissent d'une image \u00e0 la suivante.",
+            "play_controls": "Barre de lecture",
+            "play_position": "Position de la barre",
+            "play_position_bottom": "En bas",
+            "play_position_top": "En haut",
+            "play_ticks": "Graduations",
+            "play_ticks_auto": "Automatiques",
+            "play_ticks_all": "Toutes les images",
+            "play_ticks_none": "Aucune",
+            "play_tickLabels": "\u00c9tiquettes des graduations",
+            "play_stepButtons": "Boutons d\u00e9but et fin",
+            "play_speedButton": "Bouton de vitesse",
+            "play_showLabel": "Valeur en cours en grand",
+            "play_labelSize": "Taille de la valeur en grand",
+            "play_labelPosition": "Position de la valeur en grand",
+            "play_labelPosition_bottomRight": "En bas \u00e0 droite",
+            "play_labelPosition_topRight": "En haut \u00e0 droite",
+            "play_labelPosition_topLeft": "En haut \u00e0 gauche",
+            "play_labelPosition_bottomLeft": "En bas \u00e0 gauche",
+            "play_labelPosition_center": "Au centre",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Mettre en avant au survol",
+            "interaction_dim": "Opacit\u00e9 des \u00e9l\u00e9ments estomp\u00e9s (%)",
+            "card_tooltip": "Infobulles",
+            "tooltip_show": "Afficher",
+            "tooltip_show_desc": "Infobulle au survol (avec les champs de la zone \u00ab Info-bulles \u00bb et les pages d'info-bulle du rapport).",
+            "tooltip_path": "Chemin complet (tous les niveaux)",
+            "tooltip_shareParent": "Part du groupe",
+            "tooltip_shareTotal": "Part du total",
+            "card_title": "Titre",
+            "group_title_titleText": "Titre",
+            "group_title_subtitleGroup": "Sous-titre",
+            "group_title_divider": "S\u00e9parateur",
+            "group_title_spacing": "Espacement",
+            "title_show": "Afficher",
+            "title_text": "Texte",
+            "title_text_desc": "Laisser vide pour un titre automatique construit \u00e0 partir des champs.",
+            "title_text_ph": "Automatique",
+            "title_fontSize": "Taille",
+            "title_bold": "Gras",
+            "title_italic": "Italique",
+            "title_underline": "Soulign\u00e9",
+            "title_color": "Couleur (vide = texte)",
+            "title_bgColor": "Couleur d'arri\u00e8re-plan",
+            "title_align": "Alignement horizontal",
+            "title_align_left": "Gauche",
+            "title_align_center": "Centr\u00e9",
+            "title_align_right": "Droite",
+            "title_wrap": "Retour automatique \u00e0 la ligne",
+            "title_subtitle": "Sous-titre",
+            "title_subtitle_desc": "Plusieurs lignes possibles : tapez \\n pour aller \u00e0 la ligne.",
+            "title_subFontSize": "Taille",
+            "title_subColor": "Couleur (vide = texte secondaire)",
+            "title_subItalic": "Italique",
+            "title_divider": "Afficher le s\u00e9parateur",
+            "title_dividerColor": "Couleur (vide = traits)",
+            "title_dividerStyle": "Style de trait",
+            "title_dividerStyle_solid": "Continu",
+            "title_dividerStyle_dashed": "Tirets",
+            "title_dividerStyle_dotted": "Pointill\u00e9s",
+            "title_dividerWidth": "\u00c9paisseur",
+            "title_spaceBelow": "Espace sous le titre (px)",
+            "card_source": "Note de source",
+            "source_show": "Afficher",
+            "source_text": "Texte",
+            "source_text_ph": "Source : \u2026",
+            "source_fontSize": "Taille",
+            "source_italic": "Italique",
+            "source_color": "Couleur (vide = texte secondaire)",
+            "source_align": "Alignement",
+            "source_align_left": "Gauche",
+            "source_align_center": "Centr\u00e9",
+            "source_align_right": "Droite",
+            "card_container": "Cadre",
+            "group_container_background": "Arri\u00e8re-plan",
+            "group_container_borderGroup": "Bordure",
+            "group_container_shadowGroup": "Ombre",
+            "group_container_spacing": "Marges",
+            "container_bgShow": "Arri\u00e8re-plan",
+            "container_bgColor": "Couleur",
+            "container_bgColor2": "Fin du d\u00e9grad\u00e9 (optionnel)",
+            "container_bgTransparency": "Transparence (%)",
+            "container_border": "Bordure",
+            "container_borderColor": "Couleur (vide = traits)",
+            "container_borderWidth": "\u00c9paisseur",
+            "container_radius": "Coins arrondis",
+            "container_shadow": "Ombre",
+            "container_shadowColor": "Couleur (vide = douce)",
+            "container_shadowSize": "Flou (px)",
+            "container_padding": "Marge int\u00e9rieure",
+            "card_texts": "Langue et nombres",
+            "texts_language": "Langue de l'interface",
+            "texts_language_auto": "Comme Power BI",
+            "texts_language_fr": "Fran\u00e7ais",
+            "texts_language_en": "Anglais",
+            "texts_numberLocale": "Format des nombres (ex. fr-FR)",
+            "texts_numberLocale_desc": "S\u00e9parateurs des milliers et des d\u00e9cimales. Vide : comme Power BI.",
+            "texts_numberLocale_ph": "auto",
+            "role_tooltips": "Infobulles",
+            "role_reference": "Valeur de r\u00e9f\u00e9rence",
+            "role_play": "Axe de lecture \u2605",
+            "roleDesc_play": "Premium : une date, une ann\u00e9e ou une cat\u00e9gorie ordonn\u00e9e : le treemap passe d'une valeur \u00e0 la suivante (bouton lecture), disposition stable.",
+            "role_category": "Cat\u00e9gorie (groupes)",
+            "roleDesc_category": "1 \u00e0 6 champs, des plus grands groupes aux plus petits (ex. R\u00e9gion, Pays, Ville).",
+            "role_details": "D\u00e9tails",
+            "roleDesc_details": "D\u00e9coupe chaque tuile en tuiles plus petites de la m\u00eame couleur (comme le treemap de Power BI).",
+            "role_values": "Valeurs",
+            "roleDesc_values": "Mesure qui donne la taille des tuiles (sans elle, les lignes sont compt\u00e9es). Les valeurs n\u00e9gatives sont ignor\u00e9es.",
+            "role_colorBy": "Couleur (mesure)",
+            "roleDesc_colorBy": "Mesure qui colore les tuiles (d\u00e9grad\u00e9, divergent \u2605 ou seuils \u2605 : carte Couleurs des donn\u00e9es) : taux de marge, satisfaction\u2026",
+            "role_comparison": "Comparaison \u2605",
+            "roleDesc_comparison": "Valeur pr\u00e9c\u00e9dente (ex. ann\u00e9e derni\u00e8re, cl\u00f4ture de la veille) : variation \u25b2\u25bc dans les \u00e9tiquettes et les infobulles, carte boursi\u00e8re.",
+            "role_image": "Image \u2605",
+            "roleDesc_image": "Mesure ou colonne texte contenant une image en base64 (data:image/png;base64,\u2026) : logo ou photo dans chaque tuile. Les adresses web ne sont jamais charg\u00e9es.",
+            "role_multiples": "Petits multiples \u2605",
+            "roleDesc_multiples": "Un treemap par valeur de ce champ, c\u00f4te \u00e0 c\u00f4te.",
+            "apply_all_series": "Toutes les s\u00e9ries",
+            "role_format": "Format dynamique",
+            "roleDesc_format": "Mesures nomm\u00e9es carte.r\u00e9glage (ex. title.fontSize) : pilotez n'importe quel r\u00e9glage du volet Format en DAX"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "category",
+                "kind": "Grouping",
+                "displayName": "Category (groups)",
+                "displayNameKey": "role_category",
+                "description": "1 to 6 fields, from the largest groups to the smallest (e.g. Region, Country, City).",
+                "descriptionKey": "roleDesc_category"
+            },
+            {
+                "name": "details",
+                "kind": "Grouping",
+                "displayName": "Details",
+                "displayNameKey": "role_details",
+                "description": "Splits each tile into smaller tiles of the same color (like the Power BI treemap).",
+                "descriptionKey": "roleDesc_details"
+            },
+            {
+                "name": "values",
+                "kind": "Measure",
+                "displayName": "Values",
+                "displayNameKey": "role_values",
+                "description": "Measure that sizes the tiles (without it, rows are counted). Negative values are ignored.",
+                "descriptionKey": "roleDesc_values"
+            },
+            {
+                "name": "colorBy",
+                "kind": "Measure",
+                "displayName": "Color (measure)",
+                "displayNameKey": "role_colorBy",
+                "description": "Measure that colors the tiles (gradient, diverging \u2605 or thresholds \u2605: Data colors card): margin rate, satisfaction\u2026",
+                "descriptionKey": "roleDesc_colorBy"
+            },
+            {
+                "name": "comparison",
+                "kind": "Measure",
+                "displayName": "Comparison \u2605",
+                "displayNameKey": "role_comparison",
+                "description": "Previous value (e.g. last year, yesterday's close): change \u25b2\u25bc in labels and tooltips, stock map coloring.",
+                "descriptionKey": "roleDesc_comparison"
+            },
+            {
+                "name": "image",
+                "kind": "Measure",
+                "displayName": "Image \u2605",
+                "displayNameKey": "role_image",
+                "description": "Text measure or column with a base64 image (data:image/png;base64,\u2026): logo or photo in each tile. Web addresses are never loaded.",
+                "descriptionKey": "roleDesc_image",
+                "preferredTypes": [
+                    {
+                        "text": true
+                    }
+                ]
+            },
+            {
+                "name": "multiples",
+                "kind": "Grouping",
+                "displayName": "Small multiples \u2605",
+                "displayNameKey": "role_multiples",
+                "description": "One treemap per value of this field, side by side.",
+                "descriptionKey": "roleDesc_multiples"
+            },
+            {
+                "name": "play",
+                "kind": "Grouping",
+                "displayName": "Play axis \u2605",
+                "displayNameKey": "role_play",
+                "description": "Premium: a date, a year or an ordered category: the treemap moves from one value to the next (play button), stable layout.",
+                "descriptionKey": "roleDesc_play"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "role_tooltips"
+            },
+            {
+                "name": "format",
+                "kind": "Measure",
+                "displayName": "Dynamic format",
+                "displayNameKey": "role_format",
+                "description": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX",
+                "descriptionKey": "roleDesc_format"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "category": {
+                            "max": 6
+                        },
+                        "details": {
+                            "max": 1
+                        },
+                        "values": {
+                            "max": 1
+                        },
+                        "colorBy": {
+                            "max": 1
+                        },
+                        "comparison": {
+                            "max": 1
+                        },
+                        "image": {
+                            "max": 1
+                        },
+                        "multiples": {
+                            "max": 1
+                        },
+                        "play": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "category"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "details"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "multiples"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "play"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "values"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "colorBy"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "comparison"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "image"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "format"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "suppressDefaultTitle": true,
+        "privileges": [],
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "sorting": {
+            "default": {}
+        },
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "objects": {
+            "license": {
+                "properties": {
+                    "buy": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "key": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showOwner": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "style": {
+                "properties": {
+                    "preset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal"
+                                },
+                                {
+                                    "value": "blackWhite",
+                                    "displayName": "Black & White"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Newspaper \u2605"
+                                },
+                                {
+                                    "value": "vintage",
+                                    "displayName": "Vintage (antique plate) \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "executive",
+                                    "displayName": "Executive \u2605"
+                                },
+                                {
+                                    "value": "accessible",
+                                    "displayName": "Accessible (high legibility) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "bauhaus",
+                                    "displayName": "Bauhaus (pop) \u2605"
+                                },
+                                {
+                                    "value": "climate",
+                                    "displayName": "Climate \u2605"
+                                },
+                                {
+                                    "value": "blueprint",
+                                    "displayName": "Blueprint \u2605"
+                                },
+                                {
+                                    "value": "unknownPleasures",
+                                    "displayName": "Unknown Pleasures \u2605"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Graphite (dark) \u2605"
+                                },
+                                {
+                                    "value": "neon",
+                                    "displayName": "Neon \u2605"
+                                },
+                                {
+                                    "value": "terminal",
+                                    "displayName": "Terminal (Matrix) \u2605"
+                                },
+                                {
+                                    "value": "infographic",
+                                    "displayName": "Infographic \u2605"
+                                },
+                                {
+                                    "value": "cockpit",
+                                    "displayName": "Cockpit (HUD) \u2605"
+                                },
+                                {
+                                    "value": "hologram",
+                                    "displayName": "Hologram \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "themeJson": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "followTheme": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "reverse": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "customColors": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorText": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorMuted": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorGrid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorAccent": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorPositive": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorNegative": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series1": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series3": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series4": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series5": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series6": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series7": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series8": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "palette": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Style or theme palette"
+                                },
+                                {
+                                    "value": "crest",
+                                    "displayName": "Plume (sequential)"
+                                },
+                                {
+                                    "value": "crestDiverging",
+                                    "displayName": "Plume (diverging)"
+                                },
+                                {
+                                    "value": "viridis",
+                                    "displayName": "Viridis \u2605"
+                                },
+                                {
+                                    "value": "magma",
+                                    "displayName": "Magma \u2605"
+                                },
+                                {
+                                    "value": "inferno",
+                                    "displayName": "Inferno \u2605"
+                                },
+                                {
+                                    "value": "cividis",
+                                    "displayName": "Cividis (colorblind-safe) \u2605"
+                                },
+                                {
+                                    "value": "warmingStripes",
+                                    "displayName": "Warming stripes \u2605"
+                                },
+                                {
+                                    "value": "rdYlBu",
+                                    "displayName": "Red\u2013Yellow\u2013Blue \u2605"
+                                },
+                                {
+                                    "value": "brBG",
+                                    "displayName": "Brown\u2013Teal (drought) \u2605"
+                                },
+                                {
+                                    "value": "spectral",
+                                    "displayName": "Spectral \u2605"
+                                },
+                                {
+                                    "value": "blues",
+                                    "displayName": "Blues \u2605"
+                                },
+                                {
+                                    "value": "reds",
+                                    "displayName": "Reds \u2605"
+                                },
+                                {
+                                    "value": "grays",
+                                    "displayName": "Grays \u2605"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Press (ink and paper) \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth (ochre to umber) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "okabeIto",
+                                    "displayName": "Okabe-Ito (colorblind-safe) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "scaleLow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleMid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleHigh": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "mutedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "animate": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "properties": {
+                    "algorithm": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "squarify",
+                                    "displayName": "Squarified"
+                                },
+                                {
+                                    "value": "binary",
+                                    "displayName": "Binary"
+                                },
+                                {
+                                    "value": "sliceDice",
+                                    "displayName": "Alternating (columns, rows)"
+                                },
+                                {
+                                    "value": "slice",
+                                    "displayName": "Rows"
+                                },
+                                {
+                                    "value": "dice",
+                                    "displayName": "Columns"
+                                },
+                                {
+                                    "value": "voronoi",
+                                    "displayName": "Voronoi (cells) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "shape": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Square"
+                                },
+                                {
+                                    "value": "roundedSquare",
+                                    "displayName": "Rounded square"
+                                },
+                                {
+                                    "value": "rectangle",
+                                    "displayName": "Rectangle"
+                                },
+                                {
+                                    "value": "triangle",
+                                    "displayName": "Triangle"
+                                },
+                                {
+                                    "value": "diamond",
+                                    "displayName": "Diamond"
+                                },
+                                {
+                                    "value": "hexagon",
+                                    "displayName": "Hexagon"
+                                },
+                                {
+                                    "value": "star",
+                                    "displayName": "Star"
+                                },
+                                {
+                                    "value": "heart",
+                                    "displayName": "Heart"
+                                },
+                                {
+                                    "value": "ellipse",
+                                    "displayName": "Ellipse \u2605"
+                                },
+                                {
+                                    "value": "pentagon",
+                                    "displayName": "Pentagon \u2605"
+                                },
+                                {
+                                    "value": "octagon",
+                                    "displayName": "Octagon \u2605"
+                                },
+                                {
+                                    "value": "rightTriangle",
+                                    "displayName": "Right triangle \u2605"
+                                },
+                                {
+                                    "value": "parallelogram",
+                                    "displayName": "Parallelogram \u2605"
+                                },
+                                {
+                                    "value": "trapezoid",
+                                    "displayName": "Trapezoid \u2605"
+                                },
+                                {
+                                    "value": "ring",
+                                    "displayName": "Ring \u2605"
+                                },
+                                {
+                                    "value": "semicircle",
+                                    "displayName": "Semicircle \u2605"
+                                },
+                                {
+                                    "value": "arch",
+                                    "displayName": "Arch \u2605"
+                                },
+                                {
+                                    "value": "capsule",
+                                    "displayName": "Pill \u2605"
+                                },
+                                {
+                                    "value": "star6",
+                                    "displayName": "Six-pointed star \u2605"
+                                },
+                                {
+                                    "value": "seal",
+                                    "displayName": "Seal \u2605"
+                                },
+                                {
+                                    "value": "cross",
+                                    "displayName": "Cross \u2605"
+                                },
+                                {
+                                    "value": "arrow",
+                                    "displayName": "Arrow"
+                                },
+                                {
+                                    "value": "arrowUp",
+                                    "displayName": "Arrow up \u2605"
+                                },
+                                {
+                                    "value": "arrowDown",
+                                    "displayName": "Arrow down \u2605"
+                                },
+                                {
+                                    "value": "arrowLeft",
+                                    "displayName": "Arrow left \u2605"
+                                },
+                                {
+                                    "value": "doubleArrow",
+                                    "displayName": "Double arrow \u2605"
+                                },
+                                {
+                                    "value": "chevron",
+                                    "displayName": "Chevron \u2605"
+                                },
+                                {
+                                    "value": "check",
+                                    "displayName": "Check mark \u2605"
+                                },
+                                {
+                                    "value": "close",
+                                    "displayName": "Close (X) \u2605"
+                                },
+                                {
+                                    "value": "plus",
+                                    "displayName": "Plus \u2605"
+                                },
+                                {
+                                    "value": "minus",
+                                    "displayName": "Minus \u2605"
+                                },
+                                {
+                                    "value": "warning",
+                                    "displayName": "Warning \u2605"
+                                },
+                                {
+                                    "value": "info",
+                                    "displayName": "Information \u2605"
+                                },
+                                {
+                                    "value": "playButton",
+                                    "displayName": "Play button \u2605"
+                                },
+                                {
+                                    "value": "bubble",
+                                    "displayName": "Speech bubble"
+                                },
+                                {
+                                    "value": "thought",
+                                    "displayName": "Thought bubble \u2605"
+                                },
+                                {
+                                    "value": "flag",
+                                    "displayName": "Flag \u2605"
+                                },
+                                {
+                                    "value": "bookmark",
+                                    "displayName": "Bookmark \u2605"
+                                },
+                                {
+                                    "value": "tag",
+                                    "displayName": "Tag \u2605"
+                                },
+                                {
+                                    "value": "bolt",
+                                    "displayName": "Lightning bolt \u2605"
+                                },
+                                {
+                                    "value": "shield",
+                                    "displayName": "Shield \u2605"
+                                },
+                                {
+                                    "value": "award",
+                                    "displayName": "Award \u2605"
+                                },
+                                {
+                                    "value": "puzzle",
+                                    "displayName": "Puzzle piece \u2605"
+                                },
+                                {
+                                    "value": "gear",
+                                    "displayName": "Gear \u2605"
+                                },
+                                {
+                                    "value": "lock",
+                                    "displayName": "Lock \u2605"
+                                },
+                                {
+                                    "value": "key",
+                                    "displayName": "Key \u2605"
+                                },
+                                {
+                                    "value": "bell",
+                                    "displayName": "Bell \u2605"
+                                },
+                                {
+                                    "value": "eye",
+                                    "displayName": "Eye \u2605"
+                                },
+                                {
+                                    "value": "cloud",
+                                    "displayName": "Cloud"
+                                },
+                                {
+                                    "value": "drop",
+                                    "displayName": "Drop"
+                                },
+                                {
+                                    "value": "sun",
+                                    "displayName": "Sun \u2605"
+                                },
+                                {
+                                    "value": "moon",
+                                    "displayName": "Moon \u2605"
+                                },
+                                {
+                                    "value": "snowflake",
+                                    "displayName": "Snowflake \u2605"
+                                },
+                                {
+                                    "value": "leaf",
+                                    "displayName": "Leaf \u2605"
+                                },
+                                {
+                                    "value": "pine",
+                                    "displayName": "Pine tree \u2605"
+                                },
+                                {
+                                    "value": "tree",
+                                    "displayName": "Tree \u2605"
+                                },
+                                {
+                                    "value": "flower",
+                                    "displayName": "Flower \u2605"
+                                },
+                                {
+                                    "value": "mountain",
+                                    "displayName": "Mountain \u2605"
+                                },
+                                {
+                                    "value": "wave",
+                                    "displayName": "Wave \u2605"
+                                },
+                                {
+                                    "value": "flame",
+                                    "displayName": "Flame \u2605"
+                                },
+                                {
+                                    "value": "umbrella",
+                                    "displayName": "Umbrella \u2605"
+                                },
+                                {
+                                    "value": "apple",
+                                    "displayName": "Apple \u2605"
+                                },
+                                {
+                                    "value": "fish",
+                                    "displayName": "Fish \u2605"
+                                },
+                                {
+                                    "value": "paw",
+                                    "displayName": "Paw print \u2605"
+                                },
+                                {
+                                    "value": "rain",
+                                    "displayName": "Rain \u2605"
+                                },
+                                {
+                                    "value": "sprout",
+                                    "displayName": "Sprout \u2605"
+                                },
+                                {
+                                    "value": "person",
+                                    "displayName": "Person"
+                                },
+                                {
+                                    "value": "man",
+                                    "displayName": "Man \u2605"
+                                },
+                                {
+                                    "value": "woman",
+                                    "displayName": "Woman \u2605"
+                                },
+                                {
+                                    "value": "child",
+                                    "displayName": "Child \u2605"
+                                },
+                                {
+                                    "value": "people",
+                                    "displayName": "Group of people \u2605"
+                                },
+                                {
+                                    "value": "bust",
+                                    "displayName": "User bust \u2605"
+                                },
+                                {
+                                    "value": "house",
+                                    "displayName": "House"
+                                },
+                                {
+                                    "value": "building",
+                                    "displayName": "Office building \u2605"
+                                },
+                                {
+                                    "value": "factory",
+                                    "displayName": "Factory \u2605"
+                                },
+                                {
+                                    "value": "castle",
+                                    "displayName": "Castle \u2605"
+                                },
+                                {
+                                    "value": "shop",
+                                    "displayName": "Shop \u2605"
+                                },
+                                {
+                                    "value": "bank",
+                                    "displayName": "Bank \u2605"
+                                },
+                                {
+                                    "value": "hospital",
+                                    "displayName": "Hospital \u2605"
+                                },
+                                {
+                                    "value": "book",
+                                    "displayName": "Book \u2605"
+                                },
+                                {
+                                    "value": "envelope",
+                                    "displayName": "Envelope \u2605"
+                                },
+                                {
+                                    "value": "phone",
+                                    "displayName": "Phone \u2605"
+                                },
+                                {
+                                    "value": "laptop",
+                                    "displayName": "Laptop \u2605"
+                                },
+                                {
+                                    "value": "monitor",
+                                    "displayName": "Monitor \u2605"
+                                },
+                                {
+                                    "value": "gift",
+                                    "displayName": "Gift \u2605"
+                                },
+                                {
+                                    "value": "clock",
+                                    "displayName": "Clock \u2605"
+                                },
+                                {
+                                    "value": "calendar",
+                                    "displayName": "Calendar \u2605"
+                                },
+                                {
+                                    "value": "pencil",
+                                    "displayName": "Pencil \u2605"
+                                },
+                                {
+                                    "value": "lightbulb",
+                                    "displayName": "Light bulb \u2605"
+                                },
+                                {
+                                    "value": "cup",
+                                    "displayName": "Trophy \u2605"
+                                },
+                                {
+                                    "value": "crown",
+                                    "displayName": "Crown \u2605"
+                                },
+                                {
+                                    "value": "trashCan",
+                                    "displayName": "Trash can \u2605"
+                                },
+                                {
+                                    "value": "barrel",
+                                    "displayName": "Barrel"
+                                },
+                                {
+                                    "value": "bottle",
+                                    "displayName": "Bottle"
+                                },
+                                {
+                                    "value": "wineGlass",
+                                    "displayName": "Wine glass"
+                                },
+                                {
+                                    "value": "glass",
+                                    "displayName": "Glass"
+                                },
+                                {
+                                    "value": "mug",
+                                    "displayName": "Mug \u2605"
+                                },
+                                {
+                                    "value": "jar",
+                                    "displayName": "Jar \u2605"
+                                },
+                                {
+                                    "value": "bucket",
+                                    "displayName": "Bucket \u2605"
+                                },
+                                {
+                                    "value": "battery",
+                                    "displayName": "Battery"
+                                },
+                                {
+                                    "value": "batteryVertical",
+                                    "displayName": "Vertical battery"
+                                },
+                                {
+                                    "value": "thermometer",
+                                    "displayName": "Thermometer"
+                                },
+                                {
+                                    "value": "testTube",
+                                    "displayName": "Test tube \u2605"
+                                },
+                                {
+                                    "value": "tank",
+                                    "displayName": "Tank \u2605"
+                                },
+                                {
+                                    "value": "funnel",
+                                    "displayName": "Funnel \u2605"
+                                },
+                                {
+                                    "value": "hourglass",
+                                    "displayName": "Hourglass \u2605"
+                                },
+                                {
+                                    "value": "bag",
+                                    "displayName": "Bag \u2605"
+                                },
+                                {
+                                    "value": "piggyBank",
+                                    "displayName": "Piggy bank \u2605"
+                                },
+                                {
+                                    "value": "flask",
+                                    "displayName": "Flask \u2605"
+                                },
+                                {
+                                    "value": "beaker",
+                                    "displayName": "Beaker \u2605"
+                                },
+                                {
+                                    "value": "can",
+                                    "displayName": "Can \u2605"
+                                },
+                                {
+                                    "value": "coffeeCup",
+                                    "displayName": "Coffee cup \u2605"
+                                },
+                                {
+                                    "value": "vase",
+                                    "displayName": "Vase \u2605"
+                                },
+                                {
+                                    "value": "milkCarton",
+                                    "displayName": "Milk carton \u2605"
+                                },
+                                {
+                                    "value": "france",
+                                    "displayName": "Metropolitan France \u2605"
+                                },
+                                {
+                                    "value": "africa",
+                                    "displayName": "Africa \u2605"
+                                },
+                                {
+                                    "value": "australia",
+                                    "displayName": "Australia \u2605"
+                                },
+                                {
+                                    "value": "southAmerica",
+                                    "displayName": "South America \u2605"
+                                },
+                                {
+                                    "value": "pin",
+                                    "displayName": "Map pin \u2605"
+                                },
+                                {
+                                    "value": "globe",
+                                    "displayName": "Globe \u2605"
+                                },
+                                {
+                                    "value": "foldedMap",
+                                    "displayName": "Folded map \u2605"
+                                },
+                                {
+                                    "value": "compass",
+                                    "displayName": "Compass \u2605"
+                                },
+                                {
+                                    "value": "city",
+                                    "displayName": "City skyline \u2605"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Target \u2605"
+                                },
+                                {
+                                    "value": "barChart",
+                                    "displayName": "Bar chart \u2605"
+                                },
+                                {
+                                    "value": "pieChart",
+                                    "displayName": "Pie chart \u2605"
+                                },
+                                {
+                                    "value": "trendUp",
+                                    "displayName": "Trend up \u2605"
+                                },
+                                {
+                                    "value": "coin",
+                                    "displayName": "Coin \u2605"
+                                },
+                                {
+                                    "value": "banknote",
+                                    "displayName": "Banknote \u2605"
+                                },
+                                {
+                                    "value": "wallet",
+                                    "displayName": "Wallet \u2605"
+                                },
+                                {
+                                    "value": "creditCard",
+                                    "displayName": "Credit card \u2605"
+                                },
+                                {
+                                    "value": "cart",
+                                    "displayName": "Shopping cart \u2605"
+                                },
+                                {
+                                    "value": "briefcase",
+                                    "displayName": "Briefcase \u2605"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "Percent \u2605"
+                                },
+                                {
+                                    "value": "podium",
+                                    "displayName": "Podium \u2605"
+                                },
+                                {
+                                    "value": "megaphone",
+                                    "displayName": "Megaphone \u2605"
+                                },
+                                {
+                                    "value": "gem",
+                                    "displayName": "Gem \u2605"
+                                },
+                                {
+                                    "value": "medal",
+                                    "displayName": "Medal \u2605"
+                                },
+                                {
+                                    "value": "clipboard",
+                                    "displayName": "Clipboard \u2605"
+                                },
+                                {
+                                    "value": "handshake",
+                                    "displayName": "Handshake \u2605"
+                                },
+                                {
+                                    "value": "car",
+                                    "displayName": "Car \u2605"
+                                },
+                                {
+                                    "value": "truck",
+                                    "displayName": "Truck \u2605"
+                                },
+                                {
+                                    "value": "bus",
+                                    "displayName": "Bus \u2605"
+                                },
+                                {
+                                    "value": "bicycle",
+                                    "displayName": "Bicycle \u2605"
+                                },
+                                {
+                                    "value": "plane",
+                                    "displayName": "Plane \u2605"
+                                },
+                                {
+                                    "value": "boat",
+                                    "displayName": "Sailboat \u2605"
+                                },
+                                {
+                                    "value": "train",
+                                    "displayName": "Train \u2605"
+                                },
+                                {
+                                    "value": "rocket",
+                                    "displayName": "Rocket \u2605"
+                                },
+                                {
+                                    "value": "helicopter",
+                                    "displayName": "Helicopter \u2605"
+                                },
+                                {
+                                    "value": "ship",
+                                    "displayName": "Cargo ship \u2605"
+                                },
+                                {
+                                    "value": "fuel",
+                                    "displayName": "Fuel pump \u2605"
+                                },
+                                {
+                                    "value": "scooter",
+                                    "displayName": "Scooter \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "sort": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "valueDesc",
+                                    "displayName": "Value, descending"
+                                },
+                                {
+                                    "value": "valueAsc",
+                                    "displayName": "Value, ascending"
+                                },
+                                {
+                                    "value": "nameAsc",
+                                    "displayName": "Name (A \u2192 Z)"
+                                },
+                                {
+                                    "value": "nameDesc",
+                                    "displayName": "Name (Z \u2192 A)"
+                                },
+                                {
+                                    "value": "data",
+                                    "displayName": "Data order (Power BI sort)"
+                                }
+                            ]
+                        }
+                    },
+                    "stable": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "depth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "nodeGap": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "groupGap": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "tileRadius": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "topN": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "topNCount": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "othersLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "dataColors": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "category",
+                                    "displayName": "One color per category (top level)"
+                                },
+                                {
+                                    "value": "leaf",
+                                    "displayName": "One color per tile (last level) \u2605"
+                                },
+                                {
+                                    "value": "single",
+                                    "displayName": "Single color"
+                                },
+                                {
+                                    "value": "gradient",
+                                    "displayName": "Gradient by a measure"
+                                },
+                                {
+                                    "value": "diverging",
+                                    "displayName": "Diverging around a midpoint \u2605"
+                                },
+                                {
+                                    "value": "rules",
+                                    "displayName": "Thresholds (3 colors) \u2605"
+                                },
+                                {
+                                    "value": "change",
+                                    "displayName": "Stock map: change (Comparison field) \u2605"
+                                },
+                                {
+                                    "value": "highlight",
+                                    "displayName": "Highlight \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "single": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fill": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shade": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gradMin": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "gradMax": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "divMid": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rule1": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rule2": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "ruleLow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ruleMid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ruleHigh": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "changeSource": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (Comparison field, else Color field)"
+                                },
+                                {
+                                    "value": "comparison",
+                                    "displayName": "Values compared with the Comparison field"
+                                },
+                                {
+                                    "value": "measure",
+                                    "displayName": "Color field (change already computed)"
+                                }
+                            ]
+                        }
+                    },
+                    "changeAuto": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "changeRange": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "lowerBetter": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "highlightNames": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "highlightColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "othersColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "groups": {
+                "properties": {
+                    "headers": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "headerSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "headerBold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "headerValue": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "headerFill": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Group color"
+                                },
+                                {
+                                    "value": "neutral",
+                                    "displayName": "Neutral"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "headerColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borders": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "tileBorder": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "labels": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showValue": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "percent": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "parent",
+                                    "displayName": "Share of the group \u2605"
+                                },
+                                {
+                                    "value": "total",
+                                    "displayName": "Share of the total \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "change": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "topLeft",
+                                    "displayName": "Top left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                }
+                            ]
+                        }
+                    },
+                    "autoSize": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "maxSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "minTile": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "units": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "k",
+                                    "displayName": "Thousands"
+                                },
+                                {
+                                    "value": "m",
+                                    "displayName": "Millions"
+                                },
+                                {
+                                    "value": "b",
+                                    "displayName": "Billions"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "prefix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "suffix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showName": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "boldName": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "wrap": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "categoryLabels": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "wrap": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                }
+                            ]
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Start"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "End"
+                                }
+                            ]
+                        }
+                    },
+                    "showTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "interactive": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "zoom": {
+                "properties": {
+                    "headerClick": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "doubleClick": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "breadcrumb": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rootLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "images": {
+                "properties": {
+                    "fit": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "contain",
+                                    "displayName": "Whole (logo)"
+                                },
+                                {
+                                    "value": "cover",
+                                    "displayName": "Fill the tile (photo)"
+                                }
+                            ]
+                        }
+                    },
+                    "size": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "opacity": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "round": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "smallMultiples": {
+                "properties": {
+                    "columns": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "sameScale": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "gap": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "play": {
+                "properties": {
+                    "start": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "last",
+                                    "displayName": "The last one (most recent)"
+                                },
+                                {
+                                    "value": "first",
+                                    "displayName": "The first one"
+                                }
+                            ]
+                        }
+                    },
+                    "speed": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "loop": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "autoPlay": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "transition": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "controls": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                }
+                            ]
+                        }
+                    },
+                    "ticks": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "Every frame"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "tickLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "stepButtons": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "speedButton": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showLabel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "labelPosition": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bottomRight",
+                                    "displayName": "Bottom right"
+                                },
+                                {
+                                    "value": "topRight",
+                                    "displayName": "Top right"
+                                },
+                                {
+                                    "value": "topLeft",
+                                    "displayName": "Top left"
+                                },
+                                {
+                                    "value": "bottomLeft",
+                                    "displayName": "Bottom left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "interaction": {
+                "properties": {
+                    "hover": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dim": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "tooltip": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "path": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "shareParent": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "shareTotal": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "title": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "wrap": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "subtitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subFontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "subColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "subItalic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "divider": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dividerColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "dividerStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "dividerWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "spaceBelow": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "source": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "container": {
+                "properties": {
+                    "bgShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgTransparency": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "shadow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "shadowColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadowSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "padding": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "texts": {
+                "properties": {
+                    "language": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Same as Power BI"
+                                },
+                                {
+                                    "value": "fr",
+                                    "displayName": "French"
+                                },
+                                {
+                                    "value": "en",
+                                    "displayName": "English"
+                                }
+                            ]
+                        }
+                    },
+                    "numberLocale": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

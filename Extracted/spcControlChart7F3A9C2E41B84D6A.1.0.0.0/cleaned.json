@@ -1,0 +1,366 @@
+{
+    "visual": {
+        "name": "spcControlChart",
+        "displayName": "SigmaGuard: SPC Control Chart",
+        "guid": "spcControlChart7F3A9C2E41B84D6A",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Find out-of-control processes automatically with SPC control charts (I-MR, X-bar/R, p), 8 Nelson rule checks, and Cpk capability right inside Power BI.",
+        "supportUrl": "https://example.com/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Your company",
+        "email": "support@example.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "supportsHighlight": true,
+        "privileges": [],
+        "dataRoles": [
+            {
+                "name": "sequence",
+                "displayName": "Sequence / time",
+                "kind": "Grouping"
+            },
+            {
+                "name": "value",
+                "displayName": "Measure value",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "subgroup",
+                "displayName": "Subgroup (X-bar/R)",
+                "kind": "Grouping"
+            },
+            {
+                "name": "sampleSize",
+                "displayName": "Sample size (p chart)",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "defects",
+                "displayName": "Defective count (p chart)",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "stage",
+                "displayName": "Stage / phase",
+                "kind": "Grouping"
+            },
+            {
+                "name": "usl",
+                "displayName": "USL",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "lsl",
+                "displayName": "LSL",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "exclude",
+                "displayName": "Exclude flag (1 = exclude)",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "comment",
+                "displayName": "Comment",
+                "kind": "Grouping"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "sequence"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "value"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "subgroup"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "sampleSize"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "defects"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "stage"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "usl"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "lsl"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "exclude"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "comment"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "parameters": {
+                "properties": {
+                    "sequence": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "value": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subgroup": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sampleSize": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "defects": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "stage": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "usl": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "lsl": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "exclude": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "comment": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "limits": {
+                "properties": {
+                    "chartType": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "imr",
+                                    "displayName": "I-MR"
+                                },
+                                {
+                                    "value": "xbarR",
+                                    "displayName": "X-bar and R"
+                                },
+                                {
+                                    "value": "p",
+                                    "displayName": "p chart"
+                                }
+                            ]
+                        }
+                    },
+                    "sigma": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "baselineCount": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "truncateLcl": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "uslValue": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "lslValue": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "rules": {
+                "properties": {
+                    "preset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "nelson",
+                                    "displayName": "Nelson (all 8)"
+                                },
+                                {
+                                    "value": "western",
+                                    "displayName": "Western Electric (4)"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom"
+                                }
+                            ]
+                        }
+                    },
+                    "r1": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "r2": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "r3": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "r4": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "r5": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "r6": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "r7": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "r8": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "shiftN": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "trendN": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "display": {
+                "properties": {
+                    "title": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showZones": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showSecondary": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showCapability": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showViolations": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lineColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

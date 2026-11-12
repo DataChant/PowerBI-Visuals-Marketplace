@@ -1,0 +1,3341 @@
+{
+    "visual": {
+        "name": "plumeHeatmap",
+        "displayName": "Heatmap Plume",
+        "guid": "plumeHeatmap1EF5C05AB0CA4FB0A57FFFF734DE95DF",
+        "visualClassName": "Visual",
+        "version": "1.1.0.0",
+        "description": "Heatmap with the Plume Studio look: grid (rows x columns), calendar heatmap (one or several years, weeks or months, GitHub style) and day-of-week x hour heatmap computed from a date-time; single-hue or palette scales, equal classes; values in the cells with automatic text contrast; sort rows and columns by name, total or a column; premium animated play axis, diverging scale with an adjustable midpoint, quantiles, thresholds, square root and log scales, outliers ignored, % labels, margin totals and marginal bars, similarity ordering with dendrogram, public holidays and annotations, radial heatmap, proportional cell sizes, comparison with a reference and small multiples.",
+        "supportUrl": "https://plumevisuals.com/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Plume Studio",
+        "email": "contact@plumevisuals.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "premium_desc": "Premium feature: usable for free with a \u201cPremium preview\u201d watermark, unlocked by a Plume Studio license key.",
+            "card_license": "Plume Studio License",
+            "license_buy": "Get a license",
+            "license_key": "License key",
+            "license_key_desc": "Paste the key received after purchase on plumevisuals.com (starts with PLUM1.). Checked offline.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Show license holder (edit mode)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Custom colors",
+            "group_style_text": "Text",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Complete look shared by all Plume visuals: colors, three palettes, fonts, frame, table header, marks and effects. Customize colors below.",
+            "style_preset_none": "None",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Black & White",
+            "style_preset_press": "Newspaper \u2605",
+            "style_preset_vintage": "Vintage (antique plate) \u2605",
+            "style_preset_earth": "Earth \u2605",
+            "style_preset_nordic": "Nordic \u2605",
+            "style_preset_executive": "Executive \u2605",
+            "style_preset_accessible": "Accessible (high legibility) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climate \u2605",
+            "style_preset_blueprint": "Blueprint \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (dark) \u2605",
+            "style_preset_neon": "Neon \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographic \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologram \u2605",
+            "style_themeJson": "Theme JSON \u2605",
+            "style_themeJson_desc": "Paste a JSON theme: see the 'JSON themes' tutorial on plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Follow report theme",
+            "style_followTheme_desc": "Text, background, accent and data colors come from the Power BI report theme.",
+            "style_reverse": "Reverse gradients",
+            "style_customColors": "Customize colors",
+            "style_customColors_desc": "Start from the style and pick your own colors. A color left empty keeps the style's color.",
+            "style_colorBackground": "Background",
+            "style_colorText": "Text",
+            "style_colorMuted": "Secondary text",
+            "style_colorGrid": "Lines and grid",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "Unfavorable",
+            "style_series1": "Series 1",
+            "style_series2": "Series 2",
+            "style_series3": "Series 3",
+            "style_series4": "Series 4",
+            "style_series5": "Series 5",
+            "style_series6": "Series 6",
+            "style_series7": "Series 7",
+            "style_series8": "Series 8",
+            "style_palette": "Gradient palette",
+            "style_palette_desc": "Gradient from the catalog (Viridis, Magma\u2026). The start, middle and end colors below replace it.",
+            "style_palette_auto": "Style or theme palette",
+            "style_palette_crest": "Plume (sequential)",
+            "style_palette_crestDiverging": "Plume (diverging)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (colorblind-safe) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Red\u2013Yellow\u2013Blue \u2605",
+            "style_palette_brBG": "Brown\u2013Teal (drought) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Blues \u2605",
+            "style_palette_reds": "Reds \u2605",
+            "style_palette_grays": "Grays \u2605",
+            "style_palette_press": "Press (ink and paper) \u2605",
+            "style_palette_nordic": "Nordic \u2605",
+            "style_palette_earth": "Earth (ochre to umber) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (colorblind-safe) \u2605",
+            "style_scaleLow": "Gradient: start",
+            "style_scaleMid": "Gradient: middle (diverging)",
+            "style_scaleHigh": "Gradient: end",
+            "style_fontFamily": "Font",
+            "style_fontFamily_desc": "Used by every text of the visual (title, axes, labels, cells).",
+            "style_textColor": "Text color (empty = style)",
+            "style_mutedColor": "Secondary text (empty = style)",
+            "style_animate": "Animations",
+            "style_animate_desc": "Smooth transitions when data changes. Automatically disabled when the system asks to reduce motion.",
+            "card_layout": "Layout",
+            "layout_mode": "Type",
+            "layout_mode_desc": "Automatic: Rows / Columns give a grid; a Date alone gives a calendar (days), a day \u00d7 hour grid (date-times) or a year \u00d7 month grid (months).",
+            "layout_mode_auto": "Automatic (from the fields)",
+            "layout_mode_grid": "Grid: rows \u00d7 columns",
+            "layout_mode_calendar": "Calendar (a Date field)",
+            "layout_mode_weekHour": "Day of week \u00d7 hour (date-time)",
+            "layout_shape": "Shape",
+            "layout_shape_desc": "Radial: the columns (hours, months) go around the circle and the rows become rings.",
+            "layout_shape_grid": "Grid",
+            "layout_shape_radial": "Radial (columns around a circle) \u2605",
+            "layout_inner": "Center hole (% of the radius)",
+            "layout_aggregate": "Several values in a cell",
+            "layout_aggregate_desc": "Day \u00d7 hour and calendar: how the rows of the same cell are combined (sum of sales, average temperature\u2026).",
+            "layout_aggregate_sum": "Sum",
+            "layout_aggregate_average": "Average",
+            "layout_aggregate_min": "Minimum",
+            "layout_aggregate_max": "Maximum",
+            "layout_aggregate_count": "Count of rows",
+            "card_scale": "Color scale",
+            "group_scale_colorsGroup": "Colors",
+            "group_scale_methodGroup": "Classes and range",
+            "scale_kind": "Gradient",
+            "scale_kind_desc": "The palettes (Viridis, Magma, Blues\u2026) and the start / middle / end colors are chosen in Style \u203a Custom colors.",
+            "scale_kind_auto": "Automatic (single hue, or the style palette)",
+            "scale_kind_mono": "Single hue: light to dark",
+            "scale_kind_palette": "Gradient palette (Style card)",
+            "scale_kind_diverging": "Diverging: two hues and a midpoint \u2605",
+            "scale_color": "Hue (empty = style color)",
+            "scale_mid": "Scale midpoint",
+            "scale_mid_zero": "Zero",
+            "scale_mid_mean": "Average",
+            "scale_mid_median": "Median",
+            "scale_mid_center": "Center of the range",
+            "scale_mid_value": "Fixed value",
+            "scale_midValue": "Midpoint value",
+            "scale_empty": "Empty cells",
+            "scale_empty_desc": "A blank value is never shown as zero: a zero takes the color of the scale.",
+            "scale_empty_auto": "Automatic (hatched; grayed in the calendar)",
+            "scale_empty_hatch": "Hatched",
+            "scale_empty_light": "Grayed",
+            "scale_empty_hide": "Hidden",
+            "scale_method": "Color distribution",
+            "scale_method_continuous": "Continuous",
+            "scale_method_classes": "Equal classes",
+            "scale_method_quantiles": "Quantiles (same number of cells per class) \u2605",
+            "scale_method_thresholds": "Custom thresholds \u2605",
+            "scale_classes": "Number of classes",
+            "scale_thresholds": "Thresholds (separated by ;)",
+            "scale_thresholds_ph": "10; 50; 100",
+            "scale_classColors": "Class colors (empty = gradient)",
+            "scale_classColors_desc": "Like the Rules of the native conditional formatting: one color per class, from the lowest to the highest, separated by ; (#RRGGBB or a color name). Missing colors come from the gradient.",
+            "scale_classColors_ph": "#D73027; #FEE08B; #1A9850",
+            "scale_transform": "Scale",
+            "scale_transform_desc": "Square root and logarithmic scales spread out small values when a few cells are very large.",
+            "scale_transform_linear": "Linear",
+            "scale_transform_sqrt": "Square root \u2605",
+            "scale_transform_log": "Logarithmic \u2605",
+            "scale_scope": "Scale computed over",
+            "scale_scope_desc": "Per row: each row has its own lightest and darkest cell (rows with different units or sizes).",
+            "scale_scope_all": "All cells",
+            "scale_scope_row": "Each row \u2605",
+            "scale_scope_column": "Each column \u2605",
+            "scale_min": "Minimum",
+            "scale_min_ph": "auto",
+            "scale_max": "Maximum",
+            "scale_max_ph": "auto",
+            "scale_robust": "Ignore extreme values (2% on each side) \u2605",
+            "scale_robust_desc": "The colors are spread between the 2nd and 98th percentiles: one huge cell no longer flattens all the others.",
+            "card_cells": "Cells",
+            "cells_shape": "Cell shape",
+            "cells_shape_square": "Square",
+            "cells_shape_rounded": "Rounded corners",
+            "cells_shape_circle": "Circles",
+            "cells_radius": "Corner radius (px)",
+            "cells_gap": "Spacing (px)",
+            "cells_square": "Square cells in the grid",
+            "cells_square_desc": "The calendar always uses square cells.",
+            "cells_minSize": "Minimum size before scrolling (px)",
+            "cells_minSize_desc": "Large grids scroll (only the visible cells are drawn) instead of shrinking below this size.",
+            "cells_maxSize": "Maximum size (px, 0 = fill)",
+            "cells_sizeBy": "Cell size",
+            "cells_sizeBy_desc": "The color shows the value, the size shows how much data is behind it (or the value itself).",
+            "cells_sizeBy_none": "All full",
+            "cells_sizeBy_value": "By value \u2605",
+            "cells_sizeBy_field": "By the \"Size\" field \u2605",
+            "cells_border": "Outline",
+            "cells_borderColor": "Outline color (empty = grid)",
+            "cells_borderWidth": "Outline width (px)",
+            "card_labels": "Data labels",
+            "group_labels_main": "Labels",
+            "group_labels_number": "Numbers",
+            "labels_show": "Show",
+            "labels_show_desc": "Values are written in the cells that are large enough.",
+            "labels_content": "Content",
+            "labels_content_value": "Value",
+            "labels_content_pctRow": "% of row \u2605",
+            "labels_content_pctCol": "% of column \u2605",
+            "labels_content_pctTotal": "% of total \u2605",
+            "labels_content_day": "Day number (calendar)",
+            "labels_fontSize": "Text size",
+            "labels_color": "Color (empty = automatic)",
+            "labels_color_desc": "Automatic: white or dark text depending on each cell.",
+            "labels_bold": "Bold",
+            "labels_fit": "Hide the labels when they do not all fit",
+            "labels_fit_desc": "All or nothing: never a grid with labels in some cells only. Off: each label that fits is written.",
+            "labels_units": "Display units",
+            "labels_units_auto": "Auto",
+            "labels_units_none": "None",
+            "labels_units_k": "Thousands",
+            "labels_units_m": "Millions",
+            "labels_units_b": "Billions",
+            "labels_decimals": "Decimals (-1 = auto)",
+            "labels_prefix": "Prefix",
+            "labels_suffix": "Suffix (e.g. \u20ac)",
+            "card_rowAxis": "Row labels",
+            "group_rowAxis_main": "Labels",
+            "group_rowAxis_titleGroup": "Title",
+            "rowAxis_show": "Show",
+            "rowAxis_fontSize": "Text size",
+            "rowAxis_color": "Color (empty = text)",
+            "rowAxis_bold": "Bold",
+            "rowAxis_maxSize": "Maximum room (% of the visual)",
+            "rowAxis_showTitle": "Row title",
+            "rowAxis_titleText": "Title text",
+            "rowAxis_titleText_ph": "Field name",
+            "card_colAxis": "Column labels",
+            "group_colAxis_main": "Labels",
+            "group_colAxis_titleGroup": "Title",
+            "colAxis_show": "Show",
+            "colAxis_position": "Position",
+            "colAxis_position_top": "Top",
+            "colAxis_position_bottom": "Bottom",
+            "colAxis_fontSize": "Text size",
+            "colAxis_color": "Color (empty = secondary)",
+            "colAxis_bold": "Bold",
+            "colAxis_labelMode": "Long labels",
+            "colAxis_labelMode_auto": "Automatic",
+            "colAxis_labelMode_wrap": "Two lines",
+            "colAxis_labelMode_rotate45": "Tilted (45\u00b0)",
+            "colAxis_labelMode_rotate90": "Vertical",
+            "colAxis_labelMode_truncate": "Truncated (\u2026)",
+            "colAxis_maxSize": "Maximum room (% of the visual)",
+            "colAxis_showTitle": "Column title",
+            "colAxis_titleText": "Title text",
+            "colAxis_titleText_ph": "Field name",
+            "card_legend": "Legend",
+            "legend_show": "Show",
+            "legend_position": "Position",
+            "legend_position_top": "Top",
+            "legend_position_bottom": "Bottom",
+            "legend_position_right": "Right",
+            "legend_position_left": "Left",
+            "legend_align": "Alignment",
+            "legend_align_left": "Start",
+            "legend_align_center": "Center",
+            "legend_align_right": "End",
+            "legend_showTitle": "Legend title",
+            "legend_titleText": "Title text",
+            "legend_titleText_ph": "Field name",
+            "legend_fontSize": "Text size",
+            "legend_color": "Color (empty = secondary)",
+            "legend_length": "Gradient length (px)",
+            "legend_interactive": "Click a class = highlight its cells",
+            "card_sort": "Sort",
+            "group_sort_rowsGroup": "Rows",
+            "group_sort_colsGroup": "Columns",
+            "group_sort_treeGroup": "Dendrogram",
+            "sort_rowsBy": "Sort rows by",
+            "sort_rowsBy_desc": "Similarity: rows that look alike are placed side by side (hierarchical clustering, computed in the visual).",
+            "sort_rowsBy_model": "Model order (as in Power BI)",
+            "sort_rowsBy_name": "Name",
+            "sort_rowsBy_total": "Row total",
+            "sort_rowsBy_column": "Value in a column",
+            "sort_rowsBy_similarity": "Similarity (clustering) \u2605",
+            "sort_rowsOrder": "Order",
+            "sort_rowsOrder_desc": "Largest first (names A to Z)",
+            "sort_rowsOrder_asc": "Smallest first (names Z to A)",
+            "sort_rowsColumn": "Column name",
+            "sort_rowsColumn_desc": "Empty: the last column.",
+            "sort_rowsColumn_ph": "e.g. 2025",
+            "sort_rowsTop": "Show the first N rows (0 = all)",
+            "sort_colsBy": "Sort columns by",
+            "sort_colsBy_model": "Model order (as in Power BI)",
+            "sort_colsBy_name": "Name",
+            "sort_colsBy_total": "Column total",
+            "sort_colsBy_similarity": "Similarity (clustering) \u2605",
+            "sort_colsOrder": "Order",
+            "sort_colsOrder_desc": "Largest first (names A to Z)",
+            "sort_colsOrder_asc": "Smallest first (names Z to A)",
+            "sort_dendrogram": "Draw the clustering tree",
+            "sort_dendrogram_desc": "With a similarity sort: the tree shows which rows (columns) are closest.",
+            "sort_treeSize": "Tree size (px)",
+            "card_margins": "Margin totals \u2605",
+            "margins_rows": "Row totals (right)",
+            "margins_rows_none": "None",
+            "margins_rows_values": "Values \u2605",
+            "margins_rows_bars": "Bars \u2605",
+            "margins_rows_barsValues": "Bars and values \u2605",
+            "margins_cols": "Column totals",
+            "margins_cols_desc": "Drawn on the side opposite the column labels.",
+            "margins_cols_none": "None",
+            "margins_cols_values": "Values \u2605",
+            "margins_cols_bars": "Bars \u2605",
+            "margins_cols_barsValues": "Bars and values \u2605",
+            "margins_agg": "Calculation",
+            "margins_agg_sum": "Sum",
+            "margins_agg_average": "Average",
+            "margins_agg_max": "Maximum",
+            "margins_agg_min": "Minimum",
+            "margins_size": "Bar room (% of the visual)",
+            "margins_color": "Bar color (empty = scale color)",
+            "margins_fontSize": "Text size",
+            "card_calendar": "Calendar and hours",
+            "group_calendar_daysGroup": "Days",
+            "group_calendar_calGroup": "Calendar",
+            "group_calendar_holidaysGroup": "Holidays and annotations",
+            "group_calendar_hoursGroup": "Hours (day \u00d7 hour)",
+            "calendar_weekStart": "First day of the week",
+            "calendar_weekStart_auto": "From the language (Sunday in US English)",
+            "calendar_weekStart_monday": "Monday",
+            "calendar_weekStart_sunday": "Sunday",
+            "calendar_weekStart_saturday": "Saturday",
+            "calendar_dayLabels": "Day names",
+            "calendar_dayLabels_alternate": "Every other day",
+            "calendar_dayLabels_all": "All",
+            "calendar_dayLabels_none": "None",
+            "calendar_weekends": "Mark weekends",
+            "calendar_layout": "Layout",
+            "calendar_layout_weeks": "Weeks as columns (GitHub style)",
+            "calendar_layout_months": "One block per month",
+            "calendar_range": "Period shown",
+            "calendar_range_years": "Whole years",
+            "calendar_range_data": "From the first to the last day of the data",
+            "calendar_monthGaps": "Separate the months",
+            "calendar_monthLabels": "Month names",
+            "calendar_yearLabels": "Years",
+            "calendar_maxYears": "Maximum number of years (most recent)",
+            "calendar_holidays": "Public holidays",
+            "calendar_holidays_desc": "Computed in the visual (Easter included), outlined in the calendar and named in the tooltip.",
+            "calendar_holidays_none": "None",
+            "calendar_holidays_fr": "France \u2605",
+            "calendar_holidays_be": "Belgium \u2605",
+            "calendar_holidays_ch": "Switzerland (federal) \u2605",
+            "calendar_holidays_ca": "Canada (federal) \u2605",
+            "calendar_holidays_de": "Germany (national) \u2605",
+            "calendar_holidays_gb": "United Kingdom (England) \u2605",
+            "calendar_holidays_us": "United States (federal) \u2605",
+            "calendar_markColor": "Marker color (empty = accent)",
+            "calendar_hourStart": "First hour",
+            "calendar_hourEnd": "Last hour",
+            "calendar_hourFormat": "Hour format",
+            "calendar_hourFormat_auto": "From the language",
+            "calendar_hourFormat_h24": "24-hour (0 to 23)",
+            "calendar_hourFormat_h12": "12-hour (AM / PM)",
+            "card_comparison": "Comparison \u2605",
+            "comparison_mode": "Color by",
+            "comparison_mode_desc": "With a measure in \"Reference\": each cell is colored by its gap to the reference (last year, target, average), on a diverging scale centered on zero.",
+            "comparison_mode_difference": "Difference (value \u2212 reference)",
+            "comparison_mode_percent": "Difference in % of the reference",
+            "comparison_lowerIsBetter": "A decrease is favorable",
+            "comparison_arrows": "\u25b2\u25bc arrows in the labels",
+            "card_annotations": "Annotations \u2605",
+            "annotations_marker": "Marker",
+            "annotations_marker_desc": "Cells with a text in the \"Annotation\" field get a marker; the text is in the tooltip.",
+            "annotations_marker_corner": "Cell corner",
+            "annotations_marker_dot": "Dot",
+            "annotations_marker_outline": "Outline",
+            "annotations_color": "Color (empty = accent)",
+            "card_smallMultiples": "Small multiples \u2605",
+            "smallMultiples_columns": "Columns (0 = automatic)",
+            "smallMultiples_minWidth": "Minimum chart width (px)",
+            "smallMultiples_gap": "Spacing (px)",
+            "smallMultiples_titleSize": "Title size",
+            "smallMultiples_border": "Frame around each chart",
+            "card_play": "Playback \u2605",
+            "group_play_playback": "Playback",
+            "group_play_bar": "Play bar",
+            "group_play_label": "Large value",
+            "group_play_more": "More settings",
+            "play_start": "Frame shown on opening",
+            "play_start_last": "The last one (most recent)",
+            "play_start_first": "The first one",
+            "play_speed": "Duration of a frame (ms)",
+            "play_speed_desc": "At speed \u00d71; the speed button of the play bar multiplies it (\u00d70.5 to \u00d74) for the session.",
+            "play_loop": "Loop",
+            "play_autoPlay": "Play automatically on opening",
+            "play_autoPlay_desc": "Once, from the first frame. Not when animations are reduced (Style \u203a Animations or the system) nor on a dashboard tile.",
+            "play_transition": "Animated transitions",
+            "play_transition_desc": "Values, positions and colors move smoothly from one frame to the next.",
+            "play_controls": "Play bar",
+            "play_position": "Bar position",
+            "play_position_bottom": "Bottom",
+            "play_position_top": "Top",
+            "play_ticks": "Tick marks",
+            "play_ticks_auto": "Automatic",
+            "play_ticks_all": "Every frame",
+            "play_ticks_none": "None",
+            "play_tickLabels": "Tick labels",
+            "play_stepButtons": "Start and end buttons",
+            "play_speedButton": "Speed button",
+            "play_showLabel": "Current value in large type",
+            "play_labelSize": "Large value size",
+            "play_labelPosition": "Large value position",
+            "play_labelPosition_bottomRight": "Bottom right",
+            "play_labelPosition_topRight": "Top right",
+            "play_labelPosition_topLeft": "Top left",
+            "play_labelPosition_bottomLeft": "Bottom left",
+            "play_labelPosition_center": "Center",
+            "play_sameScale": "Same scale for every frame",
+            "play_sameScale_desc": "The colors keep the same meaning from one frame to the next (recommended). Off: each frame uses its own lightest and darkest cell.",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Highlight on hover",
+            "interaction_dim": "Dimmed items opacity (%)",
+            "interaction_crosshair": "Hover: emphasize the row and the column",
+            "interaction_headers": "Click a name = select the row or the column",
+            "interaction_headers_desc": "Also month, day and year names in the calendar.",
+            "card_tooltip": "Tooltips",
+            "tooltip_show": "Show",
+            "tooltip_show_desc": "Tooltip on hover (with the fields of the \"Tooltips\" well and report page tooltips).",
+            "card_title": "Title",
+            "group_title_titleText": "Title",
+            "group_title_subtitleGroup": "Subtitle",
+            "group_title_divider": "Divider",
+            "group_title_spacing": "Spacing",
+            "title_show": "Show",
+            "title_text": "Text",
+            "title_text_desc": "Leave empty for an automatic title built from the fields.",
+            "title_text_ph": "Automatic",
+            "title_fontSize": "Size",
+            "title_bold": "Bold",
+            "title_italic": "Italic",
+            "title_underline": "Underline",
+            "title_color": "Color (empty = text)",
+            "title_bgColor": "Background color",
+            "title_align": "Horizontal alignment",
+            "title_align_left": "Left",
+            "title_align_center": "Center",
+            "title_align_right": "Right",
+            "title_wrap": "Text wrap",
+            "title_subtitle": "Subtitle",
+            "title_subtitle_desc": "Several lines allowed: type \\n to go to the next line.",
+            "title_subFontSize": "Size",
+            "title_subColor": "Color (empty = secondary text)",
+            "title_subItalic": "Italic",
+            "title_divider": "Show divider",
+            "title_dividerColor": "Color (empty = lines)",
+            "title_dividerStyle": "Line style",
+            "title_dividerStyle_solid": "Solid",
+            "title_dividerStyle_dashed": "Dashed",
+            "title_dividerStyle_dotted": "Dotted",
+            "title_dividerWidth": "Width",
+            "title_spaceBelow": "Space below the title (px)",
+            "card_source": "Source note",
+            "source_show": "Show",
+            "source_text": "Text",
+            "source_text_ph": "Source: \u2026",
+            "source_fontSize": "Size",
+            "source_italic": "Italic",
+            "source_color": "Color (empty = secondary text)",
+            "source_align": "Alignment",
+            "source_align_left": "Left",
+            "source_align_center": "Center",
+            "source_align_right": "Right",
+            "card_container": "Frame",
+            "group_container_background": "Background",
+            "group_container_borderGroup": "Border",
+            "group_container_shadowGroup": "Shadow",
+            "group_container_spacing": "Spacing",
+            "container_bgShow": "Background",
+            "container_bgColor": "Color",
+            "container_bgColor2": "Gradient end (optional)",
+            "container_bgTransparency": "Transparency (%)",
+            "container_border": "Border",
+            "container_borderColor": "Color (empty = lines)",
+            "container_borderWidth": "Width",
+            "container_radius": "Rounded corners",
+            "container_shadow": "Shadow",
+            "container_shadowColor": "Color (empty = soft)",
+            "container_shadowSize": "Blur (px)",
+            "container_padding": "Inner padding",
+            "card_texts": "Language and numbers",
+            "texts_language": "Interface language",
+            "texts_language_auto": "Same as Power BI",
+            "texts_language_fr": "French",
+            "texts_language_en": "English",
+            "texts_numberLocale": "Number format locale (e.g. en-GB)",
+            "texts_numberLocale_desc": "Thousands and decimal separators. Empty: same as Power BI.",
+            "texts_numberLocale_ph": "auto",
+            "role_tooltips": "Tooltips",
+            "role_reference": "Reference \u2605",
+            "role_play": "Play axis \u2605",
+            "roleDesc_play": "A date, a year or an ordered category: the cells change color from one value to the next (play button) \u2605",
+            "role_rows": "Rows",
+            "roleDesc_rows": "One row of cells per value (product, region, day of week\u2026)",
+            "role_columns": "Columns",
+            "roleDesc_columns": "One column of cells per value (month, hour, year\u2026)",
+            "role_date": "Date (calendar, day \u00d7 hour)",
+            "roleDesc_date": "Alone: a calendar (dates), a day of week \u00d7 hour grid (date-times) or a year \u00d7 month grid. With Rows: the dates become the columns",
+            "role_values": "Value (color)",
+            "roleDesc_values": "The measure that colors the cells; without a measure, each cell counts its rows",
+            "role_size": "Size \u2605",
+            "roleDesc_size": "A second measure shown by the size of the cells (number of orders behind an average, for example)",
+            "roleDesc_reference": "Last year, target or average: the cells are colored by their gap to it",
+            "role_note": "Annotation \u2605",
+            "roleDesc_note": "A text per cell (event, comment): a marker in the cell and the text in the tooltip",
+            "role_multiples": "Small multiples \u2605",
+            "roleDesc_multiples": "One small heatmap per value, with the same scale and the same order",
+            "role_format": "Dynamic format",
+            "roleDesc_format": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX"
+        },
+        "fr-FR": {
+            "premium_desc": "Fonction premium : utilisable avec un filigrane \u00ab Aper\u00e7u premium \u00bb, d\u00e9bloqu\u00e9e par une cl\u00e9 de licence Plume Studio.",
+            "card_license": "Licence Plume Studio",
+            "license_buy": "Obtenir une licence",
+            "license_key": "Cl\u00e9 de licence",
+            "license_key_desc": "Collez la cl\u00e9 re\u00e7ue apr\u00e8s l'achat sur plumevisuals.com (commence par PLUM1.). V\u00e9rifi\u00e9e hors ligne.",
+            "license_key_ph": "PLUM1.\u2026",
+            "license_showOwner": "Afficher le titulaire (mode \u00e9dition)",
+            "card_style": "Style",
+            "group_style_theme": "Style",
+            "group_style_custom": "Couleurs personnalis\u00e9es",
+            "group_style_text": "Texte",
+            "group_style_motion": "Animations",
+            "style_preset": "Style",
+            "style_preset_desc": "Habillage complet commun \u00e0 tous les visuels Plume : couleurs, trois palettes, polices, cadre, en-t\u00eate des tableaux, marques et effets. Personnalisez les couleurs plus bas.",
+            "style_preset_none": "Aucun",
+            "style_preset_minimal": "Minimal",
+            "style_preset_blackWhite": "Noir et blanc",
+            "style_preset_press": "Journal \u2605",
+            "style_preset_vintage": "Vintage (planche ancienne) \u2605",
+            "style_preset_earth": "Terre \u2605",
+            "style_preset_nordic": "Nordique \u2605",
+            "style_preset_executive": "Direction \u2605",
+            "style_preset_accessible": "Accessible (lisibilit\u00e9) \u2605",
+            "style_preset_pastel": "Pastel \u2605",
+            "style_preset_bauhaus": "Bauhaus (pop) \u2605",
+            "style_preset_climate": "Climat \u2605",
+            "style_preset_blueprint": "Plan d'architecte \u2605",
+            "style_preset_unknownPleasures": "Unknown Pleasures \u2605",
+            "style_preset_dark": "Graphite (sombre) \u2605",
+            "style_preset_neon": "N\u00e9on \u2605",
+            "style_preset_terminal": "Terminal (Matrix) \u2605",
+            "style_preset_infographic": "Infographie \u2605",
+            "style_preset_cockpit": "Cockpit (HUD) \u2605",
+            "style_preset_hologram": "Hologramme \u2605",
+            "style_themeJson": "Th\u00e8me JSON \u2605",
+            "style_themeJson_desc": "Collez un th\u00e8me JSON : voir le tutoriel \u00ab Th\u00e8mes JSON \u00bb sur plumevisuals.com",
+            "style_themeJson_ph": "{ \"extends\": \"nordic\", \"colors\": { \"accent\": \"#B8462A\" } }",
+            "style_followTheme": "Suivre le th\u00e8me du rapport",
+            "style_followTheme_desc": "Texte, fond, accent et couleurs des donn\u00e9es viennent du th\u00e8me du rapport Power BI.",
+            "style_reverse": "Inverser les d\u00e9grad\u00e9s",
+            "style_customColors": "Personnaliser les couleurs",
+            "style_customColors_desc": "Partez du style et choisissez vos propres couleurs. Une couleur laiss\u00e9e vide garde celle du style.",
+            "style_colorBackground": "Fond",
+            "style_colorText": "Texte",
+            "style_colorMuted": "Texte secondaire",
+            "style_colorGrid": "Traits et grille",
+            "style_colorAccent": "Accent",
+            "style_colorPositive": "Favorable",
+            "style_colorNegative": "D\u00e9favorable",
+            "style_series1": "S\u00e9rie 1",
+            "style_series2": "S\u00e9rie 2",
+            "style_series3": "S\u00e9rie 3",
+            "style_series4": "S\u00e9rie 4",
+            "style_series5": "S\u00e9rie 5",
+            "style_series6": "S\u00e9rie 6",
+            "style_series7": "S\u00e9rie 7",
+            "style_series8": "S\u00e9rie 8",
+            "style_palette": "Palette du d\u00e9grad\u00e9",
+            "style_palette_desc": "D\u00e9grad\u00e9 tir\u00e9 du catalogue (Viridis, Magma\u2026). Les couleurs de d\u00e9but, milieu et fin ci-dessous le remplacent.",
+            "style_palette_auto": "Palette du style ou du th\u00e8me",
+            "style_palette_crest": "Plume (s\u00e9quentielle)",
+            "style_palette_crestDiverging": "Plume (divergente)",
+            "style_palette_viridis": "Viridis \u2605",
+            "style_palette_magma": "Magma \u2605",
+            "style_palette_inferno": "Inferno \u2605",
+            "style_palette_cividis": "Cividis (daltonisme) \u2605",
+            "style_palette_warmingStripes": "Warming stripes \u2605",
+            "style_palette_rdYlBu": "Rouge\u2013Jaune\u2013Bleu \u2605",
+            "style_palette_brBG": "Brun\u2013Bleu-vert (s\u00e9cheresse) \u2605",
+            "style_palette_spectral": "Spectral \u2605",
+            "style_palette_blues": "Bleus \u2605",
+            "style_palette_reds": "Rouges \u2605",
+            "style_palette_grays": "Gris \u2605",
+            "style_palette_press": "Presse (encre et papier) \u2605",
+            "style_palette_nordic": "Nordique \u2605",
+            "style_palette_earth": "Terre (ocre \u00e0 terre d'ombre) \u2605",
+            "style_palette_pastel": "Pastel \u2605",
+            "style_palette_okabeIto": "Okabe-Ito (daltonisme) \u2605",
+            "style_scaleLow": "D\u00e9grad\u00e9 : d\u00e9but",
+            "style_scaleMid": "D\u00e9grad\u00e9 : milieu (\u00e9carts)",
+            "style_scaleHigh": "D\u00e9grad\u00e9 : fin",
+            "style_fontFamily": "Police",
+            "style_fontFamily_desc": "Utilis\u00e9e par tous les textes du visuel (titre, axes, \u00e9tiquettes, cellules).",
+            "style_textColor": "Couleur du texte (vide = style)",
+            "style_mutedColor": "Texte secondaire (vide = style)",
+            "style_animate": "Animations",
+            "style_animate_desc": "Transitions fluides quand les donn\u00e9es changent. D\u00e9sactiv\u00e9es automatiquement si le syst\u00e8me demande de r\u00e9duire les animations.",
+            "card_layout": "Disposition",
+            "layout_mode": "Type",
+            "layout_mode_desc": "Automatique : Lignes / Colonnes donnent une grille ; une Date seule donne un calendrier (jours), une grille jour \u00d7 heure (dates-heures) ou ann\u00e9e \u00d7 mois (mois).",
+            "layout_mode_auto": "Automatique (selon les champs)",
+            "layout_mode_grid": "Grille : lignes \u00d7 colonnes",
+            "layout_mode_calendar": "Calendrier (un champ Date)",
+            "layout_mode_weekHour": "Jour de la semaine \u00d7 heure (date-heure)",
+            "layout_shape": "Forme",
+            "layout_shape_desc": "Radiale : les colonnes (heures, mois) font le tour du cercle et les lignes deviennent des anneaux.",
+            "layout_shape_grid": "Grille",
+            "layout_shape_radial": "Radiale (colonnes en cercle) \u2605",
+            "layout_inner": "Trou central (% du rayon)",
+            "layout_aggregate": "Plusieurs valeurs dans une case",
+            "layout_aggregate_desc": "Jour \u00d7 heure et calendrier : comment les lignes d'une m\u00eame case sont combin\u00e9es (somme des ventes, temp\u00e9rature moyenne\u2026).",
+            "layout_aggregate_sum": "Somme",
+            "layout_aggregate_average": "Moyenne",
+            "layout_aggregate_min": "Minimum",
+            "layout_aggregate_max": "Maximum",
+            "layout_aggregate_count": "Nombre de lignes",
+            "card_scale": "\u00c9chelle de couleurs",
+            "group_scale_colorsGroup": "Couleurs",
+            "group_scale_methodGroup": "Classes et domaine",
+            "scale_kind": "D\u00e9grad\u00e9",
+            "scale_kind_desc": "Les palettes (Viridis, Magma, Bleus\u2026) et les couleurs de d\u00e9but, milieu et fin se choisissent dans Style \u203a Couleurs personnalis\u00e9es.",
+            "scale_kind_auto": "Automatique (une teinte, ou la palette du style)",
+            "scale_kind_mono": "Une teinte : du clair au fonc\u00e9",
+            "scale_kind_palette": "Palette du d\u00e9grad\u00e9 (carte Style)",
+            "scale_kind_diverging": "Divergent : deux teintes et un milieu \u2605",
+            "scale_color": "Teinte (vide = couleur du style)",
+            "scale_mid": "Milieu de l'\u00e9chelle",
+            "scale_mid_zero": "Z\u00e9ro",
+            "scale_mid_mean": "Moyenne",
+            "scale_mid_median": "M\u00e9diane",
+            "scale_mid_center": "Centre du domaine",
+            "scale_mid_value": "Valeur fixe",
+            "scale_midValue": "Valeur du milieu",
+            "scale_empty": "Cases vides",
+            "scale_empty_desc": "Une valeur vide n'est jamais montr\u00e9e comme un z\u00e9ro : un z\u00e9ro prend la couleur de l'\u00e9chelle.",
+            "scale_empty_auto": "Automatique (hachur\u00e9es ; gris\u00e9es dans le calendrier)",
+            "scale_empty_hatch": "Hachur\u00e9es",
+            "scale_empty_light": "Gris\u00e9es",
+            "scale_empty_hide": "Masqu\u00e9es",
+            "scale_method": "R\u00e9partition des couleurs",
+            "scale_method_continuous": "Continue",
+            "scale_method_classes": "Classes \u00e9gales",
+            "scale_method_quantiles": "Quantiles (m\u00eame nombre de cases par classe) \u2605",
+            "scale_method_thresholds": "Seuils choisis \u2605",
+            "scale_classes": "Nombre de classes",
+            "scale_thresholds": "Seuils (s\u00e9par\u00e9s par ;)",
+            "scale_thresholds_ph": "10 ; 50 ; 100",
+            "scale_classColors": "Couleurs des classes (vide = d\u00e9grad\u00e9)",
+            "scale_classColors_desc": "Comme les \u00ab R\u00e8gles \u00bb de la mise en forme conditionnelle native : une couleur par classe, de la plus basse \u00e0 la plus haute, s\u00e9par\u00e9es par ; (#RRGGBB ou un nom de couleur). Les couleurs manquantes viennent du d\u00e9grad\u00e9.",
+            "scale_classColors_ph": "#D73027 ; #FEE08B ; #1A9850",
+            "scale_transform": "\u00c9chelle",
+            "scale_transform_desc": "Les \u00e9chelles racine carr\u00e9e et logarithmique \u00e9cartent les petites valeurs quand quelques cases sont tr\u00e8s grandes.",
+            "scale_transform_linear": "Lin\u00e9aire",
+            "scale_transform_sqrt": "Racine carr\u00e9e \u2605",
+            "scale_transform_log": "Logarithmique \u2605",
+            "scale_scope": "\u00c9chelle calcul\u00e9e sur",
+            "scale_scope_desc": "Par ligne : chaque ligne a sa propre case la plus claire et la plus fonc\u00e9e (lignes d'unit\u00e9s ou de tailles diff\u00e9rentes).",
+            "scale_scope_all": "Toutes les cases",
+            "scale_scope_row": "Chaque ligne \u2605",
+            "scale_scope_column": "Chaque colonne \u2605",
+            "scale_min": "Minimum",
+            "scale_min_ph": "auto",
+            "scale_max": "Maximum",
+            "scale_max_ph": "auto",
+            "scale_robust": "Ignorer les valeurs extr\u00eames (2 % de chaque c\u00f4t\u00e9) \u2605",
+            "scale_robust_desc": "Les couleurs vont du 2e au 98e centile : une case \u00e9norme n'\u00e9crase plus toutes les autres.",
+            "card_cells": "Cases",
+            "cells_shape": "Forme des cases",
+            "cells_shape_square": "Carr\u00e9es",
+            "cells_shape_rounded": "Coins arrondis",
+            "cells_shape_circle": "Ronds",
+            "cells_radius": "Arrondi (px)",
+            "cells_gap": "Espacement (px)",
+            "cells_square": "Cases carr\u00e9es dans la grille",
+            "cells_square_desc": "Le calendrier a toujours des cases carr\u00e9es.",
+            "cells_minSize": "Taille minimale avant d\u00e9filement (px)",
+            "cells_minSize_desc": "Les grandes grilles d\u00e9filent (seules les cases visibles sont dessin\u00e9es) au lieu de rapetisser sous cette taille.",
+            "cells_maxSize": "Taille maximale (px, 0 = remplir)",
+            "cells_sizeBy": "Taille des cases",
+            "cells_sizeBy_desc": "La couleur montre la valeur, la taille montre la quantit\u00e9 derri\u00e8re (ou la valeur elle-m\u00eame).",
+            "cells_sizeBy_none": "Toutes pleines",
+            "cells_sizeBy_value": "Selon la valeur \u2605",
+            "cells_sizeBy_field": "Selon le champ \u00ab Taille \u00bb \u2605",
+            "cells_border": "Contour",
+            "cells_borderColor": "Couleur du contour (vide = grille)",
+            "cells_borderWidth": "\u00c9paisseur du contour (px)",
+            "card_labels": "\u00c9tiquettes de donn\u00e9es",
+            "group_labels_main": "\u00c9tiquettes",
+            "group_labels_number": "Nombres",
+            "labels_show": "Afficher",
+            "labels_show_desc": "Les valeurs s'\u00e9crivent dans les cases assez grandes.",
+            "labels_content": "Contenu",
+            "labels_content_value": "Valeur",
+            "labels_content_pctRow": "% de la ligne \u2605",
+            "labels_content_pctCol": "% de la colonne \u2605",
+            "labels_content_pctTotal": "% du total \u2605",
+            "labels_content_day": "Num\u00e9ro du jour (calendrier)",
+            "labels_fontSize": "Taille du texte",
+            "labels_color": "Couleur (vide = automatique)",
+            "labels_color_desc": "Automatique : texte blanc ou fonc\u00e9 selon chaque case.",
+            "labels_bold": "Gras",
+            "labels_fit": "Masquer les \u00e9tiquettes quand elles ne tiennent pas toutes",
+            "labels_fit_desc": "Tout ou rien : jamais une grille avec des \u00e9tiquettes dans quelques cases seulement. D\u00e9sactiv\u00e9 : chaque \u00e9tiquette qui tient est \u00e9crite.",
+            "labels_units": "Unit\u00e9s d'affichage",
+            "labels_units_auto": "Auto",
+            "labels_units_none": "Aucune",
+            "labels_units_k": "Milliers",
+            "labels_units_m": "Millions",
+            "labels_units_b": "Milliards",
+            "labels_decimals": "D\u00e9cimales (-1 = auto)",
+            "labels_prefix": "Pr\u00e9fixe",
+            "labels_suffix": "Suffixe (ex. \u20ac)",
+            "card_rowAxis": "\u00c9tiquettes des lignes",
+            "group_rowAxis_main": "\u00c9tiquettes",
+            "group_rowAxis_titleGroup": "Titre",
+            "rowAxis_show": "Afficher",
+            "rowAxis_fontSize": "Taille du texte",
+            "rowAxis_color": "Couleur (vide = texte)",
+            "rowAxis_bold": "Gras",
+            "rowAxis_maxSize": "Place maximale (% du visuel)",
+            "rowAxis_showTitle": "Titre des lignes",
+            "rowAxis_titleText": "Texte du titre",
+            "rowAxis_titleText_ph": "Nom du champ",
+            "card_colAxis": "\u00c9tiquettes des colonnes",
+            "group_colAxis_main": "\u00c9tiquettes",
+            "group_colAxis_titleGroup": "Titre",
+            "colAxis_show": "Afficher",
+            "colAxis_position": "Position",
+            "colAxis_position_top": "En haut",
+            "colAxis_position_bottom": "En bas",
+            "colAxis_fontSize": "Taille du texte",
+            "colAxis_color": "Couleur (vide = secondaire)",
+            "colAxis_bold": "Gras",
+            "colAxis_labelMode": "\u00c9tiquettes longues",
+            "colAxis_labelMode_auto": "Automatique",
+            "colAxis_labelMode_wrap": "Sur deux lignes",
+            "colAxis_labelMode_rotate45": "Inclin\u00e9es (45\u00b0)",
+            "colAxis_labelMode_rotate90": "Verticales",
+            "colAxis_labelMode_truncate": "Coup\u00e9es (\u2026)",
+            "colAxis_maxSize": "Place maximale (% du visuel)",
+            "colAxis_showTitle": "Titre des colonnes",
+            "colAxis_titleText": "Texte du titre",
+            "colAxis_titleText_ph": "Nom du champ",
+            "card_legend": "L\u00e9gende",
+            "legend_show": "Afficher",
+            "legend_position": "Position",
+            "legend_position_top": "En haut",
+            "legend_position_bottom": "En bas",
+            "legend_position_right": "\u00c0 droite",
+            "legend_position_left": "\u00c0 gauche",
+            "legend_align": "Alignement",
+            "legend_align_left": "D\u00e9but",
+            "legend_align_center": "Centr\u00e9",
+            "legend_align_right": "Fin",
+            "legend_showTitle": "Titre de la l\u00e9gende",
+            "legend_titleText": "Texte du titre",
+            "legend_titleText_ph": "Nom du champ",
+            "legend_fontSize": "Taille du texte",
+            "legend_color": "Couleur (vide = secondaire)",
+            "legend_length": "Longueur du d\u00e9grad\u00e9 (px)",
+            "legend_interactive": "Clic sur une classe = mettre ses cases en avant",
+            "card_sort": "Tri",
+            "group_sort_rowsGroup": "Lignes",
+            "group_sort_colsGroup": "Colonnes",
+            "group_sort_treeGroup": "Dendrogramme",
+            "sort_rowsBy": "Trier les lignes par",
+            "sort_rowsBy_desc": "Similarit\u00e9 : les lignes qui se ressemblent sont plac\u00e9es c\u00f4te \u00e0 c\u00f4te (regroupement hi\u00e9rarchique, calcul\u00e9 dans le visuel).",
+            "sort_rowsBy_model": "Ordre du mod\u00e8le (comme Power BI)",
+            "sort_rowsBy_name": "Nom",
+            "sort_rowsBy_total": "Total de la ligne",
+            "sort_rowsBy_column": "Valeur d'une colonne",
+            "sort_rowsBy_similarity": "Similarit\u00e9 (regroupement) \u2605",
+            "sort_rowsOrder": "Ordre",
+            "sort_rowsOrder_desc": "Le plus grand en haut (noms de A \u00e0 Z)",
+            "sort_rowsOrder_asc": "Le plus petit en haut (noms de Z \u00e0 A)",
+            "sort_rowsColumn": "Nom de la colonne",
+            "sort_rowsColumn_desc": "Vide : la derni\u00e8re colonne.",
+            "sort_rowsColumn_ph": "ex. 2025",
+            "sort_rowsTop": "Afficher les N premi\u00e8res lignes (0 = toutes)",
+            "sort_colsBy": "Trier les colonnes par",
+            "sort_colsBy_model": "Ordre du mod\u00e8le (comme Power BI)",
+            "sort_colsBy_name": "Nom",
+            "sort_colsBy_total": "Total de la colonne",
+            "sort_colsBy_similarity": "Similarit\u00e9 (regroupement) \u2605",
+            "sort_colsOrder": "Ordre",
+            "sort_colsOrder_desc": "Le plus grand \u00e0 gauche (noms de A \u00e0 Z)",
+            "sort_colsOrder_asc": "Le plus petit \u00e0 gauche (noms de Z \u00e0 A)",
+            "sort_dendrogram": "Dessiner l'arbre du regroupement",
+            "sort_dendrogram_desc": "Avec un tri par similarit\u00e9 : l'arbre montre quelles lignes (colonnes) sont les plus proches.",
+            "sort_treeSize": "Taille de l'arbre (px)",
+            "card_margins": "Totaux en marge \u2605",
+            "margins_rows": "Total des lignes (\u00e0 droite)",
+            "margins_rows_none": "Aucun",
+            "margins_rows_values": "Valeurs \u2605",
+            "margins_rows_bars": "Barres \u2605",
+            "margins_rows_barsValues": "Barres et valeurs \u2605",
+            "margins_cols": "Total des colonnes",
+            "margins_cols_desc": "Dessin\u00e9 du c\u00f4t\u00e9 oppos\u00e9 aux \u00e9tiquettes des colonnes.",
+            "margins_cols_none": "Aucun",
+            "margins_cols_values": "Valeurs \u2605",
+            "margins_cols_bars": "Barres \u2605",
+            "margins_cols_barsValues": "Barres et valeurs \u2605",
+            "margins_agg": "Calcul",
+            "margins_agg_sum": "Somme",
+            "margins_agg_average": "Moyenne",
+            "margins_agg_max": "Maximum",
+            "margins_agg_min": "Minimum",
+            "margins_size": "Place des barres (% du visuel)",
+            "margins_color": "Couleur des barres (vide = couleur de l'\u00e9chelle)",
+            "margins_fontSize": "Taille du texte",
+            "card_calendar": "Calendrier et heures",
+            "group_calendar_daysGroup": "Jours",
+            "group_calendar_calGroup": "Calendrier",
+            "group_calendar_holidaysGroup": "Jours f\u00e9ri\u00e9s et annotations",
+            "group_calendar_hoursGroup": "Heures (jour \u00d7 heure)",
+            "calendar_weekStart": "Premier jour de la semaine",
+            "calendar_weekStart_auto": "Selon la langue (lundi en fran\u00e7ais)",
+            "calendar_weekStart_monday": "Lundi",
+            "calendar_weekStart_sunday": "Dimanche",
+            "calendar_weekStart_saturday": "Samedi",
+            "calendar_dayLabels": "Noms des jours",
+            "calendar_dayLabels_alternate": "Un sur deux",
+            "calendar_dayLabels_all": "Tous",
+            "calendar_dayLabels_none": "Aucun",
+            "calendar_weekends": "Souligner les week-ends",
+            "calendar_layout": "Disposition",
+            "calendar_layout_weeks": "Semaines en colonnes (style GitHub)",
+            "calendar_layout_months": "Un bloc par mois",
+            "calendar_range": "P\u00e9riode affich\u00e9e",
+            "calendar_range_years": "Ann\u00e9es compl\u00e8tes",
+            "calendar_range_data": "Du premier au dernier jour des donn\u00e9es",
+            "calendar_monthGaps": "S\u00e9parer les mois",
+            "calendar_monthLabels": "Noms des mois",
+            "calendar_yearLabels": "Ann\u00e9es",
+            "calendar_maxYears": "Nombre d'ann\u00e9es au plus (les plus r\u00e9centes)",
+            "calendar_holidays": "Jours f\u00e9ri\u00e9s",
+            "calendar_holidays_desc": "Calcul\u00e9s dans le visuel (P\u00e2ques compris), entour\u00e9s dans le calendrier et nomm\u00e9s dans l'infobulle.",
+            "calendar_holidays_none": "Aucun",
+            "calendar_holidays_fr": "France \u2605",
+            "calendar_holidays_be": "Belgique \u2605",
+            "calendar_holidays_ch": "Suisse (f\u00e9d\u00e9raux) \u2605",
+            "calendar_holidays_ca": "Canada (f\u00e9d\u00e9raux) \u2605",
+            "calendar_holidays_de": "Allemagne (nationaux) \u2605",
+            "calendar_holidays_gb": "Royaume-Uni (Angleterre) \u2605",
+            "calendar_holidays_us": "\u00c9tats-Unis (f\u00e9d\u00e9raux) \u2605",
+            "calendar_markColor": "Couleur des rep\u00e8res (vide = accent)",
+            "calendar_hourStart": "Premi\u00e8re heure",
+            "calendar_hourEnd": "Derni\u00e8re heure",
+            "calendar_hourFormat": "Format des heures",
+            "calendar_hourFormat_auto": "Selon la langue",
+            "calendar_hourFormat_h24": "24 h (0 h \u00e0 23 h)",
+            "calendar_hourFormat_h12": "12 h (AM / PM)",
+            "card_comparison": "Comparaison \u2605",
+            "comparison_mode": "Couleur selon",
+            "comparison_mode_desc": "Avec une mesure dans \u00ab R\u00e9f\u00e9rence \u00bb : chaque case prend la couleur de son \u00e9cart \u00e0 la r\u00e9f\u00e9rence (ann\u00e9e pr\u00e9c\u00e9dente, objectif, moyenne), sur une \u00e9chelle divergente centr\u00e9e sur z\u00e9ro.",
+            "comparison_mode_difference": "\u00c9cart (valeur \u2212 r\u00e9f\u00e9rence)",
+            "comparison_mode_percent": "\u00c9cart en % de la r\u00e9f\u00e9rence",
+            "comparison_lowerIsBetter": "Une baisse est favorable",
+            "comparison_arrows": "Fl\u00e8ches \u25b2\u25bc dans les \u00e9tiquettes",
+            "card_annotations": "Annotations \u2605",
+            "annotations_marker": "Rep\u00e8re",
+            "annotations_marker_desc": "Les cases qui ont un texte dans le champ \u00ab Annotation \u00bb re\u00e7oivent un rep\u00e8re ; le texte est dans l'infobulle.",
+            "annotations_marker_corner": "Coin de la case",
+            "annotations_marker_dot": "Point",
+            "annotations_marker_outline": "Contour",
+            "annotations_color": "Couleur (vide = accent)",
+            "card_smallMultiples": "Petits multiples \u2605",
+            "smallMultiples_columns": "Colonnes (0 = automatique)",
+            "smallMultiples_minWidth": "Largeur minimale d'un graphique (px)",
+            "smallMultiples_gap": "Espacement (px)",
+            "smallMultiples_titleSize": "Taille des titres",
+            "smallMultiples_border": "Cadre autour de chaque graphique",
+            "card_play": "Lecture \u2605",
+            "group_play_playback": "Lecture",
+            "group_play_bar": "Barre de lecture",
+            "group_play_label": "Valeur en grand",
+            "group_play_more": "Autres r\u00e9glages",
+            "play_start": "Image affich\u00e9e \u00e0 l'ouverture",
+            "play_start_last": "La derni\u00e8re (la plus r\u00e9cente)",
+            "play_start_first": "La premi\u00e8re",
+            "play_speed": "Dur\u00e9e d'une image (ms)",
+            "play_speed_desc": "\u00c0 la vitesse \u00d71 ; le bouton de vitesse de la barre la multiplie (\u00d70,5 \u00e0 \u00d74) le temps de la session.",
+            "play_loop": "Lecture en boucle",
+            "play_autoPlay": "Lecture automatique \u00e0 l'ouverture",
+            "play_autoPlay_desc": "Une fois, depuis la premi\u00e8re image. Jamais quand les animations sont r\u00e9duites (Style \u203a Animations ou syst\u00e8me) ni sur une vignette de tableau de bord.",
+            "play_transition": "Transitions anim\u00e9es",
+            "play_transition_desc": "Valeurs, positions et couleurs glissent d'une image \u00e0 la suivante.",
+            "play_controls": "Barre de lecture",
+            "play_position": "Position de la barre",
+            "play_position_bottom": "En bas",
+            "play_position_top": "En haut",
+            "play_ticks": "Graduations",
+            "play_ticks_auto": "Automatiques",
+            "play_ticks_all": "Toutes les images",
+            "play_ticks_none": "Aucune",
+            "play_tickLabels": "\u00c9tiquettes des graduations",
+            "play_stepButtons": "Boutons d\u00e9but et fin",
+            "play_speedButton": "Bouton de vitesse",
+            "play_showLabel": "Valeur en cours en grand",
+            "play_labelSize": "Taille de la valeur en grand",
+            "play_labelPosition": "Position de la valeur en grand",
+            "play_labelPosition_bottomRight": "En bas \u00e0 droite",
+            "play_labelPosition_topRight": "En haut \u00e0 droite",
+            "play_labelPosition_topLeft": "En haut \u00e0 gauche",
+            "play_labelPosition_bottomLeft": "En bas \u00e0 gauche",
+            "play_labelPosition_center": "Au centre",
+            "play_sameScale": "M\u00eame \u00e9chelle pour toutes les images",
+            "play_sameScale_desc": "Les couleurs gardent le m\u00eame sens d'une image \u00e0 l'autre (conseill\u00e9). D\u00e9sactiv\u00e9 : chaque image a sa propre case la plus claire et la plus fonc\u00e9e.",
+            "card_interaction": "Interactions",
+            "interaction_hover": "Mettre en avant au survol",
+            "interaction_dim": "Opacit\u00e9 des \u00e9l\u00e9ments estomp\u00e9s (%)",
+            "interaction_crosshair": "Survol : souligner la ligne et la colonne",
+            "interaction_headers": "Clic sur un nom = s\u00e9lectionner la ligne ou la colonne",
+            "interaction_headers_desc": "Aussi les noms des mois, des jours et des ann\u00e9es dans le calendrier.",
+            "card_tooltip": "Infobulles",
+            "tooltip_show": "Afficher",
+            "tooltip_show_desc": "Infobulle au survol (avec les champs de la zone \u00ab Info-bulles \u00bb et les pages d'info-bulle du rapport).",
+            "card_title": "Titre",
+            "group_title_titleText": "Titre",
+            "group_title_subtitleGroup": "Sous-titre",
+            "group_title_divider": "S\u00e9parateur",
+            "group_title_spacing": "Espacement",
+            "title_show": "Afficher",
+            "title_text": "Texte",
+            "title_text_desc": "Laisser vide pour un titre automatique construit \u00e0 partir des champs.",
+            "title_text_ph": "Automatique",
+            "title_fontSize": "Taille",
+            "title_bold": "Gras",
+            "title_italic": "Italique",
+            "title_underline": "Soulign\u00e9",
+            "title_color": "Couleur (vide = texte)",
+            "title_bgColor": "Couleur d'arri\u00e8re-plan",
+            "title_align": "Alignement horizontal",
+            "title_align_left": "Gauche",
+            "title_align_center": "Centr\u00e9",
+            "title_align_right": "Droite",
+            "title_wrap": "Retour automatique \u00e0 la ligne",
+            "title_subtitle": "Sous-titre",
+            "title_subtitle_desc": "Plusieurs lignes possibles : tapez \\n pour aller \u00e0 la ligne.",
+            "title_subFontSize": "Taille",
+            "title_subColor": "Couleur (vide = texte secondaire)",
+            "title_subItalic": "Italique",
+            "title_divider": "Afficher le s\u00e9parateur",
+            "title_dividerColor": "Couleur (vide = traits)",
+            "title_dividerStyle": "Style de trait",
+            "title_dividerStyle_solid": "Continu",
+            "title_dividerStyle_dashed": "Tirets",
+            "title_dividerStyle_dotted": "Pointill\u00e9s",
+            "title_dividerWidth": "\u00c9paisseur",
+            "title_spaceBelow": "Espace sous le titre (px)",
+            "card_source": "Note de source",
+            "source_show": "Afficher",
+            "source_text": "Texte",
+            "source_text_ph": "Source : \u2026",
+            "source_fontSize": "Taille",
+            "source_italic": "Italique",
+            "source_color": "Couleur (vide = texte secondaire)",
+            "source_align": "Alignement",
+            "source_align_left": "Gauche",
+            "source_align_center": "Centr\u00e9",
+            "source_align_right": "Droite",
+            "card_container": "Cadre",
+            "group_container_background": "Arri\u00e8re-plan",
+            "group_container_borderGroup": "Bordure",
+            "group_container_shadowGroup": "Ombre",
+            "group_container_spacing": "Marges",
+            "container_bgShow": "Arri\u00e8re-plan",
+            "container_bgColor": "Couleur",
+            "container_bgColor2": "Fin du d\u00e9grad\u00e9 (optionnel)",
+            "container_bgTransparency": "Transparence (%)",
+            "container_border": "Bordure",
+            "container_borderColor": "Couleur (vide = traits)",
+            "container_borderWidth": "\u00c9paisseur",
+            "container_radius": "Coins arrondis",
+            "container_shadow": "Ombre",
+            "container_shadowColor": "Couleur (vide = douce)",
+            "container_shadowSize": "Flou (px)",
+            "container_padding": "Marge int\u00e9rieure",
+            "card_texts": "Langue et nombres",
+            "texts_language": "Langue de l'interface",
+            "texts_language_auto": "Comme Power BI",
+            "texts_language_fr": "Fran\u00e7ais",
+            "texts_language_en": "Anglais",
+            "texts_numberLocale": "Format des nombres (ex. fr-FR)",
+            "texts_numberLocale_desc": "S\u00e9parateurs des milliers et des d\u00e9cimales. Vide : comme Power BI.",
+            "texts_numberLocale_ph": "auto",
+            "role_tooltips": "Infobulles",
+            "role_reference": "R\u00e9f\u00e9rence \u2605",
+            "role_play": "Axe de lecture \u2605",
+            "roleDesc_play": "Une date, une ann\u00e9e ou une cat\u00e9gorie ordonn\u00e9e : les cases changent de couleur d'une valeur \u00e0 la suivante (bouton lecture) \u2605",
+            "role_rows": "Lignes",
+            "roleDesc_rows": "Une ligne de cases par valeur (produit, r\u00e9gion, jour de la semaine\u2026)",
+            "role_columns": "Colonnes",
+            "roleDesc_columns": "Une colonne de cases par valeur (mois, heure, ann\u00e9e\u2026)",
+            "role_date": "Date (calendrier, jour \u00d7 heure)",
+            "roleDesc_date": "Seule : un calendrier (dates), une grille jour de la semaine \u00d7 heure (dates-heures) ou ann\u00e9e \u00d7 mois. Avec Lignes : les dates deviennent les colonnes",
+            "role_values": "Valeur (couleur)",
+            "roleDesc_values": "La mesure qui colore les cases ; sans mesure, chaque case compte ses lignes",
+            "role_size": "Taille \u2605",
+            "roleDesc_size": "Une seconde mesure montr\u00e9e par la taille des cases (nombre de commandes derri\u00e8re une moyenne, par exemple)",
+            "roleDesc_reference": "Ann\u00e9e pr\u00e9c\u00e9dente, objectif ou moyenne : les cases prennent la couleur de leur \u00e9cart \u00e0 elle",
+            "role_note": "Annotation \u2605",
+            "roleDesc_note": "Un texte par case (\u00e9v\u00e9nement, commentaire) : un rep\u00e8re dans la case et le texte dans l'infobulle",
+            "role_multiples": "Petits multiples \u2605",
+            "roleDesc_multiples": "Une petite carte de chaleur par valeur, avec la m\u00eame \u00e9chelle et le m\u00eame ordre",
+            "role_format": "Format dynamique",
+            "roleDesc_format": "Mesures nomm\u00e9es carte.r\u00e9glage (ex. title.fontSize) : pilotez n'importe quel r\u00e9glage du volet Format en DAX"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "rows",
+                "kind": "Grouping",
+                "displayName": "Rows",
+                "displayNameKey": "role_rows",
+                "description": "One row of cells per value (product, region, day of week\u2026)",
+                "descriptionKey": "roleDesc_rows"
+            },
+            {
+                "name": "columns",
+                "kind": "Grouping",
+                "displayName": "Columns",
+                "displayNameKey": "role_columns",
+                "description": "One column of cells per value (month, hour, year\u2026)",
+                "descriptionKey": "roleDesc_columns"
+            },
+            {
+                "name": "date",
+                "kind": "Grouping",
+                "displayName": "Date (calendar, day \u00d7 hour)",
+                "displayNameKey": "role_date",
+                "description": "Alone: a calendar (dates), a day of week \u00d7 hour grid (date-times) or a year \u00d7 month grid. With Rows: the dates become the columns",
+                "descriptionKey": "roleDesc_date"
+            },
+            {
+                "name": "values",
+                "kind": "Measure",
+                "displayName": "Value (color)",
+                "displayNameKey": "role_values",
+                "description": "The measure that colors the cells; without a measure, each cell counts its rows",
+                "descriptionKey": "roleDesc_values"
+            },
+            {
+                "name": "size",
+                "kind": "Measure",
+                "displayName": "Size \u2605",
+                "displayNameKey": "role_size",
+                "description": "A second measure shown by the size of the cells (number of orders behind an average, for example)",
+                "descriptionKey": "roleDesc_size"
+            },
+            {
+                "name": "reference",
+                "kind": "Measure",
+                "displayName": "Reference \u2605",
+                "displayNameKey": "role_reference",
+                "description": "Last year, target or average: the cells are colored by their gap to it",
+                "descriptionKey": "roleDesc_reference"
+            },
+            {
+                "name": "note",
+                "kind": "Measure",
+                "displayName": "Annotation \u2605",
+                "displayNameKey": "role_note",
+                "description": "A text per cell (event, comment): a marker in the cell and the text in the tooltip",
+                "descriptionKey": "roleDesc_note"
+            },
+            {
+                "name": "play",
+                "kind": "Grouping",
+                "displayName": "Play axis \u2605",
+                "displayNameKey": "role_play",
+                "description": "A date, a year or an ordered category: the cells change color from one value to the next (play button) \u2605",
+                "descriptionKey": "roleDesc_play"
+            },
+            {
+                "name": "multiples",
+                "kind": "Grouping",
+                "displayName": "Small multiples \u2605",
+                "displayNameKey": "role_multiples",
+                "description": "One small heatmap per value, with the same scale and the same order",
+                "descriptionKey": "roleDesc_multiples"
+            },
+            {
+                "name": "tooltips",
+                "kind": "Measure",
+                "displayName": "Tooltips",
+                "displayNameKey": "role_tooltips"
+            },
+            {
+                "name": "format",
+                "kind": "Measure",
+                "displayName": "Dynamic format",
+                "displayNameKey": "role_format",
+                "description": "Measures named card.setting (e.g. title.fontSize): drive any Format option with DAX",
+                "descriptionKey": "roleDesc_format"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "rows": {
+                            "max": 1
+                        },
+                        "columns": {
+                            "max": 1
+                        },
+                        "date": {
+                            "max": 4
+                        },
+                        "values": {
+                            "max": 1
+                        },
+                        "size": {
+                            "max": 1
+                        },
+                        "reference": {
+                            "max": 1
+                        },
+                        "note": {
+                            "max": 1
+                        },
+                        "play": {
+                            "max": 1
+                        },
+                        "multiples": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "rows"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "columns"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "date"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "play"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "multiples"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "values"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "size"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "reference"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "note"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "format"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "suppressDefaultTitle": true,
+        "privileges": [],
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "sorting": {
+            "default": {}
+        },
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "objects": {
+            "license": {
+                "properties": {
+                    "buy": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "key": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showOwner": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "style": {
+                "properties": {
+                    "preset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal"
+                                },
+                                {
+                                    "value": "blackWhite",
+                                    "displayName": "Black & White"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Newspaper \u2605"
+                                },
+                                {
+                                    "value": "vintage",
+                                    "displayName": "Vintage (antique plate) \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "executive",
+                                    "displayName": "Executive \u2605"
+                                },
+                                {
+                                    "value": "accessible",
+                                    "displayName": "Accessible (high legibility) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "bauhaus",
+                                    "displayName": "Bauhaus (pop) \u2605"
+                                },
+                                {
+                                    "value": "climate",
+                                    "displayName": "Climate \u2605"
+                                },
+                                {
+                                    "value": "blueprint",
+                                    "displayName": "Blueprint \u2605"
+                                },
+                                {
+                                    "value": "unknownPleasures",
+                                    "displayName": "Unknown Pleasures \u2605"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Graphite (dark) \u2605"
+                                },
+                                {
+                                    "value": "neon",
+                                    "displayName": "Neon \u2605"
+                                },
+                                {
+                                    "value": "terminal",
+                                    "displayName": "Terminal (Matrix) \u2605"
+                                },
+                                {
+                                    "value": "infographic",
+                                    "displayName": "Infographic \u2605"
+                                },
+                                {
+                                    "value": "cockpit",
+                                    "displayName": "Cockpit (HUD) \u2605"
+                                },
+                                {
+                                    "value": "hologram",
+                                    "displayName": "Hologram \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "themeJson": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "followTheme": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "reverse": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "customColors": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorText": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorMuted": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorGrid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorAccent": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorPositive": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorNegative": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series1": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series3": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series4": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series5": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series6": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series7": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "series8": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "palette": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Style or theme palette"
+                                },
+                                {
+                                    "value": "crest",
+                                    "displayName": "Plume (sequential)"
+                                },
+                                {
+                                    "value": "crestDiverging",
+                                    "displayName": "Plume (diverging)"
+                                },
+                                {
+                                    "value": "viridis",
+                                    "displayName": "Viridis \u2605"
+                                },
+                                {
+                                    "value": "magma",
+                                    "displayName": "Magma \u2605"
+                                },
+                                {
+                                    "value": "inferno",
+                                    "displayName": "Inferno \u2605"
+                                },
+                                {
+                                    "value": "cividis",
+                                    "displayName": "Cividis (colorblind-safe) \u2605"
+                                },
+                                {
+                                    "value": "warmingStripes",
+                                    "displayName": "Warming stripes \u2605"
+                                },
+                                {
+                                    "value": "rdYlBu",
+                                    "displayName": "Red\u2013Yellow\u2013Blue \u2605"
+                                },
+                                {
+                                    "value": "brBG",
+                                    "displayName": "Brown\u2013Teal (drought) \u2605"
+                                },
+                                {
+                                    "value": "spectral",
+                                    "displayName": "Spectral \u2605"
+                                },
+                                {
+                                    "value": "blues",
+                                    "displayName": "Blues \u2605"
+                                },
+                                {
+                                    "value": "reds",
+                                    "displayName": "Reds \u2605"
+                                },
+                                {
+                                    "value": "grays",
+                                    "displayName": "Grays \u2605"
+                                },
+                                {
+                                    "value": "press",
+                                    "displayName": "Press (ink and paper) \u2605"
+                                },
+                                {
+                                    "value": "nordic",
+                                    "displayName": "Nordic \u2605"
+                                },
+                                {
+                                    "value": "earth",
+                                    "displayName": "Earth (ochre to umber) \u2605"
+                                },
+                                {
+                                    "value": "pastel",
+                                    "displayName": "Pastel \u2605"
+                                },
+                                {
+                                    "value": "okabeIto",
+                                    "displayName": "Okabe-Ito (colorblind-safe) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "scaleLow": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleMid": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "scaleHigh": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "mutedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "animate": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (from the fields)"
+                                },
+                                {
+                                    "value": "grid",
+                                    "displayName": "Grid: rows \u00d7 columns"
+                                },
+                                {
+                                    "value": "calendar",
+                                    "displayName": "Calendar (a Date field)"
+                                },
+                                {
+                                    "value": "weekHour",
+                                    "displayName": "Day of week \u00d7 hour (date-time)"
+                                }
+                            ]
+                        }
+                    },
+                    "shape": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "grid",
+                                    "displayName": "Grid"
+                                },
+                                {
+                                    "value": "radial",
+                                    "displayName": "Radial (columns around a circle) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "inner": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "aggregate": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sum",
+                                    "displayName": "Sum"
+                                },
+                                {
+                                    "value": "average",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "min",
+                                    "displayName": "Minimum"
+                                },
+                                {
+                                    "value": "max",
+                                    "displayName": "Maximum"
+                                },
+                                {
+                                    "value": "count",
+                                    "displayName": "Count of rows"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "scale": {
+                "properties": {
+                    "kind": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (single hue, or the style palette)"
+                                },
+                                {
+                                    "value": "mono",
+                                    "displayName": "Single hue: light to dark"
+                                },
+                                {
+                                    "value": "palette",
+                                    "displayName": "Gradient palette (Style card)"
+                                },
+                                {
+                                    "value": "diverging",
+                                    "displayName": "Diverging: two hues and a midpoint \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "mid": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "zero",
+                                    "displayName": "Zero"
+                                },
+                                {
+                                    "value": "mean",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "median",
+                                    "displayName": "Median"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center of the range"
+                                },
+                                {
+                                    "value": "value",
+                                    "displayName": "Fixed value"
+                                }
+                            ]
+                        }
+                    },
+                    "midValue": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "empty": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (hatched; grayed in the calendar)"
+                                },
+                                {
+                                    "value": "hatch",
+                                    "displayName": "Hatched"
+                                },
+                                {
+                                    "value": "light",
+                                    "displayName": "Grayed"
+                                },
+                                {
+                                    "value": "hide",
+                                    "displayName": "Hidden"
+                                }
+                            ]
+                        }
+                    },
+                    "method": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "continuous",
+                                    "displayName": "Continuous"
+                                },
+                                {
+                                    "value": "classes",
+                                    "displayName": "Equal classes"
+                                },
+                                {
+                                    "value": "quantiles",
+                                    "displayName": "Quantiles (same number of cells per class) \u2605"
+                                },
+                                {
+                                    "value": "thresholds",
+                                    "displayName": "Custom thresholds \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "classes": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "thresholds": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "classColors": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "transform": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "linear",
+                                    "displayName": "Linear"
+                                },
+                                {
+                                    "value": "sqrt",
+                                    "displayName": "Square root \u2605"
+                                },
+                                {
+                                    "value": "log",
+                                    "displayName": "Logarithmic \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "scope": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "all",
+                                    "displayName": "All cells"
+                                },
+                                {
+                                    "value": "row",
+                                    "displayName": "Each row \u2605"
+                                },
+                                {
+                                    "value": "column",
+                                    "displayName": "Each column \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "min": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "max": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "robust": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "cells": {
+                "properties": {
+                    "shape": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "square",
+                                    "displayName": "Square"
+                                },
+                                {
+                                    "value": "rounded",
+                                    "displayName": "Rounded corners"
+                                },
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circles"
+                                }
+                            ]
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "gap": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "square": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "minSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "maxSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "sizeBy": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "All full"
+                                },
+                                {
+                                    "value": "value",
+                                    "displayName": "By value \u2605"
+                                },
+                                {
+                                    "value": "field",
+                                    "displayName": "By the \"Size\" field \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "labels": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "content": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "value",
+                                    "displayName": "Value"
+                                },
+                                {
+                                    "value": "pctRow",
+                                    "displayName": "% of row \u2605"
+                                },
+                                {
+                                    "value": "pctCol",
+                                    "displayName": "% of column \u2605"
+                                },
+                                {
+                                    "value": "pctTotal",
+                                    "displayName": "% of total \u2605"
+                                },
+                                {
+                                    "value": "day",
+                                    "displayName": "Day number (calendar)"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fit": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "units": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "k",
+                                    "displayName": "Thousands"
+                                },
+                                {
+                                    "value": "m",
+                                    "displayName": "Millions"
+                                },
+                                {
+                                    "value": "b",
+                                    "displayName": "Billions"
+                                }
+                            ]
+                        }
+                    },
+                    "decimals": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "prefix": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "suffix": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "rowAxis": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maxSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "showTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "colAxis": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic"
+                                },
+                                {
+                                    "value": "wrap",
+                                    "displayName": "Two lines"
+                                },
+                                {
+                                    "value": "rotate45",
+                                    "displayName": "Tilted (45\u00b0)"
+                                },
+                                {
+                                    "value": "rotate90",
+                                    "displayName": "Vertical"
+                                },
+                                {
+                                    "value": "truncate",
+                                    "displayName": "Truncated (\u2026)"
+                                }
+                            ]
+                        }
+                    },
+                    "maxSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "showTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                }
+                            ]
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Start"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "End"
+                                }
+                            ]
+                        }
+                    },
+                    "showTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "length": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "interactive": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "sort": {
+                "properties": {
+                    "rowsBy": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "model",
+                                    "displayName": "Model order (as in Power BI)"
+                                },
+                                {
+                                    "value": "name",
+                                    "displayName": "Name"
+                                },
+                                {
+                                    "value": "total",
+                                    "displayName": "Row total"
+                                },
+                                {
+                                    "value": "column",
+                                    "displayName": "Value in a column"
+                                },
+                                {
+                                    "value": "similarity",
+                                    "displayName": "Similarity (clustering) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "rowsOrder": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "desc",
+                                    "displayName": "Largest first (names A to Z)"
+                                },
+                                {
+                                    "value": "asc",
+                                    "displayName": "Smallest first (names Z to A)"
+                                }
+                            ]
+                        }
+                    },
+                    "rowsColumn": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rowsTop": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "colsBy": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "model",
+                                    "displayName": "Model order (as in Power BI)"
+                                },
+                                {
+                                    "value": "name",
+                                    "displayName": "Name"
+                                },
+                                {
+                                    "value": "total",
+                                    "displayName": "Column total"
+                                },
+                                {
+                                    "value": "similarity",
+                                    "displayName": "Similarity (clustering) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "colsOrder": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "desc",
+                                    "displayName": "Largest first (names A to Z)"
+                                },
+                                {
+                                    "value": "asc",
+                                    "displayName": "Smallest first (names Z to A)"
+                                }
+                            ]
+                        }
+                    },
+                    "dendrogram": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "treeSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "margins": {
+                "properties": {
+                    "rows": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "values",
+                                    "displayName": "Values \u2605"
+                                },
+                                {
+                                    "value": "bars",
+                                    "displayName": "Bars \u2605"
+                                },
+                                {
+                                    "value": "barsValues",
+                                    "displayName": "Bars and values \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "cols": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "values",
+                                    "displayName": "Values \u2605"
+                                },
+                                {
+                                    "value": "bars",
+                                    "displayName": "Bars \u2605"
+                                },
+                                {
+                                    "value": "barsValues",
+                                    "displayName": "Bars and values \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "agg": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sum",
+                                    "displayName": "Sum"
+                                },
+                                {
+                                    "value": "average",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "max",
+                                    "displayName": "Maximum"
+                                },
+                                {
+                                    "value": "min",
+                                    "displayName": "Minimum"
+                                }
+                            ]
+                        }
+                    },
+                    "size": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    }
+                }
+            },
+            "calendar": {
+                "properties": {
+                    "weekStart": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "From the language (Sunday in US English)"
+                                },
+                                {
+                                    "value": "monday",
+                                    "displayName": "Monday"
+                                },
+                                {
+                                    "value": "sunday",
+                                    "displayName": "Sunday"
+                                },
+                                {
+                                    "value": "saturday",
+                                    "displayName": "Saturday"
+                                }
+                            ]
+                        }
+                    },
+                    "dayLabels": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "alternate",
+                                    "displayName": "Every other day"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "All"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "weekends": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "layout": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "weeks",
+                                    "displayName": "Weeks as columns (GitHub style)"
+                                },
+                                {
+                                    "value": "months",
+                                    "displayName": "One block per month"
+                                }
+                            ]
+                        }
+                    },
+                    "range": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "years",
+                                    "displayName": "Whole years"
+                                },
+                                {
+                                    "value": "data",
+                                    "displayName": "From the first to the last day of the data"
+                                }
+                            ]
+                        }
+                    },
+                    "monthGaps": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "monthLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "yearLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maxYears": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "holidays": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "fr",
+                                    "displayName": "France \u2605"
+                                },
+                                {
+                                    "value": "be",
+                                    "displayName": "Belgium \u2605"
+                                },
+                                {
+                                    "value": "ch",
+                                    "displayName": "Switzerland (federal) \u2605"
+                                },
+                                {
+                                    "value": "ca",
+                                    "displayName": "Canada (federal) \u2605"
+                                },
+                                {
+                                    "value": "de",
+                                    "displayName": "Germany (national) \u2605"
+                                },
+                                {
+                                    "value": "gb",
+                                    "displayName": "United Kingdom (England) \u2605"
+                                },
+                                {
+                                    "value": "us",
+                                    "displayName": "United States (federal) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "markColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "hourStart": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "hourEnd": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "hourFormat": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "From the language"
+                                },
+                                {
+                                    "value": "h24",
+                                    "displayName": "24-hour (0 to 23)"
+                                },
+                                {
+                                    "value": "h12",
+                                    "displayName": "12-hour (AM / PM)"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "comparison": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "difference",
+                                    "displayName": "Difference (value \u2212 reference)"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "Difference in % of the reference"
+                                }
+                            ]
+                        }
+                    },
+                    "lowerIsBetter": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "arrows": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "annotations": {
+                "properties": {
+                    "marker": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "corner",
+                                    "displayName": "Cell corner"
+                                },
+                                {
+                                    "value": "dot",
+                                    "displayName": "Dot"
+                                },
+                                {
+                                    "value": "outline",
+                                    "displayName": "Outline"
+                                }
+                            ]
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "smallMultiples": {
+                "properties": {
+                    "columns": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "minWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "gap": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "titleSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "play": {
+                "properties": {
+                    "start": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "last",
+                                    "displayName": "The last one (most recent)"
+                                },
+                                {
+                                    "value": "first",
+                                    "displayName": "The first one"
+                                }
+                            ]
+                        }
+                    },
+                    "speed": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "loop": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "autoPlay": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "transition": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "controls": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                }
+                            ]
+                        }
+                    },
+                    "ticks": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "Every frame"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                }
+                            ]
+                        }
+                    },
+                    "tickLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "stepButtons": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "speedButton": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showLabel": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "labelPosition": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bottomRight",
+                                    "displayName": "Bottom right"
+                                },
+                                {
+                                    "value": "topRight",
+                                    "displayName": "Top right"
+                                },
+                                {
+                                    "value": "topLeft",
+                                    "displayName": "Top left"
+                                },
+                                {
+                                    "value": "bottomLeft",
+                                    "displayName": "Bottom left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                }
+                            ]
+                        }
+                    },
+                    "sameScale": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "interaction": {
+                "properties": {
+                    "hover": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dim": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "crosshair": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "headers": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "tooltip": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "title": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "wrap": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "subtitle": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subFontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "subColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "subItalic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "divider": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dividerColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "dividerStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted"
+                                }
+                            ]
+                        }
+                    },
+                    "dividerWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "spaceBelow": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "source": {
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "text": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "align": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "container": {
+                "properties": {
+                    "bgShow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgColor2": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgTransparency": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "border": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "shadow": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "shadowColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadowSize": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "padding": {
+                        "type": {
+                            "integer": true
+                        }
+                    }
+                }
+            },
+            "texts": {
+                "properties": {
+                    "language": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Same as Power BI"
+                                },
+                                {
+                                    "value": "fr",
+                                    "displayName": "French"
+                                },
+                                {
+                                    "value": "en",
+                                    "displayName": "English"
+                                }
+                            ]
+                        }
+                    },
+                    "numberLocale": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "heatmap": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic (from the fields)"
+                                },
+                                {
+                                    "value": "grid",
+                                    "displayName": "Grid: rows \u00d7 columns"
+                                },
+                                {
+                                    "value": "calendar",
+                                    "displayName": "Calendar (a Date field)"
+                                },
+                                {
+                                    "value": "weekHour",
+                                    "displayName": "Day of week \u00d7 hour (date-time)"
+                                }
+                            ]
+                        }
+                    },
+                    "shape": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "grid",
+                                    "displayName": "Grid"
+                                },
+                                {
+                                    "value": "radial",
+                                    "displayName": "Radial (columns around a circle) \u2605"
+                                }
+                            ]
+                        }
+                    },
+                    "inner": {
+                        "type": {
+                            "integer": true
+                        }
+                    },
+                    "aggregate": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sum",
+                                    "displayName": "Sum"
+                                },
+                                {
+                                    "value": "average",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "min",
+                                    "displayName": "Minimum"
+                                },
+                                {
+                                    "value": "max",
+                                    "displayName": "Maximum"
+                                },
+                                {
+                                    "value": "count",
+                                    "displayName": "Count of rows"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "compare": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "difference",
+                                    "displayName": "Difference (value \u2212 reference)"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "Difference in % of the reference"
+                                }
+                            ]
+                        }
+                    },
+                    "lowerIsBetter": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "arrows": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
