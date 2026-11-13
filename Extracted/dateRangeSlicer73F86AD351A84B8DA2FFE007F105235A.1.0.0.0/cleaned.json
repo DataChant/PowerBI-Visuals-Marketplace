@@ -1,0 +1,410 @@
+{
+    "visual": {
+        "name": "dateRangeSlicer",
+        "displayName": "Timeframe \u2013 Date Range Slicer",
+        "guid": "dateRangeSlicer73F86AD351A84B8DA2FFE007F105235A",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Timeframe by Sersight: a date range slicer that always shows exactly what it is filtering. Quick periods that roll forward on their own (last month, last 30 days, year to date...), previous/next arrows, start/end calendars or an always-visible calendar, nine languages, and support for bookmarks and synced slicers.",
+        "supportUrl": "https://sersight.com/products/timeframe#support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Sersight",
+        "email": "support@sersight.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "de-DE": {
+            "Role_Date": "Datum"
+        },
+        "en-US": {
+            "Role_Date": "Date"
+        },
+        "es-ES": {
+            "Role_Date": "Fecha"
+        },
+        "fr-FR": {
+            "Role_Date": "Date"
+        },
+        "it-IT": {
+            "Role_Date": "Data"
+        },
+        "ja-JP": {
+            "Role_Date": "\u65e5\u4ed8"
+        },
+        "pt-BR": {
+            "Role_Date": "Data"
+        },
+        "pt-PT": {
+            "Role_Date": "Data"
+        },
+        "zh-CN": {
+            "Role_Date": "\u65e5\u671f"
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Date",
+                "displayNameKey": "Role_Date",
+                "name": "date",
+                "kind": "Grouping"
+            }
+        ],
+        "objects": {
+            "general": {
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": true
+                        }
+                    }
+                }
+            },
+            "selectionState": {
+                "properties": {
+                    "state": {
+                        "type": {
+                            "text": true
+                        },
+                        "filterState": true
+                    }
+                }
+            },
+            "period": {
+                "properties": {
+                    "defaultPreset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "today",
+                                    "displayName": "Today"
+                                },
+                                {
+                                    "value": "yesterday",
+                                    "displayName": "Yesterday"
+                                },
+                                {
+                                    "value": "last7Days",
+                                    "displayName": "Last 7 days"
+                                },
+                                {
+                                    "value": "last30Days",
+                                    "displayName": "Last 30 days"
+                                },
+                                {
+                                    "value": "thisMonth",
+                                    "displayName": "This month"
+                                },
+                                {
+                                    "value": "lastMonth",
+                                    "displayName": "Last month"
+                                },
+                                {
+                                    "value": "thisQuarter",
+                                    "displayName": "This quarter"
+                                },
+                                {
+                                    "value": "lastQuarter",
+                                    "displayName": "Last quarter"
+                                },
+                                {
+                                    "value": "yearToDate",
+                                    "displayName": "Year to date"
+                                },
+                                {
+                                    "value": "last12Months",
+                                    "displayName": "Last 12 months"
+                                },
+                                {
+                                    "value": "thisYear",
+                                    "displayName": "This year"
+                                },
+                                {
+                                    "value": "lastYear",
+                                    "displayName": "Last year"
+                                }
+                            ]
+                        }
+                    },
+                    "language": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic"
+                                },
+                                {
+                                    "value": "pt-PT",
+                                    "displayName": "pt-PT"
+                                },
+                                {
+                                    "value": "pt-BR",
+                                    "displayName": "pt-BR"
+                                },
+                                {
+                                    "value": "en-GB",
+                                    "displayName": "en-GB"
+                                },
+                                {
+                                    "value": "en-US",
+                                    "displayName": "en-US"
+                                },
+                                {
+                                    "value": "es-ES",
+                                    "displayName": "es-ES"
+                                },
+                                {
+                                    "value": "fr-FR",
+                                    "displayName": "fr-FR"
+                                },
+                                {
+                                    "value": "de-DE",
+                                    "displayName": "de-DE"
+                                },
+                                {
+                                    "value": "it-IT",
+                                    "displayName": "it-IT"
+                                },
+                                {
+                                    "value": "zh-CN",
+                                    "displayName": "zh-CN"
+                                },
+                                {
+                                    "value": "ja-JP",
+                                    "displayName": "ja-JP"
+                                }
+                            ]
+                        }
+                    },
+                    "dateStyle": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic"
+                                },
+                                {
+                                    "value": "numeric",
+                                    "displayName": "Numeric"
+                                },
+                                {
+                                    "value": "long",
+                                    "displayName": "Long"
+                                },
+                                {
+                                    "value": "short",
+                                    "displayName": "Abbreviated"
+                                }
+                            ]
+                        }
+                    },
+                    "weekStart": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Automatic"
+                                },
+                                {
+                                    "value": "monday",
+                                    "displayName": "Monday"
+                                },
+                                {
+                                    "value": "sunday",
+                                    "displayName": "Sunday"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "presets": {
+                "properties": {
+                    "today": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "yesterday": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "last7Days": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "last30Days": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "thisMonth": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lastMonth": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "thisQuarter": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lastQuarter": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "yearToDate": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "last12Months": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "thisYear": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "lastYear": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "all": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "layout": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "picker",
+                                    "displayName": "Range picker"
+                                },
+                                {
+                                    "value": "panel",
+                                    "displayName": "Panel"
+                                }
+                            ]
+                        }
+                    },
+                    "calendar": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "stacked",
+                                    "displayName": "From / To fields"
+                                },
+                                {
+                                    "value": "dialog",
+                                    "displayName": "Power BI window"
+                                }
+                            ]
+                        }
+                    },
+                    "showArrows": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "appearance": {
+                "properties": {
+                    "accentColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "cornerRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "date": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "for": {
+                            "in": "date"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "supportsSynchronizingFilterState": true,
+        "supportsKeyboardFocus": true,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

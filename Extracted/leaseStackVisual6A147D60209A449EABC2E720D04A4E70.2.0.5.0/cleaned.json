@@ -1,0 +1,1618 @@
+{
+    "visual": {
+        "name": "leaseCanvas",
+        "displayName": "LeaseCanvas",
+        "guid": "leaseStackVisual6A147D60209A449EABC2E720D04A4E70",
+        "visualClassName": "Visual",
+        "version": "2.0.5.0",
+        "description": "Interactive building stacks for real-estate occupancy and lease expiry. Free up to 50 suites per filtered visual; Pro unlocks advanced analysis and presentation.",
+        "supportUrl": "https://www.celeswave.com/products/leasecanvas/support/",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "CelesWave Solutions",
+        "email": "mash@celeswave.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Property",
+                "description": "Optional building or property identifier.",
+                "name": "property",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Floor",
+                "description": "Required floor label, such as 10, G, Mezz, or B1.",
+                "name": "floor",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Floor sort",
+                "description": "Optional numeric value used to order floors deterministically.",
+                "name": "floorSort",
+                "kind": "Grouping",
+                "requiredTypes": [
+                    {
+                        "integer": true
+                    },
+                    {
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Facing / wing / zone",
+                "description": "Optional physical subdivision such as East, West, North, South, or Wing A.",
+                "name": "facing",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Suite",
+                "description": "Required suite or space identifier within a floor.",
+                "name": "suite",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Tenant / label",
+                "description": "Optional tenant or label displayed inside each suite block.",
+                "name": "tenant",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Size / metric",
+                "description": "Optional positive numeric measure used to size suite blocks; suites are equal width when omitted.",
+                "name": "area",
+                "kind": "Measure",
+                "requiredTypes": [
+                    {
+                        "integer": true
+                    },
+                    {
+                        "numeric": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Lease expiry",
+                "description": "Optional date used for lease-expiry colouring.",
+                "name": "leaseExpiry",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Occupancy status",
+                "description": "Optional status such as Occupied, Vacant, Owner occupied, or Offline.",
+                "name": "occupancyStatus",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "As-of date",
+                "description": "Optional report-controlled date used for expiry calculations.",
+                "name": "asOfDate",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "displayName": "Additional tooltips",
+                "description": "Optional fields displayed in detailed tooltips.",
+                "name": "tooltips",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "suiteSort",
+                "displayName": "Suite sort",
+                "kind": "Grouping"
+            },
+            {
+                "name": "floorUse",
+                "displayName": "Floor use",
+                "kind": "Grouping"
+            },
+            {
+                "name": "summaryMeasure",
+                "displayName": "Summary text measure",
+                "kind": "Measure"
+            }
+        ],
+        "objects": {
+            "summaryStyle": {
+                "displayName": "Summary text",
+                "properties": {
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "alignment": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Centre"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "above",
+                                    "displayName": "Above title"
+                                },
+                                {
+                                    "value": "below",
+                                    "displayName": "Below title"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom of visual"
+                                }
+                            ]
+                        }
+                    },
+                    "spacing": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "customText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showSuiteCount": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTotalMetric": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showVacancy": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showExpiring": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showAsOfDate": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "decimalPrecision": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "textSource": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "manual",
+                                    "displayName": "Manual text"
+                                },
+                                {
+                                    "value": "measure",
+                                    "displayName": "Summary text measure"
+                                },
+                                {
+                                    "value": "generated",
+                                    "displayName": "Generated summary"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "facingTitles": {
+                "displayName": "Facing titles",
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showCount": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "alignment": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Centre"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "padding": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "facingSizes": {
+                "displayName": "Individual facing widths",
+                "properties": {
+                    "width": {
+                        "displayName": "Width (pixels; 0 = auto)",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "general": {
+                "displayName": "General",
+                "properties": {
+                    "showTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showProperty": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showFacingInTitle": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showSummary": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showSuiteCount": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTotalMetric": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showVacancy": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showExpiring": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showAsOfDate": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleFontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "backgroundColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "backgroundTransparency": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "visualPadding": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "colors": {
+                "displayName": "Colours and risk",
+                "properties": {
+                    "colorMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Auto",
+                                    "value": "auto"
+                                },
+                                {
+                                    "displayName": "Lease expiry",
+                                    "value": "expiry"
+                                },
+                                {
+                                    "displayName": "Occupancy status",
+                                    "value": "status"
+                                },
+                                {
+                                    "displayName": "Facing",
+                                    "value": "facing"
+                                },
+                                {
+                                    "displayName": "Single colour",
+                                    "value": "single"
+                                }
+                            ]
+                        }
+                    },
+                    "singleColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "vacantColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "monthToMonthColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "expiredColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "firstThresholdColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "secondThresholdColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "thirdThresholdColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fourthThresholdColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fifthThresholdColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "longTermColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "unknownColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "occupiedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "ownerOccupiedColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "offlineColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "otherStatusColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showIndicators": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "expiry": {
+                "displayName": "Expiry rules",
+                "properties": {
+                    "activeThresholdCount": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "None",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "1 threshold",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "2 thresholds",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "3 thresholds",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "4 thresholds",
+                                    "value": "4"
+                                },
+                                {
+                                    "displayName": "5 thresholds",
+                                    "value": "5"
+                                }
+                            ]
+                        }
+                    },
+                    "firstThresholdMonths": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "secondThresholdMonths": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "thirdThresholdMonths": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fourthThresholdMonths": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fifthThresholdMonths": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "monthToMonthEnabled": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "monthToMonthAfterMonths": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showExpiredSpaces": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "expiredAsHoldover": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "vacantLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "expiredLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "monthToMonthLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "firstThresholdLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "secondThresholdLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "thirdThresholdLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fourthThresholdLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fifthThresholdLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "longTermLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "unknownLabel": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showVacantLegend": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showExpiredLegend": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showUnknownLegend": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "suiteBlocks": {
+                "displayName": "Suite blocks",
+                "properties": {
+                    "widthMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Size / metric",
+                                    "value": "proportional"
+                                },
+                                {
+                                    "displayName": "Equal width",
+                                    "value": "equal"
+                                }
+                            ]
+                        }
+                    },
+                    "scaleMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Within each floor / facing",
+                                    "value": "lane"
+                                },
+                                {
+                                    "displayName": "Consistent across building",
+                                    "value": "building"
+                                }
+                            ]
+                        }
+                    },
+                    "minimumBlockWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "compactLabelWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "blockPadding": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cornerRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "selectionColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "selectionWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "labels": {
+                "displayName": "Labels and values",
+                "properties": {
+                    "showLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "primaryLabel": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Tenant / label",
+                                    "value": "tenant"
+                                },
+                                {
+                                    "displayName": "Suite",
+                                    "value": "suite"
+                                },
+                                {
+                                    "displayName": "Occupancy status",
+                                    "value": "status"
+                                },
+                                {
+                                    "displayName": "Facing",
+                                    "value": "facing"
+                                },
+                                {
+                                    "displayName": "None",
+                                    "value": "none"
+                                }
+                            ]
+                        }
+                    },
+                    "secondaryLabel": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Suite",
+                                    "value": "suite"
+                                },
+                                {
+                                    "displayName": "Size / metric",
+                                    "value": "metric"
+                                },
+                                {
+                                    "displayName": "Lease expiry",
+                                    "value": "expiry"
+                                },
+                                {
+                                    "displayName": "Occupancy status",
+                                    "value": "status"
+                                },
+                                {
+                                    "displayName": "None",
+                                    "value": "none"
+                                }
+                            ]
+                        }
+                    },
+                    "primaryFontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "secondaryFontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "autoLabelColor": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "labelColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "decimalPrecision": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "displayUnits": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Auto",
+                                    "value": "auto"
+                                },
+                                {
+                                    "displayName": "None",
+                                    "value": "none"
+                                },
+                                {
+                                    "displayName": "Thousands",
+                                    "value": "thousands"
+                                },
+                                {
+                                    "displayName": "Millions",
+                                    "value": "millions"
+                                }
+                            ]
+                        }
+                    },
+                    "dateFormat": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Locale default",
+                                    "value": "locale"
+                                },
+                                {
+                                    "displayName": "YYYY-MM-DD",
+                                    "value": "iso"
+                                },
+                                {
+                                    "displayName": "MMM D, YYYY",
+                                    "value": "medium"
+                                },
+                                {
+                                    "displayName": "MMM YYYY",
+                                    "value": "monthYear"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "floorLayout": {
+                "displayName": "Floor and facing layout",
+                "properties": {
+                    "facingLayout": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Combined lanes",
+                                    "value": "combined"
+                                },
+                                {
+                                    "displayName": "Separate charts",
+                                    "value": "separate"
+                                }
+                            ]
+                        }
+                    },
+                    "floorOrder": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Highest to lowest",
+                                    "value": "descending"
+                                },
+                                {
+                                    "displayName": "Lowest to highest",
+                                    "value": "ascending"
+                                }
+                            ]
+                        }
+                    },
+                    "facingOrder": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Data order",
+                                    "value": "data"
+                                },
+                                {
+                                    "displayName": "A to Z",
+                                    "value": "ascending"
+                                },
+                                {
+                                    "displayName": "Z to A",
+                                    "value": "descending"
+                                }
+                            ]
+                        }
+                    },
+                    "minimumBarHeight": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "visibleBars": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "floorLabelWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rowSpacing": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "panelSpacing": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "panelBorderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "panelBorderWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "panelCornerRadius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "resetFacingWidths": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "facingWidths": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fitAllFloors": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "suiteOrder": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "ascending",
+                                    "displayName": "Ascending (1, 2, 10)"
+                                },
+                                {
+                                    "value": "descending",
+                                    "displayName": "Descending (10, 2, 1)"
+                                },
+                                {
+                                    "value": "data",
+                                    "displayName": "Data order"
+                                }
+                            ]
+                        }
+                    },
+                    "suiteSortMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "natural",
+                                    "displayName": "Natural numbers"
+                                },
+                                {
+                                    "value": "alphabetical",
+                                    "displayName": "Alphabetical"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "displayName": "Legend",
+                "properties": {
+                    "showLegend": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Top",
+                                    "value": "top"
+                                },
+                                {
+                                    "displayName": "Bottom",
+                                    "value": "bottom"
+                                }
+                            ]
+                        }
+                    },
+                    "title": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "titlePlacement": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "above",
+                                    "displayName": "Above legend items"
+                                },
+                                {
+                                    "value": "inline",
+                                    "displayName": "Inline with legend items"
+                                }
+                            ]
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleFontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "titleColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "titleBold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleItalic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleFontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "summaryDecimalPrecision": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "tooltips": {
+                "displayName": "Tooltips",
+                "properties": {
+                    "detailLevel": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Basic",
+                                    "value": "basic"
+                                },
+                                {
+                                    "displayName": "Detailed",
+                                    "value": "detailed"
+                                }
+                            ]
+                        }
+                    },
+                    "showNative": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPowerBI": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "floorLabels": {
+                "displayName": "Floor labels",
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "facingFontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "alignment": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Centre"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    },
+                    "useColors": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "useColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "useBackground": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "zoomControls": {
+                "displayName": "Zoom controls",
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "buttonSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "buttonPadding": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "activeColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bold": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "underline": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "position": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "top",
+                                    "displayName": "Top"
+                                },
+                                {
+                                    "value": "bottom",
+                                    "displayName": "Bottom"
+                                },
+                                {
+                                    "value": "title",
+                                    "displayName": "Inline with title"
+                                },
+                                {
+                                    "value": "summary",
+                                    "displayName": "Inline with summary"
+                                },
+                                {
+                                    "value": "legend",
+                                    "displayName": "Inline with legend"
+                                }
+                            ]
+                        }
+                    },
+                    "alignment": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Centre"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "property": {
+                            "max": 1
+                        },
+                        "floor": {
+                            "max": 1
+                        },
+                        "floorSort": {
+                            "max": 1
+                        },
+                        "facing": {
+                            "max": 1
+                        },
+                        "suite": {
+                            "max": 1
+                        },
+                        "tenant": {
+                            "max": 1
+                        },
+                        "area": {
+                            "max": 1
+                        },
+                        "leaseExpiry": {
+                            "max": 1
+                        },
+                        "occupancyStatus": {
+                            "max": 1
+                        },
+                        "asOfDate": {
+                            "max": 1
+                        },
+                        "tooltips": {
+                            "max": 10
+                        },
+                        "suiteSort": {
+                            "max": 1
+                        },
+                        "floorUse": {
+                            "max": 1
+                        },
+                        "summaryMeasure": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "property"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "floor"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "floorSort"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "facing"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "suite"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tenant"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "area"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "leaseExpiry"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "occupancyStatus"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "asOfDate"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "suiteSort"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "floorUse"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "summaryMeasure"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 10000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            }
+        },
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
