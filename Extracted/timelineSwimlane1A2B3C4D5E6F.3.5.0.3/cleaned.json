@@ -1,0 +1,2362 @@
+{
+    "visual": {
+        "name": "timelineSwimlane",
+        "displayName": "Transformation Timeline",
+        "guid": "timelineSwimlane1A2B3C4D5E6F",
+        "visualClassName": "Visual",
+        "version": "3.5.0.3",
+        "description": "Transformation portfolio timeline with swimlanes, milestones, tasks, RAG status and dependency relationships",
+        "supportUrl": "https://www.bondvisual.com",
+        "gitHubUrl": "https://github.com/cdtbond/PowerBi-Timeline"
+    },
+    "author": {
+        "name": "Chris Bond",
+        "email": "contact@bondvisual.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "en-US": {
+            "Visual_AriaLabel": "Transformation Timeline",
+            "Axis_Today": "Today",
+            "Header_Project": "SWIMLANE",
+            "Landing_Title": "Transformation Timeline",
+            "Landing_Line1": "Required: add Name and Start Date to begin.",
+            "Landing_Line2": "Finish Date creates task bars; matching dates create milestones.",
+            "Landing_Line3": "Optional: Swimlane, Unique ID and Predecessors add structure.",
+            "Landing_Line4": "Add progress, baselines, status and links when available.",
+            "Landing_AriaLabel": "Transformation Timeline setup instructions",
+            "Branding_Label": "Transformation Timeline",
+            "License_BrandingFeatureBlocked": "A Transformation Timeline Pro licence is required to display a custom logo.",
+            "Role_UniqueID": "Unique ID",
+            "Role_PredecessorID": "Predecessors (optional)",
+            "Role_DependencyCritical": "Critical dependencies (optional)",
+            "Role_Name": "Name",
+            "Role_StartDate": "Start Date",
+            "Role_FinishDate": "Finish Date",
+            "Role_Colour": "Colour / RAG (optional)",
+            "Role_Project": "Swimlane",
+            "Role_Tooltip": "Tooltip (optional)",
+            "Role_MilestoneLevel": "Activity Level (optional)",
+            "Settings_ActivitySizingCard": "Activity sizing & spacing",
+            "Settings_CustomiseActivitySizes": "Customise Activity Sizes",
+            "Settings_TaskHeightLevel1": "Task Level 1 height",
+            "Settings_TaskHeightLevel2": "Task Level 2 height",
+            "Settings_TaskHeightLevel3": "Task Level 3 height",
+            "Settings_MilestoneSizeLevel1": "Milestone Level 1 size",
+            "Settings_MilestoneSizeLevel2": "Milestone Level 2 size",
+            "Settings_MilestoneSizeLevel3": "Milestone Level 3 size",
+            "Settings_PreventMilestoneOverlap": "Prevent milestone overlap",
+            "Settings_RelaxedSpacing": "Relaxed vertical spacing",
+            "Data_LoadingMore": "Loading additional rows\u2026",
+            "Tooltip_Item": "\u25c6 Item",
+            "Tooltip_Swimlane": "Swimlane",
+            "Tooltip_Status": "\u25cf Status",
+            "Tooltip_Dates": "\u25f7 Dates",
+            "Tooltip_Predecessors": "\u21a4 Predecessors",
+            "Tooltip_Successors": "\u21a6 Successors",
+            "Tooltip_ColourCategory": "\u25c8 Colour / RAG",
+            "Tooltip_Dependency": "\u25c6 Dependency",
+            "Tooltip_Validation": "\u26a0 Validation",
+            "Tooltip_Details": "\u24d8 Details",
+            "Validation_DependencyCycle": "Dependency cycle detected",
+            "Settings_ColourCard": "Colour scheme",
+            "Settings_ColourMode": "Colour by",
+            "Settings_RAGGreen": "Green / On track",
+            "Settings_RAGAmber": "Amber / At risk",
+            "Settings_RAGRed": "Red / Off track",
+            "Settings_CustomColour": "Single item colour",
+            "Settings_LabelCard": "Labels",
+            "Settings_TooltipCard": "Tooltip contents",
+            "Settings_TooltipSwimlane": "Swimlane",
+            "Settings_TooltipStatus": "Status",
+            "Settings_TooltipDates": "Dates",
+            "Settings_TooltipDependencies": "Dependencies",
+            "Settings_TooltipBaseline": "Baseline",
+            "Settings_TooltipProgress": "Progress",
+            "Settings_TooltipColourCategory": "Colour / RAG",
+            "Settings_TooltipValidation": "Validation messages",
+            "Settings_TooltipDetails": "Additional details",
+            "Settings_TooltipItemLink": "Item link guidance",
+            "Settings_ShowTaskDates": "Show task dates",
+            "Settings_ShowMilestoneDates": "Show milestone dates",
+            "Settings_AxisCard": "Timeline axis",
+            "Settings_TimeScale": "Timeline scale",
+            "Settings_DatePadding": "Date padding (months)",
+            "Settings_ShowGridLines": "Show grid lines",
+            "Settings_ShowToday": "Show today line and label",
+            "Settings_AxisHeight": "Axis height",
+            "Settings_LaneCard": "Swimlanes",
+            "Settings_ShowAllActivities": "Show all activities",
+            "Settings_LaneHeight": "Minimum lane height",
+            "Settings_LabelWidth": "Swimlane label width",
+            "Settings_DependencyCard": "Dependencies",
+            "Settings_DependencyDisplay": "Dependency display",
+            "Settings_ShowIndirect": "Show indirect chain",
+            "Option_Project": "Swimlane",
+            "Option_Data": "Colour category / RAG",
+            "Option_Custom": "Single custom colour",
+            "Option_Week": "Week",
+            "Option_Month": "Month",
+            "Option_Quarter": "Quarter",
+            "Option_Year": "Year",
+            "Option_None": "None",
+            "Option_SelectedItem": "Selected item",
+            "Option_SelectedLane": "Selected swimlane",
+            "Option_CriticalOnly": "Critical only",
+            "Option_AllDependencies": "All dependencies (audit)",
+            "Option_TopRight": "Top right",
+            "Option_TopLeft": "Top left",
+            "Option_BottomRight": "Bottom right",
+            "Option_BottomLeft": "Bottom left",
+            "Option_DataOrder": "Data order",
+            "Option_Alphabetical": "Alphabetical",
+            "Option_EarliestStart": "Earliest start",
+            "Option_LatestFinish": "Latest finish",
+            "Option_SwimlaneOrderField": "Swimlane Order field",
+            "Option_StartDate": "Start date",
+            "Option_FinishDate": "Finish date",
+            "Option_Name": "Name",
+            "Option_Duration": "Duration",
+            "Option_ItemOrderField": "Item Order field",
+            "Option_HighlightMatches": "Highlight matches",
+            "Option_FilterMatches": "Filter to matches",
+            "Status_OnTrack": "On track",
+            "Status_AtRisk": "At risk",
+            "Status_OffTrack": "Off track",
+            "Status_None": "No status",
+            "Axis_QuarterPrefix": "Q",
+            "Data_Truncated": "The visual reached the available row limit.",
+            "Data_TruncatedShort": "Row limit reached",
+            "Data_LoadComplete": "Timeline data loaded.",
+            "Settings_ShowNavigation": "Show navigation controls",
+            "Settings_RememberViewport": "Remember timeline viewport",
+            "Navigation_ZoomOut": "Zoom out",
+            "Navigation_ZoomIn": "Zoom in",
+            "Navigation_Fit": "Fit",
+            "Navigation_FitAria": "Fit the complete timeline",
+            "Navigation_Today": "Today",
+            "Navigation_TodayAria": "Centre the timeline on today",
+            "Navigation_Reset": "Reset",
+            "Navigation_ResetAria": "Reset timeline view to saved viewport or fit",
+            "Navigation_SaveAria": "Save current timeline viewport",
+            "Navigation_SaveSuccess": "Saved current timeline view",
+            "Navigation_VerticalRegion": "Timeline swimlanes",
+            "Navigation_VerticalRegionScrollable": "Scrollable timeline swimlanes. Use the vertical scrollbar, mouse wheel, or keyboard to reach additional swimlanes.",
+            "Validation_Issue": "schedule issue",
+            "Validation_Issues": "schedule issues",
+            "Validation_ToggleSummary": "Show or hide schedule validation details",
+            "Validation_More": "more",
+            "Dependency_Critical": "Critical",
+            "Dependency_CrossLane": "Cross-swimlane",
+            "Selection_ItemsSelected": "items selected",
+            "Selection_Selected": "selected",
+            "Selection_Cleared": "Selection cleared",
+            "Warning_DataIncompleteTitle": "Timeline data may be incomplete",
+            "Warning_DataIncompleteDetail": "Power BI could not provide additional rows or the 30,000-row data-view limit was reached. Filter the schedule or reduce dependency rows to verify that all items are displayed.",
+            "Role_BaselineStartDate": "Baseline Start Date (optional)",
+            "Role_BaselineFinishDate": "Baseline Finish Date (optional)",
+            "Role_PercentComplete": "Percent Complete (optional)",
+            "Role_SortOrder": "Item Order (optional)",
+            "Role_SwimlaneOrder": "Swimlane Order (optional)",
+            "Legend_Title_Project": "Swimlanes",
+            "Legend_Title_Data": "Colour categories",
+            "Search_Placeholder": "Search tasks, milestones or IDs",
+            "Search_AriaLabel": "Search timeline items",
+            "Tooltip_Baseline": "Baseline",
+            "Tooltip_Progress": "Progress",
+            "Tooltip_DependencyType": "Dependency type",
+            "Tooltip_DependencyLag": "Lag / lead",
+            "Dependency_FS": "Finish to Start",
+            "Dependency_SS": "Start to Start",
+            "Dependency_FF": "Finish to Finish",
+            "Dependency_SF": "Start to Finish",
+            "Role_ItemUrl": "Item URL (optional)",
+            "Analytics_Card": "Reference date",
+            "Analytics_ShowReferenceDate": "Show reference date",
+            "Analytics_ReferenceDateInput": "Reference date (YYYY-MM-DD)",
+            "Analytics_ReferenceDate": "Reference date",
+            "Analytics_Label": "Label",
+            "Analytics_LineColour": "Line colour",
+            "Tooltip_Link": "\u2197 Item link",
+            "Tooltip_LinkAvailable": "Select this item, then use the persistent Open item button",
+            "OpenLink_Button": "Open item \u2197",
+            "OpenLink_ButtonCompact": "Open \u2197",
+            "OpenLink_ActionVerb": "Open",
+            "OpenLink_AriaLabel": "Open selected timeline item link",
+            "Settings_ShowLegend": "Show legend",
+            "Settings_ShowLegendTitle": "Show legend title",
+            "Settings_LegendPosition": "Position",
+            "Settings_LegendTextSize": "Text size",
+            "Settings_LegendMaximumItems": "Maximum items",
+            "Settings_LegendCard": "Legend",
+            "Settings_SwimlaneOrder": "Swimlane order",
+            "Settings_ItemPackingPriority": "Item packing priority",
+            "Settings_ShowSearch": "Show search control",
+            "Settings_SearchBehaviour": "Search behaviour",
+            "Settings_InteractionCard": "Search and navigation",
+            "Settings_ShowBaselines": "Show baseline dates",
+            "Settings_BaselineColour": "Baseline colour",
+            "Settings_ShowProgress": "Show percent complete",
+            "Settings_ProgressColour": "Progress colour",
+            "Settings_ScheduleCard": "Baseline and progress",
+            "Settings_ShowDependencyLabels": "Show type and lag labels",
+            "Error_RenderTitle": "Transformation Timeline could not render",
+            "Error_RenderDetail": "Check the mapped fields and schedule values, then try again."
+        }
+    },
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "Name",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Name",
+                "description": "Task or milestone label",
+                "displayNameKey": "Role_Name"
+            },
+            {
+                "name": "StartDate",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Start Date",
+                "description": "Start date \u2014 also used as the position for milestones",
+                "displayNameKey": "Role_StartDate"
+            },
+            {
+                "name": "FinishDate",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Finish Date",
+                "description": "Finish date (same as Start Date for milestones)",
+                "displayNameKey": "Role_FinishDate"
+            },
+            {
+                "name": "Project",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Swimlane",
+                "description": "Groups items into horizontal swimlane rows",
+                "displayNameKey": "Role_Project"
+            },
+            {
+                "displayName": "Unique ID",
+                "name": "UniqueID",
+                "kind": "Grouping",
+                "description": "Stable item identifier required for dependencies",
+                "displayNameKey": "Role_UniqueID"
+            },
+            {
+                "displayName": "Predecessors (optional)",
+                "name": "PredecessorID",
+                "kind": "Grouping",
+                "description": "Comma-separated relationships such as 12FS+2d, 18SS-1d.",
+                "displayNameKey": "Role_PredecessorID"
+            },
+            {
+                "displayName": "Critical dependencies (optional)",
+                "name": "DependencyCritical",
+                "kind": "Grouping",
+                "description": "One Yes/No value applies to every predecessor. For mixed criticality, provide aligned values such as Yes, No, Yes.",
+                "displayNameKey": "Role_DependencyCritical"
+            },
+            {
+                "name": "PercentComplete",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Percent Complete (optional)",
+                "description": "Progress from 0 to 100.",
+                "displayNameKey": "Role_PercentComplete"
+            },
+            {
+                "name": "BaselineStartDate",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Baseline Start Date (optional)",
+                "description": "Original planned start date.",
+                "displayNameKey": "Role_BaselineStartDate"
+            },
+            {
+                "name": "BaselineFinishDate",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Baseline Finish Date (optional)",
+                "description": "Original planned finish date.",
+                "displayNameKey": "Role_BaselineFinishDate"
+            },
+            {
+                "name": "Colour",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Colour / RAG (optional)",
+                "description": "Category, RAG value, or explicit #RRGGBB colour. Hex values override conditional formatting; other values use the RAG/category palette.",
+                "displayNameKey": "Role_Colour"
+            },
+            {
+                "name": "MilestoneLevel",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Activity Level (optional)",
+                "description": "Activity Level 1, 2, or 3 (or High, Medium, Low) for custom task bar heights and milestone sizes.",
+                "displayNameKey": "Role_MilestoneLevel"
+            },
+            {
+                "name": "Tooltip",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Tooltip (optional)",
+                "description": "Optional additional text shown in hover tooltip",
+                "displayNameKey": "Role_Tooltip"
+            },
+            {
+                "name": "ItemUrl",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Item URL (optional)",
+                "description": "Absolute HTTPS link opened only after an explicit user action.",
+                "displayNameKey": "Role_ItemUrl"
+            },
+            {
+                "name": "SwimlaneOrder",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Swimlane Order (optional)",
+                "description": "Numeric swimlane priority. Item Order is used when blank.",
+                "displayNameKey": "Role_SwimlaneOrder"
+            },
+            {
+                "name": "SortOrder",
+                "kind": "GroupingOrMeasure",
+                "displayName": "Item Order (optional)",
+                "description": "Numeric packing priority for items.",
+                "displayNameKey": "Role_SortOrder"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "UniqueID": {
+                            "max": 1
+                        },
+                        "PredecessorID": {
+                            "max": 1
+                        },
+                        "DependencyCritical": {
+                            "max": 1
+                        },
+                        "Name": {
+                            "max": 1
+                        },
+                        "StartDate": {
+                            "max": 1
+                        },
+                        "FinishDate": {
+                            "max": 1
+                        },
+                        "Project": {
+                            "max": 1
+                        },
+                        "Tooltip": {
+                            "max": 1
+                        },
+                        "MilestoneLevel": {
+                            "max": 1
+                        },
+                        "Colour": {
+                            "max": 1
+                        },
+                        "BaselineStartDate": {
+                            "max": 1
+                        },
+                        "BaselineFinishDate": {
+                            "max": 1
+                        },
+                        "PercentComplete": {
+                            "max": 1
+                        },
+                        "SortOrder": {
+                            "max": 1
+                        },
+                        "SwimlaneOrder": {
+                            "max": 1
+                        },
+                        "ItemUrl": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "UniqueID"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "PredecessorID"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "DependencyCritical"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "Name"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "StartDate"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "FinishDate"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "BaselineStartDate"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "BaselineFinishDate"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "PercentComplete"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "Colour"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "Project"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "Tooltip"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "MilestoneLevel"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "SortOrder"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "SwimlaneOrder"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "ItemUrl"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 10000
+                            }
+                        }
+                    }
+                },
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "UniqueID"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "PredecessorID"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "DependencyCritical"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "Name"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "Project"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "Colour"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "Tooltip"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "ItemUrl"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 10000
+                            }
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "StartDate"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "FinishDate"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "BaselineStartDate"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "BaselineFinishDate"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "PercentComplete"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "MilestoneLevel"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "SortOrder"
+                                }
+                            },
+                            {
+                                "bind": {
+                                    "to": "SwimlaneOrder"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "viewPresets": {
+                "displayName": "View presets",
+                "properties": {
+                    "preset": {
+                        "displayName": "Preset",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Default",
+                                    "value": "default"
+                                },
+                                {
+                                    "displayName": "Critical Path",
+                                    "value": "criticalPath"
+                                },
+                                {
+                                    "displayName": "Executive",
+                                    "value": "executive"
+                                },
+                                {
+                                    "displayName": "Program Review",
+                                    "value": "programmeReview"
+                                },
+                                {
+                                    "displayName": "Detailed Delivery",
+                                    "value": "detailedDelivery"
+                                },
+                                {
+                                    "displayName": "Board Paper",
+                                    "value": "boardPaper"
+                                },
+                                {
+                                    "displayName": "Milestone Overview",
+                                    "value": "milestoneOverview"
+                                },
+                                {
+                                    "displayName": "Delivery Risk",
+                                    "value": "deliveryRisk"
+                                },
+                                {
+                                    "displayName": "Custom",
+                                    "value": "custom"
+                                }
+                            ]
+                        }
+                    },
+                    "customSettings": {
+                        "displayName": "Saved custom preset",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "applyPreset": {
+                        "displayName": "Reapply selected preset",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "saveCustom": {
+                        "displayName": "Save current as Custom",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "lanes": {
+                "displayName": "Swimlane Settings",
+                "properties": {
+                    "showAllActivities": {
+                        "displayName": "Show all activities",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "laneHeight": {
+                        "displayName": "Lane Height (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "labelWidth": {
+                        "displayName": "Label Column Width (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "laneSortMode": {
+                        "displayName": "Swimlane order",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Data order",
+                                    "value": "data"
+                                },
+                                {
+                                    "displayName": "Alphabetical",
+                                    "value": "alphabetical"
+                                },
+                                {
+                                    "displayName": "Earliest start",
+                                    "value": "start"
+                                },
+                                {
+                                    "displayName": "Latest finish",
+                                    "value": "finish"
+                                },
+                                {
+                                    "displayName": "Swimlane Order field",
+                                    "value": "sortOrder"
+                                }
+                            ]
+                        }
+                    },
+                    "itemSortMode": {
+                        "displayName": "Item packing priority",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Start date",
+                                    "value": "start"
+                                },
+                                {
+                                    "displayName": "Finish date",
+                                    "value": "finish"
+                                },
+                                {
+                                    "displayName": "Name",
+                                    "value": "name"
+                                },
+                                {
+                                    "displayName": "Duration",
+                                    "value": "duration"
+                                },
+                                {
+                                    "displayName": "Item Order field",
+                                    "value": "sortOrder"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "axis": {
+                "displayName": "Timeline axis",
+                "properties": {
+                    "timeScale": {
+                        "displayName": "Timeline scale",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Automatic",
+                                    "value": "automatic"
+                                },
+                                {
+                                    "displayName": "Week",
+                                    "value": "week"
+                                },
+                                {
+                                    "displayName": "Month",
+                                    "value": "month"
+                                },
+                                {
+                                    "displayName": "Quarter",
+                                    "value": "quarter"
+                                },
+                                {
+                                    "displayName": "Year",
+                                    "value": "year"
+                                }
+                            ]
+                        }
+                    },
+                    "axisHeight": {
+                        "displayName": "Axis height",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showGridLines": {
+                        "displayName": "Show grid lines",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTodayLine": {
+                        "displayName": "Show today line and label",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "datePaddingMonths": {
+                        "displayName": "Date padding (months)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showNavigationControls": {
+                        "displayName": "Show navigation controls",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "rememberViewport": {
+                        "displayName": "Remember timeline viewport",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "viewportStart": {
+                        "displayName": "Persisted viewport start",
+                        "type": {
+                            "text": true
+                        },
+                        "filterState": true
+                    },
+                    "viewportEnd": {
+                        "displayName": "Persisted viewport end",
+                        "type": {
+                            "text": true
+                        },
+                        "filterState": true
+                    },
+                    "displayViewportStart": {
+                        "displayName": "Display bookmark viewport start",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "displayViewportEnd": {
+                        "displayName": "Display bookmark viewport end",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "savedViewportStart": {
+                        "displayName": "Saved reference viewport start",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "savedViewportEnd": {
+                        "displayName": "Saved reference viewport end",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "colorSettings": {
+                "displayName": "Colour scheme",
+                "properties": {
+                    "colourMode": {
+                        "displayName": "Colour by",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Colour / RAG",
+                                    "value": "data"
+                                },
+                                {
+                                    "displayName": "Swimlane",
+                                    "value": "project"
+                                },
+                                {
+                                    "displayName": "Single custom colour",
+                                    "value": "custom"
+                                }
+                            ]
+                        }
+                    },
+                    "colorGreen": {
+                        "displayName": "Green",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorAmber": {
+                        "displayName": "Amber",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "colorRed": {
+                        "displayName": "Red",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "customItemColor": {
+                        "displayName": "Single item colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey01": {
+                        "displayName": "Category palette key 01",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill01": {
+                        "displayName": "Category palette colour 01",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey02": {
+                        "displayName": "Category palette key 02",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill02": {
+                        "displayName": "Category palette colour 02",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey03": {
+                        "displayName": "Category palette key 03",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill03": {
+                        "displayName": "Category palette colour 03",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey04": {
+                        "displayName": "Category palette key 04",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill04": {
+                        "displayName": "Category palette colour 04",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey05": {
+                        "displayName": "Category palette key 05",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill05": {
+                        "displayName": "Category palette colour 05",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey06": {
+                        "displayName": "Category palette key 06",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill06": {
+                        "displayName": "Category palette colour 06",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey07": {
+                        "displayName": "Category palette key 07",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill07": {
+                        "displayName": "Category palette colour 07",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey08": {
+                        "displayName": "Category palette key 08",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill08": {
+                        "displayName": "Category palette colour 08",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey09": {
+                        "displayName": "Category palette key 09",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill09": {
+                        "displayName": "Category palette colour 09",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey10": {
+                        "displayName": "Category palette key 10",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill10": {
+                        "displayName": "Category palette colour 10",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey11": {
+                        "displayName": "Category palette key 11",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill11": {
+                        "displayName": "Category palette colour 11",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey12": {
+                        "displayName": "Category palette key 12",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill12": {
+                        "displayName": "Category palette colour 12",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey13": {
+                        "displayName": "Category palette key 13",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill13": {
+                        "displayName": "Category palette colour 13",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey14": {
+                        "displayName": "Category palette key 14",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill14": {
+                        "displayName": "Category palette colour 14",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey15": {
+                        "displayName": "Category palette key 15",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill15": {
+                        "displayName": "Category palette colour 15",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey16": {
+                        "displayName": "Category palette key 16",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill16": {
+                        "displayName": "Category palette colour 16",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey17": {
+                        "displayName": "Category palette key 17",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill17": {
+                        "displayName": "Category palette colour 17",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey18": {
+                        "displayName": "Category palette key 18",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill18": {
+                        "displayName": "Category palette colour 18",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey19": {
+                        "displayName": "Category palette key 19",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill19": {
+                        "displayName": "Category palette colour 19",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey20": {
+                        "displayName": "Category palette key 20",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill20": {
+                        "displayName": "Category palette colour 20",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey21": {
+                        "displayName": "Category palette key 21",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill21": {
+                        "displayName": "Category palette colour 21",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey22": {
+                        "displayName": "Category palette key 22",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill22": {
+                        "displayName": "Category palette colour 22",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey23": {
+                        "displayName": "Category palette key 23",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill23": {
+                        "displayName": "Category palette colour 23",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey24": {
+                        "displayName": "Category palette key 24",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill24": {
+                        "displayName": "Category palette colour 24",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey25": {
+                        "displayName": "Category palette key 25",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill25": {
+                        "displayName": "Category palette colour 25",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey26": {
+                        "displayName": "Category palette key 26",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill26": {
+                        "displayName": "Category palette colour 26",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey27": {
+                        "displayName": "Category palette key 27",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill27": {
+                        "displayName": "Category palette colour 27",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey28": {
+                        "displayName": "Category palette key 28",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill28": {
+                        "displayName": "Category palette colour 28",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey29": {
+                        "displayName": "Category palette key 29",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill29": {
+                        "displayName": "Category palette colour 29",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey30": {
+                        "displayName": "Category palette key 30",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill30": {
+                        "displayName": "Category palette colour 30",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey31": {
+                        "displayName": "Category palette key 31",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill31": {
+                        "displayName": "Category palette colour 31",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "categoryPaletteKey32": {
+                        "displayName": "Category palette key 32",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "categoryPaletteFill32": {
+                        "displayName": "Category palette colour 32",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey01": {
+                        "displayName": "Swimlane palette key 01",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill01": {
+                        "displayName": "Swimlane palette colour 01",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey02": {
+                        "displayName": "Swimlane palette key 02",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill02": {
+                        "displayName": "Swimlane palette colour 02",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey03": {
+                        "displayName": "Swimlane palette key 03",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill03": {
+                        "displayName": "Swimlane palette colour 03",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey04": {
+                        "displayName": "Swimlane palette key 04",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill04": {
+                        "displayName": "Swimlane palette colour 04",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey05": {
+                        "displayName": "Swimlane palette key 05",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill05": {
+                        "displayName": "Swimlane palette colour 05",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey06": {
+                        "displayName": "Swimlane palette key 06",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill06": {
+                        "displayName": "Swimlane palette colour 06",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey07": {
+                        "displayName": "Swimlane palette key 07",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill07": {
+                        "displayName": "Swimlane palette colour 07",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey08": {
+                        "displayName": "Swimlane palette key 08",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill08": {
+                        "displayName": "Swimlane palette colour 08",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey09": {
+                        "displayName": "Swimlane palette key 09",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill09": {
+                        "displayName": "Swimlane palette colour 09",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey10": {
+                        "displayName": "Swimlane palette key 10",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill10": {
+                        "displayName": "Swimlane palette colour 10",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey11": {
+                        "displayName": "Swimlane palette key 11",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill11": {
+                        "displayName": "Swimlane palette colour 11",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey12": {
+                        "displayName": "Swimlane palette key 12",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill12": {
+                        "displayName": "Swimlane palette colour 12",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey13": {
+                        "displayName": "Swimlane palette key 13",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill13": {
+                        "displayName": "Swimlane palette colour 13",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey14": {
+                        "displayName": "Swimlane palette key 14",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill14": {
+                        "displayName": "Swimlane palette colour 14",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey15": {
+                        "displayName": "Swimlane palette key 15",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill15": {
+                        "displayName": "Swimlane palette colour 15",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey16": {
+                        "displayName": "Swimlane palette key 16",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill16": {
+                        "displayName": "Swimlane palette colour 16",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey17": {
+                        "displayName": "Swimlane palette key 17",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill17": {
+                        "displayName": "Swimlane palette colour 17",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey18": {
+                        "displayName": "Swimlane palette key 18",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill18": {
+                        "displayName": "Swimlane palette colour 18",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey19": {
+                        "displayName": "Swimlane palette key 19",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill19": {
+                        "displayName": "Swimlane palette colour 19",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey20": {
+                        "displayName": "Swimlane palette key 20",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill20": {
+                        "displayName": "Swimlane palette colour 20",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey21": {
+                        "displayName": "Swimlane palette key 21",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill21": {
+                        "displayName": "Swimlane palette colour 21",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey22": {
+                        "displayName": "Swimlane palette key 22",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill22": {
+                        "displayName": "Swimlane palette colour 22",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey23": {
+                        "displayName": "Swimlane palette key 23",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill23": {
+                        "displayName": "Swimlane palette colour 23",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey24": {
+                        "displayName": "Swimlane palette key 24",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill24": {
+                        "displayName": "Swimlane palette colour 24",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey25": {
+                        "displayName": "Swimlane palette key 25",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill25": {
+                        "displayName": "Swimlane palette colour 25",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey26": {
+                        "displayName": "Swimlane palette key 26",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill26": {
+                        "displayName": "Swimlane palette colour 26",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey27": {
+                        "displayName": "Swimlane palette key 27",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill27": {
+                        "displayName": "Swimlane palette colour 27",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey28": {
+                        "displayName": "Swimlane palette key 28",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill28": {
+                        "displayName": "Swimlane palette colour 28",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey29": {
+                        "displayName": "Swimlane palette key 29",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill29": {
+                        "displayName": "Swimlane palette colour 29",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey30": {
+                        "displayName": "Swimlane palette key 30",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill30": {
+                        "displayName": "Swimlane palette colour 30",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey31": {
+                        "displayName": "Swimlane palette key 31",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill31": {
+                        "displayName": "Swimlane palette colour 31",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "swimlanePaletteKey32": {
+                        "displayName": "Swimlane palette key 32",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "swimlanePaletteFill32": {
+                        "displayName": "Swimlane palette colour 32",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "dependencies": {
+                "displayName": "Dependencies",
+                "properties": {
+                    "displayMode": {
+                        "displayName": "Dependency display",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "None",
+                                    "value": "none"
+                                },
+                                {
+                                    "displayName": "Selected item",
+                                    "value": "selectedItem"
+                                },
+                                {
+                                    "displayName": "Selected swimlane",
+                                    "value": "selectedLane"
+                                },
+                                {
+                                    "displayName": "Critical only",
+                                    "value": "criticalOnly"
+                                },
+                                {
+                                    "displayName": "All dependencies (audit)",
+                                    "value": "all"
+                                }
+                            ]
+                        }
+                    },
+                    "showIndirectDependencies": {
+                        "displayName": "Show indirect chain",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showDependencyLabels": {
+                        "displayName": "Show type and lag labels",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "labels": {
+                "displayName": "Labels",
+                "properties": {
+                    "labelFontSize": {
+                        "displayName": "Item text size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "milestoneVisibility": {
+                        "displayName": "Milestone priorities",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "High only",
+                                    "value": "high"
+                                },
+                                {
+                                    "displayName": "High and Medium",
+                                    "value": "highMedium"
+                                },
+                                {
+                                    "displayName": "All priorities",
+                                    "value": "all"
+                                }
+                            ]
+                        }
+                    },
+                    "showTaskDates": {
+                        "displayName": "Show task dates",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showMilestoneDates": {
+                        "displayName": "Show milestone dates",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "activitySizing": {
+                "displayName": "Activity sizing & spacing",
+                "displayNameKey": "Settings_ActivitySizingCard",
+                "properties": {
+                    "customiseActivitySizes": {
+                        "displayName": "Customise Activity Sizes",
+                        "displayNameKey": "Settings_CustomiseActivitySizes",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "taskHeightLevel1": {
+                        "displayName": "Task Level 1 height",
+                        "displayNameKey": "Settings_TaskHeightLevel1",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "taskHeightLevel2": {
+                        "displayName": "Task Level 2 height",
+                        "displayNameKey": "Settings_TaskHeightLevel2",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "taskHeightLevel3": {
+                        "displayName": "Task Level 3 height",
+                        "displayNameKey": "Settings_TaskHeightLevel3",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "milestoneSizeLevel1": {
+                        "displayName": "Milestone Level 1 size",
+                        "displayNameKey": "Settings_MilestoneSizeLevel1",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "milestoneSizeLevel2": {
+                        "displayName": "Milestone Level 2 size",
+                        "displayNameKey": "Settings_MilestoneSizeLevel2",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "milestoneSizeLevel3": {
+                        "displayName": "Milestone Level 3 size",
+                        "displayNameKey": "Settings_MilestoneSizeLevel3",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "preventMilestoneOverlap": {
+                        "displayName": "Prevent milestone overlap",
+                        "displayNameKey": "Settings_PreventMilestoneOverlap",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "relaxedSpacing": {
+                        "displayName": "Relaxed vertical spacing",
+                        "displayNameKey": "Settings_RelaxedSpacing",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "tooltipSettings": {
+                "displayName": "Tooltip contents",
+                "displayNameKey": "Settings_TooltipCard",
+                "properties": {
+                    "showSwimlane": {
+                        "displayName": "Swimlane",
+                        "displayNameKey": "Settings_TooltipSwimlane",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showStatus": {
+                        "displayName": "Status",
+                        "displayNameKey": "Settings_TooltipStatus",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showDates": {
+                        "displayName": "Dates",
+                        "displayNameKey": "Settings_TooltipDates",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showDependencies": {
+                        "displayName": "Dependencies",
+                        "displayNameKey": "Settings_TooltipDependencies",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showBaseline": {
+                        "displayName": "Baseline",
+                        "displayNameKey": "Settings_TooltipBaseline",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showProgress": {
+                        "displayName": "Progress",
+                        "displayNameKey": "Settings_TooltipProgress",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showColourCategory": {
+                        "displayName": "Colour / RAG",
+                        "displayNameKey": "Settings_TooltipColourCategory",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showValidation": {
+                        "displayName": "Validation messages",
+                        "displayNameKey": "Settings_TooltipValidation",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showDetails": {
+                        "displayName": "Additional details",
+                        "displayNameKey": "Settings_TooltipDetails",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showItemLink": {
+                        "displayName": "Item link guidance",
+                        "displayNameKey": "Settings_TooltipItemLink",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "legend": {
+                "displayName": "Legend",
+                "properties": {
+                    "showLegend": {
+                        "displayName": "Show legend",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showLegendTitle": {
+                        "displayName": "Show legend title",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "legendPosition": {
+                        "displayName": "Position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Top right",
+                                    "value": "topRight"
+                                },
+                                {
+                                    "displayName": "Top left",
+                                    "value": "topLeft"
+                                },
+                                {
+                                    "displayName": "Bottom right",
+                                    "value": "bottomRight"
+                                },
+                                {
+                                    "displayName": "Bottom left",
+                                    "value": "bottomLeft"
+                                }
+                            ]
+                        }
+                    },
+                    "legendFontSize": {
+                        "displayName": "Text size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "legendMaxItems": {
+                        "displayName": "Maximum items",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "interaction": {
+                "displayName": "Search and navigation",
+                "properties": {
+                    "showSearch": {
+                        "displayName": "Show search box",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "searchMode": {
+                        "displayName": "Search behaviour",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Highlight matches",
+                                    "value": "highlight"
+                                },
+                                {
+                                    "displayName": "Filter to matches",
+                                    "value": "filter"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "referenceLine": {
+                "displayName": "Reference date",
+                "displayNameKey": "Analytics_Card",
+                "objectCategory": 2,
+                "properties": {
+                    "show": {
+                        "displayName": "Show reference date",
+                        "displayNameKey": "Analytics_ShowReferenceDate",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "referenceDate": {
+                        "displayName": "Reference date (YYYY-MM-DD)",
+                        "displayNameKey": "Analytics_ReferenceDateInput",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "displayName": {
+                        "displayName": "Label",
+                        "displayNameKey": "Analytics_Label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Line colour",
+                        "displayNameKey": "Analytics_LineColour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "branding": {
+                "displayName": "Branding",
+                "properties": {
+                    "position": {
+                        "displayName": "Branding area",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "None",
+                                    "value": "none"
+                                },
+                                {
+                                    "displayName": "Top left",
+                                    "value": "topLeft"
+                                },
+                                {
+                                    "displayName": "Top right",
+                                    "value": "topRight"
+                                },
+                                {
+                                    "displayName": "Bottom left",
+                                    "value": "bottomLeft"
+                                },
+                                {
+                                    "displayName": "Bottom right",
+                                    "value": "bottomRight"
+                                }
+                            ]
+                        }
+                    },
+                    "areaWidth": {
+                        "displayName": "Area width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "areaHeight": {
+                        "displayName": "Area height",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showBorder": {
+                        "displayName": "Show branding border",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "schedule": {
+                "displayName": "Baseline and progress",
+                "properties": {
+                    "showBaselines": {
+                        "displayName": "Show baseline dates",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "baselineColor": {
+                        "displayName": "Baseline colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showProgress": {
+                        "displayName": "Show percent complete",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "progressColor": {
+                        "displayName": "Progress colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "supportsHighlight": true,
+        "supportsKeyboardFocus": true,
+        "privileges": [],
+        "supportsMultiVisualSelection": true,
+        "supportsLandingPage": true,
+        "suppressDefaultTitle": true,
+        "supportsEmptyDataView": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "Tooltip"
+            ],
+            "supportEnhancedTooltips": true
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

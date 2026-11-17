@@ -1,0 +1,989 @@
+{
+    "visual": {
+        "name": "cerebraPeopleMap",
+        "displayName": "Cerebra People Map",
+        "guid": "cerebraPeopleMapC7E1938F4B8B4FC0A7A1F9D90D466A21",
+        "visualClassName": "Visual",
+        "version": "1.0.0.1",
+        "description": "Locate people, branches and other entities on a geographic map with image or symbol markers, performance details, an operations queue, minimap navigation and three-entity comparison.",
+        "supportUrl": "https://cerebra-consulting.com/pbi/",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Cerebra Consulting Inc.",
+        "email": "pbisupport@cerebra-consulting.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "personId",
+                "displayName": "Entity ID",
+                "kind": "Grouping",
+                "description": "Stable unique key for each entity. One model row per entity; repeated rows are not summed."
+            },
+            {
+                "name": "personName",
+                "displayName": "Entity label",
+                "kind": "Grouping",
+                "description": "Display label for a person, branch, asset, account or other entity. Entity ID is recommended."
+            },
+            {
+                "name": "latitude",
+                "displayName": "Latitude",
+                "kind": "Grouping",
+                "description": "Decimal WGS84 latitude, -90 to 90. Coordinates are required; no geocoding is performed."
+            },
+            {
+                "name": "longitude",
+                "displayName": "Longitude",
+                "kind": "Grouping",
+                "description": "Decimal WGS84 longitude, -180 to 180."
+            },
+            {
+                "name": "region",
+                "displayName": "Group or territory",
+                "kind": "Grouping",
+                "description": "Category used for local search, grouping and marker colors; for example region, team or asset class."
+            },
+            {
+                "name": "locationName",
+                "displayName": "Location label",
+                "kind": "Grouping",
+                "description": "Office, branch, site or business location label."
+            },
+            {
+                "name": "actual",
+                "displayName": "Primary value",
+                "kind": "Measure",
+                "description": "Numeric measure evaluated for this entity."
+            },
+            {
+                "name": "target",
+                "displayName": "Target value",
+                "kind": "Measure",
+                "description": "Optional target for the primary value. Status requires a positive target and a nonnegative actual; other values remain Not evaluated."
+            },
+            {
+                "name": "secondary",
+                "displayName": "Secondary value",
+                "kind": "Measure",
+                "description": "Optional additional numeric measure with its own display label and format."
+            },
+            {
+                "name": "photoData",
+                "displayName": "Image data",
+                "kind": "Grouping",
+                "description": "Small JPEG/PNG/WebP data URI stored as model text. Pasted Excel pictures and local file paths are not supported."
+            },
+            {
+                "name": "photoUrl",
+                "displayName": "Image URL",
+                "kind": "Grouping",
+                "description": "HTTPS image URL stored in Excel or a database text column. Used when image source is HTTPS image URL."
+            },
+            {
+                "name": "outlookUpn",
+                "displayName": "Microsoft 365 identity",
+                "kind": "Grouping",
+                "description": "UPN or object ID used to join a prepared profile image. No live Outlook lookup or authentication is performed."
+            },
+            {
+                "name": "outlookPhoto",
+                "displayName": "Prepared profile image",
+                "kind": "Grouping",
+                "description": "Prepared JPEG/PNG/WebP data URI or HTTPS image URL from an authorized Microsoft 365 preparation process."
+            },
+            {
+                "name": "trendData",
+                "displayName": "Trend series",
+                "kind": "Grouping",
+                "description": "Optional prepared JSON text: [{\"period\":\"2026-10-01\",\"value\":1240000}]. Use sortable period labels; prepare series upstream."
+            },
+            {
+                "name": "breakdownData",
+                "displayName": "Category series",
+                "kind": "Grouping",
+                "description": "Optional prepared nonnegative JSON text: [{\"category\":\"Consulting\",\"value\":620000}]. Negative values are excluded from category and mix charts."
+            },
+            {
+                "name": "markerType",
+                "displayName": "Marker style",
+                "kind": "Grouping",
+                "description": "Optional photo, initials, pin, diamond, office or dot per entity. Applied when Markers is From data; empty or invalid uses photo."
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "personId": {
+                            "max": 1
+                        },
+                        "personName": {
+                            "max": 1
+                        },
+                        "latitude": {
+                            "max": 1
+                        },
+                        "longitude": {
+                            "max": 1
+                        },
+                        "region": {
+                            "max": 1
+                        },
+                        "locationName": {
+                            "max": 1
+                        },
+                        "actual": {
+                            "max": 1
+                        },
+                        "target": {
+                            "max": 1
+                        },
+                        "secondary": {
+                            "max": 1
+                        },
+                        "photoData": {
+                            "max": 1
+                        },
+                        "photoUrl": {
+                            "max": 1
+                        },
+                        "outlookUpn": {
+                            "max": 1
+                        },
+                        "outlookPhoto": {
+                            "max": 1
+                        },
+                        "trendData": {
+                            "max": 1
+                        },
+                        "breakdownData": {
+                            "max": 1
+                        },
+                        "markerType": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "personId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "personName"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "latitude"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "longitude"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "region"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "locationName"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "actual"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "target"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "secondary"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "photoData"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "photoUrl"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "outlookUpn"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "outlookPhoto"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "trendData"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "breakdownData"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "markerType"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 10000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "appearance": {
+                "displayName": "Appearance",
+                "description": "Workspace layout, title, theme and business terminology. Existing report defaults are retained.",
+                "properties": {
+                    "layout": {
+                        "displayName": "Workspace layout",
+                        "description": "Executive shows the map and floating details. Operations adds an entity queue and detail rail. Compare adds a tray for up to three entities.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "executive",
+                                    "displayName": "Executive \u00b7 map first"
+                                },
+                                {
+                                    "value": "operations",
+                                    "displayName": "Operations \u00b7 entity navigator"
+                                },
+                                {
+                                    "value": "compare",
+                                    "displayName": "Compare \u00b7 side-by-side workspace"
+                                }
+                            ]
+                        }
+                    },
+                    "theme": {
+                        "displayName": "Theme",
+                        "description": "Theme",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "light",
+                                    "displayName": "Light"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Dark"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom"
+                                }
+                            ]
+                        }
+                    },
+                    "accent": {
+                        "displayName": "Accent / single marker color",
+                        "description": "Selection accent and the marker color when Color by is Single color.",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "background": {
+                        "displayName": "Custom background",
+                        "description": "Custom background",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "foreground": {
+                        "displayName": "Custom text",
+                        "description": "Custom text",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showSummary": {
+                        "displayName": "Show compact summary",
+                        "description": "Show compact summary",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "title": {
+                        "displayName": "Title",
+                        "description": "Title",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "terminology": {
+                        "displayName": "Business terminology",
+                        "description": "Changes entity names in the workspace. It does not change field bindings, KPI labels, units, currency or calculations.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "people",
+                                    "displayName": "People"
+                                },
+                                {
+                                    "value": "branches",
+                                    "displayName": "Branches"
+                                },
+                                {
+                                    "value": "assets",
+                                    "displayName": "Assets"
+                                },
+                                {
+                                    "value": "accounts",
+                                    "displayName": "Accounts"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom"
+                                }
+                            ]
+                        }
+                    },
+                    "entitySingular": {
+                        "displayName": "Singular entity label",
+                        "description": "One item, for example Store. Used for buttons, details and accessible names.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "entityPlural": {
+                        "displayName": "Plural entity label",
+                        "description": "Multiple items, for example Stores. Used for search, counts, queues and accessible names.",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "geography": {
+                "displayName": "Map and home area",
+                "description": "Local boundary maps; no tile keys or runtime geocoding. Coordinates are required.",
+                "properties": {
+                    "scope": {
+                        "displayName": "Home area",
+                        "description": "Home area",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "nyc",
+                                    "displayName": "New York City"
+                                },
+                                {
+                                    "value": "usa",
+                                    "displayName": "United States"
+                                },
+                                {
+                                    "value": "world",
+                                    "displayName": "World"
+                                },
+                                {
+                                    "value": "country",
+                                    "displayName": "Country"
+                                },
+                                {
+                                    "value": "state",
+                                    "displayName": "US state"
+                                },
+                                {
+                                    "value": "data",
+                                    "displayName": "Fit to supplied locations"
+                                }
+                            ]
+                        }
+                    },
+                    "country": {
+                        "displayName": "Country name",
+                        "description": "Country name",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "state": {
+                        "displayName": "State name",
+                        "description": "State name",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "style": {
+                        "displayName": "Map style",
+                        "description": "Map style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "boundaries",
+                                    "displayName": "Soft boundaries"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal"
+                                },
+                                {
+                                    "value": "outline",
+                                    "displayName": "Outline"
+                                }
+                            ]
+                        }
+                    },
+                    "showLabels": {
+                        "displayName": "Show area labels",
+                        "description": "Show area labels",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "markers": {
+                "displayName": "Marker appearance",
+                "description": "Choose marker appearance independently of image source. From data reads the Marker style field.",
+                "properties": {
+                    "style": {
+                        "displayName": "Markers",
+                        "description": "From data uses the Marker style field with a photo fallback. Explicit styles apply to all map markers and grouped representatives; image source does not change.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "photo",
+                                    "displayName": "From data"
+                                },
+                                {
+                                    "value": "photos",
+                                    "displayName": "Photos"
+                                },
+                                {
+                                    "value": "initials",
+                                    "displayName": "Initials"
+                                },
+                                {
+                                    "value": "pin",
+                                    "displayName": "Pins"
+                                },
+                                {
+                                    "value": "diamond",
+                                    "displayName": "Diamonds"
+                                },
+                                {
+                                    "value": "office",
+                                    "displayName": "Offices"
+                                },
+                                {
+                                    "value": "dot",
+                                    "displayName": "Status dots"
+                                }
+                            ]
+                        }
+                    },
+                    "shape": {
+                        "displayName": "Photo shape",
+                        "description": "Photo shape",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Rounded square"
+                                }
+                            ]
+                        }
+                    },
+                    "size": {
+                        "displayName": "Marker size",
+                        "description": "Marker size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cluster": {
+                        "displayName": "Group overlapping markers",
+                        "description": "Group markers that overlap on screen. This is visual decluttering, not a business hierarchy or aggregation rule.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showNames": {
+                        "displayName": "Show entity labels",
+                        "description": "Show entity labels",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorBy": {
+                        "displayName": "Color by",
+                        "description": "Status uses the configured performance colors; Group or territory uses category colors; Single color uses the General and layout accent.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "status",
+                                    "displayName": "Performance status"
+                                },
+                                {
+                                    "value": "region",
+                                    "displayName": "Group or territory"
+                                },
+                                {
+                                    "value": "single",
+                                    "displayName": "Single color"
+                                }
+                            ]
+                        }
+                    },
+                    "goodColor": {
+                        "displayName": "On-track color",
+                        "description": "On-track color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "watchColor": {
+                        "displayName": "Watch color",
+                        "description": "Watch color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "actionColor": {
+                        "displayName": "Action color",
+                        "description": "Action color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "photos": {
+                "displayName": "Image source",
+                "description": "Use image data, HTTPS URLs or prepared Microsoft 365 profile images. No live profile lookup is performed.",
+                "properties": {
+                    "source": {
+                        "displayName": "Image source",
+                        "description": "Select the image representation stored in the model. Pasted Excel pictures and local file paths are not supported.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "embedded",
+                                    "displayName": "Embedded image data \u00b7 Excel / model"
+                                },
+                                {
+                                    "value": "url",
+                                    "displayName": "HTTPS image URL \u00b7 Excel / database"
+                                },
+                                {
+                                    "value": "outlook",
+                                    "displayName": "Prepared profile image \u00b7 Microsoft 365"
+                                }
+                            ]
+                        }
+                    },
+                    "allowedDomains": {
+                        "displayName": "Allowed image hosts (optional)",
+                        "description": "Comma-separated HTTPS hostnames for URL or prepared profile images. Empty permits HTTPS hosts allowed by Power BI. No credentials or API keys.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showDiagnostics": {
+                        "displayName": "Show image diagnostics",
+                        "description": "Show image diagnostics",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "kpi": {
+                "displayName": "KPI labels and status",
+                "description": "Measures are evaluated at entity grain. Status requires a nonnegative actual and a positive target; other values remain Not evaluated.",
+                "properties": {
+                    "label": {
+                        "displayName": "Primary value label",
+                        "description": "Primary value label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "format": {
+                        "displayName": "Primary value format",
+                        "description": "Primary value format",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "currency",
+                                    "displayName": "Currency"
+                                },
+                                {
+                                    "value": "number",
+                                    "displayName": "Number"
+                                },
+                                {
+                                    "value": "percent",
+                                    "displayName": "Percentage"
+                                },
+                                {
+                                    "value": "hours",
+                                    "displayName": "Hours"
+                                }
+                            ]
+                        }
+                    },
+                    "currency": {
+                        "displayName": "Currency code",
+                        "description": "One ISO currency code for both values when either format is Currency. Currency conversion is not performed.",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "secondaryLabel": {
+                        "displayName": "Secondary value label",
+                        "description": "Secondary value label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "secondaryFormat": {
+                        "displayName": "Secondary value format",
+                        "description": "Secondary value format",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "percent",
+                                    "displayName": "Percentage"
+                                },
+                                {
+                                    "value": "number",
+                                    "displayName": "Number"
+                                },
+                                {
+                                    "value": "currency",
+                                    "displayName": "Currency"
+                                },
+                                {
+                                    "value": "hours",
+                                    "displayName": "Hours"
+                                }
+                            ]
+                        }
+                    },
+                    "direction": {
+                        "displayName": "Good performance means",
+                        "description": "Status requires a nonnegative actual and positive target. Missing, negative actuals and nonpositive targets remain Not evaluated.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "higher",
+                                    "displayName": "Higher is better"
+                                },
+                                {
+                                    "value": "lower",
+                                    "displayName": "Lower is better"
+                                }
+                            ]
+                        }
+                    },
+                    "watchThreshold": {
+                        "displayName": "Watch threshold (% achievement)",
+                        "description": "Watch threshold (% achievement)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "summaryAggregation": {
+                        "displayName": "Summary aggregation",
+                        "description": "Sum or simple unweighted average of the primary values in the local filtered view. It is not a separately evaluated model total; hide it for nonadditive or weighted measures.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sum",
+                                    "displayName": "Sum"
+                                },
+                                {
+                                    "value": "average",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "none",
+                                    "displayName": "Hide KPI total"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "tooltip": {
+                "displayName": "Details and interaction",
+                "description": "Built-in charts use the optional prepared series fields. Power BI report page tooltips are an alternative.",
+                "properties": {
+                    "mode": {
+                        "displayName": "Hover detail",
+                        "description": "Hover detail",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "builtin",
+                                    "displayName": "Built-in KPI card"
+                                },
+                                {
+                                    "value": "report",
+                                    "displayName": "Power BI report page tooltip"
+                                }
+                            ]
+                        }
+                    },
+                    "chart": {
+                        "displayName": "Default chart",
+                        "description": "Default chart",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "trend",
+                                    "displayName": "Trend"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Target"
+                                },
+                                {
+                                    "value": "breakdown",
+                                    "displayName": "Breakdown"
+                                },
+                                {
+                                    "value": "mix",
+                                    "displayName": "Mix"
+                                }
+                            ]
+                        }
+                    },
+                    "showOnHover": {
+                        "displayName": "Preview on hover",
+                        "description": "Preview on hover",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "navigation": {
+                "displayName": "Navigation and interaction",
+                "description": "Navigation and interaction",
+                "properties": {
+                    "miniMap": {
+                        "displayName": "Show minimap",
+                        "description": "Show minimap",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "miniCorner": {
+                        "displayName": "Minimap corner",
+                        "description": "Minimap corner",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "right",
+                                    "displayName": "Bottom right"
+                                },
+                                {
+                                    "value": "left",
+                                    "displayName": "Bottom left"
+                                }
+                            ]
+                        }
+                    },
+                    "crossFilter": {
+                        "displayName": "Selection filters the report",
+                        "description": "Selecting an entity sends its selection identity to Power BI. Comparison pins remain separate from report selection.",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "comparison": {
+                "displayName": "Comparison workspace",
+                "description": "Compare up to three entities independently of report selection. Chart scales and supplied trend periods align across cards.",
+                "properties": {
+                    "chart": {
+                        "displayName": "Default comparison chart",
+                        "description": "Default comparison chart",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "target",
+                                    "displayName": "Target"
+                                },
+                                {
+                                    "value": "trend",
+                                    "displayName": "Trend"
+                                },
+                                {
+                                    "value": "breakdown",
+                                    "displayName": "Bars"
+                                },
+                                {
+                                    "value": "mix",
+                                    "displayName": "Mix"
+                                }
+                            ]
+                        }
+                    },
+                    "periods": {
+                        "displayName": "Trend periods",
+                        "description": "Shared uses exact period labels present for every compared entity. All supplied periods retains gaps; missing values are never replaced with zero.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "shared",
+                                    "displayName": "Shared periods"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "All supplied periods"
+                                }
+                            ]
+                        }
+                    },
+                    "showDelta": {
+                        "displayName": "Show difference from baseline",
+                        "description": "Show difference from baseline",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "trayHeight": {
+                        "displayName": "Comparison tray height",
+                        "description": "Preferred height in pixels. The visual adapts it to retain space for the map.",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "demo": {
+                "displayName": "Built-in demonstration",
+                "description": "Uses fictional bundled records only when no report fields are bound. Report filters never activate sample data.",
+                "properties": {
+                    "enabled": {
+                        "displayName": "Show sample data when unbound",
+                        "description": "Show sample data when unbound",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "scenario": {
+                        "displayName": "Sample starting view",
+                        "description": "Sample starting view",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "overview",
+                                    "displayName": "Executive overview"
+                                },
+                                {
+                                    "value": "target",
+                                    "displayName": "Target and exceptions"
+                                },
+                                {
+                                    "value": "breakdown",
+                                    "displayName": "Breakdown and mix"
+                                },
+                                {
+                                    "value": "dark",
+                                    "displayName": "Dark navigation"
+                                },
+                                {
+                                    "value": "sources",
+                                    "displayName": "Photo setup"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "privileges": [
+            {
+                "name": "WebAccess",
+                "essential": false,
+                "parameters": [
+                    "https://*"
+                ]
+            }
+        ],
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsKeyboardFocus": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "supportEnhancedTooltips": true
+        },
+        "sorting": {
+            "default": {}
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
