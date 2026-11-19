@@ -1,0 +1,362 @@
+{
+    "visual": {
+        "name": "fieldFindScope",
+        "displayName": "Filter & Search \u2013 Multiple Columns & Dates",
+        "guid": "fieldFindScope6F2E2BC419F64B839AFD02C06EFD2148",
+        "visualClassName": "Visual",
+        "version": "1.0.1.0",
+        "description": "Search text and numbers across columns. Add licensed date filtering with Date Filter Pro.",
+        "supportUrl": "https://github.com/Med-Hub/Filter-Search-Multiple-Columns-Dates/blob/fix/0.6.2-build-validation/docs/product/SUPPORT.md",
+        "gitHubUrl": "https://github.com/Med-Hub/Filter-Search-Multiple-Columns-Dates"
+    },
+    "author": {
+        "name": "Veilig Starten",
+        "email": "mmohsine@veiligstarten.nl"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Record key (prototype)",
+                "name": "recordKey",
+                "kind": "Grouping",
+                "requiredTypes": [
+                    {
+                        "text": true
+                    },
+                    {
+                        "numeric": true
+                    },
+                    {
+                        "integer": true
+                    }
+                ]
+            },
+            {
+                "displayName": "Search fields",
+                "name": "fields",
+                "kind": "Grouping",
+                "description": "Text and numbers are searched. A plain Date/DateTime column appears in the Date tab. Use the column rather than its hierarchy."
+            },
+            {
+                "displayName": "Date fields (optional)",
+                "name": "dates",
+                "kind": "Grouping",
+                "description": "Choose the plain Date/DateTime column, not Year/Quarter/Month/Day. A Date column can also be dropped in Search fields."
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "recordKey": {
+                            "max": 1
+                        },
+                        "fields": {
+                            "min": 1,
+                            "max": 10
+                        },
+                        "dates": {
+                            "max": 5
+                        }
+                    },
+                    {
+                        "recordKey": {
+                            "max": 1
+                        },
+                        "fields": {
+                            "max": 10
+                        },
+                        "dates": {
+                            "min": 1,
+                            "max": 5
+                        }
+                    }
+                ],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "bind": {
+                                    "to": "recordKey"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "fields"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "dates"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 1000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "general": {
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": true
+                        }
+                    }
+                }
+            },
+            "searchOptions": {
+                "displayName": "Search",
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "contains",
+                                    "displayName": "Contains"
+                                },
+                                {
+                                    "value": "startsWith",
+                                    "displayName": "Starts with"
+                                },
+                                {
+                                    "value": "exact",
+                                    "displayName": "Exact"
+                                }
+                            ]
+                        }
+                    },
+                    "logic": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "any",
+                                    "displayName": "Any selected field"
+                                },
+                                {
+                                    "value": "all",
+                                    "displayName": "Every selected field"
+                                }
+                            ]
+                        }
+                    },
+                    "ignoreAccents": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "autoSearch": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "placeholder": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showFieldNames": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "optionsRow": {
+                "displayName": "Reader options",
+                "properties": {
+                    "layout": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Second row (when there is room)"
+                                },
+                                {
+                                    "value": "oneRow",
+                                    "displayName": "Behind an options button"
+                                },
+                                {
+                                    "value": "off",
+                                    "displayName": "Hidden"
+                                }
+                            ]
+                        }
+                    },
+                    "showMatch": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showFields": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showLogic": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showDate": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showMore": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showCount": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "searchBar": {
+                "displayName": "Search bar",
+                "properties": {
+                    "barHeight": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "radius": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "background": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "shadow": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "barBorder": {
+                "displayName": "Border",
+                "properties": {
+                    "show": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "width": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "focusColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "barText": {
+                "displayName": "Text",
+                "properties": {
+                    "fontFamily": {
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "color": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "secondaryColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "barColors": {
+                "displayName": "Colours",
+                "properties": {
+                    "accent": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "iconColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "suppressDefaultTitle": true,
+        "supportsHighlight": false,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsKeyboardFocus": true,
+        "supportsSynchronizingFilterState": false,
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

@@ -1,0 +1,1700 @@
+{
+    "visual": {
+        "name": "arFlashTickerSelector",
+        "displayName": "Cerebra KPI Ticker & Selector",
+        "guid": "aRFlashTickerSelectorD47FF03F4C4F4287982F40A2C87E5C1A",
+        "visualClassName": "Visual",
+        "version": "2.0.0.6",
+        "description": "Interactive, field-driven KPI ticker and category cards with native Power BI selection.",
+        "supportUrl": "https://cerebra-consulting.com/pbi",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Cerebra Consulting Inc.",
+        "email": "pbisupport@cerebra-consulting.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "name": "visibleMetric",
+                "displayName": "Metric values",
+                "kind": "Measure",
+                "description": "One or more numeric fields/measures at the mapped record grain."
+            },
+            {
+                "name": "selectionIdentity",
+                "displayName": "Record identifier",
+                "kind": "Grouping",
+                "description": "Stable business identifier shared with the detail table/model."
+            },
+            {
+                "name": "flashFilterColumn",
+                "displayName": "Filter fields",
+                "kind": "Grouping",
+                "description": "Optional fields used by matching-row rules and date filters."
+            },
+            {
+                "name": "category",
+                "displayName": "Category / metric label",
+                "kind": "Grouping",
+                "description": "Optional category. Each category creates independently selectable metric items."
+            },
+            {
+                "name": "target",
+                "displayName": "Target value (optional)",
+                "kind": "Measure",
+                "description": "Optional target aggregated across the same matching rows."
+            },
+            {
+                "name": "badge",
+                "displayName": "Badge text (optional)",
+                "kind": "Grouping",
+                "description": "Optional text badge. Multiple distinct values within one category display their count with names in the tooltip; no external images."
+            },
+            {
+                "name": "tooltip",
+                "displayName": "Tooltip fields (optional)",
+                "kind": "GroupingOrMeasure",
+                "description": "Additional supplied values shown in tooltips."
+            }
+        ],
+        "objects": {
+            "ticker": {
+                "displayName": "Ticker and typography",
+                "properties": {
+                    "height": {
+                        "displayName": "Ticker height",
+                        "type": {
+                            "numeric": true
+                        },
+                        "description": "Height of the ticker strip inside the report visual. Limited by available viewport space; it does not resize the Power BI visual container. Cards and Compact use their own content layout."
+                    },
+                    "speedSeconds": {
+                        "displayName": "Animation duration (seconds)",
+                        "type": {
+                            "numeric": true
+                        },
+                        "description": "Travel duration for ticker animations. Bounce uses the separate Bounce cycle control."
+                    },
+                    "separator": {
+                        "displayName": "Metric separator",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "   \u2022   ",
+                                    "displayName": "   \u2022   "
+                                },
+                                {
+                                    "value": " | ",
+                                    "displayName": " | "
+                                },
+                                {
+                                    "value": " / ",
+                                    "displayName": " / "
+                                },
+                                {
+                                    "value": " \u2014 ",
+                                    "displayName": " \u2014 "
+                                },
+                                {
+                                    "value": "   ",
+                                    "displayName": "   "
+                                }
+                            ]
+                        }
+                    },
+                    "repeatGap": {
+                        "displayName": "Space between repeats",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "        ",
+                                    "displayName": "Compact"
+                                },
+                                {
+                                    "value": "                    ",
+                                    "displayName": "Comfortable"
+                                },
+                                {
+                                    "value": "                                ",
+                                    "displayName": "Wide"
+                                }
+                            ]
+                        },
+                        "description": "Spacing after a complete repeated sequence: Compact 16 px, Comfortable 48 px, Wide 96 px. Available only for repeating ticker animations."
+                    },
+                    "pauseOnHover": {
+                        "displayName": "Pause on hover",
+                        "type": {
+                            "bool": true
+                        },
+                        "description": "Pauses while the pointer is over ticker content, not while over the Pause/Resume or Clear controls. Keyboard focus pauses only on metric items."
+                    },
+                    "backgroundColor": {
+                        "displayName": "Background",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "textColor": {
+                        "displayName": "Text",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "accentColor": {
+                        "displayName": "Accent",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Report default",
+                                    "displayName": "Report default"
+                                },
+                                {
+                                    "value": "Segoe UI",
+                                    "displayName": "Segoe UI"
+                                },
+                                {
+                                    "value": "Arial",
+                                    "displayName": "Arial"
+                                },
+                                {
+                                    "value": "Calibri",
+                                    "displayName": "Calibri"
+                                },
+                                {
+                                    "value": "Verdana",
+                                    "displayName": "Verdana"
+                                },
+                                {
+                                    "value": "Georgia",
+                                    "displayName": "Georgia"
+                                },
+                                {
+                                    "value": "Times New Roman",
+                                    "displayName": "Times New Roman"
+                                },
+                                {
+                                    "value": "Tahoma",
+                                    "displayName": "Tahoma"
+                                },
+                                {
+                                    "value": "Trebuchet MS",
+                                    "displayName": "Trebuchet MS"
+                                },
+                                {
+                                    "value": "Courier New",
+                                    "displayName": "Courier New"
+                                }
+                            ]
+                        }
+                    },
+                    "fontWeight": {
+                        "displayName": "Font weight",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": 400,
+                                    "displayName": "Regular"
+                                },
+                                {
+                                    "value": 600,
+                                    "displayName": "Semibold"
+                                },
+                                {
+                                    "value": 700,
+                                    "displayName": "Bold"
+                                },
+                                {
+                                    "value": 800,
+                                    "displayName": "Extra bold"
+                                }
+                            ]
+                        }
+                    },
+                    "showClearButton": {
+                        "displayName": "Show clear selection",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "maxSelectableRows": {
+                        "displayName": "Selection row limit",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "clearSelectionOnDataChange": {
+                        "displayName": "Clear selection on data change",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "metricAggregation": {
+                        "displayName": "Aggregation across supplied rows",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Sum",
+                                    "displayName": "Sum"
+                                },
+                                {
+                                    "value": "Average",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "Min",
+                                    "displayName": "Min"
+                                },
+                                {
+                                    "value": "Max",
+                                    "displayName": "Max"
+                                },
+                                {
+                                    "value": "Count",
+                                    "displayName": "Count"
+                                },
+                                {
+                                    "value": "DistinctCount",
+                                    "displayName": "DistinctCount"
+                                },
+                                {
+                                    "value": "First",
+                                    "displayName": "First"
+                                },
+                                {
+                                    "value": "Last",
+                                    "displayName": "Last"
+                                }
+                            ]
+                        },
+                        "description": "Use additive row-level values. Non-additive measures should use the appropriate aggregation or a dedicated model measure at the intended grain."
+                    },
+                    "animationMode": {
+                        "displayName": "Animation",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Static",
+                                    "displayName": "Static"
+                                },
+                                {
+                                    "value": "RightToLeft",
+                                    "displayName": "RightToLeft"
+                                },
+                                {
+                                    "value": "LeftToRight",
+                                    "displayName": "LeftToRight"
+                                },
+                                {
+                                    "value": "PingPong",
+                                    "displayName": "PingPong"
+                                },
+                                {
+                                    "value": "Bounce",
+                                    "displayName": "Bounce"
+                                },
+                                {
+                                    "value": "Marquee",
+                                    "displayName": "Marquee"
+                                },
+                                {
+                                    "value": "SlowDrift",
+                                    "displayName": "SlowDrift"
+                                },
+                                {
+                                    "value": "SlidePause",
+                                    "displayName": "SlidePause"
+                                },
+                                {
+                                    "value": "VerticalUp",
+                                    "displayName": "VerticalUp"
+                                },
+                                {
+                                    "value": "VerticalDown",
+                                    "displayName": "VerticalDown"
+                                },
+                                {
+                                    "value": "Typewriter",
+                                    "displayName": "Typewriter"
+                                },
+                                {
+                                    "value": "Wave",
+                                    "displayName": "Wave"
+                                },
+                                {
+                                    "value": "Glitch",
+                                    "displayName": "Glitch"
+                                },
+                                {
+                                    "value": "Jitter",
+                                    "displayName": "Jitter"
+                                },
+                                {
+                                    "value": "ZoomPulse",
+                                    "displayName": "ZoomPulse"
+                                },
+                                {
+                                    "value": "FadeInOut",
+                                    "displayName": "FadeInOut"
+                                },
+                                {
+                                    "value": "Flip",
+                                    "displayName": "Flip"
+                                },
+                                {
+                                    "value": "Rotate",
+                                    "displayName": "Rotate"
+                                },
+                                {
+                                    "value": "Shake",
+                                    "displayName": "Shake"
+                                },
+                                {
+                                    "value": "Blink",
+                                    "displayName": "Blink"
+                                },
+                                {
+                                    "value": "Spotlight",
+                                    "displayName": "Spotlight"
+                                },
+                                {
+                                    "value": "Comet",
+                                    "displayName": "Comet"
+                                },
+                                {
+                                    "value": "StepTicker",
+                                    "displayName": "StepTicker"
+                                }
+                            ]
+                        },
+                        "description": "PingPong moves horizontally back and forth. Bounce moves vertically. RightToLeft is a single pass with re-entry; Marquee repeats continuously."
+                    },
+                    "textEffect": {
+                        "displayName": "Text effect",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "None",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "Glow",
+                                    "displayName": "Glow"
+                                },
+                                {
+                                    "value": "Pulse",
+                                    "displayName": "Pulse"
+                                },
+                                {
+                                    "value": "Neon",
+                                    "displayName": "Neon"
+                                },
+                                {
+                                    "value": "Shimmer",
+                                    "displayName": "Shimmer"
+                                },
+                                {
+                                    "value": "Gradient",
+                                    "displayName": "Gradient"
+                                },
+                                {
+                                    "value": "Alert",
+                                    "displayName": "Alert"
+                                },
+                                {
+                                    "value": "Shadow",
+                                    "displayName": "Shadow"
+                                },
+                                {
+                                    "value": "Outline",
+                                    "displayName": "Outline"
+                                },
+                                {
+                                    "value": "Soft",
+                                    "displayName": "Soft"
+                                }
+                            ]
+                        }
+                    },
+                    "edgeFade": {
+                        "displayName": "Fade ticker edges",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "borderRadius": {
+                        "displayName": "Corner radius",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "borderWidth": {
+                        "displayName": "Border width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "letterSpacing": {
+                        "displayName": "Letter spacing (em)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "uppercase": {
+                        "displayName": "Uppercase labels",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "opacity": {
+                        "displayName": "Opacity",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "clearButtonMode": {
+                        "displayName": "Clear button visibility",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "Always",
+                                    "displayName": "Always"
+                                },
+                                {
+                                    "value": "Hidden",
+                                    "displayName": "Hidden"
+                                }
+                            ]
+                        }
+                    },
+                    "clearButtonText": {
+                        "displayName": "Clear button label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "clearButtonBackground": {
+                        "displayName": "Clear background",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "clearButtonColor": {
+                        "displayName": "Clear text",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "clearButtonWidth": {
+                        "displayName": "Clear button width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "clearVisibility": {
+                        "displayName": "Clear selection visibility",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "Always",
+                                    "displayName": "Always"
+                                },
+                                {
+                                    "value": "Hidden",
+                                    "displayName": "Hidden"
+                                }
+                            ]
+                        },
+                        "description": "Available in all layouts because every layout can filter other visuals. Auto shows when selected; Always stays visible; Hidden removes the button. Escape clears this visual selection, not report/page/slicer filters."
+                    },
+                    "bounceCycleSeconds": {
+                        "displayName": "Bounce cycle (seconds)",
+                        "type": {
+                            "numeric": true
+                        },
+                        "description": "Duration of one visible bounce. Independent of the longer ticker travel duration; lower is faster."
+                    },
+                    "bounceHeight": {
+                        "displayName": "Bounce height (pixels)",
+                        "type": {
+                            "numeric": true
+                        },
+                        "description": "Requested vertical travel, bounded to the free space inside the strip so text is not clipped. Increase Ticker height when necessary."
+                    }
+                }
+            },
+            "presentation": {
+                "displayName": "Cards, badges and interaction",
+                "properties": {
+                    "layout": {
+                        "displayName": "Layout",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Ticker",
+                                    "displayName": "Ticker"
+                                },
+                                {
+                                    "value": "Cards",
+                                    "displayName": "Cards"
+                                },
+                                {
+                                    "value": "Compact",
+                                    "displayName": "Compact"
+                                }
+                            ]
+                        }
+                    },
+                    "colorMode": {
+                        "displayName": "Accent source",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Report palette",
+                                    "displayName": "Report palette"
+                                },
+                                {
+                                    "value": "Custom",
+                                    "displayName": "Custom"
+                                }
+                            ]
+                        }
+                    },
+                    "showCategory": {
+                        "displayName": "Show category label",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showMetricName": {
+                        "displayName": "Show metric name",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showRecordCount": {
+                        "displayName": "Show matching record count",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "cardWidth": {
+                        "displayName": "Card width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cardGap": {
+                        "displayName": "Card spacing",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "clickBehavior": {
+                        "displayName": "Click behavior",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Select",
+                                    "displayName": "Select one (keep selected)"
+                                },
+                                {
+                                    "value": "MultiSelect",
+                                    "displayName": "Multi-select (click to add/remove)"
+                                },
+                                {
+                                    "value": "Disabled",
+                                    "displayName": "Disabled"
+                                }
+                            ]
+                        },
+                        "description": "Select one replaces the previous item and keeps it selected on repeated clicks. Multi-select adds/removes individual items. Ctrl/Cmd-click temporarily adds/removes. Legacy Toggle is read as Select one; Clear or Escape clears selection."
+                    },
+                    "selectionScope": {
+                        "displayName": "Rows represented by a metric",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "All matching rows",
+                                    "displayName": "All matching rows"
+                                },
+                                {
+                                    "value": "Nonblank metric values",
+                                    "displayName": "Nonblank metric values"
+                                },
+                                {
+                                    "value": "Nonzero metric values",
+                                    "displayName": "Nonzero metric values"
+                                }
+                            ]
+                        }
+                    },
+                    "showBadge": {
+                        "displayName": "Show optional data badge",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "badgePosition": {
+                        "displayName": "Badge position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Left",
+                                    "displayName": "Left"
+                                },
+                                {
+                                    "value": "Right",
+                                    "displayName": "Right"
+                                }
+                            ]
+                        },
+                        "description": "Available when Badge Text is mapped or a non-None built-in symbol is selected, and optional badges are On."
+                    },
+                    "symbol": {
+                        "displayName": "Built-in symbol",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "None",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "Dot",
+                                    "displayName": "Dot"
+                                },
+                                {
+                                    "value": "Triangle",
+                                    "displayName": "Triangle"
+                                },
+                                {
+                                    "value": "Flag",
+                                    "displayName": "Flag"
+                                },
+                                {
+                                    "value": "Check",
+                                    "displayName": "Check"
+                                },
+                                {
+                                    "value": "Star",
+                                    "displayName": "Star"
+                                }
+                            ]
+                        },
+                        "description": "Only used without a Badge Text binding. Bound single values show text; multiple values show a count with their names in the native tooltip. Saved symbols are preserved while hidden."
+                    },
+                    "badgeSize": {
+                        "displayName": "Badge size",
+                        "type": {
+                            "numeric": true
+                        },
+                        "description": "Available when Badge Text is mapped or a non-None built-in symbol is selected, and optional badges are On."
+                    },
+                    "showStatus": {
+                        "displayName": "Show selection and data status",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "reduceMotion": {
+                        "displayName": "Reduce motion",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "System",
+                                    "displayName": "System"
+                                },
+                                {
+                                    "value": "Always",
+                                    "displayName": "Always"
+                                }
+                            ]
+                        }
+                    },
+                    "pauseButton": {
+                        "displayName": "Show pause control",
+                        "type": {
+                            "bool": true
+                        },
+                        "description": "Ticker only. Visible control is available for active animation; Cards and Compact are static, including animated text effects."
+                    }
+                }
+            },
+            "numbers": {
+                "displayName": "Numbers",
+                "properties": {
+                    "displayUnits": {
+                        "displayName": "Display units",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "None",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "Thousands",
+                                    "displayName": "Thousands"
+                                },
+                                {
+                                    "value": "Millions",
+                                    "displayName": "Millions"
+                                },
+                                {
+                                    "value": "Billions",
+                                    "displayName": "Billions"
+                                }
+                            ]
+                        }
+                    },
+                    "decimalPlaces": {
+                        "displayName": "Decimal places",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "zeroBlankAsZero": {
+                        "displayName": "Display blank metrics as zero",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "numberStyle": {
+                        "displayName": "Number style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Model",
+                                    "displayName": "Model"
+                                },
+                                {
+                                    "value": "Number",
+                                    "displayName": "Number"
+                                },
+                                {
+                                    "value": "Percent",
+                                    "displayName": "Percent"
+                                },
+                                {
+                                    "value": "USD",
+                                    "displayName": "USD"
+                                },
+                                {
+                                    "value": "EUR",
+                                    "displayName": "EUR"
+                                },
+                                {
+                                    "value": "GBP",
+                                    "displayName": "GBP"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "comparison": {
+                "displayName": "Targets and status colors",
+                "properties": {
+                    "showTarget": {
+                        "displayName": "Show target when bound",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showVariance": {
+                        "displayName": "Show variance when bound",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "targetAggregation": {
+                        "displayName": "Target aggregation",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Sum",
+                                    "displayName": "Sum"
+                                },
+                                {
+                                    "value": "Average",
+                                    "displayName": "Average"
+                                },
+                                {
+                                    "value": "Min",
+                                    "displayName": "Min"
+                                },
+                                {
+                                    "value": "Max",
+                                    "displayName": "Max"
+                                },
+                                {
+                                    "value": "Count",
+                                    "displayName": "Count"
+                                },
+                                {
+                                    "value": "DistinctCount",
+                                    "displayName": "DistinctCount"
+                                },
+                                {
+                                    "value": "First",
+                                    "displayName": "First"
+                                },
+                                {
+                                    "value": "Last",
+                                    "displayName": "Last"
+                                }
+                            ]
+                        }
+                    },
+                    "favorableDirection": {
+                        "displayName": "Favorable direction",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Higher",
+                                    "displayName": "Higher"
+                                },
+                                {
+                                    "value": "Lower",
+                                    "displayName": "Lower"
+                                }
+                            ]
+                        }
+                    },
+                    "colorBy": {
+                        "displayName": "Status coloring",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "None",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "Target",
+                                    "displayName": "Target"
+                                },
+                                {
+                                    "value": "Threshold",
+                                    "displayName": "Threshold"
+                                }
+                            ]
+                        }
+                    },
+                    "threshold": {
+                        "displayName": "Threshold",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "goodColor": {
+                        "displayName": "Favorable color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "badColor": {
+                        "displayName": "Unfavorable color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "neutralColor": {
+                        "displayName": "Neutral color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "flashFilters": {
+                "displayName": "Matching-row rules",
+                "properties": {
+                    "applyOnClick": {
+                        "displayName": "Enable applying selection",
+                        "type": {
+                            "bool": true
+                        },
+                        "description": "Click a metric to filter related visuals. An active selection is recalculated when dates/rules change. With no active selection, rules affect this visual only until you click."
+                    },
+                    "dateColumnName": {
+                        "displayName": "Date field",
+                        "type": {
+                            "text": true
+                        },
+                        "description": "Choose a mapped date field; no typed column name."
+                    },
+                    "dateRangeMode": {
+                        "displayName": "Date period",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "None",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "Today",
+                                    "displayName": "Today"
+                                },
+                                {
+                                    "value": "Yesterday",
+                                    "displayName": "Yesterday"
+                                },
+                                {
+                                    "value": "LastNDays",
+                                    "displayName": "LastNDays"
+                                },
+                                {
+                                    "value": "NextNDays",
+                                    "displayName": "NextNDays"
+                                },
+                                {
+                                    "value": "ThisWeek",
+                                    "displayName": "ThisWeek"
+                                },
+                                {
+                                    "value": "LastWeek",
+                                    "displayName": "LastWeek"
+                                },
+                                {
+                                    "value": "ThisMonth",
+                                    "displayName": "ThisMonth"
+                                },
+                                {
+                                    "value": "LastMonth",
+                                    "displayName": "LastMonth"
+                                },
+                                {
+                                    "value": "ThisQuarter",
+                                    "displayName": "ThisQuarter"
+                                },
+                                {
+                                    "value": "LastQuarter",
+                                    "displayName": "LastQuarter"
+                                },
+                                {
+                                    "value": "ThisYear",
+                                    "displayName": "ThisYear"
+                                },
+                                {
+                                    "value": "LastYear",
+                                    "displayName": "LastYear"
+                                },
+                                {
+                                    "value": "SpecificRange",
+                                    "displayName": "Specific range"
+                                }
+                            ]
+                        }
+                    },
+                    "nDays": {
+                        "displayName": "Number of days",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "includeCurrentDate": {
+                        "displayName": "Include reference date",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dateReference": {
+                        "displayName": "Relative date reference",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Latest supplied date",
+                                    "displayName": "Latest supplied date"
+                                },
+                                {
+                                    "value": "Today",
+                                    "displayName": "Today"
+                                }
+                            ]
+                        }
+                    },
+                    "specificStartDate": {
+                        "displayName": "Custom start date",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "specificEndDate": {
+                        "displayName": "Custom end date",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "caseSensitive": {
+                        "displayName": "Case-sensitive matching",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "filter1Column": {
+                        "displayName": "Rule 1 \u00b7 field",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "filter1Operator": {
+                        "displayName": "Rule 1 \u00b7 operator",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Equals",
+                                    "displayName": "Equals"
+                                },
+                                {
+                                    "value": "NotEquals",
+                                    "displayName": "NotEquals"
+                                },
+                                {
+                                    "value": "Contains",
+                                    "displayName": "Contains"
+                                },
+                                {
+                                    "value": "NotContains",
+                                    "displayName": "NotContains"
+                                },
+                                {
+                                    "value": "StartsWith",
+                                    "displayName": "StartsWith"
+                                },
+                                {
+                                    "value": "EndsWith",
+                                    "displayName": "EndsWith"
+                                },
+                                {
+                                    "value": "GreaterThan",
+                                    "displayName": "GreaterThan"
+                                },
+                                {
+                                    "value": "GreaterThanOrEqual",
+                                    "displayName": "GreaterThanOrEqual"
+                                },
+                                {
+                                    "value": "LessThan",
+                                    "displayName": "LessThan"
+                                },
+                                {
+                                    "value": "LessThanOrEqual",
+                                    "displayName": "LessThanOrEqual"
+                                },
+                                {
+                                    "value": "In",
+                                    "displayName": "In"
+                                },
+                                {
+                                    "value": "NotIn",
+                                    "displayName": "NotIn"
+                                },
+                                {
+                                    "value": "IsBlank",
+                                    "displayName": "IsBlank"
+                                },
+                                {
+                                    "value": "IsNotBlank",
+                                    "displayName": "IsNotBlank"
+                                }
+                            ]
+                        }
+                    },
+                    "filter1Value": {
+                        "displayName": "Rule 1 \u00b7 existing value",
+                        "type": {
+                            "text": true
+                        },
+                        "description": "Values come from supplied rows. For multiple values, prefer Power BI visual-level filters. Legacy comma-separated rules are still read."
+                    },
+                    "filter2Column": {
+                        "displayName": "Rule 2 \u00b7 field",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "filter2Operator": {
+                        "displayName": "Rule 2 \u00b7 operator",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Equals",
+                                    "displayName": "Equals"
+                                },
+                                {
+                                    "value": "NotEquals",
+                                    "displayName": "NotEquals"
+                                },
+                                {
+                                    "value": "Contains",
+                                    "displayName": "Contains"
+                                },
+                                {
+                                    "value": "NotContains",
+                                    "displayName": "NotContains"
+                                },
+                                {
+                                    "value": "StartsWith",
+                                    "displayName": "StartsWith"
+                                },
+                                {
+                                    "value": "EndsWith",
+                                    "displayName": "EndsWith"
+                                },
+                                {
+                                    "value": "GreaterThan",
+                                    "displayName": "GreaterThan"
+                                },
+                                {
+                                    "value": "GreaterThanOrEqual",
+                                    "displayName": "GreaterThanOrEqual"
+                                },
+                                {
+                                    "value": "LessThan",
+                                    "displayName": "LessThan"
+                                },
+                                {
+                                    "value": "LessThanOrEqual",
+                                    "displayName": "LessThanOrEqual"
+                                },
+                                {
+                                    "value": "In",
+                                    "displayName": "In"
+                                },
+                                {
+                                    "value": "NotIn",
+                                    "displayName": "NotIn"
+                                },
+                                {
+                                    "value": "IsBlank",
+                                    "displayName": "IsBlank"
+                                },
+                                {
+                                    "value": "IsNotBlank",
+                                    "displayName": "IsNotBlank"
+                                }
+                            ]
+                        }
+                    },
+                    "filter2Value": {
+                        "displayName": "Rule 2 \u00b7 existing value",
+                        "type": {
+                            "text": true
+                        },
+                        "description": "Values come from supplied rows. For multiple values, prefer Power BI visual-level filters. Legacy comma-separated rules are still read."
+                    },
+                    "filter3Column": {
+                        "displayName": "Rule 3 \u00b7 field",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "filter3Operator": {
+                        "displayName": "Rule 3 \u00b7 operator",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Equals",
+                                    "displayName": "Equals"
+                                },
+                                {
+                                    "value": "NotEquals",
+                                    "displayName": "NotEquals"
+                                },
+                                {
+                                    "value": "Contains",
+                                    "displayName": "Contains"
+                                },
+                                {
+                                    "value": "NotContains",
+                                    "displayName": "NotContains"
+                                },
+                                {
+                                    "value": "StartsWith",
+                                    "displayName": "StartsWith"
+                                },
+                                {
+                                    "value": "EndsWith",
+                                    "displayName": "EndsWith"
+                                },
+                                {
+                                    "value": "GreaterThan",
+                                    "displayName": "GreaterThan"
+                                },
+                                {
+                                    "value": "GreaterThanOrEqual",
+                                    "displayName": "GreaterThanOrEqual"
+                                },
+                                {
+                                    "value": "LessThan",
+                                    "displayName": "LessThan"
+                                },
+                                {
+                                    "value": "LessThanOrEqual",
+                                    "displayName": "LessThanOrEqual"
+                                },
+                                {
+                                    "value": "In",
+                                    "displayName": "In"
+                                },
+                                {
+                                    "value": "NotIn",
+                                    "displayName": "NotIn"
+                                },
+                                {
+                                    "value": "IsBlank",
+                                    "displayName": "IsBlank"
+                                },
+                                {
+                                    "value": "IsNotBlank",
+                                    "displayName": "IsNotBlank"
+                                }
+                            ]
+                        }
+                    },
+                    "filter3Value": {
+                        "displayName": "Rule 3 \u00b7 existing value",
+                        "type": {
+                            "text": true
+                        },
+                        "description": "Values come from supplied rows. For multiple values, prefer Power BI visual-level filters. Legacy comma-separated rules are still read."
+                    },
+                    "filter4Column": {
+                        "displayName": "Rule 4 \u00b7 field",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "filter4Operator": {
+                        "displayName": "Rule 4 \u00b7 operator",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Equals",
+                                    "displayName": "Equals"
+                                },
+                                {
+                                    "value": "NotEquals",
+                                    "displayName": "NotEquals"
+                                },
+                                {
+                                    "value": "Contains",
+                                    "displayName": "Contains"
+                                },
+                                {
+                                    "value": "NotContains",
+                                    "displayName": "NotContains"
+                                },
+                                {
+                                    "value": "StartsWith",
+                                    "displayName": "StartsWith"
+                                },
+                                {
+                                    "value": "EndsWith",
+                                    "displayName": "EndsWith"
+                                },
+                                {
+                                    "value": "GreaterThan",
+                                    "displayName": "GreaterThan"
+                                },
+                                {
+                                    "value": "GreaterThanOrEqual",
+                                    "displayName": "GreaterThanOrEqual"
+                                },
+                                {
+                                    "value": "LessThan",
+                                    "displayName": "LessThan"
+                                },
+                                {
+                                    "value": "LessThanOrEqual",
+                                    "displayName": "LessThanOrEqual"
+                                },
+                                {
+                                    "value": "In",
+                                    "displayName": "In"
+                                },
+                                {
+                                    "value": "NotIn",
+                                    "displayName": "NotIn"
+                                },
+                                {
+                                    "value": "IsBlank",
+                                    "displayName": "IsBlank"
+                                },
+                                {
+                                    "value": "IsNotBlank",
+                                    "displayName": "IsNotBlank"
+                                }
+                            ]
+                        }
+                    },
+                    "filter4Value": {
+                        "displayName": "Rule 4 \u00b7 existing value",
+                        "type": {
+                            "text": true
+                        },
+                        "description": "Values come from supplied rows. For multiple values, prefer Power BI visual-level filters. Legacy comma-separated rules are still read."
+                    },
+                    "filter5Column": {
+                        "displayName": "Rule 5 \u00b7 field",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "filter5Operator": {
+                        "displayName": "Rule 5 \u00b7 operator",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Equals",
+                                    "displayName": "Equals"
+                                },
+                                {
+                                    "value": "NotEquals",
+                                    "displayName": "NotEquals"
+                                },
+                                {
+                                    "value": "Contains",
+                                    "displayName": "Contains"
+                                },
+                                {
+                                    "value": "NotContains",
+                                    "displayName": "NotContains"
+                                },
+                                {
+                                    "value": "StartsWith",
+                                    "displayName": "StartsWith"
+                                },
+                                {
+                                    "value": "EndsWith",
+                                    "displayName": "EndsWith"
+                                },
+                                {
+                                    "value": "GreaterThan",
+                                    "displayName": "GreaterThan"
+                                },
+                                {
+                                    "value": "GreaterThanOrEqual",
+                                    "displayName": "GreaterThanOrEqual"
+                                },
+                                {
+                                    "value": "LessThan",
+                                    "displayName": "LessThan"
+                                },
+                                {
+                                    "value": "LessThanOrEqual",
+                                    "displayName": "LessThanOrEqual"
+                                },
+                                {
+                                    "value": "In",
+                                    "displayName": "In"
+                                },
+                                {
+                                    "value": "NotIn",
+                                    "displayName": "NotIn"
+                                },
+                                {
+                                    "value": "IsBlank",
+                                    "displayName": "IsBlank"
+                                },
+                                {
+                                    "value": "IsNotBlank",
+                                    "displayName": "IsNotBlank"
+                                }
+                            ]
+                        }
+                    },
+                    "filter5Value": {
+                        "displayName": "Rule 5 \u00b7 existing value",
+                        "type": {
+                            "text": true
+                        },
+                        "description": "Values come from supplied rows. For multiple values, prefer Power BI visual-level filters. Legacy comma-separated rules are still read."
+                    },
+                    "filter6Column": {
+                        "displayName": "Rule 6 \u00b7 field",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "filter6Operator": {
+                        "displayName": "Rule 6 \u00b7 operator",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "Equals",
+                                    "displayName": "Equals"
+                                },
+                                {
+                                    "value": "NotEquals",
+                                    "displayName": "NotEquals"
+                                },
+                                {
+                                    "value": "Contains",
+                                    "displayName": "Contains"
+                                },
+                                {
+                                    "value": "NotContains",
+                                    "displayName": "NotContains"
+                                },
+                                {
+                                    "value": "StartsWith",
+                                    "displayName": "StartsWith"
+                                },
+                                {
+                                    "value": "EndsWith",
+                                    "displayName": "EndsWith"
+                                },
+                                {
+                                    "value": "GreaterThan",
+                                    "displayName": "GreaterThan"
+                                },
+                                {
+                                    "value": "GreaterThanOrEqual",
+                                    "displayName": "GreaterThanOrEqual"
+                                },
+                                {
+                                    "value": "LessThan",
+                                    "displayName": "LessThan"
+                                },
+                                {
+                                    "value": "LessThanOrEqual",
+                                    "displayName": "LessThanOrEqual"
+                                },
+                                {
+                                    "value": "In",
+                                    "displayName": "In"
+                                },
+                                {
+                                    "value": "NotIn",
+                                    "displayName": "NotIn"
+                                },
+                                {
+                                    "value": "IsBlank",
+                                    "displayName": "IsBlank"
+                                },
+                                {
+                                    "value": "IsNotBlank",
+                                    "displayName": "IsNotBlank"
+                                }
+                            ]
+                        }
+                    },
+                    "filter6Value": {
+                        "displayName": "Rule 6 \u00b7 existing value",
+                        "type": {
+                            "text": true
+                        },
+                        "description": "Values come from supplied rows. For multiple values, prefer Power BI visual-level filters. Legacy comma-separated rules are still read."
+                    }
+                }
+            },
+            "performance": {
+                "displayName": "Data limits",
+                "properties": {
+                    "maxRowsToEvaluate": {
+                        "displayName": "Maximum supplied rows to evaluate",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "maxSelectionRows": {
+                        "displayName": "Maximum underlying row identities",
+                        "type": {
+                            "numeric": true
+                        },
+                        "description": "Safety limit on distinct Power BI row identities across the complete selection, not on visible cards. One card can represent many identities. No partial selection is sent. Legacy reports retain the lower of their two old identity limits until this property is edited."
+                    },
+                    "maxItems": {
+                        "displayName": "Maximum metric items",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "sampleRowsForSignature": {
+                        "displayName": "Legacy signature sample rows",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "maxSelectedItems": {
+                        "displayName": "Maximum selected cards / items",
+                        "type": {
+                            "numeric": true
+                        },
+                        "description": "Maximum explicitly selected items (1 means one card, 2 means two). Applies to Cards, Ticker and Compact, including Ctrl/Cmd selection. Repeated ticker copies do not count twice. Underlying row-identity safety is a separate limit."
+                    },
+                    "rowIdentityLimit": {
+                        "displayName": "Maximum underlying row identities",
+                        "type": {
+                            "numeric": true
+                        },
+                        "description": "Distinct Power BI row identities across the entire selection, not card count. One card can represent many rows. No partial selection is sent. Saved legacy limits are respected until this setting is changed."
+                    }
+                }
+            },
+            "tooltipSettings": {
+                "displayName": "Tooltips",
+                "properties": {
+                    "show": {
+                        "displayName": "Show data tooltips",
+                        "type": {
+                            "bool": true
+                        },
+                        "description": "Uses the native Power BI tooltip. Its font and frame are controlled by Power BI, not by this visual."
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "visibleMetric": {
+                            "max": 12
+                        },
+                        "selectionIdentity": {
+                            "max": 1
+                        },
+                        "flashFilterColumn": {
+                            "max": 16
+                        },
+                        "category": {
+                            "max": 1
+                        },
+                        "target": {
+                            "max": 1
+                        },
+                        "badge": {
+                            "max": 1
+                        },
+                        "tooltip": {
+                            "max": 12
+                        }
+                    }
+                ],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "visibleMetric"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "selectionIdentity"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "flashFilterColumn"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "category"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "target"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "badge"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltip"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 20000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "supportsHighlight": false,
+        "supportsKeyboardFocus": true,
+        "supportsEmptyDataView": true,
+        "supportsLandingPage": true,
+        "privileges": [],
+        "tooltips": {
+            "supportedTypes": {
+                "default": true
+            },
+            "supportEnhancedTooltips": true
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
