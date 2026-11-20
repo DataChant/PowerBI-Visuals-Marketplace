@@ -1,0 +1,177 @@
+{
+    "visual": {
+        "name": "CrystalAnalyticsGauge",
+        "displayName": "Crystal Analytics Gauge",
+        "guid": "CrystalAnalyticsGaugeVisual",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Crystal Analytics Gauge provides strategic insight through elegant data representation.",
+        "supportUrl": "https://www.linkedin.com/in/samedulucay/",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Samed ULU\u00c7AY",
+        "email": "samedulucay@gmail.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "privileges": [],
+        "dataRoles": [
+            {
+                "displayName": "Target (Hedef)",
+                "name": "target",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Volume (Ger\u00e7ekle\u015fme)",
+                "name": "volume",
+                "kind": "Measure"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "target": {
+                            "max": 1
+                        },
+                        "volume": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "values": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "target"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "volume"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "textSettings": {
+                "displayName": "Text Settings (Metin Ayarlar\u0131)",
+                "properties": {
+                    "targetText": {
+                        "displayName": "Target Text (Hedef Metni)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "volumeText": {
+                        "displayName": "Volume Text (Ger\u00e7ekle\u015fme Metni)",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "rateText": {
+                        "displayName": "Rate Text (Oran Metni)",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "sizeSettings": {
+                "displayName": "Size Settings (Boyut Ayarlar\u0131)",
+                "properties": {
+                    "needleValueSize": {
+                        "displayName": "Needle Value Size (\u0130bre De\u011feri Boyutu)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "titleSize": {
+                        "displayName": "Title Size (Ba\u015fl\u0131k Boyutu)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "dataValueSize": {
+                        "displayName": "Data Value Size (Veri De\u011feri Boyutu)",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "themeSettings": {
+                "displayName": "Theme Settings (Tema Ayarlar\u0131)",
+                "properties": {
+                    "selectedTheme": {
+                        "displayName": "Select Harmonious Theme (Uyumlu Tema Se\u00e7)",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Deep Ocean (Derin Okyanus)",
+                                    "value": "deepOcean"
+                                },
+                                {
+                                    "displayName": "Shadow Strike (G\u00f6lge Sald\u0131r\u0131s\u0131)",
+                                    "value": "shadowStrike"
+                                },
+                                {
+                                    "displayName": "Neural Network (Sinir A\u011f\u0131)",
+                                    "value": "neuralNetwork"
+                                },
+                                {
+                                    "displayName": "Holographic Display (Holografik Ekran)",
+                                    "value": "holographicDisplay"
+                                },
+                                {
+                                    "displayName": "Carbon Fiber Tech (Karbon Fiber Teknoloji)",
+                                    "value": "carbonFiberTech"
+                                },
+                                {
+                                    "displayName": "Plasma Energy (Plazma Enerji)",
+                                    "value": "plasmaEnergy"
+                                },
+                                {
+                                    "displayName": "Digital Crimson (Dijital K\u0131rm\u0131z\u0131)",
+                                    "value": "digitalCrimson"
+                                },
+                                {
+                                    "displayName": "Sunset Orange (G\u00fcn Bat\u0131m\u0131 Turuncu)",
+                                    "value": "sunsetOrange"
+                                },
+                                {
+                                    "displayName": "Arctic Blue (Kutup Mavisi)",
+                                    "value": "arcticBlue"
+                                },
+                                {
+                                    "displayName": "Fire Red (Ate\u015f K\u0131rm\u0131z\u0131s\u0131)",
+                                    "value": "fireRed"
+                                },
+                                {
+                                    "displayName": "Ice Crystal (Buz Kristali)",
+                                    "value": "iceCrystal"
+                                },
+                                {
+                                    "displayName": "Silver Moon (G\u00fcm\u00fc\u015f Ay)",
+                                    "value": "silverMoon"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

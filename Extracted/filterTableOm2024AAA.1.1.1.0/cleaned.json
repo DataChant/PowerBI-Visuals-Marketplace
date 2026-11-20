@@ -1,0 +1,1716 @@
+{
+    "visual": {
+        "name": "filterTable",
+        "displayName": "Filter Table",
+        "guid": "filterTableOm2024AAA",
+        "visualClassName": "Visual",
+        "version": "1.1.1.0",
+        "description": "Table visual with search and value filters under every column, sorting, grouping, totals, conditional colours, data bars, frozen columns, column move and resize, row selection and CSV export.",
+        "supportUrl": "https://odvisuals.com/support.html",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "od visuals",
+        "email": "om@odvisuals.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "supportsLandingPage": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "supportEnhancedTooltips": true
+        },
+        "dataRoles": [
+            {
+                "displayName": "Columns",
+                "name": "columns",
+                "kind": "GroupingOrMeasure",
+                "description": "Add any fields (text, numbers, dates) as table columns"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "table": {
+                    "rows": {
+                        "for": {
+                            "in": "columns"
+                        },
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 30000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "tableStyle": {
+                "properties": {
+                    "zebraRows": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "valuesBold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "valuesItalic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "valuesUnderline": {
+                        "displayName": "Underline",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "headerFontFamily": {
+                        "displayName": "Header font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "headerFontSize": {
+                        "displayName": "Header font size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "headerAlignment": {
+                        "displayName": "Header alignment",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Left",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Centre",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Right",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "headerWrap": {
+                        "displayName": "Wrap header text",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "headerWeightPreset": {
+                        "displayName": "Font weight",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Light",
+                                    "value": "300"
+                                },
+                                {
+                                    "displayName": "Normal",
+                                    "value": "400"
+                                },
+                                {
+                                    "displayName": "Semibold",
+                                    "value": "600"
+                                },
+                                {
+                                    "displayName": "Bold",
+                                    "value": "700"
+                                },
+                                {
+                                    "displayName": "Custom",
+                                    "value": "-1"
+                                }
+                            ]
+                        }
+                    },
+                    "hGridlines": {
+                        "displayName": "Horizontal gridlines",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "hGridColor": {
+                        "displayName": "Horizontal gridline colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "hGridWidth": {
+                        "displayName": "Horizontal gridline width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "vGridlines": {
+                        "displayName": "Vertical gridlines",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "vGridColor": {
+                        "displayName": "Vertical gridline colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "vGridWidth": {
+                        "displayName": "Vertical gridline width",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "outerBorder": {
+                        "displayName": "Outer border",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "outerBorderColor": {
+                        "displayName": "Outer border colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "headerBgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "headerFontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "compactMode": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "densityMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Compact",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Comfortable",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Spacious",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Custom",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    },
+                    "frozenColumns": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rowBgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "alternateRowColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "rowFontColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "headerFontWeight": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "rowHeight": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cellAlignment": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Auto",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Left",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Centre",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Right",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    },
+                    "numberFormat": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Auto",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Currency",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Percent",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Integer",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    },
+                    "currencySymbol": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "AUD ($)",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "USD ($)",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "GBP (\u00a3)",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "EUR (\u20ac)",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "JPY (\u00a5)",
+                                    "value": "4"
+                                }
+                            ]
+                        }
+                    },
+                    "decimalPlaces": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "dateFormat": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Local default",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "DD/MM/YYYY",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "YYYY-MM-DD",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Mon YYYY",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    },
+                    "blankDisplay": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Empty",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Dash",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "N/A",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Zero",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    },
+                    "styleMigrated": {
+                        "displayName": "Colour behaviour migrated (internal)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "stylePreset": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Modern",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Corporate",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Minimal",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Midnight",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "Ledger",
+                                    "value": "4"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "filterStyle": {
+                "properties": {
+                    "showFilters": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showGlobalSearch": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "filterBgColor": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "numericFilterMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Automatic",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Range (Min/Max)",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Search values",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "matchValuesFont": {
+                        "displayName": "Scale with values font",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "filterFontSize": {
+                        "displayName": "Controls font size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "filterPlacement": {
+                        "displayName": "Filter controls",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Filter row under the headers",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Dropdown in each header",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "proFeatures": {
+                "properties": {
+                    "autoLoadMore": {
+                        "displayName": "Load all rows automatically",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "totalsMigrated": {
+                        "displayName": "Totals behaviour migrated (internal)",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showTotals": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "totalLabel": {
+                        "displayName": "Total label",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showGroupSubtotals": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "mergeRows": {
+                        "displayName": "Combine rows by visible columns",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "selectionFilters": {
+                        "displayName": "Selected rows filter the report",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableExport": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enablePagination": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "pageSize": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showColumnSelector": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableSaveLayout": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableRowSelection": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableCopyActions": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "powerFeatures": {
+                "properties": {
+                    "enableConditionalFormatting": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "conditionalMode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Compare with target",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Relative position in column",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Positive and negative",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "conditionalDirection": {
+                        "displayName": "Direction",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Higher is better",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Lower is better",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    },
+                    "conditionalStyle": {
+                        "displayName": "Style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Background fill",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Text colour",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    },
+                    "conditionalPositiveColor": {
+                        "displayName": "Favourable colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "conditionalNegativeColor": {
+                        "displayName": "Unfavourable colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "conditionalApplyTotals": {
+                        "displayName": "Apply to totals",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "sizingMode": {
+                        "displayName": "Column sizing",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Manual",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Fit content",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Equal widths",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "groupByField": {
+                        "displayName": "Group rows by",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "conditionalTarget": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "conditionalThreshold": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "enableSparklines": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "groupByColumn": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "enableColumnReorder": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "enableColumnResize": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "autoFitColumns": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "equalColumnWidths": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "equalColumnWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "minColumnWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "maxColumnWidth": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "enableHyperlinks": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "conditionalIcons": {
+                        "displayName": "Icons",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "None",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Arrows",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Ticks and crosses",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Dots",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "general": {
+                "properties": {
+                    "filter": {
+                        "type": {
+                            "filter": true
+                        }
+                    }
+                }
+            },
+            "layoutPersist": {
+                "properties": {
+                    "state": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "columnFormat": {
+                "displayName": "Columns",
+                "properties": {
+                    "selectedColumn": {
+                        "displayName": "Column",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "label": {
+                        "displayName": "Display name",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "alignment": {
+                        "displayName": "Alignment",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Auto",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Left",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Centre",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Right",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    },
+                    "widthMode": {
+                        "displayName": "Width",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Inherit",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Custom",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    },
+                    "width": {
+                        "displayName": "Width (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold values",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fontEmphasis": {
+                        "displayName": "Font emphasis",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Inherit",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Bold",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Regular",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "currencySymbol": {
+                        "displayName": "Currency",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Inherit table setting",
+                                    "value": "-1"
+                                },
+                                {
+                                    "displayName": "AUD ($)",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "USD ($)",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "GBP (\u00a3)",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "EUR (\u20ac)",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "JPY (\u00a5)",
+                                    "value": "4"
+                                }
+                            ]
+                        }
+                    },
+                    "cfApply": {
+                        "displayName": "Conditional colours",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Inherit",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "On",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Off",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "cfMode": {
+                        "displayName": "Rule",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Inherit",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Compare with target",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Relative position in column",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Positive and negative",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    },
+                    "cfDirection": {
+                        "displayName": "Direction",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Inherit",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Higher is better",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Lower is better",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "cfTarget": {
+                        "displayName": "Target",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cfThreshold": {
+                        "displayName": "Highlight threshold (%)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cfPositiveColor": {
+                        "displayName": "Favourable colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "cfNegativeColor": {
+                        "displayName": "Unfavourable colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "webLinks": {
+                        "displayName": "Web links",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Inherit",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "On",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Off",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "filterMode": {
+                        "displayName": "Filter style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Inherit",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Range (Min/Max)",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Search values",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Automatic",
+                                    "value": "3"
+                                }
+                            ]
+                        }
+                    },
+                    "dataBars": {
+                        "displayName": "Data bars",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Default",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "On",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Off",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "numberFormat": {
+                        "displayName": "Numeric format",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Inherit table setting",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Currency",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Percentage",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Whole number",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "Use model format",
+                                    "value": "4"
+                                },
+                                {
+                                    "displayName": "Decimal number",
+                                    "value": "5"
+                                }
+                            ]
+                        }
+                    },
+                    "decimalPlaces": {
+                        "displayName": "Decimal places",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Inherit table setting",
+                                    "value": "-1"
+                                },
+                                {
+                                    "displayName": "Automatic",
+                                    "value": "-2"
+                                },
+                                {
+                                    "displayName": "0",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "1",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "2",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "3",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "4",
+                                    "value": "4"
+                                },
+                                {
+                                    "displayName": "5",
+                                    "value": "5"
+                                },
+                                {
+                                    "displayName": "6",
+                                    "value": "6"
+                                }
+                            ]
+                        }
+                    },
+                    "dateFormat": {
+                        "displayName": "Date format",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Inherit table setting",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "DD/MM/YYYY",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "YYYY-MM-DD",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Mon YYYY",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "Use model format",
+                                    "value": "4"
+                                }
+                            ]
+                        }
+                    },
+                    "totalMode": {
+                        "displayName": "Aggregation",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Default",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "None",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Sum",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Average",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "Minimum",
+                                    "value": "4"
+                                },
+                                {
+                                    "displayName": "Maximum",
+                                    "value": "5"
+                                },
+                                {
+                                    "displayName": "Count non-blank",
+                                    "value": "6"
+                                }
+                            ]
+                        }
+                    },
+                    "showFilter": {
+                        "displayName": "Column filter",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Inherit",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "On",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Off",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    },
+                    "linkField": {
+                        "displayName": "Link URL from",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "bgField": {
+                        "displayName": "Background colour from",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fgField": {
+                        "displayName": "Text colour from",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "iconField": {
+                        "displayName": "Icon from",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "hidden": {
+                        "displayName": "Hide column",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "r1Op": {
+                        "displayName": "Rule 1: when the value",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Off",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Is",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Is not",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Contains",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "Starts with",
+                                    "value": "4"
+                                },
+                                {
+                                    "displayName": "Is greater than",
+                                    "value": "5"
+                                },
+                                {
+                                    "displayName": "Is at least",
+                                    "value": "6"
+                                },
+                                {
+                                    "displayName": "Is less than",
+                                    "value": "7"
+                                },
+                                {
+                                    "displayName": "Is at most",
+                                    "value": "8"
+                                },
+                                {
+                                    "displayName": "Is blank",
+                                    "value": "9"
+                                },
+                                {
+                                    "displayName": "Is not blank",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    },
+                    "r1Value": {
+                        "displayName": "Rule 1: value",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "r1Bg": {
+                        "displayName": "Rule 1: background",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "r1Fg": {
+                        "displayName": "Rule 1: text colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "r1Icon": {
+                        "displayName": "Rule 1: icon",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "None",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Arrow up",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Arrow down",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Flat",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "Tick",
+                                    "value": "4"
+                                },
+                                {
+                                    "displayName": "Cross",
+                                    "value": "5"
+                                },
+                                {
+                                    "displayName": "Warning",
+                                    "value": "6"
+                                },
+                                {
+                                    "displayName": "Dot",
+                                    "value": "7"
+                                },
+                                {
+                                    "displayName": "Star",
+                                    "value": "8"
+                                },
+                                {
+                                    "displayName": "Flag",
+                                    "value": "9"
+                                },
+                                {
+                                    "displayName": "My own emoji, symbol or image",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    },
+                    "r1IconColor": {
+                        "displayName": "Rule 1: icon colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "r1Symbol": {
+                        "displayName": "Rule 1: emoji, symbol or image",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "r2Op": {
+                        "displayName": "Rule 2: when the value",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Off",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Is",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Is not",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Contains",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "Starts with",
+                                    "value": "4"
+                                },
+                                {
+                                    "displayName": "Is greater than",
+                                    "value": "5"
+                                },
+                                {
+                                    "displayName": "Is at least",
+                                    "value": "6"
+                                },
+                                {
+                                    "displayName": "Is less than",
+                                    "value": "7"
+                                },
+                                {
+                                    "displayName": "Is at most",
+                                    "value": "8"
+                                },
+                                {
+                                    "displayName": "Is blank",
+                                    "value": "9"
+                                },
+                                {
+                                    "displayName": "Is not blank",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    },
+                    "r2Value": {
+                        "displayName": "Rule 2: value",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "r2Bg": {
+                        "displayName": "Rule 2: background",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "r2Fg": {
+                        "displayName": "Rule 2: text colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "r2Icon": {
+                        "displayName": "Rule 2: icon",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "None",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Arrow up",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Arrow down",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Flat",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "Tick",
+                                    "value": "4"
+                                },
+                                {
+                                    "displayName": "Cross",
+                                    "value": "5"
+                                },
+                                {
+                                    "displayName": "Warning",
+                                    "value": "6"
+                                },
+                                {
+                                    "displayName": "Dot",
+                                    "value": "7"
+                                },
+                                {
+                                    "displayName": "Star",
+                                    "value": "8"
+                                },
+                                {
+                                    "displayName": "Flag",
+                                    "value": "9"
+                                },
+                                {
+                                    "displayName": "My own emoji, symbol or image",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    },
+                    "r2IconColor": {
+                        "displayName": "Rule 2: icon colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "r2Symbol": {
+                        "displayName": "Rule 2: emoji, symbol or image",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "r3Op": {
+                        "displayName": "Rule 3: when the value",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Off",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Is",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Is not",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Contains",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "Starts with",
+                                    "value": "4"
+                                },
+                                {
+                                    "displayName": "Is greater than",
+                                    "value": "5"
+                                },
+                                {
+                                    "displayName": "Is at least",
+                                    "value": "6"
+                                },
+                                {
+                                    "displayName": "Is less than",
+                                    "value": "7"
+                                },
+                                {
+                                    "displayName": "Is at most",
+                                    "value": "8"
+                                },
+                                {
+                                    "displayName": "Is blank",
+                                    "value": "9"
+                                },
+                                {
+                                    "displayName": "Is not blank",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    },
+                    "r3Value": {
+                        "displayName": "Rule 3: value",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "r3Bg": {
+                        "displayName": "Rule 3: background",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "r3Fg": {
+                        "displayName": "Rule 3: text colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "r3Icon": {
+                        "displayName": "Rule 3: icon",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "None",
+                                    "value": "0"
+                                },
+                                {
+                                    "displayName": "Arrow up",
+                                    "value": "1"
+                                },
+                                {
+                                    "displayName": "Arrow down",
+                                    "value": "2"
+                                },
+                                {
+                                    "displayName": "Flat",
+                                    "value": "3"
+                                },
+                                {
+                                    "displayName": "Tick",
+                                    "value": "4"
+                                },
+                                {
+                                    "displayName": "Cross",
+                                    "value": "5"
+                                },
+                                {
+                                    "displayName": "Warning",
+                                    "value": "6"
+                                },
+                                {
+                                    "displayName": "Dot",
+                                    "value": "7"
+                                },
+                                {
+                                    "displayName": "Star",
+                                    "value": "8"
+                                },
+                                {
+                                    "displayName": "Flag",
+                                    "value": "9"
+                                },
+                                {
+                                    "displayName": "My own emoji, symbol or image",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    },
+                    "r3IconColor": {
+                        "displayName": "Rule 3: icon colour",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "r3Symbol": {
+                        "displayName": "Rule 3: emoji, symbol or image",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        },
+        "privileges": [
+            {
+                "name": "ExportContent",
+                "essential": false
+            }
+        ]
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
