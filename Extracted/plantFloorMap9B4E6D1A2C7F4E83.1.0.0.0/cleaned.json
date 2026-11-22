@@ -1,0 +1,326 @@
+{
+    "visual": {
+        "name": "plantFloorMap",
+        "displayName": "FloorPulse Plant Floor Map",
+        "guid": "plantFloorMap9B4E6D1A2C7F4E83",
+        "visualClassName": "Visual",
+        "version": "1.0.0.0",
+        "description": "Machines on your own floor plan, colored by live status or KPI, with cross-filtering.",
+        "supportUrl": "https://example.com/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Your company",
+        "email": "support@example.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsKeyboardFocus": true,
+        "privileges": [],
+        "dataRoles": [
+            {
+                "name": "machineId",
+                "displayName": "Machine ID",
+                "kind": "Grouping"
+            },
+            {
+                "name": "status",
+                "displayName": "Status",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "value",
+                "displayName": "Value / Metrics",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "alarms",
+                "displayName": "Alarm count",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "zone",
+                "displayName": "Zone / line",
+                "kind": "Grouping"
+            },
+            {
+                "name": "operator",
+                "displayName": "Operator (optional)",
+                "kind": "Grouping"
+            },
+            {
+                "name": "x",
+                "displayName": "X (% of plan width)",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "y",
+                "displayName": "Y (% of plan height)",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "floorPlan",
+                "displayName": "Floor plan (optional)",
+                "kind": "Grouping"
+            },
+            {
+                "name": "parameter",
+                "displayName": "Parameter (e.g. Metric name)",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "parameters",
+                "displayName": "Tile parameters",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "name": "tooltips",
+                "displayName": "Tooltip fields",
+                "kind": "GroupingOrMeasure"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "machineId"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "status"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "value"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "alarms"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "zone"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "operator"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "x"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "y"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "floorPlan"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "parameter"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "parameters"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 5000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "layout": {
+                "properties": {
+                    "mode": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "plan",
+                                    "displayName": "SVG plan (match by ID)"
+                                },
+                                {
+                                    "value": "coords",
+                                    "displayName": "Image or blank plan (X, Y)"
+                                },
+                                {
+                                    "value": "grid",
+                                    "displayName": "Auto grid by zone"
+                                }
+                            ]
+                        }
+                    },
+                    "planSvg": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "tileW": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "tileH": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showLabels": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showValues": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showAlarms": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "colors": {
+                "properties": {
+                    "colorBy": {
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto"
+                                },
+                                {
+                                    "value": "status",
+                                    "displayName": "Status"
+                                },
+                                {
+                                    "value": "value",
+                                    "displayName": "Value thresholds"
+                                }
+                            ]
+                        }
+                    },
+                    "running": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "idle": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "down": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "maintenance": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "offline": {
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "higherIsBetter": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "goodThreshold": {
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "warnThreshold": {
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "display": {
+                "properties": {
+                    "title": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showLegend": {
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showParameterSlicer": {
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
