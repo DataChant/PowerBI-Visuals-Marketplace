@@ -1,0 +1,153 @@
+{
+    "visual": {
+        "name": "expectaWriteback",
+        "displayName": "Expecta Write-back",
+        "guid": "expectaWriteback",
+        "visualClassName": "Visual",
+        "version": "1.0.6.0",
+        "description": "Edit and add rows in a Power BI report and save them to your data warehouse, as the signed-in user and within their row-level security. Uses the Expecta Write-back service (external) to save.",
+        "supportUrl": "https://expecta-team.github.io/expecta-writeback-legal/support.html",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Expecta",
+        "email": "admin@expecta.io"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "privileges": [
+            {
+                "name": "WebAccess",
+                "essential": true,
+                "parameters": [
+                    "https://expecta-writeback.azurewebsites.net"
+                ]
+            },
+            {
+                "name": "LocalStorage",
+                "essential": false
+            },
+            {
+                "name": "AADAuthentication",
+                "essential": false,
+                "parameters": {
+                    "COM": "https://writeback.expecta.io"
+                }
+            }
+        ],
+        "dataRoles": [
+            {
+                "displayName": "Row key",
+                "description": "The column(s) that identify one row of the DWH table, e.g. Customer, Sales rep, Month.",
+                "name": "keys",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Values",
+                "description": "Columns to show. Columns from the same table (not summarized) can be edited; measures are read-only.",
+                "name": "values",
+                "kind": "GroupingOrMeasure"
+            },
+            {
+                "displayName": "Tooltips",
+                "description": "Extra fields shown when you hover over a row's key. Not shown in the grid.",
+                "name": "tooltips",
+                "kind": "GroupingOrMeasure"
+            }
+        ],
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltips"
+            ]
+        },
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsKeyboardFocus": true,
+        "supportsMultiVisualSelection": true,
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "keys": {
+                            "min": 1,
+                            "max": 3
+                        }
+                    }
+                ],
+                "table": {
+                    "rows": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "keys"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "values"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "tooltips"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 1000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "connection": {
+                "properties": {
+                    "apiUrl": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "sqlServer": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "database": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "datasetId": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "dwhTable": {
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "accessColumns": {
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

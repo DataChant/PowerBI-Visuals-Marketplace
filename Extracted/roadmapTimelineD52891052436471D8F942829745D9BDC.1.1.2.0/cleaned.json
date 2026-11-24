@@ -1,0 +1,553 @@
+{
+    "visual": {
+        "name": "roadmapTimeline",
+        "displayName": "roadmapTimeline",
+        "guid": "roadmapTimelineD52891052436471D8F942829745D9BDC",
+        "visualClassName": "Visual",
+        "version": "1.1.2.0",
+        "description": "Turn your milestones, releases and project phases into a winding roadmap that's easy to follow. Each event is a numbered pin on a styled path, with a callout card for its title and description. Choose from wavy, arc, zig-zag, straight or random curvy paths, add road markings or a 3D perspective effect, and bring the story to life with a left-to-right reveal animation. Fully themeable, supports cross-filtering, drill through, the right-click context menu and tooltips, and respects high contrast and reduced motion settings.",
+        "supportUrl": "https://www.formulatedigital.co.uk/technology/power-bi/custom-visuals-enterprise",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "Remarkable by Formulate",
+        "email": "hello@formulatedigital.co.uk"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "supportsMultiVisualSelection": true,
+        "dataRoles": [
+            {
+                "displayName": "Order / Date",
+                "name": "sequence",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Title",
+                "name": "title",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Description",
+                "name": "description",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Callout position",
+                "name": "calloutPosition",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Tooltip fields",
+                "name": "tooltipFields",
+                "kind": "GroupingOrMeasure"
+            }
+        ],
+        "objects": {
+            "path": {
+                "displayName": "Path",
+                "properties": {
+                    "curveStyle": {
+                        "displayName": "Curve style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Wavy",
+                                    "value": "wavy"
+                                },
+                                {
+                                    "displayName": "Single arc",
+                                    "value": "arc"
+                                },
+                                {
+                                    "displayName": "Zig-zag",
+                                    "value": "zigzag"
+                                },
+                                {
+                                    "displayName": "Straight",
+                                    "value": "straight"
+                                },
+                                {
+                                    "displayName": "Random curvy path",
+                                    "value": "random"
+                                }
+                            ]
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "thickness": {
+                        "displayName": "Thickness",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "amplitude": {
+                        "displayName": "Amplitude",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "randomSeed": {
+                        "displayName": "Random seed",
+                        "description": "Change this value to generate a different random path",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "accentEnabled": {
+                        "displayName": "Show accent",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "accentColor": {
+                        "displayName": "Accent color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "markingsEnabled": {
+                        "displayName": "Show road markings",
+                        "description": "Draws a dashed center line along the road, in both flat and perspective view.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "markingsColor": {
+                        "displayName": "Marking color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "perspective": {
+                "displayName": "Perspective",
+                "properties": {
+                    "enabled": {
+                        "displayName": "3D road effect",
+                        "description": "Renders the ribbon as a road receding into the distance, shrinking and fading the far end instead of drawing every item at the same size.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "direction": {
+                        "displayName": "Vanishing point",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Older items in the distance",
+                                    "value": "olderInDistance"
+                                },
+                                {
+                                    "displayName": "Newer items in the distance",
+                                    "value": "newerInDistance"
+                                }
+                            ]
+                        }
+                    },
+                    "strength": {
+                        "displayName": "Depth strength",
+                        "description": "How dramatically far-away items shrink, as a percentage.",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "fadeWithDistance": {
+                        "displayName": "Fade into haze",
+                        "description": "Washes out far-away items toward the background, like atmospheric haze on a real horizon.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "keepLabelsFullSize": {
+                        "displayName": "Keep pins & callouts full size",
+                        "description": "Pins and callouts stay a constant, fully readable size regardless of distance \u2014 only the road itself tapers into the distance.",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "pins": {
+                "displayName": "Pins",
+                "properties": {
+                    "size": {
+                        "displayName": "Size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "style": {
+                        "displayName": "Style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Numbered",
+                                    "value": "numbered"
+                                },
+                                {
+                                    "displayName": "Icon",
+                                    "value": "icon"
+                                },
+                                {
+                                    "displayName": "Plain dot",
+                                    "value": "dot"
+                                }
+                            ]
+                        }
+                    },
+                    "colorMode": {
+                        "displayName": "Color mode",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Cycle palette",
+                                    "value": "palette"
+                                },
+                                {
+                                    "displayName": "Single color",
+                                    "value": "single"
+                                },
+                                {
+                                    "displayName": "Match callout accent",
+                                    "value": "byCallout"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "callout": {
+                "displayName": "Callouts",
+                "properties": {
+                    "defaultPosition": {
+                        "displayName": "Default position",
+                        "description": "Used for any item whose Callout position field isn't bound",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Alternate above/below",
+                                    "value": "alternate"
+                                },
+                                {
+                                    "displayName": "Above",
+                                    "value": "above"
+                                },
+                                {
+                                    "displayName": "Below",
+                                    "value": "below"
+                                },
+                                {
+                                    "displayName": "None",
+                                    "value": "none"
+                                }
+                            ]
+                        }
+                    },
+                    "allowPerEventOverride": {
+                        "displayName": "Allow per-event override",
+                        "description": "When off, the default position above is used for every item, ignoring the Callout position field",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "background": {
+                        "displayName": "Background",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "accentColor": {
+                        "displayName": "Accent / border",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "connectorStyle": {
+                        "displayName": "Connector line style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Solid",
+                                    "value": "solid"
+                                },
+                                {
+                                    "displayName": "Dashed",
+                                    "value": "dashed"
+                                },
+                                {
+                                    "displayName": "None",
+                                    "value": "none"
+                                }
+                            ]
+                        }
+                    },
+                    "cornerRadius": {
+                        "displayName": "Corner radius",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "verticalConnectorsOnly": {
+                        "displayName": "Vertical connectors only",
+                        "description": "Keep every connector a straight vertical line instead of shifting callouts to pack more efficiently",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "fitHeightToContent": {
+                        "displayName": "Fit height to content",
+                        "description": "Shrinks each callout to match its own title and description length instead of a fixed height, removing empty space when descriptions are short",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "text": {
+                "displayName": "Text",
+                "properties": {
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "titleSize": {
+                        "displayName": "Title size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "bodySize": {
+                        "displayName": "Body size",
+                        "type": {
+                            "formatting": {
+                                "fontSize": true
+                            }
+                        }
+                    },
+                    "titleColor": {
+                        "displayName": "Title color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "tooltip": {
+                "displayName": "Tooltips",
+                "properties": {
+                    "enabled": {
+                        "displayName": "Enable tooltips",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "trigger": {
+                        "displayName": "Trigger",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "displayName": "Hover",
+                                    "value": "hover"
+                                },
+                                {
+                                    "displayName": "Click",
+                                    "value": "click"
+                                }
+                            ]
+                        }
+                    },
+                    "showOrderValue": {
+                        "displayName": "Show order value",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showDescription": {
+                        "displayName": "Show description",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "useCalloutsAsTooltips": {
+                        "displayName": "Show callouts as tooltips",
+                        "description": "For items that have a callout, reveal the callout card on hover/click instead of always showing it, replacing the plain-text tooltip for those items",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "watermark": {
+                "displayName": "Watermark",
+                "properties": {
+                    "unlockCode": {
+                        "displayName": "Unlock code",
+                        "description": "Enter a valid code to remove the watermark",
+                        "type": {
+                            "text": true
+                        }
+                    }
+                }
+            },
+            "animation": {
+                "displayName": "Animation",
+                "properties": {
+                    "enabled": {
+                        "displayName": "Enable animation",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "duration": {
+                        "displayName": "Duration (seconds)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showReplayButton": {
+                        "displayName": "Show replay button",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "respectReducedMotion": {
+                        "displayName": "Respect \"reduce motion\" preference",
+                        "description": "When on, the animation is skipped if the viewer's system reports a reduced-motion preference. Turn off to always animate regardless.",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "loopEnabled": {
+                        "displayName": "Loop animation",
+                        "description": "Automatically replays the animation from the start after it finishes",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "loopDelay": {
+                        "displayName": "Delay between loops (seconds)",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            }
+        },
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "sequence": {
+                            "max": 1
+                        },
+                        "title": {
+                            "max": 1
+                        },
+                        "description": {
+                            "max": 1
+                        },
+                        "calloutPosition": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "sequence"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "title"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "description"
+                                }
+                            },
+                            {
+                                "for": {
+                                    "in": "calloutPosition"
+                                }
+                            }
+                        ],
+                        "dataReductionAlgorithm": {
+                            "top": {}
+                        }
+                    },
+                    "values": {
+                        "select": [
+                            {
+                                "for": {
+                                    "in": "tooltipFields"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "sorting": {
+            "default": {}
+        },
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "tooltipFields"
+            ],
+            "supportEnhancedTooltips": true
+        },
+        "privileges": []
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
