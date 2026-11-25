@@ -1,0 +1,211 @@
+{
+    "visual": {
+        "name": "powerbiCalendar",
+        "displayName": "Cybergarden Calendar",
+        "guid": "powerbiCalendarFD82BAD328B64E0882A47FA56658E6AF",
+        "visualClassName": "Visual",
+        "version": "1.1.0.0",
+        "description": "Monthly day grid and A-Z letter calendar with conditional box colours and day selection.",
+        "supportUrl": "https://cybergarden.au/powerbi-eula#support",
+        "gitHubUrl": "https://github.com/oconsole/powerbi-calendar"
+    },
+    "author": {
+        "name": "Cybergarden Software Development",
+        "email": "almaz@cybergarden.au"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Date",
+                "name": "date",
+                "kind": "Grouping"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "date": {
+                            "max": 1,
+                            "min": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "for": {
+                            "in": "date"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 30000
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "calendar": {
+                "displayName": "Calendar",
+                "properties": {
+                    "letter": {
+                        "displayName": "Letter",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "A",
+                                    "displayName": "A"
+                                },
+                                {
+                                    "value": "B",
+                                    "displayName": "B"
+                                },
+                                {
+                                    "value": "C",
+                                    "displayName": "C"
+                                },
+                                {
+                                    "value": "D",
+                                    "displayName": "D"
+                                },
+                                {
+                                    "value": "E",
+                                    "displayName": "E"
+                                },
+                                {
+                                    "value": "F",
+                                    "displayName": "F"
+                                },
+                                {
+                                    "value": "G",
+                                    "displayName": "G"
+                                },
+                                {
+                                    "value": "H",
+                                    "displayName": "H"
+                                },
+                                {
+                                    "value": "I",
+                                    "displayName": "I"
+                                },
+                                {
+                                    "value": "J",
+                                    "displayName": "J"
+                                },
+                                {
+                                    "value": "K",
+                                    "displayName": "K"
+                                },
+                                {
+                                    "value": "L",
+                                    "displayName": "L"
+                                },
+                                {
+                                    "value": "M",
+                                    "displayName": "M"
+                                },
+                                {
+                                    "value": "N",
+                                    "displayName": "N"
+                                },
+                                {
+                                    "value": "O",
+                                    "displayName": "O"
+                                },
+                                {
+                                    "value": "P",
+                                    "displayName": "P"
+                                },
+                                {
+                                    "value": "Q",
+                                    "displayName": "Q"
+                                },
+                                {
+                                    "value": "R",
+                                    "displayName": "R"
+                                },
+                                {
+                                    "value": "S",
+                                    "displayName": "S"
+                                },
+                                {
+                                    "value": "T",
+                                    "displayName": "T"
+                                },
+                                {
+                                    "value": "U",
+                                    "displayName": "U"
+                                },
+                                {
+                                    "value": "V",
+                                    "displayName": "V"
+                                },
+                                {
+                                    "value": "W",
+                                    "displayName": "W"
+                                },
+                                {
+                                    "value": "X",
+                                    "displayName": "X"
+                                },
+                                {
+                                    "value": "Y",
+                                    "displayName": "Y"
+                                },
+                                {
+                                    "value": "Z",
+                                    "displayName": "Z"
+                                }
+                            ]
+                        }
+                    },
+                    "layout": {
+                        "displayName": "View",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "grid",
+                                    "displayName": "Square grid"
+                                },
+                                {
+                                    "value": "letter",
+                                    "displayName": "Letter"
+                                }
+                            ]
+                        }
+                    },
+                    "month": {
+                        "displayName": "Selected month",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "fill": {
+                        "displayName": "Box fill",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "privileges": [],
+        "supportsKeyboardFocus": true,
+        "supportsLandingPage": true,
+        "supportsEmptyDataView": true,
+        "supportsMultiVisualSelection": true
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}

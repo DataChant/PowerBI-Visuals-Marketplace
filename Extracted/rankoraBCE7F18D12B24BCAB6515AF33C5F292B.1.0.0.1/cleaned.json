@@ -1,0 +1,2438 @@
+{
+    "visual": {
+        "name": "rankora",
+        "displayName": "Rankora",
+        "guid": "rankoraBCE7F18D12B24BCAB6515AF33C5F292B",
+        "visualClassName": "Visual",
+        "version": "1.0.0.1",
+        "description": "Rankora \u2014 Animated Ranking Visual for Power BI. Racing bars, line history, a period counter, a scrubbable timeline, report-theme sync and right-to-left support.",
+        "supportUrl": "https://staxam.com/support",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "STAXAM",
+        "email": "support@staxam.com"
+    },
+    "apiVersion": "5.11.0",
+    "style": "style/visual.less",
+    "stringResources": {
+        "ar-SA": {
+            "Visual_Title": "\u0627\u0644\u0639\u0646\u0648\u0627\u0646",
+            "Visual_Show": "\u0625\u0638\u0647\u0627\u0631",
+            "Visual_Title_Text": "\u0627\u0644\u0646\u0635",
+            "Visual_Title_Alignment": "\u0627\u0644\u0645\u062d\u0627\u0630\u0627\u0629",
+            "Visual_Direction": "\u0627\u062a\u062c\u0627\u0647 \u0627\u0644\u062a\u062e\u0637\u064a\u0637",
+            "Visual_Direction_Auto": "\u062a\u0644\u0642\u0627\u0626\u064a (\u062d\u0633\u0628 \u0644\u063a\u0629 \u0627\u0644\u062a\u0642\u0631\u064a\u0631)",
+            "Visual_Direction_Ltr": "\u0645\u0646 \u0627\u0644\u064a\u0633\u0627\u0631 \u0625\u0644\u0649 \u0627\u0644\u064a\u0645\u064a\u0646",
+            "Visual_Direction_Rtl": "\u0645\u0646 \u0627\u0644\u064a\u0645\u064a\u0646 \u0625\u0644\u0649 \u0627\u0644\u064a\u0633\u0627\u0631",
+            "R_themeState": "\u0646\u0645\u0637 \u0627\u0644\u0633\u0645\u0629 \u00b7 \u0642\u064a\u0627\u0633 (\u062c\u0645\u064a\u0639 \u0627\u0644\u0645\u0643\u0648\u0646\u0627\u062a)",
+            "D_themeState": "\u0627\u0633\u062d\u0628 \u0627\u0644\u0642\u064a\u0627\u0633 [STAXAM Theme Mode] \u0625\u0644\u0649 \u0647\u0646\u0627 \u0644\u0645\u062a\u0627\u0628\u0639\u0629 \u062a\u063a\u064a\u064a\u0631\u0627\u062a \u0627\u0644\u0641\u0627\u062a\u062d/\u0627\u0644\u062f\u0627\u0643\u0646 \u0645\u0646 \u0645\u0641\u062a\u0627\u062d \u0634\u0631\u064a\u0637 \u0627\u0644\u0639\u0646\u0648\u0627\u0646.",
+            "P_visualSetup_themeFollow": "\u0645\u062a\u0627\u0628\u0639\u0629 \u0633\u0645\u0629 \u0634\u0631\u064a\u0637 \u0627\u0644\u0639\u0646\u0648\u0627\u0646",
+            "D_visualSetup_themeFollow": "\u0627\u0644\u062a\u0628\u062f\u064a\u0644 \u0628\u064a\u0646 \u0627\u0644\u0646\u0645\u0637\u064a\u0646 \u0627\u0644\u0641\u0627\u062a\u062d \u0648\u0627\u0644\u062f\u0627\u0643\u0646 \u0639\u0628\u0631 \u0645\u0641\u062a\u0627\u062d \u0634\u0631\u064a\u0637 \u0627\u0644\u0639\u0646\u0648\u0627\u0646.",
+            "P_visualSetup_themeDarkValue": "\u0642\u064a\u0645\u0629 \u0627\u0644\u0648\u0636\u0639 \u0627\u0644\u062f\u0627\u0643\u0646",
+            "D_visualSetup_themeDarkValue": "\u0642\u064a\u0645\u0629 \u0642\u064a\u0627\u0633 \u0646\u0645\u0637 \u0627\u0644\u0633\u0645\u0629 \u0627\u0644\u062a\u064a \u062a\u064f\u0641\u0639\u0651\u0644 \u0627\u0644\u0648\u0636\u0639 \u0627\u0644\u062f\u0627\u0643\u0646 (\u0627\u0644\u0627\u0641\u062a\u0631\u0627\u0636\u064a: 'Dark').",
+            "P_visualSetup_darkPreset": "\u0627\u0644\u0646\u0645\u0637 \u0627\u0644\u0645\u0633\u0628\u0642 \u0644\u0644\u0648\u0636\u0639 \u0627\u0644\u062f\u0627\u0643\u0646",
+            "D_visualSetup_darkPreset": "\u0627\u0644\u0646\u0645\u0637 \u0627\u0644\u0645\u0633\u0628\u0642 \u0627\u0644\u0645\u0637\u0628\u0642 \u0639\u0646\u062f\u0645\u0627 \u064a\u0643\u0648\u0646 \u0645\u0641\u062a\u0627\u062d \u0633\u0645\u0629 \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0639\u0644\u0649 \u0627\u0644\u062f\u0627\u0643\u0646.",
+            "P_titleOptions": "\u0627\u0644\u0639\u0646\u0648\u0627\u0646",
+            "P_titleOptions_showTitle": "\u0625\u0638\u0647\u0627\u0631 \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0645\u062e\u0635\u0635",
+            "P_titleOptions_titleText": "\u0646\u0635 \u0627\u0644\u0639\u0646\u0648\u0627\u0646",
+            "P_titleOptions_subtitle": "\u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0641\u0631\u0639\u064a",
+            "P_titleOptions_titleColor": "\u0644\u0648\u0646 \u0627\u0644\u0639\u0646\u0648\u0627\u0646",
+            "P_titleOptions_titleSize": "\u062d\u062c\u0645 \u0627\u0644\u0639\u0646\u0648\u0627\u0646",
+            "P_titleOptions_titleStyle": "\u0646\u0645\u0637 \u0627\u0644\u0639\u0646\u0648\u0627\u0646",
+            "E_titleOptions_titleStyle_none": "\u0628\u062f\u0648\u0646",
+            "E_titleOptions_titleStyle_topSpot": "\u062a\u0645\u064a\u064a\u0632 \u0639\u0644\u0648\u064a",
+            "E_titleOptions_titleStyle_notch": "\u0644\u0633\u0627\u0646 \u0639\u0644\u0648\u064a",
+            "E_titleOptions_titleStyle_floatTab": "\u0639\u0644\u0627\u0645\u0629 \u062a\u0628\u0648\u064a\u0628 \u0639\u0627\u0626\u0645\u0629",
+            "E_titleOptions_titleStyle_eyebrow": "\u0634\u0627\u0631\u0629 \u0646\u0635\u064a\u0629 \u0639\u0644\u0648\u064a\u0629",
+            "E_titleOptions_titleStyle_underline": "\u062e\u0637 \u0633\u0641\u0644\u064a",
+            "E_titleOptions_titleStyle_sideDot": "\u0646\u0642\u0637\u0629 \u062c\u0627\u0646\u0628\u064a\u0629",
+            "E_titleOptions_titleStyle_ribbon": "\u0634\u0631\u064a\u0637 \u062c\u0627\u0646\u0628\u064a \u0645\u0645\u064a\u0632",
+            "E_titleOptions_titleStyle_gradientInk": "\u062d\u0628\u0631 \u0645\u062a\u062f\u0631\u062c",
+            "P_titleOptions_accentPosition": "\u0645\u0648\u0636\u0639 \u0627\u0644\u062a\u0645\u064a\u064a\u0632 \u0627\u0644\u0639\u0644\u0648\u064a",
+            "D_titleOptions_accentPosition": "\u0645\u0648\u0636\u0639 \u062a\u062b\u0628\u064a\u062a \u062a\u062f\u0631\u062c \u0627\u0644\u062a\u0645\u064a\u064a\u0632 \u0627\u0644\u0639\u0644\u0648\u064a: \u0641\u064a \u0627\u0644\u0648\u0633\u0637 \u0623\u0648 \u0645\u062a\u0648\u0647\u062c\u064b\u0627 \u0645\u0646 \u0632\u0627\u0648\u064a\u0629 \u0627\u0644\u0628\u062f\u0627\u064a\u0629 \u0623\u0648 \u0627\u0644\u0646\u0647\u0627\u064a\u0629.",
+            "E_titleOptions_accentPosition_center": "\u0627\u0644\u0648\u0633\u0637",
+            "E_titleOptions_accentPosition_start": "\u0632\u0627\u0648\u064a\u0629 \u00b7 \u0627\u0644\u0628\u062f\u0627\u064a\u0629",
+            "E_titleOptions_accentPosition_end": "\u0632\u0627\u0648\u064a\u0629 \u00b7 \u0627\u0644\u0646\u0647\u0627\u064a\u0629",
+            "E_titleOptions_accentPosition_stretch": "\u0639\u0631\u0636 \u0643\u0627\u0645\u0644 (\u062a\u0645\u062f\u062f)",
+            "P_titleOptions_titleFont": "\u062e\u0637 \u0627\u0644\u0639\u0646\u0648\u0627\u0646",
+            "E_titleOptions_titleFont_default": "\u0627\u0641\u062a\u0631\u0627\u0636\u064a (Segoe UI)",
+            "E_titleOptions_titleFont_segoe": "Segoe UI",
+            "E_titleOptions_titleFont_segoeSemi": "Segoe UI Semibold",
+            "E_titleOptions_titleFont_din": "DIN",
+            "E_titleOptions_titleFont_arial": "Arial",
+            "E_titleOptions_titleFont_georgia": "Georgia",
+            "E_titleOptions_titleFont_tahoma": "Tahoma",
+            "E_titleOptions_titleFont_trebuchet": "Trebuchet MS",
+            "E_titleOptions_titleFont_verdana": "Verdana",
+            "E_titleOptions_titleFont_Cairo": "Cairo (\u0639\u0631\u0628\u064a)",
+            "E_titleOptions_titleFont_Tajawal": "Tajawal (\u0639\u0631\u0628\u064a)",
+            "E_titleOptions_titleFont_Almarai": "Almarai (\u0639\u0631\u0628\u064a)",
+            "E_titleOptions_titleFont_Amiri": "Amiri (\u0639\u0631\u0628\u064a)",
+            "E_titleOptions_titleFont_NotoNaskh": "Noto Naskh Arabic (\u062e\u0637 \u0639\u0631\u0628\u064a)",
+            "E_titleOptions_titleFont_NotoKufi": "Noto Kufi Arabic (\u062e\u0637 \u0639\u0631\u0628\u064a)",
+            "P_titleOptions_titlePosition": "\u0645\u0648\u0636\u0639 \u0627\u0644\u0639\u0646\u0648\u0627\u0646",
+            "E_titleOptions_titlePosition_start": "\u0627\u0644\u0628\u062f\u0627\u064a\u0629 (\u0627\u0644\u064a\u0633\u0627\u0631 \u0641\u064a \u0627\u062a\u062c\u0627\u0647 LTR)",
+            "E_titleOptions_titlePosition_end": "\u0627\u0644\u0646\u0647\u0627\u064a\u0629 (\u0627\u0644\u064a\u0645\u064a\u0646 \u0641\u064a \u0627\u062a\u062c\u0627\u0647 LTR)",
+            "P_titleOptions_iconSvg": "\u0631\u0645\u0632 \u0627\u0644\u0623\u064a\u0642\u0648\u0646\u0629 (\u0643\u0648\u062f SVG)",
+            "P_titleOptions_iconPosition": "\u0645\u0648\u0636\u0639 \u0627\u0644\u0623\u064a\u0642\u0648\u0646\u0629",
+            "E_titleOptions_iconPosition_left": "\u064a\u0633\u0627\u0631",
+            "E_titleOptions_iconPosition_right": "\u064a\u0645\u064a\u0646",
+            "P_titleOptions_iconPlacement": "\u062a\u0645\u0648\u0636\u0639 \u0627\u0644\u0623\u064a\u0642\u0648\u0646\u0629",
+            "E_titleOptions_iconPlacement_title": "\u0641\u064a \u0627\u0644\u0639\u0646\u0648\u0627\u0646",
+            "E_titleOptions_iconPlacement_start": "\u0628\u062c\u0627\u0646\u0628 \u0627\u0644\u0642\u064a\u0645\u0629",
+            "E_titleOptions_iconPlacement_top": "\u0623\u0639\u0644\u0649 \u0627\u0644\u0639\u0646\u0648\u0627\u0646",
+            "E_titleOptions_iconPlacement_watermark": "\u0639\u0644\u0627\u0645\u0629 \u0645\u0627\u0626\u064a\u0629",
+            "P_titleOptions_iconSize": "\u062d\u062c\u0645 \u0627\u0644\u0625\u0637\u0627\u0631",
+            "P_titleOptions_iconGlyphSize": "\u062d\u062c\u0645 \u0627\u0644\u0623\u064a\u0642\u0648\u0646\u0629 \u062f\u0627\u062e\u0644 \u0627\u0644\u0625\u0637\u0627\u0631 (0 = \u062a\u0644\u0642\u0627\u0626\u064a)",
+            "P_titleOptions_iconFrame": "\u0625\u0637\u0627\u0631 \u0627\u0644\u0623\u064a\u0642\u0648\u0646\u0629",
+            "E_titleOptions_iconFrame_none": "\u0628\u062f\u0648\u0646",
+            "E_titleOptions_iconFrame_circle": "\u062f\u0627\u0626\u0631\u0629",
+            "E_titleOptions_iconFrame_rounded": "\u0645\u0631\u0628\u0639 \u0645\u0633\u062a\u062f\u064a\u0631",
+            "E_titleOptions_iconFrame_square": "\u0645\u0631\u0628\u0639",
+            "E_titleOptions_iconFrame_diamond": "\u0645\u0639\u064a\u0646",
+            "E_titleOptions_iconFrame_hexagon": "\u0633\u062f\u0627\u0633\u064a",
+            "E_titleOptions_iconFrame_octagon": "\u0645\u062b\u0645\u0646",
+            "E_titleOptions_iconFrame_octaStar": "\u0634\u0627\u0631\u0629 \u0645\u062a\u0645\u0648\u062c\u0629",
+            "P_titleOptions_iconColor": "\u0644\u0648\u0646 \u0627\u0644\u0623\u064a\u0642\u0648\u0646\u0629",
+            "P_titleOptions_iconFillStyle": "\u062a\u0639\u0628\u0626\u0629 \u0627\u0644\u0625\u0637\u0627\u0631",
+            "E_titleOptions_iconFillStyle_solid": "\u0645\u0635\u0645\u062a",
+            "E_titleOptions_iconFillStyle_tint": "\u062a\u0638\u0644\u064a\u0644 \u062e\u0641\u064a\u0641",
+            "E_titleOptions_iconFillStyle_outline": "\u062d\u062f \u062e\u0627\u0631\u062c\u064a \u0641\u0642\u0637",
+            "E_titleOptions_iconFillStyle_dimensional": "\u062b\u0644\u0627\u062b\u064a \u0627\u0644\u0623\u0628\u0639\u0627\u062f",
+            "P_titleOptions_iconBorder": "\u062d\u062f \u0627\u0644\u0625\u0637\u0627\u0631",
+            "P_titleOptions_iconBorderColor": "\u0644\u0648\u0646 \u0627\u0644\u062d\u062f",
+            "P_titleOptions_iconGlow": "\u062a\u0648\u0647\u062c \u0627\u0644\u0623\u064a\u0642\u0648\u0646\u0629",
+            "P_bars_style": "\u0646\u0645\u0637 \u0627\u0644\u0623\u0639\u0645\u062f\u0629",
+            "E_bars_style_gradient": "\u062a\u062f\u0631\u062c",
+            "E_bars_style_solid": "\u0645\u0635\u0645\u062a",
+            "E_bars_style_rounded": "\u0623\u0639\u0644\u0649 \u0645\u0633\u062a\u062f\u064a\u0631",
+            "E_bars_style_glass": "\u0632\u062c\u0627\u062c\u064a",
+            "P_periodLabel_style": "\u0646\u0645\u0637 \u0639\u0644\u0627\u0645\u0629 \u0627\u0644\u0641\u062a\u0631\u0629",
+            "E_periodLabel_style_plain": "\u0628\u0633\u064a\u0637",
+            "E_periodLabel_style_pillBadge": "\u0634\u0627\u0631\u0629 \u062f\u0627\u0626\u0631\u064a\u0629",
+            "E_periodLabel_style_underlineAccent": "\u062a\u0645\u064a\u064a\u0632 \u062a\u062d\u062a\u064a",
+            "E_periodLabel_style_glassChip": "\u0631\u0642\u0627\u0642\u0629 \u0632\u062c\u0627\u062c\u064a\u0629",
+            "E_playback_easing_linear": "\u062e\u0637\u064a (\u062b\u0627\u0628\u062a)",
+            "E_playback_easing_smooth": "\u0633\u0644\u0633",
+            "E_playback_easing_snappy": "\u0633\u0631\u064a\u0639 \u0648\u0631\u0634\u064a\u0642",
+            "E_playback_easing_overshoot": "\u0627\u0631\u062a\u062f\u0627\u062f\u064a \u062e\u0641\u064a\u0641",
+            "E_playback_easing_easeIn": "\u062a\u0633\u0627\u0631\u0639 \u062a\u062f\u0631\u064a\u062c\u064a",
+            "E_playback_easing_easeOut": "\u062a\u0628\u0627\u0637\u0624 \u062a\u062f\u0631\u064a\u062c\u064a",
+            "E_playback_easing_bounce": "\u0627\u0631\u062a\u062f\u0627\u062f",
+            "Visual_CounterStyle": "\u062d\u0631\u0643\u0629 \u0627\u0644\u0639\u062f\u0651\u0627\u062f",
+            "Visual_CounterStyle_None": "\u0628\u062f\u0648\u0646 (\u0641\u0648\u0631\u064a)",
+            "Visual_CounterStyle_Flip": "\u0628\u0637\u0627\u0642\u0629 \u0645\u0642\u0644\u0648\u0628\u0629",
+            "Visual_Separator": "\u0627\u0644\u0641\u0627\u0635\u0644 (\u0627\u0644\u0623\u0639\u0645\u062f\u0629 / \u0627\u0644\u062e\u0637)",
+            "Visual_Separator_None": "\u0628\u062f\u0648\u0646",
+            "Visual_Separator_Soft": "\u0641\u0627\u0635\u0644 \u0646\u0627\u0639\u0645",
+            "Visual_SeparatorColor": "\u0644\u0648\u0646 \u0627\u0644\u0641\u0627\u0635\u0644",
+            "Visual_AnimateValues": "\u062a\u062d\u0631\u064a\u0643 \u0627\u0644\u0642\u064a\u0645 \u0648\u0627\u0644\u0639\u062f\u0651\u0627\u062f",
+            "Visual_LineTopN": "\u0639\u062f\u062f \u0627\u0644\u062e\u0637\u0648\u0637 \u0627\u0644\u0645\u0639\u0631\u0648\u0636\u0629 (\u0623\u0639\u0644\u0649 N)",
+            "Visual_OvertakeFlash": "\u0648\u0645\u064a\u0636 \u0639\u0646\u062f \u0627\u0644\u062a\u062c\u0627\u0648\u0632",
+            "Visual_Position_BottomTrail": "\u0623\u0633\u0641\u0644 (\u0646\u0647\u0627\u064a\u0629 \u0627\u0644\u0633\u0637\u0631)",
+            "Visual_Position_TopTrail": "\u0623\u0639\u0644\u0649 (\u0646\u0647\u0627\u064a\u0629 \u0627\u0644\u0633\u0637\u0631)",
+            "Visual_Position_BottomLead": "\u0623\u0633\u0641\u0644 (\u0628\u062f\u0627\u064a\u0629 \u0627\u0644\u0633\u0637\u0631)",
+            "Visual_Position_TopLead": "\u0623\u0639\u0644\u0649 (\u0628\u062f\u0627\u064a\u0629 \u0627\u0644\u0633\u0637\u0631)",
+            "Visual_CounterStyle_Roll": "\u0639\u062f\u0651\u0627\u062f \u062f\u0648\u0651\u0627\u0631",
+            "Visual_CounterStyle_Slide": "\u0627\u0646\u0632\u0644\u0627\u0642 \u0644\u0623\u0639\u0644\u0649",
+            "Visual_CounterStyle_Fade": "\u062a\u0644\u0627\u0634\u064d \u0645\u062a\u0642\u0627\u0637\u0639",
+            "Visual_CounterStyle_Pop": "\u0638\u0647\u0648\u0631 \u0646\u0627\u0628\u0636",
+            "P_periodLabel_counterFrame": "\u0625\u0637\u0627\u0631 \u0627\u0644\u0639\u062f\u0651\u0627\u062f",
+            "E_periodLabel_counterFrame_none": "\u0628\u062f\u0648\u0646 \u0625\u0637\u0627\u0631",
+            "E_periodLabel_counterFrame_soft": "\u0645\u0631\u0628\u0651\u0639 \u0646\u0627\u0639\u0645",
+            "E_periodLabel_counterFrame_outline": "\u062d\u062f\u0651 \u0631\u0641\u064a\u0639",
+            "E_periodLabel_counterFrame_glass": "\u0632\u062c\u0627\u062c \u0636\u0628\u0627\u0628\u064a",
+            "E_periodLabel_counterFrame_cube": "\u0645\u0643\u0639\u0651\u0628",
+            "Landing_Descriptor": "\u0628\u064a\u0627\u0646\u0627\u062a \u0645\u0631\u062a\u0651\u0628\u0629 \u062a\u062a\u0633\u0627\u0628\u0642.",
+            "Landing_Headline": "\u0627\u0628\u0646\u0650 \u0633\u0628\u0627\u0642\u0643 \u0641\u064a \u062b\u0644\u0627\u062b \u062e\u0637\u0648\u0627\u062a",
+            "Landing_Support": "\u0623\u0636\u0641 \u0627\u0644\u0639\u0646\u0627\u0635\u0631 \u0627\u0644\u0645\u0631\u0627\u062f \u062a\u0631\u062a\u064a\u0628\u0647\u0627\u060c \u0648\u0627\u0644\u0641\u062a\u0631\u0629 \u0627\u0644\u0632\u0645\u0646\u064a\u0629\u060c \u0648\u0627\u0644\u0642\u064a\u0645\u0629 \u0627\u0644\u062a\u064a \u062a\u062d\u0631\u0651\u0643 \u0627\u0644\u0633\u0628\u0627\u0642.",
+            "Landing_Step1_Title": "\u0623\u0636\u0641 \u0627\u0644\u0639\u0646\u0627\u0635\u0631",
+            "Landing_Step1_Desc": "\u0623\u0636\u0641 \u062d\u0642\u0644 Category \u064a\u0636\u0645 \u0627\u0644\u0639\u0646\u0627\u0635\u0631 \u0627\u0644\u0645\u0631\u0627\u062f \u062a\u0631\u062a\u064a\u0628\u0647\u0627.",
+            "Landing_Step1_Examples": "\u0627\u0644\u062f\u0648\u0644\u0629 \u00b7 \u0627\u0644\u0645\u0646\u062a\u062c \u00b7 \u0627\u0644\u0641\u0631\u064a\u0642 \u00b7 \u0627\u0644\u0634\u0631\u0643\u0629",
+            "Landing_Step2_Title": "\u0623\u0636\u0641 \u0627\u0644\u0632\u0645\u0646",
+            "Landing_Step2_Desc": "\u0623\u0636\u0641 Period (Time) \u0644\u062a\u062d\u062f\u064a\u062f \u0625\u0637\u0627\u0631\u0627\u062a \u0627\u0644\u062d\u0631\u0643\u0629.",
+            "Landing_Step2_Examples": "\u0627\u0644\u0633\u0646\u0629 \u00b7 \u0627\u0644\u0631\u0628\u0639 \u00b7 \u0627\u0644\u0634\u0647\u0631 \u00b7 \u0627\u0644\u062a\u0627\u0631\u064a\u062e",
+            "Landing_Step3_Title": "\u0623\u0636\u0641 \u0627\u0644\u0642\u064a\u0645\u0629",
+            "Landing_Step3_Desc": "\u0623\u0636\u0641 \u0645\u0642\u064a\u0627\u0633 Values \u0627\u0644\u0630\u064a \u064a\u062d\u062f\u062f \u0627\u0644\u062a\u0631\u062a\u064a\u0628 \u0648\u0627\u0644\u062d\u0631\u0643\u0629.",
+            "Landing_Step3_Then": "\u062b\u0645 \u0634\u063a\u0651\u0644 \u0627\u0644\u0633\u0628\u0627\u0642 \u0623\u0648 \u0623\u0648\u0642\u0641\u0647 \u0645\u0624\u0642\u062a\u064b\u0627 \u0623\u0648 \u062a\u0646\u0642\u0651\u0644 \u0639\u0628\u0631 \u0627\u0644\u062e\u0637 \u0627\u0644\u0632\u0645\u0646\u064a.",
+            "Landing_Capabilities": "\u0623\u0634\u0631\u0637\u0629 \u0627\u0644\u0633\u0628\u0627\u0642 \u00b7 \u062e\u0637 \u0632\u0645\u0646\u064a \u00b7 \u0633\u062c\u0644 \u0627\u0644\u062e\u0637\u0648\u0637",
+            "Landing_Attribution": "\u0623\u062d\u062f \u0645\u0646\u062a\u062c\u0627\u062a STAXAM",
+            "P_periodLabel_caption": "\u0648\u0635\u0641 \u0627\u0644\u0639\u062f\u0651\u0627\u062f",
+            "P_periodLabel_showTotal": "\u0625\u0638\u0647\u0627\u0631 \u0627\u0644\u0625\u062c\u0645\u0627\u0644\u064a",
+            "P_periodLabel_totalPrefix": "\u0628\u0627\u062f\u0626\u0629 \u0627\u0644\u0625\u062c\u0645\u0627\u0644\u064a",
+            "P_periodLabel_periodIcon": "\u0623\u064a\u0642\u0648\u0646\u0629 \u0645\u062f\u0645\u062c\u0629",
+            "E_periodLabel_periodIcon_none": "\u0628\u062f\u0648\u0646",
+            "E_periodLabel_periodIcon_clock": "\u0633\u0627\u0639\u0629 \u0645\u062a\u062d\u0631\u0643\u0629",
+            "Legend_Label": "\u062f\u0644\u064a\u0644 \u0633\u0644\u0627\u0633\u0644 \u0627\u0644\u0645\u062e\u0637\u0637 \u0627\u0644\u062e\u0637\u064a",
+            "Control_Play": "\u062a\u0634\u063a\u064a\u0644",
+            "Control_Pause": "\u0625\u064a\u0642\u0627\u0641 \u0645\u0624\u0642\u062a",
+            "Control_Timeline": "\u0627\u0644\u062e\u0637 \u0627\u0644\u0632\u0645\u0646\u064a \u0644\u0644\u0633\u0628\u0627\u0642",
+            "P_line_showLegend": "\u0625\u0638\u0647\u0627\u0631 \u062f\u0644\u064a\u0644 \u0627\u0644\u0633\u0644\u0627\u0633\u0644",
+            "P_line_showXAxis": "\u0625\u0638\u0647\u0627\u0631 \u0645\u062d\u0648\u0631 \u0627\u0644\u0641\u062a\u0631\u0627\u062a \u0627\u0644\u0623\u0641\u0642\u064a",
+            "P_line_focusHalo": "\u0647\u0627\u0644\u0629 \u0625\u0628\u0631\u0627\u0632 \u0627\u0644\u0646\u0642\u0637\u0629 \u0627\u0644\u062d\u0627\u0644\u064a\u0629",
+            "P_backgroundEffects_backgroundImage": "\u0635\u0648\u0631\u0629 \u0627\u0644\u062e\u0644\u0641\u064a\u0629",
+            "P_backgroundEffects_imageOpacity": "\u0634\u0641\u0627\u0641\u064a\u0629 \u0635\u0648\u0631\u0629 \u0627\u0644\u062e\u0644\u0641\u064a\u0629 (%)",
+            "P_backgroundEffects_imageBlur": "\u062a\u0645\u0648\u064a\u0647 \u0635\u0648\u0631\u0629 \u0627\u0644\u062e\u0644\u0641\u064a\u0629 (\u0628\u0643\u0633\u0644)",
+            "P_tooltips_enabled": "\u062a\u0641\u0639\u064a\u0644 \u062a\u0644\u0645\u064a\u062d\u0627\u062a \u0627\u0644\u0623\u062f\u0648\u0627\u062a",
+            "P_tooltips_showCategory": "\u0625\u0638\u0647\u0627\u0631 \u0627\u0644\u0641\u0626\u0629",
+            "P_tooltips_showPeriod": "\u0625\u0638\u0647\u0627\u0631 \u0627\u0644\u0641\u062a\u0631\u0629",
+            "P_tooltips_showValue": "\u0625\u0638\u0647\u0627\u0631 \u0627\u0644\u0642\u064a\u0645\u0629",
+            "P_tooltips_showRank": "\u0625\u0638\u0647\u0627\u0631 \u0627\u0644\u062a\u0631\u062a\u064a\u0628",
+            "P_tooltips_showShare": "\u0625\u0638\u0647\u0627\u0631 \u062d\u0635\u0629 \u0627\u0644\u0641\u062a\u0631\u0629",
+            "Tooltip_Rank": "\u0627\u0644\u062a\u0631\u062a\u064a\u0628",
+            "Tooltip_Share": "\u062d\u0635\u0629 \u0627\u0644\u0641\u062a\u0631\u0629",
+            "Tooltip_NoData": "\u0644\u0627 \u062a\u0648\u062c\u062f \u0628\u064a\u0627\u0646\u0627\u062a",
+            "P_chart_comboLayout": "\u062a\u062e\u0637\u064a\u0637 \u0627\u0644\u0631\u0633\u0645\u064a\u0646",
+            "E_chart_comboLayout_sideBySide": "\u062c\u0646\u0628\u064b\u0627 \u0625\u0644\u0649 \u062c\u0646\u0628",
+            "E_chart_comboLayout_stacked": "\u0641\u0648\u0642 \u0628\u0639\u0636\u0647\u0645\u0627",
+            "P_chart_comboSplit": "\u0639\u0631\u0636 \u0644\u0648\u062d\u0629 \u0627\u0644\u062e\u0637 \u0627\u0644\u0628\u064a\u0627\u0646\u064a (%)",
+            "O_leaderTrack": "\u062a\u062a\u0628\u0651\u0639 \u0627\u0644\u0645\u062a\u0635\u062f\u0651\u0631",
+            "P_leaderTrack_mode": "\u0645\u064e\u0646 \u064a\u064f\u062a\u0627\u0628\u064e\u0639",
+            "E_leaderTrack_mode_none": "\u0625\u064a\u0642\u0627\u0641",
+            "E_leaderTrack_mode_finalLeader": "\u0627\u0644\u0645\u062a\u0635\u062f\u0651\u0631 \u0641\u064a \u0646\u0647\u0627\u064a\u0629 \u0627\u0644\u0645\u062d\u0648\u0631 \u0627\u0644\u0632\u0645\u0646\u064a",
+            "E_leaderTrack_mode_currentLeader": "\u0627\u0644\u0645\u062a\u0635\u062f\u0651\u0631 \u0627\u0644\u062d\u0627\u0644\u064a",
+            "E_leaderTrack_mode_custom": "\u0627\u0633\u0645 \u0645\u062d\u062f\u0651\u062f",
+            "P_leaderTrack_name": "\u0627\u0644\u0627\u0633\u0645 \u0627\u0644\u0645\u0631\u0627\u062f \u062a\u062a\u0628\u0651\u0639\u0647",
+            "P_leaderTrack_trackStyle": "\u0623\u0633\u0644\u0648\u0628 \u0627\u0644\u062a\u0645\u064a\u064a\u0632",
+            "E_leaderTrack_trackStyle_glow": "\u062a\u0648\u0647\u0651\u062c",
+            "E_leaderTrack_trackStyle_spotlight": "\u062a\u0633\u0644\u064a\u0637 \u0627\u0644\u0636\u0648\u0621 (\u0625\u062e\u0641\u0627\u062a \u0627\u0644\u0628\u0627\u0642\u064a)",
+            "E_leaderTrack_trackStyle_outline": "\u062d\u062f\u0651 \u062e\u0627\u0631\u062c\u064a",
+            "P_leaderTrack_color": "\u0644\u0648\u0646 \u0627\u0644\u062a\u0645\u064a\u064a\u0632",
+            "P_leaderTrack_showMarker": "\u0625\u0638\u0647\u0627\u0631 \u0627\u0644\u0639\u0644\u0627\u0645\u0629",
+            "P_leaderTrack_dimOthers": "\u0625\u062e\u0641\u0627\u062a \u0627\u0644\u0628\u0627\u0642\u064a (%)",
+            "E_leaderTrack_mode_peak": "\u0635\u0627\u062d\u0628 \u0623\u0639\u0644\u0649 \u0642\u064a\u0645\u0629 \u0639\u0644\u0649 \u0627\u0644\u0625\u0637\u0644\u0627\u0642",
+            "E_bars_style_rule": "\u062e\u0637\u0651 \u062a\u062d\u0631\u064a\u0631\u064a",
+            "P_leaderTrack_show": "\u062a\u062a\u0628\u0651\u0639 \u0627\u0644\u0645\u062a\u0635\u062f\u0651\u0631",
+            "P_line_legendCount": "\u0639\u062f\u062f \u0639\u0646\u0627\u0635\u0631 \u0648\u0633\u064a\u0644\u0629 \u0627\u0644\u0625\u064a\u0636\u0627\u062d",
+            "Notice_Truncated": "\u064a\u062a\u0645 \u0639\u0631\u0636 \u062c\u0632\u0621 \u0645\u0646 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u2014 \u0635\u0641\u0650\u0651 \u0627\u0644\u0639\u0646\u0627\u0635\u0631 \u0627\u0644\u062a\u064a \u062a\u0631\u064a\u062f \u0625\u062f\u0631\u0627\u062c\u0647\u0627 \u0641\u064a \u0627\u0644\u0633\u0628\u0627\u0642.",
+            "Narrate_Position": "{0} \u0645\u0646 {1}",
+            "Narrate_Leaders": "\u0627\u0644\u0645\u062a\u0635\u062f\u0651\u0631\u0648\u0646 \u0641\u064a {0}: {1}.",
+            "Narrate_ValueFallback": "\u0627\u0644\u0642\u064a\u0645\u0629",
+            "Narrate_ListSeparator": "\u060c ",
+            "Values_NumberFormat": "\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0623\u0631\u0642\u0627\u0645",
+            "Values_NumberFormat_Model": "\u0633\u0644\u0633\u0644\u0629 \u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0646\u0645\u0648\u0630\u062c",
+            "Values_NumberFormat_Compact": "\u0645\u062e\u062a\u0635\u0631 (K/M/B/T)"
+        },
+        "en-US": {
+            "Visual_Title": "Title",
+            "Visual_Show": "Show",
+            "Visual_Title_Text": "Text",
+            "Visual_Title_Alignment": "Alignment",
+            "Visual_Direction": "Layout direction",
+            "Visual_Direction_Auto": "Auto (from report locale)",
+            "Visual_Direction_Ltr": "Left to right",
+            "Visual_Direction_Rtl": "Right to left",
+            "R_themeState": "Theme Mode \u00b7 measure (all components)",
+            "D_themeState": "Drop the [STAXAM Theme Mode] measure here to follow page Light/Dark changes from the Header Bar toggle.",
+            "P_visualSetup_themeFollow": "Follow header theme",
+            "D_visualSetup_themeFollow": "Switch between the light and dark presets driven by the Header Bar toggle. No data field or measure is required.",
+            "P_visualSetup_themeDarkValue": "Dark mode value",
+            "D_visualSetup_themeDarkValue": "The value of the Theme Mode measure that triggers Dark mode (default: 'Dark').",
+            "P_visualSetup_darkPreset": "Dark-mode preset",
+            "D_visualSetup_darkPreset": "Style preset applied when the header theme toggle is on Dark.",
+            "P_titleOptions": "Title",
+            "P_titleOptions_showTitle": "Show custom title",
+            "P_titleOptions_titleText": "Title text",
+            "P_titleOptions_subtitle": "Subtitle",
+            "P_titleOptions_titleColor": "Title color",
+            "P_titleOptions_titleSize": "Title size",
+            "P_titleOptions_titleStyle": "Title style",
+            "E_titleOptions_titleStyle_none": "None",
+            "E_titleOptions_titleStyle_topSpot": "Top accent",
+            "E_titleOptions_titleStyle_notch": "Notch tab",
+            "E_titleOptions_titleStyle_floatTab": "Floating tab",
+            "E_titleOptions_titleStyle_eyebrow": "Eyebrow kicker",
+            "E_titleOptions_titleStyle_underline": "Underline",
+            "E_titleOptions_titleStyle_sideDot": "Side dot",
+            "E_titleOptions_titleStyle_ribbon": "Ribbon (side accent)",
+            "E_titleOptions_titleStyle_gradientInk": "Gradient ink",
+            "P_titleOptions_accentPosition": "Top accent position",
+            "D_titleOptions_accentPosition": "Where the Top accent wash anchors: centred, or glowing from the start/end corner.",
+            "E_titleOptions_accentPosition_center": "Center",
+            "E_titleOptions_accentPosition_start": "Corner \u00b7 start",
+            "E_titleOptions_accentPosition_end": "Corner \u00b7 end",
+            "E_titleOptions_accentPosition_stretch": "Full width (stretch)",
+            "P_titleOptions_titleFont": "Title font",
+            "E_titleOptions_titleFont_default": "Default (Segoe UI)",
+            "E_titleOptions_titleFont_segoe": "Segoe UI",
+            "E_titleOptions_titleFont_segoeSemi": "Segoe UI Semibold",
+            "E_titleOptions_titleFont_din": "DIN",
+            "E_titleOptions_titleFont_arial": "Arial",
+            "E_titleOptions_titleFont_georgia": "Georgia",
+            "E_titleOptions_titleFont_tahoma": "Tahoma",
+            "E_titleOptions_titleFont_trebuchet": "Trebuchet MS",
+            "E_titleOptions_titleFont_verdana": "Verdana",
+            "E_titleOptions_titleFont_Cairo": "Cairo (Arabic)",
+            "E_titleOptions_titleFont_Tajawal": "Tajawal (Arabic)",
+            "E_titleOptions_titleFont_Almarai": "Almarai (Arabic)",
+            "E_titleOptions_titleFont_Amiri": "Amiri (Arabic)",
+            "E_titleOptions_titleFont_NotoNaskh": "Noto Naskh Arabic",
+            "E_titleOptions_titleFont_NotoKufi": "Noto Kufi Arabic",
+            "P_titleOptions_titlePosition": "Title position",
+            "E_titleOptions_titlePosition_start": "Start (left in LTR)",
+            "E_titleOptions_titlePosition_end": "End (right in LTR)",
+            "P_titleOptions_iconSvg": "Icon (SVG code)",
+            "P_titleOptions_iconPosition": "Icon position",
+            "E_titleOptions_iconPosition_left": "Left",
+            "E_titleOptions_iconPosition_right": "Right",
+            "P_titleOptions_iconPlacement": "Icon placement",
+            "E_titleOptions_iconPlacement_title": "In title",
+            "E_titleOptions_iconPlacement_start": "Beside value",
+            "E_titleOptions_iconPlacement_top": "Above title",
+            "E_titleOptions_iconPlacement_watermark": "Watermark",
+            "P_titleOptions_iconSize": "Frame size",
+            "P_titleOptions_iconGlyphSize": "Icon size inside the frame (0 = auto)",
+            "P_titleOptions_iconFrame": "Icon frame",
+            "E_titleOptions_iconFrame_none": "None",
+            "E_titleOptions_iconFrame_circle": "Circle",
+            "E_titleOptions_iconFrame_rounded": "Rounded square",
+            "E_titleOptions_iconFrame_square": "Square",
+            "E_titleOptions_iconFrame_diamond": "Diamond",
+            "E_titleOptions_iconFrame_hexagon": "Hexagon",
+            "E_titleOptions_iconFrame_octagon": "Octagon",
+            "E_titleOptions_iconFrame_octaStar": "Wavy badge",
+            "P_titleOptions_iconColor": "Icon colour",
+            "P_titleOptions_iconFillStyle": "Frame fill",
+            "E_titleOptions_iconFillStyle_solid": "Solid",
+            "E_titleOptions_iconFillStyle_tint": "Soft tint",
+            "E_titleOptions_iconFillStyle_outline": "Outline only",
+            "E_titleOptions_iconFillStyle_dimensional": "Dimensional (3D)",
+            "P_titleOptions_iconBorder": "Frame outline",
+            "P_titleOptions_iconBorderColor": "Outline colour",
+            "P_titleOptions_iconGlow": "Icon glow",
+            "P_bars_style": "Bar style",
+            "E_bars_style_gradient": "Gradient",
+            "E_bars_style_solid": "Solid",
+            "E_bars_style_rounded": "Rounded top",
+            "E_bars_style_glass": "Glass",
+            "P_periodLabel_style": "Label style",
+            "E_periodLabel_style_plain": "Plain",
+            "E_periodLabel_style_pillBadge": "Pill badge",
+            "E_periodLabel_style_underlineAccent": "Underline accent",
+            "E_periodLabel_style_glassChip": "Glass chip",
+            "E_playback_easing_linear": "Linear (constant)",
+            "E_playback_easing_smooth": "Smooth",
+            "E_playback_easing_snappy": "Snappy",
+            "E_playback_easing_overshoot": "Overshoot",
+            "E_playback_easing_easeIn": "Ease in (accelerate)",
+            "E_playback_easing_easeOut": "Ease out (decelerate)",
+            "E_playback_easing_bounce": "Bounce",
+            "Visual_CounterStyle": "Counter animation",
+            "Visual_CounterStyle_None": "None (instant)",
+            "Visual_CounterStyle_Flip": "Flip card",
+            "Visual_Separator": "Separator (bars / line)",
+            "Visual_Separator_None": "None",
+            "Visual_Separator_Soft": "Soft divider",
+            "Visual_SeparatorColor": "Separator color",
+            "Visual_AnimateValues": "Animate values & counter",
+            "Visual_LineTopN": "Lines shown (Top N)",
+            "Visual_OvertakeFlash": "Flash on overtake",
+            "Visual_Position_BottomTrail": "Bottom (trailing)",
+            "Visual_Position_TopTrail": "Top (trailing)",
+            "Visual_Position_BottomLead": "Bottom (leading)",
+            "Visual_Position_TopLead": "Top (leading)",
+            "Visual_CounterStyle_Roll": "Odometer",
+            "Visual_CounterStyle_Slide": "Slide up",
+            "Visual_CounterStyle_Fade": "Cross fade",
+            "Visual_CounterStyle_Pop": "Pop",
+            "P_periodLabel_counterFrame": "Counter frame",
+            "E_periodLabel_counterFrame_none": "None (bare glyphs)",
+            "E_periodLabel_counterFrame_soft": "Soft tile",
+            "E_periodLabel_counterFrame_outline": "Hairline outline",
+            "E_periodLabel_counterFrame_glass": "Frosted glass",
+            "E_periodLabel_counterFrame_cube": "Cube",
+            "Landing_Descriptor": "Ranked data that races.",
+            "Landing_Headline": "Build your race in three steps",
+            "Landing_Support": "Add the entities to rank, the time period, and the value that drives the race.",
+            "Landing_Step1_Title": "Add entities",
+            "Landing_Step1_Desc": "Add a Category field containing the entities to rank.",
+            "Landing_Step1_Examples": "Country \u00b7 Product \u00b7 Team \u00b7 Company",
+            "Landing_Step2_Title": "Add time",
+            "Landing_Step2_Desc": "Add Period (Time) to define the animation frames.",
+            "Landing_Step2_Examples": "Year \u00b7 Quarter \u00b7 Month \u00b7 Date",
+            "Landing_Step3_Title": "Add value",
+            "Landing_Step3_Desc": "Add the Values measure that determines ranking and movement.",
+            "Landing_Step3_Then": "Then play, pause or scrub through the timeline.",
+            "Landing_Capabilities": "Racing bars \u00b7 Timeline \u00b7 Line history",
+            "Landing_Attribution": "A STAXAM product",
+            "P_periodLabel_caption": "Caption",
+            "P_periodLabel_showTotal": "Show total",
+            "P_periodLabel_totalPrefix": "Total prefix",
+            "P_periodLabel_periodIcon": "Built-in icon",
+            "E_periodLabel_periodIcon_none": "None",
+            "E_periodLabel_periodIcon_clock": "Animated clock",
+            "Legend_Label": "Line series legend",
+            "Control_Play": "Play",
+            "Control_Pause": "Pause",
+            "Control_Timeline": "Race timeline",
+            "P_line_showLegend": "Show series legend",
+            "P_line_showXAxis": "Show period X axis",
+            "P_line_focusHalo": "Current-point focus halo",
+            "P_backgroundEffects_backgroundImage": "Background image",
+            "P_backgroundEffects_imageOpacity": "Image opacity (%)",
+            "P_backgroundEffects_imageBlur": "Image blur (px)",
+            "P_tooltips_enabled": "Enable tooltips",
+            "P_tooltips_showCategory": "Show category",
+            "P_tooltips_showPeriod": "Show period",
+            "P_tooltips_showValue": "Show value",
+            "P_tooltips_showRank": "Show rank",
+            "P_tooltips_showShare": "Show share of period",
+            "Tooltip_Rank": "Rank",
+            "Tooltip_Share": "Share of period",
+            "Tooltip_NoData": "No data",
+            "P_chart_comboLayout": "Combo layout",
+            "E_chart_comboLayout_sideBySide": "Side by side",
+            "E_chart_comboLayout_stacked": "Stacked",
+            "P_chart_comboSplit": "Line panel width (%)",
+            "O_leaderTrack": "Track a leader",
+            "P_leaderTrack_mode": "Who to follow",
+            "E_leaderTrack_mode_none": "Off",
+            "E_leaderTrack_mode_finalLeader": "Leader at the end of the timeline",
+            "E_leaderTrack_mode_currentLeader": "Current leader",
+            "E_leaderTrack_mode_custom": "A specific name",
+            "P_leaderTrack_name": "Name to track",
+            "P_leaderTrack_trackStyle": "Emphasis",
+            "E_leaderTrack_trackStyle_glow": "Glow",
+            "E_leaderTrack_trackStyle_spotlight": "Spotlight (dim the rest)",
+            "E_leaderTrack_trackStyle_outline": "Outline",
+            "P_leaderTrack_color": "Emphasis color",
+            "P_leaderTrack_showMarker": "Show marker",
+            "P_leaderTrack_dimOthers": "Dim the rest (%)",
+            "E_leaderTrack_mode_peak": "Highest value overall",
+            "E_bars_style_rule": "Editorial rule",
+            "P_leaderTrack_show": "Track a leader",
+            "P_line_legendCount": "Legend items",
+            "Notice_Truncated": "Showing part of the data \u2014 filter to the entities you want to race.",
+            "Narrate_Position": "{0} of {1}",
+            "Narrate_Leaders": "{0} leaders: {1}.",
+            "Narrate_ValueFallback": "value",
+            "Narrate_ListSeparator": ", ",
+            "Values_NumberFormat": "Number format",
+            "Values_NumberFormat_Model": "Model format string",
+            "Values_NumberFormat_Compact": "Compact (K/M/B/T)"
+        }
+    },
+    "capabilities": {
+        "privileges": [],
+        "dataRoles": [
+            {
+                "displayName": "Category",
+                "description": "The racing entities (e.g. Country, Product, Team). One bar / line per distinct value.",
+                "name": "category",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Period (Time)",
+                "description": "The animation frames (e.g. Year, Month, Date). The race advances through these in order.",
+                "name": "period",
+                "kind": "Grouping"
+            },
+            {
+                "displayName": "Values",
+                "description": "The numeric measure that changes over time and drives bar length / line height.",
+                "name": "measure",
+                "kind": "Measure"
+            },
+            {
+                "displayName": "Theme Mode \u00b7 measure (all components)",
+                "description": "Drop the [STAXAM Theme Mode] measure here to follow page Light/Dark changes from the Header Bar toggle.",
+                "name": "themeState",
+                "kind": "Measure",
+                "displayNameKey": "R_themeState",
+                "descriptionKey": "D_themeState"
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "category": {
+                            "max": 1
+                        },
+                        "period": {
+                            "max": 1
+                        },
+                        "measure": {
+                            "max": 1
+                        },
+                        "themeState": {
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "for": {
+                            "in": "period"
+                        },
+                        "dataReductionAlgorithm": {
+                            "window": {
+                                "count": 100
+                            }
+                        }
+                    },
+                    "values": {
+                        "group": {
+                            "by": "category",
+                            "select": [
+                                {
+                                    "bind": {
+                                        "to": "measure"
+                                    }
+                                },
+                                {
+                                    "bind": {
+                                        "to": "themeState"
+                                    }
+                                }
+                            ],
+                            "dataReductionAlgorithm": {
+                                "top": {
+                                    "count": 300
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "visualSetup": {
+                "displayName": "Style",
+                "properties": {
+                    "stylePreset": {
+                        "displayName": "Style preset",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "vivid",
+                                    "displayName": "Gradient (default)"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal"
+                                },
+                                {
+                                    "value": "glass",
+                                    "displayName": "Glass (dark)"
+                                },
+                                {
+                                    "value": "glow",
+                                    "displayName": "Glow (gradient + halo)"
+                                },
+                                {
+                                    "value": "linear",
+                                    "displayName": "Linear (dark)"
+                                },
+                                {
+                                    "value": "matte",
+                                    "displayName": "Matte"
+                                },
+                                {
+                                    "value": "flat",
+                                    "displayName": "Flat"
+                                },
+                                {
+                                    "value": "frosted",
+                                    "displayName": "Frosted"
+                                },
+                                {
+                                    "value": "brushed",
+                                    "displayName": "Brushed"
+                                },
+                                {
+                                    "value": "flatDark",
+                                    "displayName": "Flat (dark)"
+                                }
+                            ]
+                        }
+                    },
+                    "direction": {
+                        "displayName": "Layout direction",
+                        "displayNameKey": "Visual_Direction",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "auto",
+                                    "displayName": "Auto (from report locale)",
+                                    "displayNameKey": "Visual_Direction_Auto"
+                                },
+                                {
+                                    "value": "ltr",
+                                    "displayName": "Left to right",
+                                    "displayNameKey": "Visual_Direction_Ltr"
+                                },
+                                {
+                                    "value": "rtl",
+                                    "displayName": "Right to left",
+                                    "displayNameKey": "Visual_Direction_Rtl"
+                                }
+                            ]
+                        }
+                    },
+                    "themeFollow": {
+                        "displayName": "Follow header theme",
+                        "description": "Switch between the light and dark presets driven by the Header Bar toggle. No data field or measure is required.",
+                        "type": {
+                            "bool": true
+                        },
+                        "displayNameKey": "P_visualSetup_themeFollow",
+                        "descriptionKey": "D_visualSetup_themeFollow"
+                    },
+                    "themeDarkValue": {
+                        "displayName": "Dark mode value",
+                        "description": "The value of the Theme Mode measure that triggers Dark mode (default: 'Dark').",
+                        "type": {
+                            "text": true
+                        },
+                        "displayNameKey": "P_visualSetup_themeDarkValue",
+                        "descriptionKey": "D_visualSetup_themeDarkValue"
+                    },
+                    "darkPreset": {
+                        "displayName": "Dark-mode preset",
+                        "description": "Style preset applied when the header theme toggle is on Dark.",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "vivid",
+                                    "displayName": "Gradient (default)"
+                                },
+                                {
+                                    "value": "minimal",
+                                    "displayName": "Minimal"
+                                },
+                                {
+                                    "value": "glass",
+                                    "displayName": "Glass (dark)"
+                                },
+                                {
+                                    "value": "glow",
+                                    "displayName": "Glow (gradient + halo)"
+                                },
+                                {
+                                    "value": "linear",
+                                    "displayName": "Linear (dark)"
+                                },
+                                {
+                                    "value": "matte",
+                                    "displayName": "Matte"
+                                },
+                                {
+                                    "value": "flat",
+                                    "displayName": "Flat"
+                                },
+                                {
+                                    "value": "frosted",
+                                    "displayName": "Frosted"
+                                },
+                                {
+                                    "value": "brushed",
+                                    "displayName": "Brushed"
+                                },
+                                {
+                                    "value": "flatDark",
+                                    "displayName": "Flat (dark)"
+                                }
+                            ]
+                        },
+                        "displayNameKey": "P_visualSetup_darkPreset",
+                        "descriptionKey": "D_visualSetup_darkPreset"
+                    }
+                }
+            },
+            "titleOptions": {
+                "displayName": "Title",
+                "displayNameKey": "P_titleOptions",
+                "properties": {
+                    "showTitle": {
+                        "displayName": "Show custom title",
+                        "displayNameKey": "P_titleOptions_showTitle",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "titleText": {
+                        "displayName": "Title text",
+                        "displayNameKey": "P_titleOptions_titleText",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "subtitle": {
+                        "displayName": "Subtitle",
+                        "displayNameKey": "P_titleOptions_subtitle",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "titleColor": {
+                        "displayName": "Title color",
+                        "displayNameKey": "P_titleOptions_titleColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "titleSize": {
+                        "displayName": "Title size",
+                        "displayNameKey": "P_titleOptions_titleSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "titleStyle": {
+                        "displayName": "Title style",
+                        "displayNameKey": "P_titleOptions_titleStyle",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None",
+                                    "displayNameKey": "E_titleOptions_titleStyle_none"
+                                },
+                                {
+                                    "value": "topSpot",
+                                    "displayName": "Top accent",
+                                    "displayNameKey": "E_titleOptions_titleStyle_topSpot"
+                                },
+                                {
+                                    "value": "notch",
+                                    "displayName": "Notch tab",
+                                    "displayNameKey": "E_titleOptions_titleStyle_notch"
+                                },
+                                {
+                                    "value": "floatTab",
+                                    "displayName": "Floating tab",
+                                    "displayNameKey": "E_titleOptions_titleStyle_floatTab"
+                                },
+                                {
+                                    "value": "eyebrow",
+                                    "displayName": "Eyebrow kicker",
+                                    "displayNameKey": "E_titleOptions_titleStyle_eyebrow"
+                                },
+                                {
+                                    "value": "underline",
+                                    "displayName": "Underline",
+                                    "displayNameKey": "E_titleOptions_titleStyle_underline"
+                                },
+                                {
+                                    "value": "sideDot",
+                                    "displayName": "Side dot",
+                                    "displayNameKey": "E_titleOptions_titleStyle_sideDot"
+                                },
+                                {
+                                    "value": "ribbon",
+                                    "displayName": "Ribbon (side accent)",
+                                    "displayNameKey": "E_titleOptions_titleStyle_ribbon"
+                                },
+                                {
+                                    "value": "gradientInk",
+                                    "displayName": "Gradient ink",
+                                    "displayNameKey": "E_titleOptions_titleStyle_gradientInk"
+                                }
+                            ]
+                        }
+                    },
+                    "accentPosition": {
+                        "displayName": "Top accent position",
+                        "displayNameKey": "P_titleOptions_accentPosition",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "center",
+                                    "displayName": "Center",
+                                    "displayNameKey": "E_titleOptions_accentPosition_center"
+                                },
+                                {
+                                    "value": "start",
+                                    "displayName": "Corner \u00b7 start",
+                                    "displayNameKey": "E_titleOptions_accentPosition_start"
+                                },
+                                {
+                                    "value": "end",
+                                    "displayName": "Corner \u00b7 end",
+                                    "displayNameKey": "E_titleOptions_accentPosition_end"
+                                },
+                                {
+                                    "value": "stretch",
+                                    "displayName": "Full width (stretch)",
+                                    "displayNameKey": "E_titleOptions_accentPosition_stretch"
+                                }
+                            ]
+                        }
+                    },
+                    "titleFont": {
+                        "displayName": "Title font",
+                        "displayNameKey": "P_titleOptions_titleFont",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "default",
+                                    "displayName": "Default (Segoe UI)",
+                                    "displayNameKey": "E_titleOptions_titleFont_default"
+                                },
+                                {
+                                    "value": "Segoe UI",
+                                    "displayName": "Segoe UI",
+                                    "displayNameKey": "E_titleOptions_titleFont_segoe"
+                                },
+                                {
+                                    "value": "Segoe UI Semibold",
+                                    "displayName": "Segoe UI Semibold",
+                                    "displayNameKey": "E_titleOptions_titleFont_segoeSemi"
+                                },
+                                {
+                                    "value": "DIN",
+                                    "displayName": "DIN",
+                                    "displayNameKey": "E_titleOptions_titleFont_din"
+                                },
+                                {
+                                    "value": "Arial",
+                                    "displayName": "Arial",
+                                    "displayNameKey": "E_titleOptions_titleFont_arial"
+                                },
+                                {
+                                    "value": "Georgia",
+                                    "displayName": "Georgia",
+                                    "displayNameKey": "E_titleOptions_titleFont_georgia"
+                                },
+                                {
+                                    "value": "Tahoma",
+                                    "displayName": "Tahoma",
+                                    "displayNameKey": "E_titleOptions_titleFont_tahoma"
+                                },
+                                {
+                                    "value": "Trebuchet MS",
+                                    "displayName": "Trebuchet MS",
+                                    "displayNameKey": "E_titleOptions_titleFont_trebuchet"
+                                },
+                                {
+                                    "value": "Verdana",
+                                    "displayName": "Verdana",
+                                    "displayNameKey": "E_titleOptions_titleFont_verdana"
+                                },
+                                {
+                                    "value": "Cairo",
+                                    "displayName": "Cairo (Arabic)",
+                                    "displayNameKey": "E_titleOptions_titleFont_Cairo"
+                                },
+                                {
+                                    "value": "Tajawal",
+                                    "displayName": "Tajawal (Arabic)",
+                                    "displayNameKey": "E_titleOptions_titleFont_Tajawal"
+                                },
+                                {
+                                    "value": "Almarai",
+                                    "displayName": "Almarai (Arabic)",
+                                    "displayNameKey": "E_titleOptions_titleFont_Almarai"
+                                },
+                                {
+                                    "value": "Amiri",
+                                    "displayName": "Amiri (Arabic)",
+                                    "displayNameKey": "E_titleOptions_titleFont_Amiri"
+                                },
+                                {
+                                    "value": "Noto Naskh Arabic",
+                                    "displayName": "Noto Naskh Arabic",
+                                    "displayNameKey": "E_titleOptions_titleFont_NotoNaskh"
+                                },
+                                {
+                                    "value": "Noto Kufi Arabic",
+                                    "displayName": "Noto Kufi Arabic",
+                                    "displayNameKey": "E_titleOptions_titleFont_NotoKufi"
+                                }
+                            ]
+                        }
+                    },
+                    "titlePosition": {
+                        "displayName": "Title position",
+                        "displayNameKey": "P_titleOptions_titlePosition",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "start",
+                                    "displayName": "Start (left in LTR)",
+                                    "displayNameKey": "E_titleOptions_titlePosition_start"
+                                },
+                                {
+                                    "value": "end",
+                                    "displayName": "End (right in LTR)",
+                                    "displayNameKey": "E_titleOptions_titlePosition_end"
+                                }
+                            ]
+                        }
+                    },
+                    "iconSvg": {
+                        "displayName": "Icon (SVG code)",
+                        "displayNameKey": "P_titleOptions_iconSvg",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "iconPosition": {
+                        "displayName": "Icon position",
+                        "displayNameKey": "P_titleOptions_iconPosition",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "left",
+                                    "displayName": "Left",
+                                    "displayNameKey": "E_titleOptions_iconPosition_left"
+                                },
+                                {
+                                    "value": "right",
+                                    "displayName": "Right",
+                                    "displayNameKey": "E_titleOptions_iconPosition_right"
+                                }
+                            ]
+                        }
+                    },
+                    "iconPlacement": {
+                        "displayName": "Icon placement",
+                        "displayNameKey": "P_titleOptions_iconPlacement",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "title",
+                                    "displayName": "In title",
+                                    "displayNameKey": "E_titleOptions_iconPlacement_title"
+                                },
+                                {
+                                    "value": "start",
+                                    "displayName": "Beside value",
+                                    "displayNameKey": "E_titleOptions_iconPlacement_start"
+                                },
+                                {
+                                    "value": "top",
+                                    "displayName": "Above title",
+                                    "displayNameKey": "E_titleOptions_iconPlacement_top"
+                                },
+                                {
+                                    "value": "watermark",
+                                    "displayName": "Watermark",
+                                    "displayNameKey": "E_titleOptions_iconPlacement_watermark"
+                                }
+                            ]
+                        }
+                    },
+                    "iconSize": {
+                        "displayName": "Frame size",
+                        "displayNameKey": "P_titleOptions_iconSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "iconGlyphSize": {
+                        "displayName": "Icon size inside the frame (0 = auto)",
+                        "displayNameKey": "P_titleOptions_iconGlyphSize",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "iconFrame": {
+                        "displayName": "Icon frame",
+                        "displayNameKey": "P_titleOptions_iconFrame",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None",
+                                    "displayNameKey": "E_titleOptions_iconFrame_none"
+                                },
+                                {
+                                    "value": "circle",
+                                    "displayName": "Circle",
+                                    "displayNameKey": "E_titleOptions_iconFrame_circle"
+                                },
+                                {
+                                    "value": "rounded",
+                                    "displayName": "Rounded square",
+                                    "displayNameKey": "E_titleOptions_iconFrame_rounded"
+                                },
+                                {
+                                    "value": "square",
+                                    "displayName": "Square",
+                                    "displayNameKey": "E_titleOptions_iconFrame_square"
+                                },
+                                {
+                                    "value": "diamond",
+                                    "displayName": "Diamond",
+                                    "displayNameKey": "E_titleOptions_iconFrame_diamond"
+                                },
+                                {
+                                    "value": "hexagon",
+                                    "displayName": "Hexagon",
+                                    "displayNameKey": "E_titleOptions_iconFrame_hexagon"
+                                },
+                                {
+                                    "value": "octagon",
+                                    "displayName": "Octagon",
+                                    "displayNameKey": "E_titleOptions_iconFrame_octagon"
+                                },
+                                {
+                                    "value": "octaStar",
+                                    "displayName": "Wavy badge",
+                                    "displayNameKey": "E_titleOptions_iconFrame_octaStar"
+                                }
+                            ]
+                        }
+                    },
+                    "iconColor": {
+                        "displayName": "Icon colour",
+                        "displayNameKey": "P_titleOptions_iconColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "iconFillStyle": {
+                        "displayName": "Frame fill",
+                        "displayNameKey": "P_titleOptions_iconFillStyle",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid",
+                                    "displayNameKey": "E_titleOptions_iconFillStyle_solid"
+                                },
+                                {
+                                    "value": "tint",
+                                    "displayName": "Soft tint",
+                                    "displayNameKey": "E_titleOptions_iconFillStyle_tint"
+                                },
+                                {
+                                    "value": "outline",
+                                    "displayName": "Outline only",
+                                    "displayNameKey": "E_titleOptions_iconFillStyle_outline"
+                                },
+                                {
+                                    "value": "dimensional",
+                                    "displayName": "Dimensional (3D)",
+                                    "displayNameKey": "E_titleOptions_iconFillStyle_dimensional"
+                                }
+                            ]
+                        }
+                    },
+                    "iconBorder": {
+                        "displayName": "Frame outline",
+                        "displayNameKey": "P_titleOptions_iconBorder",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "iconBorderColor": {
+                        "displayName": "Outline colour",
+                        "displayNameKey": "P_titleOptions_iconBorderColor",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "iconGlow": {
+                        "displayName": "Icon glow",
+                        "displayNameKey": "P_titleOptions_iconGlow",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "chart": {
+                "displayName": "Chart mode",
+                "properties": {
+                    "mode": {
+                        "displayName": "Display",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bars",
+                                    "displayName": "Bars only"
+                                },
+                                {
+                                    "value": "line",
+                                    "displayName": "Line only"
+                                },
+                                {
+                                    "value": "both",
+                                    "displayName": "Bars + line"
+                                }
+                            ]
+                        }
+                    },
+                    "orientation": {
+                        "displayName": "Bar orientation",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "horizontal",
+                                    "displayName": "Horizontal"
+                                },
+                                {
+                                    "value": "vertical",
+                                    "displayName": "Vertical"
+                                }
+                            ]
+                        }
+                    },
+                    "separatorStyle": {
+                        "displayName": "Separator (bars / line)",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "soft",
+                                    "displayName": "Soft divider"
+                                },
+                                {
+                                    "value": "hairline",
+                                    "displayName": "Hairline (retired)"
+                                },
+                                {
+                                    "value": "fade",
+                                    "displayName": "Fading gradient (retired)"
+                                },
+                                {
+                                    "value": "diamond",
+                                    "displayName": "Diamond (retired)"
+                                },
+                                {
+                                    "value": "dashed",
+                                    "displayName": "Dashed (retired)"
+                                },
+                                {
+                                    "value": "dotted",
+                                    "displayName": "Dotted (retired)"
+                                },
+                                {
+                                    "value": "double",
+                                    "displayName": "Double (retired)"
+                                },
+                                {
+                                    "value": "glow",
+                                    "displayName": "Glow (retired)"
+                                },
+                                {
+                                    "value": "shadow",
+                                    "displayName": "Shadow band (retired)"
+                                }
+                            ]
+                        }
+                    },
+                    "separatorColor": {
+                        "displayName": "Separator color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "comboLayout": {
+                        "displayName": "Combo layout",
+                        "displayNameKey": "P_chart_comboLayout",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "sideBySide",
+                                    "displayName": "Side by side",
+                                    "displayNameKey": "E_chart_comboLayout_sideBySide"
+                                },
+                                {
+                                    "value": "stacked",
+                                    "displayName": "Stacked",
+                                    "displayNameKey": "E_chart_comboLayout_stacked"
+                                }
+                            ]
+                        }
+                    },
+                    "comboSplit": {
+                        "displayName": "Line panel width (%)",
+                        "displayNameKey": "P_chart_comboSplit",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "playback": {
+                "displayName": "Race playback",
+                "properties": {
+                    "duration": {
+                        "displayName": "Seconds per period",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "autoplay": {
+                        "displayName": "Autoplay",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "loop": {
+                        "displayName": "Loop",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "counter": {
+                        "displayName": "Animate values between periods",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "easing": {
+                        "displayName": "Motion easing",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "linear",
+                                    "displayName": "Linear (constant)"
+                                },
+                                {
+                                    "value": "gentle",
+                                    "displayName": "Gentle (soft drift)"
+                                },
+                                {
+                                    "value": "smooth",
+                                    "displayName": "Smooth (balanced)"
+                                },
+                                {
+                                    "value": "easeIn",
+                                    "displayName": "Ease in (creep, then bolt)"
+                                },
+                                {
+                                    "value": "easeOut",
+                                    "displayName": "Ease out (decelerate)"
+                                },
+                                {
+                                    "value": "snappy",
+                                    "displayName": "Snappy (hard launch)"
+                                },
+                                {
+                                    "value": "step",
+                                    "displayName": "Step (tick by tick)"
+                                },
+                                {
+                                    "value": "overshoot",
+                                    "displayName": "Overshoot (springy)"
+                                },
+                                {
+                                    "value": "elastic",
+                                    "displayName": "Elastic (bouncy spring)"
+                                },
+                                {
+                                    "value": "bounce",
+                                    "displayName": "Bounce (drop & settle)"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "bars": {
+                "displayName": "Bars",
+                "properties": {
+                    "style": {
+                        "displayName": "Bar style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "gradient",
+                                    "displayName": "Gradient"
+                                },
+                                {
+                                    "value": "solid",
+                                    "displayName": "Solid"
+                                },
+                                {
+                                    "value": "rounded",
+                                    "displayName": "Rounded top"
+                                },
+                                {
+                                    "value": "glass",
+                                    "displayName": "Glass"
+                                },
+                                {
+                                    "value": "rule",
+                                    "displayName": "Editorial rule",
+                                    "displayNameKey": "E_bars_style_rule"
+                                }
+                            ]
+                        }
+                    },
+                    "topN": {
+                        "displayName": "Bars shown (Top N)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "cornerRadius": {
+                        "displayName": "Bar corner radius",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "gap": {
+                        "displayName": "Bar gap (%)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showValue": {
+                        "displayName": "Show value labels",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showRank": {
+                        "displayName": "Show rank number",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "overtakeFlash": {
+                        "displayName": "Flash on overtake",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "line": {
+                "displayName": "Line",
+                "properties": {
+                    "strokeWidth": {
+                        "displayName": "Line thickness",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "curve": {
+                        "displayName": "Smooth curve",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPoints": {
+                        "displayName": "Show markers at current period",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showArea": {
+                        "displayName": "Fill area under line",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "topN": {
+                        "displayName": "Lines shown (Top N)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "showLegend": {
+                        "displayName": "Show series legend",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showXAxis": {
+                        "displayName": "Show period X axis",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "focusHalo": {
+                        "displayName": "Current-point focus halo",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "legendCount": {
+                        "displayName": "Legend items",
+                        "displayNameKey": "P_line_legendCount",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "periodLabel": {
+                "displayName": "Period label",
+                "properties": {
+                    "show": {
+                        "displayName": "Show",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "style": {
+                        "displayName": "Label style",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "plain",
+                                    "displayName": "Plain"
+                                },
+                                {
+                                    "value": "pillBadge",
+                                    "displayName": "Pill badge"
+                                },
+                                {
+                                    "value": "underlineAccent",
+                                    "displayName": "Underline accent"
+                                },
+                                {
+                                    "value": "glassChip",
+                                    "displayName": "Glass chip"
+                                },
+                                {
+                                    "value": "clock",
+                                    "displayName": "Animated clock"
+                                }
+                            ]
+                        }
+                    },
+                    "size": {
+                        "displayName": "Text size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "position": {
+                        "displayName": "Position",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "bottomRight",
+                                    "displayName": "Bottom (trailing)"
+                                },
+                                {
+                                    "value": "topRight",
+                                    "displayName": "Top (trailing)"
+                                },
+                                {
+                                    "value": "bottomLeft",
+                                    "displayName": "Bottom (leading)"
+                                },
+                                {
+                                    "value": "topLeft",
+                                    "displayName": "Top (leading)"
+                                },
+                                {
+                                    "value": "center",
+                                    "displayName": "Center (retired)"
+                                }
+                            ]
+                        }
+                    },
+                    "counterStyle": {
+                        "displayName": "Counter animation",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "rolling",
+                                    "displayName": "Rolling (odometer)"
+                                },
+                                {
+                                    "value": "roll",
+                                    "displayName": "Rolling (retired alias)"
+                                },
+                                {
+                                    "value": "countUp",
+                                    "displayName": "Rolling (retired alias)"
+                                },
+                                {
+                                    "value": "flip",
+                                    "displayName": "Rolling (retired alias)"
+                                },
+                                {
+                                    "value": "slide",
+                                    "displayName": "Rolling (retired alias)"
+                                },
+                                {
+                                    "value": "fade",
+                                    "displayName": "Rolling (retired alias)"
+                                },
+                                {
+                                    "value": "pop",
+                                    "displayName": "Rolling (retired alias)"
+                                },
+                                {
+                                    "value": "elegant",
+                                    "displayName": "Rolling (retired alias)"
+                                }
+                            ]
+                        }
+                    },
+                    "counterFrame": {
+                        "displayName": "Counter frame",
+                        "displayNameKey": "P_periodLabel_counterFrame",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None (bare glyphs)",
+                                    "displayNameKey": "E_periodLabel_counterFrame_none"
+                                },
+                                {
+                                    "value": "soft",
+                                    "displayName": "Soft tile",
+                                    "displayNameKey": "E_periodLabel_counterFrame_soft"
+                                },
+                                {
+                                    "value": "outline",
+                                    "displayName": "Hairline outline",
+                                    "displayNameKey": "E_periodLabel_counterFrame_outline"
+                                },
+                                {
+                                    "value": "glass",
+                                    "displayName": "Frosted glass",
+                                    "displayNameKey": "E_periodLabel_counterFrame_glass"
+                                },
+                                {
+                                    "value": "cube",
+                                    "displayName": "Cube",
+                                    "displayNameKey": "E_periodLabel_counterFrame_cube"
+                                }
+                            ]
+                        }
+                    },
+                    "caption": {
+                        "displayName": "Caption",
+                        "displayNameKey": "P_periodLabel_caption",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "showTotal": {
+                        "displayName": "Show total",
+                        "displayNameKey": "P_periodLabel_showTotal",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "totalPrefix": {
+                        "displayName": "Total prefix",
+                        "displayNameKey": "P_periodLabel_totalPrefix",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "periodIcon": {
+                        "displayName": "Built-in icon",
+                        "displayNameKey": "P_periodLabel_periodIcon",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None",
+                                    "displayNameKey": "E_periodLabel_periodIcon_none"
+                                },
+                                {
+                                    "value": "clock",
+                                    "displayName": "Animated clock",
+                                    "displayNameKey": "E_periodLabel_periodIcon_clock"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "colorTheme": {
+                "displayName": "Colors",
+                "properties": {
+                    "inheritReportTheme": {
+                        "displayName": "Use report theme",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "colorHarmony": {
+                        "displayName": "Color harmony",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None (custom colors)"
+                                },
+                                {
+                                    "value": "royal",
+                                    "displayName": "Royal (indigo \u2192 violet)"
+                                },
+                                {
+                                    "value": "sunset",
+                                    "displayName": "Sunset (amber \u2192 magenta)"
+                                },
+                                {
+                                    "value": "oceanic",
+                                    "displayName": "Oceanic (teal \u2192 blue)"
+                                },
+                                {
+                                    "value": "aurora",
+                                    "displayName": "Aurora (emerald \u2192 cyan)"
+                                },
+                                {
+                                    "value": "azure",
+                                    "displayName": "Azure (sky \u2192 blue)"
+                                },
+                                {
+                                    "value": "ember",
+                                    "displayName": "Ember (red \u2192 amber)"
+                                },
+                                {
+                                    "value": "forest",
+                                    "displayName": "Forest (green \u2192 lime)"
+                                },
+                                {
+                                    "value": "grape",
+                                    "displayName": "Grape (violet \u2192 fuchsia)"
+                                },
+                                {
+                                    "value": "steel",
+                                    "displayName": "Steel (slate \u2192 cyan)"
+                                },
+                                {
+                                    "value": "cosmic",
+                                    "displayName": "Cosmic (purple \u2192 blue)"
+                                },
+                                {
+                                    "value": "twilight",
+                                    "displayName": "Twilight (indigo \u2192 periwinkle)"
+                                },
+                                {
+                                    "value": "magma",
+                                    "displayName": "Magma (crimson \u2192 coral)"
+                                },
+                                {
+                                    "value": "blush",
+                                    "displayName": "Blush (peach \u2192 rose)"
+                                },
+                                {
+                                    "value": "mint",
+                                    "displayName": "Mint (green \u2192 aqua)"
+                                },
+                                {
+                                    "value": "plum",
+                                    "displayName": "Plum (deep purple \u2192 cyan)"
+                                }
+                            ]
+                        }
+                    },
+                    "primaryColor": {
+                        "displayName": "Primary color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "secondaryColor": {
+                        "displayName": "Secondary color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "itemColor": {
+                        "displayName": "Item color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "darkAccents": {
+                        "displayName": "Cool accents on dark presets",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "dataColors": {
+                "displayName": "Item colors",
+                "properties": {
+                    "fill": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "backgroundEffects": {
+                "displayName": "Background",
+                "properties": {
+                    "backgroundColor": {
+                        "displayName": "Background color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "backgroundTransparency": {
+                        "displayName": "Background transparency",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bgGradient": {
+                        "displayName": "Gradient background",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "bgGradientPreset": {
+                        "displayName": "Gradient harmony",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "brand",
+                                    "displayName": "Brand (primary \u2192 secondary)"
+                                },
+                                {
+                                    "value": "royal",
+                                    "displayName": "Royal (indigo \u2192 violet)"
+                                },
+                                {
+                                    "value": "sunset",
+                                    "displayName": "Sunset (amber \u2192 magenta)"
+                                },
+                                {
+                                    "value": "oceanic",
+                                    "displayName": "Oceanic (teal \u2192 blue)"
+                                },
+                                {
+                                    "value": "aurora",
+                                    "displayName": "Aurora (emerald \u2192 cyan)"
+                                },
+                                {
+                                    "value": "azure",
+                                    "displayName": "Azure (sky \u2192 blue)"
+                                },
+                                {
+                                    "value": "ember",
+                                    "displayName": "Ember (red \u2192 amber)"
+                                },
+                                {
+                                    "value": "forest",
+                                    "displayName": "Forest (green \u2192 lime)"
+                                },
+                                {
+                                    "value": "grape",
+                                    "displayName": "Grape (violet \u2192 fuchsia)"
+                                },
+                                {
+                                    "value": "steel",
+                                    "displayName": "Steel (slate \u2192 cyan)"
+                                },
+                                {
+                                    "value": "cosmic",
+                                    "displayName": "Cosmic (purple \u2192 blue)"
+                                },
+                                {
+                                    "value": "twilight",
+                                    "displayName": "Twilight (indigo \u2192 periwinkle)"
+                                },
+                                {
+                                    "value": "magma",
+                                    "displayName": "Magma (crimson \u2192 coral)"
+                                },
+                                {
+                                    "value": "blush",
+                                    "displayName": "Blush (peach \u2192 rose)"
+                                },
+                                {
+                                    "value": "mint",
+                                    "displayName": "Mint (green \u2192 aqua)"
+                                },
+                                {
+                                    "value": "plum",
+                                    "displayName": "Plum (deep purple \u2192 cyan)"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "Custom"
+                                }
+                            ]
+                        }
+                    },
+                    "bgGradientStart": {
+                        "displayName": "Gradient start",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgGradientEnd": {
+                        "displayName": "Gradient end",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "bgGradientAngle": {
+                        "displayName": "Gradient angle (\u00b0)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "backgroundFx": {
+                        "displayName": "Background effect",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "aurora",
+                                    "displayName": "Aurora"
+                                },
+                                {
+                                    "value": "grainient",
+                                    "displayName": "Grainient (grain + gradient)"
+                                },
+                                {
+                                    "value": "mesh",
+                                    "displayName": "Mesh (corner glows)"
+                                },
+                                {
+                                    "value": "silk",
+                                    "displayName": "Silk"
+                                }
+                            ]
+                        }
+                    },
+                    "bgGradientOpacity": {
+                        "displayName": "Gradient strength (%)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "backgroundImage": {
+                        "displayName": "Background image",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "imageOpacity": {
+                        "displayName": "Image opacity (%)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "imageBlur": {
+                        "displayName": "Image blur (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "borderEffects": {
+                "displayName": "Border",
+                "properties": {
+                    "borderColor": {
+                        "displayName": "Border color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "borderRadius": {
+                        "displayName": "Corner radius (px)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "borderFx": {
+                        "displayName": "Border effect",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "None"
+                                },
+                                {
+                                    "value": "star",
+                                    "displayName": "Star border (orbiting comet)"
+                                },
+                                {
+                                    "value": "glowPulse",
+                                    "displayName": "Glow pulse (breathing)"
+                                },
+                                {
+                                    "value": "neonRing",
+                                    "displayName": "Neon ring (double aura)"
+                                },
+                                {
+                                    "value": "marchingDash",
+                                    "displayName": "Marching dashes"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "hoverEffects": {
+                "displayName": "Hover effects",
+                "properties": {
+                    "enabled": {
+                        "displayName": "Enable hover effects",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "effect": {
+                        "displayName": "Effect",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "glow",
+                                    "displayName": "Glow border"
+                                },
+                                {
+                                    "value": "lift",
+                                    "displayName": "Lift (shadow)"
+                                },
+                                {
+                                    "value": "outline",
+                                    "displayName": "Outline"
+                                },
+                                {
+                                    "value": "cursorGlow",
+                                    "displayName": "Cursor-tracked glow"
+                                },
+                                {
+                                    "value": "tilt",
+                                    "displayName": "Tilt (3D)"
+                                },
+                                {
+                                    "value": "spotlight",
+                                    "displayName": "Spotlight"
+                                },
+                                {
+                                    "value": "scale",
+                                    "displayName": "Scale"
+                                },
+                                {
+                                    "value": "shine",
+                                    "displayName": "Shine sweep"
+                                },
+                                {
+                                    "value": "borderDraw",
+                                    "displayName": "Border draw"
+                                },
+                                {
+                                    "value": "float",
+                                    "displayName": "Float (levitate)"
+                                },
+                                {
+                                    "value": "underglow",
+                                    "displayName": "Under-glow"
+                                },
+                                {
+                                    "value": "rim",
+                                    "displayName": "Rim light"
+                                },
+                                {
+                                    "value": "edgeGlow",
+                                    "displayName": "Border glow (near edges)"
+                                }
+                            ]
+                        }
+                    },
+                    "glowColor": {
+                        "displayName": "Glow color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "intensity": {
+                        "displayName": "Intensity",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            },
+            "animations": {
+                "displayName": "Entry animations",
+                "properties": {
+                    "enabled": {
+                        "displayName": "Enable animations",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "preset": {
+                        "displayName": "Preset",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "fadeIn",
+                                    "displayName": "Fade in"
+                                },
+                                {
+                                    "value": "slideUp",
+                                    "displayName": "Slide up"
+                                },
+                                {
+                                    "value": "scaleIn",
+                                    "displayName": "Scale in"
+                                },
+                                {
+                                    "value": "riseBlur",
+                                    "displayName": "Rise & blur"
+                                },
+                                {
+                                    "value": "wipe",
+                                    "displayName": "Wipe (left to right)"
+                                },
+                                {
+                                    "value": "flipIn",
+                                    "displayName": "Flip in"
+                                },
+                                {
+                                    "value": "bounceDrop",
+                                    "displayName": "Bounce drop"
+                                },
+                                {
+                                    "value": "blurZoom",
+                                    "displayName": "Blur zoom"
+                                },
+                                {
+                                    "value": "cascade",
+                                    "displayName": "Cascade"
+                                },
+                                {
+                                    "value": "slideLeft",
+                                    "displayName": "Slide in (left)"
+                                },
+                                {
+                                    "value": "popIn",
+                                    "displayName": "Pop in"
+                                },
+                                {
+                                    "value": "unfoldDown",
+                                    "displayName": "Unfold down"
+                                }
+                            ]
+                        }
+                    },
+                    "durationMs": {
+                        "displayName": "Duration (ms)",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "easing": {
+                        "displayName": "Easing",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "smooth",
+                                    "displayName": "Smooth"
+                                },
+                                {
+                                    "value": "overshoot",
+                                    "displayName": "Overshoot (springy)"
+                                },
+                                {
+                                    "value": "snappy",
+                                    "displayName": "Snappy"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "specialFx": {
+                "displayName": "Value effects",
+                "properties": {
+                    "textShimmer": {
+                        "displayName": "Shimmer on value",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "gradientText": {
+                        "displayName": "Gradient value",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "glowText": {
+                        "displayName": "Glow on value",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "accentUnderline": {
+                        "displayName": "Accent underline",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "blurReveal": {
+                        "displayName": "Blur reveal",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "valuesTypography": {
+                "displayName": "Text \u2014 Values",
+                "properties": {
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "numberFormat": {
+                        "displayName": "Number format",
+                        "displayNameKey": "Values_NumberFormat",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "model",
+                                    "displayName": "Model format string",
+                                    "displayNameKey": "Values_NumberFormat_Model"
+                                },
+                                {
+                                    "value": "compact",
+                                    "displayName": "Compact (K/M/B/T)",
+                                    "displayNameKey": "Values_NumberFormat_Compact"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "titlesTypography": {
+                "displayName": "Text \u2014 Category labels",
+                "properties": {
+                    "fontFamily": {
+                        "displayName": "Font family",
+                        "type": {
+                            "formatting": {
+                                "fontFamily": true
+                            }
+                        }
+                    },
+                    "fontSize": {
+                        "displayName": "Font size",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "bold": {
+                        "displayName": "Bold",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "italic": {
+                        "displayName": "Italic",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "color": {
+                        "displayName": "Color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "tooltipsConfig": {
+                "displayName": "Tooltips",
+                "properties": {
+                    "enabled": {
+                        "displayName": "Enable tooltips",
+                        "displayNameKey": "P_tooltips_enabled",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showCategory": {
+                        "displayName": "Show category",
+                        "displayNameKey": "P_tooltips_showCategory",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showPeriod": {
+                        "displayName": "Show period",
+                        "displayNameKey": "P_tooltips_showPeriod",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showValue": {
+                        "displayName": "Show value",
+                        "displayNameKey": "P_tooltips_showValue",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showRank": {
+                        "displayName": "Show rank",
+                        "displayNameKey": "P_tooltips_showRank",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "showShare": {
+                        "displayName": "Show share of period",
+                        "displayNameKey": "P_tooltips_showShare",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "leaderTrack": {
+                "displayName": "Track a leader",
+                "displayNameKey": "O_leaderTrack",
+                "properties": {
+                    "mode": {
+                        "displayName": "Who to follow",
+                        "displayNameKey": "P_leaderTrack_mode",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "none",
+                                    "displayName": "Off",
+                                    "displayNameKey": "E_leaderTrack_mode_none"
+                                },
+                                {
+                                    "value": "finalLeader",
+                                    "displayName": "Leader at the end of the timeline",
+                                    "displayNameKey": "E_leaderTrack_mode_finalLeader"
+                                },
+                                {
+                                    "value": "peak",
+                                    "displayName": "Highest value overall",
+                                    "displayNameKey": "E_leaderTrack_mode_peak"
+                                },
+                                {
+                                    "value": "currentLeader",
+                                    "displayName": "Current leader",
+                                    "displayNameKey": "E_leaderTrack_mode_currentLeader"
+                                },
+                                {
+                                    "value": "custom",
+                                    "displayName": "A specific name",
+                                    "displayNameKey": "E_leaderTrack_mode_custom"
+                                }
+                            ]
+                        }
+                    },
+                    "name": {
+                        "displayName": "Name to track",
+                        "displayNameKey": "P_leaderTrack_name",
+                        "type": {
+                            "text": true
+                        }
+                    },
+                    "trackStyle": {
+                        "displayName": "Emphasis",
+                        "displayNameKey": "P_leaderTrack_trackStyle",
+                        "type": {
+                            "enumeration": [
+                                {
+                                    "value": "glow",
+                                    "displayName": "Glow",
+                                    "displayNameKey": "E_leaderTrack_trackStyle_glow"
+                                },
+                                {
+                                    "value": "spotlight",
+                                    "displayName": "Spotlight (dim the rest)",
+                                    "displayNameKey": "E_leaderTrack_trackStyle_spotlight"
+                                },
+                                {
+                                    "value": "outline",
+                                    "displayName": "Outline",
+                                    "displayNameKey": "E_leaderTrack_trackStyle_outline"
+                                }
+                            ]
+                        }
+                    },
+                    "color": {
+                        "displayName": "Emphasis color",
+                        "displayNameKey": "P_leaderTrack_color",
+                        "type": {
+                            "fill": {
+                                "solid": {
+                                    "color": true
+                                }
+                            }
+                        }
+                    },
+                    "showMarker": {
+                        "displayName": "Show marker",
+                        "displayNameKey": "P_leaderTrack_showMarker",
+                        "type": {
+                            "bool": true
+                        }
+                    },
+                    "dimOthers": {
+                        "displayName": "Dim the rest (%)",
+                        "displayNameKey": "P_leaderTrack_dimOthers",
+                        "type": {
+                            "numeric": true
+                        }
+                    },
+                    "show": {
+                        "displayName": "Track a leader",
+                        "displayNameKey": "P_leaderTrack_show",
+                        "type": {
+                            "bool": true
+                        }
+                    }
+                }
+            },
+            "general": {
+                "displayName": "General",
+                "properties": {
+                    "formatString": {
+                        "type": {
+                            "formatting": {
+                                "formatString": true
+                            }
+                        }
+                    }
+                }
+            },
+            "formatProfile": {
+                "displayName": "Format profile",
+                "properties": {
+                    "epoch": {
+                        "displayName": "Epoch",
+                        "type": {
+                            "numeric": true
+                        }
+                    }
+                }
+            }
+        },
+        "supportsHighlight": false,
+        "supportsKeyboardFocus": true,
+        "supportsLandingPage": true,
+        "suppressDefaultTitle": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "roles": [
+                "measure"
+            ]
+        },
+        "sorting": {
+            "default": {}
+        }
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
