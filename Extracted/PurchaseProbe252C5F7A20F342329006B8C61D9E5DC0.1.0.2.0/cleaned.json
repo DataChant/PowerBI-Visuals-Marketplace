@@ -1,0 +1,101 @@
+{
+    "visual": {
+        "name": "purchaseProbe",
+        "displayName": "Purchase Probe",
+        "guid": "PurchaseProbe252C5F7A20F342329006B8C61D9E5DC0",
+        "visualClassName": "Visual",
+        "version": "1.0.2.0",
+        "description": "Lightweight Microsoft Power BI visual to verify AppSource install and Entra tenant allowlist after acquireAADToken.",
+        "supportUrl": "https://community.fabric.microsoft.com",
+        "gitHubUrl": ""
+    },
+    "author": {
+        "name": "MillionsLab",
+        "email": "support@millionlab.cn"
+    },
+    "apiVersion": "5.10.0",
+    "style": "style/visual.less",
+    "stringResources": {},
+    "capabilities": {
+        "dataRoles": [
+            {
+                "displayName": "Label",
+                "name": "category",
+                "kind": "Grouping",
+                "description": "Drag any text or category field to preview values, cross-filter other visuals, and show tooltips."
+            }
+        ],
+        "dataViewMappings": [
+            {
+                "conditions": [
+                    {
+                        "category": {
+                            "min": 0,
+                            "max": 1
+                        }
+                    }
+                ],
+                "categorical": {
+                    "categories": {
+                        "for": {
+                            "in": "category"
+                        },
+                        "dataReductionAlgorithm": {
+                            "top": {
+                                "count": 100
+                            }
+                        }
+                    }
+                }
+            }
+        ],
+        "objects": {
+            "general": {
+                "displayName": "General",
+                "properties": {
+                    "baseCurrency": {
+                        "displayName": "Base currency",
+                        "description": "Base currency for the public FX request: EUR or USD",
+                        "type": {
+                            "enumeration": []
+                        }
+                    }
+                }
+            }
+        },
+        "supportsLandingPage": true,
+        "supportsHighlight": false,
+        "supportsMultiVisualSelection": true,
+        "tooltips": {
+            "supportedTypes": {
+                "default": true,
+                "canvas": true
+            },
+            "supportEnhancedTooltips": true
+        },
+        "privileges": [
+            {
+                "name": "AADAuthentication",
+                "parameters": {
+                    "COM": "https://millionlab.net/api"
+                }
+            },
+            {
+                "name": "WebAccess",
+                "essential": true,
+                "parameters": [
+                    "https://api.frankfurter.dev/"
+                ]
+            },
+            {
+                "name": "LocalStorage",
+                "essential": false
+            }
+        ]
+    },
+    "visualEntryPoint": "",
+    "externalJS": [],
+    "assets": {
+        "icon": "assets/icon.png"
+    }
+}
